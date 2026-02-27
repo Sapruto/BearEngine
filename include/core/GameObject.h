@@ -1,26 +1,60 @@
 #pragma once
 
+#include <functional>
 #include <vector>
 #include <algorithm>
 #include <iostream>
+#include <memory>
 #include <typeindex>
 #include <typeinfo> 
-#include "include/core/Component.h"
+#include "include/core/system_engine/component_system/Component.h"
 
 class GameObject {
 private:
-    std::vector<Component*> components;
+    std::vector<std::unique_ptr<Component>> components;
 
     bool destroyed = false; 
+
+    std::string name;
     
 public:
     GameObject() = default;
     
     virtual ~GameObject();
     
-    Component* AddComponent(Component* component);
+    template<typename T, typename... Args>
+    T* AddComponent(Args&&... args) {
+        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+        
+        auto component = std::make_unique<T>(std::forward<Args>(args)...);
+        
+        component->SetGameObject(this);
+        T* ptr = component.get();
+        
+        components.push_back(std::move(component));
+        
+        ptr->Start();
+        
+        return ptr;
+    }
     
     void RemoveComponent(Component* component);
+
+    //To delete
+    template<typename T>
+    T* AddComponent(T* component) {
+        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+        
+        std::unique_ptr<T> ptr(component);
+        ptr->SetGameObject(this);
+        T* rawPtr = ptr.get();
+        
+        components.push_back(std::move(ptr));
+        
+        rawPtr->Start();
+        
+        return rawPtr;
+    }
 
     template<typename T>
     T* GetComponentOfType() {
@@ -28,9 +62,9 @@ public:
         
         static std::type_index typeIdx = typeid(T);
         
-        for (Component* comp : components) {
+        for (const auto& comp : components) {
             if (typeid(*comp) == typeid(T)) {
-                return static_cast<T*>(comp);
+                return static_cast<T*>(comp.get());
             }
         }
         return nullptr;
@@ -38,11 +72,14 @@ public:
     
     void Start();
     
-    void Update(float deltaTime);
+    void Update();
 
     void Destroy();
     
-    const std::vector<Component*>& GetComponents();
+    std::vector<Component*> GetComponents();
 
     bool IsDestroyed() const { return destroyed; }
+
+    std::string GetName() const { return name; }
+    void SetName(const std::string& newName) { name = newName; }
 };

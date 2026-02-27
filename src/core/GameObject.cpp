@@ -5,7 +5,7 @@
 #include <iostream>
 #include <typeindex>
 #include <typeinfo> 
-#include "include/core/Component.h"
+#include "include/core/system_engine/component_system/Component.h"
 
 GameObject::~GameObject(){
     if (!destroyed) {
@@ -13,33 +13,32 @@ GameObject::~GameObject(){
     }  
 }
 
-Component* GameObject::AddComponent(Component* component) {
-    if (!component) return nullptr;
-    
-    component->SetGameObject(this);
-    components.push_back(component);
-    component->Start();
-    return component;
-}
 void GameObject::RemoveComponent(Component* component) {
-    auto it = std::find(components.begin(), components.end(), component);
+    auto it = std::find_if(components.begin(), components.end(),
+        [component](const std::unique_ptr<Component>& comp) {
+            return comp.get() == component;
+        });
+    
     if (it != components.end()) {
         (*it)->Destroy();
         (*it)->ClearGameObject();
-        delete *it;
         components.erase(it);
     }
 }
 
 void GameObject::Start() {
-    for (auto comp : components) {
-        comp->Start();
+    for (auto& comp : components) {
+        if(comp){
+            comp->Start();
+        }
     }
 }
 
-void GameObject::Update(float deltaTime) {
-    for (auto comp : components) {
-        comp->Update(deltaTime);
+void GameObject::Update() {
+    for (auto& comp : components) {
+        if(comp){
+            comp->Update();
+        }
     }
 }
 
@@ -48,18 +47,25 @@ void GameObject::Destroy() {
         return;
     }
     
-    destroyed = true;
-    
-    for (int i = components.size() - 1; i >= 0; i--) {
-        if (components[i]) {
-            components[i]->Destroy();
-            components[i]->ClearGameObject();
-            components[i] = nullptr;
+    for (auto& comp : components) {
+        if (comp) {
+            comp->Destroy();
+            comp->ClearGameObject();
         }
     }
+    
+    destroyed = true;
     components.clear();
 }
 
-const std::vector<Component*>& GameObject::GetComponents() {
-    return components;
+
+std::vector<Component*> GameObject::GetComponents() {
+    std::vector<Component*> result;
+    result.reserve(components.size());
+    
+    for (const auto& comp : components) {
+        result.push_back(comp.get());
+    }
+    
+    return result;
 }

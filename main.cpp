@@ -1,1077 +1,1130 @@
+#define SDL_MAIN_HANDLED
+#define GLAD_GL_IMPLEMENTATION
+
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <iostream>
-#include <vector>
 #include <cstdlib>
 #include <ctime>
-#include <algorithm>
+#include <thread>
+#include <chrono>
 #include <cmath>
+#include <memory>
+#include <vector>
+#include <string>
+#include <random>
+#include <algorithm>
 
+#include "src/dependencies/imgui-master/backends/imgui_impl_glfw.h"
+#include "src/dependencies/imgui-master/backends/imgui_impl_opengl3.h"
+
+// НОВАЯ АРХИТЕКТУРА
+#include "include/core/graphics_engine/GraphicsManager.h"
+#include "include/core/graphics_engine/Sprite/SpriteRenderer.h"
+#include "include/core/graphics_engine/Sprite/Sprite.h"
+#include "include/core/graphics_engine/Camera.h"
 #include "include/core/GameObject.h"
-#include "include/core/Component.h"
-#include "include/core/math/Vector2.h"
-#include "include/core/graphics_engine/DrawingWindow.h"
 #include "include/core/math/Transform2D.h"
-#include "include/core/graphics_engine/Render.h"
 #include "include/core/phisic_engine/Rigidbody2D.h"
-#include "include/core/phisic_engine/BoxCollider2D.h"
+#include "include/core/system_engine/tags_system/TagManager.h"
+#include "include/core/system_engine/tags_system/TagLibrary.h"
+#include "include/core/system_engine/input_system/InputSystem.h"
+#include "include/core/system_engine/time_system/Time.h"
+#include "include/core/scene_engine/SceneManager.h"
+#include "include/core/scene_engine/Scene.h"
+#include "include/core/math/geometry/colliders_manager/ColliderManager.h"
+#include "include/core/math/geometry/colliders/Polygon2D.h"
+#include "include/core/system_engine/resource_system/ResourceManager.h"
+#include "include/core/graphics_engine/RenderSettings.h" 
 
-// === КОНСТАНТЫ ===
+// ============================================
+// КОНСТАНТЫ
+// ============================================
 const float ARENA_WIDTH = 2.4f;
 const float ARENA_HEIGHT = 2.4f;
-const Vector2 GRAVITY(0.0f, 0.0f);
-const float FIXED_TIMESTEP = 1.0f / 60.0f;
+const float PIXELS_PER_UNIT = 200.0f;
+const int SCREEN_WIDTH = 800;
+const int SCREEN_HEIGHT = 600;
 
-// === ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ===
-std::vector<GameObject*> gameObjects;
-std::vector<GameObject*> objectsToDestroy;
-
-// Переменные для игры
-int playerHealth = 100;
-int score = 0;
-float playerDamageCooldown = 0.0f;
-
-// Позиция мыши
-Vector2 mousePosition(0.0f, 0.0f);
-
-// === ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ ===
-bool CheckCollision(const Vector2& pos1, const Vector2& size1, 
-                    const Vector2& pos2, const Vector2& size2) {
-    Vector2 min1 = pos1 - size1 * 0.5f;
-    Vector2 max1 = pos1 + size1 * 0.5f;
-    Vector2 min2 = pos2 - size2 * 0.5f;
-    Vector2 max2 = pos2 + size2 * 0.5f;
-    
-    return (max1.x > min2.x && min1.x < max2.x &&
-            max1.y > min2.y && min1.y < max2.y);
+// ============================================
+// ТЕГИ
+// ============================================
+namespace GameTags {
+    inline const TagLibrary Player(1, "Player");
+    inline const TagLibrary Enemy(2, "Enemy");
+    inline const TagLibrary EnemyFast(3, "EnemyFast");
+    inline const TagLibrary EnemyTank(4, "EnemyTank");
+    inline const TagLibrary EnemyShooter(5, "EnemyShooter");
+    inline const TagLibrary EnemyBomber(6, "EnemyBomber");
+    inline const TagLibrary EnemyHealer(7, "EnemyHealer");
+    inline const TagLibrary Bullet(8, "Bullet");
+    inline const TagLibrary EnemyBullet(9, "EnemyBullet");
 }
 
-// Функция для преобразования координат мыши в мировые координаты
-Vector2 ScreenToWorld(GLFWwindow* window, const Vector2& screenPos) {
-    int width, height;
-    glfwGetWindowSize(window, &width, &height);
-    
-    // Преобразуем координаты экрана в нормализованные [-1, 1]
-    float x = (screenPos.x / width) * 2.0f - 1.0f;
-    float y = 1.0f - (screenPos.y / height) * 2.0f; // Инвертируем Y
-    
-    // Преобразуем в мировые координаты (учитываем размер арены)
-    return Vector2(x * (ARENA_WIDTH / 2.0f), y * (ARENA_HEIGHT / 2.0f));
-}
-
-// === КОМПОНЕНТ ГРАНИЦ ===
-class ArenaBounds : public Component {
-public:
-    void Update(float deltaTime) override {
-        Transform2D* transform = GetGameObject()->GetComponentOfType<Transform2D>();
-        RigidBody2D* rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
-        
-        if (!transform || !rb) return;
-        
-        BoxCollider2D* collider = GetGameObject()->GetComponentOfType<BoxCollider2D>();
-        float halfWidth = collider ? collider->GetSize().x * 0.5f : 0.05f;
-        float halfHeight = collider ? collider->GetSize().y * 0.5f : 0.05f;
-        
-        bool collision = false;
-        Vector2 newVel = rb->GetVelocity();
-        Vector2 pos = transform->position;
-        
-        // Левая граница
-        if (pos.x - halfWidth < -ARENA_WIDTH/2) {
-            transform->position.x = -ARENA_WIDTH/2 + halfWidth;
-            newVel.x = std::abs(newVel.x) * 0.3f;
-            collision = true;
-        }
-        
-        // Правая граница
-        if (pos.x + halfWidth > ARENA_WIDTH/2) {
-            transform->position.x = ARENA_WIDTH/2 - halfWidth;
-            newVel.x = -std::abs(newVel.x) * 0.3f;
-            collision = true;
-        }
-        
-        // Верхняя граница
-        if (pos.y + halfHeight > ARENA_HEIGHT/2) {
-            transform->position.y = ARENA_HEIGHT/2 - halfHeight;
-            newVel.y = -std::abs(newVel.y) * 0.3f;
-            collision = true;
-        }
-        
-        // Нижняя граница (пол)
-        if (pos.y - halfHeight < -ARENA_HEIGHT/2) {
-            transform->position.y = -ARENA_HEIGHT/2 + halfHeight;
-            newVel.y = std::abs(newVel.y) * 0.3f;
-            collision = true;
-        }
-        
-        if (collision) {
-            rb->SetVelocity(newVel);
-        }
-    }
+// ============================================
+// ГЛОБАЛЬНОЕ СОСТОЯНИЕ
+// ============================================
+struct GameState {
+    static int playerHealth;
+    static int score;
+    static int waveNumber;
+    static int enemiesRemaining;
+    static int totalKills;
+    static bool gameRunning;
+    static Vector2 mousePosition;
+    static ColliderManager* colliderManager;
+    static Scene* currentScene;
 };
 
-// === ИГРОК ===
-class Player : public Component {
-private:
-    GLFWwindow* window;
-    RigidBody2D* rb = nullptr;
-    float moveForce = 8.0f;
-    float jumpForce = 5.0f;
-    bool canJump = false;
-    float coyoteTimer = 0.0f;
-    const float COYOTE_TIME = 0.15f;
+int GameState::playerHealth = 100;
+int GameState::score = 0;
+int GameState::waveNumber = 0;
+int GameState::enemiesRemaining = 0;
+int GameState::totalKills = 0;
+bool GameState::gameRunning = true;
+Vector2 GameState::mousePosition(0.0f, 0.0f);
+ColliderManager* GameState::colliderManager = nullptr;
+Scene* GameState::currentScene = nullptr;
+
+// ============================================
+// ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+// ============================================
+Vector2 ScreenToWorld(const Vector2& screenPos, int width, int height) {
+    float worldX = (screenPos.x - width / 2.0f) / PIXELS_PER_UNIT;
+    float worldY = (height / 2.0f - screenPos.y) / PIXELS_PER_UNIT;
+    return Vector2(worldX, worldY);
+}
+
+Polygon2D* AddBoxCollider(GameObject* obj, float size) {
+    if (!obj) return nullptr;
     
-public:
-    Player(GLFWwindow* win) : window(win) {}
+    std::vector<Vector2> vertices;
+    float halfSize = size * 0.5f;
     
-    void Start() override {
-        rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
-        if (rb) {
-            rb->SetMass(1.0f);
-            rb->SetDrag(0.5f);
-        }
+    vertices.push_back(Vector2(-halfSize, -halfSize));
+    vertices.push_back(Vector2(halfSize, -halfSize));
+    vertices.push_back(Vector2(halfSize, halfSize));
+    vertices.push_back(Vector2(-halfSize, halfSize));
+    
+    auto polygon = std::make_unique<Polygon2D>(std::move(vertices));
+    Polygon2D* ptr = polygon.get();
+    obj->AddComponent(polygon.release());
+    
+    if (ptr && GameState::colliderManager) {
+        GameState::colliderManager->AddCollider(ptr);
     }
     
-    void Update(float deltaTime) override {
-        if (!rb) return;
+    return ptr;
+}
+
+// ============================================
+// ПРЕДВАРИТЕЛЬНЫЕ ОБЪЯВЛЕНИЯ
+// ============================================
+class Player;
+class Enemy;
+class Bullet;
+class EnemyBullet;
+class WaveSystem;
+
+// ============================================
+// ИГРОК
+// ============================================
+class Player : public Component {
+private:
+    RigidBody2D* rb = nullptr;
+    Polygon2D* collider = nullptr;
+    float moveForce = 15.0f;
+    float maxSpeed = 6.0f;
+    float invincibilityTime = 0.0f;
+
+public:
+    void Start() override {
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::Player, true);
+        rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
+        collider = AddBoxCollider(GetGameObject(), 0.3f);
+    }
+    
+    void Destroy() override {
+
+    }
+    
+    void Update() override {
+        if (!rb || !GameState::gameRunning) return;
         
         Transform2D* transform = GetGameObject()->GetComponentOfType<Transform2D>();
         if (!transform) return;
         
-        // Проверка земли с койот-таймом
-        if (transform->position.y <= -ARENA_HEIGHT/2 + 0.11f && 
-            std::abs(rb->GetVelocity().y) < 0.2f) {
-            canJump = true;
-            coyoteTimer = COYOTE_TIME;
-        } else {
-            coyoteTimer -= deltaTime;
-            if (coyoteTimer <= 0.0f) {
-                canJump = false;
-            }
-        }
+        auto& input = InputSystem::GetInstance();
         
-        // Движение влево/вправо
         Vector2 force(0, 0);
-        if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
-            force.x -= moveForce;
-        }
-        if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
-            force.x += moveForce;
+        if (input.GetKey(Keys::A)) force.x -= moveForce;
+        if (input.GetKey(Keys::D)) force.x += moveForce;
+        if (input.GetKey(Keys::W)) force.y += moveForce;
+        if (input.GetKey(Keys::S)) force.y -= moveForce;
+        
+        if (force.magnitude() > 0) {
+            rb->AddForce(force);
         }
         
-        // Ограничиваем горизонтальную скорость
         Vector2 vel = rb->GetVelocity();
-        if (std::abs(vel.x) > 4.0f) {
-            vel.x = (vel.x > 0) ? 4.0f : -4.0f;
+        if (vel.magnitude() > maxSpeed) {
+            vel = vel.normalized() * maxSpeed;
             rb->SetVelocity(vel);
         }
         
-        rb->AddForce(force);
+        float halfW = ARENA_WIDTH / 2.0f - 0.2f;
+        float halfH = ARENA_HEIGHT / 2.0f - 0.2f;
         
-        // Прыжок
-        if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS && canJump) {
-            vel = rb->GetVelocity();
-            vel.y = jumpForce;
-            rb->SetVelocity(vel);
-            canJump = false;
-            coyoteTimer = 0.0f;
+        if (transform->position.x < -halfW) transform->position.x = -halfW;
+        if (transform->position.x > halfW) transform->position.x = halfW;
+        if (transform->position.y < -halfH) transform->position.y = -halfH;
+        if (transform->position.y > halfH) transform->position.y = halfH;
+        
+        if (invincibilityTime > 0) {
+            invincibilityTime -= Time::DeltaTime();
         }
         
-        // Быстрое падение
-        if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
-            if (vel.y > -10.0f) {
-                rb->AddForce(Vector2(0, -15.0f));
-            }
-        }
-    }
-};
-
-// === БАЗОВЫЙ ВРАГ ===
-class BaseEnemy : public Component {
-protected:
-    GameObject* targetPlayer;
-    RigidBody2D* rb = nullptr;
-    float chaseForce;
-    float detectionRange;
-    float colorPulse = 0.0f;
-    int health;
-    int scoreValue;
-    Vector2 color;
-    
-public:
-    BaseEnemy(GameObject* player, float chaseForce, float detectionRange, 
-              int health, int scoreValue, const Vector2& color)
-        : targetPlayer(player), chaseForce(chaseForce), detectionRange(detectionRange),
-          health(health), scoreValue(scoreValue), color(color) {}
-    
-    void Start() override {
-        rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
-        if (rb) {
-            rb->SetMass(1.0f);
-            rb->SetDrag(0.8f);
-        }
-        
-        TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-        if (renderer) {
-            renderer->SetColor(color.x, color.y, 0.2f);
-        }
-    }
-    
-    void Update(float deltaTime) override {
-        if (!rb || !targetPlayer) return;
-        
-        // Пульсация цвета
-        colorPulse += deltaTime * 2.0f;
-        TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-        if (renderer) {
-            float pulse = (sin(colorPulse) + 1.0f) * 0.15f;
-            renderer->SetColor(color.x + pulse, color.y + pulse, 0.2f);
-        }
-        
-        // Преследование игрока
-        Transform2D* transform = GetGameObject()->GetComponentOfType<Transform2D>();
-        Transform2D* playerTransform = targetPlayer->GetComponentOfType<Transform2D>();
-        
-        if (transform && playerTransform) {
-            Vector2 toPlayer = playerTransform->position - transform->position;
-            float distance = toPlayer.magnitude();
+        if (collider && GameState::colliderManager && invincibilityTime <= 0) {
+            auto collisions = GameState::colliderManager->GetCollisionsFor(collider);
+            auto enemies = TagManager::GetInstance().FindObjectsWithTag(GameTags::Enemy);
             
-            if (distance < detectionRange && distance > 0.1f) {
-                Vector2 force = toPlayer.normalized() * chaseForce;
+            for (auto otherCollider : collisions) {
+                if (!otherCollider) continue;
                 
-                // Избегание других врагов
-                for (auto obj : gameObjects) {
-                    if (obj == GetGameObject()) continue;
-                    
-                    BaseEnemy* other = obj->GetComponentOfType<BaseEnemy>();
-                    if (other) {
-                        Transform2D* otherTransform = obj->GetComponentOfType<Transform2D>();
-                        if (otherTransform) {
-                            Vector2 toOther = transform->position - otherTransform->position;
-                            float otherDist = toOther.magnitude();
-                            if (otherDist < 0.3f && otherDist > 0.01f) {
-                                force += toOther.normalized() * 4.0f;
-                            }
-                        }
+                GameObject* otherObj = otherCollider->GetGameObject();
+                if (!otherObj) continue;
+                
+                for (auto enemyObj : enemies) {
+                    if (enemyObj == otherObj) {
+                        TakeDamage(10);
+                        break;
                     }
                 }
-                
-                rb->AddForce(force);
             }
         }
     }
     
     void TakeDamage(int damage) {
-        health -= damage;
-        if (health <= 0) {
-            objectsToDestroy.push_back(GetGameObject());
-            score += scoreValue;
-            std::cout << "Enemy destroyed! +" << scoreValue << " Score: " << score << std::endl;
+        if (invincibilityTime <= 0 && GameState::gameRunning) {
+            GameState::playerHealth -= damage;
+            invincibilityTime = 1.0f;
+            
+            if (GameState::playerHealth <= 0) {
+                GameState::playerHealth = 0;
+                GameState::gameRunning = false;
+            }
         }
     }
-    
-    int GetHealth() const { return health; }
-    GameObject* GetPlayer() const { return targetPlayer; }
 };
 
-// === ОБЫЧНЫЙ ВРАГ ===
-class NormalEnemy : public BaseEnemy {
-public:
-    NormalEnemy(GameObject* player) 
-        : BaseEnemy(player, 3.0f, 1.5f, 1, 100, Vector2(0.9f, 0.2f)) {}
-};
+// ============================================
+// БАЗОВЫЙ ВРАГ
+// ============================================
+class Enemy : public Component {
+protected:
+    RigidBody2D* rb = nullptr;
+    Polygon2D* collider = nullptr;
+    GameObject* player = nullptr;
+    int health = 1;
+    int scoreValue = 100;
+    float chaseForce = 3.0f;
+    float attackDamage = 10.0f;
+    float attackCooldown = 0.5f;
+    float attackTimer = 0.0f;
+    float colliderSize = 0.2f;
+    Scene* scene = nullptr;
 
-// === БЫСТРЫЙ ВРАГ ===
-class FastEnemy : public BaseEnemy {
 public:
-    FastEnemy(GameObject* player) 
-        : BaseEnemy(player, 5.0f, 2.0f, 1, 150, Vector2(0.2f, 0.9f)) {}
+    void SetScene(Scene* s) { scene = s; }
     
     void Start() override {
-        BaseEnemy::Start();
-        // Быстрый враг легче и быстрее
-        if (rb) {
-            rb->SetMass(0.7f);
-            rb->SetDrag(0.6f);
-        }
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::Enemy, true);
+        rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
+        collider = AddBoxCollider(GetGameObject(), colliderSize);
         
-        TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-        if (renderer) {
-            renderer->SetColor(0.2f, 0.9f, 0.2f); // Зеленый для быстрого
-        }
-    }
-};
-
-// === ПУЛЯ ВРАГА ===
-class EnemyBullet : public Component {
-private:
-    float lifetime = 2.0f;
-    float timeAlive = 0.0f;
-    Vector2 direction;
-    int damage = 1;
-    
-public:
-    EnemyBullet(Vector2 dir, int dmg = 1) : direction(dir), damage(dmg) {}
-    
-    void Start() override {
-        RigidBody2D* rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
-        if (rb) {
-            rb->SetMass(0.05f);
-            rb->SetDrag(0.1f);
-            rb->SetVelocity(direction * 8.0f); // Вражеские пули медленнее
-        }
-        
-        TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-        if (renderer) {
-            renderer->SetColor(1.0f, 0.2f, 0.2f); // Красный цвет
-        }
-    }
-    
-    void Update(float deltaTime) override {
-        timeAlive += deltaTime;
-        
-        if (timeAlive >= lifetime) {
-            objectsToDestroy.push_back(GetGameObject());
-            return;
-        }
-        
-        // Мерцание перед исчезновением
-        if (timeAlive > lifetime * 0.7f) {
-            TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-            if (renderer) {
-                float alpha = 0.5f + 0.5f * sin(timeAlive * 10.0f);
-                renderer->SetColor(1.0f * alpha, 0.2f * alpha, 0.2f * alpha);
+        if (scene) {
+            auto players = scene->FindGameObjectsWithComponent<Player>();
+            if (!players.empty()) {
+                player = players[0];
             }
         }
     }
     
-    int GetDamage() const { return damage; }
+    void Destroy() override {
+    }
+    
+    void Update() override {
+        if (!rb || !player || !GameState::gameRunning) return;
+        
+        attackTimer += Time::DeltaTime();
+        
+        Transform2D* enemyTrans = GetGameObject()->GetComponentOfType<Transform2D>();
+        Transform2D* playerTrans = player->GetComponentOfType<Transform2D>();
+        
+        if (enemyTrans && playerTrans) {
+            Vector2 toPlayer = playerTrans->position - enemyTrans->position;
+            float distance = toPlayer.magnitude();
+            
+            if (distance < 3.0f) {
+                Vector2 force = toPlayer.normalized() * chaseForce;
+                rb->AddForce(force);
+                
+                Vector2 vel = rb->GetVelocity();
+                float maxSpeed = 2.0f;
+                if (vel.magnitude() > maxSpeed) {
+                    vel = vel.normalized() * maxSpeed;
+                    rb->SetVelocity(vel);
+                }
+            }
+        }
+        
+        if (collider && GameState::colliderManager && attackTimer >= attackCooldown) {
+            auto collisions = GameState::colliderManager->GetCollisionsFor(collider);
+            auto players = TagManager::GetInstance().FindObjectsWithTag(GameTags::Player);
+            
+            for (auto otherCollider : collisions) {
+                if (!otherCollider) continue;
+                
+                GameObject* otherObj = otherCollider->GetGameObject();
+                if (!otherObj) continue;
+                
+                for (auto playerObj : players) {
+                    if (playerObj == otherObj) {
+                        Player* playerComp = playerObj->GetComponentOfType<Player>();
+                        if (playerComp) {
+                            playerComp->TakeDamage(attackDamage);
+                            attackTimer = 0.0f;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+        
+        Transform2D* enemyTransform = GetGameObject()->GetComponentOfType<Transform2D>();
+        if (enemyTransform) {
+            float halfW = ARENA_WIDTH / 2.0f - 0.2f;
+            float halfH = ARENA_HEIGHT / 2.0f - 0.2f;
+            if (enemyTransform->position.x < -halfW) enemyTransform->position.x = -halfW;
+            if (enemyTransform->position.x > halfW) enemyTransform->position.x = halfW;
+            if (enemyTransform->position.y < -halfH) enemyTransform->position.y = -halfH;
+            if (enemyTransform->position.y > halfH) enemyTransform->position.y = halfH;
+        }
+    }
+    
+    virtual void TakeDamage(int damage) {
+        health -= damage;
+        if (health <= 0) {
+            GameState::score += scoreValue;
+            GameState::totalKills++;
+            GameState::enemiesRemaining--;
+            GetGameObject()->Destroy();
+        }
+    }
 };
 
-// === СТРЕЛЯЮЩИЙ ВРАГ ===
-class ShootingEnemy : public BaseEnemy {
-private:
-    float shootCooldown = 2.0f;
-    float shootTimer = 0.0f;
-    GLFWwindow* window;
-    
+// ============================================
+// FAST ENEMY
+// ============================================
+class FastEnemy : public Enemy {
 public:
-    ShootingEnemy(GameObject* player, GLFWwindow* win) 
-        : BaseEnemy(player, 2.0f, 2.5f, 2, 200, Vector2(0.9f, 0.9f)), window(win) {}
+    FastEnemy() {
+        health = 1;
+        scoreValue = 150;
+        chaseForce = 6.0f;
+        attackDamage = 5.0f;
+        attackCooldown = 0.3f;
+        colliderSize = 0.16f;
+    }
     
     void Start() override {
-        BaseEnemy::Start();
-        // Стреляющий враг медленнее
-        if (rb) {
-            rb->SetMass(1.2f);
-            rb->SetDrag(0.9f);
-        }
-        
-        TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-        if (renderer) {
-            renderer->SetColor(0.9f, 0.9f, 0.2f); // Желтый для стреляющего
-        }
-    }
-    
-    void Update(float deltaTime) override {
-        BaseEnemy::Update(deltaTime);
-        
-        shootTimer -= deltaTime;
-        
-        if (shootTimer <= 0.0f) {
-            TryShoot();
-            shootTimer = shootCooldown;
-        }
-    }
-    
-    void TryShoot() {
-        Transform2D* transform = GetGameObject()->GetComponentOfType<Transform2D>();
-        if (!transform) return;
-        
-        GameObject* player = GetPlayer();
-        if (!player) return;
-        
-        Transform2D* playerTransform = player->GetComponentOfType<Transform2D>();
-        if (!playerTransform) return;
-        
-        // Направление к игроку
-        Vector2 direction = playerTransform->position - transform->position;
-        if (direction.magnitude() < 0.1f) return;
-        
-        direction = direction.normalized();
-        
-        // Создаем вражескую пулю
-        GameObject* bullet = new GameObject();
-        
-        Transform2D* bulletTransform = new Transform2D();
-        bulletTransform->position = transform->position + direction * 0.15f;
-        bulletTransform->scale = Vector2(0.025f, 0.04f);
-        bullet->AddComponent(bulletTransform);
-        
-        TriangleRenderer* renderer = new TriangleRenderer(window);
-        renderer->SetColor(1.0f, 0.2f, 0.2f); // Красные пули у врагов
-        bullet->AddComponent(renderer);
-        
-        bullet->AddComponent(new EnemyBullet(direction, 1));
-        
-        RigidBody2D* rb = new RigidBody2D(0.05f, 0.1f);
-        bullet->AddComponent(rb);
-        
-        BoxCollider2D* collider = new BoxCollider2D();
-        collider->SetSize(0.025f, 0.04f);
-        bullet->AddComponent(collider);
-        
-        bullet->AddComponent(new ArenaBounds());
-        
-        bullet->Start();
-        gameObjects.push_back(bullet);
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::EnemyFast, true);
+        Enemy::Start();
     }
 };
 
-// === ПУЛЯ ИГРОКА ===
-class Bullet : public Component {
+// ============================================
+// TANK ENEMY
+// ============================================
+class TankEnemy : public Enemy {
+public:
+    TankEnemy() {
+        health = 4;
+        scoreValue = 300;
+        chaseForce = 1.5f;
+        attackDamage = 20.0f;
+        attackCooldown = 1.2f;
+        colliderSize = 0.3f;
+    }
+    
+    void Start() override {
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::EnemyTank, true);
+        Enemy::Start();
+    }
+};
+
+// ============================================
+// ПУЛЯ ВРАГА
+// ============================================
+class EnemyBullet : public Component {
 private:
-    float lifetime = 1.5f;
-    float timeAlive = 0.0f;
     Vector2 direction;
-    int damage = 1;
-    
+    float lifetime = 2.0f;
+    float timeAlive = 0.0f;
+    int damage = 5;
+    Polygon2D* collider = nullptr;
+    Scene* scene = nullptr;
+
 public:
-    Bullet(Vector2 dir, int dmg = 1) : direction(dir), damage(dmg) {}
+    void SetScene(Scene* s) { scene = s; }
+    void SetDirection(const Vector2& dir) { direction = dir.normalized(); }
     
     void Start() override {
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::EnemyBullet, true);
+        
         RigidBody2D* rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
         if (rb) {
-            rb->SetMass(0.05f);
-            rb->SetDrag(0.1f);
+            rb->SetVelocity(direction * 8.0f);
+        }
+        
+        collider = AddBoxCollider(GetGameObject(), 0.06f);
+    }
+    
+    void Destroy() override {
+    }
+    
+    void Update() override {
+        timeAlive += Time::DeltaTime();
+        if (timeAlive >= lifetime) {
+            GetGameObject()->Destroy();
+            return;
+        }
+        
+        if (collider && GameState::colliderManager) {
+            auto collisions = GameState::colliderManager->GetCollisionsFor(collider);
+            auto players = TagManager::GetInstance().FindObjectsWithTag(GameTags::Player);
+            
+            for (auto otherCollider : collisions) {
+                if (!otherCollider) continue;
+                
+                GameObject* otherObj = otherCollider->GetGameObject();
+                if (!otherObj) continue;
+                
+                for (auto playerObj : players) {
+                    if (playerObj == otherObj) {
+                        Player* player = playerObj->GetComponentOfType<Player>();
+                        if (player) {
+                            player->TakeDamage(damage);
+                            GetGameObject()->Destroy();
+                            return;
+                        }
+                    }
+                }
+            }
+        }
+    }
+};
+
+// ============================================
+// SHOOTER ENEMY
+// ============================================
+class ShooterEnemy : public Enemy {
+private:
+    float shootTimer = 0.0f;
+    float shootCooldown = 1.5f;
+    float shootRange = 3.0f;
+
+public:
+    ShooterEnemy() {
+        health = 2;
+        scoreValue = 200;
+        chaseForce = 1.0f;
+        attackDamage = 10.0f;
+        colliderSize = 0.2f;
+    }
+    
+    void Start() override {
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::EnemyShooter, true);
+        Enemy::Start();
+    }
+    
+    void Update() override {
+        Enemy::Update();
+        
+        shootTimer += Time::DeltaTime();
+        
+        if (!player || !GameState::gameRunning || !scene) return;
+        
+        Transform2D* enemyTrans = GetGameObject()->GetComponentOfType<Transform2D>();
+        Transform2D* playerTrans = player->GetComponentOfType<Transform2D>();
+        
+        if (enemyTrans && playerTrans && shootTimer >= shootCooldown) {
+            float distance = (playerTrans->position - enemyTrans->position).magnitude();
+            
+            if (distance < shootRange) {
+                shootTimer = 0.0f;
+                
+                Vector2 dirToPlayer = (playerTrans->position - enemyTrans->position).normalized();
+                
+                GameObject* bullet = scene->CreateGameObject();
+                
+                auto bulletTrans = std::make_unique<Transform2D>();
+                bulletTrans->position = enemyTrans->position + dirToPlayer * 0.3f;
+                bulletTrans->scale = Vector2(0.05f, 0.05f);
+                bullet->AddComponent(bulletTrans.release());
+                
+                auto bulletComp = std::make_unique<EnemyBullet>();
+                bulletComp->SetDirection(dirToPlayer);
+                bulletComp->SetScene(scene);
+                bullet->AddComponent(bulletComp.release());
+                
+                auto bulletRb = std::make_unique<RigidBody2D>(0.1f, 0.1f);
+                bullet->AddComponent(bulletRb.release());
+                
+                bullet->Start();
+            }
+        }
+    }
+};
+
+// ============================================
+// BOMBER ENEMY
+// ============================================
+class BomberEnemy : public Enemy {
+private:
+    float explosionRange = 0.5f;
+    int explosionDamage = 30;
+
+public:
+    BomberEnemy() {
+        health = 2;
+        scoreValue = 250;
+        chaseForce = 2.5f;
+        attackDamage = 15.0f;
+        attackCooldown = 0.8f;
+        colliderSize = 0.22f;
+    }
+    
+    void Start() override {
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::EnemyBomber, true);
+        Enemy::Start();
+    }
+    
+    void TakeDamage(int damage) override {
+        health -= damage;
+        if (health <= 0) {
+            if (player) {
+                Transform2D* enemyTrans = GetGameObject()->GetComponentOfType<Transform2D>();
+                Transform2D* playerTrans = player->GetComponentOfType<Transform2D>();
+                
+                if (enemyTrans && playerTrans) {
+                    float dist = (playerTrans->position - enemyTrans->position).magnitude();
+                    if (dist < explosionRange) {
+                        Player* playerComp = player->GetComponentOfType<Player>();
+                        if (playerComp) {
+                            playerComp->TakeDamage(explosionDamage);
+                        }
+                    }
+                }
+            }
+            
+            GameState::score += scoreValue;
+            GameState::totalKills++;
+            GameState::enemiesRemaining--;
+            GetGameObject()->Destroy();
+        }
+    }
+};
+
+// ============================================
+// HEALER ENEMY
+// ============================================
+class HealerEnemy : public Enemy {
+public:
+    HealerEnemy() {
+        health = 3;
+        scoreValue = 350;
+        chaseForce = 1.2f;
+        attackDamage = 8.0f;
+        attackCooldown = 1.0f;
+        colliderSize = 0.22f;
+    }
+    
+    void Start() override {
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::EnemyHealer, true);
+        Enemy::Start();
+    }
+};
+
+// ============================================
+// ПУЛЯ ИГРОКА
+// ============================================
+class Bullet : public Component {
+private:
+    Vector2 direction;
+    float lifetime = 2.0f;
+    float timeAlive = 0.0f;
+    int damage = 1;
+    Polygon2D* collider = nullptr;
+    Scene* scene = nullptr;
+
+public:
+    ~Bullet() {
+    }
+
+    void SetScene(Scene* s) { scene = s; }
+    void SetDirection(const Vector2& dir) { direction = dir.normalized(); }
+    
+    void Start() override {
+        TagManager::GetInstance().RegisterObject(GetGameObject(), GameTags::Bullet, true);
+        
+        RigidBody2D* rb = GetGameObject()->GetComponentOfType<RigidBody2D>();
+        if (rb) {
             rb->SetVelocity(direction * 12.0f);
         }
         
-        TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-        if (renderer) {
-            renderer->SetColor(1.0f, 0.9f, 0.2f);
-        }
+        collider = AddBoxCollider(GetGameObject(), 0.06f);
     }
     
-    void Update(float deltaTime) override {
-        timeAlive += deltaTime;
-        
+    void Destroy() override {
+    }
+    
+    void Update() override {
+        timeAlive += Time::DeltaTime();
         if (timeAlive >= lifetime) {
-            objectsToDestroy.push_back(GetGameObject());
+            GetGameObject()->Destroy();
             return;
         }
         
-        // Мерцание перед исчезновением
-        if (timeAlive > lifetime * 0.7f) {
-            TriangleRenderer* renderer = GetGameObject()->GetComponentOfType<TriangleRenderer>();
-            if (renderer) {
-                float alpha = 0.5f + 0.5f * sin(timeAlive * 10.0f);
-                renderer->SetColor(1.0f, 0.9f * alpha, 0.2f * alpha);
+        if (collider && GameState::colliderManager) {
+            auto collisions = GameState::colliderManager->GetCollisionsFor(collider);
+            auto enemies = TagManager::GetInstance().FindObjectsWithTag(GameTags::Enemy);
+            
+            for (auto otherCollider : collisions) {
+                if (!otherCollider) continue;
+                
+                GameObject* otherObj = otherCollider->GetGameObject();
+                if (!otherObj) continue;
+                
+                for (auto enemyObj : enemies) {
+                    if (enemyObj == otherObj) {
+                        Enemy* enemy = enemyObj->GetComponentOfType<Enemy>();
+                        if (enemy) {
+                            enemy->TakeDamage(damage);
+                            GetGameObject()->Destroy();
+                            return;
+                        }
+                    }
+                }
             }
         }
     }
-    
-    int GetDamage() const { return damage; }
 };
 
-// === СИСТЕМА СТРЕЛЬБЫ С ПРИЦЕЛИВАНИЕМ ПО МЫШИ ===
+// ============================================
+// СИСТЕМА СТРЕЛЬБЫ
+// ============================================
 class ShootingSystem : public Component {
 private:
-    GLFWwindow* window;
-    float shootCooldown = 0.2f;
+    float shootCooldown = 0.15f;
     float timeSinceLastShot = 0.0f;
-    int bulletsInMagazine = 20;
-    float reloadTime = 1.5f;
-    bool isReloading = false;
-    bool spaceWasPressed = false;
-    bool mouseWasPressed = false;
-    
+    Scene* scene = nullptr;
+    SpriteRenderer* renderer = nullptr;
+
 public:
-    ShootingSystem(GLFWwindow* win) : window(win) {}
+    void SetScene(Scene* s) { scene = s; }
+    void SetRenderer(SpriteRenderer* r) { renderer = r; }
     
-    void Update(float deltaTime) override {
-        timeSinceLastShot += deltaTime;
+    void Update() override {
+        if (!GameState::gameRunning || !scene || !renderer) return;
         
-        // Перезарядка
-        if (isReloading) {
-            if (timeSinceLastShot >= reloadTime) {
-                bulletsInMagazine = 20;
-                isReloading = false;
-                std::cout << "Reloaded! Bullets: " << bulletsInMagazine << std::endl;
-            }
-            return;
-        }
+        timeSinceLastShot += Time::DeltaTime();
         
-        // Стрельба по SPACE
-        bool spacePressed = glfwGetKey(window, GLFW_KEY_SPACE) == GLFW_PRESS;
-        if (spacePressed && !spaceWasPressed && 
-            timeSinceLastShot >= shootCooldown && 
-            bulletsInMagazine > 0) {
-            
-            ShootAtMouse();
-            bulletsInMagazine--;
+        auto& input = InputSystem::GetInstance();
+        bool shoot = input.GetKey(Keys::Space) || input.GetMouseButton(GLFW_MOUSE_BUTTON_LEFT);
+        
+        if (shoot && timeSinceLastShot >= shootCooldown) {
             timeSinceLastShot = 0.0f;
             
-            if (bulletsInMagazine <= 0) {
-                isReloading = true;
-                std::cout << "Reloading..." << std::endl;
-            }
-        }
-        spaceWasPressed = spacePressed;
-        
-        // Стрельба по ЛКМ
-        bool mousePressed = glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS;
-        if (mousePressed && !mouseWasPressed && 
-            timeSinceLastShot >= shootCooldown && 
-            bulletsInMagazine > 0) {
+            Transform2D* playerTrans = GetGameObject()->GetComponentOfType<Transform2D>();
+            if (!playerTrans) return;
             
-            ShootAtMouse();
-            bulletsInMagazine--;
-            timeSinceLastShot = 0.0f;
-            
-            if (bulletsInMagazine <= 0) {
-                isReloading = true;
-                std::cout << "Reloading..." << std::endl;
+            Vector2 toMouse = GameState::mousePosition - playerTrans->position;
+            if (toMouse.magnitude() < 0.1f) {
+                toMouse = Vector2(0.0f, 1.0f);
+            } else {
+                toMouse = toMouse.normalized();
             }
+            
+            GameObject* bullet = scene->CreateGameObject();
+            
+            auto bulletTrans = std::make_unique<Transform2D>();
+            bulletTrans->position = playerTrans->position + toMouse * 0.3f;
+            bulletTrans->scale = Vector2(0.05f, 0.05f);
+            bullet->AddComponent(bulletTrans.release());
+            
+            auto bulletSprite = std::make_unique<Sprite>(*renderer, "Assets/textures/bullet_player.png");
+            bulletSprite->SetSize(10.0f, 10.0f);
+            bullet->AddComponent(bulletSprite.release());
+            
+            auto bulletComp = std::make_unique<Bullet>();
+            bulletComp->SetDirection(toMouse);
+            bulletComp->SetScene(scene);
+            bullet->AddComponent(bulletComp.release());
+            
+            auto bulletRb = std::make_unique<RigidBody2D>(0.1f, 0.1f);
+            bullet->AddComponent(bulletRb.release());
+            
+            bullet->Start();
         }
-        mouseWasPressed = mousePressed;
-        
-        // Принудительная перезарядка по R
-        if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS && !isReloading && bulletsInMagazine < 20) {
-            isReloading = true;
-            timeSinceLastShot = 0.0f;
-            std::cout << "Manual reload..." << std::endl;
-        }
-    }
-    
-    void ShootAtMouse() {
-        Transform2D* transform = GetGameObject()->GetComponentOfType<Transform2D>();
-        if (!transform) return;
-        
-        // Получаем позицию игрока
-        Vector2 playerPos = transform->position;
-        
-        // Направление от игрока к курсору мыши
-        Vector2 direction = mousePosition - playerPos;
-        
-        // Если мышка близко к игроку, стреляем вверх
-        if (direction.magnitude() < 0.1f) {
-            direction = Vector2(0.0f, 1.0f);
-        } else {
-            direction = direction.normalized();
-        }
-        
-        // Небольшой разброс
-        float spread = (rand() % 100 - 50) / 1000.0f;
-        direction = Vector2(direction.x + spread * 0.3f, direction.y + spread * 0.3f).normalized();
-        
-        CreateBullet(playerPos, direction);
-    }
-    
-    void CreateBullet(const Vector2& position, const Vector2& direction) {
-        GameObject* bullet = new GameObject();
-        
-        // Трансформ
-        Transform2D* bulletTransform = new Transform2D();
-        bulletTransform->position = position + direction * 0.15f;
-        bulletTransform->scale = Vector2(0.03f, 0.05f);
-        bullet->AddComponent(bulletTransform);
-        
-        // Рендерер
-        TriangleRenderer* renderer = new TriangleRenderer(window);
-        renderer->SetColor(1.0f, 0.9f, 0.2f);
-        bullet->AddComponent(renderer);
-        
-        // Компонент пули
-        bullet->AddComponent(new Bullet(direction));
-        
-        // Физика
-        RigidBody2D* rb = new RigidBody2D(0.05f, 0.1f);
-        bullet->AddComponent(rb);
-        
-        // Коллайдер
-        BoxCollider2D* collider = new BoxCollider2D();
-        collider->SetSize(0.03f, 0.05f);
-        bullet->AddComponent(collider);
-        
-        // Границы арены
-        bullet->AddComponent(new ArenaBounds());
-        
-        bullet->Start();
-        gameObjects.push_back(bullet);
     }
 };
 
-// === СИСТЕМА ВОЛН ===
-class WaveSystem {
+// ============================================
+// СИСТЕМА ВОЛН
+// ============================================
+class WaveSystem : public Component {
 private:
-    GameObject* playerObj;
-    GLFWwindow* window;
-    int baseEnemiesPerWave = 2;
-    float waveCooldown = 3.0f;
+    Scene& scene;
+    SpriteRenderer& renderer;
+    int baseEnemies = 3;
+    float timeBetweenWaves = 3.0f;
     float waveTimer = 0.0f;
-    bool waveActive = false;
-    int waveNumber = 0;
+    bool waveActive = true;
+    bool gameStarted = false;
     
-public:
-    WaveSystem(GameObject* player, GLFWwindow* win) : playerObj(player), window(win) {
-        StartNextWave();
+    template<typename T>
+    void SpawnEnemy(const char* texturePath, Vector2 scale, float mass = 1.0f, float drag = 0.5f) {
+        GameObject* enemy = scene.CreateGameObject();
+        
+        float angle = (rand() % 360) * 3.14159f / 180.0f;
+        float distance = 1.8f;
+        Vector2 pos = Vector2(sin(angle) * distance, cos(angle) * distance);
+        
+        auto transform = std::make_unique<Transform2D>();
+        transform->position = pos;
+        transform->scale = scale;
+        enemy->AddComponent(transform.release());
+        
+        auto sprite = std::make_unique<Sprite>(renderer, texturePath);
+        sprite->SetSize(40.0f, 40.0f);
+        enemy->AddComponent(sprite.release());
+        
+        T* enemyComp = new T();
+        enemyComp->SetScene(&scene);
+        enemy->AddComponent(enemyComp);
+        
+        auto rb = std::make_unique<RigidBody2D>(mass, drag);
+        enemy->AddComponent(rb.release());
+        
+        enemy->Start();
     }
     
-    void Update(float deltaTime) {
-        // Подсчет живых врагов
-        int aliveEnemies = 0;
-        for (auto obj : gameObjects) {
-            if (obj->GetComponentOfType<BaseEnemy>()) {
-                aliveEnemies++;
+public:
+    WaveSystem(Scene& s, SpriteRenderer& r) : scene(s), renderer(r) {}
+    
+    void Update() override {
+        if (!GameState::gameRunning) return;
+        
+        if (!gameStarted) {
+            gameStarted = true;
+            GameState::waveNumber = 1;
+            
+            for (int i = 0; i < baseEnemies; i++) {
+                SpawnEnemy<Enemy>("Assets/textures/enemy_normal.png", Vector2(0.12f, 0.12f));
             }
+            GameState::enemiesRemaining = baseEnemies;
+            return;
         }
         
-        if (waveActive && aliveEnemies == 0) {
+        auto enemies = TagManager::GetInstance().FindObjectsWithTag(GameTags::Enemy);
+        GameState::enemiesRemaining = enemies.size();
+        
+        if (waveActive && enemies.empty()) {
             waveActive = false;
-            waveTimer = waveCooldown;
-            waveNumber++;
-            
-            std::cout << "=== WAVE " << waveNumber << " CLEARED! ===" << std::endl;
-            std::cout << "Next wave in " << waveCooldown << " seconds..." << std::endl;
+            waveTimer = timeBetweenWaves;
+            GameState::waveNumber++;
         }
         
         if (!waveActive) {
-            waveTimer -= deltaTime;
-            if (waveTimer <= 0.0f) {
-                StartNextWave();
-            }
-        }
-    }
-    
-    void StartNextWave() {
-        if (waveActive) return;
-        
-        waveNumber = (waveNumber == 0) ? 1 : waveNumber + 1;
-        int totalEnemies = baseEnemiesPerWave + waveNumber;
-        
-        std::cout << "\n=== WAVE " << waveNumber << " ===" << std::endl;
-        std::cout << "Enemies: " << totalEnemies << std::endl;
-        
-        Transform2D* playerTransform = playerObj->GetComponentOfType<Transform2D>();
-        Vector2 playerPos = playerTransform ? playerTransform->position : Vector2(0, 0);
-        
-        for (int i = 0; i < totalEnemies; i++) {
-            float angle = (float)i / totalEnemies * 3.14159f * 2.0f;
-            float distance = 1.5f + (waveNumber * 0.1f);
-            Vector2 spawnPos(
-                sin(angle) * distance,
-                cos(angle) * distance
-            );
+            waveTimer -= Time::DeltaTime();
             
-            // Не спавнить слишком близко к игроку
-            if ((spawnPos - playerPos).magnitude() < 0.8f) {
-                spawnPos = spawnPos.normalized() * 1.2f;
-            }
-            
-            // Выбор типа врага в зависимости от волны
-            CreateEnemyByWave(spawnPos, waveNumber, i);
-        }
-        
-        waveActive = true;
-    }
-    
-    void CreateEnemyByWave(const Vector2& position, int waveNum, int enemyIndex) {
-        GameObject* enemy = new GameObject();
-        
-        // Трансформ
-        Transform2D* transform = new Transform2D();
-        transform->position = position;
-        
-        BaseEnemy* enemyComponent = nullptr;
-        
-        // Первые 2 волны - только обычные враги
-        if (waveNum <= 2) {
-            transform->scale = Vector2(0.1f, 0.1f);
-            enemyComponent = new NormalEnemy(playerObj);
-        } 
-        // Волны 3-5: добавляем быстрых врагов
-        else if (waveNum <= 5) {
-            if (enemyIndex % 3 == 0) { // Каждый третий - быстрый
-                transform->scale = Vector2(0.09f, 0.09f);
-                enemyComponent = new FastEnemy(playerObj);
-            } else {
-                transform->scale = Vector2(0.1f, 0.1f);
-                enemyComponent = new NormalEnemy(playerObj);
-            }
-        } 
-        // Волны 6+: добавляем стреляющих врагов
-        else {
-            if (enemyIndex % 4 == 0) { // Каждый четвертый - стреляющий
-                transform->scale = Vector2(0.11f, 0.11f);
-                enemyComponent = new ShootingEnemy(playerObj, window);
-            } else if (enemyIndex % 3 == 0) { // Каждый третий - быстрый
-                transform->scale = Vector2(0.09f, 0.09f);
-                enemyComponent = new FastEnemy(playerObj);
-            } else {
-                transform->scale = Vector2(0.1f, 0.1f);
-                enemyComponent = new NormalEnemy(playerObj);
+            if (waveTimer <= 0) {
+                waveActive = true;
+                int wave = GameState::waveNumber;
+                
+                int normalCount = 2 + wave;
+                int fastCount = (wave >= 2) ? 1 + (wave - 1) / 2 : 0;
+                int tankCount = (wave >= 3) ? 1 + (wave - 2) / 3 : 0;
+                int shooterCount = (wave >= 4) ? 1 + (wave - 3) / 2 : 0;
+                int bomberCount = (wave >= 5) ? 1 + (wave - 4) / 3 : 0;
+                int healerCount = (wave >= 6) ? 1 + (wave - 5) / 4 : 0;
+                
+                for (int i = 0; i < normalCount; i++) {
+                    SpawnEnemy<Enemy>("Assets/textures/enemy_normal.png", Vector2(0.12f, 0.12f));
+                }
+                for (int i = 0; i < fastCount; i++) {
+                    SpawnEnemy<FastEnemy>("Assets/textures/enemy_fast.png", Vector2(0.1f, 0.1f), 0.8f, 0.3f);
+                }
+                for (int i = 0; i < tankCount; i++) {
+                    SpawnEnemy<TankEnemy>("Assets/textures/enemy_tank.png", Vector2(0.18f, 0.18f), 2.0f, 0.8f);
+                }
+                for (int i = 0; i < shooterCount; i++) {
+                    SpawnEnemy<ShooterEnemy>("Assets/textures/enemy_shooter.png", Vector2(0.14f, 0.14f));
+                }
+                for (int i = 0; i < bomberCount; i++) {
+                    SpawnEnemy<BomberEnemy>("Assets/textures/enemy_bomber.png", Vector2(0.13f, 0.13f), 1.2f, 0.5f);
+                }
+                for (int i = 0; i < healerCount; i++) {
+                    SpawnEnemy<HealerEnemy>("Assets/textures/enemy_healer.png", Vector2(0.13f, 0.13f));
+                }
+                
+                int total = normalCount + fastCount + tankCount + shooterCount + bomberCount + healerCount;
+                GameState::enemiesRemaining = total;
             }
         }
-        
-        enemy->AddComponent(transform);
-        
-        // Рендерер
-        TriangleRenderer* renderer = new TriangleRenderer(window);
-        enemy->AddComponent(renderer);
-        
-        // Компонент врага
-        enemy->AddComponent(enemyComponent);
-        
-        // Физика
-        RigidBody2D* rb = new RigidBody2D(1.0f, 0.8f);
-        enemy->AddComponent(rb);
-        
-        // Коллайдер
-        BoxCollider2D* collider = new BoxCollider2D();
-        collider->SetSize(transform->scale.x, transform->scale.y);
-        enemy->AddComponent(collider);
-        
-        enemy->AddComponent(new ArenaBounds());
-        
-        enemy->Start();
-        gameObjects.push_back(enemy);
     }
-    
-    int GetCurrentWave() const { return waveNumber; }
 };
 
-// === ФУНКЦИИ ДЛЯ ПРОВЕРКИ СТОЛКНОВЕНИЙ ===
-void CheckBulletEnemyCollisions() {
-    for (size_t i = 0; i < gameObjects.size(); i++) {
-        GameObject* bulletObj = gameObjects[i];
-        
-        // Проверяем, является ли объект пулей игрока
-        Bullet* playerBullet = nullptr;
-        for (auto comp : bulletObj->GetComponents()) {
-            playerBullet = dynamic_cast<Bullet*>(comp);
-            if (playerBullet) break;
-        }
-        
-        if (!playerBullet) continue;
-        
-        Transform2D* bulletTransform = bulletObj->GetComponentOfType<Transform2D>();
-        BoxCollider2D* bulletCollider = bulletObj->GetComponentOfType<BoxCollider2D>();
-        
-        if (!bulletTransform || !bulletCollider) continue;
-        
-        // Проверяем столкновение с каждым врагом
-        for (size_t j = 0; j < gameObjects.size(); j++) {
-            if (i == j) continue;
-            
-            GameObject* enemyObj = gameObjects[j];
-            BaseEnemy* enemy = enemyObj->GetComponentOfType<BaseEnemy>();
-            if (!enemy) continue;
-            
-            Transform2D* enemyTransform = enemyObj->GetComponentOfType<Transform2D>();
-            BoxCollider2D* enemyCollider = enemyObj->GetComponentOfType<BoxCollider2D>();
-            
-            if (!enemyTransform || !enemyCollider) continue;
-            
-            if (CheckCollision(bulletTransform->position, bulletCollider->GetSize(),
-                              enemyTransform->position, enemyCollider->GetSize())) {
-                // Наносим урон врагу
-                enemy->TakeDamage(playerBullet->GetDamage());
-                
-                // Уничтожаем пулю
-                objectsToDestroy.push_back(bulletObj);
-                break;
-            }
-        }
-    }
-}
+// ============================================
+// СИСТЕМА КОЛЛИЗИЙ
+// ============================================
+class CollisionSystem : public Component {
+private:
+    ColliderManager* colliderManager = nullptr;
 
-void CheckEnemyBulletPlayerCollisions(GameObject* playerObj) {
-    if (playerDamageCooldown > 0.0f) {
-        return;
+public:
+    void Start() override {
+        colliderManager = new ColliderManager();
+        GameState::colliderManager = colliderManager;
     }
     
-    Transform2D* playerTransform = playerObj->GetComponentOfType<Transform2D>();
-    BoxCollider2D* playerCollider = playerObj->GetComponentOfType<BoxCollider2D>();
-    
-    if (!playerTransform || !playerCollider) return;
-    
-    for (size_t i = 0; i < gameObjects.size(); i++) {
-        GameObject* bulletObj = gameObjects[i];
-        
-        // Проверяем, является ли объект вражеской пулей
-        EnemyBullet* enemyBullet = nullptr;
-        for (auto comp : bulletObj->GetComponents()) {
-            enemyBullet = dynamic_cast<EnemyBullet*>(comp);
-            if (enemyBullet) break;
-        }
-        
-        if (!enemyBullet) continue;
-        
-        Transform2D* bulletTransform = bulletObj->GetComponentOfType<Transform2D>();
-        BoxCollider2D* bulletCollider = bulletObj->GetComponentOfType<BoxCollider2D>();
-        
-        if (!bulletTransform || !bulletCollider) continue;
-        
-        if (CheckCollision(playerTransform->position, playerCollider->GetSize(),
-                          bulletTransform->position, bulletCollider->GetSize())) {
-            playerHealth -= enemyBullet->GetDamage();
-            playerDamageCooldown = 0.5f;
-            
-            std::cout << "Hit by enemy bullet! Health: " << playerHealth << std::endl;
-            
-            // Отталкивание игрока
-            RigidBody2D* playerRb = playerObj->GetComponentOfType<RigidBody2D>();
-            if (playerRb && bulletTransform) {
-                Vector2 dir = (playerTransform->position - bulletTransform->position).normalized();
-                playerRb->AddImpulse(dir * 1.5f);
-            }
-            
-            // Уничтожаем пулю
-            objectsToDestroy.push_back(bulletObj);
-            
-            if (playerHealth <= 0) {
-                std::cout << "GAME OVER!" << std::endl;
-            }
-            break;
+    void Update() override {
+        if (colliderManager && GameState::gameRunning) {
+            std::cout << "colliderManager STARTED" << std::endl;
+            colliderManager->CheckCollisions();
+            std::cout << "colliderManager COMPLITED" << std::endl;
         }
     }
-}
-
-void CheckPlayerEnemyCollisions(GameObject* playerObj) {
-    if (playerDamageCooldown > 0.0f) {
-        return;
+    
+    void Destroy() override {
+        delete colliderManager;
+        colliderManager = nullptr;
+        GameState::colliderManager = nullptr;
     }
-    
-    Transform2D* playerTransform = playerObj->GetComponentOfType<Transform2D>();
-    BoxCollider2D* playerCollider = playerObj->GetComponentOfType<BoxCollider2D>();
-    
-    if (!playerTransform || !playerCollider) return;
-    
-    for (auto enemyObj : gameObjects) {
-        BaseEnemy* enemy = enemyObj->GetComponentOfType<BaseEnemy>();
-        if (!enemy) continue;
+};
+
+// ============================================
+// HUD
+// ============================================
+class SimpleHUD : public Component {
+public:
+    void RenderImGui() {
+        ImGui::SetNextWindowPos(ImVec2(10, 10));
+        ImGui::SetNextWindowSize(ImVec2(200, 100));
+        ImGui::Begin("HUD", nullptr, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoMove);
         
-        Transform2D* enemyTransform = enemyObj->GetComponentOfType<Transform2D>();
-        BoxCollider2D* enemyCollider = enemyObj->GetComponentOfType<BoxCollider2D>();
+        ImGui::Text("Health: %d", GameState::playerHealth);
+        ImGui::ProgressBar((float)GameState::playerHealth / 100.0f, ImVec2(180, 20));
+        ImGui::Text("Score: %d", GameState::score);
+        ImGui::Text("Wave: %d", GameState::waveNumber);
+        ImGui::Text("Enemies: %d", GameState::enemiesRemaining);
+        ImGui::Text("Kills: %d", GameState::totalKills);
         
-        if (!enemyTransform || !enemyCollider) continue;
-        
-        if (CheckCollision(playerTransform->position, playerCollider->GetSize(),
-                          enemyTransform->position, enemyCollider->GetSize())) {
-            playerHealth -= 10;
-            playerDamageCooldown = 1.0f;
-            
-            std::cout << "Player hit by enemy! Health: " << playerHealth << std::endl;
-            
-            // Отталкивание игрока
-            RigidBody2D* playerRb = playerObj->GetComponentOfType<RigidBody2D>();
-            if (playerRb) {
-                Vector2 dir = (playerTransform->position - enemyTransform->position).normalized();
-                playerRb->AddImpulse(dir * 2.0f);
-            }
-            
-            if (playerHealth <= 0) {
-                std::cout << "GAME OVER!" << std::endl;
-            }
-            break;
+        if (!GameState::gameRunning) {
+            ImGui::TextColored(ImVec4(1,0,0,1), "GAME OVER");
+            ImGui::Text("Final Score: %d", GameState::score);
+            ImGui::Text("Waves Survived: %d", GameState::waveNumber);
         }
+        
+        ImGui::End();
     }
-}
+};
 
-void CheckEnemyEnemyCollisions() {
-    for (size_t i = 0; i < gameObjects.size(); i++) {
-        GameObject* enemy1Obj = gameObjects[i];
-        BaseEnemy* enemy1 = enemy1Obj->GetComponentOfType<BaseEnemy>();
-        if (!enemy1) continue;
-        
-        Transform2D* transform1 = enemy1Obj->GetComponentOfType<Transform2D>();
-        BoxCollider2D* collider1 = enemy1Obj->GetComponentOfType<BoxCollider2D>();
-        
-        if (!transform1 || !collider1) continue;
-        
-        for (size_t j = i + 1; j < gameObjects.size(); j++) {
-            GameObject* enemy2Obj = gameObjects[j];
-            BaseEnemy* enemy2 = enemy2Obj->GetComponentOfType<BaseEnemy>();
-            if (!enemy2) continue;
-            
-            Transform2D* transform2 = enemy2Obj->GetComponentOfType<Transform2D>();
-            BoxCollider2D* collider2 = enemy2Obj->GetComponentOfType<BoxCollider2D>();
-            
-            if (!transform2 || !collider2) continue;
-            
-            if (CheckCollision(transform1->position, collider1->GetSize(),
-                              transform2->position, collider2->GetSize())) {
-                // Разделяем врагов
-                Vector2 dir = transform1->position - transform2->position;
-                if (dir.magnitude() > 0.01f) {
-                    dir = dir.normalized();
-                    RigidBody2D* rb1 = enemy1Obj->GetComponentOfType<RigidBody2D>();
-                    RigidBody2D* rb2 = enemy2Obj->GetComponentOfType<RigidBody2D>();
-                    
-                    if (rb1) rb1->AddImpulse(dir * 0.5f);
-                    if (rb2) rb2->AddImpulse(-dir * 0.5f);
-                }
-            }
-        }
-    }
-}
-
-// === КОЛБЭК ДЛЯ МЫШИ ===
-void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
-    mousePosition = ScreenToWorld(window, Vector2((float)xpos, (float)ypos));
-}
-
-// === ГЛАВНАЯ ФУНКЦИЯ ===
+// ============================================
+// MAIN
+// ============================================
 int main() {
-    srand(static_cast<unsigned>(time(nullptr)));
+    std::cout << "=== ARENA SURVIVAL (NEW ARCH) ===" << std::endl;
+    std::cout << "STEP 0: Program started" << std::endl;
     
+    srand(time(nullptr));
+    
+    // 1. Инициализация графики
+    std::cout << "\nSTEP 1: Creating GraphicsManager..." << std::endl;
+    auto graphics = std::make_unique<GraphicsManager>();
+    std::cout << "GraphicsManager created: " << graphics.get() << std::endl;
+    
+    std::cout << "\nSTEP 2: Creating DrawingManager..." << std::endl;
     float bgColor[4] = {0.05f, 0.05f, 0.1f, 1.0f};
-    DrawingManager drawing(800, 600, bgColor, "ARENA SURVIVAL");
+    auto* drawing = new DrawingManager(SCREEN_WIDTH, SCREEN_HEIGHT, bgColor, "ARENA SURVIVAL");
+    std::cout << "DrawingManager created: " << drawing << std::endl;
     
-    if (!drawing.Initialize()) {
+    std::cout << "\nSTEP 3: Initializing DrawingManager..." << std::endl;
+    if (!drawing->Initialize()) {
         std::cerr << "Failed to initialize window!" << std::endl;
         return -1;
     }
+    std::cout << "DrawingManager initialized successfully" << std::endl;
     
-    GLFWwindow* window = drawing.GetWindow();
+    std::cout << "\nSTEP 4: Setting window and camera..." << std::endl;
+    graphics->SetWindow(drawing);
+    std::cout << "Window set" << std::endl;
     
-    // Регистрируем колбэк для мыши
-    glfwSetCursorPosCallback(window, mouse_callback);
+    graphics->SetCamera(new Camera2D(SCREEN_WIDTH, SCREEN_HEIGHT));
+    std::cout << "Camera set" << std::endl;
     
-    // === СОЗДАНИЕ ИГРОКА ===
-    GameObject* player = new GameObject();
+    std::cout << "\nSTEP 5: Creating sprite renderer..." << std::endl;
+    auto* spriteRenderer = graphics->AddRender<SpriteRenderer>();
+    if (!spriteRenderer) {
+        std::cerr << "Failed to create sprite renderer!" << std::endl;
+        return -1;
+    }
+    std::cout << "Sprite renderer created: " << spriteRenderer << std::endl;
     
-    Transform2D* playerTransform = new Transform2D();
-    playerTransform->position = Vector2(0.0f, -0.8f);
-    playerTransform->scale = Vector2(0.1f, 0.1f);
-    player->AddComponent(playerTransform);
+    std::cout << "\nSTEP 6: Getting GLFW window..." << std::endl;
+    GLFWwindow* window = drawing->GetWindow();
+    if (!window) {
+        std::cerr << "Failed to get GLFW window!" << std::endl;
+        return -1;
+    }
+    std::cout << "GLFW window obtained: " << window << std::endl;
     
-    TriangleRenderer* playerRenderer = new TriangleRenderer(window);
-    playerRenderer->SetColor(0.2f, 0.8f, 0.2f);
-    player->AddComponent(playerRenderer);
+    std::cout << "\nSTEP 7: Initializing ImGui..." << std::endl;
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO();
+    ImGui::StyleColorsDark();
     
-    player->AddComponent(new Player(window));
-    player->AddComponent(new ShootingSystem(window));
+    if (!ImGui_ImplGlfw_InitForOpenGL(window, true)) {
+        std::cerr << "Failed to init ImGui GLFW!" << std::endl;
+        return -1;
+    }
+    std::cout << "ImGui GLFW initialized" << std::endl;
     
-    RigidBody2D* playerRb = new RigidBody2D(1.0f, 0.7f);
-    player->AddComponent(playerRb);
-    
-    BoxCollider2D* playerCollider = new BoxCollider2D();
-    playerCollider->SetSize(0.1f, 0.1f);
-    player->AddComponent(playerCollider);
-    
-    player->AddComponent(new ArenaBounds());
-    
-    player->Start();
-    gameObjects.push_back(player);
-    
-    // === СИСТЕМА ВОЛН ===
-    WaveSystem waveSystem(player, window);
-    
-    // === ИНИЦИАЛИЗАЦИЯ ===
-    std::cout << "=== ARENA SURVIVAL ===" << std::endl;
-    std::cout << "Controls:" << std::endl;
-    std::cout << "A/D - Move left/right" << std::endl;
-    std::cout << "W - Jump" << std::endl;
-    std::cout << "S - Fast fall" << std::endl;
-    std::cout << "SPACE or LMB - Shoot at mouse cursor" << std::endl;
-    std::cout << "R - Reload" << std::endl;
-    std::cout << "ESC - Exit" << std::endl;
-    std::cout << "=====================" << std::endl;
-    std::cout << "Enemy types:" << std::endl;
-    std::cout << "- Red: Normal (100 points)" << std::endl;
-    std::cout << "- Green: Fast (150 points)" << std::endl;
-    std::cout << "- Yellow: Shooting (200 points)" << std::endl;
-    std::cout << "=====================" << std::endl;
-    
-    // === ГЛАВНЫЙ ЦИКЛ ===
-    float lastTime = static_cast<float>(glfwGetTime());
-    float accumulator = 0.0f;
-    
-    while (!drawing.ShouldClose() && playerHealth > 0) {
-        // Время
-        float currentTime = static_cast<float>(glfwGetTime());
-        float deltaTime = currentTime - lastTime;
-        lastTime = currentTime;
+    if (!ImGui_ImplOpenGL3_Init("#version 130")) {
+        std::cerr << "Failed to init ImGui OpenGL3!" << std::endl;
+        return -1;
+    }
+    std::cout << "ImGui OpenGL3 initialized" << std::endl;
+
+    RenderSettings* renderSettings = graphics->GetRenderSettings();
+    if (renderSettings) {
+        renderSettings->SetGlobalScale(1.0f);
+        renderSettings->SetReferenceResolution(1920.0f, 1080.0f);
+        renderSettings->SetCurrentResolution(SCREEN_WIDTH, SCREEN_HEIGHT);
+        renderSettings->SetMaintainAspectRatio(true);
+        renderSettings->SetBrightness(1.0f);
+        renderSettings->SetContrast(1.0f);
+        renderSettings->SetOffset(glm::vec2(0.0f, 0.0f));
         
-        if (deltaTime > 0.1f) deltaTime = 0.1f;
-        accumulator += deltaTime;
-        
-        // Обновление кулдауна урона
-        if (playerDamageCooldown > 0.0f) {
-            playerDamageCooldown -= deltaTime;
-            if (playerDamageCooldown < 0.0f) playerDamageCooldown = 0.0f;
-        }
-        
-        // Обработка ввода
-        drawing.PollEvents();
-        
-        // Очищаем экран
-        drawing.Clear();
-        
-        // Фиксированный шаг обновления логики
-        while (accumulator >= FIXED_TIMESTEP) {
-            // 1. Обновление всех объектов
-            for (auto obj : gameObjects) {
-                if (obj) {
-                    obj->Update(FIXED_TIMESTEP);
-                }
-            }
-            
-            // 2. Проверка всех столкновений
-            CheckBulletEnemyCollisions();
-            CheckEnemyBulletPlayerCollisions(player);
-            CheckPlayerEnemyCollisions(player);
-            CheckEnemyEnemyCollisions();
-            
-            // 3. Обновление системы волн
-            waveSystem.Update(FIXED_TIMESTEP);
-            
-            accumulator -= FIXED_TIMESTEP;
-        }
-        
-        // Удаление объектов
-        if (!objectsToDestroy.empty()) {
-            for (auto obj : objectsToDestroy) {
-                auto it = std::find(gameObjects.begin(), gameObjects.end(), obj);
-                if (it != gameObjects.end()) {
-                    delete *it;
-                    gameObjects.erase(it);
-                }
-            }
-            objectsToDestroy.clear();
-        }
-        
-        // SwapBuffers
-        drawing.SwapBuffers();
-        
-        // Ограничение FPS
-        float frameTime = static_cast<float>(glfwGetTime()) - currentTime;
-        if (frameTime < 1.0f / 60.0f) {
-            float sleepTime = (1.0f / 60.0f) - frameTime;
-            if (sleepTime > 0) {
-                float start = static_cast<float>(glfwGetTime());
-                while (static_cast<float>(glfwGetTime()) - start < sleepTime) {
-                    // Задержка
-                }
-            }
-        }
-        
-        // Выход по ESC
-        if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-            break;
-        }
+        std::cout << "RenderSettings configured" << std::endl;
+    }
+
+    graphics->ApplyRenderSettingsToCamera();
+    
+    std::cout << "\nSTEP 8: Initializing systems..." << std::endl;
+    Time::Initialize();
+    std::cout << "Time initialized" << std::endl;
+    
+    InputSystem::GetInstance().Initialize(window);
+    std::cout << "InputSystem initialized" << std::endl;
+    
+    std::cout << "\nSTEP 9: Loading resources..." << std::endl;
+    auto& rm = ResourceManager::GetInstance();
+    
+    rm.LoadResource("Assets/textures/player.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/enemy_normal.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/enemy_fast.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/enemy_tank.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/enemy_shooter.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/enemy_bomber.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/enemy_healer.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/bullet_player.png", ResourceType::Texture);
+    rm.LoadResource("Assets/textures/enemy_bullet.png", ResourceType::Texture);
+    std::cout << "All textures loaded" << std::endl;
+    
+    std::cout << "\nSTEP 10: Creating scene..." << std::endl;
+    auto scene = std::make_unique<Scene>("GameScene");
+    if (!scene) {
+        std::cerr << "Failed to create scene!" << std::endl;
+        return -1;
+    }
+    GameState::currentScene = scene.get();
+    std::cout << "Scene created: " << scene.get() << std::endl;
+    
+    std::cout << "\nSTEP 11: Creating game objects..." << std::endl;
+    
+    // CollisionSystem
+    std::cout << "Creating CollisionSystem..." << std::endl;
+    auto collisionObj = std::make_unique<GameObject>();
+    collisionObj->AddComponent(new CollisionSystem());
+    scene->AddGameObject(std::move(collisionObj));
+    std::cout << "CollisionSystem added" << std::endl;
+    
+    // HUD
+    std::cout << "Creating HUD..." << std::endl;
+    auto hudObj = std::make_unique<GameObject>();
+    hudObj->AddComponent(new SimpleHUD());
+    scene->AddGameObject(std::move(hudObj));
+    std::cout << "HUD added" << std::endl;
+    
+    // WaveSystem
+    std::cout << "Creating WaveSystem..." << std::endl;
+    auto wavesObj = std::make_unique<GameObject>();
+    wavesObj->AddComponent(new WaveSystem(*scene, *spriteRenderer));
+    scene->AddGameObject(std::move(wavesObj));
+    std::cout << "WaveSystem added" << std::endl;
+    
+    // Player
+    std::cout << "Creating Player..." << std::endl;
+    GameObject* playerObj = scene->CreateGameObject();
+    if (!playerObj) {
+        std::cerr << "Failed to create player object!" << std::endl;
+        return -1;
     }
     
-    // === ЗАВЕРШЕНИЕ ИГРЫ ===
-    std::cout << "\n=== GAME OVER ===" << std::endl;
-    std::cout << "Final Score: " << score << std::endl;
-    std::cout << "Waves survived: " << waveSystem.GetCurrentWave() - 1 << std::endl;
+    auto playerTrans = std::make_unique<Transform2D>();
+    playerTrans->position = Vector2(0, 0);
+    playerTrans->scale = Vector2(0.15f, 0.15f);
+    playerObj->AddComponent(playerTrans.release());
     
-    // Очистка памяти
-    for (auto obj : gameObjects) {
-        delete obj;
+    auto playerSprite = std::make_unique<Sprite>(*spriteRenderer, "Assets/textures/player.png");
+    playerSprite->SetSize(30.0f, 30.0f);
+    playerObj->AddComponent(playerSprite.release());
+    
+    playerObj->AddComponent(new Player());
+    
+    auto shootingSystem = new ShootingSystem();
+    shootingSystem->SetScene(scene.get());
+    shootingSystem->SetRenderer(spriteRenderer);
+    playerObj->AddComponent(shootingSystem);
+    
+    auto playerRb = std::make_unique<RigidBody2D>(1.0f, 0.5f);
+    playerObj->AddComponent(playerRb.release());
+    
+    playerObj->Start();
+    std::cout << "Player created and started" << std::endl;
+    
+    // Создаем несколько тестовых врагов для отладки
+    std::cout << "Creating test enemies..." << std::endl;
+    for (int i = 0; i < 3; i++) {
+        float angle = (i * 120) * 3.14159f / 180.0f;
+        float distance = 1.5f;
+        Vector2 pos = Vector2(sin(angle) * distance, cos(angle) * distance);
+        
+        GameObject* enemy = scene->CreateGameObject();
+        
+        auto enemyTrans = std::make_unique<Transform2D>();
+        enemyTrans->position = pos;
+        enemyTrans->scale = Vector2(0.12f, 0.12f);
+        enemy->AddComponent(enemyTrans.release());
+        
+        auto enemySprite = std::make_unique<Sprite>(*spriteRenderer, "Assets/textures/enemy_normal.png");
+        enemySprite->SetSize(40.0f, 40.0f);
+        enemy->AddComponent(enemySprite.release());
+        
+        Enemy* enemyComp = new Enemy();
+        enemyComp->SetScene(scene.get());
+        enemy->AddComponent(enemyComp);
+        
+        auto enemyRb = std::make_unique<RigidBody2D>(1.0f, 0.5f);
+        enemy->AddComponent(enemyRb.release());
+        
+        enemy->Start();
     }
-    gameObjects.clear();
+    GameState::enemiesRemaining = 3;
+    GameState::waveNumber = 1;
+    
+    std::cout << "\nSTEP 12: Entering main loop..." << std::endl;
+    
+    int frameCount = 0;
+    auto lastTime = std::chrono::steady_clock::now();
+    bool firstFrame = true;
+    
+    // Главный игровой цикл
+    while (!drawing->ShouldClose()) {
+        if (firstFrame) {
+            std::cout << "First frame starting..." << std::endl;
+            firstFrame = false;
+        }
+        
+        frameCount++;
+        auto currentTime = std::chrono::steady_clock::now();
+        float dt = std::chrono::duration<float>(currentTime - lastTime).count();
+        
+        if (dt >= 1.0f) {
+            std::cout << "FPS: " << frameCount 
+                     << " | Health: " << GameState::playerHealth
+                     << " | Enemies: " << GameState::enemiesRemaining 
+                     << " | Wave: " << GameState::waveNumber 
+                     << " | Score: " << GameState::score << std::endl;
+            frameCount = 0;
+            lastTime = currentTime;
+        }
+        
+        // Обновление времени и ввода
+        Time::Tick();
+        InputSystem::GetInstance().Update();
+        
+        // Получаем позицию мыши
+        double mouseX, mouseY;
+        glfwGetCursorPos(window, &mouseX, &mouseY);
+        GameState::mousePosition = ScreenToWorld(Vector2((float)mouseX, (float)mouseY), SCREEN_WIDTH, SCREEN_HEIGHT);
+        
+        // Очистка экрана
+        drawing->Clear();
+        
+        std::cout << "RENDERING STARTED" << std::endl;
+        // ВАЖНО: Сначала рендерим (сбор данных для отрисовки)
+        graphics->Update();
+        std::cout << "RENDERING COMPLITED" << std::endl;
+        
+        std::cout << "UpdateScene STARTED" << std::endl;
+        // ПОТОМ обновляем логику (здесь могут удаляться объекты)
+        scene->UpdateScene();
+        std::cout << "UpdateScene COMPLITED" << std::endl;
+        
+        std::cout << "ImGui STARTED" << std::endl;
+        // Рендеринг ImGui
+        ImGui_ImplOpenGL3_NewFrame();
+        ImGui_ImplGlfw_NewFrame();
+        ImGui::NewFrame();
+        
+        auto hudObjs = scene->FindGameObjectsWithComponent<SimpleHUD>();
+        if (!hudObjs.empty()) {
+            auto* hudComp = hudObjs[0]->GetComponentOfType<SimpleHUD>();
+            if (hudComp) {
+                hudComp->RenderImGui();
+            }
+        }
+        
+        ImGui::Render();
+        ImGui_ImplOpenGL3_RenderDrawData(ImGui::GetDrawData());
+        
+        // Смена буферов и обработка событий
+        drawing->SwapBuffers();
+        drawing->PollEvents();
+
+        std::cout << "ImGui COMPLITED" << std::endl;
+        
+        // Небольшая задержка для снижения нагрузки на CPU
+        std::this_thread::sleep_for(std::chrono::milliseconds(1));
+    }
+    
+    std::cout << "\nSTEP FINAL: Shutting down..." << std::endl;
+    
+    // Очистка ImGui
+    ImGui_ImplOpenGL3_Shutdown();
+    ImGui_ImplGlfw_Shutdown();
+    ImGui::DestroyContext();
+    
+    // Очистка ресурсов
+    ResourceManager::GetInstance().ClearAll();
+    TagManager::DestroyInstance();
+    
+    std::cout << "Final Score: " << GameState::score << std::endl;
+    std::cout << "=== PROGRAM ENDED ===" << std::endl;
     
     return 0;
 }

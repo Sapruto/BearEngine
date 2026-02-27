@@ -1,0 +1,68 @@
+name : GameScene
+{
+    game_objects
+    {
+        object
+        {
+            name : Background
+            components
+            {
+                Transform2D
+                {
+                    position : (0, 0)
+                    scale : (2.4, 2.4)
+                }
+                Sprite
+                {
+                    texture : "textures/background.png"
+                    size : (800, 600)
+                }
+                Background
+                {
+                }
+            }
+        }
+        
+        object
+        {
+            name : Player
+            components
+            {
+                Transform2D
+                {
+                    position : (0, -0.8)
+                    scale : (0.1, 0.1)
+                }
+                Sprite
+                {
+                    texture : "textures/player.png"
+                    size : (80, 80)
+                }
+                Player
+                {
+                    moveForce : 8.0
+                }
+                ShootingSystem
+                {
+                    shootCooldown : 0.2
+                }
+                RigidBody2D
+                {
+                    mass : 1.0
+                    drag : 0.7
+                }
+            }
+        }
+        
+        object
+        {
+            name : UI
+            components
+            {
+                GameUI
+                {
+                }
+            }
+        }
+    }
+}

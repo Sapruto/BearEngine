@@ -1,10 +1,11 @@
 #include <vector>
 #include "include/core/phisic_engine/Rigidbody2D.h"
 #include "include/core/GameObject.h"
-#include "include/core/Component.h"
+#include "include/core/system_engine/component_system/Component.h"
 
 #include "include/core/math/Vector2.h"
 #include "include/core/math/Transform2D.h"
+#include "include/core/system_engine/time_system/Time.h"
 
 RigidBody2D::RigidBody2D(float mass, float drag) 
         : mass(mass), drag(drag), transform(nullptr), velocity(0, 0), acceleration(0, 0) {}
@@ -12,15 +13,14 @@ RigidBody2D::RigidBody2D(float mass, float drag)
 RigidBody2D::~RigidBody2D() {}
 
 void RigidBody2D::Start(){
-    Component::Start();
     transform = gameObject->GetComponentOfType<Transform2D>();
 }
 
-void RigidBody2D::Update(float deltaTime){
-    Component::Update(deltaTime);
-    if (!transform || mass <= 0 || deltaTime <= 0) return;
-    
-    if (deltaTime > 0.1f) deltaTime = 0.1f;
+void RigidBody2D::Update(){
+    float dt = Time::DeltaTime();
+    if (!transform || mass <= 0 || dt <= 0) return;
+    if (dt > 0.1f) dt = 0.1f;
+    velocity += acceleration * dt;
     
     Vector2 totalForce(0, 0);
     for (const auto& force : forces) {
@@ -29,14 +29,14 @@ void RigidBody2D::Update(float deltaTime){
     
     acceleration = totalForce / mass;
     
-    velocity += acceleration * deltaTime;
+    velocity += acceleration * dt;
     
-    float dragFactor = 1.0f - drag * deltaTime;
+    float dragFactor = 1.0f - drag * dt;
     if (dragFactor < 0) dragFactor = 0;
     if (dragFactor > 1) dragFactor = 1;
     velocity *= dragFactor;
     
-    transform->position += velocity * deltaTime;
+    transform->position += velocity * dt;
     
     forces.clear();
 }

@@ -92,3 +92,7 @@ Vector2 Vector2::rotateTowards(const Vector2& current, const Vector2& target,
     
     return current.rotated(angleDiff);
 }
+
+float Vector2::cross(const Vector2& a, const Vector2& b){
+    return a.x * b.y - a.y * b.x;
+}
