@@ -1,6 +1,6 @@
 @echo off
 echo ===============================
-echo  FINAL BUILD - SDL2 + Windows
+echo  BUILD
 echo ===============================
 
 set SDL_PATH=src\dependencies\SDL2-2.28.5\x86_64-w64-mingw32
