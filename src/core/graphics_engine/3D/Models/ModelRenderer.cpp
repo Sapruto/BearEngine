@@ -51,8 +51,10 @@ void ModelRenderer::Update(){
         glUniformMatrix4fv(m_Uniforms.view, 1, GL_FALSE, 
                           glm::value_ptr(camera->GetViewMatrix()));
     }
-    
-    glUniform3f(glGetUniformLocation(m_Shader.GetID(), "lightPos"), 5.0f, 10.0f, 5.0f);
+
+    float light[3] = {5.0f, 10.0f, 5.0f};
+
+    glUniform3f(glGetUniformLocation(m_Shader.GetID(), "lightPos"), light[0], light[1], light[2]);
     glUniform3f(glGetUniformLocation(m_Shader.GetID(), "viewPos"), 
                 camera->position.x, camera->position.y, camera->position.z);
     

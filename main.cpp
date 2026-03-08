@@ -7,25 +7,24 @@
 #include "ResourceManager.h"
 #include "GameObject.h"
 #include "Transform3D.h"
+#include "InputSystem.h"
 
 int main() {
-    // 1. Окно
     float clearColor[4] = {0.2f, 0.2f, 0.2f, 1.0f};
     Window* window = new Window(1280, 720, clearColor, "3D Test");
     if (!window->Initialize()) return -1;
 
-    // 2. GraphicsManager
     GraphicsManager graphics;
     graphics.SetWindow(window);
     
-    // Камера
     Camera3D* camera = new Camera3D(Vector3(0, 5, 30));
     graphics.SetCamera(camera);
+
+    InputSystem& input = InputSystem::GetInstance();
+    input.Initialize(window->GetWindow());
     
-    // 3. ResourceManager
     ResourceManager resources;
     
-    // 4. Загружаем модель
     resources.LoadResource("Assets/models/cube.obj", ResourceType::Model);
     Model* cubeModel = resources.GetResourceAs<Model>("Assets/models/cube.obj");
     
@@ -34,17 +33,17 @@ int main() {
         return -1;
     }
     
-    // 5. Рендерер
+    
     ModelRenderer* renderer = graphics.AddRender<ModelRenderer>();
     std::cout << "Renderer address: " << renderer << std::endl;
     
-    // 6. Цвета
+    
     float red[3] = {1, 0, 0};
     float green[3] = {0, 1, 0};
     float blue[3] = {0, 0, 1};
     float yellow[3] = {1, 1, 0};
     
-    // 7. Создаем объекты - РАЗЫМЕНОВЫВАЕМ renderer!
+    
     GameObject* obj1 = new GameObject();
     Transform3D* t1 = obj1->AddComponent<Transform3D>();
     t1->position = Vector3(-3, 0, 0);
@@ -69,7 +68,7 @@ int main() {
     GameObject* obj4 = new GameObject();
     Transform3D* t4 = obj4->AddComponent<Transform3D>();
     t4->position = Vector3(0, -1, 2);
-    t4->scale = Vector3(0.1f, 0.1f, 0.1f);
+    t4->scale = Vector3(1.0f, 1.0f, 1.0f);
     ModelComponent* m4 = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", yellow);
     obj4->AddComponent(m4);
 
@@ -78,14 +77,58 @@ int main() {
     renderer->RegisterRenderComponent(m3);
     renderer->RegisterRenderComponent(m4);
     
-    // 8. Главный цикл
     while (!window->ShouldClose()) {
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        input.Update();
         
+        float cameraSpeed = 0.1f;
+        Vector3 oldPos = camera->position;
+        
+        if (input.GetKey(Keys::W)) {
+            camera->position = camera->position + camera->front * cameraSpeed;
+        }
+        if (input.GetKey(Keys::S)) {
+            camera->position = camera->position - camera->front * cameraSpeed;
+        }
+        if (input.GetKey(Keys::A)) {
+            camera->position = camera->position - camera->right * cameraSpeed;
+        }
+        if (input.GetKey(Keys::D)) {
+            camera->position = camera->position + camera->right * cameraSpeed;
+        }
+        if (input.GetKey(Keys::Space)) {
+            camera->position.y += cameraSpeed;
+        }
+        if (input.GetKey(Keys::LeftShift)) {
+            camera->position.y -= cameraSpeed;
+        }
+        
+        static bool firstMouse = true;
+        static float lastX, lastY;
+        
+        if (input.GetMouseButton(GLFW_MOUSE_BUTTON_RIGHT)) {
+            double xpos = input.GetMouseX();
+            double ypos = input.GetMouseY();
+            
+            if (firstMouse) {
+                lastX = xpos;
+                lastY = ypos;
+                firstMouse = false;
+            }
+            
+            float xoffset = xpos - lastX;
+            float yoffset = lastY - ypos; 
+            
+            lastX = xpos;
+            lastY = ypos;
+            
+            camera->ProcessMouse(xoffset, yoffset);
+        } else {
+            firstMouse = true;
+        }
+        
+        window->Clear();
         t4->rotation.y += 0.5f;
-        
         graphics.Update();
-        
         window->SwapBuffers();
         window->PollEvents();
     }

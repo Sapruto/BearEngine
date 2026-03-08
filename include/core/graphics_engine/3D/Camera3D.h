@@ -26,4 +26,6 @@ public:
     glm::mat4 GetProjectionMatrix(float aspectRatio);
     
     void updateVectors();
+
+    void ProcessMouse(float xoffset, float yoffset);
 };

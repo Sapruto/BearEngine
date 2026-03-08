@@ -29,3 +29,17 @@ void Camera3D::updateVectors() {
     right = front.cross(worldUp).normalized();
     up = right.cross(front).normalized();
 }
+
+void Camera3D::ProcessMouse(float xoffset, float yoffset) {
+    float sensitivity = 0.1f;
+    xoffset *= sensitivity;
+    yoffset *= sensitivity;
+    
+    yaw += xoffset;
+    pitch += yoffset;
+    
+    if (pitch > 89.0f) pitch = 89.0f;
+    if (pitch < -89.0f) pitch = -89.0f;
+    
+    updateVectors();
+}
