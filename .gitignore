@@ -1,0 +1,19 @@
+# Build directories
+build/
+Build/
+*.o
+*.exe
+*.out
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+output.log
+
+# Compiled files
+*.so
+*.dll
+*.dylib
