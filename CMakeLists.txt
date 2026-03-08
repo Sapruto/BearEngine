@@ -15,6 +15,7 @@ find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(Threads REQUIRED)
+find_package(assimp REQUIRED)
 
 # ========== ПУТИ ==========
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
@@ -133,14 +134,17 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsManagers
+
+    # 3D папки
+    ${ROOT_DIR}/include/core/graphics_engine/3D
+    ${ROOT_DIR}/include/core/graphics_engine/3D/Models
+    
+    # 2D папки (для Sprite)
+    ${ROOT_DIR}/include/core/graphics_engine/2D
+    ${ROOT_DIR}/include/core/graphics_engine/2D/Sprite
     
     # Зависимости
     ${GLM_DIR}
-    ${GLM_DIR}/GLM
-    ${GLM_DIR}/GLM/simd
-    ${GLM_DIR}/GLM/gtx
-    ${GLM_DIR}/GLM/gtc
-    ${GLM_DIR}/GLM/detail
     ${GLAD_DIR}/include
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
@@ -181,6 +185,7 @@ target_link_libraries(game PRIVATE
     Xi
     Xcursor
     Xext
+    assimp::assimp
 )
 
 # ========== ВЫВОД ИНФОРМАЦИИ ==========

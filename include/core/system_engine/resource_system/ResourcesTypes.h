@@ -3,5 +3,6 @@
 enum class ResourceType {
     Texture,
     Font,
-    Audio
+    Audio,
+    Model
 };

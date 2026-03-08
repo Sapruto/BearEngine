@@ -4,14 +4,14 @@
 #include <memory>
 
 #include "Renderer.h"
-#include "DrawingWindow.h"
+#include "Window.h"
 #include "Camera.h"   
 #include "RenderSettings.h" 
 
 class GraphicsManager {
 private:
-    std::unique_ptr<DrawingManager> window;
-    std::unique_ptr<Camera2D> camera;
+    std::unique_ptr<Window> window;
+    std::unique_ptr<Camera> camera;
     std::unique_ptr<RenderSettings> renderSettings; 
     
     std::vector<std::unique_ptr<Renderer>> renders;
@@ -21,8 +21,8 @@ public:
         renderSettings = std::make_unique<RenderSettings>();
     }
 
-    void SetCamera(Camera2D* c) { camera.reset(c); }
-    void SetWindow(DrawingManager* w) { window.reset(w); }
+    void SetCamera(Camera* c) { camera.reset(c); }
+    void SetWindow(Window* w) { window.reset(w); }
     void SetRenderSettings(RenderSettings* settings) { renderSettings.reset(settings); }
 
     void Update(){
@@ -54,7 +54,7 @@ public:
 
     void ApplyRenderSettingsToCamera(bool applyOffset = false);
 
-    Camera2D* GetCamera() { return camera.get(); }
-    DrawingManager* GetWindow() { return window.get(); }
+    Camera* GetCamera() { return camera.get(); }
+    Window* GetWindow() { return window.get(); }
     RenderSettings* GetRenderSettings() { return renderSettings.get(); }
 };

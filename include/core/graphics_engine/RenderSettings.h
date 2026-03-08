@@ -1,9 +1,9 @@
 #pragma once
 
-#include <glm.hpp>
+#include <glm/glm.hpp>
 
 class RenderSettings {
-private:
+/*private:
     float globalScale = 1.0f;    
     glm::vec2 referenceResolution = glm::vec2(1920.0f, 1080.0f); 
     glm::vec2 currentResolution = glm::vec2(1920.0f, 1080.0f); 
@@ -77,4 +77,5 @@ public:
         
         return matrix;
     }
+        */
 };

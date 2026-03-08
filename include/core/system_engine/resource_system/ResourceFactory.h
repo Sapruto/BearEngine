@@ -7,6 +7,7 @@
 #include "Texture.h"
 #include "Font.h"
 #include "Audio.h"
+#include "Model.h"
 #include "ResourcesTypes.h"
 
 class ResourceFactory {

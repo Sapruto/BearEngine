@@ -4,10 +4,9 @@
 #include <vector>
 
 class Component {
-protected:
-    GameObject* gameObject;
-    
 public:
+    GameObject* gameObject;
+
     Component() : gameObject(nullptr) {}
     
     virtual ~Component() {}

@@ -13,13 +13,5 @@ void GraphicsManager::RemoveRender(Renderer* render){
 }
 
 void GraphicsManager::ApplyRenderSettingsToCamera(bool applyOffset) {
-    if (!camera || !renderSettings) return;
-    
-    float currentZoom = camera->GetZoom();
-    camera->SetZoom(currentZoom * renderSettings->GetGlobalScale());
-    
-    if (applyOffset) {
-        glm::vec2 currentPos = camera->GetPosition();
-        camera->SetPosition(currentPos + renderSettings->GetOffset());
-    }
+
 }

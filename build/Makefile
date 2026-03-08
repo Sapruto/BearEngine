@@ -384,53 +384,149 @@ src/core/geometry/colliders_manager/ColliderManager.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.s
 .PHONY : src/core/geometry/colliders_manager/ColliderManager.cpp.s
 
-src/core/graphics_engine/Camera.o: src/core/graphics_engine/Camera.cpp.o
-.PHONY : src/core/graphics_engine/Camera.o
+src/core/graphics_engine/2D/Camera2D.o: src/core/graphics_engine/2D/Camera2D.cpp.o
+.PHONY : src/core/graphics_engine/2D/Camera2D.o
 
 # target to build an object file
-src/core/graphics_engine/Camera.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Camera.cpp.o
-.PHONY : src/core/graphics_engine/Camera.cpp.o
+src/core/graphics_engine/2D/Camera2D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o
+.PHONY : src/core/graphics_engine/2D/Camera2D.cpp.o
 
-src/core/graphics_engine/Camera.i: src/core/graphics_engine/Camera.cpp.i
-.PHONY : src/core/graphics_engine/Camera.i
+src/core/graphics_engine/2D/Camera2D.i: src/core/graphics_engine/2D/Camera2D.cpp.i
+.PHONY : src/core/graphics_engine/2D/Camera2D.i
 
 # target to preprocess a source file
-src/core/graphics_engine/Camera.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Camera.cpp.i
-.PHONY : src/core/graphics_engine/Camera.cpp.i
+src/core/graphics_engine/2D/Camera2D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.i
+.PHONY : src/core/graphics_engine/2D/Camera2D.cpp.i
 
-src/core/graphics_engine/Camera.s: src/core/graphics_engine/Camera.cpp.s
-.PHONY : src/core/graphics_engine/Camera.s
+src/core/graphics_engine/2D/Camera2D.s: src/core/graphics_engine/2D/Camera2D.cpp.s
+.PHONY : src/core/graphics_engine/2D/Camera2D.s
 
 # target to generate assembly for a file
-src/core/graphics_engine/Camera.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Camera.cpp.s
-.PHONY : src/core/graphics_engine/Camera.cpp.s
+src/core/graphics_engine/2D/Camera2D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.s
+.PHONY : src/core/graphics_engine/2D/Camera2D.cpp.s
 
-src/core/graphics_engine/DrawingWindow.o: src/core/graphics_engine/DrawingWindow.cpp.o
-.PHONY : src/core/graphics_engine/DrawingWindow.o
+src/core/graphics_engine/2D/Sprite/Sprite.o: src/core/graphics_engine/2D/Sprite/Sprite.cpp.o
+.PHONY : src/core/graphics_engine/2D/Sprite/Sprite.o
 
 # target to build an object file
-src/core/graphics_engine/DrawingWindow.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/DrawingWindow.cpp.o
-.PHONY : src/core/graphics_engine/DrawingWindow.cpp.o
+src/core/graphics_engine/2D/Sprite/Sprite.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o
+.PHONY : src/core/graphics_engine/2D/Sprite/Sprite.cpp.o
 
-src/core/graphics_engine/DrawingWindow.i: src/core/graphics_engine/DrawingWindow.cpp.i
-.PHONY : src/core/graphics_engine/DrawingWindow.i
+src/core/graphics_engine/2D/Sprite/Sprite.i: src/core/graphics_engine/2D/Sprite/Sprite.cpp.i
+.PHONY : src/core/graphics_engine/2D/Sprite/Sprite.i
 
 # target to preprocess a source file
-src/core/graphics_engine/DrawingWindow.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/DrawingWindow.cpp.i
-.PHONY : src/core/graphics_engine/DrawingWindow.cpp.i
+src/core/graphics_engine/2D/Sprite/Sprite.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.i
+.PHONY : src/core/graphics_engine/2D/Sprite/Sprite.cpp.i
 
-src/core/graphics_engine/DrawingWindow.s: src/core/graphics_engine/DrawingWindow.cpp.s
-.PHONY : src/core/graphics_engine/DrawingWindow.s
+src/core/graphics_engine/2D/Sprite/Sprite.s: src/core/graphics_engine/2D/Sprite/Sprite.cpp.s
+.PHONY : src/core/graphics_engine/2D/Sprite/Sprite.s
 
 # target to generate assembly for a file
-src/core/graphics_engine/DrawingWindow.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/DrawingWindow.cpp.s
-.PHONY : src/core/graphics_engine/DrawingWindow.cpp.s
+src/core/graphics_engine/2D/Sprite/Sprite.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.s
+.PHONY : src/core/graphics_engine/2D/Sprite/Sprite.cpp.s
+
+src/core/graphics_engine/2D/Sprite/SpriteRenderer.o: src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o
+.PHONY : src/core/graphics_engine/2D/Sprite/SpriteRenderer.o
+
+# target to build an object file
+src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o
+.PHONY : src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o
+
+src/core/graphics_engine/2D/Sprite/SpriteRenderer.i: src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.i
+.PHONY : src/core/graphics_engine/2D/Sprite/SpriteRenderer.i
+
+# target to preprocess a source file
+src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.i
+.PHONY : src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.i
+
+src/core/graphics_engine/2D/Sprite/SpriteRenderer.s: src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.s
+.PHONY : src/core/graphics_engine/2D/Sprite/SpriteRenderer.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.s
+.PHONY : src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.s
+
+src/core/graphics_engine/3D/Camera3D.o: src/core/graphics_engine/3D/Camera3D.cpp.o
+.PHONY : src/core/graphics_engine/3D/Camera3D.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Camera3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o
+.PHONY : src/core/graphics_engine/3D/Camera3D.cpp.o
+
+src/core/graphics_engine/3D/Camera3D.i: src/core/graphics_engine/3D/Camera3D.cpp.i
+.PHONY : src/core/graphics_engine/3D/Camera3D.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Camera3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.i
+.PHONY : src/core/graphics_engine/3D/Camera3D.cpp.i
+
+src/core/graphics_engine/3D/Camera3D.s: src/core/graphics_engine/3D/Camera3D.cpp.s
+.PHONY : src/core/graphics_engine/3D/Camera3D.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Camera3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.s
+.PHONY : src/core/graphics_engine/3D/Camera3D.cpp.s
+
+src/core/graphics_engine/3D/Models/ModelComponent.o: src/core/graphics_engine/3D/Models/ModelComponent.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelComponent.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Models/ModelComponent.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelComponent.cpp.o
+
+src/core/graphics_engine/3D/Models/ModelComponent.i: src/core/graphics_engine/3D/Models/ModelComponent.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelComponent.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Models/ModelComponent.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelComponent.cpp.i
+
+src/core/graphics_engine/3D/Models/ModelComponent.s: src/core/graphics_engine/3D/Models/ModelComponent.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelComponent.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Models/ModelComponent.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelComponent.cpp.s
+
+src/core/graphics_engine/3D/Models/ModelRenderer.o: src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderer.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o
+
+src/core/graphics_engine/3D/Models/ModelRenderer.i: src/core/graphics_engine/3D/Models/ModelRenderer.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderer.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Models/ModelRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderer.cpp.i
+
+src/core/graphics_engine/3D/Models/ModelRenderer.s: src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderer.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s
 
 src/core/graphics_engine/GraphicsManager.o: src/core/graphics_engine/GraphicsManager.cpp.o
 .PHONY : src/core/graphics_engine/GraphicsManager.o
@@ -480,53 +576,29 @@ src/core/graphics_engine/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.s
 .PHONY : src/core/graphics_engine/Shader.cpp.s
 
-src/core/graphics_engine/Sprite/Sprite.o: src/core/graphics_engine/Sprite/Sprite.cpp.o
-.PHONY : src/core/graphics_engine/Sprite/Sprite.o
+src/core/graphics_engine/Window.o: src/core/graphics_engine/Window.cpp.o
+.PHONY : src/core/graphics_engine/Window.o
 
 # target to build an object file
-src/core/graphics_engine/Sprite/Sprite.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Sprite/Sprite.cpp.o
-.PHONY : src/core/graphics_engine/Sprite/Sprite.cpp.o
+src/core/graphics_engine/Window.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o
+.PHONY : src/core/graphics_engine/Window.cpp.o
 
-src/core/graphics_engine/Sprite/Sprite.i: src/core/graphics_engine/Sprite/Sprite.cpp.i
-.PHONY : src/core/graphics_engine/Sprite/Sprite.i
-
-# target to preprocess a source file
-src/core/graphics_engine/Sprite/Sprite.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Sprite/Sprite.cpp.i
-.PHONY : src/core/graphics_engine/Sprite/Sprite.cpp.i
-
-src/core/graphics_engine/Sprite/Sprite.s: src/core/graphics_engine/Sprite/Sprite.cpp.s
-.PHONY : src/core/graphics_engine/Sprite/Sprite.s
-
-# target to generate assembly for a file
-src/core/graphics_engine/Sprite/Sprite.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Sprite/Sprite.cpp.s
-.PHONY : src/core/graphics_engine/Sprite/Sprite.cpp.s
-
-src/core/graphics_engine/Sprite/SpriteRenderer.o: src/core/graphics_engine/Sprite/SpriteRenderer.cpp.o
-.PHONY : src/core/graphics_engine/Sprite/SpriteRenderer.o
-
-# target to build an object file
-src/core/graphics_engine/Sprite/SpriteRenderer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Sprite/SpriteRenderer.cpp.o
-.PHONY : src/core/graphics_engine/Sprite/SpriteRenderer.cpp.o
-
-src/core/graphics_engine/Sprite/SpriteRenderer.i: src/core/graphics_engine/Sprite/SpriteRenderer.cpp.i
-.PHONY : src/core/graphics_engine/Sprite/SpriteRenderer.i
+src/core/graphics_engine/Window.i: src/core/graphics_engine/Window.cpp.i
+.PHONY : src/core/graphics_engine/Window.i
 
 # target to preprocess a source file
-src/core/graphics_engine/Sprite/SpriteRenderer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Sprite/SpriteRenderer.cpp.i
-.PHONY : src/core/graphics_engine/Sprite/SpriteRenderer.cpp.i
+src/core/graphics_engine/Window.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.i
+.PHONY : src/core/graphics_engine/Window.cpp.i
 
-src/core/graphics_engine/Sprite/SpriteRenderer.s: src/core/graphics_engine/Sprite/SpriteRenderer.cpp.s
-.PHONY : src/core/graphics_engine/Sprite/SpriteRenderer.s
+src/core/graphics_engine/Window.s: src/core/graphics_engine/Window.cpp.s
+.PHONY : src/core/graphics_engine/Window.s
 
 # target to generate assembly for a file
-src/core/graphics_engine/Sprite/SpriteRenderer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Sprite/SpriteRenderer.cpp.s
-.PHONY : src/core/graphics_engine/Sprite/SpriteRenderer.cpp.s
+src/core/graphics_engine/Window.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.s
+.PHONY : src/core/graphics_engine/Window.cpp.s
 
 src/core/math/2D/Transform2D.o: src/core/math/2D/Transform2D.cpp.o
 .PHONY : src/core/math/2D/Transform2D.o
@@ -1344,6 +1416,30 @@ src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.s
 .PHONY : src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.s
 
+src/core/system_engine/resource_system/ResourcesTypes/Model.o: src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o
+.PHONY : src/core/system_engine/resource_system/ResourcesTypes/Model.o
+
+# target to build an object file
+src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o
+.PHONY : src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o
+
+src/core/system_engine/resource_system/ResourcesTypes/Model.i: src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.i
+.PHONY : src/core/system_engine/resource_system/ResourcesTypes/Model.i
+
+# target to preprocess a source file
+src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.i
+.PHONY : src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.i
+
+src/core/system_engine/resource_system/ResourcesTypes/Model.s: src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.s
+.PHONY : src/core/system_engine/resource_system/ResourcesTypes/Model.s
+
+# target to generate assembly for a file
+src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.s
+.PHONY : src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.s
+
 src/core/system_engine/resource_system/ResourcesTypes/Texture.o: src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o
 .PHONY : src/core/system_engine/resource_system/ResourcesTypes/Texture.o
 
@@ -1695,24 +1791,33 @@ help:
 	@echo "... src/core/geometry/colliders_manager/ColliderManager.o"
 	@echo "... src/core/geometry/colliders_manager/ColliderManager.i"
 	@echo "... src/core/geometry/colliders_manager/ColliderManager.s"
-	@echo "... src/core/graphics_engine/Camera.o"
-	@echo "... src/core/graphics_engine/Camera.i"
-	@echo "... src/core/graphics_engine/Camera.s"
-	@echo "... src/core/graphics_engine/DrawingWindow.o"
-	@echo "... src/core/graphics_engine/DrawingWindow.i"
-	@echo "... src/core/graphics_engine/DrawingWindow.s"
+	@echo "... src/core/graphics_engine/2D/Camera2D.o"
+	@echo "... src/core/graphics_engine/2D/Camera2D.i"
+	@echo "... src/core/graphics_engine/2D/Camera2D.s"
+	@echo "... src/core/graphics_engine/2D/Sprite/Sprite.o"
+	@echo "... src/core/graphics_engine/2D/Sprite/Sprite.i"
+	@echo "... src/core/graphics_engine/2D/Sprite/Sprite.s"
+	@echo "... src/core/graphics_engine/2D/Sprite/SpriteRenderer.o"
+	@echo "... src/core/graphics_engine/2D/Sprite/SpriteRenderer.i"
+	@echo "... src/core/graphics_engine/2D/Sprite/SpriteRenderer.s"
+	@echo "... src/core/graphics_engine/3D/Camera3D.o"
+	@echo "... src/core/graphics_engine/3D/Camera3D.i"
+	@echo "... src/core/graphics_engine/3D/Camera3D.s"
+	@echo "... src/core/graphics_engine/3D/Models/ModelComponent.o"
+	@echo "... src/core/graphics_engine/3D/Models/ModelComponent.i"
+	@echo "... src/core/graphics_engine/3D/Models/ModelComponent.s"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderer.o"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderer.i"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderer.s"
 	@echo "... src/core/graphics_engine/GraphicsManager.o"
 	@echo "... src/core/graphics_engine/GraphicsManager.i"
 	@echo "... src/core/graphics_engine/GraphicsManager.s"
 	@echo "... src/core/graphics_engine/Shader.o"
 	@echo "... src/core/graphics_engine/Shader.i"
 	@echo "... src/core/graphics_engine/Shader.s"
-	@echo "... src/core/graphics_engine/Sprite/Sprite.o"
-	@echo "... src/core/graphics_engine/Sprite/Sprite.i"
-	@echo "... src/core/graphics_engine/Sprite/Sprite.s"
-	@echo "... src/core/graphics_engine/Sprite/SpriteRenderer.o"
-	@echo "... src/core/graphics_engine/Sprite/SpriteRenderer.i"
-	@echo "... src/core/graphics_engine/Sprite/SpriteRenderer.s"
+	@echo "... src/core/graphics_engine/Window.o"
+	@echo "... src/core/graphics_engine/Window.i"
+	@echo "... src/core/graphics_engine/Window.s"
 	@echo "... src/core/math/2D/Transform2D.o"
 	@echo "... src/core/math/2D/Transform2D.i"
 	@echo "... src/core/math/2D/Transform2D.s"
@@ -1815,6 +1920,9 @@ help:
 	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Font.o"
 	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Font.i"
 	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Font.s"
+	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Model.o"
+	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Model.i"
+	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Model.s"
 	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Texture.o"
 	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Texture.i"
 	@echo "... src/core/system_engine/resource_system/ResourcesTypes/Texture.s"

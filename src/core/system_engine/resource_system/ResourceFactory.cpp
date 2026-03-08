@@ -17,6 +17,8 @@ std::unique_ptr<Resource> ResourceFactory::create(ResourceType type, std::string
             return std::make_unique<Font>(pathName);
         case ResourceType::Audio:
             return std::make_unique<Audio>(pathName);
+        case ResourceType::Model:
+            return std::make_unique<Model>(pathName);
         default:
             return nullptr;
     }
