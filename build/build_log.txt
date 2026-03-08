@@ -1,0 +1,45 @@
+-- The C compiler identification is GNU 13.3.0
+-- The CXX compiler identification is GNU 13.3.0
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /usr/bin/cc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+CMake Warning (dev) at /usr/share/cmake-3.28/Modules/FindOpenGL.cmake:381 (message):
+  Policy CMP0072 is not set: FindOpenGL prefers GLVND by default when
+  available.  Run "cmake --help-policy CMP0072" for policy details.  Use the
+  cmake_policy command to set the policy and suppress this warning.
+
+  FindOpenGL found both a legacy GL library:
+
+    OPENGL_gl_LIBRARY: /usr/lib/x86_64-linux-gnu/libGL.so
+
+  and GLVND libraries for OpenGL and GLX:
+
+    OPENGL_opengl_LIBRARY: /usr/lib/x86_64-linux-gnu/libOpenGL.so
+    OPENGL_glx_LIBRARY: /usr/lib/x86_64-linux-gnu/libGLX.so
+
+  OpenGL_GL_PREFERENCE has not been set to "GLVND" or "LEGACY", so for
+  compatibility with CMake 3.10 and below the legacy GL library will be used.
+Call Stack (most recent call first):
+  CMakeLists.txt:14 (find_package)
+This warning is for project developers.  Use -Wno-dev to suppress it.
+
+-- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE  
+-- ========================================
+-- Build Type: Debug
+-- Core files: /home/alex/Projects/BearEngine/src/core/GameObject.cpp;/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/BoxCollider2D.cpp;/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/InserectionSegments2D.cpp;/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp;/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp;/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp;/home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp;/home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/ColliderManager.cpp;/home/alex/Projects/BearEngine/src/core/graphics_engine/Camera.cpp;/home/alex/Projects/BearEngine/src/core/graphics_engine/DrawingWindow.cpp;/home/alex/Projects/BearEngine/src/core/graphics_engine/GraphicsManager.cpp;/home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp;/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/Sprite.cpp;/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/SpriteRenderer.cpp;/home/alex/Projects/BearEngine/src/core/math/2D/Transform2D.cpp;/home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp;/home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp;/home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/Rigidbody2D.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp;/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp;/home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp;/home/alex/Projects/BearEngine/src/core/scene_engine/SceneManager.cpp;/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneCreator.cpp;/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp;/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneSerializer.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceFactory.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceManager.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/tags_system/Tag.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/tags_system/TagManager.cpp;/home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp
+-- GLM: /home/alex/Projects/BearEngine/src/dependencies/glm
+-- ImGui language: C++ (forced)
+-- ========================================
+-- Configuring done (3.5s)
+-- Generating done (0.0s)
+-- Build files have been written to: /home/alex/Projects/BearEngine/build

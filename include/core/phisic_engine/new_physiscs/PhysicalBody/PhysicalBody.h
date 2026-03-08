@@ -1,0 +1,86 @@
+#pragma once
+
+#include "GameObject.h"
+
+#include "Transform3D.h"
+#include "BaseCollider.h"
+#include "PhysicFeature.h"
+#include "Component.h"
+
+#include <vector>
+#include <memory>
+#include <algorithm>
+#include <typeinfo>
+#include <typeindex>
+
+class PhysicFeature;
+
+class PhysicsWorld;
+
+class PhysicalBody : public Component{
+private:
+    BaseCollider* collider;
+
+    Transform3D* transform; 
+    
+    float mass;
+    float volume;
+    float density;
+
+    std::vector<std::unique_ptr<PhysicFeature>> features;
+
+    const PhysicsWorld* world;
+
+    bool isIntialized = false;
+    bool isValid;
+
+public:
+    PhysicalBody(BaseCollider* collider, float density);
+    PhysicalBody(BaseCollider* collider);
+    PhysicalBody(BaseCollider* collider, float mass, float volume);
+    ~PhysicalBody();
+
+    void Initialize();
+    void PhysicsUpdate();
+
+    template<typename T, typename... Args>
+    T* AddFeature(Args&&... args) {
+        static_assert(std::is_base_of<PhysicFeature, T>::value, "T must be derived from PhysicFeature");
+        
+        auto feature = std::make_unique<T>(std::forward<Args>(args)...);
+        
+        T* ptr = feature.get();
+        
+        features.push_back(std::move(feature));
+        
+        ptr->SetBody(this);
+
+        if(isIntialized) ptr->Initialize();
+        
+        return ptr;
+    }
+    
+    void RemoveFeature(PhysicFeature* feature);
+
+    template<typename T>
+    T* GetFeatureOfType() {
+        static std::type_index typeIdx = typeid(T);
+        
+        for (const auto& feature : features) {
+            if (typeid(*feature) == typeid(T)) {
+                return static_cast<T*>(feature.get());
+            }
+        }
+        return nullptr;
+    }
+
+    void SetDensity(float density){ this->density = density; Initialize(); }
+    void SetPhysicWorld(PhysicsWorld* world){ this->world = world; }
+    void ClearWorld(){ this->world = nullptr; }
+
+    float GetMass(){ return mass; }
+    float GetDensity(){ return density; }
+    float GetVolume(){ return volume; }
+    BaseCollider* GetBaseCollider(){return collider;}
+    Transform3D* GetTransform() { return transform; }
+};

@@ -1,0 +1,307 @@
+[  1%] Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o
+[  3%] Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o
+[  4%] Building CXX object CMakeFiles/stb_lib.dir/stb_impl.cpp.o
+[  6%] Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o
+[  7%] Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o
+[  9%] Building C object CMakeFiles/glad_lib.dir/src/dependencies/glad/src/glad.c.o
+[ 10%] Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o
+[ 12%] Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o
+[ 13%] Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o
+[ 15%] Linking C static library libglad_lib.a
+[ 15%] Built target glad_lib
+[ 16%] Linking CXX static library libstb_lib.a
+[ 16%] Built target stb_lib
+[ 18%] Linking CXX static library libimgui_lib.a
+[ 18%] Built target imgui_lib
+[ 19%] Building CXX object CMakeFiles/game.dir/main.cpp.o
+[ 22%] Building CXX object CMakeFiles/game.dir/src/core/GameObject.cpp.o
+[ 22%] Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/2D/BoxCollider2D.cpp.o
+[ 24%] Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o
+[ 25%] Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o
+[ 27%] Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o
+[ 30%] Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o
+[ 30%] Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o
+[ 31%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/DrawingWindow.cpp.o
+[ 34%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o
+[ 34%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Sprite/Sprite.cpp.o
+[ 36%] Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o
+[ 37%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Sprite/SpriteRenderer.cpp.o
+[ 39%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Camera.cpp.o
+[ 40%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o
+[ 42%] Building CXX object CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o
+[ 43%] Building CXX object CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o
+/home/alex/Projects/BearEngine/main.cpp:5:10: fatal error: Matrix3.h: No such file or directory
+    5 | #include "Matrix3.h"
+      |          ^~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/game.dir/build.make:76: CMakeFiles/game.dir/main.cpp.o] Error 1
+make[2]: *** Waiting for unfinished jobs....
+/home/alex/Projects/BearEngine/src/core/graphics_engine/DrawingWindow.cpp: In lambda function:
+/home/alex/Projects/BearEngine/src/core/graphics_engine/DrawingWindow.cpp:48:59: warning: unused parameter ‘win’ [-Wunused-parameter]
+   48 |     glfwSetFramebufferSizeCallback(window, [](GLFWwindow* win, int w, int h) {
+      |                                               ~~~~~~~~~~~~^~~
+In file included from /home/alex/Projects/BearEngine/src/core/GameObject.cpp:8:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h:10,
+                 from /home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/ColliderManager.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: At global scope:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:18: warning: ‘virtual void Component::OnCollisionEnter(GameObject*)’ was hidden [-Woverloaded-virtual=]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                  ^~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:18: note:   by ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                  ^~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:63: warning: unused parameter ‘event’ [-Wunused-parameter]
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:61:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   61 |     virtual void OnCollisionStay(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:62:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   62 |     virtual void OnCollisionExit(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:64:61: warning: unused parameter ‘event’ [-Wunused-parameter]
+   64 |     virtual void OnTriggerEnter(const class CollisionEvent& event) {}
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:65:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   65 |     virtual void OnTriggerStay(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:66:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   66 |     virtual void OnTriggerExit(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:3,
+                 from /home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: At global scope:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:18: warning: ‘virtual void Component::OnCollisionEnter(GameObject*)’ was hidden [-Woverloaded-virtual=]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                  ^~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:18: note:   by ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                  ^~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:63: warning: unused parameter ‘event’ [-Wunused-parameter]
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:61:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   61 |     virtual void OnCollisionStay(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:62:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   62 |     virtual void OnCollisionExit(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:64:61: warning: unused parameter ‘event’ [-Wunused-parameter]
+   64 |     virtual void OnTriggerEnter(const class CollisionEvent& event) {}
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:65:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   65 |     virtual void OnTriggerStay(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:66:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   66 |     virtual void OnTriggerExit(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/math/Transform.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/math/2D/Transform2D.h:4,
+                 from /home/alex/Projects/BearEngine/src/core/math/2D/Transform2D.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polygon3D.h:8,
+                 from /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/geometry/colliders/2D/Polygon2D.h:7,
+                 from /home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: At global scope:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:18: warning: ‘virtual void Component::OnCollisionEnter(GameObject*)’ was hidden [-Woverloaded-virtual=]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                  ^~~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:7:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:18: note:   by ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                  ^~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:63: warning: unused parameter ‘event’ [-Wunused-parameter]
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:61:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   61 |     virtual void OnCollisionStay(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:62:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   62 |     virtual void OnCollisionExit(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:64:61: warning: unused parameter ‘event’ [-Wunused-parameter]
+   64 |     virtual void OnTriggerEnter(const class CollisionEvent& event) {}
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h:6,
+                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/GraphicsManager.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:65:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   65 |     virtual void OnTriggerStay(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:66:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   66 |     virtual void OnTriggerExit(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: At global scope:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:18: warning: ‘virtual void Component::OnCollisionEnter(GameObject*)’ was hidden [-Woverloaded-virtual=]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                  ^~~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:7:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:18: note:   by ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                  ^~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:60:63: warning: unused parameter ‘event’ [-Wunused-parameter]
+   60 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
+      |                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:61:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   61 |     virtual void OnCollisionStay(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnCollisionExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:62:62: warning: unused parameter ‘event’ [-Wunused-parameter]
+   62 |     virtual void OnCollisionExit(const class CollisionEvent& event) {}
+      |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerEnter(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:64:61: warning: unused parameter ‘event’ [-Wunused-parameter]
+   64 |     virtual void OnTriggerEnter(const class CollisionEvent& event) {}
+      |                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerStay(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:65:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   65 |     virtual void OnTriggerStay(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h: In member function ‘virtual void BaseCollider::OnTriggerExit(const CollisionEvent&)’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:66:60: warning: unused parameter ‘event’ [-Wunused-parameter]
+   66 |     virtual void OnTriggerExit(const class CollisionEvent& event) {}
+      |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/Sprite/Sprite.h:4,
+                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/Sprite.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp: In member function ‘virtual bool Polygon3D::GetCollisionInfo(const BaseCollider*, Vector3&, Vector3&, float&) const’:
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp:386:70: warning: unused parameter ‘point’ [-Wunused-parameter]
+  386 | bool Polygon3D::GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const {
+      |                                                             ~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp:386:86: warning: unused parameter ‘normal’ [-Wunused-parameter]
+  386 | bool Polygon3D::GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const {
+      |                                                                             ~~~~~~~~~^~~~~~
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp:386:101: warning: unused parameter ‘penetration’ [-Wunused-parameter]
+  386 | bool Polygon3D::GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const {
+      |                                                                                              ~~~~~~~^~~~~~~~~~~
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp: In member function ‘virtual bool Polygon2D::GetCollisionInfo(const BaseCollider*, Vector2&, Vector2&, float&) const’:
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:281:54: warning: unused parameter ‘other’ [-Wunused-parameter]
+  281 | bool Polygon2D::GetCollisionInfo(const BaseCollider* other,
+      |                                  ~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:282:42: warning: unused parameter ‘point’ [-Wunused-parameter]
+  282 |                                 Vector2& point,
+      |                                 ~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:283:42: warning: unused parameter ‘normal’ [-Wunused-parameter]
+  283 |                                 Vector2& normal,
+      |                                 ~~~~~~~~~^~~~~~
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:284:40: warning: unused parameter ‘penetration’ [-Wunused-parameter]
+  284 |                                 float& penetration) const {
+      |                                 ~~~~~~~^~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Transform2D]’:
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:32:64:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h:64:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
+   64 |         static std::type_index typeIdx = typeid(T);
+      |                                ^~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Transform3D]’:
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp:155:64:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h:64:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
+   64 |         static std::type_index typeIdx = typeid(T);
+      |                                ^~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h: In instantiation of ‘bool Collider<ITransform, IVector>::GetCollisionInfo(const BaseCollider*, IVector&, IVector&, float&) const [with ITransform = Transform2D; IVector = Vector2]’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:24:18:   required from here
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:24:55: warning: unused parameter ‘other’ [-Wunused-parameter]
+   24 |     virtual bool GetCollisionInfo(const BaseCollider* other,
+      |                                   ~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:25:44: warning: unused parameter ‘point’ [-Wunused-parameter]
+   25 |                                   IVector& point,
+      |                                   ~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:26:44: warning: unused parameter ‘normal’ [-Wunused-parameter]
+   26 |                                   IVector& normal,
+      |                                   ~~~~~~~~~^~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:27:42: warning: unused parameter ‘penetration’ [-Wunused-parameter]
+   27 |                                   float& penetration) const {
+      |                                   ~~~~~~~^~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h: In instantiation of ‘bool Collider<ITransform, IVector>::GetCollisionInfo(const BaseCollider*, IVector&, IVector&, float&) const [with ITransform = Transform3D; IVector = Vector3]’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:24:18:   required from here
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:24:55: warning: unused parameter ‘other’ [-Wunused-parameter]
+   24 |     virtual bool GetCollisionInfo(const BaseCollider* other,
+      |                                   ~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:25:44: warning: unused parameter ‘point’ [-Wunused-parameter]
+   25 |                                   IVector& point,
+      |                                   ~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:26:44: warning: unused parameter ‘normal’ [-Wunused-parameter]
+   26 |                                   IVector& normal,
+      |                                   ~~~~~~~~~^~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:27:42: warning: unused parameter ‘penetration’ [-Wunused-parameter]
+   27 |                                   float& penetration) const {
+      |                                   ~~~~~~~^~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/Sprite/SpriteRenderer.h:14,
+                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/SpriteRenderer.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:29:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   29 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Transform2D]’:
+/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/SpriteRenderer.cpp:125:77:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h:64:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
+   64 |         static std::type_index typeIdx = typeid(T);
+      |                                ^~~~~~~
+/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/Sprite.cpp: In member function ‘void Sprite::RenderAtPosition(float, float, float, float)’:
+/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/Sprite.cpp:68:36: warning: unused parameter ‘w’ [-Wunused-parameter]
+   68 |                              float w, float h) {
+      |                              ~~~~~~^
+/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/Sprite.cpp:68:45: warning: unused parameter ‘h’ [-Wunused-parameter]
+   68 |                              float w, float h) {
+      |                                       ~~~~~~^
+make[1]: *** [CMakeFiles/Makefile2:169: CMakeFiles/game.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2

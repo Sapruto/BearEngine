@@ -1,0 +1,75 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/alex/Projects/BearEngine/main.cpp" "CMakeFiles/game.dir/main.cpp.o" "gcc" "CMakeFiles/game.dir/main.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/GameObject.cpp" "CMakeFiles/game.dir/src/core/GameObject.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/GameObject.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/BoxCollider2D.cpp" "CMakeFiles/game.dir/src/core/geometry/colliders/2D/BoxCollider2D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/geometry/colliders/2D/BoxCollider2D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/InserectionSegments2D.cpp" "CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp" "CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp" "CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp" "CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp" "CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/ColliderManager.cpp" "CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/graphics_engine/Camera.cpp" "CMakeFiles/game.dir/src/core/graphics_engine/Camera.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/graphics_engine/Camera.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/graphics_engine/DrawingWindow.cpp" "CMakeFiles/game.dir/src/core/graphics_engine/DrawingWindow.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/graphics_engine/DrawingWindow.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/graphics_engine/GraphicsManager.cpp" "CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp" "CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/Sprite.cpp" "CMakeFiles/game.dir/src/core/graphics_engine/Sprite/Sprite.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/graphics_engine/Sprite/Sprite.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/graphics_engine/Sprite/SpriteRenderer.cpp" "CMakeFiles/game.dir/src/core/graphics_engine/Sprite/SpriteRenderer.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/graphics_engine/Sprite/SpriteRenderer.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/math/2D/Transform2D.cpp" "CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp" "CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp" "CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp" "CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/Rigidbody2D.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp" "CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/scene_engine/SceneManager.cpp" "CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneCreator.cpp" "CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp" "CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneSerializer.cpp" "CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp" "CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceFactory.cpp" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceManager.cpp" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/tags_system/Tag.cpp" "CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/tags_system/TagManager.cpp" "CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp" "CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o.d"
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

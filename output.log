@@ -1,0 +1,11 @@
+=== ARENA SURVIVAL (NEW ARCH) ===
+STEP 0: Program started
+
+STEP 1: Creating GraphicsManager...
+GraphicsManager created: 0x640c68a86670
+
+STEP 2: Creating DrawingManager...
+DrawingManager created: 0x640c68a866e0
+
+STEP 3: Initializing DrawingManager...
+GLFW init error/nFailed to initialize window!

@@ -1,0 +1,134 @@
+#include "Friction.h"
+
+Friction::Friction(float mu) : mu(mu), defaultOtherMu(0.5f) { 
+    SubcribeEvent(PhysicEventType::CollisionEvent);
+}
+
+ void Friction::Initialize(){
+    isValid = true;
+
+    impulseModule = body->GetFeatureOfType<ImpulseModule>();
+
+    if(!impulseModule) isValid = false;
+ }
+
+float Friction::GetOtherMu(GameObject* otherObject){
+    if(!otherObject) return defaultOtherMu;
+    
+    PhysicalBody* otherBody = otherObject->GetComponentOfType<PhysicalBody>();
+    if(!otherBody) return defaultOtherMu;
+    
+    Friction* friction = otherBody->GetFeatureOfType<Friction>();
+    if(!friction) return defaultOtherMu;
+    
+    return friction->GetMu();
+}
+
+void Friction::CalculateNormalForce(){
+    if(!isValid) return;
+
+    Force mainForce = impulseModule->GetForce();
+    Vector3 velocity = impulseModule->GetVelocity();
+
+    contacts.clear();
+    N = 0.0f;
+        
+    for(const auto& normal : normals){
+        /* GameObject* otherObject = normal.GetCollisionsGameObject();
+
+        float otherMu = GetOtherMu(otherObject); */
+        float otherMu = 0.0f;
+        float contactMu = (otherMu + mu) / 2.0f;
+
+        float normalForceForThisPlane = 0;
+        float projection = mainForce.direction.dot(normal);
+        if (projection < 0) {
+            normalForceForThisPlane = -projection * mainForce.magnitude;
+            N += normalForceForThisPlane;
+        }
+        
+        Vector3 velocityProjection = normal * (velocity.dot(normal));
+        Vector3 tangentialVelocity = velocity - velocityProjection;
+        
+        if (tangentialVelocity.magnitude() > 0.0001f) {
+            Vector3 frictionDir = -tangentialVelocity.normalized();
+            float frictionMagnitude = contactMu * normalForceForThisPlane;
+            
+            ContactData contact;
+            contact.frictionForce = frictionDir * frictionMagnitude;
+            contact.contactMu = contactMu;
+            contact.normalForce = normalForceForThisPlane;
+            
+            contacts.push_back(contact);
+        }
+    }
+}
+
+void Friction::ChangeBody(){
+    if(!isValid) return;
+
+    Force mainForce = impulseModule->GetForce();
+    Vector3 velocity = impulseModule->GetVelocity();
+
+    if (N <= 0.0001f) return; 
+    
+    if (velocity.magnitude() >= 0.0001f) {
+        Vector3 totalFrictionForce(0, 0, 0);
+        
+        for(const auto& contact : contacts){
+            totalFrictionForce += contact.frictionForce;
+        }
+        
+        float weightedMu = 0.0f;
+        for(const auto& contact : contacts){
+            weightedMu += contact.contactMu * contact.normalForce;
+        }
+        float maxFriction = weightedMu;
+        
+        if (totalFrictionForce.magnitude() > maxFriction) {
+            totalFrictionForce = totalFrictionForce.normalized() * maxFriction;
+        }
+        
+        if (totalFrictionForce.magnitude() > 0.0001f) {
+            impulseModule->AddForce(Force(
+                totalFrictionForce.normalized(), 
+                totalFrictionForce.magnitude()
+            ));
+        }
+    } 
+    else {
+        float weightedMu = 0.0f;
+        for(const auto& contact : contacts){
+            weightedMu += contact.contactMu * contact.normalForce;
+        }
+        float maxFriction = weightedMu;
+        
+        float totalForceMagnitude = mainForce.magnitude;
+        if (totalForceMagnitude > maxFriction) {
+            Vector3 frictionDir = -mainForce.direction;
+            impulseModule->AddForce(Force(frictionDir, maxFriction));
+        }
+    }
+}
+
+void Friction::ReactionOnEvent(BasePhysicsEvent* event){
+    if(!isValid) return;
+
+    normals.clear();
+
+    AbstractPhysicsData* events_data = event->GetData();
+
+    auto* collision_data = dynamic_cast<PhysicsCollisionData*>(events_data);
+    if (!collision_data) { 
+        return; 
+    }
+
+    const auto& segments = collision_data->GetCollisionsSegments();
+
+    CalculateNormal(segments);
+    CalculateNormalForce();
+}
+
+void Friction::Destroy(){
+
+}
