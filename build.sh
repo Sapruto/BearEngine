@@ -20,7 +20,7 @@ if ! command -v make &> /dev/null; then
     exit 1
 fi
 
-mkdir build
+mkdir -p build
 cd build
 
 echo -e "${GREEN}[1/2] Генерация...${NC}"
