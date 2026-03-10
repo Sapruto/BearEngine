@@ -54,7 +54,7 @@ public:
     void Start() override;
     void Update() override;
 
-    float GetVolume() const override { return 0.0f; }
+    float GetVolume() const override;
     
     void setVertices(const std::vector<Vector3>& vertices);
     void setVertices(std::vector<Vector3>&& vertices);
@@ -74,6 +74,8 @@ public:
     
     std::vector<Segment3D> getWorldSegments() const;
     std::vector<Segment3D> getLocalSegments() const;
+
+    std::vector<Segment3D> GetIntersectionSegments(const Polygon3D& other) const;
     
     void insertVertex(size_t index, const Vector3& vertex);
     void removeVertex(size_t index);

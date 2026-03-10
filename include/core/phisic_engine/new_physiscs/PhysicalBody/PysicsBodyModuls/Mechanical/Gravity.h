@@ -12,6 +12,8 @@ private:
 
     bool isValid = false;
 public:
+    Gravity();
+
     void SetGravitation(float scale) { gravitationScale = scale; }
 
     void Initialize() override;

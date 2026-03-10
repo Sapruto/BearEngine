@@ -2,8 +2,8 @@
 
 #include "PhysicsEvents.h"
 #include <vector>
-
-class PhysicalBody;
+#include "PhysicsWorld.h"
+#include "PhysicalBody.h" 
 
 class PhysicFeature{
 protected:
@@ -11,14 +11,17 @@ protected:
 
     std::vector<PhysicEventType> events_subscribed;
 
-    float layer;
+    int layer = 0; 
 
-    void SetLayer(float layer){
+    void SetLayer(int layer){
         this->layer = layer;
     }
 
     void SubcribeEvent(PhysicEventType event_type){
-        events_subscribed.push_back(event_type);
+        if (std::find(events_subscribed.begin(), events_subscribed.end(), event_type) 
+            == events_subscribed.end()) {
+            events_subscribed.push_back(event_type);
+        }
     }
 public:
     PhysicFeature() = default;
@@ -28,6 +31,17 @@ public:
         this->body = body;
     }
 
+    void FeatureInitialize(){
+        if(!body) return;
+
+        const PhysicsWorld* world = body->GetWorld();
+        if(!world) return;
+
+        for(auto& event : events_subscribed){
+            const_cast<PhysicsWorld*>(world)->Subscribe(this, event);
+        }
+    }
+
     virtual void Initialize() = 0;
     
     virtual void ChangeBody() = 0;
@@ -35,9 +49,21 @@ public:
 
     virtual void Destroy() = 0;
 
+    void FeatureDestroy(){
+        if(!body) return;
+
+        const PhysicsWorld* world = body->GetWorld();
+        if(!world) return;
+
+        for(auto& event : events_subscribed){
+            const_cast<PhysicsWorld*>(world)->Unsubscribe(this, event);
+        }
+    }
+
     std::vector<PhysicEventType> GetSubscribedEvents(){
         return events_subscribed;
     }
 
-    float GetLayer(){ return layer; }
+    PhysicalBody* GetBody() const { return body; }
+    int GetLayer() const { return layer; } 
 };

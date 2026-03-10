@@ -4,24 +4,43 @@
 
 #include "PhysicalBody.h"
 
-ImpulseModule::ImpulseModule(){
+ImpulseModule::ImpulseModule() : velocity(Vector3::Zero){
     SubcribeEvent(PhysicEventType::ForceInteraction);
+    SetLayer(0);
 }
 
 ImpulseModule::~ImpulseModule() = default;
 
-void ImpulseModule::AddForce(Vector3 direction, float magnitude){
-    if (direction == Vector3::Zero) return;
-    if (magnitude == 0.0f) return;
+void ImpulseModule::ApplyArcadyChange(){
+    velocity *= damping;
 
-    Force new_force(direction, magnitude);
-    main_force += new_force;
+    float speed = velocity.magnitude();
+    if (speed > maxSpeed) {
+        velocity = velocity * (maxSpeed / speed);
+    }
+
+    if (fabs(body->GetTransform()->position.x) > worldLimit) {
+        body->GetTransform()->position.x = (body->GetTransform()->position.x > 0) ? worldLimit : -worldLimit;
+        velocity.x *= -0.5f;
+    }
+}
+
+void ImpulseModule::AddForce(Vector3 direction, float magnitude){
+    AddForce(Force(direction, magnitude));
 }
 
 void ImpulseModule::AddForce(const Force& new_force){
     if (new_force.magnitude == 0.0f) return;
     
-    main_force += new_force; 
+    Vector3 current = main_force.GetForceVector();
+    Vector3 added = new_force.GetForceVector();
+    Vector3 total = current + added;
+    
+    float mag = total.magnitude();
+    if (mag > 0) {
+        main_force.direction = total / mag;
+        main_force.magnitude = mag;
+    }
 }
 
 void ImpulseModule::ChangeBody(){
@@ -29,13 +48,20 @@ void ImpulseModule::ChangeBody(){
     float mass = body->GetMass();
     Transform3D* transform = body->GetTransform();
 
-    if (mass <= 0.0f) return; 
+    if (mass <= 0.0f || !transform) {
+        return; 
+    }
 
     Vector3 force_vector = main_force.GetForceVector();
     Vector3 acceleration = force_vector / mass; 
 
     velocity += acceleration * deltaTime; 
+    
     transform->position += velocity * deltaTime;
+    
+    if (mode == ImpulseModuleMode::ARCADY) {
+        ApplyArcadyChange();
+    }
 
     main_force = Force(); 
 }

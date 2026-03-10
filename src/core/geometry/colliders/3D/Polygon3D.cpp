@@ -562,3 +562,44 @@ std::vector<Polygon3D> Polygon3D::SplitIntoPolygons() const {
     
     return result;
 }
+
+std::vector<Segment3D> Polygon3D::GetIntersectionSegments(const Polygon3D& other) const {
+    std::vector<Segment3D> result;
+    
+    auto segs1 = getWorldSegments();
+    auto segs2 = other.getWorldSegments();
+    
+    for (const auto& seg1 : segs1) {
+        for (const auto& seg2 : segs2) {
+            Vector3 intersectionPoint;
+            if (IntersectionSegments3D::GetIntersectionPoint(seg1, seg2, intersectionPoint)) {
+                result.emplace_back(intersectionPoint, intersectionPoint);
+            }
+        }
+    }
+    
+    return result;
+}
+
+float Polygon3D::GetVolume() const {
+    if (localVertices.size() < 4) return 0.0f;
+    
+    float minX = localVertices[0].x, maxX = localVertices[0].x;
+    float minY = localVertices[0].y, maxY = localVertices[0].y;
+    float minZ = localVertices[0].z, maxZ = localVertices[0].z;
+    
+    for (const auto& v : localVertices) {
+        if (v.x < minX) minX = v.x;
+        if (v.x > maxX) maxX = v.x;
+        if (v.y < minY) minY = v.y;
+        if (v.y > maxY) maxY = v.y;
+        if (v.z < minZ) minZ = v.z;
+        if (v.z > maxZ) maxZ = v.z;
+    }
+    
+    float width = maxX - minX;
+    float height = maxY - minY;
+    float depth = maxZ - minZ;
+    
+    return width * height * depth;
+}

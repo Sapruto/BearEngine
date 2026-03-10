@@ -480,6 +480,54 @@ src/core/graphics_engine/3D/Camera3D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.s
 .PHONY : src/core/graphics_engine/3D/Camera3D.cpp.s
 
+src/core/graphics_engine/3D/Lights/DirectionalLight3D.o: src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o
+.PHONY : src/core/graphics_engine/3D/Lights/DirectionalLight3D.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o
+.PHONY : src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o
+
+src/core/graphics_engine/3D/Lights/DirectionalLight3D.i: src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.i
+.PHONY : src/core/graphics_engine/3D/Lights/DirectionalLight3D.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.i
+.PHONY : src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.i
+
+src/core/graphics_engine/3D/Lights/DirectionalLight3D.s: src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.s
+.PHONY : src/core/graphics_engine/3D/Lights/DirectionalLight3D.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.s
+.PHONY : src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.s
+
+src/core/graphics_engine/3D/Lights/PointLight3D.o: src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o
+.PHONY : src/core/graphics_engine/3D/Lights/PointLight3D.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o
+.PHONY : src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o
+
+src/core/graphics_engine/3D/Lights/PointLight3D.i: src/core/graphics_engine/3D/Lights/PointLight3D.cpp.i
+.PHONY : src/core/graphics_engine/3D/Lights/PointLight3D.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Lights/PointLight3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.i
+.PHONY : src/core/graphics_engine/3D/Lights/PointLight3D.cpp.i
+
+src/core/graphics_engine/3D/Lights/PointLight3D.s: src/core/graphics_engine/3D/Lights/PointLight3D.cpp.s
+.PHONY : src/core/graphics_engine/3D/Lights/PointLight3D.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Lights/PointLight3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.s
+.PHONY : src/core/graphics_engine/3D/Lights/PointLight3D.cpp.s
+
 src/core/graphics_engine/3D/Models/ModelComponent.o: src/core/graphics_engine/3D/Models/ModelComponent.cpp.o
 .PHONY : src/core/graphics_engine/3D/Models/ModelComponent.o
 
@@ -1031,6 +1079,30 @@ src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Pla
 src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.cpp.s
 .PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.cpp.s
+
+src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.o: src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.o
+.PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.o
+
+# target to build an object file
+src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.o
+.PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.o
+
+src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.i: src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.i
+.PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.i
+
+# target to preprocess a source file
+src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.i
+.PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.i
+
+src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.s: src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.s
+.PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.s
+
+# target to generate assembly for a file
+src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.s
+.PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.cpp.s
 
 src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.o: src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o
 .PHONY : src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.o
@@ -1803,6 +1875,12 @@ help:
 	@echo "... src/core/graphics_engine/3D/Camera3D.o"
 	@echo "... src/core/graphics_engine/3D/Camera3D.i"
 	@echo "... src/core/graphics_engine/3D/Camera3D.s"
+	@echo "... src/core/graphics_engine/3D/Lights/DirectionalLight3D.o"
+	@echo "... src/core/graphics_engine/3D/Lights/DirectionalLight3D.i"
+	@echo "... src/core/graphics_engine/3D/Lights/DirectionalLight3D.s"
+	@echo "... src/core/graphics_engine/3D/Lights/PointLight3D.o"
+	@echo "... src/core/graphics_engine/3D/Lights/PointLight3D.i"
+	@echo "... src/core/graphics_engine/3D/Lights/PointLight3D.s"
 	@echo "... src/core/graphics_engine/3D/Models/ModelComponent.o"
 	@echo "... src/core/graphics_engine/3D/Models/ModelComponent.i"
 	@echo "... src/core/graphics_engine/3D/Models/ModelComponent.s"
@@ -1872,6 +1950,9 @@ help:
 	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.o"
 	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.i"
 	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Plasticity.s"
+	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.o"
+	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.i"
+	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/CollisionReaction.s"
 	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.o"
 	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.i"
 	@echo "... src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.s"

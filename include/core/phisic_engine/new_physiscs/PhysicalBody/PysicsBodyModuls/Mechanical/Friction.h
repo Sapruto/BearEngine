@@ -55,6 +55,8 @@ private:
             if (normal.dot(toBody) < 0) {
                 normal = -normal; 
             }
+
+            normal = normal.normalized();
             
             normals.push_back(normal);
         }

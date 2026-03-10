@@ -33,7 +33,10 @@ void Time::Tick() {
     
     Uint64 currentTick = SDL_GetPerformanceCounter();
     
-    unscaledDeltaTime = static_cast<float>(currentTick - lastTick) / frequency;
+    float diff = static_cast<float>(currentTick - lastTick);
+    if (diff < 0.001f) diff = 0.001f;
+    
+    unscaledDeltaTime = diff / frequency;
     deltaTime = unscaledDeltaTime;
     
     timeSinceStart += unscaledDeltaTime;

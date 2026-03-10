@@ -7,6 +7,7 @@
 
 class CollisionEvent;
 class ColliderManager;
+class PhysicalBody;
 
 class BaseCollider : public Component{
 protected:
@@ -68,4 +69,6 @@ public:
     virtual float GetVolume() const = 0; 
 
     void Destroy() override;
+
+    PhysicalBody* GetPhysicalBody() const;
 };

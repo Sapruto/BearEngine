@@ -1,8 +1,10 @@
 #pragma once
 
+#include "PhysicsEvents.h"
+
 class BaseCollider;
 
-class CollisionEvent {
+class CollisionEvent : public AbstractPhysicsData  {
 public:
     enum class State {
         ENTER,

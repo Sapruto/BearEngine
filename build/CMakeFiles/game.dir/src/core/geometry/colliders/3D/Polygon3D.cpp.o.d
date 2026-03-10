@@ -358,4 +358,5 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o: \
  /usr/include/glm/gtc/matrix_transform.inl \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
  /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h
+ /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
+ /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h

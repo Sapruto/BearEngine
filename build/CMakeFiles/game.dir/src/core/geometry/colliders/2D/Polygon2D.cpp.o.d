@@ -222,4 +222,5 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: \
  /home/alex/Projects/BearEngine/include/core/math/Transform.h \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
  /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h
+ /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
+ /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h

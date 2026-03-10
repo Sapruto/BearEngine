@@ -146,6 +146,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: \
  /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/utility \
  /usr/include/c++/13/bits/stl_relops.h \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
+ /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
  /home/alex/Projects/BearEngine/include/core/GameObject.h \

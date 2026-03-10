@@ -2,22 +2,22 @@
 
 #include "PhysicalBody.h"
 
+Gravity::Gravity(){
+    SetLayer(2);
+}
+
 void Gravity::Initialize(){
     isValid = true;
-
     impulseModule = body->GetFeatureOfType<ImpulseModule>();
     float mass = body->GetMass();
 
-    if(!impulseModule){
-        isValid = false;
-        return;
-    }
-    if(mass == 0){
+    if(!impulseModule || mass == 0){
         isValid = false;
         return;
     }
     
-    gravitationForce = Force(Vector3::Down, gravitationScale * mass);
+    Vector3 down(0, -1, 0);
+    gravitationForce = Force(down, 9.8f * mass);
 }
 
 void Gravity::ChangeBody(){

@@ -4,7 +4,13 @@
 
 enum class PhysicEventType{
     ForceInteraction,
-    CollisionEvent
+    CollisionEvent,   
+    CollisionEnter,  
+    CollisionStay,      
+    CollisionExit,     
+    TriggerEnter,       
+    TriggerStay,       
+    TriggerExit    
 };
 
 class AbstractPhysicsData {

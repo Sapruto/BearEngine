@@ -1,5 +1,8 @@
 #include "Friction.h"
 
+#include "CollisionEvent.h"
+#include "Polygon3D.h"
+
 Friction::Friction(float mu) : mu(mu), defaultOtherMu(0.5f) { 
     SubcribeEvent(PhysicEventType::CollisionEvent);
 }
@@ -111,21 +114,24 @@ void Friction::ChangeBody(){
     }
 }
 
-void Friction::ReactionOnEvent(BasePhysicsEvent* event){
+void Friction::ReactionOnEvent(BasePhysicsEvent* event) {
     if(!isValid) return;
-
+    if (event->GetType() != PhysicEventType::CollisionEvent) return;
+    
+    auto* collisionEvent = dynamic_cast<CollisionEvent*>(event->GetData());
+    if (!collisionEvent) return;
+    
+    Polygon3D* myCollider = dynamic_cast<Polygon3D*>(body->GetBaseCollider());
+    Polygon3D* otherCollider = dynamic_cast<Polygon3D*>(collisionEvent->GetOther());
+    
+    if (!myCollider || !otherCollider) return;
+    
+    if (collisionEvent->GetState() != CollisionEvent::State::STAY) return;
+    
+    auto segments = myCollider->GetIntersectionSegments(*otherCollider);
+    
     normals.clear();
-
-    AbstractPhysicsData* events_data = event->GetData();
-
-    auto* collision_data = dynamic_cast<PhysicsCollisionData*>(events_data);
-    if (!collision_data) { 
-        return; 
-    }
-
-    const auto& segments = collision_data->GetCollisionsSegments();
-
-    CalculateNormal(segments);
+    CalculateNormal(segments); 
     CalculateNormalForce();
 }
 

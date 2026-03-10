@@ -1,10 +1,7 @@
 #pragma once
 
-#include "GameObject.h"
-
 #include "Transform3D.h"
 #include "BaseCollider.h"
-#include "PhysicFeature.h"
 #include "Component.h"
 
 #include <vector>
@@ -28,11 +25,16 @@ private:
     float density;
 
     std::vector<std::unique_ptr<PhysicFeature>> features;
+    std::vector<PhysicFeature*> sortedFeatures;
+    bool needsResort = true; 
 
     const PhysicsWorld* world;
 
     bool isIntialized = false;
+    bool isDestroyed = false;
     bool isValid;
+
+    void Resort();
 
 public:
     PhysicalBody(BaseCollider* collider, float density);
@@ -42,20 +44,47 @@ public:
 
     void Initialize();
     void PhysicsUpdate();
+    
+    void Destroy();
 
     template<typename T, typename... Args>
     T* AddFeature(Args&&... args) {
         static_assert(std::is_base_of<PhysicFeature, T>::value, "T must be derived from PhysicFeature");
         
         auto feature = std::make_unique<T>(std::forward<Args>(args)...);
-        
         T* ptr = feature.get();
         
         features.push_back(std::move(feature));
         
         ptr->SetBody(this);
-
-        if(isIntialized) ptr->Initialize();
+        if(isIntialized) {
+            ptr->Initialize();
+            ptr->FeatureInitialize();
+        }
+        
+        needsResort = true;
+        
+        return ptr;
+    }
+    
+    template<typename T, typename... Args>
+    T* AddFeatureWithLayer(int layer, Args&&... args) {
+        static_assert(std::is_base_of<PhysicFeature, T>::value, "T must be derived from PhysicFeature");
+        
+        auto feature = std::make_unique<T>(std::forward<Args>(args)...);
+        T* ptr = feature.get();
+        
+        features.push_back(std::move(feature));
+        
+        ptr->SetBody(this);
+        ptr->SetLayer(layer); 
+        
+        if(isIntialized) {
+            ptr->Initialize();
+            ptr->FeatureInitialize();
+        }
+        
+        needsResort = true; 
         
         return ptr;
     }
@@ -83,4 +112,5 @@ public:
     float GetVolume(){ return volume; }
     BaseCollider* GetBaseCollider(){return collider;}
     Transform3D* GetTransform() { return transform; }
+    const PhysicsWorld* GetWorld() { return world; }
 };

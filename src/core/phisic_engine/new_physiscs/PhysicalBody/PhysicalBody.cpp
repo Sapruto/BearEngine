@@ -1,6 +1,6 @@
 #include "PhysicalBody.h"
 
-#include "GameObject.h"
+#include "PhysicFeature.h" 
 #include <algorithm>
 
 PhysicalBody::PhysicalBody(BaseCollider* collider, float density) 
@@ -19,6 +19,23 @@ PhysicalBody::PhysicalBody(BaseCollider* collider, float mass, float volume)
 }
 
 PhysicalBody::~PhysicalBody() {
+    Destroy();
+}
+
+void PhysicalBody::Resort(){
+    sortedFeatures.clear();
+    sortedFeatures.reserve(features.size());
+    
+    for (const auto& feature : features) {
+        sortedFeatures.push_back(feature.get());
+    }
+
+    std::sort(sortedFeatures.begin(), sortedFeatures.end(),
+        [](const PhysicFeature* a, const PhysicFeature* b) {
+            return a->GetLayer() < b->GetLayer();
+        });
+    
+    needsResort = false;
 }
 
 void PhysicalBody::Initialize() {
@@ -26,12 +43,8 @@ void PhysicalBody::Initialize() {
     isValid = false;
 
     if (!gameObject) return;
-    
-    collider = gameObject->GetComponentOfType<BaseCollider>();
 
-    if (!collider) {
-        return;
-    }
+    transform = gameObject->GetComponentOfType<Transform3D>();
 
     volume = collider->GetVolume();
 
@@ -39,10 +52,35 @@ void PhysicalBody::Initialize() {
 
     isIntialized = true;
     isValid = true;
+
+    if(needsResort) Resort();
+
+    for(auto* feature : sortedFeatures){
+        feature->Initialize();
+        feature->FeatureInitialize();
+    }
 }
 
 void PhysicalBody::PhysicsUpdate() {
+    if(!isValid) return;
+    
+    if(needsResort) Resort();
+    
+    for(auto* feature : sortedFeatures){
+        feature->ChangeBody();
+    }
+}
 
+void PhysicalBody::Destroy(){
+    if(isDestroyed) return;
+
+    if(needsResort) Resort();
+    
+    for(auto it = sortedFeatures.rbegin(); it != sortedFeatures.rend(); ++it) {
+        (*it)->FeatureDestroy();
+        (*it)->Destroy();
+    }
+    isDestroyed = true;
 }
 
 void PhysicalBody::RemoveFeature(PhysicFeature* feature) {
@@ -53,6 +91,8 @@ void PhysicalBody::RemoveFeature(PhysicFeature* feature) {
     
     if (it != features.end()) {
         (*it)->Destroy();
+        (*it)->FeatureDestroy();
         features.erase(it);
+        needsResort = true;
     }
 }

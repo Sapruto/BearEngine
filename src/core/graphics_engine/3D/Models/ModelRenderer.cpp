@@ -4,6 +4,7 @@
 #include "GraphicsManager.h"
 #include "Transform3D.h"
 #include "Camera3D.h"
+#include "DirectionalLight3D.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -38,11 +39,11 @@ void ModelRenderer::Update(){
     
     m_Shader.Bind();
     
+    int width, height;
+    glfwGetWindowSize(manager->GetWindow()->GetWindow(), &width, &height);
+    float aspect = (float)width / (float)height;
+    
     if (m_Uniforms.projection != -1) {
-        int width, height;
-        glfwGetWindowSize(manager->GetWindow()->GetWindow(), &width, &height);
-        float aspect = (float)width / (float)height;
-
         glUniformMatrix4fv(m_Uniforms.projection, 1, GL_FALSE, 
                         glm::value_ptr(camera->GetProjectionMatrix(aspect)));
     }
@@ -52,11 +53,66 @@ void ModelRenderer::Update(){
                           glm::value_ptr(camera->GetViewMatrix()));
     }
 
-    float light[3] = {5.0f, 10.0f, 5.0f};
+    GLint lightCountLoc = glGetUniformLocation(m_Shader.GetID(), "lightCount");
+    if (lightCountLoc != -1) {
+        glUniform1i(lightCountLoc, lights.size());
+    }
 
-    glUniform3f(glGetUniformLocation(m_Shader.GetID(), "lightPos"), light[0], light[1], light[2]);
-    glUniform3f(glGetUniformLocation(m_Shader.GetID(), "viewPos"), 
-                camera->position.x, camera->position.y, camera->position.z);
+    bool hasDirLight = false;
+    for (auto& light : lights) {
+        if (dynamic_cast<DirectionalLight3D*>(light.get())) {
+            auto* dirLight = static_cast<DirectionalLight3D*>(light.get());
+            
+            GLint dirDirLoc = glGetUniformLocation(m_Shader.GetID(), "dirLightDirection");
+            if (dirDirLoc != -1) {
+                Vector3 dir = dirLight->GetDirection();
+                glUniform3f(dirDirLoc, dir.x, dir.y, dir.z);
+            }
+            
+            GLint dirColLoc = glGetUniformLocation(m_Shader.GetID(), "dirLightColor");
+            if (dirColLoc != -1) {
+                Vector3 col = dirLight->GetColor();
+                glUniform3f(dirColLoc, col.x, col.y, col.z);
+            }
+            
+            hasDirLight = true;
+            break;
+        }
+    }
+    
+    GLint useDirLightLoc = glGetUniformLocation(m_Shader.GetID(), "useDirLight");
+    if (useDirLightLoc != -1) {
+        glUniform1i(useDirLightLoc, hasDirLight ? 1 : 0);
+    }
+
+    for (size_t i = 0; i < lights.size(); ++i) {
+        std::string posName = "lightPos[" + std::to_string(i) + "]";
+        Vector3 vecPos = lights[i]->GetPosition();
+        glm::vec3 pos(vecPos.x, vecPos.y, vecPos.z);
+        GLint loc = glGetUniformLocation(m_Shader.GetID(), posName.c_str());
+        if (loc != -1) {
+            glUniform3f(loc, pos.x, pos.y, pos.z);
+        }
+        
+        std::string colName = "lightColor[" + std::to_string(i) + "]";
+        Vector3 col = lights[i]->GetColor();
+        loc = glGetUniformLocation(m_Shader.GetID(), colName.c_str());
+        if (loc != -1) {
+            glUniform3f(loc, col.x, col.y, col.z);
+        }
+        
+        std::string matrixName = "lightSpaceMatrix[" + std::to_string(i) + "]";
+        glm::mat4 lightMatrix = lights[i]->GetLightSpaceMatrix(aspect);
+        loc = glGetUniformLocation(m_Shader.GetID(), matrixName.c_str());
+        if (loc != -1) {
+            glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(lightMatrix));
+        }
+    }
+
+    GLint viewPosLoc = glGetUniformLocation(m_Shader.GetID(), "viewPos");
+    if (viewPosLoc != -1) {
+        glUniform3f(viewPosLoc, camera->position.x, camera->position.y, camera->position.z);
+    }
     
     glActiveTexture(GL_TEXTURE0);
 
@@ -65,31 +121,31 @@ void ModelRenderer::Update(){
     for(auto* component : rendererComponents){
         ModelComponent* model = dynamic_cast<ModelComponent*>(component); 
         if(!model){
-            toRemove.push_back(model);
+            toRemove.push_back(component);
             continue;
         }
 
         GameObject* object = model->gameObject;
         if(!object){
-            toRemove.push_back(model);
+            toRemove.push_back(component);
             continue;
         }
 
         Transform3D* transform = object->GetComponentOfType<Transform3D>();
         if(!transform){
-            toRemove.push_back(model);
+            toRemove.push_back(component);
             continue;
         }
 
         Model* modelRefernce = model->GetModel();
         if(!modelRefernce){
-            toRemove.push_back(model);
+            toRemove.push_back(component);
             continue;
         }
 
         const float* colorRGB = model->GetColor();
 
-        RenderModel(model, transform, colorRGB, camera);
+        RenderModel(model, transform, colorRGB);
     }
 
     for (auto* component : toRemove) {
@@ -100,7 +156,7 @@ void ModelRenderer::Update(){
     }
 }
 
-void ModelRenderer::RenderModel(ModelComponent* modelComp, Transform3D* transform, const float* colorRGB, Camera3D* camera) {
+void ModelRenderer::RenderModel(ModelComponent* modelComp, Transform3D* transform, const float* colorRGB) {
     if (m_Uniforms.model != -1) {
         glm::mat4 modelMatrix = transform->GetMatrix();
         glUniformMatrix4fv(m_Uniforms.model, 1, GL_FALSE, 
@@ -114,4 +170,15 @@ void ModelRenderer::RenderModel(ModelComponent* modelComp, Transform3D* transfor
     glBindVertexArray(modelComp->GetVAO());
     glDrawElements(GL_TRIANGLES, modelComp->GetModel()->GetIndices().size(), 
                    GL_UNSIGNED_INT, 0);
+}
+
+void ModelRenderer::RemoveLight(Light3D* light) {
+    auto it = std::find_if(lights.begin(), lights.end(),
+        [light](const std::unique_ptr<Light3D>& li) {
+            return li.get() == light;
+        });
+    
+    if (it != lights.end()) {
+        lights.erase(it);
+    }
 }

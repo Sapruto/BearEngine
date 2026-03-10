@@ -138,6 +138,7 @@ target_include_directories(game PRIVATE
     # 3D папки
     ${ROOT_DIR}/include/core/graphics_engine/3D
     ${ROOT_DIR}/include/core/graphics_engine/3D/Models
+    ${ROOT_DIR}/include/core/graphics_engine/3D/Lights
     
     # 2D папки (для Sprite)
     ${ROOT_DIR}/include/core/graphics_engine/2D

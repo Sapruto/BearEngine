@@ -34,4 +34,12 @@ public:
     std::vector<BaseCollider*> GetCollisionsFor(BaseCollider* collider) const;
     
     bool AreColliding(const BaseCollider* a, const BaseCollider* b) const; 
+
+    std::vector<std::unique_ptr<CollisionEvent>> TakeCollisionEvents() {
+        return std::move(currentFrameEvents);
+    }
+    
+    const std::vector<std::unique_ptr<CollisionEvent>>& GetCollisionEvents() const {
+        return currentFrameEvents;
+    }
 };
