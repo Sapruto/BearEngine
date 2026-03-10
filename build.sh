@@ -20,11 +20,6 @@ if ! command -v make &> /dev/null; then
     exit 1
 fi
 
-if [ -d "build" ]; then
-    echo -e "${YELLOW}Удаление старой сборки...${NC}"
-    rm -rf build
-fi
-
 mkdir build
 cd build
 
