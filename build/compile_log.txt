@@ -4,44 +4,6 @@
 [ 16%] Linking CXX static library libstb_lib.a
 [ 16%] Built target stb_lib
 [ 17%] Building CXX object CMakeFiles/game.dir/main.cpp.o
-[ 19%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o
-[ 20%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o
-[ 21%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o
-[ 23%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp:1:9: warning: #pragma once in main file
-    1 | #pragma once
-      |         ^~~~
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp:1:9: warning: #pragma once in main file
-    1 | #pragma once
-      |         ^~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Lights/PointLight3D.h:3,
-                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp:1:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h: In member function ‘virtual glm::mat4 Light3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:20:49: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-   20 |     virtual glm::mat4 GetLightSpaceMatrix(float aspect = 1.0f) const {
-      |                                           ~~~~~~^~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp: In member function ‘virtual glm::mat4 PointLight3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp:3:51: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-    3 | glm::mat4 PointLight3D::GetLightSpaceMatrix(float aspect) const{
-      |                                             ~~~~~~^~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Lights/DirectionalLight3D.h:3,
-                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp:1:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h: In member function ‘virtual glm::mat4 Light3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:20:49: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-   20 |     virtual glm::mat4 GetLightSpaceMatrix(float aspect = 1.0f) const {
-      |                                           ~~~~~~^~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp: In member function ‘virtual glm::mat4 DirectionalLight3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp:19:57: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-   19 | glm::mat4 DirectionalLight3D::GetLightSpaceMatrix(float aspect) const {
-      |                                                   ~~~~~~^~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:3,
-                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp:3:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
-   28 |     virtual void OnCollisionEnter(GameObject* other){}
-      |                                   ~~~~~~~~~~~~^~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h:6,
@@ -50,39 +12,6 @@ In file included from /home/alex/Projects/BearEngine/include/core/graphics_engin
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
    28 |     virtual void OnCollisionEnter(GameObject* other){}
       |                                   ~~~~~~~~~~~~^~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:4,
-                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp:3:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
-   28 |     virtual void OnCollisionEnter(GameObject* other){}
-      |                                   ~~~~~~~~~~~~^~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:4:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h: In member function ‘virtual void ModelComponent::Render(const glm::vec2&, float)’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:37:34: warning: unused parameter ‘position’ [-Wunused-parameter]
-   37 |     void Render(const glm::vec2& position, float rotation) override {  }
-      |                 ~~~~~~~~~~~~~~~~~^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:37:50: warning: unused parameter ‘rotation’ [-Wunused-parameter]
-   37 |     void Render(const glm::vec2& position, float rotation) override {  }
-      |                                            ~~~~~~^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h: In member function ‘virtual void ModelComponent::Render(const glm::vec2&, float)’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:37:34: warning: unused parameter ‘position’ [-Wunused-parameter]
-   37 |     void Render(const glm::vec2& position, float rotation) override {  }
-      |                 ~~~~~~~~~~~~~~~~~^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:37:50: warning: unused parameter ‘rotation’ [-Wunused-parameter]
-   37 |     void Render(const glm::vec2& position, float rotation) override {  }
-      |                                            ~~~~~~^~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:6:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h: In member function ‘virtual glm::mat4 Light3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:20:49: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-   20 |     virtual glm::mat4 GetLightSpaceMatrix(float aspect = 1.0f) const {
-      |                                           ~~~~~~^~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:6,
-                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp:4:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h: In member function ‘virtual glm::mat4 Light3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:20:49: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-   20 |     virtual glm::mat4 GetLightSpaceMatrix(float aspect = 1.0f) const {
-      |                                           ~~~~~~^~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/main.cpp:5:
 /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h: In member function ‘virtual void ModelComponent::Render(const glm::vec2&, float)’:
 /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:37:34: warning: unused parameter ‘position’ [-Wunused-parameter]
@@ -91,12 +20,6 @@ In file included from /home/alex/Projects/BearEngine/main.cpp:5:
 /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:37:50: warning: unused parameter ‘rotation’ [-Wunused-parameter]
    37 |     void Render(const glm::vec2& position, float rotation) override {  }
       |                                            ~~~~~~^~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Transform3D]’:
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp:134:73:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:64:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   64 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:6,
                  from /home/alex/Projects/BearEngine/main.cpp:6:
 /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h: In member function ‘virtual glm::mat4 Light3D::GetLightSpaceMatrix(float) const’:
@@ -108,7 +31,7 @@ In file included from /home/alex/Projects/BearEngine/include/core/graphics_engin
    28 |     virtual void OnCollisionEnter(GameObject* other){}
       |                  ^~~~~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h:10,
-                 from /home/alex/Projects/BearEngine/main.cpp:13:
+                 from /home/alex/Projects/BearEngine/main.cpp:14:
 /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:61:18: note:   by ‘virtual void BaseCollider::OnCollisionEnter(const CollisionEvent&)’
    61 |     virtual void OnCollisionEnter(const class CollisionEvent& event) {}
       |                  ^~~~~~~~~~~~~~~~
@@ -136,7 +59,7 @@ In file included from /home/alex/Projects/BearEngine/include/core/geometry/colli
 /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:67:60: warning: unused parameter ‘event’ [-Wunused-parameter]
    67 |     virtual void OnTriggerExit(const class CollisionEvent& event) {}
       |                                ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~
-In file included from /home/alex/Projects/BearEngine/main.cpp:14:
+In file included from /home/alex/Projects/BearEngine/main.cpp:15:
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h: In member function ‘void PhysicsWorld::DispatchEvent(PhysicEventType, DataType&&)’:
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:54:24: warning: invalid use of incomplete type ‘class PhysicFeature’
    54 |                 feature->ReactionOnEvent(&event);
@@ -144,40 +67,35 @@ In file included from /home/alex/Projects/BearEngine/main.cpp:14:
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:11:7: note: forward declaration of ‘class PhysicFeature’
    11 | class PhysicFeature;
       |       ^~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/main.cpp: In function ‘int main()’:
-/home/alex/Projects/BearEngine/main.cpp:56:11: warning: unused variable ‘red’ [-Wunused-variable]
-   56 |     float red[3] = {1, 0, 0};
-      |           ^~~
-/home/alex/Projects/BearEngine/main.cpp:58:11: warning: unused variable ‘blue’ [-Wunused-variable]
-   58 |     float blue[3] = {0, 0, 1};
-      |           ^~~~
-In file included from /home/alex/Projects/BearEngine/main.cpp:15:
+In file included from /home/alex/Projects/BearEngine/main.cpp:17:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h: In member function ‘virtual bool Polyhedron3D::GetCollisionInfo(const BaseCollider*, Vector3&, Vector3&, float&) const’:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:100:122: warning: no return statement in function returning non-void [-Wreturn-type]
+  100 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
+      |                                                                                                                          ^
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:100:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+  100 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
+      |                           ~~~~~~~~~~~~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:100:63: warning: unused parameter ‘point’ [-Wunused-parameter]
+  100 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
+      |                                                      ~~~~~~~~~^~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:100:79: warning: unused parameter ‘normal’ [-Wunused-parameter]
+  100 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
+      |                                                                      ~~~~~~~~~^~~~~~
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:100:94: warning: unused parameter ‘penetration’ [-Wunused-parameter]
+  100 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
+      |                                                                                       ~~~~~~~^~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.h:7,
+                 from /home/alex/Projects/BearEngine/main.cpp:21:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h: In member function ‘void PhysicsCollisionData::SetCollisionsSegments(std::vector<Segment3D>&&)’:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:22:18: warning: moving ‘segments’ of type ‘std::vector<Segment3D>’ to itself [-Wself-move]
+   22 |         segments = std::move(segments);
+      |         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:22:18: note: remove ‘std::move’ call
+In file included from /home/alex/Projects/BearEngine/main.cpp:16:
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h: In instantiation of ‘T* PhysicalBody::GetFeatureOfType() [with T = ImpulseModule]’:
-/home/alex/Projects/BearEngine/main.cpp:237:70:   required from here
+/home/alex/Projects/BearEngine/main.cpp:402:71:   required from here
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h:96:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
    96 |         static std::type_index typeIdx = typeid(T);
       |                                ^~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Transform3D]’:
-/home/alex/Projects/BearEngine/main.cpp:240:67:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:64:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   64 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polygon3D.h:8,
-                 from /home/alex/Projects/BearEngine/main.cpp:16:
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h: In instantiation of ‘bool Collider<ITransform, IVector>::GetCollisionInfo(const BaseCollider*, IVector&, IVector&, float&) const [with ITransform = Transform3D; IVector = Vector3]’:
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:24:18:   required from here
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:24:55: warning: unused parameter ‘other’ [-Wunused-parameter]
-   24 |     virtual bool GetCollisionInfo(const BaseCollider* other,
-      |                                   ~~~~~~~~~~~~~~~~~~~~^~~~~
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:25:44: warning: unused parameter ‘point’ [-Wunused-parameter]
-   25 |                                   IVector& point,
-      |                                   ~~~~~~~~~^~~~~
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:26:44: warning: unused parameter ‘normal’ [-Wunused-parameter]
-   26 |                                   IVector& normal,
-      |                                   ~~~~~~~~~^~~~~~
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:27:42: warning: unused parameter ‘penetration’ [-Wunused-parameter]
-   27 |                                   float& penetration) const {
-      |                                   ~~~~~~~^~~~~~~~~~~
-[ 24%] Linking CXX executable game
+[ 19%] Linking CXX executable game
 [100%] Built target game

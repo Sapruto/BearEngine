@@ -1,7 +1,7 @@
 #include "Friction.h"
 
 #include "CollisionEvent.h"
-#include "Polygon3D.h"
+#include "Polyhedron3D.h"
 
 Friction::Friction(float mu) : mu(mu), defaultOtherMu(0.5f) { 
     SubcribeEvent(PhysicEventType::CollisionEvent);
@@ -45,9 +45,11 @@ void Friction::CalculateNormalForce(){
 
         float normalForceForThisPlane = 0;
         float projection = mainForce.direction.dot(normal);
-        if (projection < 0) {
+        if(projection < 0){
             normalForceForThisPlane = -projection * mainForce.magnitude;
-            N += normalForceForThisPlane;
+        } 
+        else{
+            normalForceForThisPlane = 0;
         }
         
         Vector3 velocityProjection = normal * (velocity.dot(normal));
@@ -82,11 +84,10 @@ void Friction::ChangeBody(){
             totalFrictionForce += contact.frictionForce;
         }
         
-        float weightedMu = 0.0f;
+        float maxFriction = 0.0f;
         for(const auto& contact : contacts){
-            weightedMu += contact.contactMu * contact.normalForce;
+            maxFriction += contact.contactMu * contact.normalForce;
         }
-        float maxFriction = weightedMu;
         
         if (totalFrictionForce.magnitude() > maxFriction) {
             totalFrictionForce = totalFrictionForce.normalized() * maxFriction;
@@ -100,11 +101,10 @@ void Friction::ChangeBody(){
         }
     } 
     else {
-        float weightedMu = 0.0f;
+        float maxFriction = 0.0f;
         for(const auto& contact : contacts){
-            weightedMu += contact.contactMu * contact.normalForce;
+            maxFriction += contact.contactMu * contact.normalForce;
         }
-        float maxFriction = weightedMu;
         
         float totalForceMagnitude = mainForce.magnitude;
         if (totalForceMagnitude > maxFriction) {
@@ -121,8 +121,8 @@ void Friction::ReactionOnEvent(BasePhysicsEvent* event) {
     auto* collisionEvent = dynamic_cast<CollisionEvent*>(event->GetData());
     if (!collisionEvent) return;
     
-    Polygon3D* myCollider = dynamic_cast<Polygon3D*>(body->GetBaseCollider());
-    Polygon3D* otherCollider = dynamic_cast<Polygon3D*>(collisionEvent->GetOther());
+    Polyhedron3D* myCollider = dynamic_cast<Polyhedron3D*>(body->GetBaseCollider());
+    Polyhedron3D* otherCollider = dynamic_cast<Polyhedron3D*>(collisionEvent->GetOther());
     
     if (!myCollider || !otherCollider) return;
     

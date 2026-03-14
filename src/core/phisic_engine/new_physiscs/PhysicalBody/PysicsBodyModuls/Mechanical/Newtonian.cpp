@@ -43,6 +43,11 @@ void ImpulseModule::AddForce(const Force& new_force){
     }
 }
 
+void ImpulseModule::ReForce(const Force& new_force){
+    main_force = new_force;
+    velocity = Vector3::Zero;
+}
+
 void ImpulseModule::ChangeBody(){
     float deltaTime = Time::DeltaTime();
     float mass = body->GetMass();
@@ -62,8 +67,6 @@ void ImpulseModule::ChangeBody(){
     if (mode == ImpulseModuleMode::ARCADY) {
         ApplyArcadyChange();
     }
-
-    main_force = Force(); 
 }
 
 void ImpulseModule::ReactionOnEvent(BasePhysicsEvent* event){

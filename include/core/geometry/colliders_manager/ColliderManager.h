@@ -18,12 +18,12 @@ private:
     std::vector<std::unique_ptr<CollisionEvent>> currentFrameEvents;
 
     void CheckPair(BaseCollider* a, BaseCollider* b);
-    
-    void ProcessEvents();
 
 public:
     ColliderManager() = default;
     ~ColliderManager();
+
+    void ProcessEvents();
 
     void AddCollider(BaseCollider* collider);
     

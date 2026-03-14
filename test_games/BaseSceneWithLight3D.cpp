@@ -14,7 +14,7 @@
 #include "ColliderManager.h"
 #include "PhysicsWorld.h"
 #include "PhysicalBody.h"
-#include "Polyhedron3D.h"  
+#include "Polygon3D.h"
 #include "Newtonian.h"
 #include "Gravity.h"
 #include "CollisionReaction.h"
@@ -27,53 +27,13 @@
 #include <cstdlib> 
 #include <ctime> 
 
-
-Polyhedron3D* CreateCubeCollider(float size) {
-    float h = size * 0.5f;
-    
-    
-    std::vector<Vector3> vertices = {
-        Vector3(-h, -h, -h),  
-        Vector3( h, -h, -h),  
-        Vector3( h,  h, -h),  
-        Vector3(-h,  h, -h),  
-        Vector3(-h, -h,  h),  
-        Vector3( h, -h,  h),  
-        Vector3( h,  h,  h),  
-        Vector3(-h,  h,  h)   
-    };
-    
-    Polyhedron3D* cube = new Polyhedron3D(vertices);
-    
-    
-    
-    cube->AddCommunication(0, 1);
-    cube->AddCommunication(1, 2);
-    cube->AddCommunication(2, 3);
-    cube->AddCommunication(3, 0);
-    
-    
-    cube->AddCommunication(4, 5);
-    cube->AddCommunication(5, 6);
-    cube->AddCommunication(6, 7);
-    cube->AddCommunication(7, 4);
-    
-    
-    cube->AddCommunication(0, 4);
-    cube->AddCommunication(1, 5);
-    cube->AddCommunication(2, 6);
-    cube->AddCommunication(3, 7);
-    
-    return cube;
-}
-
 int main() {
     srand(time(nullptr));
 
     Time::Initialize();
     
     float clearColor[4] = {0.05f, 0.05f, 0.1f, 1.0f};
-    Window* window = new Window(1280, 720, clearColor, "BearEngine Physics Demo - Polyhedron3D");
+    Window* window = new Window(1280, 720, clearColor, "BearEngine Physics Demo");
     if (!window->Initialize()) return -1;
 
     GraphicsManager graphics;
@@ -100,12 +60,12 @@ int main() {
     
     ModelRenderer* renderer = graphics.AddRender<ModelRenderer>();
     
+    
     float red[3] = {1, 0.2, 0.2};
     float green[3] = {0.2, 1, 0.2};
     float blue[3] = {0.2, 0.2, 1};
     float yellow[3] = {1, 1, 0.2};
     float white[3] = {1, 1, 1};
-    float purple[3] = {0.8, 0.2, 0.8};
     
     
     DirectionalLight3D* dirLight = renderer->AddLight<DirectionalLight3D>(
@@ -136,19 +96,20 @@ int main() {
     tPlatform->position = Vector3(0, -2, 0);
     tPlatform->scale = Vector3(20.0f, 0.5f, 20.0f);
     
-    Polyhedron3D* platformCollider = CreateCubeCollider(1.0f);  
+    Polygon3D* platformCollider = new Polygon3D();
+    *platformCollider = Polygon3D::CreateRectangle(20.0f, 0.5f, 20.0f);
     platform->AddComponent(platformCollider);
     
     PhysicalBody* platformBody = platform->AddComponent<PhysicalBody>(platformCollider, 1000.0f);
     
-    platformBody->AddFeature<CollisionReaction>(); 
     
     GameObject* cube1 = new GameObject();
     Transform3D* tCube1 = cube1->AddComponent<Transform3D>();
     tCube1->position = Vector3(-3, 5, 2);
     tCube1->scale = Vector3(0.6f, 0.6f, 0.6f);
     
-    Polyhedron3D* cube1Collider = CreateCubeCollider(1.0f);
+    Polygon3D* cube1Collider = new Polygon3D();
+    *cube1Collider = Polygon3D::CreateRectangle(0.6f, 0.6f, 0.6f);
     cube1->AddComponent(cube1Collider);
     
     PhysicalBody* cube1Body = cube1->AddComponent<PhysicalBody>(cube1Collider, 1.5f);
@@ -158,6 +119,7 @@ int main() {
     impulse1->SetMaxSpeed(12.0f);
     impulse1->SetDamping(0.99f);
     
+    //cube1Body->AddFeature<Gravity>();
     cube1Body->AddFeature<CollisionReaction>();
     cube1Body->AddFeature<Friction>(0.7f);  
     
@@ -167,7 +129,8 @@ int main() {
     tCube2->position = Vector3(0, 8, -2);
     tCube2->scale = Vector3(0.7f, 0.7f, 0.7f);
     
-    Polyhedron3D* cube2Collider = CreateCubeCollider(1.0f);
+    Polygon3D* cube2Collider = new Polygon3D();
+    *cube2Collider = Polygon3D::CreateRectangle(0.7f, 0.7f, 0.7f);
     cube2->AddComponent(cube2Collider);
     
     PhysicalBody* cube2Body = cube2->AddComponent<PhysicalBody>(cube2Collider, 1.2f);
@@ -178,6 +141,7 @@ int main() {
     impulse2->SetDamping(0.98f);
     
     cube2Body->AddFeature<Gravity>();
+    
     
     std::vector<Vector3> bindingPoints = {
         Vector3(0.35, 0.35, 0.35),
@@ -198,7 +162,8 @@ int main() {
     tCube3->position = Vector3(4, 3, -3);
     tCube3->scale = Vector3(0.5f, 0.5f, 0.5f);
     
-    Polyhedron3D* cube3Collider = CreateCubeCollider(1.0f);
+    Polygon3D* cube3Collider = new Polygon3D();
+    *cube3Collider = Polygon3D::CreateRectangle(0.5f, 0.5f, 0.5f);
     cube3->AddComponent(cube3Collider);
     
     PhysicalBody* cube3Body = cube3->AddComponent<PhysicalBody>(cube3Collider, 0.8f);
@@ -210,45 +175,6 @@ int main() {
     
     cube3Body->AddFeature<Gravity>();
     cube3Body->AddFeature<CollisionReaction>();
-    
-    
-    GameObject* pyramid = new GameObject();
-    Transform3D* tPyramid = pyramid->AddComponent<Transform3D>();
-    tPyramid->position = Vector3(2, 5, 4);
-    tPyramid->scale = Vector3(0.8f, 0.8f, 0.8f);
-    
-    std::vector<Vector3> pyramidVertices = {
-        Vector3(0, 0.8f, 0),    
-        Vector3(-0.5f, -0.4f, -0.5f),  
-        Vector3(0.5f, -0.4f, -0.5f),   
-        Vector3(0.5f, -0.4f, 0.5f),    
-        Vector3(-0.5f, -0.4f, 0.5f)    
-    };
-    
-    Polyhedron3D* pyramidCollider = new Polyhedron3D(pyramidVertices);
-    
-    
-    pyramidCollider->AddCommunication(0, 1);
-    pyramidCollider->AddCommunication(0, 2);
-    pyramidCollider->AddCommunication(0, 3);
-    pyramidCollider->AddCommunication(0, 4);
-    pyramidCollider->AddCommunication(1, 2);
-    pyramidCollider->AddCommunication(2, 3);
-    pyramidCollider->AddCommunication(3, 4);
-    pyramidCollider->AddCommunication(4, 1);
-    
-    pyramid->AddComponent(pyramidCollider);
-    
-    PhysicalBody* pyramidBody = pyramid->AddComponent<PhysicalBody>(pyramidCollider, 1.0f);
-    
-    auto* impulsePyramid = pyramidBody->AddFeature<ImpulseModule>();
-    impulsePyramid->SetMode(ImpulseModuleMode::REALISTIC);
-    impulsePyramid->SetMaxSpeed(12.0f);
-    impulsePyramid->SetDamping(0.99f);
-    
-    pyramidBody->AddFeature<Gravity>();
-    pyramidBody->AddFeature<CollisionReaction>();
-    pyramidBody->AddFeature<Friction>(0.5f);
     
     
     ModelComponent* mPlatform = new ModelComponent(resources, *renderer, "Assets/models/platform.obj", green);
@@ -263,20 +189,17 @@ int main() {
     ModelComponent* mCube3 = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", yellow);
     cube3->AddComponent(mCube3);
     
-    ModelComponent* mPyramid = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", purple);
-    pyramid->AddComponent(mPyramid);
     
     renderer->RegisterRenderComponent(mPlatform);
     renderer->RegisterRenderComponent(mCube1);
     renderer->RegisterRenderComponent(mCube2);
     renderer->RegisterRenderComponent(mCube3);
-    renderer->RegisterRenderComponent(mPyramid);
+    
     
     physicsWorld.AddBody(platformBody);
     physicsWorld.AddBody(cube1Body);
     physicsWorld.AddBody(cube2Body);
     physicsWorld.AddBody(cube3Body);
-    physicsWorld.AddBody(pyramidBody);
     physicsWorld.Start();
     
     auto colliderManager = std::make_shared<ColliderManager>();
@@ -286,25 +209,22 @@ int main() {
     colliderManager->AddCollider(cube1Collider);
     colliderManager->AddCollider(cube2Collider);
     colliderManager->AddCollider(cube3Collider);
-    colliderManager->AddCollider(pyramidCollider);
     
     float time = 0.0f;
     bool wireframeMode = false;
     
-    std::cout << "=== BEARENGINE POLYHEDRON3D PHYSICS DEMO ===" << std::endl;
+    std::cout << "=== BEARENGINE CUBE PHYSICS DEMO ===" << std::endl;
     std::cout << "Controls:" << std::endl;
     std::cout << "  WASD + Space/Shift - Move camera" << std::endl;
     std::cout << "  Right Mouse Button + Drag - Look around" << std::endl;
     std::cout << "  F - Apply force to RED cube (friction)" << std::endl;
     std::cout << "  G - Apply force to BLUE cube (elastic)" << std::endl;
     std::cout << "  H - Apply force to YELLOW cube (normal)" << std::endl;
-    std::cout << "  J - Apply force to PURPLE pyramid" << std::endl;
-    std::cout << "  R - Reset all objects" << std::endl;
+    std::cout << "  R - Reset all cubes" << std::endl;
     std::cout << "  T - Toggle wireframe" << std::endl;
     std::cout << "  L - Toggle directional light" << std::endl;
     std::cout << "  P - Print positions" << std::endl;
-    std::cout << "  Q - Spawn random cube" << std::endl;
-    std::cout << "=============================================" << std::endl;
+    std::cout << "====================================" << std::endl;
     
     while (!window->ShouldClose()) {
         Time::Tick();
@@ -363,38 +283,35 @@ int main() {
             ));
         }
 
-        
         if (input.GetKeyDown(Keys::Q)) {
-            GameObject* newCube = new GameObject();
-            Transform3D* tNewCube = newCube->AddComponent<Transform3D>();
-            tNewCube->position = Vector3(
-                (rand() % 10) - 5.0f,        
-                (rand() % 8) + 2.0f,      
-                (rand() % 10) - 5.0f    
+            GameObject* cube = new GameObject();
+            Transform3D* tCube = cube->AddComponent<Transform3D>();
+            tCube->position = Vector3(
+                (rand() % 11) * 1.0f,        
+                (rand() % 11) * 1.0f,      
+                (rand() % 11) * 1.0f    
             );
-            tNewCube->scale = Vector3(0.5f, 0.5f, 0.5f);
+            tCube->scale = Vector3(1.0f, 1.0f, 1.0f);
             
-            Polyhedron3D* newCollider = CreateCubeCollider(1.0f);
-            newCube->AddComponent(newCollider);
+            Polygon3D* cubeCollider = new Polygon3D();
+            *cubeCollider = Polygon3D::CreateRectangle(0.5f, 0.5f, 0.5f);
+            cube->AddComponent(cubeCollider);
             
-            PhysicalBody* newBody = newCube->AddComponent<PhysicalBody>(newCollider, 0.8f);
+            PhysicalBody* cubeBody = cube->AddComponent<PhysicalBody>(cubeCollider, 0.8f);
             
-            auto* newImpulse = newBody->AddFeature<ImpulseModule>();
-            newImpulse->SetMode(ImpulseModuleMode::REALISTIC);
-            newImpulse->SetMaxSpeed(15.0f);
-            newImpulse->SetDamping(0.99f);
+            auto* impulse3 = cubeBody->AddFeature<ImpulseModule>();
+            impulse3->SetMode(ImpulseModuleMode::REALISTIC);
+            impulse3->SetMaxSpeed(15.0f);
+            impulse3->SetDamping(0.99f);
             
-            newBody->AddFeature<Gravity>();
-            newBody->AddFeature<CollisionReaction>();
+            cubeBody->AddFeature<CollisionReaction>();
             
-            ModelComponent* mNewCube = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", white);
-            newCube->AddComponent(mNewCube);
+            ModelComponent* mCube = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", yellow);
+            cube->AddComponent(mCube);
             
-            renderer->RegisterRenderComponent(mNewCube);
-            physicsWorld.AddBody(newBody);
-            colliderManager->AddCollider(newCollider);
+            renderer->RegisterRenderComponent(mCube);
             
-            std::cout << "Spawned new cube at " << tNewCube->position << std::endl;
+            physicsWorld.AddBody(cubeBody);
         }
         
         
@@ -403,6 +320,13 @@ int main() {
                 imp->AddForce(Vector3(1, 0.5f, 0), 15.0f);
                 std::cout << "Force to RED cube (friction)! Pos: " 
                           << tCube1->position << std::endl;
+            }
+        }
+
+        if (input.GetKeyDown(Keys::X)) {
+            if (auto* imp = cube1Body->GetFeatureOfType<ImpulseModule>()) {
+                Force newForce = Force(Vector3::Zero, 0.0f);
+                imp->ReForce(newForce);
             }
         }
         
@@ -422,20 +346,11 @@ int main() {
             }
         }
         
-        if (input.GetKeyDown(Keys::J)) {
-            if (auto* imp = pyramidBody->GetFeatureOfType<ImpulseModule>()) {
-                imp->AddForce(Vector3(0.5f, 1, 0.5f), 14.0f);
-                std::cout << "Force to PURPLE pyramid! Pos: " 
-                          << tPyramid->position << std::endl;
-            }
-        }
-        
         
         if (input.GetKeyDown(Keys::R)) {
             tCube1->position = Vector3(-3, 5, 2);
             tCube2->position = Vector3(0, 8, -2);
             tCube3->position = Vector3(4, 3, -3);
-            tPyramid->position = Vector3(2, 5, 4);
             
             if (auto* imp = cube1Body->GetFeatureOfType<ImpulseModule>()) {
                 imp->SetVelocity(Vector3::Zero);
@@ -446,11 +361,8 @@ int main() {
             if (auto* imp = cube3Body->GetFeatureOfType<ImpulseModule>()) {
                 imp->SetVelocity(Vector3::Zero);
             }
-            if (auto* imp = pyramidBody->GetFeatureOfType<ImpulseModule>()) {
-                imp->SetVelocity(Vector3::Zero);
-            }
             
-            std::cout << "All objects reset!" << std::endl;
+            std::cout << "All cubes reset!" << std::endl;
         }
         
         
@@ -483,12 +395,11 @@ int main() {
         
         
         if (input.GetKeyDown(Keys::P)) {
-            std::cout << "\n=== OBJECT POSITIONS ===" << std::endl;
+            std::cout << "\n=== CUBE POSITIONS ===" << std::endl;
             std::cout << "Red (friction): " << tCube1->position << std::endl;
             std::cout << "Blue (elastic): " << tCube2->position << std::endl;
             std::cout << "Yellow (normal): " << tCube3->position << std::endl;
-            std::cout << "Purple (pyramid): " << tPyramid->position << std::endl;
-            std::cout << "=======================\n" << std::endl;
+            std::cout << "=====================\n" << std::endl;
         }
         
         physicsWorld.Update();

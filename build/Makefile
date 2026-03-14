@@ -312,29 +312,29 @@ src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s
 .PHONY : src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s
 
-src/core/geometry/colliders/3D/Polygon3D.o: src/core/geometry/colliders/3D/Polygon3D.cpp.o
-.PHONY : src/core/geometry/colliders/3D/Polygon3D.o
+src/core/geometry/colliders/3D/Polyhedron3D.o: src/core/geometry/colliders/3D/Polyhedron3D.cpp.o
+.PHONY : src/core/geometry/colliders/3D/Polyhedron3D.o
 
 # target to build an object file
-src/core/geometry/colliders/3D/Polygon3D.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o
-.PHONY : src/core/geometry/colliders/3D/Polygon3D.cpp.o
+src/core/geometry/colliders/3D/Polyhedron3D.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o
+.PHONY : src/core/geometry/colliders/3D/Polyhedron3D.cpp.o
 
-src/core/geometry/colliders/3D/Polygon3D.i: src/core/geometry/colliders/3D/Polygon3D.cpp.i
-.PHONY : src/core/geometry/colliders/3D/Polygon3D.i
+src/core/geometry/colliders/3D/Polyhedron3D.i: src/core/geometry/colliders/3D/Polyhedron3D.cpp.i
+.PHONY : src/core/geometry/colliders/3D/Polyhedron3D.i
 
 # target to preprocess a source file
-src/core/geometry/colliders/3D/Polygon3D.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.i
-.PHONY : src/core/geometry/colliders/3D/Polygon3D.cpp.i
+src/core/geometry/colliders/3D/Polyhedron3D.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.i
+.PHONY : src/core/geometry/colliders/3D/Polyhedron3D.cpp.i
 
-src/core/geometry/colliders/3D/Polygon3D.s: src/core/geometry/colliders/3D/Polygon3D.cpp.s
-.PHONY : src/core/geometry/colliders/3D/Polygon3D.s
+src/core/geometry/colliders/3D/Polyhedron3D.s: src/core/geometry/colliders/3D/Polyhedron3D.cpp.s
+.PHONY : src/core/geometry/colliders/3D/Polyhedron3D.s
 
 # target to generate assembly for a file
-src/core/geometry/colliders/3D/Polygon3D.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.s
-.PHONY : src/core/geometry/colliders/3D/Polygon3D.cpp.s
+src/core/geometry/colliders/3D/Polyhedron3D.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.s
+.PHONY : src/core/geometry/colliders/3D/Polyhedron3D.cpp.s
 
 src/core/geometry/colliders/BaseCollider.o: src/core/geometry/colliders/BaseCollider.cpp.o
 .PHONY : src/core/geometry/colliders/BaseCollider.o
@@ -1854,9 +1854,9 @@ help:
 	@echo "... src/core/geometry/colliders/3D/IntersectionSegments3D.o"
 	@echo "... src/core/geometry/colliders/3D/IntersectionSegments3D.i"
 	@echo "... src/core/geometry/colliders/3D/IntersectionSegments3D.s"
-	@echo "... src/core/geometry/colliders/3D/Polygon3D.o"
-	@echo "... src/core/geometry/colliders/3D/Polygon3D.i"
-	@echo "... src/core/geometry/colliders/3D/Polygon3D.s"
+	@echo "... src/core/geometry/colliders/3D/Polyhedron3D.o"
+	@echo "... src/core/geometry/colliders/3D/Polyhedron3D.i"
+	@echo "... src/core/geometry/colliders/3D/Polyhedron3D.s"
 	@echo "... src/core/geometry/colliders/BaseCollider.o"
 	@echo "... src/core/geometry/colliders/BaseCollider.i"
 	@echo "... src/core/geometry/colliders/BaseCollider.s"

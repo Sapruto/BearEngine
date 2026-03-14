@@ -35,6 +35,8 @@ public:
     void AddForce(Vector3 direction, float magnitude);
     void AddForce(const Force& new_force);
 
+    void ReForce(const Force& new_force);
+
     void Initialize() override {  }
 
     void ChangeBody() override;

@@ -153,19 +153,19 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s
 
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp
+CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp
+CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp
 
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp > CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.i
+CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp > CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.i
 
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polygon3D.cpp -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.s
+CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.s
 
 CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp
@@ -917,7 +917,7 @@ game_OBJECTS = \
 "CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o" \
-"CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o" \
+"CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o" \
 "CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o" \
@@ -981,7 +981,7 @@ game: CMakeFiles/game.dir/src/core/geometry/colliders/2D/BoxCollider2D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o
-game: CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polygon3D.cpp.o
+game: CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o
 game: CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o

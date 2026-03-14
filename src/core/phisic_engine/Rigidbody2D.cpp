@@ -17,7 +17,7 @@ void RigidBody2D::Start(){
 }
 
 void RigidBody2D::Update(){
-    float dt = Time::DeltaTime();
+    /*float dt = Time::DeltaTime();
     if (!transform || mass <= 0 || dt <= 0) return;
     if (dt > 0.1f) dt = 0.1f;
     velocity += acceleration * dt;
@@ -38,14 +38,14 @@ void RigidBody2D::Update(){
     
     transform->position += velocity * dt;
     
-    forces.clear();
+    forces.clear();*/
 }
 
 void RigidBody2D::AddForce(const Vector2& force) {
-    forces.push_back(Force(force.normalized(), force.magnitude()));
+    //forces.push_back(Force(force.normalized(), force.magnitude()));
 }
 void RigidBody2D::AddForce(const Vector2& direction, float magnitude) {
-    forces.push_back(Force(direction, magnitude));
+    //forces.push_back(Force(direction, magnitude));
 }
 
 void RigidBody2D::AddImpulse(const Vector2& impulse) {

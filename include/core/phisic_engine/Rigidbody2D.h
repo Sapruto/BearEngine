@@ -5,18 +5,7 @@
 #include "Transform2D.h"
 #include "Vector2.h"
 #include "Component.h"
-
-struct Force {
-    Vector2 direction;
-    float magnitude;
-    
-    Force() : direction(0, 0), magnitude(0) {}
-    Force(const Vector2& dir, float mag) : direction(dir.normalized()), magnitude(mag) {}
-    
-    Vector2 GetForceVector() const {
-        return direction * magnitude;
-    }
-};
+#include "Force.h"
 
 class RigidBody2D : public Component {
 private:

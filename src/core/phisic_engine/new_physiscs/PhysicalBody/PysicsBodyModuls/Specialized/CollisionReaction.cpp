@@ -1,5 +1,7 @@
 #include "CollisionReaction.h"
 
+#include "CollisionEvent.h"
+
 CollisionReaction::CollisionReaction(){
     SetLayer(100);
     SubcribeEvent(PhysicEventType::CollisionEvent);
@@ -7,34 +9,47 @@ CollisionReaction::CollisionReaction(){
 
 void CollisionReaction::HandleCollision(PhysicalBody* bodyA, PhysicalBody* bodyB,
                     ImpulseModule* impulseA, ImpulseModule* impulseB){
-    Vector3 dirAtoB = bodyB->GetTransform()->position - bodyA->GetTransform()->position;
-    dirAtoB.normalize();
     
-    float forceMagnitude = 10.0f;
+    Vector3 posA = bodyA->GetTransform()->position;
+    Vector3 posB = bodyB->GetTransform()->position;
+    
+    Vector3 dirAtoB = posB - posA;
+    float distance = dirAtoB.magnitude();
+    
+    if (distance < 0.001f) return; 
+    
+    dirAtoB = dirAtoB / distance;
+    
+    float radiusA = 0.5f; 
+    float radiusB = 0.5f;
+    float penetrationDepth = (radiusA + radiusB) - distance;
+    
+    if (penetrationDepth <= 0) return;
+    
+
+    float stiffness = 100.0f;
+    
+    float forceMagnitude = penetrationDepth * stiffness;
+    
+    float damping = 0.3f;
     
     if (impulseA) {
-        impulseA->AddForce(-dirAtoB, forceMagnitude);
+        float massA = bodyA->GetMass();
+        impulseA->AddForce(-dirAtoB, forceMagnitude * massA * damping);
     }
     
     if (impulseB) {
-        impulseB->AddForce(dirAtoB, forceMagnitude);
+        float massB = bodyB->GetMass();
+        impulseB->AddForce(dirAtoB, forceMagnitude * massB * damping);
     }
 }
 
-void CollisionReaction::ReactionOnEvent(BasePhysicsEvent* event){
-    auto* collisionData = dynamic_cast<CollisionEvent*>(event->GetData());
-    if (!collisionData) return;
+void CollisionReaction::ReactionOnEvent(BasePhysicsEvent* event) {
+    auto* collisionEvent = dynamic_cast<CollisionEvent*>(event->GetData());
+    if (!collisionEvent) return;
     
-    BaseCollider* selfCollider = collisionData->GetSelf();
-    BaseCollider* otherCollider = collisionData->GetOther();
-    
-    PhysicalBody* selfBody = selfCollider->GetPhysicalBody();
-    PhysicalBody* otherBody = otherCollider->GetPhysicalBody();
-    
-    if (!selfBody || !otherBody) return;
-    
-    auto* selfImpulse = selfBody->GetFeatureOfType<ImpulseModule>();
-    auto* otherImpulse = otherBody->GetFeatureOfType<ImpulseModule>();
-    
-    HandleCollision(selfBody, otherBody, selfImpulse, otherImpulse);
+    ImpulseModule* impulseModule = body->GetFeatureOfType<ImpulseModule>();
+    if (impulseModule) {
+        impulseModule->AddForce(Vector3(0, 10.0f, 0), 1.0f);
+    }
 }
