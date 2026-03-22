@@ -48,7 +48,7 @@ void ImpulseModule::ReForce(const Force& new_force){
     velocity = Vector3::Zero;
 }
 
-void ImpulseModule::ChangeBody(){
+void ImpulseModule::UpdateBody(){
     float deltaTime = Time::DeltaTime();
     float mass = body->GetMass();
     Transform3D* transform = body->GetTransform();

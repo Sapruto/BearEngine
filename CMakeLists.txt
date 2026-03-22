@@ -1,37 +1,29 @@
 cmake_minimum_required(VERSION 3.10)
 project(BearEngine)
 
-# ========== БАЗОВЫЕ НАСТРОЙКИ ==========
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# ========== РЕЖИМ СБОРКИ ==========
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
 endif()
 
-# ========== ПОИСК БИБЛИОТЕК ==========
 find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(Threads REQUIRED)
 find_package(assimp REQUIRED)
 
-# ========== ПУТИ ==========
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(IMGUI_DIR ${ROOT_DIR}/src/dependencies/imgui-master)
 set(GLAD_DIR ${ROOT_DIR}/src/dependencies/glad)
 set(STB_DIR ${ROOT_DIR}/src/dependencies/stb)
 set(GLM_DIR ${ROOT_DIR}/src/dependencies/glm)
 
-# ========== СОЗДАЕМ БИБЛИОТЕКИ ==========
-
-# GLAD библиотека (C)
 add_library(glad_lib STATIC ${GLAD_DIR}/src/glad.c)
 target_include_directories(glad_lib PUBLIC ${GLAD_DIR}/include)
 set_target_properties(glad_lib PROPERTIES LINKER_LANGUAGE C)
 
-# ImGui библиотека (C++ - ПРИНУДИТЕЛЬНО)
 set(IMGUI_SOURCES
     ${IMGUI_DIR}/imgui.cpp
     ${IMGUI_DIR}/imgui_demo.cpp
@@ -44,10 +36,8 @@ set(IMGUI_SOURCES
 
 add_library(imgui_lib STATIC ${IMGUI_SOURCES})
 
-# ЯВНО указываем язык C++ для всей библиотеки
 set_target_properties(imgui_lib PROPERTIES LINKER_LANGUAGE CXX)
 
-# Для каждого файла явно указываем язык C++
 set_source_files_properties(
     ${IMGUI_SOURCES}
     PROPERTIES
@@ -71,7 +61,6 @@ target_compile_options(imgui_lib PRIVATE
     -fPIC
 )
 
-# STB библиотека (C)
 file(WRITE ${CMAKE_CURRENT_BINARY_DIR}/stb_impl.cpp
     "#define STB_IMAGE_IMPLEMENTATION\n"
     "#include \"${STB_DIR}/stb_image.h\"\n"
@@ -81,19 +70,14 @@ add_library(stb_lib STATIC ${CMAKE_CURRENT_BINARY_DIR}/stb_impl.cpp)
 target_include_directories(stb_lib PUBLIC ${STB_DIR})
 set_target_properties(stb_lib PROPERTIES LINKER_LANGUAGE CXX)
 
-# ========== СОБИРАЕМ ФАЙЛЫ ДВИЖКА ==========
 file(GLOB_RECURSE CORE_SOURCES "${ROOT_DIR}/src/core/*.cpp")
 
-# ========== ГЛАВНЫЙ ИСПОЛНЯЕМЫЙ ФАЙЛ ==========
 add_executable(game ${ROOT_DIR}/main.cpp ${CORE_SOURCES})
 
-# ========== ИНКЛУДЫ ==========
 target_include_directories(game PRIVATE
-    # Проект
     ${ROOT_DIR}/include
     ${ROOT_DIR}/src
     
-    # Core папки
     ${ROOT_DIR}/include/core
     ${ROOT_DIR}/include/core/audio_engine
     ${ROOT_DIR}/include/core/exe_compiler
@@ -135,16 +119,15 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsManagers
 
-    # 3D папки
     ${ROOT_DIR}/include/core/graphics_engine/3D
     ${ROOT_DIR}/include/core/graphics_engine/3D/Models
     ${ROOT_DIR}/include/core/graphics_engine/3D/Lights
     
-    # 2D папки (для Sprite)
     ${ROOT_DIR}/include/core/graphics_engine/2D
     ${ROOT_DIR}/include/core/graphics_engine/2D/Sprite
+
+    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Fluid
     
-    # Зависимости
     ${GLM_DIR}
     ${GLAD_DIR}/include
     ${IMGUI_DIR}
@@ -153,7 +136,6 @@ target_include_directories(game PRIVATE
     ${CMAKE_CURRENT_BINARY_DIR}
 )
 
-# ========== ДЕФАЙНЫ ==========
 target_compile_definitions(game PRIVATE
     IMGUI_IMPL_OPENGL_LOADER_GLAD
     GLFW_INCLUDE_NONE
@@ -161,13 +143,11 @@ target_compile_definitions(game PRIVATE
     STBI_MAX_DIMENSIONS=4096
 )
 
-# ========== ФЛАГИ ==========
 target_compile_options(game PRIVATE
     -Wall -Wextra -g -O0
     -fPIC
 )
 
-# ========== ЛИНКОВКА ==========
 target_link_libraries(game PRIVATE
     glad_lib
     imgui_lib
@@ -189,7 +169,6 @@ target_link_libraries(game PRIVATE
     assimp::assimp
 )
 
-# ========== ВЫВОД ИНФОРМАЦИИ ==========
 message(STATUS "========================================")
 message(STATUS "Build Type: ${CMAKE_BUILD_TYPE}")
 message(STATUS "Core files: ${CORE_SOURCES}")

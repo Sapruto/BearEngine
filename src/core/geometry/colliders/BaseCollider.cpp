@@ -14,9 +14,9 @@ void BaseCollider::Destroy() {
     for (auto& [other, event] : currentCollisions) {
         if (other && !other->m_isBeingDestroyed) {
             if (m_isTrigger || other->m_isTrigger) {
-                other->OnTriggerExit(*event);
+                other->OnTrigger(*event);
             } else {
-                other->OnCollisionExit(*event);
+                other->OnCollision(*event);
             }
         }
     }

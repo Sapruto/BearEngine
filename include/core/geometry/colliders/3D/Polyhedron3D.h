@@ -10,15 +10,9 @@
 #include "Transform3D.h"
 #include "Vector3.h"
 
-struct Vertex3D {
-    explicit Vertex3D(const Vector3& point) : localPoint(point) {}
-    
-    Vector3 localPoint;
+#include "Vertex3D.h"
 
-    Vector3 GetGlobalPoint(const Transform3D& transform) const {
-        return transform.rotation * localPoint + transform.position;
-    }
-};
+#include "Tetrahedron3D.h"
 
 struct AABB{
     AABB() : min(Vector3(0,0,0)), max(Vector3(0,0,0)) {}
@@ -61,6 +55,8 @@ class Polyhedron3D : public Collider<Transform3D, Vector3> {
 private:
     AABB cachedAABB;
 
+    std::vector<Tetrahedron3D> tetrahedrons;
+
     std::vector<Vertex3D> vertices;
     std::vector<Face> faces;
     std::vector<std::pair<size_t, size_t>> communications;
@@ -73,6 +69,7 @@ private:
 
     Vector3 GetEdgeDirection(const std::pair<size_t, size_t>& edge) const;
 
+    void CalculateTetrahedrons();
     void CalculateAABB();
     void CalculateCenter();
     void CalculateFaces();

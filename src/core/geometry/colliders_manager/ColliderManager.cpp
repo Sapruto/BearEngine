@@ -20,6 +20,7 @@ void ColliderManager::AddCollider(BaseCollider* collider) {
     }
     
     collider->SetColliderManager(this);
+    collider->Initialize();
     all_colliders.push_back(collider);
 }
 
@@ -40,6 +41,18 @@ void ColliderManager::CheckPair(BaseCollider* a, BaseCollider* b) {
     currentFrameEvents.push_back(std::move(eventForB));
 }
 
+void ColliderManager::Initialize() {
+    for(auto* collider : all_colliders){
+        if (!collider) continue;
+        collider->Initialize();
+    }
+}
+
+void ColliderManager::Update(){
+    CheckCollisions();
+    ProcessEvents();
+}
+
 void ColliderManager::ProcessEvents() {
     for (auto* collider : all_colliders) {
         if (!collider) continue;
@@ -52,38 +65,45 @@ void ColliderManager::ProcessEvents() {
             
             auto prevIt = previous.find(other);
             if (prevIt == previous.end()) {
-                CollisionEvent enterEvent(CollisionEvent::State::ENTER, collider, other);
+                auto enterEvent = std::make_unique<CollisionEvent>(CollisionEvent::State::ENTER, collider, other);
+                CollisionEvent* rawEvent = enterEvent.get();
+                
+                const_cast<std::unordered_map<BaseCollider*, const CollisionEvent*>&>(current)[other] = rawEvent;
                 
                 if (collider->IsTrigger()) {
-                    collider->OnTriggerEnter(enterEvent);
+                    collider->OnTrigger(*rawEvent);
                 } else {
-                    collider->OnCollisionEnter(enterEvent);
+                    collider->OnCollision(*rawEvent);
                 }
                 
+                currentFrameEvents.push_back(std::move(enterEvent));
                 previous[other] = true;
-            } else {
-                if (event) { 
-                    if (collider->IsTrigger()) {
-                        collider->OnTriggerStay(*event);
-                    } else {
-                        collider->OnCollisionStay(*event);
-                    }
+            } 
+            else if (event) {
+                if (collider->IsTrigger()) {
+                    collider->OnTrigger(*event);
+                } else {
+                    collider->OnCollision(*event);
                 }
             }
         }
         
         for (auto it = previous.begin(); it != previous.end();) {
             if (current.find(it->first) == current.end()) {
-                CollisionEvent exitEvent(CollisionEvent::State::EXIT, collider, it->first);
+                auto exitEvent = std::make_unique<CollisionEvent>(CollisionEvent::State::EXIT, collider, it->first);
+                CollisionEvent* rawEvent = exitEvent.get();
                 
                 if (collider->IsTrigger()) {
-                    collider->OnTriggerExit(exitEvent);
-                } else {
-                    collider->OnCollisionExit(exitEvent);
+                    collider->OnTrigger(*rawEvent);
+                } 
+                else {
+                    collider->OnCollision(*rawEvent);
                 }
                 
+                currentFrameEvents.push_back(std::move(exitEvent));
                 it = previous.erase(it);
-            } else {
+            } 
+            else {
                 ++it;
             }
         }
@@ -129,8 +149,6 @@ void ColliderManager::CheckCollisions() {
             CheckPair(a, b);
         }
     }
-    
-    ProcessEvents();
 }
 
 std::vector<BaseCollider*> ColliderManager::GetCollisionsFor(BaseCollider* collider) const {

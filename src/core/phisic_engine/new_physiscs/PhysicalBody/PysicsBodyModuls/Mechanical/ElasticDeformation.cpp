@@ -51,7 +51,7 @@ void ElasticDeformation::Initialize() {
     if(!impulseModule) isValid = false;
 }
 
-void ElasticDeformation::ChangeBody() {
+void ElasticDeformation::UpdateBody() {
     if(!isValid || k == 0) return;
 
     ApplyTransformToBindingPoints();

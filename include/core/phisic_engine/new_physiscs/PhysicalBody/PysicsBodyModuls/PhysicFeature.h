@@ -2,8 +2,11 @@
 
 #include "PhysicsEvents.h"
 #include <vector>
-#include "PhysicsWorld.h"
-#include "PhysicalBody.h" 
+#include <algorithm> 
+#include <cstddef>
+
+class PhysicalBody;
+class PhysicsWorld;
 
 class PhysicFeature{
 protected:
@@ -31,34 +34,16 @@ public:
         this->body = body;
     }
 
-    void FeatureInitialize(){
-        if(!body) return;
-
-        const PhysicsWorld* world = body->GetWorld();
-        if(!world) return;
-
-        for(auto& event : events_subscribed){
-            const_cast<PhysicsWorld*>(world)->Subscribe(this, event);
-        }
-    }
+    void FeatureInitialize();
 
     virtual void Initialize() = 0;
     
-    virtual void ChangeBody() = 0;
+    virtual void UpdateBody() = 0;
     virtual void ReactionOnEvent(BasePhysicsEvent* event) = 0;
 
     virtual void Destroy() = 0;
 
-    void FeatureDestroy(){
-        if(!body) return;
-
-        const PhysicsWorld* world = body->GetWorld();
-        if(!world) return;
-
-        for(auto& event : events_subscribed){
-            const_cast<PhysicsWorld*>(world)->Unsubscribe(this, event);
-        }
-    }
+    void FeatureDestroy();
 
     std::vector<PhysicEventType> GetSubscribedEvents(){
         return events_subscribed;

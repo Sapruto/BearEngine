@@ -21,12 +21,17 @@ void Polyhedron3D::ApplyChanged(){
     CalculateCenter();
     CalculateAABB();
     CalculateFaces();
+    CalculateTetrahedrons();
 }
 
 Vector3 Polyhedron3D::GetEdgeDirection(const std::pair<size_t, size_t>& edge) const {
     Vector3 p1 = vertices[edge.first].localPoint;
     Vector3 p2 = vertices[edge.second].localPoint;
     return (p2 - p1).normalized();
+}
+
+void Polyhedron3D::CalculateTetrahedrons(){
+
 }
 
 void Polyhedron3D::CalculateFaces() {
@@ -195,8 +200,20 @@ void Polyhedron3D::Update(){
     }
 }
 
-bool Polyhedron3D::ContainsPoint(const Vector3& point) const{
-    return true;
+bool Polyhedron3D::ContainsPoint(const Vector3& point) const {
+    if (point.x < cachedAABB.min.x || point.x > cachedAABB.max.x ||
+        point.y < cachedAABB.min.y || point.y > cachedAABB.max.y ||
+        point.z < cachedAABB.min.z || point.z > cachedAABB.max.z) {
+        return false;
+    }
+    
+    for (const auto& tetra : tetrahedrons) {
+        if (tetra.ContainsPoint(point, *transform)) {
+            return true;
+        }
+    }
+    
+    return false;
 }
 
 bool Polyhedron3D::Intersects(const BaseCollider* other) const{

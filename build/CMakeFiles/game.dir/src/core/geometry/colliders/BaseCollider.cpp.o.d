@@ -190,10 +190,14 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/typeindex \
- /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+ /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
+ /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h \
  /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \

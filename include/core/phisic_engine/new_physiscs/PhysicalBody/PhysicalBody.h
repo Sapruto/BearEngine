@@ -113,4 +113,13 @@ public:
     BaseCollider* GetBaseCollider(){return collider;}
     Transform3D* GetTransform() { return transform; }
     const PhysicsWorld* GetWorld() { return world; }
+
+    std::vector<PhysicFeature*> GetFeatures() {
+        std::vector<PhysicFeature*> result;
+        result.reserve(features.size());
+        for (const auto& feature : features) {
+            result.push_back(feature.get());
+        }
+        return result;
+    }
 };

@@ -191,4 +191,8 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: \
  /usr/include/c++/13/bits/locale_facets.tcc \
  /usr/include/c++/13/bits/basic_ios.tcc \
  /usr/include/c++/13/bits/ostream.tcc /usr/include/c++/13/istream \
- /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/typeindex
+ /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/typeindex \
+ /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h

@@ -67,7 +67,7 @@ void PhysicalBody::PhysicsUpdate() {
     if(needsResort) Resort();
     
     for(auto* feature : sortedFeatures){
-        feature->ChangeBody();
+        feature->UpdateBody();
     }
 }
 

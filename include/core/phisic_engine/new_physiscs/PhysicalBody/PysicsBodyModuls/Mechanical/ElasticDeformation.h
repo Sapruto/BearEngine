@@ -41,7 +41,7 @@ public:
 
     void Initialize() override;
 
-    void ChangeBody() override;
+    void UpdateBody() override;
     void ReactionOnEvent(BasePhysicsEvent* event) override;
 
     void Destroy() override;

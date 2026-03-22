@@ -18,6 +18,16 @@ private:
 
     std::unordered_map<PhysicEventType, std::vector<PhysicFeature*>> subscribers;
 
+    bool IsSubscribed(PhysicFeature* feature, PhysicEventType type) {
+        if (!feature) return false;
+        
+        auto it = subscribers.find(type);
+        if (it == subscribers.end()) return false;
+        
+        const auto& vec = it->second;
+        return std::find(vec.begin(), vec.end(), feature) != vec.end();
+    }
+
     void UnsubscribeAll(PhysicalBody* body);
 
 public:
@@ -51,6 +61,20 @@ public:
         if (auto it = subscribers.find(type); it != subscribers.end()) {
             auto subscribers_copy = it->second;
             for (auto* feature : subscribers_copy) {
+                feature->ReactionOnEvent(&event);
+            }
+        }
+    }
+
+    template<typename DataType>
+    void DispatchEventToBody(PhysicEventType type, const DataType& data, PhysicalBody* targetBody) {
+        if (!targetBody) return;
+        
+        auto eventData = std::make_unique<DataType>(data);
+        BasePhysicsEvent event(eventData.get(), type);
+        
+        for (auto* feature : targetBody->GetFeatures()) {
+            if (IsSubscribed(feature, type)) {
                 feature->ReactionOnEvent(&event);
             }
         }

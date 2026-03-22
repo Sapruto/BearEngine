@@ -20,7 +20,7 @@ void Gravity::Initialize(){
     gravitationForce = Force(down, 9.8f * mass);
 }
 
-void Gravity::ChangeBody(){
+void Gravity::UpdateBody(){
     if(!isValid || !impulseModule) return;
 
     impulseModule->AddForce(gravitationForce);

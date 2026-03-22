@@ -23,6 +23,10 @@ public:
     ColliderManager() = default;
     ~ColliderManager();
 
+    void Initialize();
+
+    void Update();
+
     void ProcessEvents();
 
     void AddCollider(BaseCollider* collider);

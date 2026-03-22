@@ -218,9 +218,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
  /usr/include/c++/13/typeindex \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
+ /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
+ /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+ /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+ /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
+ /usr/include/c++/13/bits/stl_map.h \
+ /usr/include/c++/13/bits/stl_multimap.h \
  /home/alex/Projects/BearEngine/include/core/math/2D/Transform2D.h \
  /home/alex/Projects/BearEngine/include/core/math/Transform.h \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
- /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h

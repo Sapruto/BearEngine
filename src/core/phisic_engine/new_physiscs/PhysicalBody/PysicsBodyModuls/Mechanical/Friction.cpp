@@ -69,7 +69,7 @@ void Friction::CalculateNormalForce(){
     }
 }
 
-void Friction::ChangeBody(){
+void Friction::UpdateBody(){
     if(!isValid) return;
 
     Force mainForce = impulseModule->GetForce();
@@ -125,6 +125,9 @@ void Friction::ReactionOnEvent(BasePhysicsEvent* event) {
     Polyhedron3D* otherCollider = dynamic_cast<Polyhedron3D*>(collisionEvent->GetOther());
     
     if (!myCollider || !otherCollider) return;
+
+    BaseCollider* collider = body->GetBaseCollider();
+    if(collisionEvent->GetOther() != collider && collisionEvent->GetSelf() != collider) return;
     
     if (collisionEvent->GetState() != CollisionEvent::State::STAY) return;
     
