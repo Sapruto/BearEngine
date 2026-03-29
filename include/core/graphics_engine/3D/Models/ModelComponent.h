@@ -33,8 +33,4 @@ public:
     const std::string& GetModelPath() const { return modelPath; }
 
     unsigned int GetVAO() const { return VAO; } 
-
-    void Render(const glm::vec2& position, float rotation) override {  }
-    bool IsVisible() const override { return true; }
-    int GetLayer() const override { return 0; }
 };

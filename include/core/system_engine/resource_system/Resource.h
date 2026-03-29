@@ -9,6 +9,7 @@ protected:
     bool loaded = false; 
 
 public:
+    Resource() = default;
     Resource(const std::string& path) : pathName(path) {}
     virtual ~Resource() = default;
 

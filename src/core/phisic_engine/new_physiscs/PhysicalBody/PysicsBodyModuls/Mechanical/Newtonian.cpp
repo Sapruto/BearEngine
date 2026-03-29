@@ -67,6 +67,8 @@ void ImpulseModule::UpdateBody(){
     if (mode == ImpulseModuleMode::ARCADY) {
         ApplyArcadyChange();
     }
+    
+    main_force = Force(Vector3::Zero, 0.0f);
 }
 
 void ImpulseModule::ReactionOnEvent(BasePhysicsEvent* event){

@@ -3,7 +3,7 @@
 #include <iostream>
 
 SpriteRenderer::SpriteRenderer() 
-    : m_Shader("include/core/graphics_engine/Shaders/SpriteShaders/SpriteVertexShader.glsl", 
+    : shader("include/core/graphics_engine/Shaders/SpriteShaders/SpriteVertexShader.glsl", 
                "include/core/graphics_engine/Shaders/SpriteShaders/SpriteFragmentShader.glsl") {
     CreateBuffers();
     CacheUniformLocations();
@@ -17,8 +17,8 @@ SpriteRenderer::~SpriteRenderer() {
 
 SpriteRenderer::SpriteRenderer(SpriteRenderer&& other) noexcept
     : VAO(other.VAO), VBO(other.VBO), EBO(other.EBO),
-      m_Shader(std::move(other.m_Shader)),
-      m_Uniforms(other.m_Uniforms) {
+      shader(std::move(other.shader)),
+      uniforms(other.uniforms) {
     other.VAO = other.VBO = other.EBO = 0;
 }
 
@@ -31,8 +31,8 @@ SpriteRenderer& SpriteRenderer::operator=(SpriteRenderer&& other) noexcept {
         VAO = other.VAO;
         VBO = other.VBO;
         EBO = other.EBO;
-        m_Shader = std::move(other.m_Shader);
-        m_Uniforms = other.m_Uniforms;
+        shader = std::move(other.shader);
+        uniforms = other.uniforms;
         
         other.VAO = other.VBO = other.EBO = 0;
     }
@@ -40,12 +40,12 @@ SpriteRenderer& SpriteRenderer::operator=(SpriteRenderer&& other) noexcept {
 }
 
 void SpriteRenderer::CacheUniformLocations() {
-    m_Shader.Bind();
-    m_Uniforms.projection = glGetUniformLocation(m_Shader.GetID(), "projection");
-    m_Uniforms.view = glGetUniformLocation(m_Shader.GetID(), "view");
-    m_Uniforms.model = glGetUniformLocation(m_Shader.GetID(), "model");
-    m_Uniforms.texture = glGetUniformLocation(m_Shader.GetID(), "texture1");
-    m_Uniforms.color = glGetUniformLocation(m_Shader.GetID(), "spriteColor");
+    shader.Bind();
+    uniforms.projection = glGetUniformLocation(shader.GetID(), "projection");
+    uniforms.view = glGetUniformLocation(shader.GetID(), "view");
+    uniforms.model = glGetUniformLocation(shader.GetID(), "model");
+    uniforms.texture = glGetUniformLocation(shader.GetID(), "texture1");
+    uniforms.color = glGetUniformLocation(shader.GetID(), "spriteColor");
 }
 
 void SpriteRenderer::CreateBuffers() {
@@ -88,21 +88,21 @@ void SpriteRenderer::Update() {
     Camera2D* camera = dynamic_cast<Camera2D*>(manager->GetCamera());
     if (!camera) return;
     
-    m_Shader.Bind();
+    shader.Bind();
     
-    if (m_Uniforms.projection != -1) {
-        glUniformMatrix4fv(m_Uniforms.projection, 1, GL_FALSE, 
+    if (uniforms.projection != -1) {
+        glUniformMatrix4fv(uniforms.projection, 1, GL_FALSE, 
                           glm::value_ptr(camera->GetProjectionMatrix()));
     }
     
-    if (m_Uniforms.view != -1) {
-        glUniformMatrix4fv(m_Uniforms.view, 1, GL_FALSE, 
+    if (uniforms.view != -1) {
+        glUniformMatrix4fv(uniforms.view, 1, GL_FALSE, 
                           glm::value_ptr(camera->GetViewMatrix()));
     }
     
     glActiveTexture(GL_TEXTURE0);
-    if (m_Uniforms.texture != -1) {
-        glUniform1i(m_Uniforms.texture, 0);
+    if (uniforms.texture != -1) {
+        glUniform1i(uniforms.texture, 0);
     }
     
     std::vector<RenderComponent*> toRemove;
@@ -156,15 +156,15 @@ void SpriteRenderer::Update() {
 void SpriteRenderer::RenderSprite(GLuint textureID, float x, float y,
                                   float width, float height, float rotation,
                                   float r, float g, float b, float a) {
-    if (m_Uniforms.model == -1 || m_Uniforms.texture == -1) return;
+    if (uniforms.model == -1 || uniforms.texture == -1) return;
     
-    if (m_Uniforms.color != -1) {
-        glUniform4f(m_Uniforms.color, r, g, b, a);
+    if (uniforms.color != -1) {
+        glUniform4f(uniforms.color, r, g, b, a);
     }
     
     glActiveTexture(GL_TEXTURE0);
     glBindTexture(GL_TEXTURE_2D, textureID);
-    glUniform1i(m_Uniforms.texture, 0);
+    glUniform1i(uniforms.texture, 0);
 
     float normalizedWidth = width / 100.0f;
     float normalizedHeight = height / 100.0f;
@@ -173,7 +173,7 @@ void SpriteRenderer::RenderSprite(GLuint textureID, float x, float y,
     model = glm::translate(model, glm::vec3(x, y, 0.0f));
     model = glm::rotate(model, rotation, glm::vec3(0.0f, 0.0f, 1.0f));
     model = glm::scale(model, glm::vec3(normalizedWidth, normalizedHeight, 1.0f));
-    glUniformMatrix4fv(m_Uniforms.model, 1, GL_FALSE, glm::value_ptr(model));
+    glUniformMatrix4fv(uniforms.model, 1, GL_FALSE, glm::value_ptr(model));
     
     glBindVertexArray(VAO);
     glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);

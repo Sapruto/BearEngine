@@ -22,7 +22,7 @@ class Sprite;
 class SpriteRenderer : public Renderer {
 private:
     GLuint VAO, VBO, EBO;
-    Shader m_Shader;
+    Shader shader;
 
     struct UniformLocations {
         int projection;
@@ -30,7 +30,7 @@ private:
         int model;
         int texture;
         int color;
-    } m_Uniforms;
+    } uniforms;
     
     void CreateShader();
     void CreateBuffers();

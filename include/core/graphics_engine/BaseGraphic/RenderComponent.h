@@ -4,10 +4,14 @@
 #include <glm/glm.hpp>
 
 class RenderComponent : public Component{
+protected:
+    bool isActive{true};
+
+    int layer{0};
+
 public:
     virtual ~RenderComponent() = default;
-    
-    virtual void Render(const glm::vec2& position, float rotation) = 0;
-    virtual bool IsVisible() const = 0;
-    virtual int GetLayer() const = 0;
+
+    int GetLayer() const{ return layer; }
+    bool IsActive() const{ return isActive; }
 };

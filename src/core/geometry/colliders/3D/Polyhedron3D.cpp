@@ -36,33 +36,35 @@ void Polyhedron3D::CalculateTetrahedrons(){
 
 void Polyhedron3D::CalculateFaces() {
     std::set<std::pair<size_t, size_t>> usedEdges;
+    faces.clear();
     
     for (const auto& startEdge : communications) {
-        if (usedEdges.count(startEdge) > 0) continue;
+        auto edge = startEdge;
+        auto reversed = std::make_pair(edge.second, edge.first);
+        
+        if (usedEdges.count(edge) > 0) continue;
         
         std::vector<size_t> faceVertices;
-        
-        size_t v0 = startEdge.first;
-        size_t v1 = startEdge.second;
+        size_t v0 = edge.first;
+        size_t v1 = edge.second;
         
         faceVertices.push_back(v0);
         faceVertices.push_back(v1);
+        usedEdges.insert(edge);
+        usedEdges.insert(reversed);
         
-        usedEdges.insert(startEdge);
-        usedEdges.insert({startEdge.second, startEdge.first});
-        
-        while (true) {
+        bool faceClosed = false;
+        while (!faceClosed) {
             size_t nextVertex = FindNextVertex(v1, v0);
-            
-            if (nextVertex == -1) break;
+            if (nextVertex == SIZE_MAX) break;
             
             if (nextVertex == faceVertices[0]) {
                 faceVertices.push_back(nextVertex);
+                faceClosed = true;
                 break;
             }
             
             faceVertices.push_back(nextVertex);
-            
             usedEdges.insert({v1, nextVertex});
             usedEdges.insert({nextVertex, v1});
             
@@ -70,10 +72,28 @@ void Polyhedron3D::CalculateFaces() {
             v1 = nextVertex;
         }
         
-        Face newFace;
-        newFace.vertexIndices = faceVertices;
-        newFace.CalculateNormal(vertices); 
-        faces.push_back(newFace);
+        if (faceClosed && faceVertices.size() >= 3) {
+            Face newFace;
+            newFace.vertexIndices = faceVertices;
+            newFace.CalculateNormal(vertices);
+            
+            bool isDuplicate = false;
+            for (const auto& existingFace : faces) {
+                if (existingFace.vertexIndices.size() == faceVertices.size()) {
+                    std::set<size_t> existingSet(existingFace.vertexIndices.begin(), 
+                                                  existingFace.vertexIndices.end());
+                    std::set<size_t> newSet(faceVertices.begin(), faceVertices.end());
+                    if (existingSet == newSet) {
+                        isDuplicate = true;
+                        break;
+                    }
+                }
+            }
+            
+            if (!isDuplicate) {
+                faces.push_back(newFace);
+            }
+        }
     }
 }
 

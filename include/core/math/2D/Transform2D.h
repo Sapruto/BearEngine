@@ -13,7 +13,7 @@ public:
     
     void rotate(float angleRad);
     
-    Vector2 forward() const;;
+    Vector2 forward() const;
     Vector2 right() const;
     
     void lookAt(const Vector2& target);

@@ -13,6 +13,7 @@ find_package(glfw3 REQUIRED)
 find_package(SDL2 REQUIRED)
 find_package(Threads REQUIRED)
 find_package(assimp REQUIRED)
+find_package(Freetype REQUIRED)
 
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(IMGUI_DIR ${ROOT_DIR}/src/dependencies/imgui-master)
@@ -127,6 +128,14 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/graphics_engine/2D/Sprite
 
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Fluid
+
+    ${ROOT_DIR}/include/core/graphics_engine/UI
+    ${ROOT_DIR}/include/core/graphics_engine/UI/UIElements
+    ${ROOT_DIR}/include/core/graphics_engine/UI/UIRendering
+
+    ${ROOT_DIR}/include/core/system_engine/hierarchy_system
+
+
     
     ${GLM_DIR}
     ${GLAD_DIR}/include
@@ -134,6 +143,8 @@ target_include_directories(game PRIVATE
     ${IMGUI_DIR}/backends
     ${STB_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
+    
+    ${FREETYPE_INCLUDE_DIRS}
 )
 
 target_compile_definitions(game PRIVATE
@@ -167,6 +178,7 @@ target_link_libraries(game PRIVATE
     Xcursor
     Xext
     assimp::assimp
+    ${FREETYPE_LIBRARIES}
 )
 
 message(STATUS "========================================")

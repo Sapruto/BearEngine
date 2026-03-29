@@ -21,10 +21,6 @@ private:
     float height = 100.0f;
     
     glm::vec4 color = glm::vec4(1.0f);
-
-    bool isActive = true;
-
-    int layer = 0;
     
     void LoadTexture();
     
@@ -46,8 +42,6 @@ public:
         color = glm::vec4(r, g, b, a);
     }
     
-    void Render(const glm::vec2& position, float rotation);
-    
     void RenderAtPosition(float screenX, float screenY, 
                          float width = 0, float height = 0);
 
@@ -58,8 +52,6 @@ public:
     void ClearResourceManager();
 
     bool IsActive() const { return isActive; } 
-    bool IsVisible() const override { return isActive; }
-    int GetLayer() const override { return layer; }
 
     float GetWidth() const { return width; }  
     float GetHeight() const { return height; } 

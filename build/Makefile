@@ -672,6 +672,150 @@ src/core/graphics_engine/Shader.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.s
 .PHONY : src/core/graphics_engine/Shader.cpp.s
 
+src/core/graphics_engine/UI/Canvas.o: src/core/graphics_engine/UI/Canvas.cpp.o
+.PHONY : src/core/graphics_engine/UI/Canvas.o
+
+# target to build an object file
+src/core/graphics_engine/UI/Canvas.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o
+.PHONY : src/core/graphics_engine/UI/Canvas.cpp.o
+
+src/core/graphics_engine/UI/Canvas.i: src/core/graphics_engine/UI/Canvas.cpp.i
+.PHONY : src/core/graphics_engine/UI/Canvas.i
+
+# target to preprocess a source file
+src/core/graphics_engine/UI/Canvas.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.i
+.PHONY : src/core/graphics_engine/UI/Canvas.cpp.i
+
+src/core/graphics_engine/UI/Canvas.s: src/core/graphics_engine/UI/Canvas.cpp.s
+.PHONY : src/core/graphics_engine/UI/Canvas.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/UI/Canvas.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.s
+.PHONY : src/core/graphics_engine/UI/Canvas.cpp.s
+
+src/core/graphics_engine/UI/RectTransform.o: src/core/graphics_engine/UI/RectTransform.cpp.o
+.PHONY : src/core/graphics_engine/UI/RectTransform.o
+
+# target to build an object file
+src/core/graphics_engine/UI/RectTransform.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o
+.PHONY : src/core/graphics_engine/UI/RectTransform.cpp.o
+
+src/core/graphics_engine/UI/RectTransform.i: src/core/graphics_engine/UI/RectTransform.cpp.i
+.PHONY : src/core/graphics_engine/UI/RectTransform.i
+
+# target to preprocess a source file
+src/core/graphics_engine/UI/RectTransform.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.i
+.PHONY : src/core/graphics_engine/UI/RectTransform.cpp.i
+
+src/core/graphics_engine/UI/RectTransform.s: src/core/graphics_engine/UI/RectTransform.cpp.s
+.PHONY : src/core/graphics_engine/UI/RectTransform.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/UI/RectTransform.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.s
+.PHONY : src/core/graphics_engine/UI/RectTransform.cpp.s
+
+src/core/graphics_engine/UI/UIElements/Button.o: src/core/graphics_engine/UI/UIElements/Button.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Button.o
+
+# target to build an object file
+src/core/graphics_engine/UI/UIElements/Button.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Button.cpp.o
+
+src/core/graphics_engine/UI/UIElements/Button.i: src/core/graphics_engine/UI/UIElements/Button.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Button.i
+
+# target to preprocess a source file
+src/core/graphics_engine/UI/UIElements/Button.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Button.cpp.i
+
+src/core/graphics_engine/UI/UIElements/Button.s: src/core/graphics_engine/UI/UIElements/Button.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Button.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/UI/UIElements/Button.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Button.cpp.s
+
+src/core/graphics_engine/UI/UIElements/Image.o: src/core/graphics_engine/UI/UIElements/Image.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Image.o
+
+# target to build an object file
+src/core/graphics_engine/UI/UIElements/Image.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Image.cpp.o
+
+src/core/graphics_engine/UI/UIElements/Image.i: src/core/graphics_engine/UI/UIElements/Image.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Image.i
+
+# target to preprocess a source file
+src/core/graphics_engine/UI/UIElements/Image.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Image.cpp.i
+
+src/core/graphics_engine/UI/UIElements/Image.s: src/core/graphics_engine/UI/UIElements/Image.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Image.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/UI/UIElements/Image.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Image.cpp.s
+
+src/core/graphics_engine/UI/UIElements/Text.o: src/core/graphics_engine/UI/UIElements/Text.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Text.o
+
+# target to build an object file
+src/core/graphics_engine/UI/UIElements/Text.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Text.cpp.o
+
+src/core/graphics_engine/UI/UIElements/Text.i: src/core/graphics_engine/UI/UIElements/Text.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Text.i
+
+# target to preprocess a source file
+src/core/graphics_engine/UI/UIElements/Text.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Text.cpp.i
+
+src/core/graphics_engine/UI/UIElements/Text.s: src/core/graphics_engine/UI/UIElements/Text.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Text.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/UI/UIElements/Text.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Text.cpp.s
+
+src/core/graphics_engine/UI/UIRendering/UIRendering.o: src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIRendering/UIRendering.o
+
+# target to build an object file
+src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o
+
+src/core/graphics_engine/UI/UIRendering/UIRendering.i: src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIRendering/UIRendering.i
+
+# target to preprocess a source file
+src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.i
+
+src/core/graphics_engine/UI/UIRendering/UIRendering.s: src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIRendering/UIRendering.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.s
+
 src/core/graphics_engine/Window.o: src/core/graphics_engine/Window.cpp.o
 .PHONY : src/core/graphics_engine/Window.o
 
@@ -1440,6 +1584,30 @@ src/core/scene_engine/SceneToFile/SceneSerializer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.s
 .PHONY : src/core/scene_engine/SceneToFile/SceneSerializer.cpp.s
 
+src/core/system_engine/hierarchy_system/HierarchySystem.o: src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o
+.PHONY : src/core/system_engine/hierarchy_system/HierarchySystem.o
+
+# target to build an object file
+src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o
+.PHONY : src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o
+
+src/core/system_engine/hierarchy_system/HierarchySystem.i: src/core/system_engine/hierarchy_system/HierarchySystem.cpp.i
+.PHONY : src/core/system_engine/hierarchy_system/HierarchySystem.i
+
+# target to preprocess a source file
+src/core/system_engine/hierarchy_system/HierarchySystem.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.i
+.PHONY : src/core/system_engine/hierarchy_system/HierarchySystem.cpp.i
+
+src/core/system_engine/hierarchy_system/HierarchySystem.s: src/core/system_engine/hierarchy_system/HierarchySystem.cpp.s
+.PHONY : src/core/system_engine/hierarchy_system/HierarchySystem.s
+
+# target to generate assembly for a file
+src/core/system_engine/hierarchy_system/HierarchySystem.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.s
+.PHONY : src/core/system_engine/hierarchy_system/HierarchySystem.cpp.s
+
 src/core/system_engine/input_system/InputSystem.o: src/core/system_engine/input_system/InputSystem.cpp.o
 .PHONY : src/core/system_engine/input_system/InputSystem.o
 
@@ -1971,6 +2139,24 @@ help:
 	@echo "... src/core/graphics_engine/Shader.o"
 	@echo "... src/core/graphics_engine/Shader.i"
 	@echo "... src/core/graphics_engine/Shader.s"
+	@echo "... src/core/graphics_engine/UI/Canvas.o"
+	@echo "... src/core/graphics_engine/UI/Canvas.i"
+	@echo "... src/core/graphics_engine/UI/Canvas.s"
+	@echo "... src/core/graphics_engine/UI/RectTransform.o"
+	@echo "... src/core/graphics_engine/UI/RectTransform.i"
+	@echo "... src/core/graphics_engine/UI/RectTransform.s"
+	@echo "... src/core/graphics_engine/UI/UIElements/Button.o"
+	@echo "... src/core/graphics_engine/UI/UIElements/Button.i"
+	@echo "... src/core/graphics_engine/UI/UIElements/Button.s"
+	@echo "... src/core/graphics_engine/UI/UIElements/Image.o"
+	@echo "... src/core/graphics_engine/UI/UIElements/Image.i"
+	@echo "... src/core/graphics_engine/UI/UIElements/Image.s"
+	@echo "... src/core/graphics_engine/UI/UIElements/Text.o"
+	@echo "... src/core/graphics_engine/UI/UIElements/Text.i"
+	@echo "... src/core/graphics_engine/UI/UIElements/Text.s"
+	@echo "... src/core/graphics_engine/UI/UIRendering/UIRendering.o"
+	@echo "... src/core/graphics_engine/UI/UIRendering/UIRendering.i"
+	@echo "... src/core/graphics_engine/UI/UIRendering/UIRendering.s"
 	@echo "... src/core/graphics_engine/Window.o"
 	@echo "... src/core/graphics_engine/Window.i"
 	@echo "... src/core/graphics_engine/Window.s"
@@ -2067,6 +2253,9 @@ help:
 	@echo "... src/core/scene_engine/SceneToFile/SceneSerializer.o"
 	@echo "... src/core/scene_engine/SceneToFile/SceneSerializer.i"
 	@echo "... src/core/scene_engine/SceneToFile/SceneSerializer.s"
+	@echo "... src/core/system_engine/hierarchy_system/HierarchySystem.o"
+	@echo "... src/core/system_engine/hierarchy_system/HierarchySystem.i"
+	@echo "... src/core/system_engine/hierarchy_system/HierarchySystem.s"
 	@echo "... src/core/system_engine/input_system/InputSystem.o"
 	@echo "... src/core/system_engine/input_system/InputSystem.i"
 	@echo "... src/core/system_engine/input_system/InputSystem.s"

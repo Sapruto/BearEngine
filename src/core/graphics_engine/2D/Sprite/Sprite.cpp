@@ -52,18 +52,6 @@ void Sprite::SetTexture(const std::string& path) {
     LoadTexture();
 }
 
-void Sprite::Render(const glm::vec2& position, float rotation) {
-    if (!texture || !texture->IsLoaded()) return;
-    
-    renderer->RenderSprite(
-        texture->GetOpenGLTextureID(),
-        position.x, position.y,
-        width, height,
-        rotation,
-        color.r, color.g, color.b, color.a
-    );
-}
-
 void Sprite::RenderAtPosition(float screenX, float screenY,
                              float w, float h) {
     if (!texture || !texture->IsLoaded()) return;

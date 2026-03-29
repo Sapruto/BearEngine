@@ -3,29 +3,45 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
+#include "Transform2D.h"
+#include "Vector2.h"
+
 #include "Camera.h"
 
 class Camera2D : public Camera {
 private:
-    glm::vec2 position;    
-    float rotation;         
-    float zoom;              
+    Transform2D* transform;    
+    float zoom{1.0f};       
+    
+    float orthoSize;
     
     float screenWidth;      
     float screenHeight;    
     
-    bool needsUpdate;     
+    bool isDirty;     
     glm::mat4 viewMatrix; 
     glm::mat4 projMatrix;   
     
     void UpdateMatrices();  
     
 public:
-    Camera2D(float width, float height);
+    Camera2D(float width, float height, float orthoSize = 5.0f);
+
+    void Start() override{ 
+        transform = gameObject->GetComponentOfType<Transform2D>(); 
+        if(!transform) {
+            transform = gameObject->AddComponent<Transform2D>();
+        }
+        isDirty = true;
+    }
+    void Update() override{}
+    void Destroy() override{}
     
-    void SetPosition(const glm::vec2& pos);
-    void Move(const glm::vec2& delta);
-    glm::vec2 GetPosition() const { return position; }
+    void SetPosition(const Vector2& pos);
+    void Move(const Vector2& delta);
+    Vector2 GetPosition() const { 
+        return transform ? transform->position : Vector2(0, 0); 
+    }
     
     void SetZoom(float z);
     void AddZoom(float delta);
@@ -34,8 +50,14 @@ public:
     const glm::mat4& GetViewMatrix();
     const glm::mat4& GetProjectionMatrix();
     
-    glm::vec2 ScreenToWorld(const glm::vec2& screenPoint);
-    glm::vec2 WorldToScreen(const glm::vec2& worldPoint);
+    Vector2 ScreenToWorld(const Vector2& screenPoint);
+    Vector2 WorldToScreen(const Vector2& worldPoint);
     
     void SetScreenSize(float width, float height);
+
+    float GetOrthoSize() const { return orthoSize; }
+    void SetOrthoSize(float size) { 
+        orthoSize = size; 
+        isDirty = true; 
+    }
 };

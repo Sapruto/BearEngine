@@ -5,6 +5,16 @@
 
 #include "stb_image.h" 
 
+int Texture::GetChannelsFromFormat(GLenum format) {
+    switch(format) {
+        case GL_RED:   return 1;
+        case GL_RG:    return 2;
+        case GL_RGB:   return 3;
+        case GL_RGBA:  return 4;
+        default:       return 0;
+    }
+}
+
 bool Texture::Load() {
     if (textureID != 0) Unload();
     
@@ -46,4 +56,26 @@ void* Texture::GetImTextureID() const {
 
 Texture::Size Texture::GetSize() const {
     return Size(static_cast<float>(width), static_cast<float>(height));
+}
+
+Texture* Texture::CreateFromData(unsigned char* data, int width, int height, GLenum format) {
+    Texture* texture = new Texture();
+    
+    GLuint id;
+    glGenTextures(1, &id);
+    glBindTexture(GL_TEXTURE_2D, id);
+    texture->SetGluInt(id);
+    
+    glTexImage2D(GL_TEXTURE_2D, 0, format, width, height, 0, format, GL_UNSIGNED_BYTE, data);
+    
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    
+    texture->SetWidth(width);
+    texture->SetHeight(height);
+
+    int channels = GetChannelsFromFormat(format);
+    texture->SetChannels(channels);
+    
+    return texture;
 }

@@ -14,7 +14,7 @@ class GameObject {
 private:
     std::vector<std::unique_ptr<Component>> components;
 
-    bool destroyed = false; 
+    bool destroyed{false}; 
 
     std::string name;
     
