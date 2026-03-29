@@ -3,99 +3,14 @@
 [ 13%] Built target imgui_lib
 [ 14%] Linking CXX static library libstb_lib.a
 [ 14%] Built target stb_lib
-[ 15%] Building CXX object CMakeFiles/game.dir/main.cpp.o
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h:6,
-                 from /home/alex/Projects/BearEngine/main.cpp:1:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
-   28 |     virtual void OnCollisionEnter(GameObject* other){}
-      |                                   ~~~~~~~~~~~~^~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:6,
-                 from /home/alex/Projects/BearEngine/main.cpp:6:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h: In member function ‘virtual glm::mat4 Light3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:20:49: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-   20 |     virtual glm::mat4 GetLightSpaceMatrix(float aspect = 1.0f) const {
-      |                                           ~~~~~~^~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/main.cpp:15:
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h: In member function ‘void PhysicsWorld::DispatchEvent(PhysicEventType, DataType&&)’:
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:64:24: warning: invalid use of incomplete type ‘class PhysicFeature’
-   64 |                 feature->ReactionOnEvent(&event);
-      |                        ^~
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:11:7: note: forward declaration of ‘class PhysicFeature’
-   11 | class PhysicFeature;
-      |       ^~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h: In member function ‘void PhysicsWorld::DispatchEventToBody(PhysicEventType, const DataType&, PhysicalBody*)’:
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:76:40: warning: invalid use of incomplete type ‘class PhysicalBody’
-   76 |         for (auto* feature : targetBody->GetFeatures()) {
-      |                                        ^~
-In file included from /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h:10,
-                 from /home/alex/Projects/BearEngine/main.cpp:14:
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:13:7: note: forward declaration of ‘class PhysicalBody’
-   13 | class PhysicalBody;
-      |       ^~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/main.cpp:17:
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h: In member function ‘virtual bool Polyhedron3D::GetCollisionInfo(const BaseCollider*, Vector3&, Vector3&, float&) const’:
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:97:122: warning: no return statement in function returning non-void [-Wreturn-type]
-   97 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
-      |                                                                                                                          ^
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:97:47: warning: unused parameter ‘other’ [-Wunused-parameter]
-   97 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
-      |                           ~~~~~~~~~~~~~~~~~~~~^~~~~
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:97:63: warning: unused parameter ‘point’ [-Wunused-parameter]
-   97 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
-      |                                                      ~~~~~~~~~^~~~~
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:97:79: warning: unused parameter ‘normal’ [-Wunused-parameter]
-   97 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
-      |                                                                      ~~~~~~~~~^~~~~~
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:97:94: warning: unused parameter ‘penetration’ [-Wunused-parameter]
-   97 |     bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
-      |                                                                                       ~~~~~~~^~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.h:7,
-                 from /home/alex/Projects/BearEngine/main.cpp:21:
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h: In member function ‘void PhysicsCollisionData::SetCollisionsSegments(std::vector<Segment3D>&&)’:
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:22:18: warning: moving ‘segments’ of type ‘std::vector<Segment3D>’ to itself [-Wself-move]
-   22 |         segments = std::move(segments);
-      |         ~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:22:18: note: remove ‘std::move’ call
-/home/alex/Projects/BearEngine/main.cpp: In lambda function:
-/home/alex/Projects/BearEngine/main.cpp:348:59: warning: unused parameter ‘self’ [-Wunused-parameter]
-  348 |         [&score, totalCoins, &collectibles](BaseCollider* self, BaseCollider* other) {
-      |                                             ~~~~~~~~~~~~~~^~~~
-/home/alex/Projects/BearEngine/main.cpp: In function ‘int main()’:
-/home/alex/Projects/BearEngine/main.cpp:199:11: warning: unused variable ‘red’ [-Wunused-variable]
-  199 |     float red[3] = {1, 0.2, 0.2};
-      |           ^~~
-/home/alex/Projects/BearEngine/main.cpp:202:11: warning: unused variable ‘yellow’ [-Wunused-variable]
-  202 |     float yellow[3] = {1, 1, 0.2};
-      |           ^~~~~~
-/home/alex/Projects/BearEngine/main.cpp:203:11: warning: unused variable ‘white’ [-Wunused-variable]
-  203 |     float white[3] = {1, 1, 1};
-      |           ^~~~~
-/home/alex/Projects/BearEngine/main.cpp:204:11: warning: unused variable ‘purple’ [-Wunused-variable]
-  204 |     float purple[3] = {0.8, 0.2, 0.8};
-      |           ^~~~~~
-/home/alex/Projects/BearEngine/main.cpp:364:16: warning: variable ‘currentMode’ set but not used [-Wunused-but-set-variable]
-  364 |     VisualMode currentMode = VisualMode::NORMAL;
-      |                ^~~~~~~~~~~
-/home/alex/Projects/BearEngine/main.cpp:365:10: warning: variable ‘showColliders’ set but not used [-Wunused-but-set-variable]
-  365 |     bool showColliders = false;
-      |          ^~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:28:70:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:64:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   64 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = BaseCollider]’:
-/home/alex/Projects/BearEngine/main.cpp:339:76:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:64:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-In file included from /home/alex/Projects/BearEngine/main.cpp:16:
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h: In instantiation of ‘T* PhysicalBody::GetFeatureOfType() [with T = ImpulseModule]’:
-/home/alex/Projects/BearEngine/main.cpp:385:68:   required from here
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h:96:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   96 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
+[ 15%] Building CXX object CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o
+/home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp: In member function ‘GameObject* HierarchySystem::GetParent(GameObject*, int)’:
+/home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp:205:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<unsigned int>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  205 |     if (index < node->parentsIds.size()) {
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp: In member function ‘GameObject* HierarchySystem::GetChild(GameObject*, int)’:
+/home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp:229:15: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::vector<unsigned int>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
+  229 |     if (index < node->childrenIds.size()) {
+      |         ~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
 [ 16%] Linking CXX executable game
 [100%] Built target game
