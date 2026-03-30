@@ -9,10 +9,13 @@
 #include <typeinfo> 
 
 class Component;
+class HierarchySystem;
 
 class GameObject {
 private:
     std::vector<std::unique_ptr<Component>> components;
+
+    const HierarchySystem* hierarchySystem;
 
     bool destroyed{false}; 
 
@@ -83,4 +86,10 @@ public:
 
     std::string GetName() const { return name; }
     void SetName(const std::string& newName) { name = newName; }
+
+    void SetHierarchySystem(const HierarchySystem* system) { hierarchySystem = system; }
+    const HierarchySystem* GetHierarchySystem() { 
+        if(hierarchySystem) return hierarchySystem;
+        return nullptr;
+    }
 };

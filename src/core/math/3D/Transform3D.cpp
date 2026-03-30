@@ -41,6 +41,10 @@ Vector3 Transform3D::forward() const {
     ).normalized();
 }
 
+Vector3 Transform3D::backward() const {
+    return -forward();
+}
+
 Vector3 Transform3D::right() const {
     float cosYaw = cosf(rotation.y);
     float sinYaw = sinf(rotation.y);
@@ -61,6 +65,10 @@ Vector3 Transform3D::right() const {
     return right.normalized();
 }
 
+Vector3 Transform3D::left() const {
+    return -right();
+}
+
 Vector3 Transform3D::up() const {
     Vector3 fwd = forward();
     Vector3 rgt = right();
@@ -69,6 +77,10 @@ Vector3 Transform3D::up() const {
         rgt.z * fwd.x - rgt.x * fwd.z,
         rgt.x * fwd.y - rgt.y * fwd.x
     ).normalized();
+}
+
+Vector3 Transform3D::down() const {
+    return -up();
 }
 
 void Transform3D::lookAt(const Vector3& target) {

@@ -17,8 +17,11 @@ public:
     
     void rotate(float pitch, float yaw, float roll);
     Vector3 forward() const;
+    Vector3 backward() const;
     Vector3 right() const;
+    Vector3 left() const;
     Vector3 up() const;
+    Vector3 down() const;
     void lookAt(const Vector3& target);
 
     glm::mat4 GetMatrix() const {
@@ -30,6 +33,22 @@ public:
         mat = glm::scale(mat, glm::vec3(scale.x, scale.y, scale.z));
         return mat;
     }
+
+    /*void Update() override{
+        const HierarchySystem* system = gameObject->GetHierarchySystem();
+        if(!system) return;
+
+        std::vector<GameObject*> parents = system->GetParents();
+
+        for(auto* parent : parents){
+            Transform3D* parentTransform = parent->GetComponentOfType<Transform3D>();
+            if(!parentTransform) continue;
+
+            position =  localPosition + parentTransform->position;
+            scale = localScale + parentTransform->scale;
+            rotation = localRotation + parentTransform->rotation;
+        }
+    }*/
     
 private:
     void normalizeAngles();
