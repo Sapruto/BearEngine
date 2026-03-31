@@ -2,12 +2,23 @@
 
 #include <memory> 
 #include <vector>
+#include <string>
 #include "SceneEvent.h"
 #include "GameObject.h"
 #include "Component.h"
 
+#include "HierarchySystem.h"
+#include "ResourceManager.h"
+
+#include "ResourcesTypes.h"
+
 class Scene{
 private:
+    HierarchySystem  hierarchySystem;
+
+    ResourceManager resourceManager;
+    std::unordered_map<std::string, ResourceType> resources;
+
     std::vector<std::unique_ptr<GameObject>> gameObjects;
 
     std::vector<GameObject*> objectsToRemove;
@@ -55,6 +66,8 @@ public:
     }
     const std::vector<std::unique_ptr<GameObject>>* GetGameObjects() const;
 
+    void InitializeScene();
+
     void StartScene();
     void UpdateScene();
     void DestroyScene();
@@ -63,6 +76,30 @@ public:
 
     void SetName(const std::string& newName) { sceneName = newName; }
     std::string GetName() const { return sceneName; }
+
+    void AddResources(const std::unordered_map<std::string, ResourceType>& newResources){
+        resources.insert(newResources.begin(), newResources.end());
+    }
+
+    void LoadResources(const std::unordered_map<std::string, ResourceType>& loadResources){
+        for(auto& [resourcePath, resourceType] : resources){
+            resourceManager.LoadResource(resourcePath, resourceType);
+        }
+    }
+
+    void ResetResources(){
+        for(auto& [resourcePath, resourceType] : resources){
+            resourceManager.UnloadResource(resourcePath);
+        }
+
+        resources.clear();
+    }
+
+    HierarchySystem* GetHierarchySystem() { return &hierarchySystem; }
+    ResourceManager* GetResourceManager() { return &resourceManager; }
+
+    const HierarchySystem* GetHierarchySystem() const { return &hierarchySystem; }
+    const ResourceManager* GetResourceManager() const { return &resourceManager; }
 
 private:
     void ProcessEvents(std::vector<SceneEvent>& events); 

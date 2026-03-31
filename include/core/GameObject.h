@@ -11,7 +11,7 @@
 class Component;
 class HierarchySystem;
 
-class GameObject {
+class GameObject{
 private:
     std::vector<std::unique_ptr<Component>> components;
 
@@ -27,7 +27,7 @@ public:
     virtual ~GameObject();
     
     template<typename T, typename... Args>
-    T* AddComponent(Args&&... args) {
+    T* AddComponent(Args&&... args){
         static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
         
         auto component = std::make_unique<T>(std::forward<Args>(args)...);
@@ -46,7 +46,7 @@ public:
 
     //To delete
     template<typename T>
-    T* AddComponent(T* component) {
+    T* AddComponent(T* component){
         static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
         
         std::unique_ptr<T> ptr(component);
@@ -61,7 +61,7 @@ public:
     }
 
     template<typename T>
-    T* GetComponentOfType() {
+    T* GetComponentOfType(){
         if (destroyed) return nullptr;
         
         static std::type_index typeIdx = typeid(T);

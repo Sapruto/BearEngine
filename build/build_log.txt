@@ -25,5 +25,5 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- ImGui language: C++ (forced)
 -- ========================================
 -- Configuring done (0.5s)
--- Generating done (0.1s)
+-- Generating done (0.0s)
 -- Build files have been written to: /home/alex/Projects/BearEngine/build

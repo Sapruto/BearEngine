@@ -1,31 +1,42 @@
 #include "SceneDeserializer.h"
 
-SceneDeserializer::~SceneDeserializer() {
-    
-}
+#include "SceneTokens.h"
+#include "ResourceManager.h"
 
 void SceneDeserializer::HandleToken(const std::string& token, ParserState& state) {
-    if (token == "object") {
+    if(token == SceneTokens::start_part)
+
+    if (token == SceneTokens::resources_pathes) {
+        state.inResources = true;
+        state.inObject = false;
+        state.inComponent = false;
+    }
+    else if (token == SceneTokens::object) {
         state.Reset();
+        state.inObject = true;
+        state.inResources = false;
         state.currentObject = std::make_unique<GameObject>();
     }
-    else if (token == "components") {
-        state.inComponents = true;
+    else if (token == SceneTokens::components) {
+        state.inComponent = true;
     }
-    else if (token == "}") {
+    else if (token == SceneTokens::end_part) {
         if (state.inComponent && state.currentComponent) {
             state.inComponent = false;
             state.currentComponent = nullptr;
         }
-        else if (state.inComponents && state.currentObject) {
-            state.inComponents = false;
+        else if (state.inObject && state.currentObject) {
+            state.inObject = false;
             if (state.scene) {
                 state.scene->AddGameObject(std::move(state.currentObject));
             }
             state.currentObject.reset();
         }
+        else if (state.inResources) {
+            state.inResources = false;
+        }
     }
-    else if (state.inComponents && !token.empty()) {
+    else if (state.inObject && !token.empty()) {
         if (!state.inComponent) {
             state.currentCompName = token;
             auto comp = ComponentRegistry::Create(state.currentCompName);
@@ -38,18 +49,16 @@ void SceneDeserializer::HandleToken(const std::string& token, ParserState& state
     }
 }
 
-void SceneDeserializer::HandleKeyValue(const std::string& key, const std::string& value, ParserState& state) {
-    if (key == "name" && !state.currentObject && state.scene) {
+void SceneDeserializer::ParseName(const std::string& value, ParserState& state){
+    if (!state.currentObject && state.scene) {
         state.scene->SetName(value);
-        return;
     }
-    
-    if (key == "name" && state.currentObject && !state.inComponent) {
+    else if (state.currentObject && !state.inComponent) {
         state.currentObject->SetName(value);
-        return;
     }
-    
-    if (state.currentComponent && state.inComponent) {
+}
+void SceneDeserializer::ParseComponent(const std::string& key, const std::string& value, ParserState& state){
+    if (state.currentComponent) {
         if (auto* serializable = dynamic_cast<ISerializable*>(state.currentComponent)) {
             for (auto* field : serializable->GetSerializedFields()) {
                 if (field->GetName() == key) {
@@ -58,6 +67,25 @@ void SceneDeserializer::HandleKeyValue(const std::string& key, const std::string
                 }
             }
         }
+    }
+}
+void SceneDeserializer::ParseResource(const std::string& key, const std::string& value){
+    allResources.insert({value, ResourceTypeUtils::FromString(key)});
+}
+
+void SceneDeserializer::ParseHierarchy(){
+
+}
+
+void SceneDeserializer::HandleKeyValue(const std::string& key, const std::string& value, ParserState& state) {
+    if (key == SceneTokens::name) {
+        ParseName(value, state);
+    }
+    else if (state.inComponent) {
+        ParseComponent(key, value, state);
+    }
+    else if(state.inResources){
+        ParseResource(key, value);
     }
 }
 
@@ -70,35 +98,39 @@ std::unique_ptr<Scene> SceneDeserializer::GenerateSceneThroughFile(const std::st
     ParserState state;
     state.scene = scene.get();
     
-    while (std::getline(stream, line)) {
-        size_t start = line.find_first_not_of(" /t/r/n");
-        if (start == std::string::npos) continue;
+    while(std::getline(stream, line)){
+        std::string trimmed = Trim(line);
+        if (trimmed.empty()) continue;
         
-        size_t end = line.find_last_not_of(" /t/r/n");
-        std::string trimmed = line.substr(start, end - start + 1);
+        if (trimmed == SceneTokens::end_part){
+            HandleToken(std::string(SceneTokens::end_part), state);
+            continue;
+        }
         
-        size_t colonPos = trimmed.find(':');
-        if (colonPos != std::string::npos) {
-            std::string key = trimmed.substr(0, colonPos);
-            std::string value = trimmed.substr(colonPos + 1);
-            
-            key = Trim(key);
-            value = Trim(value);
-            
+        if (trimmed.back() == SceneTokens::start_part[0]){
+            std::string token = Trim(trimmed.substr(0, trimmed.length() - 1));
+            HandleToken(token, state);
+            continue;
+        }
+        
+        size_t spacePos = trimmed.find(' ');
+        if(spacePos != std::string::npos){
+            std::string key = Trim(trimmed.substr(0, spacePos));
+            std::string value = Trim(trimmed.substr(spacePos + 1));
             HandleKeyValue(key, value, state);
         }
-        else {
+        else{
             HandleToken(trimmed, state);
         }
     }
-    
+    scene->AddResources(allResources);
+
     return scene;
 }
 
 std::string Trim(const std::string& str) {
-    size_t start = str.find_first_not_of(" /t/r/n");
+    size_t start = str.find_first_not_of(" \t\r\n");
     if (start == std::string::npos) return "";
-    
-    size_t end = str.find_last_not_of(" /t/r/n");
+    size_t end = str.find_last_not_of(" \t\r\n");
     return str.substr(start, end - start + 1);
 }
