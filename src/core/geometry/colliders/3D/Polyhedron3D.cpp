@@ -159,7 +159,9 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
     for(const auto& face : other->faces) {
         allAxes.push_back(face.normal);
     }
-    
+
+    float minOverlap = std::numeric_limits<float>::max();
+    Vector3 penetrationAxis = Vector3::Zero;
     for(const auto& myEdge : communications) {
         Vector3 myEdgeDir = GetEdgeDirection(myEdge);
         
@@ -197,10 +199,28 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
             otherMax = std::max(otherMax, proj);
         }
         
-        if(myMax < otherMin || otherMax < myMin) {
+        if(myMax < otherMin || otherMax < myMin){
             return false;
         }
+
+        float overlap = std::min(myMax, otherMax) - std::max(myMin, otherMin);
+        
+        Vector3 direction = axis;
+        
+        if(myMax > otherMax){
+            direction = -direction;
+        }
+        
+        if(overlap < minOverlap){
+            minOverlap = overlap;
+            penetrationAxis = direction * overlap;
+        }
     }
+
+    const_cast<Polyhedron3D*>(this)->AddOverlap(
+        const_cast<BaseCollider*>(static_cast<const BaseCollider*>(other)), 
+        penetrationAxis
+    );
     
     return true;
 }

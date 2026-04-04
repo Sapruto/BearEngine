@@ -50,5 +50,6 @@ public:
     void SetWorldLimit(float newWorldLimit) { worldLimit = newWorldLimit; }
 
     const Vector3& GetVelocity() const { return velocity; }  
+    Vector3 GetVelocity() { return velocity; }  
     const Force& GetForce() const { return main_force; }  
 };

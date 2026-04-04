@@ -111,6 +111,7 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls
+    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical

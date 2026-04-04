@@ -21,7 +21,7 @@ private:
 
         bool inObject = false;
         bool inComponent = false;
-        bool inHirarchy = false;
+        bool inHierarchy = false;
 
         bool inResources = false;
 
@@ -44,7 +44,7 @@ private:
     void ParseName(const std::string& value, ParserState& state);
     void ParseComponent(const std::string& key, const std::string& value, ParserState& state);
     void ParseResource(const std::string& key, const std::string& value);
-    void ParseHierarchy();
+    void ParseHierarchy(ParserState& state);
 
 public:
     SceneDeserializer() = default;

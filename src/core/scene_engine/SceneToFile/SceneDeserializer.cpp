@@ -4,21 +4,19 @@
 #include "ResourceManager.h"
 
 void SceneDeserializer::HandleToken(const std::string& token, ParserState& state) {
-    if(token == SceneTokens::start_part)
-
     if (token == SceneTokens::resources_pathes) {
         state.inResources = true;
-        state.inObject = false;
-        state.inComponent = false;
     }
     else if (token == SceneTokens::object) {
         state.Reset();
         state.inObject = true;
-        state.inResources = false;
         state.currentObject = std::make_unique<GameObject>();
     }
     else if (token == SceneTokens::components) {
         state.inComponent = true;
+    }
+    else if(token == SceneTokens::hierarchy){
+        state.inHierarchy = true;
     }
     else if (token == SceneTokens::end_part) {
         if (state.inComponent && state.currentComponent) {
@@ -31,6 +29,9 @@ void SceneDeserializer::HandleToken(const std::string& token, ParserState& state
                 state.scene->AddGameObject(std::move(state.currentObject));
             }
             state.currentObject.reset();
+        }
+        else if(state.inHierarchy){
+            state.inHierarchy = false;
         }
         else if (state.inResources) {
             state.inResources = false;
@@ -73,8 +74,11 @@ void SceneDeserializer::ParseResource(const std::string& key, const std::string&
     allResources.insert({value, ResourceTypeUtils::FromString(key)});
 }
 
-void SceneDeserializer::ParseHierarchy(){
+void SceneDeserializer::ParseHierarchy(ParserState& state){
+    HierarchySystem* system = state.scene->GetHierarchySystem();
+    if(!system || state.currentObject) return;
 
+    system->AddGameObject(state.currentObject.get());
 }
 
 void SceneDeserializer::HandleKeyValue(const std::string& key, const std::string& value, ParserState& state) {
@@ -86,6 +90,9 @@ void SceneDeserializer::HandleKeyValue(const std::string& key, const std::string
     }
     else if(state.inResources){
         ParseResource(key, value);
+    }
+    else if(state.inHierarchy){
+        ParseHierarchy(state);
     }
 }
 

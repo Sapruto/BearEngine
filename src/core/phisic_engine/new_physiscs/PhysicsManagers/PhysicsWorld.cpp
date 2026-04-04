@@ -39,14 +39,24 @@ void PhysicsWorld::RemoveBody(PhysicalBody* body){
 }
 
 void PhysicsWorld::Start(){
-    for(auto body : bodies){
+    for(auto* manager : physicsManagers){
+        manager->Start();
+    }
+
+    for(auto* body : bodies){
         body->SetPhysicWorld(this);
         body->Initialize();
     }
+
+    isStarted = true;
 }
 
 void PhysicsWorld::Update(){
-    for(auto body : bodies){
+    for(auto* manager : physicsManagers){
+        manager->Update();
+    }
+
+    for(auto* body : bodies){
         body->PhysicsUpdate();
     }
     

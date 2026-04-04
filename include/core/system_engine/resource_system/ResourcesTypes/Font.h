@@ -51,4 +51,6 @@ public:
 
     int GetSize() { return fontSize; }
     int GetSize() const { return fontSize; }
+
+    void SetFontSize(int fontSize) { this->fontSize = fontSize; }
 };

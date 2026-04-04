@@ -29,260 +29,238 @@
 #include <memory>
 #include <vector>
 #include <string>
+#include <sstream>
+#include <iomanip>
 
 #include "Canvas.h"
-#include "Image.h"
 #include "Text.h"
 #include "Font.h"
-#include "Texture.h"
 #include "UIRendering.h"
 
 enum class VisualMode {
-    NORMAL,           
-    WIREFRAME,        
-    COLLIDERS,        
-    LIGHTS            
+    NORMAL, WIREFRAME
 };
 
 Polyhedron3D* CreateCubeCollider(float size) {
     float h = size * 0.5f;
-    
     std::vector<Vector3> vertices = {
-        Vector3(-h, -h, -h),  Vector3( h, -h, -h),  Vector3( h,  h, -h),  Vector3(-h,  h, -h),
-        Vector3(-h, -h,  h),  Vector3( h, -h,  h),  Vector3( h,  h,  h),  Vector3(-h,  h,  h)
+        Vector3(-h, -h, -h), Vector3( h, -h, -h), Vector3( h,  h, -h), Vector3(-h,  h, -h),
+        Vector3(-h, -h,  h), Vector3( h, -h,  h), Vector3( h,  h,  h), Vector3(-h,  h,  h)
     };
     
     Polyhedron3D* cube = new Polyhedron3D(vertices);
     
-    cube->AddCommunication(0, 1);
-    cube->AddCommunication(1, 2);
-    cube->AddCommunication(2, 3);
-    cube->AddCommunication(3, 0);
-    
-    cube->AddCommunication(4, 5);
-    cube->AddCommunication(5, 6);
-    cube->AddCommunication(6, 7);
-    cube->AddCommunication(7, 4);
-    
-    cube->AddCommunication(0, 4);
-    cube->AddCommunication(1, 5);
-    cube->AddCommunication(2, 6);
-    cube->AddCommunication(3, 7);
+    for(int i = 0; i < 4; i++) {
+        cube->AddCommunication(i, (i+1)%4);
+        cube->AddCommunication(i+4, ((i+1)%4)+4);
+        cube->AddCommunication(i, i+4);
+    }
     
     return cube;
 }
 
-void InitUI(UIRendering* uiRenderer, ResourceManager& resources) {
-    Font::InitFreeType();
+struct UIState {
+    Text* scoreText = nullptr;
+    Text* highScoreText = nullptr;
+    Text* speedText = nullptr;
+    Text* multiplierText = nullptr;
+    int score = 0;
+    int highScore = 0;
+    float fallSpeed = 0;
+    int multiplier = 1;
+};
 
-    resources.LoadResource("Assets/ui/icon.png", ResourceType::Texture);
+UIState g_uiState;
+
+void SetupUI(UIRendering* uiRenderer, ResourceManager& resources) {
+    Font::InitFreeType();
     resources.LoadResource("Assets/ui/arial.ttf", ResourceType::Font);
-    
-    Texture* uiTexture = resources.GetResourceAs<Texture>("Assets/ui/icon.png");
     Font* arialFont = resources.GetResourceAs<Font>("Assets/ui/arial.ttf");
     
-    if (!uiTexture || !arialFont) return;
+    if (!arialFont) return;
+    
+    Canvas* canvas = new Canvas(1920.0f, 1080.0f);
+    
+    GameObject* scoreGO = new GameObject();
+    g_uiState.scoreText = scoreGO->AddComponent<Text>(*arialFont, "Score: 0");
+    g_uiState.scoreText->SetLayer(0);
+    g_uiState.scoreText->rectTransform->SetAnchorMin(Vector2(0, 1));
+    g_uiState.scoreText->rectTransform->SetAnchorMax(Vector2(0, 1));
+    g_uiState.scoreText->rectTransform->SetAnchoredPosition(Vector2(20, -50));
+    g_uiState.scoreText->SetColor(glm::vec4(1.0f, 0.9f, 0.2f, 1.0f));
+    g_uiState.scoreText->SetFontSize(32);
+    canvas->AddUIElement(g_uiState.scoreText);
+    
+    GameObject* highScoreGO = new GameObject();
+    g_uiState.highScoreText = highScoreGO->AddComponent<Text>(*arialFont, "Best: 0");
+    g_uiState.highScoreText->SetLayer(0);
+    g_uiState.highScoreText->rectTransform->SetAnchorMin(Vector2(0, 1));
+    g_uiState.highScoreText->rectTransform->SetAnchorMax(Vector2(0, 1));
+    g_uiState.highScoreText->rectTransform->SetAnchoredPosition(Vector2(20, -100));
+    g_uiState.highScoreText->SetColor(glm::vec4(0.8f, 0.8f, 0.8f, 1.0f));
+    g_uiState.highScoreText->SetFontSize(28);
+    canvas->AddUIElement(g_uiState.highScoreText);
+    
+    GameObject* speedGO = new GameObject();
+    g_uiState.speedText = speedGO->AddComponent<Text>(*arialFont, "Speed: 0");
+    g_uiState.speedText->SetLayer(0);
+    g_uiState.speedText->rectTransform->SetAnchorMin(Vector2(0, 1));
+    g_uiState.speedText->rectTransform->SetAnchorMax(Vector2(0, 1));
+    g_uiState.speedText->rectTransform->SetAnchoredPosition(Vector2(20, -150));
+    g_uiState.speedText->SetColor(glm::vec4(0.5f, 0.8f, 1.0f, 1.0f));
+    g_uiState.speedText->SetFontSize(28);
+    canvas->AddUIElement(g_uiState.speedText);
+    
+    GameObject* multiplierGO = new GameObject();
+    g_uiState.multiplierText = multiplierGO->AddComponent<Text>(*arialFont, "x1");
+    g_uiState.multiplierText->SetLayer(0);
+    g_uiState.multiplierText->rectTransform->SetAnchorMin(Vector2(0, 1));
+    g_uiState.multiplierText->rectTransform->SetAnchorMax(Vector2(0, 1));
+    g_uiState.multiplierText->rectTransform->SetAnchoredPosition(Vector2(20, -200));
+    g_uiState.multiplierText->SetColor(glm::vec4(1.0f, 0.5f, 0.2f, 1.0f));
+    g_uiState.multiplierText->SetFontSize(28);
+    canvas->AddUIElement(g_uiState.multiplierText);
+    
+    GameObject* controlsGO = new GameObject();
+    Text* controlsText = controlsGO->AddComponent<Text>(*arialFont, "WASD - Move | Space - Jump | F1/F2 - Visual");
+    controlsText->SetLayer(0);
+    controlsText->rectTransform->SetAnchorMin(Vector2(1, 0));
+    controlsText->rectTransform->SetAnchorMax(Vector2(1, 0));
+    controlsText->rectTransform->SetAnchoredPosition(Vector2(-20, 20));
+    controlsText->SetColor(glm::vec4(0.7f, 0.7f, 0.7f, 1.0f));
+    controlsText->SetFontSize(18);
+    canvas->AddUIElement(controlsText);
+    
+    uiRenderer->RegisterRenderComponent(canvas);
+}
 
-    Canvas* uiCanvas = new Canvas(1920.0f, 1080.0f);
-
-    GameObject* bgGO = new GameObject();
-    Image* background = bgGO->AddComponent<Image>();
-    background->SetTexture(uiTexture);
-    background->SetLayer(0);
-    background->rectTransform->SetAnchorMin(Vector2(0, 0));
-    background->rectTransform->SetAnchorMax(Vector2(0, 0));
-    background->rectTransform->SetAnchoredPosition(Vector2(0, 0));
-    background->rectTransform->SetSizeDelta(Vector2(1920, 1080));
-    background->SetColor(glm::vec4(0.2f, 0.2f, 0.3f, 1.0f));
-    uiCanvas->AddUIElement(background);
-
-    GameObject* logoGO = new GameObject();
-    Image* logo = logoGO->AddComponent<Image>();
-    logo->SetTexture(uiTexture);
-    logo->SetLayer(1);
-    logo->rectTransform->SetAnchorMin(Vector2(0, 0));
-    logo->rectTransform->SetAnchorMax(Vector2(0, 0));
-    logo->rectTransform->SetAnchoredPosition(Vector2(100, 100));
-    logo->rectTransform->SetSizeDelta(Vector2(256, 256));
-    logo->SetColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-    uiCanvas->AddUIElement(logo);
-
-    GameObject* buttonGO = new GameObject();
-    Image* button = buttonGO->AddComponent<Image>();
-    button->SetTexture(uiTexture);
-    button->SetLayer(2);
-    button->rectTransform->SetAnchorMin(Vector2(0, 0));
-    button->rectTransform->SetAnchorMax(Vector2(0, 0));
-    button->rectTransform->SetAnchoredPosition(Vector2(800, 500));
-    button->rectTransform->SetSizeDelta(Vector2(200, 80));
-    button->SetColor(glm::vec4(0.8f, 0.2f, 0.2f, 1.0f));
-    uiCanvas->AddUIElement(button);
-
-    GameObject* titleGO = new GameObject();
-    Text* title = titleGO->AddComponent<Text>(*arialFont, "Welcome to UI System");
-    title->SetLayer(3);
-    title->rectTransform->SetAnchorMin(Vector2(0, 0));
-    title->rectTransform->SetAnchorMax(Vector2(0, 0));
-    title->rectTransform->SetAnchoredPosition(Vector2(400, 50));
-    title->SetColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-    uiCanvas->AddUIElement(title);
-
-    /*GameObject* subtitleGO = new GameObject();
-    Text* subtitle = subtitleGO->AddComponent<Text>(*arialFont, "Press any key to continue");
-    subtitle->SetLayer(3);
-    subtitle->rectTransform->SetAnchorMin(Vector2(0, 0));
-    subtitle->rectTransform->SetAnchorMax(Vector2(0, 0));
-    subtitle->rectTransform->SetAnchoredPosition(Vector2(450, 120));
-    subtitle->SetColor(glm::vec4(0.8f, 0.8f, 0.8f, 1.0f));
-    uiCanvas->AddUIElement(subtitle);*/
-
-    GameObject* buttonTextGO = new GameObject();
-    /*Text* buttonText = buttonTextGO->AddComponent<Text>(*arialFont, "CLICK ME");
-    buttonText->SetLayer(3);
-    buttonText->rectTransform->SetAnchorMin(Vector2(0, 0));
-    buttonText->rectTransform->SetAnchorMax(Vector2(0, 0));
-    buttonText->rectTransform->SetAnchoredPosition(Vector2(860, 520));
-    buttonText->SetColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
-    uiCanvas->AddUIElement(buttonText);*/
-
-    /*GameObject* infoGO = new GameObject();
-    Text* info = infoGO->AddComponent<Text>(*arialFont, "FPS: 60 | Resolution: 1920x1080");
-    info->SetLayer(4);
-    info->rectTransform->SetAnchorMin(Vector2(0, 0));
-    info->rectTransform->SetAnchorMax(Vector2(0, 0));
-    info->rectTransform->SetAnchoredPosition(Vector2(50, 1000));
-    info->SetColor(glm::vec4(0.5f, 0.5f, 0.5f, 1.0f));
-    uiCanvas->AddUIElement(info);*/
-
-    title->rectTransform->SetSizeDelta(Vector2(800, 100));
-
-    uiRenderer->RegisterRenderComponent(uiCanvas);
+void UpdateUI() {
+    std::stringstream ss;
+    ss << "Score: " << g_uiState.score;
+    g_uiState.scoreText->SetText(ss.str());
+    
+    if (g_uiState.score > g_uiState.highScore) {
+        g_uiState.highScore = g_uiState.score;
+    }
+    
+    std::stringstream hs;
+    hs << "Best: " << g_uiState.highScore;
+    g_uiState.highScoreText->SetText(hs.str());
+    
+    std::stringstream sp;
+    sp << "Speed: " << std::fixed << std::setprecision(1) << g_uiState.fallSpeed;
+    g_uiState.speedText->SetText(sp.str());
+    
+    std::stringstream mult;
+    mult << "x" << g_uiState.multiplier;
+    g_uiState.multiplierText->SetText(mult.str());
 }
 
 int main() {
     srand(time(nullptr));
-
     Time::Initialize();
     
-    float clearColor[4] = {0.1f, 0.1f, 0.15f, 1.0f};
-    Window* window = new Window(1600, 900, clearColor, "BEAR ENGINE - 3D Platformer");
+    float clearColor[4] = {0.05f, 0.05f, 0.1f, 1.0f};
+    Window* window = new Window(1600, 900, clearColor, "BEAR ENGINE - DROPPER");
     if (!window->Initialize()) return -1;
 
     GraphicsManager graphics;
     graphics.SetWindow(window);
     
-    Camera3D* camera = new Camera3D(Vector3(0, 10, 20));
+    Camera3D* camera = new Camera3D(Vector3(0, 12, 22));
     graphics.SetCamera(camera);
 
     InputSystem& input = InputSystem::GetInstance();
     input.Initialize(window->GetWindow());
     
     ResourceManager resources;
-    
     resources.LoadResource("Assets/models/cube.obj", ResourceType::Model);
     resources.LoadResource("Assets/models/platform.obj", ResourceType::Model);
+    resources.LoadResource("Assets/ui/arial.ttf", ResourceType::Font);
 
     Model* cubeModel = resources.GetResourceAs<Model>("Assets/models/cube.obj");
-
-    UIRendering* uiRenderer = graphics.AddRender<UIRendering>();
-    InitUI(uiRenderer, resources);
-    
     if (!cubeModel || !cubeModel->IsLoaded()) {
         std::cout << "Failed to load model!" << std::endl;
         return -1;
     }
     
     PhysicsWorld physicsWorld;
-    
     ModelRenderer* renderer = graphics.AddRender<ModelRenderer>();
+    UIRendering* uiRenderer = graphics.AddRender<UIRendering>();
     
-    float red[3] = {1, 0.2, 0.2};
-    float green[3] = {0.2, 1, 0.2};
-    float blue[3] = {0.2, 0.2, 1};
-    float yellow[3] = {1, 1, 0.2};
-    float white[3] = {1, 1, 1};
-    float purple[3] = {0.8, 0.2, 0.8};
-    float gold[3] = {1, 0.8, 0};
+    SetupUI(uiRenderer, resources);
+    
+    float green[3] = {0.2f, 1.0f, 0.2f};
+    float blue[3] = {0.2f, 0.2f, 1.0f};
+    float red[3] = {1.0f, 0.2f, 0.2f};
+    float gold[3] = {1.0f, 0.8f, 0.0f};
     
     DirectionalLight3D* dirLight = renderer->AddLight<DirectionalLight3D>(
-        Vector3(-1, -2, -1).normalized(), 
-        Vector3(1, 1, 1), 0.8f
+        Vector3(-1, -2, -1).normalized(), Vector3(1, 1, 1), 0.8f
     );
-    dirLight->SetShadowArea(50.0f);
-    dirLight->SetShadowPlanes(1.0f, 100.0f);
+    dirLight->SetShadowArea(80.0f);
+    dirLight->SetShadowPlanes(1.0f, 150.0f);
     
     std::vector<PointLight3D*> dynamicLights;
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 4; i++) {
         PointLight3D* light = renderer->AddLight<PointLight3D>(
-            Vector3(i * 5 - 5, 3, i * 3 - 3),
-            Vector3(0.2f + i * 0.2f, 0.3f, 0.8f),
-            1.2f,
-            15.0f
+            Vector3(i * 8 - 12, 5, i * 6 - 9),
+            Vector3(0.3f + i * 0.2f, 0.4f, 0.7f),
+            1.5f, 20.0f
         );
         dynamicLights.push_back(light);
     }
     
     GameObject* player = new GameObject();
     Transform3D* playerTransform = player->AddComponent<Transform3D>();
-    playerTransform->position = Vector3(0, 2, 0);
-    playerTransform->scale = Vector3(0.8f, 1.2f, 0.8f);
+    playerTransform->position = Vector3(0, 10, 0);
+    playerTransform->scale = Vector3(0.7f, 1.0f, 0.7f);
     
-    Polyhedron3D* playerCollider = CreateCubeCollider(1.0f);
+    Polyhedron3D* playerCollider = CreateCubeCollider(0.9f);
     playerCollider->SetTag("Player");
     player->AddComponent(playerCollider);
     
-    PhysicalBody* playerBody = player->AddComponent<PhysicalBody>(playerCollider, 2.0f);
-    
-    auto* playerImpulse = playerBody->AddFeature<ImpulseModule>();
-    playerImpulse->SetMode(ImpulseModuleMode::ARCADY);
-    playerImpulse->SetMaxSpeed(8.0f);
-    playerImpulse->SetDamping(0.9f);
-    
+    PhysicalBody* playerBody = player->AddComponent<PhysicalBody>(playerCollider, 1.5f);
     playerBody->AddFeature<Gravity>();
     playerBody->AddFeature<Friction>(0.3f);
     
-    ModelComponent* playerModel = new ModelComponent(resources, *renderer, 
-                                                     "Assets/models/cube.obj", green);
+    auto* playerImpulse = playerBody->AddFeature<ImpulseModule>();
+    playerImpulse->SetMode(ImpulseModuleMode::ARCADY);
+    playerImpulse->SetMaxSpeed(14.0f);
+    playerImpulse->SetDamping(0.92f);
+    
+    ModelComponent* playerModel = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", green);
     player->AddComponent(playerModel);
     renderer->RegisterRenderComponent(playerModel);
+    physicsWorld.AddBody(playerBody);
     
-    struct Platform {
-        GameObject* obj;
-        Transform3D* trans;
-        BaseCollider* collider;
-    };
-    std::vector<Platform> platforms;
+    GameObject* killPlane = new GameObject();
+    Transform3D* killTrans = killPlane->AddComponent<Transform3D>();
+    killTrans->position = Vector3(0, -12, 0);
+    killTrans->scale = Vector3(100, 0.5f, 100);
     
-    GameObject* ground = new GameObject();
-    Transform3D* groundTrans = ground->AddComponent<Transform3D>();
-    groundTrans->position = Vector3(0, -1, 0);
-    groundTrans->scale = Vector3(30, 1, 30);
+    Polyhedron3D* killCollider = CreateCubeCollider(1.0f);
+    killCollider->SetTag("KillPlane");
+    killPlane->AddComponent(killCollider);
     
-    Polyhedron3D* groundCollider = CreateCubeCollider(1.0f);
-    groundCollider->SetTag("Ground");
-    ground->AddComponent(groundCollider);
+    PhysicalBody* killBody = killPlane->AddComponent<PhysicalBody>(killCollider, 0.0f);
+    physicsWorld.AddBody(killBody);
     
-    PhysicalBody* groundBody = ground->AddComponent<PhysicalBody>(groundCollider, 0.0f);
+    std::vector<GameObject*> platforms;
+    std::vector<GameObject*> obstacles;
+    std::vector<GameObject*> collectibles;
     
-    ModelComponent* groundModel = new ModelComponent(resources, *renderer, 
-                                                     "Assets/models/slon_sea.obj", blue);
-    ground->AddComponent(groundModel);
-    renderer->RegisterRenderComponent(groundModel);
-    
-    physicsWorld.AddBody(groundBody);
-    platforms.push_back({ground, groundTrans, groundCollider});
-    
-    std::vector<Vector3> platformPositions = {
-        Vector3(-10, 2, -5), Vector3(-5, 4, -8), Vector3(0, 6, -5),
-        Vector3(5, 8, -2), Vector3(10, 10, 0), Vector3(-8, 12, 5),
-        Vector3(-3, 14, 8), Vector3(3, 16, 10), Vector3(9, 18, 7)
-    };
-    
-    for (size_t i = 0; i < platformPositions.size(); i++) {
+    for(int i = 0; i < 35; i++) {
+        float angle = i * 0.8f;
+        float radius = 8.0f + i * 0.3f;
+        float x = cos(angle) * radius;
+        float z = sin(angle) * radius;
+        float y = 2.0f + i * 1.2f;
+        
         GameObject* plat = new GameObject();
         Transform3D* platTrans = plat->AddComponent<Transform3D>();
-        platTrans->position = platformPositions[i];
-        platTrans->scale = Vector3(2, 0.5f, 2);
+        platTrans->position = Vector3(x, y, z);
+        platTrans->scale = Vector3(2.8f, 0.3f, 2.8f);
         
         Polyhedron3D* platCollider = CreateCubeCollider(1.0f);
         platCollider->SetTag("Platform");
@@ -290,90 +268,136 @@ int main() {
         
         PhysicalBody* platBody = plat->AddComponent<PhysicalBody>(platCollider, 0.0f);
         
-        float color[3] = {0.3f + i * 0.05f, 0.3f, 0.5f};
-        ModelComponent* platModel = new ModelComponent(resources, *renderer, 
-                                                       "Assets/models/slon_sea.obj", color);
+        float brightness = 0.3f + (y / 40.0f);
+        float color[3] = {brightness * 0.5f, brightness * 0.4f, brightness * 0.9f};
+        ModelComponent* platModel = new ModelComponent(resources, *renderer, "Assets/models/platform.obj", color);
         plat->AddComponent(platModel);
         renderer->RegisterRenderComponent(platModel);
-        
         physicsWorld.AddBody(platBody);
-        platforms.push_back({plat, platTrans, platCollider});
-    }
-    
-    std::vector<GameObject*> collectibles;
-    std::vector<Vector3> coinPositions = {
-        Vector3(-8, 3, -3), Vector3(-3, 5, -6), Vector3(2, 7, -3),
-        Vector3(7, 9, 0), Vector3(12, 11, 2), Vector3(-6, 13, 7),
-        Vector3(0, 15, 9), Vector3(5, 17, 8), Vector3(11, 19, 6)
-    };
-    
-    for (const auto& pos : coinPositions) {
-        GameObject* coin = new GameObject();
-        Transform3D* coinTrans = coin->AddComponent<Transform3D>();
-        coinTrans->position = pos;
-        coinTrans->scale = Vector3(0.5f, 0.5f, 0.5f);
+        platforms.push_back(plat);
         
-        Polyhedron3D* coinCollider = CreateCubeCollider(0.5f);
-        coinCollider->SetTag("Collectible");
-        coin->AddComponent(coinCollider);
+        if (i % 3 == 0 && i > 2) {
+            for(int j = -1; j <= 1; j++) {
+                if (j == 0) continue;
+                GameObject* obstacle = new GameObject();
+                Transform3D* obsTrans = obstacle->AddComponent<Transform3D>();
+                obsTrans->position = Vector3(x + j * 1.8f, y + 0.8f, z + (rand() % 3 - 1) * 1.5f);
+                obsTrans->scale = Vector3(0.8f, 0.8f, 0.8f);
+                
+                Polyhedron3D* obsCollider = CreateCubeCollider(0.8f);
+                obsCollider->SetTag("Obstacle");
+                obstacle->AddComponent(obsCollider);
+                
+                PhysicalBody* obsBody = obstacle->AddComponent<PhysicalBody>(obsCollider, 0.0f);
+                
+                ModelComponent* obsModel = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", red);
+                obstacle->AddComponent(obsModel);
+                renderer->RegisterRenderComponent(obsModel);
+                physicsWorld.AddBody(obsBody);
+                obstacles.push_back(obstacle);
+            }
+        }
         
-        PhysicalBody* coinBody = coin->AddComponent<PhysicalBody>(coinCollider, 0.0f);
-        
-        ModelComponent* coinModel = new ModelComponent(resources, *renderer, 
-                                                       "Assets/models/cube.obj", gold);
-        coin->AddComponent(coinModel);
-        renderer->RegisterRenderComponent(coinModel);
-        
-        physicsWorld.AddBody(coinBody);
-        collectibles.push_back(coin);
+        for(int j = -1; j <= 1; j++) {
+            if (rand() % 3 == 0) {
+                GameObject* coin = new GameObject();
+                Transform3D* coinTrans = coin->AddComponent<Transform3D>();
+                coinTrans->position = Vector3(x + j * 1.2f, y + 0.6f, z + (rand() % 3 - 1) * 1.2f);
+                coinTrans->scale = Vector3(0.4f, 0.4f, 0.4f);
+                
+                Polyhedron3D* coinCollider = CreateCubeCollider(0.4f);
+                coinCollider->SetTag("Collectible");
+                coin->AddComponent(coinCollider);
+                
+                PhysicalBody* coinBody = coin->AddComponent<PhysicalBody>(coinCollider, 0.0f);
+                
+                ModelComponent* coinModel = new ModelComponent(resources, *renderer, "Assets/models/cube.obj", gold);
+                coin->AddComponent(coinModel);
+                renderer->RegisterRenderComponent(coinModel);
+                physicsWorld.AddBody(coinBody);
+                collectibles.push_back(coin);
+            }
+        }
     }
     
     auto colliderManager = std::make_shared<ColliderManager>();
     physicsWorld.SetColliderManager(colliderManager);
     
     colliderManager->AddCollider(playerCollider);
-    for (auto& p : platforms) {
-        colliderManager->AddCollider(p.collider);
+    colliderManager->AddCollider(killCollider);
+    for(auto* plat : platforms) {
+        colliderManager->AddCollider(plat->GetComponentOfType<BaseCollider>());
     }
-    for (auto* coin : collectibles) {
+    for(auto* obs : obstacles) {
+        colliderManager->AddCollider(obs->GetComponentOfType<BaseCollider>());
+    }
+    for(auto* coin : collectibles) {
         colliderManager->AddCollider(coin->GetComponentOfType<BaseCollider>());
     }
     
     physicsWorld.Start();
     
-    int score = 0;
-    int totalCoins = collectibles.size();
+    g_uiState.score = 0;
+    g_uiState.highScore = 0;
+    g_uiState.fallSpeed = 0;
+    g_uiState.multiplier = 1;
+    
+    int combo = 0;
+    float lastCollectTime = 0;
+    float time = 0;
     
     playerCollider->SubscribeToCollision(CollisionEvent::State::ENTER,
-        [&score, totalCoins, &collectibles](BaseCollider* self, BaseCollider* other) {
+        [&](BaseCollider* self, BaseCollider* other) {
             if (other->GetTag() == "Collectible") {
-                score++;
-                std::cout << "Монеток: " << score << "/" << totalCoins << "\r";
-                std::cout.flush();
+                combo++;
+                if (combo > 5) g_uiState.multiplier = 3;
+                else if (combo > 2) g_uiState.multiplier = 2;
+                else g_uiState.multiplier = 1;
+                
+                g_uiState.score += 10 * g_uiState.multiplier;
+                lastCollectTime = time;
                 
                 for (auto it = collectibles.begin(); it != collectibles.end(); ++it) {
                     if ((*it)->GetComponentOfType<BaseCollider>() == other) {
+                        physicsWorld.RemoveBody((*it)->GetComponentOfType<PhysicalBody>());
                         (*it)->Destroy();
                         collectibles.erase(it);
                         break;
                     }
                 }
             }
+            else if (other->GetTag() == "Obstacle") {
+                combo = 0;
+                g_uiState.multiplier = 1;
+                g_uiState.score = std::max(0, g_uiState.score - 25);
+                std::cout << "Удар! -25 очков! Счёт: " << g_uiState.score << std::endl;
+            }
+        });
+    
+    playerCollider->SubscribeToCollision(CollisionEvent::State::ENTER,
+        [&](BaseCollider* self, BaseCollider* other) {
+            if (other->GetTag() == "KillPlane") {
+                combo = 0;
+                g_uiState.multiplier = 1;
+                g_uiState.score = std::max(0, g_uiState.score / 2);
+                playerTransform->position = Vector3(0, 10, 0);
+                if (playerImpulse) {
+                    playerImpulse->SetVelocity(Vector3(0, 0, 0));
+                }
+                std::cout << "Падение! Потеряно половина очков! Счёт: " << g_uiState.score << std::endl;
+            }
         });
     
     VisualMode currentMode = VisualMode::NORMAL;
-    bool showColliders = false;
     
-    std::cout << "\n=== 3D PLATFORMER - РЕЖИМЫ ВИЗУАЛИЗАЦИИ ===\n";
-    std::cout << "F1 - Нормальный режим\n";
-    std::cout << "F2 - Режим треугольников (wireframe)\n";
-    std::cout << "F3 - Режим коллайдеров\n";
-    std::cout << "F4 - Режим источников света\n";
-    std::cout << "==========================================\n";
-    std::cout << "Управление: WASD - движение, Space - прыжок\n";
-    std::cout << "Стрелки - камера, Собрано: 0/" << totalCoins << "\n";
+    std::cout << "\n=== DROPPER ===\n";
+    std::cout << "Собирай золотые монеты!\n";
+    std::cout << "Комбо x2 (3 монеты) | x3 (6 монет)\n";
+    std::cout << "Избегай красных препятствий! -25 очков\n";
+    std::cout << "Не падай вниз! Потеря половины очков\n";
+    std::cout << "WASD - движение, Space - прыжок\n";
     
-    float time = 0;
+    bool isGrounded = false;
     
     while (!window->ShouldClose()) {
         Time::Tick();
@@ -384,139 +408,65 @@ int main() {
         
         auto* impulse = playerBody->GetFeatureOfType<ImpulseModule>();
         
-        float moveSpeed = 5.0f * deltaTime;
+        Vector3 moveDir(0, 0, 0);
+        float moveSpeed = 14.0f;
         
-        if (input.GetKey(Keys::W)) playerTransform->position.z -= moveSpeed;
-        if (input.GetKey(Keys::S)) playerTransform->position.z += moveSpeed;
-        if (input.GetKey(Keys::A)) playerTransform->position.x -= moveSpeed;
-        if (input.GetKey(Keys::D)) playerTransform->position.x += moveSpeed;
+        if (input.GetKey(Keys::W)) moveDir.z -= 1.0f;
+        if (input.GetKey(Keys::S)) moveDir.z += 1.0f;
+        if (input.GetKey(Keys::A)) moveDir.x -= 1.0f;
+        if (input.GetKey(Keys::D)) moveDir.x += 1.0f;
         
-        static float verticalVelocity = 0;
-        static bool isGrounded = false;
-        
-        isGrounded = playerTransform->position.y <= 2.1f;
-        
-        if (input.GetKeyDown(Keys::Space) && isGrounded) {
-            verticalVelocity = 5.0f;
-            std::cout << "ПРЫЖОК!\n";
+        if (moveDir.magnitude() > 0 && impulse) {
+            impulse->AddForce(moveDir.normalized(), 120.0f);
         }
         
-        verticalVelocity -= 9.8f * deltaTime;
-        playerTransform->position.y += verticalVelocity * deltaTime;
-        
-        if (playerTransform->position.y < 2.0f) {
-            playerTransform->position.y = 2.0f;
-            verticalVelocity = 0;
-        }
-        
-        if (playerTransform->position.x > 15) playerTransform->position.x = 15;
-        if (playerTransform->position.x < -15) playerTransform->position.x = -15;
-        if (playerTransform->position.z > 15) playerTransform->position.z = 15;
-        if (playerTransform->position.z < -15) playerTransform->position.z = -15;
-        
-        if (impulse) {
-            Vector3 moveDir(0, 0, 0);
-            
-            if (input.GetKey(Keys::W)) moveDir.z -= 1.0f;
-            if (input.GetKey(Keys::S)) moveDir.z += 1.0f;
-            if (input.GetKey(Keys::A)) moveDir.x -= 1.0f;
-            if (input.GetKey(Keys::D)) moveDir.x += 1.0f;
-            
-            if (moveDir.magnitude() > 0) {
-                moveDir = moveDir.normalized();
-                impulse->AddForce(moveDir * moveSpeed, 10.0f);
-            }
-            
-            if (input.GetKeyDown(Keys::Space)) {
-                bool onGround = false;
-                for (const auto& [other, _] : playerCollider->GetCurrentCollisions()) {
-                    if (other && (other->GetTag() == "Platform" || other->GetTag() == "Ground")) {
-                        onGround = true;
-                        break;
-                    }
-                }
-                
-                if (onGround) {
-                    impulse->AddForce(Vector3(0, 8, 0), 15.0f);
-                }
+        isGrounded = false;
+        for (const auto& [other, _] : playerCollider->GetCurrentCollisions()) {
+            if (other && other->GetTag() == "Platform") {
+                isGrounded = true;
+                break;
             }
         }
         
-        float cameraSpeed = 8.0f * deltaTime;
-        if (input.GetKey(Keys::Up)) camera->position.z -= cameraSpeed;
-        if (input.GetKey(Keys::Down)) camera->position.z += cameraSpeed;
-        if (input.GetKey(Keys::Left)) camera->position.x -= cameraSpeed;
-        if (input.GetKey(Keys::Right)) camera->position.x += cameraSpeed;
+        if (input.GetKeyDown(Keys::Space) && isGrounded && impulse) {
+            impulse->AddForce(Vector3(0, 13, 0), 22.0f);
+        }
         
-        Vector3 targetPos = playerTransform->position + Vector3(0, 5, 10);
-        camera->position = camera->position * 0.95f + targetPos * 0.05f;
+        Vector3 velocity = impulse ? impulse->GetVelocity() : Vector3(0, 0, 0);
+        g_uiState.fallSpeed = -velocity.y;
         
-        if (input.GetKeyDown(Keys::F1)) {
-            currentMode = VisualMode::NORMAL;
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-            showColliders = false;
-            std::cout << "Режим: NORMAL\n";
+        if (time - lastCollectTime > 2.0f) {
+            combo = 0;
+            g_uiState.multiplier = 1;
         }
-        if (input.GetKeyDown(Keys::F2)) {
-            currentMode = VisualMode::WIREFRAME;
-            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
-            showColliders = false;
-            std::cout << "Режим: WIREFRAME\n";
-        }
-        if (input.GetKeyDown(Keys::F3)) {
-            currentMode = VisualMode::COLLIDERS;
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-            showColliders = true;
-            std::cout << "Режим: COLLIDERS\n";
-        }
-        if (input.GetKeyDown(Keys::F4)) {
-            currentMode = VisualMode::LIGHTS;
-            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
-            showColliders = false;
-            std::cout << "Режим: LIGHTS\n";
-        }
+        
+        Vector3 targetPos = playerTransform->position + Vector3(0, 3, 18);
+        camera->position = camera->position * 0.97f + targetPos * 0.03f;
         
         for (size_t i = 0; i < dynamicLights.size(); i++) {
-            float offset = i * 2.0f;
+            float offset = i * 1.8f;
             Vector3 pos(
-                sin(time * 0.5f + offset) * 8.0f,
-                3.0f + sin(time * 0.8f + offset) * 2.0f,
-                cos(time * 0.5f + offset) * 8.0f
+                sin(time * 0.5f + offset) * 12.0f,
+                6.0f + sin(time * 0.7f + offset) * 4.0f,
+                cos(time * 0.5f + offset) * 12.0f
             );
             dynamicLights[i]->SetPosition(pos);
         }
         
-        static bool firstMouse = true;
-        static float lastX, lastY;
+        physicsWorld.Update();
+        UpdateUI();
         
-        if (input.GetMouseButton(GLFW_MOUSE_BUTTON_RIGHT)) {
-            double xpos = input.GetMouseX();
-            double ypos = input.GetMouseY();
-            
-            if (firstMouse) {
-                lastX = xpos;
-                lastY = ypos;
-                firstMouse = false;
-            }
-            
-            float xoffset = xpos - lastX;
-            float yoffset = lastY - ypos;
-            
-            lastX = xpos;
-            lastY = ypos;
-            
-            camera->ProcessMouse(xoffset, yoffset);
-        } else {
-            firstMouse = true;
+        if (input.GetKeyDown(Keys::F1)) {
+            currentMode = VisualMode::NORMAL;
+            glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
+        }
+        if (input.GetKeyDown(Keys::F2)) {
+            currentMode = VisualMode::WIREFRAME;
+            glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
         }
         
-        physicsWorld.Update();
-        
         window->Clear();
-
         graphics.Update();
-        uiRenderer->Update();
-        
         window->SwapBuffers();
         
         if (input.GetKeyDown(Keys::Escape)) break;

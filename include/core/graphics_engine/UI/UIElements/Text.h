@@ -8,7 +8,7 @@
 
 class Text : public UIElement {
 private:
-    const Font* font = nullptr;
+    Font* font = nullptr;
     std::string text;
     UIRenderSettings settings;
     glm::vec4 color = glm::vec4(1.0f);
@@ -17,7 +17,7 @@ private:
 
 public:
     Text() = default;
-    Text(const Font& font, const std::string& text) 
+    Text(Font& font, const std::string& text) 
         : font(&font), text(text) {
         settings.texture = const_cast<Texture*>(font.GetAtlas());
         settings.color = this->color;
@@ -29,7 +29,7 @@ public:
         text = newText; 
     }
     
-    void SetFont(const Font& newFont) {
+    void SetFont(Font& newFont) {
         font = &newFont; 
         settings.texture = const_cast<Texture*>(newFont.GetAtlas());
     }
@@ -38,5 +38,7 @@ public:
 
     glm::vec4 GetColor() const { return settings.color; }
     const std::string& GetText() const { return text; }
-    const Font* GetFont() const { return font; } 
+    Font* GetFont() const { return font; } 
+
+    void SetFontSize(int size) { font->SetFontSize(size); }
 };

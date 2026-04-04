@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <unordered_map> 
 #include "PhysicsEvents.h"
+#include "BasePhysicManager.h"
 
 class PhysicalBody;
 class ColliderManager;
@@ -13,10 +14,13 @@ class PhysicFeature;
 class PhysicsWorld{
 private:
     std::vector<PhysicalBody*> bodies;
+    std::unordered_map<PhysicEventType, std::vector<PhysicFeature*>> subscribers;
 
     std::shared_ptr<ColliderManager> colliderManager;
 
-    std::unordered_map<PhysicEventType, std::vector<PhysicFeature*>> subscribers;
+    std::vector<BasePhysicManager*> physicsManagers;
+
+    bool isStarted{false};
 
     bool IsSubscribed(PhysicFeature* feature, PhysicEventType type) {
         if (!feature) return false;
@@ -41,6 +45,27 @@ public:
     void Update();
 
     void CreateEvent(BasePhysicsEvent* physicsEvent);
+
+    template<typename T, typename... Args>
+    T* AddPhysicsManager(Args&&... args) {
+        T* manager = new T(std::forward<Args>(args)...);
+        
+        physicsManagers.push_back(manager);
+        
+        if(isStarted) manager->Start();
+        
+        return manager;
+    }
+    void RemovePhysicsManager(BasePhysicManager* manager) {
+        auto it = std::find(physicsManagers.begin(), physicsManagers.end(), manager);
+        if (it != physicsManagers.end()) {
+            if (*it) {
+                delete *it;
+            }
+            physicsManagers.erase(it);
+        }
+    }
+
 
     void Subscribe(PhysicFeature* feature, PhysicEventType type) {
         if (!feature) return;
