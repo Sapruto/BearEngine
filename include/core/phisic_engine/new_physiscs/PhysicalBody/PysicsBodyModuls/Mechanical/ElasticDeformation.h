@@ -12,6 +12,9 @@
 #include <unordered_map>
 #include <string>
 
+#include "Vertex3D.h"
+#include "Polyhedron3D.h"
+
 class ElasticDeformation : public PhysicFeature{
 private:
     float k = 0;
@@ -28,6 +31,8 @@ private:
     };
     
     std::unordered_map<int, PointData> points; 
+
+    Polyhedron3D* polyhedron;
 
     bool lengthesUpdated = false;
 

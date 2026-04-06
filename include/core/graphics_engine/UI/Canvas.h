@@ -57,4 +57,19 @@ public:
 
     float GetScreenWidth() const { return screenWidth; }
     float GetScreenHeight() const { return screenHeight; }
+
+    UIElement* GetOverlayElement(const Vector2& pos){
+        for(int i = uiElements.size() - 1; i >= 0; i--){
+            UIElement* element = uiElements[i];
+            if(!element || !element->rectTransform) continue;
+            
+            UIRect rect = element->rectTransform->GetScreenRect(screenWidth, screenHeight);
+            
+            if(pos.x >= rect.x && pos.x <= rect.x + rect.width &&
+                pos.y >= rect.y && pos.y <= rect.y + rect.height){
+                return element;
+            }
+        }
+        return nullptr;
+    }
 };

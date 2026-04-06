@@ -1,175 +1,56 @@
-#pragma once
-
 #include "ModelRenderer.h"
 #include "GraphicsManager.h"
 #include "Transform3D.h"
 #include "Camera3D.h"
 #include "DirectionalLight3D.h"
+#include "SimpleModelRenderer.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <vector>
 
-ModelRenderer::ModelRenderer() 
-    : m_Shader("include/core/graphics_engine/Shaders/ModelsShaders/Vertex.glsl", "include/core/graphics_engine/Shaders/ModelsShaders/Fragment.glsl")
-{
-    CacheUniformLocations();
+ModelRenderer::ModelRenderer(){
+    InitBaseRenderer();
 }
 
 ModelRenderer::~ModelRenderer(){
 
 }
 
-void ModelRenderer::CacheUniformLocations() {
-    m_Shader.Bind();
-    m_Uniforms.projection = glGetUniformLocation(m_Shader.GetID(), "projection");
-    m_Uniforms.view = glGetUniformLocation(m_Shader.GetID(), "view");
-    m_Uniforms.model = glGetUniformLocation(m_Shader.GetID(), "model");
-    m_Uniforms.color = glGetUniformLocation(m_Shader.GetID(), "color");
+void ModelRenderer::InitBaseRenderer(){
+    RegisterModelFeatureRenderer(new SimpleModelRenderer());
+    for(auto* component : rendererComponents){
+        ModelComponent* model = dynamic_cast<ModelComponent*>(component);
+        if(!model) continue;
+
+        groups[ModelFeatureType::Simple].push_back(model);
+    }
+}
+
+void ModelRenderer::BuildGroups(){
+    if(!isDirty) return;
+
+    for(auto* component : rendererComponents){
+        ModelComponent* model = dynamic_cast<ModelComponent*>(component);
+        if(!model) continue;
+
+        std::vector<ModelFeature*> features = model->GetFeatures();
+        for(auto* feature : features){
+            groups[feature->type].push_back(model);
+        }
+    }
+    InitBaseRenderer();
+    isDirty = false;
 }
 
 void ModelRenderer::Update(){
-    if (!manager) return;
-
-    glEnable(GL_DEPTH_TEST);
-    
-    Camera3D* camera = dynamic_cast<Camera3D*>(manager->GetCamera());
-    if (!camera) return;
-    
-    m_Shader.Bind();
-    
-    int width, height;
-    glfwGetWindowSize(manager->GetWindow()->GetWindow(), &width, &height);
-    float aspect = (float)width / (float)height;
-    
-    if (m_Uniforms.projection != -1) {
-        glUniformMatrix4fv(m_Uniforms.projection, 1, GL_FALSE, 
-                        glm::value_ptr(camera->GetProjectionMatrix(aspect)));
-    }
-    
-    if (m_Uniforms.view != -1) {
-        glUniformMatrix4fv(m_Uniforms.view, 1, GL_FALSE, 
-                          glm::value_ptr(camera->GetViewMatrix()));
-    }
-
-    GLint lightCountLoc = glGetUniformLocation(m_Shader.GetID(), "lightCount");
-    if (lightCountLoc != -1) {
-        glUniform1i(lightCountLoc, lights.size());
-    }
-
-    bool hasDirLight = false;
-    for (auto& light : lights) {
-        if (dynamic_cast<DirectionalLight3D*>(light.get())) {
-            auto* dirLight = static_cast<DirectionalLight3D*>(light.get());
-            
-            GLint dirDirLoc = glGetUniformLocation(m_Shader.GetID(), "dirLightDirection");
-            if (dirDirLoc != -1) {
-                Vector3 dir = dirLight->GetDirection();
-                glUniform3f(dirDirLoc, dir.x, dir.y, dir.z);
-            }
-            
-            GLint dirColLoc = glGetUniformLocation(m_Shader.GetID(), "dirLightColor");
-            if (dirColLoc != -1) {
-                Vector3 col = dirLight->GetColor();
-                glUniform3f(dirColLoc, col.x, col.y, col.z);
-            }
-            
-            hasDirLight = true;
-            break;
+    BuildGroups();
+    for(auto& [type, modelFeatureRenderer] : modelFeatureRenderers){
+        if(modelFeatureRenderer && groups.count(type)){
+            modelFeatureRenderer->RenderGroup(groups[type], this);
         }
     }
-    
-    GLint useDirLightLoc = glGetUniformLocation(m_Shader.GetID(), "useDirLight");
-    if (useDirLightLoc != -1) {
-        glUniform1i(useDirLightLoc, hasDirLight ? 1 : 0);
-    }
-
-    for (size_t i = 0; i < lights.size(); ++i) {
-        std::string posName = "lightPos[" + std::to_string(i) + "]";
-        Vector3 vecPos = lights[i]->GetPosition();
-        glm::vec3 pos(vecPos.x, vecPos.y, vecPos.z);
-        GLint loc = glGetUniformLocation(m_Shader.GetID(), posName.c_str());
-        if (loc != -1) {
-            glUniform3f(loc, pos.x, pos.y, pos.z);
-        }
-        
-        std::string colName = "lightColor[" + std::to_string(i) + "]";
-        Vector3 col = lights[i]->GetColor();
-        loc = glGetUniformLocation(m_Shader.GetID(), colName.c_str());
-        if (loc != -1) {
-            glUniform3f(loc, col.x, col.y, col.z);
-        }
-        
-        std::string matrixName = "lightSpaceMatrix[" + std::to_string(i) + "]";
-        glm::mat4 lightMatrix = lights[i]->GetLightSpaceMatrix(aspect);
-        loc = glGetUniformLocation(m_Shader.GetID(), matrixName.c_str());
-        if (loc != -1) {
-            glUniformMatrix4fv(loc, 1, GL_FALSE, glm::value_ptr(lightMatrix));
-        }
-    }
-
-    GLint viewPosLoc = glGetUniformLocation(m_Shader.GetID(), "viewPos");
-    if (viewPosLoc != -1) {
-        glUniform3f(viewPosLoc, camera->position.x, camera->position.y, camera->position.z);
-    }
-    
-    glActiveTexture(GL_TEXTURE0);
-
-    std::vector<RenderComponent*> toRemove;
-
-    for(auto* component : rendererComponents){
-        ModelComponent* model = dynamic_cast<ModelComponent*>(component); 
-        if(!model){
-            toRemove.push_back(component);
-            continue;
-        }
-
-        GameObject* object = model->gameObject;
-        if(!object){
-            toRemove.push_back(component);
-            continue;
-        }
-
-        Transform3D* transform = object->GetComponentOfType<Transform3D>();
-        if(!transform){
-            toRemove.push_back(component);
-            continue;
-        }
-
-        Model* modelRefernce = model->GetModel();
-        if(!modelRefernce){
-            toRemove.push_back(component);
-            continue;
-        }
-
-        const float* colorRGB = model->GetColor();
-
-        RenderModel(model, transform, colorRGB);
-    }
-
-    for (auto* component : toRemove) {
-        auto it = std::find(rendererComponents.begin(), rendererComponents.end(), component);
-        if (it != rendererComponents.end()) {
-            rendererComponents.erase(it);
-        }
-    }
-}
-
-void ModelRenderer::RenderModel(ModelComponent* modelComp, Transform3D* transform, const float* colorRGB) {
-    if (m_Uniforms.model != -1) {
-        glm::mat4 modelMatrix = transform->GetMatrix();
-        glUniformMatrix4fv(m_Uniforms.model, 1, GL_FALSE, 
-                          glm::value_ptr(modelMatrix));
-    }
-    
-    if (m_Uniforms.color != -1) {
-        glUniform3f(m_Uniforms.color, colorRGB[0], colorRGB[1], colorRGB[2]);
-    }
-    
-    glBindVertexArray(modelComp->GetVAO());
-    glDrawElements(GL_TRIANGLES, modelComp->GetModel()->GetIndices().size(), 
-                   GL_UNSIGNED_INT, 0);
 }
 
 void ModelRenderer::RemoveLight(Light3D* light) {

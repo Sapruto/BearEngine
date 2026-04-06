@@ -123,6 +123,8 @@ target_include_directories(game PRIVATE
 
     ${ROOT_DIR}/include/core/graphics_engine/3D
     ${ROOT_DIR}/include/core/graphics_engine/3D/Models
+    ${ROOT_DIR}/include/core/graphics_engine/3D/Models/ModelFeatures
+    ${ROOT_DIR}/include/core/graphics_engine/3D/Models/ModelRenderers
     ${ROOT_DIR}/include/core/graphics_engine/3D/Lights
     
     ${ROOT_DIR}/include/core/graphics_engine/2D

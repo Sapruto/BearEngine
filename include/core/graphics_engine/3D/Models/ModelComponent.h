@@ -3,6 +3,7 @@
 #include "Model.h"
 #include "RenderComponent.h"
 #include "ResourceManager.h"
+#include "ModelFeature.h"
 
 #include <string>
 
@@ -17,6 +18,8 @@ private:
     std::string modelPath; 
 
     float colorRGB[3]; 
+
+    std::vector<ModelFeature*> features;
 
     unsigned int VAO, VBO, EBO;
 
@@ -33,4 +36,6 @@ public:
     const std::string& GetModelPath() const { return modelPath; }
 
     unsigned int GetVAO() const { return VAO; } 
+
+    std::vector<ModelFeature*> GetFeatures() { return features; }
 };

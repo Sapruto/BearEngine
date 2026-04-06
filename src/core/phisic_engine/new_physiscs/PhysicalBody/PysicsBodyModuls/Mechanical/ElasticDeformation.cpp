@@ -48,7 +48,9 @@ void ElasticDeformation::UpdateLengthes(){
 void ElasticDeformation::Initialize() { 
     isValid = true;
     impulseModule = body->GetFeatureOfType<ImpulseModule>();
-    if(!impulseModule) isValid = false;
+
+    polyhedron = dynamic_cast<Polyhedron3D*>(body->GetBaseCollider());
+    if(!polyhedron || !impulseModule) isValid = false;
 }
 
 void ElasticDeformation::UpdateBody() {

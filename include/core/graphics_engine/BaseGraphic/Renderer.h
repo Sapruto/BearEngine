@@ -8,6 +8,8 @@ class GraphicsManager;
 
 class Renderer{
 protected:
+    bool isDirty{true};
+
     std::vector<RenderComponent*> rendererComponents;
 
     GraphicsManager* manager;
@@ -35,6 +37,7 @@ public:
         static_assert(std::is_base_of<RenderComponent, T>::value, "T must be derived from Component");
 
         rendererComponents.push_back(component);
+        isDirty = true;
         
         return component;
     }
@@ -46,5 +49,8 @@ public:
         if (it != rendererComponents.end()) {
             rendererComponents.erase(it);
         }
+        isDirty = true;
     }
+
+    GraphicsManager* GetManager() { return manager; }
 };

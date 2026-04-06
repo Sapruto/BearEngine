@@ -624,6 +624,30 @@ src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s
 .PHONY : src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s
 
+src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.o: src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o
+
+src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.i: src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.i
+
+src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.s: src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s
+
 src/core/graphics_engine/GraphicsManager.o: src/core/graphics_engine/GraphicsManager.cpp.o
 .PHONY : src/core/graphics_engine/GraphicsManager.o
 
@@ -2205,6 +2229,9 @@ help:
 	@echo "... src/core/graphics_engine/3D/Models/ModelRenderer.o"
 	@echo "... src/core/graphics_engine/3D/Models/ModelRenderer.i"
 	@echo "... src/core/graphics_engine/3D/Models/ModelRenderer.s"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.o"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.i"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.s"
 	@echo "... src/core/graphics_engine/GraphicsManager.o"
 	@echo "... src/core/graphics_engine/GraphicsManager.i"
 	@echo "... src/core/graphics_engine/GraphicsManager.s"

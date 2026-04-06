@@ -37,6 +37,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o.d"
   "CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o"
   "CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o.d"
+  "CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o"
+  "CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o.d"
   "CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o"
   "CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o.d"
   "CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o"
