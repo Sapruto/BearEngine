@@ -8,6 +8,14 @@ class Scene;
 class SceneDeserializer;
 
 class SceneManager {
+private:
+    SceneDeserializer& m_deserializer;
+    std::string m_scenesPath;
+    std::vector<std::unique_ptr<Scene>> m_scenes;
+    Scene* m_currentScene = nullptr;
+    
+    Scene* FindScene(const std::string& name) const;
+    
 public:
     explicit SceneManager(SceneDeserializer& deserializer);
     
@@ -30,12 +38,4 @@ public:
     const Scene* GetCurrentScene() const;
     
     void UpdateCurrentScene();
-
-private:
-    SceneDeserializer& m_deserializer;
-    std::string m_scenesPath;
-    std::vector<std::unique_ptr<Scene>> m_scenes;
-    Scene* m_currentScene = nullptr;
-    
-    Scene* FindScene(const std::string& name) const;
 };

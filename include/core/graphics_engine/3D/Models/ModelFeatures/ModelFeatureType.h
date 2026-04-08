@@ -2,5 +2,5 @@
 
 enum class ModelFeatureType{
     Simple = 0,
-    Laugness = 1
+    Transparency = 2 
 };

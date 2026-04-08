@@ -11,6 +11,9 @@ class ModelRenderer;
 
 class ModelComponent : public RenderComponent {
 private:
+    static unsigned int s_NextID;
+    unsigned int m_ID;
+
     ResourceManager& rm;
     Model* model;
     ModelRenderer* renderer; 
@@ -37,5 +40,21 @@ public:
 
     unsigned int GetVAO() const { return VAO; } 
 
+    void AddFeature(ModelFeature* feature) {
+        features.push_back(feature);
+    }
+
+    template<typename T>
+    T* GetFeatureOfType() {
+        for (auto* feature : features) {
+            T* casted = dynamic_cast<T*>(feature);
+            if (casted) {
+                return casted;
+            }
+        }
+        return nullptr;
+    }
     std::vector<ModelFeature*> GetFeatures() { return features; }
+
+    unsigned int GetID() const { return m_ID; }
 };

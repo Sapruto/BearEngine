@@ -648,6 +648,54 @@ src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s
 .PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s
 
+src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.o: src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o
+
+src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.i: src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.i
+
+src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.s: src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.s
+
+src/core/graphics_engine/3D/Models/UVManager.o: src/core/graphics_engine/3D/Models/UVManager.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/UVManager.o
+
+# target to build an object file
+src/core/graphics_engine/3D/Models/UVManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o
+.PHONY : src/core/graphics_engine/3D/Models/UVManager.cpp.o
+
+src/core/graphics_engine/3D/Models/UVManager.i: src/core/graphics_engine/3D/Models/UVManager.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/UVManager.i
+
+# target to preprocess a source file
+src/core/graphics_engine/3D/Models/UVManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.i
+.PHONY : src/core/graphics_engine/3D/Models/UVManager.cpp.i
+
+src/core/graphics_engine/3D/Models/UVManager.s: src/core/graphics_engine/3D/Models/UVManager.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/UVManager.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/3D/Models/UVManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.s
+.PHONY : src/core/graphics_engine/3D/Models/UVManager.cpp.s
+
 src/core/graphics_engine/GraphicsManager.o: src/core/graphics_engine/GraphicsManager.cpp.o
 .PHONY : src/core/graphics_engine/GraphicsManager.o
 
@@ -2232,6 +2280,12 @@ help:
 	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.o"
 	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.i"
 	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.s"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.o"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.i"
+	@echo "... src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.s"
+	@echo "... src/core/graphics_engine/3D/Models/UVManager.o"
+	@echo "... src/core/graphics_engine/3D/Models/UVManager.i"
+	@echo "... src/core/graphics_engine/3D/Models/UVManager.s"
 	@echo "... src/core/graphics_engine/GraphicsManager.o"
 	@echo "... src/core/graphics_engine/GraphicsManager.i"
 	@echo "... src/core/graphics_engine/GraphicsManager.s"

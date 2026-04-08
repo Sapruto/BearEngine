@@ -37,6 +37,10 @@
 #include "Texture.h"
 #include "UIRendering.h"
 
+#include "TransparencyModelRenderer.h"
+#include "SimpleModelRenderer.h"
+#include "TransparentFeature.h"
+
 enum class VisualMode {
     NORMAL,           
     WIREFRAME,        
@@ -374,6 +378,44 @@ int main() {
     std::cout << "Стрелки - камера, Собрано: 0/" << totalCoins << "\n";
     
     float time = 0;
+
+    TransparencyModelRenderer* transRenderer = new TransparencyModelRenderer();
+    renderer->RegisterModelFeatureRenderer(transRenderer);
+
+    GameObject* transparentCube = new GameObject();
+    Transform3D* transTransform = transparentCube->AddComponent<Transform3D>();
+    transTransform->position = Vector3(3, 3, 2);
+    transTransform->scale = Vector3(1.5f, 1.5f, 1.5f);
+
+    float transparentColor[3] = {1.0f, 0.2f, 0.2f};
+
+    ModelComponent* transModel = new ModelComponent(resources, *renderer, 
+        "Assets/models/cube.obj", transparentColor);
+
+    TransparentFeature* transFeature = new TransparentFeature();
+    transFeature->SetAlpha(0.5f); 
+    transModel->AddFeature(transFeature);
+
+    transparentCube->AddComponent(transModel);
+    renderer->RegisterRenderComponent(transModel);
+
+    GameObject* transparentCube2 = new GameObject();
+    Transform3D* transTransform2 = transparentCube2->AddComponent<Transform3D>();
+    transTransform2->position = Vector3(-3, 2, 4);
+    transTransform2->scale = Vector3(1.2f, 1.2f, 1.2f);
+
+    float transparentColor2[3] = {0.2f, 0.2f, 1.0f};
+    ModelComponent* transModel2 = new ModelComponent(resources, *renderer, 
+        "Assets/models/cube.obj", transparentColor2);
+
+    TransparentFeature* transFeature2 = new TransparentFeature();
+    transFeature2->SetAlpha(0.3f);
+    transModel2->AddFeature(transFeature2);
+
+    transparentCube2->AddComponent(transModel2);
+
+    renderer->RegisterModelFeatureRenderer(new SimpleModelRenderer());
+    renderer->RegisterRenderComponent(transModel2);
     
     while (!window->ShouldClose()) {
         Time::Tick();

@@ -5,4 +5,5 @@
 class ModelFeature{
 public:
     ModelFeatureType type;
+    virtual ~ModelFeature() = default;
 };

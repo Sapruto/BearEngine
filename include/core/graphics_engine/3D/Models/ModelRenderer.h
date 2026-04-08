@@ -6,6 +6,10 @@
 #include "Light3D.h"
 #include "ModelFeatureRenderer.h"
 #include "ModelFeatureType.h"
+#include "Shader.h"
+#include "UVManager.h"
+#include "GraphicsManager.h" 
+#include "Camera3D.h"
 
 #include <vector>
 #include <memory>
@@ -21,8 +25,42 @@ private:
     std::unordered_map<ModelFeatureType, std::vector<ModelComponent*>> groups;
     std::unordered_map<ModelFeatureType, ModelFeatureRenderer*> modelFeatureRenderers;
 
+    GLuint framebuffers[2];
+    GLuint textures[2];
+    GLuint depthBuffers[2];
+    
+    int currentRead = 0;
+    int currentWrite = 1;
+
+    int textureWidth, textureHeight;
+
+    GLuint quadVAO;
+    GLuint quadVBO;
+
+    Shader m_Shader;
+
+    UVManager m_UVManager;
+
+    void InitQuad();
+    void CreateFramebuffers(int width, int height);
+    void RenderResultTexture(GLuint texture);
+
     void InitBaseRenderer();
     void BuildGroups();
+
+    void UpdateUVs() {
+        std::vector<ModelComponent*> allModels;
+        for (auto& [type, models] : groups) {
+            allModels.insert(allModels.end(), models.begin(), models.end());
+        }
+        
+        GraphicsManager* manager = GetManager();
+        Camera3D* camera = dynamic_cast<Camera3D*>(manager->GetCamera());
+        int width = GetTextureWidth();
+        int height = GetTextureHeight();
+        
+        m_UVManager.UpdateUVs(allModels, camera, (float)width/height);
+    }
 
 public:
     ModelRenderer();
@@ -65,5 +103,15 @@ public:
         std::vector<Light3D*> result;
         for(auto& light : lights) result.push_back(light.get());
         return result;
+    }
+
+    GLuint GetReadTexture() const { return textures[currentRead]; }
+    GLuint GetWriteTexture() const { return textures[currentWrite]; }
+
+    int GetTextureWidth() const { return textureWidth; }
+    int GetTextureHeight() const { return textureHeight; }
+
+    ObjectUVData GetObjectUV(ModelComponent* model) {
+        return m_UVManager.GetObjectUV(model);
     }
 };

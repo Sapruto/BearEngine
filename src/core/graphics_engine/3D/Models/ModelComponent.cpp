@@ -3,8 +3,10 @@
 #include "ModelComponent.h"
 #include "ModelRenderer.h"
 
+unsigned int ModelComponent::s_NextID = 0;
+
 ModelComponent::ModelComponent(ResourceManager& rm, ModelRenderer& r, const std::string& modelPath, float colorRGB[3]) 
-    : rm(rm), renderer(&r), modelPath(modelPath)
+    : rm(rm), renderer(&r), modelPath(modelPath), m_ID(s_NextID++)
 {
     SetColor(colorRGB);
 
