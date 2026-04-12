@@ -11,6 +11,8 @@
 class ModelComponent;
 class ModelRenderer;
 
+class Camera3D;
+
 class TransparencyModelRenderer : public ModelFeatureRenderer {
 private:
     Shader m_Shader;
@@ -22,6 +24,8 @@ private:
         GLuint baseColor;
         GLuint opacity;
     } m_Uniforms;
+
+    std::vector<ModelComponent*> BuildHierarchy(std::vector<ModelComponent*> models, Camera3D* camera);
 
     void InitScreenQuad();
     void RenderScreenQuad();

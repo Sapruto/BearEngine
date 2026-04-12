@@ -1,5 +1,6 @@
 #include "Texture.h"
 #include "imgui.h"
+#include <GLFW/glfw3.h>
 #include <glad/glad.h>
 #include <iostream>
 
@@ -44,9 +45,10 @@ bool Texture::Load() {
 
 void Texture::Unload() {
     if (textureID != 0) {
-        glDeleteTextures(1, &textureID);
+        if (glfwGetCurrentContext() != nullptr) {
+            glDeleteTextures(1, &textureID);
+        }
         textureID = 0;
-        loaded = false;
     }
 }
 

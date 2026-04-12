@@ -93,6 +93,9 @@ void ModelRenderer::InitBaseRenderer(){
         ModelComponent* model = dynamic_cast<ModelComponent*>(component);
         if(!model) continue;
 
+        std::vector<ModelFeature*> features = model->GetFeatures();
+        if(features.size() != 0) return;
+
         groups[ModelFeatureType::Simple].push_back(model);
     }
 }
@@ -120,12 +123,7 @@ void ModelRenderer::BuildGroups(){
 void ModelRenderer::Update(){
     BuildGroups();
     
-    static int uvUpdateCounter = 0;
-    uvUpdateCounter++;
-    if (uvUpdateCounter % 30 == 0) {
-        UpdateUVs();
-        uvUpdateCounter = 0;
-    }
+    UpdateUVs();
 
     int width, height;
     glfwGetWindowSize(manager->GetWindow()->GetWindow(), &width, &height);

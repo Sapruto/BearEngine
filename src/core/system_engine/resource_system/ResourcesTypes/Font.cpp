@@ -48,7 +48,6 @@ bool Font::Load(){
 
 void Font::Unload(){
     if(atlas){
-        delete atlas;
         atlas = nullptr;
     }
     if(face){

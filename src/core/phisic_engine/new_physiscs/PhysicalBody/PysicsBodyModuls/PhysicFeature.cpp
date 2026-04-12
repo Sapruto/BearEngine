@@ -15,12 +15,12 @@ void PhysicFeature::FeatureInitialize(){
 }
 
 void PhysicFeature::FeatureDestroy(){
-    if(!body) return;
+    /*if(!body) return;
 
     const PhysicsWorld* world = body->GetWorld();
     if(!world) return;
 
     for(auto& event : events_subscribed){
         const_cast<PhysicsWorld*>(world)->Unsubscribe(this, event);
-    }
+    }*/
 }

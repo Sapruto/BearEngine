@@ -108,6 +108,8 @@ public:
     GLuint GetReadTexture() const { return textures[currentRead]; }
     GLuint GetWriteTexture() const { return textures[currentWrite]; }
 
+    GLuint GetReadDepthTexture() const { return depthBuffers[currentRead]; }
+
     int GetTextureWidth() const { return textureWidth; }
     int GetTextureHeight() const { return textureHeight; }
 

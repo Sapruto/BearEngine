@@ -14,6 +14,8 @@ struct ObjectUVData {
     std::vector<unsigned int> indices;
     glm::mat4 modelMatrix;
     bool isVisible;
+
+    std::vector<float> depths;
     
     ObjectUVData() : objectID(-1), isVisible(false), modelMatrix(1.0f) {}
 };

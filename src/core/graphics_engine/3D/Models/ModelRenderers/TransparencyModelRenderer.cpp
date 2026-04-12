@@ -7,6 +7,9 @@
 #include <glad/glad.h>
 #include <iostream>
 
+#include "Camera3D.h"
+#include "Transform3D.h"
+
 TransparencyModelRenderer::TransparencyModelRenderer() 
     : m_Shader("include/core/graphics_engine/3D/Models/Shaders/Transparent/Vertex.glsl", 
                "include/core/graphics_engine/3D/Models/Shaders/Transparent/Fragment.glsl"),
@@ -16,6 +19,19 @@ TransparencyModelRenderer::TransparencyModelRenderer()
     type = ModelFeatureType::Transparency;
     InitScreenQuad();
     CacheUniformLocations();
+}
+
+std::vector<ModelComponent*> TransparencyModelRenderer::BuildHierarchy(std::vector<ModelComponent*> models, Camera3D* camera){
+    std::vector<ModelComponent*> sortingLayer = models;
+    
+    std::sort(sortingLayer.begin(), sortingLayer.end(), 
+        [camera](ModelComponent* a, ModelComponent* b) {
+            float distA = a->gameObject->GetComponentOfType<Transform3D>()->position.distanceTo(camera->position);
+            float distB = b->gameObject->GetComponentOfType<Transform3D>()->position.distanceTo(camera->position);
+            return distA > distB;
+        });
+    
+    return sortingLayer;
 }
 
 void TransparencyModelRenderer::InitScreenQuad() {
@@ -62,6 +78,11 @@ void TransparencyModelRenderer::CacheUniformLocations() {
 void TransparencyModelRenderer::RenderGroup(std::vector<ModelComponent*> models, ModelRenderer* baseRenderer){
     GLuint sceneTexture = baseRenderer->GetReadTexture();
     if (sceneTexture == 0) return;
+
+    GraphicsManager* manager = baseRenderer->GetManager();
+    if(!manager) return;
+    Camera3D* camera = dynamic_cast<Camera3D*>(manager->GetCamera());
+    if(!camera) return;
     
     m_Shader.Bind();
     
@@ -76,7 +97,8 @@ void TransparencyModelRenderer::RenderGroup(std::vector<ModelComponent*> models,
     RenderScreenQuad();
     
     if (!models.empty()) {
-        for(auto* model : models){
+        std::vector<ModelComponent*> sortingModel = BuildHierarchy(models, camera);
+        for(auto* model : sortingModel){
             ObjectUVData uvData = baseRenderer->GetObjectUV(model);
             if (!uvData.isVisible || uvData.screenVertices.empty()) continue;
             

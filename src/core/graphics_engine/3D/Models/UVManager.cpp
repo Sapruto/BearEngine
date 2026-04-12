@@ -33,20 +33,24 @@ void UVManager::UpdateObjectUVWithCamera(ObjectUVData& data, Camera3D* camera, f
     glm::mat4 mvp = camera->GetProjectionMatrix(aspect) * camera->GetViewMatrix() * data.modelMatrix;
     
     std::vector<Vector2> projectedVertices;
+    std::vector<float> depths;
     
     for(const auto& localPos : data.localVertices){
         glm::vec4 clipSpace = mvp * glm::vec4(localPos.x, localPos.y, localPos.z, 1.0f);
         
         if(clipSpace.w <= 0.001f){
             projectedVertices.push_back(Vector2(-1, -1));
+            depths.push_back(1.0f);
             continue;
         }
         
         glm::vec3 ndc = glm::vec3(clipSpace) / clipSpace.w;
         projectedVertices.push_back(Vector2(ndc.x, ndc.y));
+        depths.push_back(ndc.z);
     }
     
     data.screenVertices = projectedVertices;
+    data.depths = depths;
 }
 
 void UVManager::UpdateUVs(std::vector<ModelComponent*> models, Camera3D* camera, float aspect) {
