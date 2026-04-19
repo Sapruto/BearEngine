@@ -1,5 +1,5 @@
 #include "SceneSerializer.h"
- 
+
 #include <chrono>      
 #include <filesystem> 
 
@@ -19,7 +19,7 @@ std::string SceneSerializer::GenerateTextThroughScene(const Scene& scene) {
     result += std::string(SceneTokens::resources_pathes) + " " + std::string(SceneTokens::start_part) + "\n";
     result += std::string(SceneTokens::end_part) + "\n\n";
     
-    for (const auto& obj : *scene.GetGameObjects()) {
+    for (auto* obj : scene.GetGameObjects()) {
         result += std::string(SceneTokens::object) + " " + std::string(SceneTokens::start_part) + "\n";
         result += "    " + std::string(SceneTokens::name) + " " + obj->GetName() + "\n";
         result += "    " + std::string(SceneTokens::components) + " " + std::string(SceneTokens::start_part) + "\n";

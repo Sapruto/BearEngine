@@ -58,6 +58,11 @@ private:
         Camera3D* camera = dynamic_cast<Camera3D*>(manager->GetCamera());
         int width = GetTextureWidth();
         int height = GetTextureHeight();
+
+        if (width <= 0 || height <= 0) return;
+        
+        float aspect = (float)width / height;
+        if (aspect <= 0.001f) aspect = 1.0f;
         
         m_UVManager.UpdateUVs(allModels, camera, (float)width/height);
     }

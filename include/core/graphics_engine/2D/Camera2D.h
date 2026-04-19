@@ -37,7 +37,7 @@ public:
     void Update() override{}
     void Destroy() override{}
     
-    void SetPosition(const Vector2& pos);
+    void SetLocalPosition(const Vector2& pos);
     void Move(const Vector2& delta);
     Vector2 GetPosition() const { 
         return transform ? transform->position : Vector2(0, 0); 

@@ -2,7 +2,15 @@
 
 #include <cmath>
 
-Transform3D::Transform3D() : position(0, 0, 0), rotation(0, 0, 0) {}
+Transform3D::Transform3D() 
+    : position(0, 0, 0)
+    , scale(1, 1, 1)
+    , rotation(0, 0, 0)
+    , fieldPosition("fieldPosition", Vector3(0, 0, 0))
+    , fieldScale("fieldScale", Vector3(1, 1, 1))
+    , fieldRotation("fieldRotation", Vector3(0, 0, 0))
+{
+}
 
 void Transform3D::rotate(float pitch, float yaw, float roll) {
     rotation.x += pitch;

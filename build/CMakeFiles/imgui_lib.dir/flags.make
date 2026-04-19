@@ -6,7 +6,7 @@ CXX_DEFINES = -DGLFW_INCLUDE_NONE -DIMGUI_IMPL_OPENGL_LOADER_GLAD
 
 CXX_INCLUDES = -I/home/alex/Projects/BearEngine/src/dependencies/imgui-master -I/home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends -I/home/alex/Projects/BearEngine/src/dependencies/glad/include
 
-CXX_FLAGS = -g -std=gnu++17 -Wall -Wextra -g -O0 -fPIC
+CXX_FLAGS = -g -std=gnu++20 -Wall -Wextra -g -O0 -fPIC
 
 # Custom flags: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o_FLAGS = -x c++
 

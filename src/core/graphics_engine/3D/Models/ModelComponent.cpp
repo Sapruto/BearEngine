@@ -5,13 +5,13 @@
 
 unsigned int ModelComponent::s_NextID = 0;
 
-ModelComponent::ModelComponent(ResourceManager& rm, ModelRenderer& r, const std::string& modelPath, float colorRGB[3]) 
-    : rm(rm), renderer(&r), modelPath(modelPath), m_ID(s_NextID++)
+ModelComponent::ModelComponent(ResourceManager& resource, ModelRenderer& r, const std::string& modelPath, float colorRGB[3]) 
+    : rm(&resource), renderer(&r), modelPath(modelPath), m_ID(s_NextID++)
 {
     SetColor(colorRGB);
 
-    rm.LoadResource(modelPath, ResourceType::Model);
-    model = rm.GetResourceAs<Model>(modelPath);
+    rm->LoadResource(modelPath, ResourceType::Model);
+    model = rm->GetResourceAs<Model>(modelPath);
 
     if (model && model->IsLoaded()) {
         CreateBuffers();

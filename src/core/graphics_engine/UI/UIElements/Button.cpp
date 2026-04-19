@@ -20,6 +20,7 @@ void Button::Start(){
     if(!uiElement){
         uiElement = gameObject->GetComponentOfType<Image>();
         if(!uiElement) gameObject->AddComponent<Image>();
+        uiElement = gameObject->GetComponentOfType<Image>();
     }
 }
 
@@ -31,7 +32,11 @@ void Button::Update(){
     bool isPressed = InputSystem::GetInstance().GetMouseButton(static_cast<int>(mouseButton));
 
     Canvas* canvas = uiElement->GetCanvas();
-
+    if(!canvas) {
+        std::cout << "Button has no canvas! uiElement=" << uiElement << std::endl;
+        return;
+    }
+    
     if(!CheckMousePos(globalMousePos, canvas)){
         if(state != ClickState::Released) {
             state = ClickState::Released;

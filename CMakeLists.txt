@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 project(BearEngine)
 
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 if(NOT CMAKE_BUILD_TYPE)
@@ -138,6 +138,9 @@ target_include_directories(game PRIVATE
 
     ${ROOT_DIR}/include/core/system_engine/hierarchy_system
 
+    ${ROOT_DIR}/include/core/users_interface
+    ${ROOT_DIR}/include/core/users_interface/Editor
+    ${ROOT_DIR}/include/core/users_interface/Utilits
 
     
     ${GLM_DIR}

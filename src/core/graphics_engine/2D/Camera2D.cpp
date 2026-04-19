@@ -36,7 +36,7 @@ void Camera2D::UpdateMatrices() {
     isDirty = false;
 }
 
-void Camera2D::SetPosition(const Vector2& pos) {
+void Camera2D::SetLocalPosition(const Vector2& pos) {
     if (!transform) return;
 
     transform->position = pos;

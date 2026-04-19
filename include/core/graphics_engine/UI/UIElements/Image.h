@@ -3,6 +3,8 @@
 #include "UIElement.h"
 #include "memory"
 
+#include "SerializeField.h"
+
 class RectTransform;
 class Texture;
 class Vector3;
@@ -10,12 +12,12 @@ class UIRenderSettings;
 
 class Image : public UIElement{
 private:
-    UIRenderSettings settings;
+    FIELD(UIRenderSettings, settings);
 
     void CalculateGeometry() override;
 
 public:
-    Image() = default;
+    Image();
     Image(Texture* tex);
     ~Image() = default;
 

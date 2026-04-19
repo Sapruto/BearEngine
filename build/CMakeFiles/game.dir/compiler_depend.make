@@ -3,28 +3,7 @@
 
 CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/IntersectionSegments3D.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Tetrahedron3D.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Vertex3D.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
-  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Camera3D.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Lights/DirectionalLight3D.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Lights/PointLight3D.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelFeatures/ModelFeature.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelFeatures/ModelFeatureType.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelFeatures/TransparentFeature.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderers/ModelFeatureRenderer.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.h \
-  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/UVManager.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Camera.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h \
@@ -34,6 +13,7 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Button.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Text.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
@@ -42,21 +22,8 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
-  /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
-  /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/Force.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
-  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/SceneManager.h \
@@ -75,60 +42,16 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
-  /home/alex/Projects/BearEngine/include/core/system_engine/time_system/Time.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/Tag.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/EditorTags.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/UtilData/DrawComponentData.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/GLFW/glfw3.h \
-  /usr/include/SDL2/SDL.h \
-  /usr/include/SDL2/SDL_assert.h \
-  /usr/include/SDL2/SDL_atomic.h \
-  /usr/include/SDL2/SDL_audio.h \
-  /usr/include/SDL2/SDL_blendmode.h \
-  /usr/include/SDL2/SDL_clipboard.h \
-  /usr/include/SDL2/SDL_config.h \
-  /usr/include/SDL2/SDL_cpuinfo.h \
-  /usr/include/SDL2/SDL_endian.h \
-  /usr/include/SDL2/SDL_error.h \
-  /usr/include/SDL2/SDL_events.h \
-  /usr/include/SDL2/SDL_filesystem.h \
-  /usr/include/SDL2/SDL_gamecontroller.h \
-  /usr/include/SDL2/SDL_gesture.h \
-  /usr/include/SDL2/SDL_guid.h \
-  /usr/include/SDL2/SDL_haptic.h \
-  /usr/include/SDL2/SDL_hidapi.h \
-  /usr/include/SDL2/SDL_hints.h \
-  /usr/include/SDL2/SDL_joystick.h \
-  /usr/include/SDL2/SDL_keyboard.h \
-  /usr/include/SDL2/SDL_keycode.h \
-  /usr/include/SDL2/SDL_loadso.h \
-  /usr/include/SDL2/SDL_locale.h \
-  /usr/include/SDL2/SDL_log.h \
-  /usr/include/SDL2/SDL_main.h \
-  /usr/include/SDL2/SDL_messagebox.h \
-  /usr/include/SDL2/SDL_metal.h \
-  /usr/include/SDL2/SDL_misc.h \
-  /usr/include/SDL2/SDL_mouse.h \
-  /usr/include/SDL2/SDL_mutex.h \
-  /usr/include/SDL2/SDL_pixels.h \
-  /usr/include/SDL2/SDL_platform.h \
-  /usr/include/SDL2/SDL_power.h \
-  /usr/include/SDL2/SDL_quit.h \
-  /usr/include/SDL2/SDL_rect.h \
-  /usr/include/SDL2/SDL_render.h \
-  /usr/include/SDL2/SDL_rwops.h \
-  /usr/include/SDL2/SDL_scancode.h \
-  /usr/include/SDL2/SDL_sensor.h \
-  /usr/include/SDL2/SDL_shape.h \
-  /usr/include/SDL2/SDL_stdinc.h \
-  /usr/include/SDL2/SDL_surface.h \
-  /usr/include/SDL2/SDL_system.h \
-  /usr/include/SDL2/SDL_thread.h \
-  /usr/include/SDL2/SDL_timer.h \
-  /usr/include/SDL2/SDL_touch.h \
-  /usr/include/SDL2/SDL_version.h \
-  /usr/include/SDL2/SDL_video.h \
-  /usr/include/SDL2/begin_code.h \
-  /usr/include/SDL2/close_code.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -165,6 +88,7 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/assimp/vector3.inl \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
+  /usr/include/c++/13/atomic \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -175,6 +99,7 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -200,11 +125,13 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -217,6 +144,12 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -226,6 +159,7 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -263,12 +197,12 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cstring \
-  /usr/include/c++/13/ctime \
   /usr/include/c++/13/cwchar \
   /usr/include/c++/13/cwctype \
   /usr/include/c++/13/debug/assertions.h \
@@ -290,9 +224,9 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/map \
-  /usr/include/c++/13/math.h \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -525,8 +459,8 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/glm/vec3.hpp \
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
-  /usr/include/inttypes.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -540,22 +474,29 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
-  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -568,6 +509,7 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -581,6 +523,7 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -614,6 +557,7 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -638,107 +582,14 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxtileintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx2intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124fmapsintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124vnniwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16vlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bitalgintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512cdintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512erintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16vlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmaintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmavlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512pfintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2vlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmiintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmivlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlbwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vldqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnniintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectvlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqvlintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxifmaintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxneconvertintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniint8intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/bmi2intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/bmiintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/cetintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/cldemoteintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/clflushoptintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/clwbintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/clzerointrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/cmpccxaddintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/enqcmdintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/f16cintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/fmaintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/fxsrintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/gfniintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/hresetintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/ia32intrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/immintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/lwpintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/lzcntintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/movdirintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/pconfigintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/pkuintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/pmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/prfchiintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/prfchwintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/raointintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/sgxintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/shaintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/smmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/tbmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/tmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/vaesintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/vpclmulqdqintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/wbnoinvdintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/x86gprintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavecintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveoptintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/src/core/GameObject.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
@@ -758,6 +609,7 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -781,11 +633,13 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -798,6 +652,12 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -805,6 +665,7 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -832,9 +693,12 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cwchar \
@@ -857,6 +721,7 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/c++/13/istream \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -878,7 +743,10 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -886,21 +754,33 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -914,6 +794,7 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -946,11 +827,14 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -967,10 +851,13 @@ CMakeFiles/game.dir/src/core/GameObject.cpp.o: /home/alex/Projects/BearEngine/sr
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/geometry/colliders/2D/BoxCollider2D.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/BoxCollider2D.cpp \
   /usr/include/stdc-predef.h
@@ -1005,11 +892,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o: 
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -1021,6 +910,9 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o: 
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
@@ -1043,6 +935,8 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o: 
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -1063,6 +957,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o: 
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
@@ -1220,6 +1115,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -1243,11 +1139,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -1260,6 +1158,12 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -1268,6 +1172,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -1299,10 +1204,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cwchar \
@@ -1327,6 +1235,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -1361,7 +1270,10 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
@@ -1370,30 +1282,42 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -1407,6 +1331,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -1439,11 +1364,14 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -1460,10 +1388,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/IntersectionSegments3D.h \
@@ -1497,11 +1428,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o:
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -1513,6 +1446,11 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o:
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
@@ -1539,6 +1477,8 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o:
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -1559,6 +1499,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o:
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -1699,12 +1640,21 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -1721,6 +1671,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -1744,11 +1695,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -1761,14 +1714,22 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -1808,6 +1769,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -1834,12 +1796,14 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/set \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -2015,6 +1979,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -2025,21 +1990,29 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -2052,6 +2025,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -2065,6 +2039,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -2098,6 +2073,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -2120,6 +2096,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -2132,11 +2109,20 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Tetrahedron3D.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Vertex3D.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -2153,6 +2139,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -2176,11 +2163,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -2193,14 +2182,22 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -2234,6 +2231,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -2259,11 +2257,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -2438,6 +2438,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -2448,21 +2449,29 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -2475,6 +2484,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -2488,6 +2498,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -2521,6 +2532,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -2543,6 +2555,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -2557,13 +2570,22 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -2580,6 +2602,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -2603,11 +2626,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -2620,14 +2645,22 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -2665,6 +2698,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -2691,11 +2725,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -2871,6 +2907,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -2881,21 +2918,29 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -2908,6 +2953,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -2921,6 +2967,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -2954,6 +3001,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -2976,6 +3024,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -3007,6 +3056,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -3030,11 +3080,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -3047,6 +3099,12 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -3054,6 +3112,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -3085,9 +3144,12 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cwchar \
@@ -3111,6 +3173,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -3133,7 +3196,10 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -3141,21 +3207,33 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -3169,6 +3247,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -3201,11 +3280,14 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -3222,10 +3304,13 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/CollisionReaction.cpp \
   /usr/include/stdc-predef.h
@@ -3255,6 +3340,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -3278,11 +3364,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -3295,6 +3383,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -3303,6 +3397,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -3336,6 +3431,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -3361,6 +3457,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -3540,6 +3637,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -3550,21 +3648,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -3577,6 +3683,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -3590,6 +3697,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -3623,6 +3731,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -3645,6 +3754,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -3728,6 +3838,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -3753,11 +3864,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -3770,6 +3883,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -3779,6 +3898,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -3813,6 +3933,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -3840,6 +3961,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -4073,6 +4195,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -4086,21 +4209,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -4113,6 +4244,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -4126,6 +4258,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -4159,6 +4292,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -4183,6 +4317,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -4229,6 +4364,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -4254,11 +4390,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -4271,6 +4409,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -4280,6 +4424,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -4313,6 +4458,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -4340,6 +4486,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -4556,6 +4703,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -4568,21 +4716,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -4595,6 +4751,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -4608,6 +4765,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -4641,6 +4799,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -4665,6 +4824,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -4696,6 +4856,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -4719,11 +4880,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -4736,6 +4899,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -4744,6 +4913,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -4777,6 +4947,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -4802,6 +4973,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -4981,6 +5153,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -4991,21 +5164,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -5018,6 +5199,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -5031,6 +5213,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -5064,6 +5247,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -5086,6 +5270,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Proje
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -5112,6 +5297,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -5131,11 +5317,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -5147,6 +5335,11 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -5154,6 +5347,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_function.h \
@@ -5179,6 +5373,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -5203,6 +5399,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
@@ -5378,6 +5575,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -5388,21 +5586,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -5415,6 +5621,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -5428,6 +5635,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -5461,6 +5669,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -5483,6 +5692,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o:
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -5509,6 +5719,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -5528,11 +5739,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -5544,6 +5757,11 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -5551,6 +5769,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_function.h \
@@ -5576,6 +5795,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -5600,6 +5821,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
@@ -5763,6 +5985,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -5773,21 +5996,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -5800,6 +6031,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -5813,6 +6045,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -5846,6 +6079,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -5868,6 +6102,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -5955,6 +6190,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -5980,11 +6216,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -5997,6 +6235,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -6006,6 +6250,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -6040,6 +6285,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -6067,6 +6313,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -6300,6 +6547,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -6313,21 +6561,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -6340,6 +6596,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -6353,6 +6610,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -6386,6 +6644,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -6410,6 +6669,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -6437,13 +6697,16 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
@@ -6501,6 +6764,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -6526,11 +6790,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -6543,6 +6809,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -6552,6 +6824,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -6586,6 +6859,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -6613,6 +6887,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -6846,6 +7121,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -6859,21 +7135,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -6886,6 +7170,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -6899,6 +7184,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -6932,6 +7218,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -6956,6 +7243,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /hom
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -6983,13 +7271,16 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
@@ -7047,6 +7338,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -7072,11 +7364,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -7089,6 +7383,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -7098,6 +7398,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -7132,6 +7433,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -7159,6 +7461,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -7392,6 +7695,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -7405,21 +7709,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -7432,6 +7744,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -7445,6 +7758,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -7478,6 +7792,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -7502,6 +7817,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleMode
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -7529,13 +7845,16 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
@@ -7593,6 +7912,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -7618,11 +7938,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -7635,6 +7957,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -7644,6 +7972,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -7678,6 +8007,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -7705,6 +8035,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -7938,6 +8269,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -7951,21 +8283,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -7978,6 +8318,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -7991,6 +8332,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -8024,6 +8366,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -8048,6 +8391,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/Transparen
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -8066,12 +8410,15 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Camera.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
@@ -8128,6 +8475,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -8151,11 +8499,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -8168,14 +8518,22 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -8210,6 +8568,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -8236,11 +8595,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
@@ -8432,6 +8793,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -8445,21 +8807,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -8472,6 +8842,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -8485,6 +8856,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -8518,6 +8890,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -8540,6 +8913,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -8576,6 +8950,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -8599,11 +8974,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -8616,6 +8993,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -8624,6 +9007,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -8657,6 +9041,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -8682,6 +9067,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -8849,6 +9235,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -8859,21 +9246,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -8886,6 +9281,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -8899,6 +9295,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -8932,6 +9329,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -8954,6 +9352,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/P
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -9000,11 +9399,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -9017,6 +9418,9 @@ CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
@@ -9044,6 +9448,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -9068,6 +9474,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/sstream \
@@ -9406,7 +9813,9 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
@@ -9428,6 +9837,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -9451,11 +9861,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -9468,14 +9880,22 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -9509,6 +9929,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -9534,11 +9955,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -9701,6 +10124,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -9711,21 +10135,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -9738,6 +10170,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -9751,6 +10184,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -9784,6 +10218,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -9806,6 +10241,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -9818,9 +10254,16 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -9837,6 +10280,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -9860,11 +10304,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -9877,14 +10323,22 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -9918,6 +10372,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -9943,11 +10398,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -10110,6 +10567,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -10120,21 +10578,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -10147,6 +10613,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -10160,6 +10627,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -10193,6 +10661,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -10215,6 +10684,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -10235,7 +10705,9 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/input_system/InputSystem.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h \
@@ -10260,6 +10732,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -10283,11 +10756,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -10300,14 +10775,22 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -10344,6 +10827,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -10370,11 +10854,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -10537,6 +11023,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -10547,21 +11034,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -10574,6 +11069,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -10587,6 +11083,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -10620,6 +11117,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -10642,6 +11140,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/a
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -10663,6 +11162,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
@@ -10684,6 +11184,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -10707,11 +11208,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -10724,14 +11227,22 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -10765,6 +11276,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -10790,11 +11302,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -10957,6 +11471,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -10967,21 +11482,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -10994,6 +11517,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -11007,6 +11531,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -11040,6 +11565,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -11062,6 +11588,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -11079,7 +11606,9 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h \
@@ -11102,6 +11631,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -11125,11 +11655,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -11142,14 +11674,22 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -11183,6 +11723,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -11208,11 +11749,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
@@ -11391,6 +11934,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -11404,21 +11948,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -11431,6 +11983,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -11444,6 +11997,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -11477,6 +12031,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -11499,6 +12054,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -11520,7 +12076,9 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
@@ -11543,6 +12101,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -11568,11 +12127,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -11585,6 +12146,12 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -11594,6 +12161,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -11627,6 +12195,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -11654,6 +12223,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -11870,6 +12440,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -11882,21 +12453,29 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -11909,6 +12488,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -11922,6 +12502,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -11955,6 +12536,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -11979,6 +12561,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -12018,11 +12601,13 @@ CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -12034,6 +12619,9 @@ CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
@@ -12054,6 +12642,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -12073,6 +12663,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o: /home/alex/Projects/B
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
@@ -12204,6 +12795,7 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -12227,11 +12819,13 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -12244,6 +12838,12 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -12252,6 +12852,7 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -12279,10 +12880,13 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cwchar \
@@ -12306,6 +12910,7 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -12339,7 +12944,10 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
@@ -12348,30 +12956,42 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -12385,6 +13005,7 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -12417,11 +13038,14 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -12438,10 +13062,13 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/Bear
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: /home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
@@ -12472,11 +13099,13 @@ CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -12488,6 +13117,9 @@ CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
@@ -12510,6 +13142,8 @@ CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -12530,6 +13164,7 @@ CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
@@ -12659,11 +13294,20 @@ CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: /home/alex/Projects/BearEngi
 
 CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -12680,6 +13324,7 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -12703,11 +13348,13 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -12720,14 +13367,22 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -12761,6 +13416,7 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -12786,11 +13442,13 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -12965,6 +13623,7 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -12975,21 +13634,29 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -13002,6 +13669,7 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -13015,6 +13683,7 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -13048,6 +13717,7 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -13070,6 +13740,7 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/Bear
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -13107,11 +13778,13 @@ CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -13123,6 +13796,9 @@ CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
@@ -13145,6 +13821,8 @@ CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -13165,6 +13843,7 @@ CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o: /home/alex/Projects/BearEngi
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
@@ -13368,6 +14047,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -13391,11 +14071,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -13408,6 +14090,12 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -13416,6 +14104,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -13443,10 +14132,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cwchar \
@@ -13471,6 +14163,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/c++/13/math.h \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -13506,7 +14199,10 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/inttypes.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/math.h \
   /usr/include/pthread.h \
@@ -13517,31 +14213,43 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -13555,6 +14263,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -13587,11 +14296,14 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -13608,6 +14320,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h \
@@ -13668,6 +14381,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/lib/gcc/x86_64-linux-gnu/13/include/ia32intrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/immintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/lwpintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/lzcntintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
@@ -13691,6 +14405,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Project
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/tbmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/tmmintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h \
@@ -13713,6 +14428,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -13720,7 +14438,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -13737,6 +14461,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -13760,11 +14485,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -13777,14 +14504,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -13821,6 +14556,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -13847,11 +14583,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -14026,6 +14764,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -14036,21 +14775,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -14063,6 +14810,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -14076,6 +14824,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -14109,6 +14858,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -14131,6 +14881,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -14153,6 +14904,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -14166,7 +14920,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Fluid/LiquidCollisionData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -14183,6 +14943,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -14206,11 +14967,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -14223,14 +14986,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -14267,6 +15038,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -14293,11 +15065,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -14472,6 +15246,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -14482,21 +15257,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -14509,6 +15292,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -14522,6 +15306,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -14555,6 +15340,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -14577,6 +15363,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -14597,6 +15384,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -14608,7 +15398,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -14625,6 +15421,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -14648,11 +15445,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -14665,14 +15464,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -14709,6 +15516,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -14735,11 +15543,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -14914,6 +15724,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -14924,21 +15735,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -14951,6 +15770,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -14964,6 +15784,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -14997,6 +15818,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -15019,6 +15841,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -15035,6 +15858,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -15046,7 +15872,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -15063,6 +15895,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -15086,11 +15919,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -15103,14 +15938,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -15147,6 +15990,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -15173,11 +16017,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -15352,6 +16198,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -15362,21 +16209,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -15389,6 +16244,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -15402,6 +16258,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -15435,6 +16292,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -15457,6 +16315,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -15475,6 +16334,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -15487,7 +16349,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ElasticityDeformationData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -15504,6 +16372,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -15527,11 +16396,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -15544,14 +16415,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -15588,6 +16467,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -15614,11 +16494,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -15793,6 +16675,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -15803,21 +16686,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -15830,6 +16721,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -15843,6 +16735,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -15876,6 +16769,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -15898,6 +16792,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -15916,6 +16811,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -15928,7 +16826,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -15945,6 +16849,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -15968,11 +16873,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -15985,14 +16892,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -16029,6 +16944,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -16055,11 +16971,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -16234,6 +17152,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -16244,21 +17163,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -16271,6 +17198,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -16284,6 +17212,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -16317,6 +17246,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -16339,6 +17269,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -16352,6 +17283,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -16363,7 +17297,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -16380,6 +17320,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -16403,11 +17344,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -16420,14 +17363,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -16464,6 +17415,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -16490,11 +17442,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -16669,6 +17623,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -16679,21 +17634,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -16706,6 +17669,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -16719,6 +17683,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -16752,6 +17717,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -16774,6 +17740,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -16787,6 +17754,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -16797,8 +17767,14 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/time_system/Time.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/SDL2/SDL.h \
   /usr/include/SDL2/SDL_assert.h \
   /usr/include/SDL2/SDL_atomic.h \
@@ -16865,6 +17841,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -16888,11 +17865,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -16905,14 +17884,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -16949,6 +17936,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -16976,11 +17964,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/math.h \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
@@ -17157,6 +18147,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vector_relational.hpp \
   /usr/include/inttypes.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -17169,22 +18160,30 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -17197,6 +18196,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -17210,6 +18210,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -17243,6 +18244,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -17265,6 +18267,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h \
@@ -17377,6 +18380,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -17390,7 +18396,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -17407,6 +18419,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -17430,11 +18443,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -17447,14 +18462,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -17493,6 +18516,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -17519,11 +18543,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -17700,6 +18726,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -17710,21 +18737,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -17737,6 +18772,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -17750,6 +18786,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -17783,6 +18820,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -17805,6 +18843,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -17818,6 +18857,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -17827,7 +18869,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -17844,6 +18892,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -17867,11 +18916,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -17884,14 +18935,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -17928,6 +18987,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -17954,11 +19014,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -18133,6 +19195,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -18143,21 +19206,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -18170,6 +19241,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -18183,6 +19255,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -18216,6 +19289,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -18238,6 +19312,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -18251,6 +19326,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -18265,7 +19343,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -18282,6 +19366,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -18305,11 +19390,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -18322,14 +19409,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -18366,6 +19461,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -18392,11 +19488,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -18571,6 +19669,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -18581,21 +19680,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -18608,6 +19715,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -18621,6 +19729,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -18654,6 +19763,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -18676,6 +19786,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -18689,6 +19800,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -18698,7 +19812,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -18715,6 +19835,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -18738,11 +19859,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -18755,14 +19878,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -18799,6 +19930,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -18825,11 +19957,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -19004,6 +20138,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -19014,21 +20149,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -19041,6 +20184,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -19054,6 +20198,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -19087,6 +20232,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -19109,6 +20255,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -19139,6 +20286,9 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -19149,7 +20299,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -19166,6 +20322,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -19189,11 +20346,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -19206,14 +20365,22 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -19251,6 +20418,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -19277,11 +20445,13 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
@@ -19457,6 +20627,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -19467,21 +20638,29 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -19494,6 +20673,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -19507,6 +20687,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -19540,6 +20721,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -19562,6 +20744,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -19635,6 +20818,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -19658,11 +20842,13 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -19675,6 +20861,12 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -19683,6 +20875,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -19717,6 +20910,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -19743,6 +20937,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -19927,6 +21122,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -19940,21 +21136,29 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -19967,6 +21171,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -19980,6 +21185,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -20013,6 +21219,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -20035,6 +21242,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -20046,7 +21254,9 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearE
 CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneManager.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
@@ -20112,6 +21322,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -20119,6 +21330,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/char_traits.h \
   /usr/include/c++/13/bits/charconv.h \
   /usr/include/c++/13/bits/chrono.h \
+  /usr/include/c++/13/bits/chrono_io.h \
   /usr/include/c++/13/bits/codecvt.h \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
@@ -20142,6 +21354,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_conv.h \
@@ -20150,6 +21363,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/locale_facets_nonio.h \
   /usr/include/c++/13/bits/locale_facets_nonio.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -20164,6 +21378,12 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/quoted_string.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -20173,6 +21393,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -20203,12 +21424,14 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/cfloat \
+  /usr/include/c++/13/charconv \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -20228,6 +21451,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/filesystem \
+  /usr/include/c++/13/format \
   /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
@@ -20240,12 +21464,15 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/locale \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
+  /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
+  /usr/include/c++/13/span \
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
@@ -20271,6 +21498,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/c++/13/typeinfo \
   /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/utility \
+  /usr/include/c++/13/variant \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -20427,6 +21655,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/glm/vector_relational.hpp \
   /usr/include/libintl.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -20440,21 +21669,29 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -20467,6 +21704,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -20480,6 +21718,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -20513,6 +21752,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -20539,6 +21779,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -20550,7 +21791,9 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Project
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneCreator.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
@@ -20617,6 +21860,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -20624,6 +21868,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/bits/char_traits.h \
   /usr/include/c++/13/bits/charconv.h \
   /usr/include/c++/13/bits/chrono.h \
+  /usr/include/c++/13/bits/chrono_io.h \
   /usr/include/c++/13/bits/codecvt.h \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
@@ -20647,6 +21892,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_conv.h \
@@ -20655,6 +21901,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/bits/locale_facets_nonio.h \
   /usr/include/c++/13/bits/locale_facets_nonio.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -20669,6 +21916,12 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/quoted_string.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -20678,6 +21931,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -20708,12 +21962,14 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/cfloat \
+  /usr/include/c++/13/charconv \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -20733,6 +21989,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/filesystem \
+  /usr/include/c++/13/format \
   /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
@@ -20745,12 +22002,15 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/locale \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
+  /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
+  /usr/include/c++/13/span \
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
@@ -20776,6 +22036,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/c++/13/typeinfo \
   /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/utility \
+  /usr/include/c++/13/variant \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -20932,6 +22193,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/glm/vector_relational.hpp \
   /usr/include/libintl.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -20945,21 +22207,29 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -20972,6 +22242,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -20985,6 +22256,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -21018,6 +22290,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -21044,6 +22317,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -21055,7 +22329,9 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
@@ -21121,6 +22397,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -21144,11 +22421,13 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -21161,6 +22440,12 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -21170,6 +22455,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -21204,6 +22490,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -21230,6 +22517,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -21415,6 +22703,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -21428,21 +22717,29 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -21455,6 +22752,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -21468,6 +22766,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -21501,6 +22800,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -21523,6 +22823,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -21534,7 +22835,9 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneSerializer.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
@@ -21600,6 +22903,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -21607,6 +22911,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/bits/char_traits.h \
   /usr/include/c++/13/bits/charconv.h \
   /usr/include/c++/13/bits/chrono.h \
+  /usr/include/c++/13/bits/chrono_io.h \
   /usr/include/c++/13/bits/codecvt.h \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
@@ -21629,6 +22934,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_conv.h \
@@ -21637,6 +22943,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/bits/locale_facets_nonio.h \
   /usr/include/c++/13/bits/locale_facets_nonio.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -21651,6 +22958,12 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/quoted_string.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -21660,6 +22973,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -21690,12 +23004,14 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/cfloat \
+  /usr/include/c++/13/charconv \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -21715,6 +23031,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/filesystem \
+  /usr/include/c++/13/format \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -21726,12 +23043,15 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/locale \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
+  /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
+  /usr/include/c++/13/span \
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stdexcept \
   /usr/include/c++/13/stdlib.h \
@@ -21757,6 +23077,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/c++/13/typeinfo \
   /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/utility \
+  /usr/include/c++/13/variant \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -21913,6 +23234,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/glm/vector_relational.hpp \
   /usr/include/libintl.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -21926,21 +23248,29 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -21953,6 +23283,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -21966,6 +23297,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -21999,6 +23331,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -22023,6 +23356,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -22033,6 +23367,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /ho
 
 CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -22049,6 +23384,7 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -22072,11 +23408,13 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -22089,6 +23427,12 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -22096,6 +23440,7 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -22123,9 +23468,12 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/cwchar \
@@ -22148,6 +23496,7 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/c++/13/istream \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -22169,7 +23518,10 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -22177,21 +23529,33 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -22205,6 +23569,7 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -22237,11 +23602,14 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -22258,10 +23626,13 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp \
   /home/alex/Projects/BearEngine/include/core/system_engine/input_system/InputSystem.h \
@@ -22294,11 +23665,13 @@ CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: /home
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -22310,6 +23683,9 @@ CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: /home
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
@@ -22331,6 +23707,7 @@ CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: /home
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -22350,6 +23727,7 @@ CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: /home
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
@@ -22517,6 +23895,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -22540,11 +23919,13 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -22557,6 +23938,12 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -22564,6 +23951,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -22596,6 +23984,8 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -22621,6 +24011,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -22803,6 +24194,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -22816,21 +24208,29 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -22843,6 +24243,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -22856,6 +24257,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -22889,6 +24291,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -22911,6 +24314,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -22978,6 +24382,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -23001,11 +24406,13 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -23018,6 +24425,12 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -23025,6 +24438,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -23058,6 +24472,8 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -23083,6 +24499,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/c++/13/limits \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -23266,6 +24683,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/glm/vec4.hpp \
   /usr/include/glm/vector_relational.hpp \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
@@ -23279,21 +24697,29 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/stdlib.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
   /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
   /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -23306,6 +24732,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -23319,6 +24746,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -23352,6 +24780,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -23374,6 +24803,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
@@ -23405,7 +24835,9 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
   /usr/include/c++/13/bits/invoke.h \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -23415,6 +24847,9 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
@@ -23433,6 +24868,8 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -23446,6 +24883,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -23563,11 +25001,13 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.c
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -23580,6 +25020,9 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.c
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
@@ -23603,6 +25046,8 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.c
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -23624,6 +25069,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.c
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
@@ -23848,11 +25294,13 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -23864,6 +25312,11 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
@@ -23897,6 +25350,8 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.
   /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -23920,6 +25375,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -24237,11 +25693,13 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Textur
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -24253,6 +25711,9 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Textur
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/std_abs.h \
@@ -24273,6 +25734,8 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Textur
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
@@ -24292,6 +25755,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Textur
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdexcept \
@@ -24426,6 +25890,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -24449,11 +25914,13 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -24466,6 +25933,12 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -24473,6 +25946,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -24500,8 +25974,10 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -24526,6 +26002,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/c++/13/istream \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -24547,7 +26024,10 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -24555,21 +26035,33 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -24583,6 +26075,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -24615,11 +26108,14 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -24636,10 +26132,13 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Pro
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/tags_system/TagManager.cpp \
   /home/alex/Projects/BearEngine/include/core/GameObject.h \
@@ -24663,6 +26162,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/c++/13/bits/allocator.h \
   /usr/include/c++/13/bits/atomic_base.h \
   /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
   /usr/include/c++/13/bits/basic_ios.h \
   /usr/include/c++/13/bits/basic_ios.tcc \
   /usr/include/c++/13/bits/basic_string.h \
@@ -24686,11 +26186,13 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_facets.h \
   /usr/include/c++/13/bits/locale_facets.tcc \
   /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
   /usr/include/c++/13/bits/memory_resource.h \
   /usr/include/c++/13/bits/memoryfwd.h \
   /usr/include/c++/13/bits/move.h \
@@ -24703,6 +26205,12 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/shared_ptr.h \
@@ -24710,6 +26218,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/c++/13/bits/shared_ptr_base.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -24737,8 +26246,10 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/climits \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -24763,6 +26274,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/c++/13/istream \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
   /usr/include/c++/13/pstl/glue_algorithm_defs.h \
@@ -24784,7 +26296,10 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/errno.h \
   /usr/include/features-time64.h \
   /usr/include/features.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
@@ -24792,21 +26307,33 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/syscall.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -24820,6 +26347,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/time.h \
   /usr/include/x86_64-linux-gnu/bits/time64.h \
@@ -24852,11 +26380,14 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -24873,10 +26404,13 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/a
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp \
   /home/alex/Projects/BearEngine/include/core/system_engine/time_system/Time.h \
@@ -24934,21 +26468,27 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
   /usr/include/c++/13/bit \
   /usr/include/c++/13/bits/concept_check.h \
   /usr/include/c++/13/bits/cpp_type_traits.h \
+  /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/functexcept.h \
+  /usr/include/c++/13/bits/iterator_concepts.h \
   /usr/include/c++/13/bits/move.h \
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
   /usr/include/c++/13/bits/requires_hosted.h \
   /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/stl_algobase.h \
+  /usr/include/c++/13/bits/stl_construct.h \
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/utility.h \
   /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdlib \
   /usr/include/c++/13/debug/assertions.h \
@@ -24957,6 +26497,7 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/math.h \
+  /usr/include/c++/13/new \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/tr1/bessel_function.tcc \
@@ -25149,10 +26690,1940 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
 
+CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp \
+  /home/alex/Projects/BearEngine/include/core/GameObject.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Camera3D.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Camera.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Button.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Text.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
+  /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneManager.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/input_system/InputSystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/Tag.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/time_system/Time.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/HierarchyViewer.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/EditorTags.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/UtilData/DrawComponentData.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
+  /usr/include/GLFW/glfw3.h \
+  /usr/include/SDL2/SDL.h \
+  /usr/include/SDL2/SDL_assert.h \
+  /usr/include/SDL2/SDL_atomic.h \
+  /usr/include/SDL2/SDL_audio.h \
+  /usr/include/SDL2/SDL_blendmode.h \
+  /usr/include/SDL2/SDL_clipboard.h \
+  /usr/include/SDL2/SDL_config.h \
+  /usr/include/SDL2/SDL_cpuinfo.h \
+  /usr/include/SDL2/SDL_endian.h \
+  /usr/include/SDL2/SDL_error.h \
+  /usr/include/SDL2/SDL_events.h \
+  /usr/include/SDL2/SDL_filesystem.h \
+  /usr/include/SDL2/SDL_gamecontroller.h \
+  /usr/include/SDL2/SDL_gesture.h \
+  /usr/include/SDL2/SDL_guid.h \
+  /usr/include/SDL2/SDL_haptic.h \
+  /usr/include/SDL2/SDL_hidapi.h \
+  /usr/include/SDL2/SDL_hints.h \
+  /usr/include/SDL2/SDL_joystick.h \
+  /usr/include/SDL2/SDL_keyboard.h \
+  /usr/include/SDL2/SDL_keycode.h \
+  /usr/include/SDL2/SDL_loadso.h \
+  /usr/include/SDL2/SDL_locale.h \
+  /usr/include/SDL2/SDL_log.h \
+  /usr/include/SDL2/SDL_main.h \
+  /usr/include/SDL2/SDL_messagebox.h \
+  /usr/include/SDL2/SDL_metal.h \
+  /usr/include/SDL2/SDL_misc.h \
+  /usr/include/SDL2/SDL_mouse.h \
+  /usr/include/SDL2/SDL_mutex.h \
+  /usr/include/SDL2/SDL_pixels.h \
+  /usr/include/SDL2/SDL_platform.h \
+  /usr/include/SDL2/SDL_power.h \
+  /usr/include/SDL2/SDL_quit.h \
+  /usr/include/SDL2/SDL_rect.h \
+  /usr/include/SDL2/SDL_render.h \
+  /usr/include/SDL2/SDL_rwops.h \
+  /usr/include/SDL2/SDL_scancode.h \
+  /usr/include/SDL2/SDL_sensor.h \
+  /usr/include/SDL2/SDL_shape.h \
+  /usr/include/SDL2/SDL_stdinc.h \
+  /usr/include/SDL2/SDL_surface.h \
+  /usr/include/SDL2/SDL_system.h \
+  /usr/include/SDL2/SDL_thread.h \
+  /usr/include/SDL2/SDL_timer.h \
+  /usr/include/SDL2/SDL_touch.h \
+  /usr/include/SDL2/SDL_version.h \
+  /usr/include/SDL2/SDL_video.h \
+  /usr/include/SDL2/begin_code.h \
+  /usr/include/SDL2/close_code.h \
+  /usr/include/alloca.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
+  /usr/include/assimp/Compiler/poppack1.h \
+  /usr/include/assimp/Compiler/pushpack1.h \
+  /usr/include/assimp/Importer.hpp \
+  /usr/include/assimp/MathFunctions.h \
+  /usr/include/assimp/aabb.h \
+  /usr/include/assimp/anim.h \
+  /usr/include/assimp/camera.h \
+  /usr/include/assimp/color4.h \
+  /usr/include/assimp/color4.inl \
+  /usr/include/assimp/config.h \
+  /usr/include/assimp/defs.h \
+  /usr/include/assimp/light.h \
+  /usr/include/assimp/material.h \
+  /usr/include/assimp/material.inl \
+  /usr/include/assimp/matrix3x3.h \
+  /usr/include/assimp/matrix3x3.inl \
+  /usr/include/assimp/matrix4x4.h \
+  /usr/include/assimp/matrix4x4.inl \
+  /usr/include/assimp/mesh.h \
+  /usr/include/assimp/metadata.h \
+  /usr/include/assimp/postprocess.h \
+  /usr/include/assimp/quaternion.h \
+  /usr/include/assimp/quaternion.inl \
+  /usr/include/assimp/scene.h \
+  /usr/include/assimp/texture.h \
+  /usr/include/assimp/types.h \
+  /usr/include/assimp/vector2.h \
+  /usr/include/assimp/vector2.inl \
+  /usr/include/assimp/vector3.h \
+  /usr/include/assimp/vector3.inl \
+  /usr/include/c++/13/algorithm \
+  /usr/include/c++/13/array \
+  /usr/include/c++/13/atomic \
+  /usr/include/c++/13/backward/auto_ptr.h \
+  /usr/include/c++/13/backward/binders.h \
+  /usr/include/c++/13/bit \
+  /usr/include/c++/13/bits/algorithmfwd.h \
+  /usr/include/c++/13/bits/align.h \
+  /usr/include/c++/13/bits/alloc_traits.h \
+  /usr/include/c++/13/bits/allocated_ptr.h \
+  /usr/include/c++/13/bits/allocator.h \
+  /usr/include/c++/13/bits/atomic_base.h \
+  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
+  /usr/include/c++/13/bits/basic_ios.h \
+  /usr/include/c++/13/bits/basic_ios.tcc \
+  /usr/include/c++/13/bits/basic_string.h \
+  /usr/include/c++/13/bits/basic_string.tcc \
+  /usr/include/c++/13/bits/char_traits.h \
+  /usr/include/c++/13/bits/charconv.h \
+  /usr/include/c++/13/bits/codecvt.h \
+  /usr/include/c++/13/bits/concept_check.h \
+  /usr/include/c++/13/bits/cpp_type_traits.h \
+  /usr/include/c++/13/bits/cxxabi_forced.h \
+  /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
+  /usr/include/c++/13/bits/exception.h \
+  /usr/include/c++/13/bits/exception_defines.h \
+  /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fstream.tcc \
+  /usr/include/c++/13/bits/functexcept.h \
+  /usr/include/c++/13/bits/functional_hash.h \
+  /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
+  /usr/include/c++/13/bits/invoke.h \
+  /usr/include/c++/13/bits/ios_base.h \
+  /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
+  /usr/include/c++/13/bits/locale_classes.h \
+  /usr/include/c++/13/bits/locale_classes.tcc \
+  /usr/include/c++/13/bits/locale_facets.h \
+  /usr/include/c++/13/bits/locale_facets.tcc \
+  /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
+  /usr/include/c++/13/bits/memory_resource.h \
+  /usr/include/c++/13/bits/memoryfwd.h \
+  /usr/include/c++/13/bits/move.h \
+  /usr/include/c++/13/bits/nested_exception.h \
+  /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
+  /usr/include/c++/13/bits/ostream.tcc \
+  /usr/include/c++/13/bits/ostream_insert.h \
+  /usr/include/c++/13/bits/postypes.h \
+  /usr/include/c++/13/bits/predefined_ops.h \
+  /usr/include/c++/13/bits/ptr_traits.h \
+  /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
+  /usr/include/c++/13/bits/refwrap.h \
+  /usr/include/c++/13/bits/requires_hosted.h \
+  /usr/include/c++/13/bits/shared_ptr.h \
+  /usr/include/c++/13/bits/shared_ptr_atomic.h \
+  /usr/include/c++/13/bits/shared_ptr_base.h \
+  /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
+  /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
+  /usr/include/c++/13/bits/stl_algo.h \
+  /usr/include/c++/13/bits/stl_algobase.h \
+  /usr/include/c++/13/bits/stl_bvector.h \
+  /usr/include/c++/13/bits/stl_construct.h \
+  /usr/include/c++/13/bits/stl_function.h \
+  /usr/include/c++/13/bits/stl_heap.h \
+  /usr/include/c++/13/bits/stl_iterator.h \
+  /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
+  /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/13/bits/stl_relops.h \
+  /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
+  /usr/include/c++/13/bits/stl_uninitialized.h \
+  /usr/include/c++/13/bits/stl_vector.h \
+  /usr/include/c++/13/bits/streambuf.tcc \
+  /usr/include/c++/13/bits/streambuf_iterator.h \
+  /usr/include/c++/13/bits/string_view.tcc \
+  /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_ptr.h \
+  /usr/include/c++/13/bits/unordered_map.h \
+  /usr/include/c++/13/bits/uses_allocator.h \
+  /usr/include/c++/13/bits/uses_allocator_args.h \
+  /usr/include/c++/13/bits/utility.h \
+  /usr/include/c++/13/bits/vector.tcc \
+  /usr/include/c++/13/cassert \
+  /usr/include/c++/13/cctype \
+  /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/cfloat \
+  /usr/include/c++/13/climits \
+  /usr/include/c++/13/clocale \
+  /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
+  /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
+  /usr/include/c++/13/cstdio \
+  /usr/include/c++/13/cstdlib \
+  /usr/include/c++/13/cstring \
+  /usr/include/c++/13/cwchar \
+  /usr/include/c++/13/cwctype \
+  /usr/include/c++/13/debug/assertions.h \
+  /usr/include/c++/13/debug/debug.h \
+  /usr/include/c++/13/exception \
+  /usr/include/c++/13/ext/aligned_buffer.h \
+  /usr/include/c++/13/ext/alloc_traits.h \
+  /usr/include/c++/13/ext/atomicity.h \
+  /usr/include/c++/13/ext/concurrence.h \
+  /usr/include/c++/13/ext/numeric_traits.h \
+  /usr/include/c++/13/ext/string_conversions.h \
+  /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/fstream \
+  /usr/include/c++/13/functional \
+  /usr/include/c++/13/initializer_list \
+  /usr/include/c++/13/ios \
+  /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/iostream \
+  /usr/include/c++/13/istream \
+  /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
+  /usr/include/c++/13/math.h \
+  /usr/include/c++/13/memory \
+  /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
+  /usr/include/c++/13/ostream \
+  /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/13/pstl/glue_memory_defs.h \
+  /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
+  /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
+  /usr/include/c++/13/streambuf \
+  /usr/include/c++/13/string \
+  /usr/include/c++/13/string_view \
+  /usr/include/c++/13/system_error \
+  /usr/include/c++/13/tr1/bessel_function.tcc \
+  /usr/include/c++/13/tr1/beta_function.tcc \
+  /usr/include/c++/13/tr1/ell_integral.tcc \
+  /usr/include/c++/13/tr1/exp_integral.tcc \
+  /usr/include/c++/13/tr1/gamma.tcc \
+  /usr/include/c++/13/tr1/hypergeometric.tcc \
+  /usr/include/c++/13/tr1/legendre_function.tcc \
+  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/13/tr1/poly_hermite.tcc \
+  /usr/include/c++/13/tr1/poly_laguerre.tcc \
+  /usr/include/c++/13/tr1/riemann_zeta.tcc \
+  /usr/include/c++/13/tr1/special_function_util.h \
+  /usr/include/c++/13/tuple \
+  /usr/include/c++/13/type_traits \
+  /usr/include/c++/13/typeindex \
+  /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
+  /usr/include/c++/13/utility \
+  /usr/include/c++/13/vector \
+  /usr/include/ctype.h \
+  /usr/include/endian.h \
+  /usr/include/errno.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/freetype2/freetype/config/ftconfig.h \
+  /usr/include/freetype2/freetype/config/ftheader.h \
+  /usr/include/freetype2/freetype/config/ftoption.h \
+  /usr/include/freetype2/freetype/config/ftstdlib.h \
+  /usr/include/freetype2/freetype/config/integer-types.h \
+  /usr/include/freetype2/freetype/config/mac-support.h \
+  /usr/include/freetype2/freetype/config/public-macros.h \
+  /usr/include/freetype2/freetype/freetype.h \
+  /usr/include/freetype2/freetype/fterrdef.h \
+  /usr/include/freetype2/freetype/fterrors.h \
+  /usr/include/freetype2/freetype/ftimage.h \
+  /usr/include/freetype2/freetype/ftmoderr.h \
+  /usr/include/freetype2/freetype/ftsystem.h \
+  /usr/include/freetype2/freetype/fttypes.h \
+  /usr/include/freetype2/ft2build.h \
+  /usr/include/glm/common.hpp \
+  /usr/include/glm/detail/_fixes.hpp \
+  /usr/include/glm/detail/_vectorize.hpp \
+  /usr/include/glm/detail/compute_common.hpp \
+  /usr/include/glm/detail/compute_vector_relational.hpp \
+  /usr/include/glm/detail/func_common.inl \
+  /usr/include/glm/detail/func_exponential.inl \
+  /usr/include/glm/detail/func_geometric.inl \
+  /usr/include/glm/detail/func_integer.inl \
+  /usr/include/glm/detail/func_matrix.inl \
+  /usr/include/glm/detail/func_packing.inl \
+  /usr/include/glm/detail/func_trigonometric.inl \
+  /usr/include/glm/detail/func_vector_relational.inl \
+  /usr/include/glm/detail/qualifier.hpp \
+  /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/detail/type_half.hpp \
+  /usr/include/glm/detail/type_half.inl \
+  /usr/include/glm/detail/type_mat2x2.hpp \
+  /usr/include/glm/detail/type_mat2x2.inl \
+  /usr/include/glm/detail/type_mat2x3.hpp \
+  /usr/include/glm/detail/type_mat2x3.inl \
+  /usr/include/glm/detail/type_mat2x4.hpp \
+  /usr/include/glm/detail/type_mat2x4.inl \
+  /usr/include/glm/detail/type_mat3x2.hpp \
+  /usr/include/glm/detail/type_mat3x2.inl \
+  /usr/include/glm/detail/type_mat3x3.hpp \
+  /usr/include/glm/detail/type_mat3x3.inl \
+  /usr/include/glm/detail/type_mat3x4.hpp \
+  /usr/include/glm/detail/type_mat3x4.inl \
+  /usr/include/glm/detail/type_mat4x2.hpp \
+  /usr/include/glm/detail/type_mat4x2.inl \
+  /usr/include/glm/detail/type_mat4x3.hpp \
+  /usr/include/glm/detail/type_mat4x3.inl \
+  /usr/include/glm/detail/type_mat4x4.hpp \
+  /usr/include/glm/detail/type_mat4x4.inl \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/detail/type_quat.inl \
+  /usr/include/glm/detail/type_vec1.hpp \
+  /usr/include/glm/detail/type_vec1.inl \
+  /usr/include/glm/detail/type_vec2.hpp \
+  /usr/include/glm/detail/type_vec2.inl \
+  /usr/include/glm/detail/type_vec3.hpp \
+  /usr/include/glm/detail/type_vec3.inl \
+  /usr/include/glm/detail/type_vec4.hpp \
+  /usr/include/glm/detail/type_vec4.inl \
+  /usr/include/glm/exponential.hpp \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_double2x2.hpp \
+  /usr/include/glm/ext/matrix_double2x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double2x3.hpp \
+  /usr/include/glm/ext/matrix_double2x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double2x4.hpp \
+  /usr/include/glm/ext/matrix_double2x4_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x2.hpp \
+  /usr/include/glm/ext/matrix_double3x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x3.hpp \
+  /usr/include/glm/ext/matrix_double3x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x4.hpp \
+  /usr/include/glm/ext/matrix_double3x4_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x2.hpp \
+  /usr/include/glm/ext/matrix_double4x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x3.hpp \
+  /usr/include/glm/ext/matrix_double4x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x4.hpp \
+  /usr/include/glm/ext/matrix_double4x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x2.hpp \
+  /usr/include/glm/ext/matrix_float2x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x3.hpp \
+  /usr/include/glm/ext/matrix_float2x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x4.hpp \
+  /usr/include/glm/ext/matrix_float2x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x2.hpp \
+  /usr/include/glm/ext/matrix_float3x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x3.hpp \
+  /usr/include/glm/ext/matrix_float3x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x4.hpp \
+  /usr/include/glm/ext/matrix_float3x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x2.hpp \
+  /usr/include/glm/ext/matrix_float4x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x3.hpp \
+  /usr/include/glm/ext/matrix_float4x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x4.hpp \
+  /usr/include/glm/ext/matrix_float4x4_precision.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/ext/scalar_int_sized.hpp \
+  /usr/include/glm/ext/scalar_uint_sized.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
+  /usr/include/glm/ext/vector_bool2.hpp \
+  /usr/include/glm/ext/vector_bool2_precision.hpp \
+  /usr/include/glm/ext/vector_bool3.hpp \
+  /usr/include/glm/ext/vector_bool3_precision.hpp \
+  /usr/include/glm/ext/vector_bool4.hpp \
+  /usr/include/glm/ext/vector_bool4_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
+  /usr/include/glm/ext/vector_double2.hpp \
+  /usr/include/glm/ext/vector_double2_precision.hpp \
+  /usr/include/glm/ext/vector_double3.hpp \
+  /usr/include/glm/ext/vector_double3_precision.hpp \
+  /usr/include/glm/ext/vector_double4.hpp \
+  /usr/include/glm/ext/vector_double4_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
+  /usr/include/glm/ext/vector_float2.hpp \
+  /usr/include/glm/ext/vector_float2_precision.hpp \
+  /usr/include/glm/ext/vector_float3.hpp \
+  /usr/include/glm/ext/vector_float3_precision.hpp \
+  /usr/include/glm/ext/vector_float4.hpp \
+  /usr/include/glm/ext/vector_float4_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
+  /usr/include/glm/ext/vector_int2.hpp \
+  /usr/include/glm/ext/vector_int2_sized.hpp \
+  /usr/include/glm/ext/vector_int3.hpp \
+  /usr/include/glm/ext/vector_int3_sized.hpp \
+  /usr/include/glm/ext/vector_int4.hpp \
+  /usr/include/glm/ext/vector_int4_sized.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/glm/ext/vector_uint2.hpp \
+  /usr/include/glm/ext/vector_uint2_sized.hpp \
+  /usr/include/glm/ext/vector_uint3.hpp \
+  /usr/include/glm/ext/vector_uint3_sized.hpp \
+  /usr/include/glm/ext/vector_uint4.hpp \
+  /usr/include/glm/ext/vector_uint4_sized.hpp \
+  /usr/include/glm/fwd.hpp \
+  /usr/include/glm/geometric.hpp \
+  /usr/include/glm/glm.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/type_ptr.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/integer.hpp \
+  /usr/include/glm/mat2x2.hpp \
+  /usr/include/glm/mat2x3.hpp \
+  /usr/include/glm/mat2x4.hpp \
+  /usr/include/glm/mat3x2.hpp \
+  /usr/include/glm/mat3x3.hpp \
+  /usr/include/glm/mat3x4.hpp \
+  /usr/include/glm/mat4x2.hpp \
+  /usr/include/glm/mat4x3.hpp \
+  /usr/include/glm/mat4x4.hpp \
+  /usr/include/glm/matrix.hpp \
+  /usr/include/glm/packing.hpp \
+  /usr/include/glm/simd/platform.h \
+  /usr/include/glm/trigonometric.hpp \
+  /usr/include/glm/vec2.hpp \
+  /usr/include/glm/vec3.hpp \
+  /usr/include/glm/vec4.hpp \
+  /usr/include/glm/vector_relational.hpp \
+  /usr/include/inttypes.h \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
+  /usr/include/locale.h \
+  /usr/include/math.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/setjmp.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/syscall.h \
+  /usr/include/time.h \
+  /usr/include/unistd.h \
+  /usr/include/wchar.h \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/amxtileintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx2intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124fmapsintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx5124vnniwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bitalgintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512cdintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512erintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512ifmavlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512pfintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmi2vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmiintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vbmivlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlbwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vldqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnniintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectvlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqvlintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxifmaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxneconvertintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniint8intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/bmi2intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/bmiintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/cetintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/cldemoteintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/clflushoptintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/clwbintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/clzerointrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/cmpccxaddintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/enqcmdintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/f16cintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/fmaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/fxsrintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/gfniintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/hresetintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/ia32intrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/immintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/keylockerintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/lwpintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/lzcntintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/movdirintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/pconfigintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/pkuintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/pmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/prfchiintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/prfchwintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/raointintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/sgxintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/shaintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/smmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/tbmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/tmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/vaesintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/vpclmulqdqintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/wbnoinvdintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/x86gprintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavecintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveoptintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp \
+  /usr/include/stdc-predef.h
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp \
+  /home/alex/Projects/BearEngine/include/core/GameObject.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Camera3D.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Camera.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Button.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Text.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
+  /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneManager.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/input_system/InputSystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/Tag.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/HierarchyViewer.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/EditorTags.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/UtilData/DrawComponentData.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
+  /usr/include/GLFW/glfw3.h \
+  /usr/include/alloca.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
+  /usr/include/assimp/Compiler/poppack1.h \
+  /usr/include/assimp/Compiler/pushpack1.h \
+  /usr/include/assimp/Importer.hpp \
+  /usr/include/assimp/MathFunctions.h \
+  /usr/include/assimp/aabb.h \
+  /usr/include/assimp/anim.h \
+  /usr/include/assimp/camera.h \
+  /usr/include/assimp/color4.h \
+  /usr/include/assimp/color4.inl \
+  /usr/include/assimp/config.h \
+  /usr/include/assimp/defs.h \
+  /usr/include/assimp/light.h \
+  /usr/include/assimp/material.h \
+  /usr/include/assimp/material.inl \
+  /usr/include/assimp/matrix3x3.h \
+  /usr/include/assimp/matrix3x3.inl \
+  /usr/include/assimp/matrix4x4.h \
+  /usr/include/assimp/matrix4x4.inl \
+  /usr/include/assimp/mesh.h \
+  /usr/include/assimp/metadata.h \
+  /usr/include/assimp/postprocess.h \
+  /usr/include/assimp/quaternion.h \
+  /usr/include/assimp/quaternion.inl \
+  /usr/include/assimp/scene.h \
+  /usr/include/assimp/texture.h \
+  /usr/include/assimp/types.h \
+  /usr/include/assimp/vector2.h \
+  /usr/include/assimp/vector2.inl \
+  /usr/include/assimp/vector3.h \
+  /usr/include/assimp/vector3.inl \
+  /usr/include/c++/13/algorithm \
+  /usr/include/c++/13/array \
+  /usr/include/c++/13/atomic \
+  /usr/include/c++/13/backward/auto_ptr.h \
+  /usr/include/c++/13/backward/binders.h \
+  /usr/include/c++/13/bit \
+  /usr/include/c++/13/bits/algorithmfwd.h \
+  /usr/include/c++/13/bits/align.h \
+  /usr/include/c++/13/bits/alloc_traits.h \
+  /usr/include/c++/13/bits/allocated_ptr.h \
+  /usr/include/c++/13/bits/allocator.h \
+  /usr/include/c++/13/bits/atomic_base.h \
+  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
+  /usr/include/c++/13/bits/basic_ios.h \
+  /usr/include/c++/13/bits/basic_ios.tcc \
+  /usr/include/c++/13/bits/basic_string.h \
+  /usr/include/c++/13/bits/basic_string.tcc \
+  /usr/include/c++/13/bits/char_traits.h \
+  /usr/include/c++/13/bits/charconv.h \
+  /usr/include/c++/13/bits/codecvt.h \
+  /usr/include/c++/13/bits/concept_check.h \
+  /usr/include/c++/13/bits/cpp_type_traits.h \
+  /usr/include/c++/13/bits/cxxabi_forced.h \
+  /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
+  /usr/include/c++/13/bits/exception.h \
+  /usr/include/c++/13/bits/exception_defines.h \
+  /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fstream.tcc \
+  /usr/include/c++/13/bits/functexcept.h \
+  /usr/include/c++/13/bits/functional_hash.h \
+  /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
+  /usr/include/c++/13/bits/invoke.h \
+  /usr/include/c++/13/bits/ios_base.h \
+  /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
+  /usr/include/c++/13/bits/locale_classes.h \
+  /usr/include/c++/13/bits/locale_classes.tcc \
+  /usr/include/c++/13/bits/locale_facets.h \
+  /usr/include/c++/13/bits/locale_facets.tcc \
+  /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
+  /usr/include/c++/13/bits/memory_resource.h \
+  /usr/include/c++/13/bits/memoryfwd.h \
+  /usr/include/c++/13/bits/move.h \
+  /usr/include/c++/13/bits/nested_exception.h \
+  /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
+  /usr/include/c++/13/bits/ostream.tcc \
+  /usr/include/c++/13/bits/ostream_insert.h \
+  /usr/include/c++/13/bits/postypes.h \
+  /usr/include/c++/13/bits/predefined_ops.h \
+  /usr/include/c++/13/bits/ptr_traits.h \
+  /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
+  /usr/include/c++/13/bits/refwrap.h \
+  /usr/include/c++/13/bits/requires_hosted.h \
+  /usr/include/c++/13/bits/shared_ptr.h \
+  /usr/include/c++/13/bits/shared_ptr_atomic.h \
+  /usr/include/c++/13/bits/shared_ptr_base.h \
+  /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
+  /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
+  /usr/include/c++/13/bits/stl_algo.h \
+  /usr/include/c++/13/bits/stl_algobase.h \
+  /usr/include/c++/13/bits/stl_bvector.h \
+  /usr/include/c++/13/bits/stl_construct.h \
+  /usr/include/c++/13/bits/stl_function.h \
+  /usr/include/c++/13/bits/stl_heap.h \
+  /usr/include/c++/13/bits/stl_iterator.h \
+  /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
+  /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/13/bits/stl_relops.h \
+  /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
+  /usr/include/c++/13/bits/stl_uninitialized.h \
+  /usr/include/c++/13/bits/stl_vector.h \
+  /usr/include/c++/13/bits/streambuf.tcc \
+  /usr/include/c++/13/bits/streambuf_iterator.h \
+  /usr/include/c++/13/bits/string_view.tcc \
+  /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_ptr.h \
+  /usr/include/c++/13/bits/unordered_map.h \
+  /usr/include/c++/13/bits/uses_allocator.h \
+  /usr/include/c++/13/bits/uses_allocator_args.h \
+  /usr/include/c++/13/bits/utility.h \
+  /usr/include/c++/13/bits/vector.tcc \
+  /usr/include/c++/13/cassert \
+  /usr/include/c++/13/cctype \
+  /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/cfloat \
+  /usr/include/c++/13/climits \
+  /usr/include/c++/13/clocale \
+  /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
+  /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
+  /usr/include/c++/13/cstdio \
+  /usr/include/c++/13/cstdlib \
+  /usr/include/c++/13/cstring \
+  /usr/include/c++/13/cwchar \
+  /usr/include/c++/13/cwctype \
+  /usr/include/c++/13/debug/assertions.h \
+  /usr/include/c++/13/debug/debug.h \
+  /usr/include/c++/13/exception \
+  /usr/include/c++/13/ext/aligned_buffer.h \
+  /usr/include/c++/13/ext/alloc_traits.h \
+  /usr/include/c++/13/ext/atomicity.h \
+  /usr/include/c++/13/ext/concurrence.h \
+  /usr/include/c++/13/ext/numeric_traits.h \
+  /usr/include/c++/13/ext/string_conversions.h \
+  /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/fstream \
+  /usr/include/c++/13/functional \
+  /usr/include/c++/13/initializer_list \
+  /usr/include/c++/13/ios \
+  /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/iostream \
+  /usr/include/c++/13/istream \
+  /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
+  /usr/include/c++/13/memory \
+  /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
+  /usr/include/c++/13/ostream \
+  /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/13/pstl/glue_memory_defs.h \
+  /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
+  /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
+  /usr/include/c++/13/streambuf \
+  /usr/include/c++/13/string \
+  /usr/include/c++/13/string_view \
+  /usr/include/c++/13/system_error \
+  /usr/include/c++/13/tr1/bessel_function.tcc \
+  /usr/include/c++/13/tr1/beta_function.tcc \
+  /usr/include/c++/13/tr1/ell_integral.tcc \
+  /usr/include/c++/13/tr1/exp_integral.tcc \
+  /usr/include/c++/13/tr1/gamma.tcc \
+  /usr/include/c++/13/tr1/hypergeometric.tcc \
+  /usr/include/c++/13/tr1/legendre_function.tcc \
+  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/13/tr1/poly_hermite.tcc \
+  /usr/include/c++/13/tr1/poly_laguerre.tcc \
+  /usr/include/c++/13/tr1/riemann_zeta.tcc \
+  /usr/include/c++/13/tr1/special_function_util.h \
+  /usr/include/c++/13/tuple \
+  /usr/include/c++/13/type_traits \
+  /usr/include/c++/13/typeindex \
+  /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
+  /usr/include/c++/13/utility \
+  /usr/include/c++/13/vector \
+  /usr/include/ctype.h \
+  /usr/include/endian.h \
+  /usr/include/errno.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/freetype2/freetype/config/ftconfig.h \
+  /usr/include/freetype2/freetype/config/ftheader.h \
+  /usr/include/freetype2/freetype/config/ftoption.h \
+  /usr/include/freetype2/freetype/config/ftstdlib.h \
+  /usr/include/freetype2/freetype/config/integer-types.h \
+  /usr/include/freetype2/freetype/config/mac-support.h \
+  /usr/include/freetype2/freetype/config/public-macros.h \
+  /usr/include/freetype2/freetype/freetype.h \
+  /usr/include/freetype2/freetype/fterrdef.h \
+  /usr/include/freetype2/freetype/fterrors.h \
+  /usr/include/freetype2/freetype/ftimage.h \
+  /usr/include/freetype2/freetype/ftmoderr.h \
+  /usr/include/freetype2/freetype/ftsystem.h \
+  /usr/include/freetype2/freetype/fttypes.h \
+  /usr/include/freetype2/ft2build.h \
+  /usr/include/glm/common.hpp \
+  /usr/include/glm/detail/_fixes.hpp \
+  /usr/include/glm/detail/_vectorize.hpp \
+  /usr/include/glm/detail/compute_common.hpp \
+  /usr/include/glm/detail/compute_vector_relational.hpp \
+  /usr/include/glm/detail/func_common.inl \
+  /usr/include/glm/detail/func_exponential.inl \
+  /usr/include/glm/detail/func_geometric.inl \
+  /usr/include/glm/detail/func_integer.inl \
+  /usr/include/glm/detail/func_matrix.inl \
+  /usr/include/glm/detail/func_packing.inl \
+  /usr/include/glm/detail/func_trigonometric.inl \
+  /usr/include/glm/detail/func_vector_relational.inl \
+  /usr/include/glm/detail/qualifier.hpp \
+  /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/detail/type_half.hpp \
+  /usr/include/glm/detail/type_half.inl \
+  /usr/include/glm/detail/type_mat2x2.hpp \
+  /usr/include/glm/detail/type_mat2x2.inl \
+  /usr/include/glm/detail/type_mat2x3.hpp \
+  /usr/include/glm/detail/type_mat2x3.inl \
+  /usr/include/glm/detail/type_mat2x4.hpp \
+  /usr/include/glm/detail/type_mat2x4.inl \
+  /usr/include/glm/detail/type_mat3x2.hpp \
+  /usr/include/glm/detail/type_mat3x2.inl \
+  /usr/include/glm/detail/type_mat3x3.hpp \
+  /usr/include/glm/detail/type_mat3x3.inl \
+  /usr/include/glm/detail/type_mat3x4.hpp \
+  /usr/include/glm/detail/type_mat3x4.inl \
+  /usr/include/glm/detail/type_mat4x2.hpp \
+  /usr/include/glm/detail/type_mat4x2.inl \
+  /usr/include/glm/detail/type_mat4x3.hpp \
+  /usr/include/glm/detail/type_mat4x3.inl \
+  /usr/include/glm/detail/type_mat4x4.hpp \
+  /usr/include/glm/detail/type_mat4x4.inl \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/detail/type_quat.inl \
+  /usr/include/glm/detail/type_vec1.hpp \
+  /usr/include/glm/detail/type_vec1.inl \
+  /usr/include/glm/detail/type_vec2.hpp \
+  /usr/include/glm/detail/type_vec2.inl \
+  /usr/include/glm/detail/type_vec3.hpp \
+  /usr/include/glm/detail/type_vec3.inl \
+  /usr/include/glm/detail/type_vec4.hpp \
+  /usr/include/glm/detail/type_vec4.inl \
+  /usr/include/glm/exponential.hpp \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_double2x2.hpp \
+  /usr/include/glm/ext/matrix_double2x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double2x3.hpp \
+  /usr/include/glm/ext/matrix_double2x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double2x4.hpp \
+  /usr/include/glm/ext/matrix_double2x4_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x2.hpp \
+  /usr/include/glm/ext/matrix_double3x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x3.hpp \
+  /usr/include/glm/ext/matrix_double3x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x4.hpp \
+  /usr/include/glm/ext/matrix_double3x4_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x2.hpp \
+  /usr/include/glm/ext/matrix_double4x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x3.hpp \
+  /usr/include/glm/ext/matrix_double4x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x4.hpp \
+  /usr/include/glm/ext/matrix_double4x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x2.hpp \
+  /usr/include/glm/ext/matrix_float2x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x3.hpp \
+  /usr/include/glm/ext/matrix_float2x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x4.hpp \
+  /usr/include/glm/ext/matrix_float2x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x2.hpp \
+  /usr/include/glm/ext/matrix_float3x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x3.hpp \
+  /usr/include/glm/ext/matrix_float3x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x4.hpp \
+  /usr/include/glm/ext/matrix_float3x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x2.hpp \
+  /usr/include/glm/ext/matrix_float4x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x3.hpp \
+  /usr/include/glm/ext/matrix_float4x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x4.hpp \
+  /usr/include/glm/ext/matrix_float4x4_precision.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/ext/scalar_int_sized.hpp \
+  /usr/include/glm/ext/scalar_uint_sized.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
+  /usr/include/glm/ext/vector_bool2.hpp \
+  /usr/include/glm/ext/vector_bool2_precision.hpp \
+  /usr/include/glm/ext/vector_bool3.hpp \
+  /usr/include/glm/ext/vector_bool3_precision.hpp \
+  /usr/include/glm/ext/vector_bool4.hpp \
+  /usr/include/glm/ext/vector_bool4_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
+  /usr/include/glm/ext/vector_double2.hpp \
+  /usr/include/glm/ext/vector_double2_precision.hpp \
+  /usr/include/glm/ext/vector_double3.hpp \
+  /usr/include/glm/ext/vector_double3_precision.hpp \
+  /usr/include/glm/ext/vector_double4.hpp \
+  /usr/include/glm/ext/vector_double4_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
+  /usr/include/glm/ext/vector_float2.hpp \
+  /usr/include/glm/ext/vector_float2_precision.hpp \
+  /usr/include/glm/ext/vector_float3.hpp \
+  /usr/include/glm/ext/vector_float3_precision.hpp \
+  /usr/include/glm/ext/vector_float4.hpp \
+  /usr/include/glm/ext/vector_float4_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
+  /usr/include/glm/ext/vector_int2.hpp \
+  /usr/include/glm/ext/vector_int2_sized.hpp \
+  /usr/include/glm/ext/vector_int3.hpp \
+  /usr/include/glm/ext/vector_int3_sized.hpp \
+  /usr/include/glm/ext/vector_int4.hpp \
+  /usr/include/glm/ext/vector_int4_sized.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/glm/ext/vector_uint2.hpp \
+  /usr/include/glm/ext/vector_uint2_sized.hpp \
+  /usr/include/glm/ext/vector_uint3.hpp \
+  /usr/include/glm/ext/vector_uint3_sized.hpp \
+  /usr/include/glm/ext/vector_uint4.hpp \
+  /usr/include/glm/ext/vector_uint4_sized.hpp \
+  /usr/include/glm/fwd.hpp \
+  /usr/include/glm/geometric.hpp \
+  /usr/include/glm/glm.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/type_ptr.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/integer.hpp \
+  /usr/include/glm/mat2x2.hpp \
+  /usr/include/glm/mat2x3.hpp \
+  /usr/include/glm/mat2x4.hpp \
+  /usr/include/glm/mat3x2.hpp \
+  /usr/include/glm/mat3x3.hpp \
+  /usr/include/glm/mat3x4.hpp \
+  /usr/include/glm/mat4x2.hpp \
+  /usr/include/glm/mat4x3.hpp \
+  /usr/include/glm/mat4x4.hpp \
+  /usr/include/glm/matrix.hpp \
+  /usr/include/glm/packing.hpp \
+  /usr/include/glm/simd/platform.h \
+  /usr/include/glm/trigonometric.hpp \
+  /usr/include/glm/vec2.hpp \
+  /usr/include/glm/vec3.hpp \
+  /usr/include/glm/vec4.hpp \
+  /usr/include/glm/vector_relational.hpp \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
+  /usr/include/locale.h \
+  /usr/include/math.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/setjmp.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/syscall.h \
+  /usr/include/time.h \
+  /usr/include/unistd.h \
+  /usr/include/wchar.h \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp \
+  /home/alex/Projects/BearEngine/include/core/GameObject.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Button.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Text.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h \
+  /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
+  /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
+  /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/Tag.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/EditorTags.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h \
+  /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/UtilData/DrawComponentData.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+  /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
+  /usr/include/GLFW/glfw3.h \
+  /usr/include/alloca.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
+  /usr/include/assimp/Compiler/poppack1.h \
+  /usr/include/assimp/Compiler/pushpack1.h \
+  /usr/include/assimp/Importer.hpp \
+  /usr/include/assimp/MathFunctions.h \
+  /usr/include/assimp/aabb.h \
+  /usr/include/assimp/anim.h \
+  /usr/include/assimp/camera.h \
+  /usr/include/assimp/color4.h \
+  /usr/include/assimp/color4.inl \
+  /usr/include/assimp/config.h \
+  /usr/include/assimp/defs.h \
+  /usr/include/assimp/light.h \
+  /usr/include/assimp/material.h \
+  /usr/include/assimp/material.inl \
+  /usr/include/assimp/matrix3x3.h \
+  /usr/include/assimp/matrix3x3.inl \
+  /usr/include/assimp/matrix4x4.h \
+  /usr/include/assimp/matrix4x4.inl \
+  /usr/include/assimp/mesh.h \
+  /usr/include/assimp/metadata.h \
+  /usr/include/assimp/postprocess.h \
+  /usr/include/assimp/quaternion.h \
+  /usr/include/assimp/quaternion.inl \
+  /usr/include/assimp/scene.h \
+  /usr/include/assimp/texture.h \
+  /usr/include/assimp/types.h \
+  /usr/include/assimp/vector2.h \
+  /usr/include/assimp/vector2.inl \
+  /usr/include/assimp/vector3.h \
+  /usr/include/assimp/vector3.inl \
+  /usr/include/c++/13/algorithm \
+  /usr/include/c++/13/array \
+  /usr/include/c++/13/atomic \
+  /usr/include/c++/13/backward/auto_ptr.h \
+  /usr/include/c++/13/backward/binders.h \
+  /usr/include/c++/13/bit \
+  /usr/include/c++/13/bits/algorithmfwd.h \
+  /usr/include/c++/13/bits/align.h \
+  /usr/include/c++/13/bits/alloc_traits.h \
+  /usr/include/c++/13/bits/allocated_ptr.h \
+  /usr/include/c++/13/bits/allocator.h \
+  /usr/include/c++/13/bits/atomic_base.h \
+  /usr/include/c++/13/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/13/bits/atomic_wait.h \
+  /usr/include/c++/13/bits/basic_ios.h \
+  /usr/include/c++/13/bits/basic_ios.tcc \
+  /usr/include/c++/13/bits/basic_string.h \
+  /usr/include/c++/13/bits/basic_string.tcc \
+  /usr/include/c++/13/bits/char_traits.h \
+  /usr/include/c++/13/bits/charconv.h \
+  /usr/include/c++/13/bits/codecvt.h \
+  /usr/include/c++/13/bits/concept_check.h \
+  /usr/include/c++/13/bits/cpp_type_traits.h \
+  /usr/include/c++/13/bits/cxxabi_forced.h \
+  /usr/include/c++/13/bits/cxxabi_init_exception.h \
+  /usr/include/c++/13/bits/enable_special_members.h \
+  /usr/include/c++/13/bits/erase_if.h \
+  /usr/include/c++/13/bits/exception.h \
+  /usr/include/c++/13/bits/exception_defines.h \
+  /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fstream.tcc \
+  /usr/include/c++/13/bits/functexcept.h \
+  /usr/include/c++/13/bits/functional_hash.h \
+  /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
+  /usr/include/c++/13/bits/invoke.h \
+  /usr/include/c++/13/bits/ios_base.h \
+  /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/iterator_concepts.h \
+  /usr/include/c++/13/bits/locale_classes.h \
+  /usr/include/c++/13/bits/locale_classes.tcc \
+  /usr/include/c++/13/bits/locale_facets.h \
+  /usr/include/c++/13/bits/locale_facets.tcc \
+  /usr/include/c++/13/bits/localefwd.h \
+  /usr/include/c++/13/bits/max_size_type.h \
+  /usr/include/c++/13/bits/memory_resource.h \
+  /usr/include/c++/13/bits/memoryfwd.h \
+  /usr/include/c++/13/bits/move.h \
+  /usr/include/c++/13/bits/nested_exception.h \
+  /usr/include/c++/13/bits/new_allocator.h \
+  /usr/include/c++/13/bits/node_handle.h \
+  /usr/include/c++/13/bits/ostream.tcc \
+  /usr/include/c++/13/bits/ostream_insert.h \
+  /usr/include/c++/13/bits/postypes.h \
+  /usr/include/c++/13/bits/predefined_ops.h \
+  /usr/include/c++/13/bits/ptr_traits.h \
+  /usr/include/c++/13/bits/range_access.h \
+  /usr/include/c++/13/bits/ranges_algo.h \
+  /usr/include/c++/13/bits/ranges_algobase.h \
+  /usr/include/c++/13/bits/ranges_base.h \
+  /usr/include/c++/13/bits/ranges_cmp.h \
+  /usr/include/c++/13/bits/ranges_uninitialized.h \
+  /usr/include/c++/13/bits/ranges_util.h \
+  /usr/include/c++/13/bits/refwrap.h \
+  /usr/include/c++/13/bits/requires_hosted.h \
+  /usr/include/c++/13/bits/shared_ptr.h \
+  /usr/include/c++/13/bits/shared_ptr_atomic.h \
+  /usr/include/c++/13/bits/shared_ptr_base.h \
+  /usr/include/c++/13/bits/specfun.h \
+  /usr/include/c++/13/bits/sstream.tcc \
+  /usr/include/c++/13/bits/std_abs.h \
+  /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
+  /usr/include/c++/13/bits/stl_algo.h \
+  /usr/include/c++/13/bits/stl_algobase.h \
+  /usr/include/c++/13/bits/stl_bvector.h \
+  /usr/include/c++/13/bits/stl_construct.h \
+  /usr/include/c++/13/bits/stl_function.h \
+  /usr/include/c++/13/bits/stl_heap.h \
+  /usr/include/c++/13/bits/stl_iterator.h \
+  /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_map.h \
+  /usr/include/c++/13/bits/stl_multimap.h \
+  /usr/include/c++/13/bits/stl_pair.h \
+  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/13/bits/stl_relops.h \
+  /usr/include/c++/13/bits/stl_tempbuf.h \
+  /usr/include/c++/13/bits/stl_tree.h \
+  /usr/include/c++/13/bits/stl_uninitialized.h \
+  /usr/include/c++/13/bits/stl_vector.h \
+  /usr/include/c++/13/bits/streambuf.tcc \
+  /usr/include/c++/13/bits/streambuf_iterator.h \
+  /usr/include/c++/13/bits/string_view.tcc \
+  /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_ptr.h \
+  /usr/include/c++/13/bits/unordered_map.h \
+  /usr/include/c++/13/bits/uses_allocator.h \
+  /usr/include/c++/13/bits/uses_allocator_args.h \
+  /usr/include/c++/13/bits/utility.h \
+  /usr/include/c++/13/bits/vector.tcc \
+  /usr/include/c++/13/cassert \
+  /usr/include/c++/13/cctype \
+  /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/cfloat \
+  /usr/include/c++/13/climits \
+  /usr/include/c++/13/clocale \
+  /usr/include/c++/13/cmath \
+  /usr/include/c++/13/compare \
+  /usr/include/c++/13/concepts \
+  /usr/include/c++/13/cstddef \
+  /usr/include/c++/13/cstdint \
+  /usr/include/c++/13/cstdio \
+  /usr/include/c++/13/cstdlib \
+  /usr/include/c++/13/cstring \
+  /usr/include/c++/13/cwchar \
+  /usr/include/c++/13/cwctype \
+  /usr/include/c++/13/debug/assertions.h \
+  /usr/include/c++/13/debug/debug.h \
+  /usr/include/c++/13/exception \
+  /usr/include/c++/13/ext/aligned_buffer.h \
+  /usr/include/c++/13/ext/alloc_traits.h \
+  /usr/include/c++/13/ext/atomicity.h \
+  /usr/include/c++/13/ext/concurrence.h \
+  /usr/include/c++/13/ext/numeric_traits.h \
+  /usr/include/c++/13/ext/string_conversions.h \
+  /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/fstream \
+  /usr/include/c++/13/functional \
+  /usr/include/c++/13/initializer_list \
+  /usr/include/c++/13/ios \
+  /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/iostream \
+  /usr/include/c++/13/istream \
+  /usr/include/c++/13/limits \
+  /usr/include/c++/13/map \
+  /usr/include/c++/13/memory \
+  /usr/include/c++/13/new \
+  /usr/include/c++/13/numbers \
+  /usr/include/c++/13/ostream \
+  /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/13/pstl/glue_memory_defs.h \
+  /usr/include/c++/13/pstl/pstl_config.h \
+  /usr/include/c++/13/sstream \
+  /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
+  /usr/include/c++/13/streambuf \
+  /usr/include/c++/13/string \
+  /usr/include/c++/13/string_view \
+  /usr/include/c++/13/system_error \
+  /usr/include/c++/13/tr1/bessel_function.tcc \
+  /usr/include/c++/13/tr1/beta_function.tcc \
+  /usr/include/c++/13/tr1/ell_integral.tcc \
+  /usr/include/c++/13/tr1/exp_integral.tcc \
+  /usr/include/c++/13/tr1/gamma.tcc \
+  /usr/include/c++/13/tr1/hypergeometric.tcc \
+  /usr/include/c++/13/tr1/legendre_function.tcc \
+  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/13/tr1/poly_hermite.tcc \
+  /usr/include/c++/13/tr1/poly_laguerre.tcc \
+  /usr/include/c++/13/tr1/riemann_zeta.tcc \
+  /usr/include/c++/13/tr1/special_function_util.h \
+  /usr/include/c++/13/tuple \
+  /usr/include/c++/13/type_traits \
+  /usr/include/c++/13/typeindex \
+  /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
+  /usr/include/c++/13/utility \
+  /usr/include/c++/13/vector \
+  /usr/include/ctype.h \
+  /usr/include/endian.h \
+  /usr/include/errno.h \
+  /usr/include/features-time64.h \
+  /usr/include/features.h \
+  /usr/include/freetype2/freetype/config/ftconfig.h \
+  /usr/include/freetype2/freetype/config/ftheader.h \
+  /usr/include/freetype2/freetype/config/ftoption.h \
+  /usr/include/freetype2/freetype/config/ftstdlib.h \
+  /usr/include/freetype2/freetype/config/integer-types.h \
+  /usr/include/freetype2/freetype/config/mac-support.h \
+  /usr/include/freetype2/freetype/config/public-macros.h \
+  /usr/include/freetype2/freetype/freetype.h \
+  /usr/include/freetype2/freetype/fterrdef.h \
+  /usr/include/freetype2/freetype/fterrors.h \
+  /usr/include/freetype2/freetype/ftimage.h \
+  /usr/include/freetype2/freetype/ftmoderr.h \
+  /usr/include/freetype2/freetype/ftsystem.h \
+  /usr/include/freetype2/freetype/fttypes.h \
+  /usr/include/freetype2/ft2build.h \
+  /usr/include/glm/common.hpp \
+  /usr/include/glm/detail/_fixes.hpp \
+  /usr/include/glm/detail/_vectorize.hpp \
+  /usr/include/glm/detail/compute_common.hpp \
+  /usr/include/glm/detail/compute_vector_relational.hpp \
+  /usr/include/glm/detail/func_common.inl \
+  /usr/include/glm/detail/func_exponential.inl \
+  /usr/include/glm/detail/func_geometric.inl \
+  /usr/include/glm/detail/func_integer.inl \
+  /usr/include/glm/detail/func_matrix.inl \
+  /usr/include/glm/detail/func_packing.inl \
+  /usr/include/glm/detail/func_trigonometric.inl \
+  /usr/include/glm/detail/func_vector_relational.inl \
+  /usr/include/glm/detail/qualifier.hpp \
+  /usr/include/glm/detail/setup.hpp \
+  /usr/include/glm/detail/type_float.hpp \
+  /usr/include/glm/detail/type_half.hpp \
+  /usr/include/glm/detail/type_half.inl \
+  /usr/include/glm/detail/type_mat2x2.hpp \
+  /usr/include/glm/detail/type_mat2x2.inl \
+  /usr/include/glm/detail/type_mat2x3.hpp \
+  /usr/include/glm/detail/type_mat2x3.inl \
+  /usr/include/glm/detail/type_mat2x4.hpp \
+  /usr/include/glm/detail/type_mat2x4.inl \
+  /usr/include/glm/detail/type_mat3x2.hpp \
+  /usr/include/glm/detail/type_mat3x2.inl \
+  /usr/include/glm/detail/type_mat3x3.hpp \
+  /usr/include/glm/detail/type_mat3x3.inl \
+  /usr/include/glm/detail/type_mat3x4.hpp \
+  /usr/include/glm/detail/type_mat3x4.inl \
+  /usr/include/glm/detail/type_mat4x2.hpp \
+  /usr/include/glm/detail/type_mat4x2.inl \
+  /usr/include/glm/detail/type_mat4x3.hpp \
+  /usr/include/glm/detail/type_mat4x3.inl \
+  /usr/include/glm/detail/type_mat4x4.hpp \
+  /usr/include/glm/detail/type_mat4x4.inl \
+  /usr/include/glm/detail/type_quat.hpp \
+  /usr/include/glm/detail/type_quat.inl \
+  /usr/include/glm/detail/type_vec1.hpp \
+  /usr/include/glm/detail/type_vec1.inl \
+  /usr/include/glm/detail/type_vec2.hpp \
+  /usr/include/glm/detail/type_vec2.inl \
+  /usr/include/glm/detail/type_vec3.hpp \
+  /usr/include/glm/detail/type_vec3.inl \
+  /usr/include/glm/detail/type_vec4.hpp \
+  /usr/include/glm/detail/type_vec4.inl \
+  /usr/include/glm/exponential.hpp \
+  /usr/include/glm/ext/matrix_clip_space.hpp \
+  /usr/include/glm/ext/matrix_clip_space.inl \
+  /usr/include/glm/ext/matrix_double2x2.hpp \
+  /usr/include/glm/ext/matrix_double2x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double2x3.hpp \
+  /usr/include/glm/ext/matrix_double2x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double2x4.hpp \
+  /usr/include/glm/ext/matrix_double2x4_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x2.hpp \
+  /usr/include/glm/ext/matrix_double3x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x3.hpp \
+  /usr/include/glm/ext/matrix_double3x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double3x4.hpp \
+  /usr/include/glm/ext/matrix_double3x4_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x2.hpp \
+  /usr/include/glm/ext/matrix_double4x2_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x3.hpp \
+  /usr/include/glm/ext/matrix_double4x3_precision.hpp \
+  /usr/include/glm/ext/matrix_double4x4.hpp \
+  /usr/include/glm/ext/matrix_double4x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x2.hpp \
+  /usr/include/glm/ext/matrix_float2x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x3.hpp \
+  /usr/include/glm/ext/matrix_float2x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float2x4.hpp \
+  /usr/include/glm/ext/matrix_float2x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x2.hpp \
+  /usr/include/glm/ext/matrix_float3x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x3.hpp \
+  /usr/include/glm/ext/matrix_float3x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float3x4.hpp \
+  /usr/include/glm/ext/matrix_float3x4_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x2.hpp \
+  /usr/include/glm/ext/matrix_float4x2_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x3.hpp \
+  /usr/include/glm/ext/matrix_float4x3_precision.hpp \
+  /usr/include/glm/ext/matrix_float4x4.hpp \
+  /usr/include/glm/ext/matrix_float4x4_precision.hpp \
+  /usr/include/glm/ext/matrix_projection.hpp \
+  /usr/include/glm/ext/matrix_projection.inl \
+  /usr/include/glm/ext/matrix_transform.hpp \
+  /usr/include/glm/ext/matrix_transform.inl \
+  /usr/include/glm/ext/quaternion_common.hpp \
+  /usr/include/glm/ext/quaternion_common.inl \
+  /usr/include/glm/ext/quaternion_double.hpp \
+  /usr/include/glm/ext/quaternion_double_precision.hpp \
+  /usr/include/glm/ext/quaternion_float.hpp \
+  /usr/include/glm/ext/quaternion_float_precision.hpp \
+  /usr/include/glm/ext/quaternion_geometric.hpp \
+  /usr/include/glm/ext/quaternion_geometric.inl \
+  /usr/include/glm/ext/quaternion_relational.hpp \
+  /usr/include/glm/ext/quaternion_relational.inl \
+  /usr/include/glm/ext/quaternion_transform.hpp \
+  /usr/include/glm/ext/quaternion_transform.inl \
+  /usr/include/glm/ext/quaternion_trigonometric.hpp \
+  /usr/include/glm/ext/quaternion_trigonometric.inl \
+  /usr/include/glm/ext/scalar_constants.hpp \
+  /usr/include/glm/ext/scalar_constants.inl \
+  /usr/include/glm/ext/scalar_int_sized.hpp \
+  /usr/include/glm/ext/scalar_uint_sized.hpp \
+  /usr/include/glm/ext/vector_bool1.hpp \
+  /usr/include/glm/ext/vector_bool1_precision.hpp \
+  /usr/include/glm/ext/vector_bool2.hpp \
+  /usr/include/glm/ext/vector_bool2_precision.hpp \
+  /usr/include/glm/ext/vector_bool3.hpp \
+  /usr/include/glm/ext/vector_bool3_precision.hpp \
+  /usr/include/glm/ext/vector_bool4.hpp \
+  /usr/include/glm/ext/vector_bool4_precision.hpp \
+  /usr/include/glm/ext/vector_double1.hpp \
+  /usr/include/glm/ext/vector_double1_precision.hpp \
+  /usr/include/glm/ext/vector_double2.hpp \
+  /usr/include/glm/ext/vector_double2_precision.hpp \
+  /usr/include/glm/ext/vector_double3.hpp \
+  /usr/include/glm/ext/vector_double3_precision.hpp \
+  /usr/include/glm/ext/vector_double4.hpp \
+  /usr/include/glm/ext/vector_double4_precision.hpp \
+  /usr/include/glm/ext/vector_float1.hpp \
+  /usr/include/glm/ext/vector_float1_precision.hpp \
+  /usr/include/glm/ext/vector_float2.hpp \
+  /usr/include/glm/ext/vector_float2_precision.hpp \
+  /usr/include/glm/ext/vector_float3.hpp \
+  /usr/include/glm/ext/vector_float3_precision.hpp \
+  /usr/include/glm/ext/vector_float4.hpp \
+  /usr/include/glm/ext/vector_float4_precision.hpp \
+  /usr/include/glm/ext/vector_int1.hpp \
+  /usr/include/glm/ext/vector_int1_sized.hpp \
+  /usr/include/glm/ext/vector_int2.hpp \
+  /usr/include/glm/ext/vector_int2_sized.hpp \
+  /usr/include/glm/ext/vector_int3.hpp \
+  /usr/include/glm/ext/vector_int3_sized.hpp \
+  /usr/include/glm/ext/vector_int4.hpp \
+  /usr/include/glm/ext/vector_int4_sized.hpp \
+  /usr/include/glm/ext/vector_relational.hpp \
+  /usr/include/glm/ext/vector_relational.inl \
+  /usr/include/glm/ext/vector_uint1.hpp \
+  /usr/include/glm/ext/vector_uint1_sized.hpp \
+  /usr/include/glm/ext/vector_uint2.hpp \
+  /usr/include/glm/ext/vector_uint2_sized.hpp \
+  /usr/include/glm/ext/vector_uint3.hpp \
+  /usr/include/glm/ext/vector_uint3_sized.hpp \
+  /usr/include/glm/ext/vector_uint4.hpp \
+  /usr/include/glm/ext/vector_uint4_sized.hpp \
+  /usr/include/glm/fwd.hpp \
+  /usr/include/glm/geometric.hpp \
+  /usr/include/glm/glm.hpp \
+  /usr/include/glm/gtc/constants.hpp \
+  /usr/include/glm/gtc/constants.inl \
+  /usr/include/glm/gtc/epsilon.hpp \
+  /usr/include/glm/gtc/epsilon.inl \
+  /usr/include/glm/gtc/matrix_transform.hpp \
+  /usr/include/glm/gtc/matrix_transform.inl \
+  /usr/include/glm/gtc/quaternion.hpp \
+  /usr/include/glm/gtc/quaternion.inl \
+  /usr/include/glm/gtc/type_ptr.hpp \
+  /usr/include/glm/gtc/type_ptr.inl \
+  /usr/include/glm/gtc/vec1.hpp \
+  /usr/include/glm/integer.hpp \
+  /usr/include/glm/mat2x2.hpp \
+  /usr/include/glm/mat2x3.hpp \
+  /usr/include/glm/mat2x4.hpp \
+  /usr/include/glm/mat3x2.hpp \
+  /usr/include/glm/mat3x3.hpp \
+  /usr/include/glm/mat3x4.hpp \
+  /usr/include/glm/mat4x2.hpp \
+  /usr/include/glm/mat4x3.hpp \
+  /usr/include/glm/mat4x4.hpp \
+  /usr/include/glm/matrix.hpp \
+  /usr/include/glm/packing.hpp \
+  /usr/include/glm/simd/platform.h \
+  /usr/include/glm/trigonometric.hpp \
+  /usr/include/glm/vec2.hpp \
+  /usr/include/glm/vec3.hpp \
+  /usr/include/glm/vec4.hpp \
+  /usr/include/glm/vector_relational.hpp \
+  /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
+  /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
+  /usr/include/locale.h \
+  /usr/include/math.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/setjmp.h \
+  /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
+  /usr/include/stdio.h \
+  /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/syscall.h \
+  /usr/include/time.h \
+  /usr/include/unistd.h \
+  /usr/include/wchar.h \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd.h \
+  /usr/include/x86_64-linux-gnu/asm/unistd_64.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
+  /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/syscall.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/syscall.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp \
+  /usr/include/stdc-predef.h
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp \
+  /usr/include/stdc-predef.h
+
+
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp:
+
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp:
+
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp:
+
+/home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h:
+
+/home/alex/Projects/BearEngine/include/core/users_interface/Editor/HierarchyViewer.h:
 
 /home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp:
-
-/usr/include/c++/13/atomic:
 
 /home/alex/Projects/BearEngine/src/core/system_engine/tags_system/Tag.cpp:
 
@@ -25176,17 +28647,23 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/c++/13/iomanip:
 
+/usr/include/c++/13/ctime:
+
 /usr/include/c++/13/codecvt:
 
 /usr/include/c++/13/chrono:
 
 /usr/include/c++/13/bits/quoted_string.h:
 
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp:
+
 /usr/include/c++/13/bits/parse_numbers.h:
 
 /usr/include/c++/13/bits/locale_facets_nonio.h:
 
 /usr/include/c++/13/bits/fs_fwd.h:
+
+/usr/include/c++/13/bits/chrono_io.h:
 
 /home/alex/Projects/BearEngine/src/core/scene_engine/SceneManager.cpp:
 
@@ -25212,73 +28689,19 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp:
 
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:
+
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp:
 
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.h:
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp:
 
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.h:
-
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp:
 
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h:
 
-/home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp:
-
-/home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp:
-
-/home/alex/Projects/BearEngine/src/core/math/2D/Transform2D.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Image.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Button.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/RectTransform.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/Canvas.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/Sprite/Sprite.h:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/Sprite.cpp:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/Camera2D.h:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Camera2D.cpp:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/ColliderManager.cpp:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Tetrahedron3D.cpp:
-
-/usr/include/c++/13/bits/stl_set.h:
-
-/usr/include/c++/13/bits/stl_multiset.h:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/2D/Polygon2D.h:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/InserectionSegments2D.cpp:
-
-/home/alex/Projects/BearEngine/src/core/GameObject.cpp:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavesintrin.h:
 
@@ -25299,8 +28722,6 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 /usr/lib/gcc/x86_64-linux-gnu/13/include/tsxldtrkintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/tmmintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/smmintrin.h:
 
@@ -25330,12 +28751,6 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/fxsrintrin.h:
 
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/UVManager.cpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/fmaintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/float.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/enqcmdintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:
@@ -25349,6 +28764,8 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 /usr/lib/gcc/x86_64-linux-gnu/13/include/bmiintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/bmi2intrin.h:
+
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avxintrin.h:
 
@@ -25396,6 +28813,10 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx2intrin.h:
 
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h:
@@ -25406,7 +28827,167 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/adxintrin.h:
 
+/usr/include/inttypes.h:
+
+/usr/include/SDL2/SDL_video.h:
+
+/usr/include/SDL2/SDL_version.h:
+
+/usr/include/SDL2/SDL_system.h:
+
+/usr/include/SDL2/SDL_stdinc.h:
+
+/usr/include/SDL2/SDL_shape.h:
+
+/usr/include/SDL2/SDL_sensor.h:
+
+/usr/include/SDL2/SDL_rwops.h:
+
+/usr/include/SDL2/SDL_quit.h:
+
+/usr/include/c++/13/bits/fs_dir.h:
+
+/usr/include/SDL2/SDL_mouse.h:
+
+/usr/include/SDL2/SDL_metal.h:
+
+/usr/include/SDL2/SDL_log.h:
+
+/usr/include/SDL2/SDL_loadso.h:
+
+/usr/include/SDL2/SDL_hints.h:
+
+/usr/include/SDL2/SDL_haptic.h:
+
+/usr/include/SDL2/SDL_gesture.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h:
+
+/usr/include/SDL2/SDL_gamecontroller.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h:
+
+/usr/include/SDL2/SDL_error.h:
+
+/usr/include/SDL2/SDL_endian.h:
+
+/usr/include/SDL2/SDL_cpuinfo.h:
+
+/usr/include/SDL2/SDL_config.h:
+
+/usr/include/SDL2/SDL_blendmode.h:
+
+/usr/include/SDL2/SDL_audio.h:
+
+/usr/include/SDL2/SDL_atomic.h:
+
+/home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp:
+
+/usr/include/SDL2/SDL_assert.h:
+
+/usr/include/SDL2/SDL.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/time_system/Time.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/Force.h:
+
+/home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp:
+
+/home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Image.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Button.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/RectTransform.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/Canvas.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/fmaintrin.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/UVManager.cpp:
+
+/usr/include/SDL2/SDL_power.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/Window.cpp:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp:
+
+/usr/include/c++/13/unordered_set:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/Sprite/Sprite.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/Sprite.cpp:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/Camera2D.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Camera2D.cpp:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/ColliderManager.cpp:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Tetrahedron3D.cpp:
+
+/usr/include/c++/13/bits/stl_set.h:
+
+/usr/include/c++/13/bits/stl_multiset.h:
+
+/home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Vertex3D.h:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniint8intrin.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/2D/Polygon2D.h:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/InserectionSegments2D.cpp:
+
+/usr/include/SDL2/SDL_timer.h:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/BoxCollider2D.cpp:
+
+/home/alex/Projects/BearEngine/src/core/GameObject.cpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/float.h:
+
 /usr/include/x86_64-linux-gnu/sys/types.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Lights/PointLight3D.h:
+
+/usr/include/x86_64-linux-gnu/sys/syscall.h:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
@@ -25426,11 +29007,11 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
-
 /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+/usr/include/c++/13/charconv:
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp:
 
@@ -25438,9 +29019,11 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
-/home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp:
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avxifmaintrin.h:
+
+/home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
@@ -25466,99 +29049,173 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+/usr/include/c++/13/vector:
 
-/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
+/usr/include/glm/ext/vector_double1.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+/usr/include/SDL2/SDL_joystick.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+/usr/include/c++/13/utility:
 
-/usr/include/x86_64-linux-gnu/bits/types.h:
+/usr/include/c++/13/unordered_map:
 
-/usr/include/x86_64-linux-gnu/bits/timex.h:
+/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h:
 
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/include/assimp/quaternion.h:
 
-/home/alex/Projects/BearEngine/include/core/system_engine/tags_system/Tag.h:
+/usr/include/glm/gtc/matrix_transform.hpp:
 
-/usr/include/libintl.h:
+/usr/include/c++/13/tr1/ell_integral.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+/usr/include/SDL2/SDL_messagebox.h:
 
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+/usr/include/assimp/Compiler/poppack1.h:
 
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+/usr/include/c++/13/string_view:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+/usr/include/SDL2/SDL_hidapi.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/Rigidbody2D.h:
+
+/usr/include/c++/13/map:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/shaintrin.h:
+
+/usr/include/glm/ext/vector_uint3.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/pmmintrin.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h:
 
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+/usr/include/c++/13/stdlib.h:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+/usr/include/c++/13/sstream:
 
-/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp:
+/usr/include/glm/ext/vector_float1_precision.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+/usr/include/c++/13/pstl/pstl_config.h:
 
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+/usr/include/c++/13/exception:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+/usr/include/glm/detail/type_mat2x2.inl:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+/usr/include/c++/13/limits:
 
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
+/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp:
 
-/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+/usr/include/c++/13/initializer_list:
 
-/usr/include/x86_64-linux-gnu/bits/locale.h:
+/usr/include/c++/13/functional:
 
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelFeatures/ModelFeatureType.h:
 
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Camera3D.cpp:
 
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Camera.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.h:
+
+/usr/include/c++/13/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/13/ext/concurrence.h:
+
+/usr/include/c++/13/new:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/usr/include/c++/13/ext/aligned_buffer.h:
+
+/usr/include/assimp/scene.h:
+
+/usr/include/c++/13/debug/assertions.h:
+
+/usr/include/glm/ext/vector_float3_precision.hpp:
+
+/usr/include/c++/13/cwchar:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
+
+/usr/include/c++/13/cstring:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp:
+
+/usr/include/glm/detail/type_half.inl:
+
+/usr/include/c++/13/compare:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/c++/13/tr1/poly_hermite.tcc:
+
+/usr/include/c++/13/cassert:
+
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/c++/13/bits/string_view.tcc:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/cetintrin.h:
+
+/usr/include/SDL2/SDL_platform.h:
+
+/home/alex/Projects/BearEngine/include/core/math/Vector.h:
+
+/usr/include/c++/13/bits/streambuf_iterator.h:
+
+/usr/include/GLFW/glfw3.h:
+
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/EditorTags.h:
 
 /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+/usr/include/c++/13/bits/stl_relops.h:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
+/usr/include/c++/13/bits/new_allocator.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Button.h:
+/usr/include/glm/detail/_fixes.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp:
 
-/usr/include/x86_64-linux-gnu/bits/endian.h:
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
 
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+/usr/include/stdio.h:
 
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
-
-/usr/include/assimp/matrix4x4.inl:
-
-/usr/include/c++/13/bits/specfun.h:
+/usr/include/c++/13/tr1/beta_function.tcc:
 
 /usr/include/c++/13/bits/utility.h:
 
 /usr/include/c++/13/bits/stl_function.h:
 
-/usr/include/c++/13/bits/stl_construct.h:
+/usr/include/SDL2/SDL_render.h:
+
+/usr/include/c++/13/bits/stl_algobase.h:
+
+/usr/include/c++/13/cstddef:
 
 /home/alex/Projects/BearEngine/include/core/math/2D/Transform2D.h:
 
 /usr/include/c++/13/bits/stl_algo.h:
+
+/usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/c++/13/bits/std_mutex.h:
+
+/usr/include/c++/13/tr1/riemann_zeta.tcc:
+
+/usr/include/glm/detail/type_mat3x3.inl:
+
+/usr/include/glm/ext/vector_uint4_sized.hpp:
+
+/usr/include/c++/13/filesystem:
+
+/home/alex/Projects/BearEngine/include/core/math/Transform.h:
+
+/usr/include/glm/ext/vector_double2_precision.hpp:
 
 /usr/include/c++/13/bits/sstream.tcc:
 
@@ -25566,13 +29223,21 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/mat3x2.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/wchar.h:
-
 /usr/include/c++/13/bits/shared_ptr.h:
 
 /usr/include/c++/13/bits/refwrap.h:
+
+/usr/include/assimp/vector2.inl:
+
+/usr/include/c++/13/iosfwd:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h:
+
+/usr/include/freetype2/freetype/ftsystem.h:
+
+/usr/include/c++/13/bits/ranges_cmp.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
 
@@ -25584,6 +29249,20 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h:
 
+/usr/include/c++/13/bits/invoke.h:
+
+/usr/include/c++/13/system_error:
+
+/usr/include/c++/13/bits/ostream_insert.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h:
+
+/usr/include/SDL2/SDL_clipboard.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
+
+/usr/include/c++/13/bits/ostream.tcc:
+
 /usr/include/glm/ext/matrix_double4x2.hpp:
 
 /usr/include/c++/13/bits/node_handle.h:
@@ -25594,6 +29273,12 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/c++/13/bits/nested_exception.h:
 
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/c++/13/tuple:
+
 /usr/lib/gcc/x86_64-linux-gnu/13/include/f16cintrin.h:
 
 /usr/include/c++/13/bits/memoryfwd.h:
@@ -25602,9 +29287,17 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/detail/type_vec2.hpp:
 
+/usr/include/c++/13/pstl/glue_memory_defs.h:
+
+/usr/include/c++/13/bits/memory_resource.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavecintrin.h:
 
 /usr/include/c++/13/streambuf:
+
+/usr/include/c++/13/bits/specfun.h:
+
+/usr/include/c++/13/bits/localefwd.h:
 
 /usr/include/c++/13/bits/requires_hosted.h:
 
@@ -25612,23 +29305,193 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/assimp/Importer.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
 /usr/include/c++/13/bits/locale_facets.tcc:
 
 /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h:
 
-/usr/include/c++/13/bits/locale_classes.tcc:
+/usr/include/c++/13/bits/locale_facets.h:
+
+/usr/include/c++/13/cwctype:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:
+
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:
+
+/usr/include/c++/13/ext/string_conversions.h:
+
+/usr/include/c++/13/array:
+
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
+
+/usr/include/glm/detail/qualifier.hpp:
+
+/usr/include/glm/detail/type_mat2x3.hpp:
+
+/usr/include/c++/13/bits/fs_path.h:
+
+/usr/include/glm/gtc/matrix_transform.inl:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
+
+/usr/include/glm/ext/vector_bool4_precision.hpp:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h:
+
+/usr/include/c++/13/bits/align.h:
+
+/home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h:
+
+/usr/include/glm/ext/matrix_double2x3.hpp:
+
+/usr/include/assimp/texture.h:
+
+/usr/include/glm/ext/quaternion_relational.inl:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h:
+
+/usr/include/c++/13/concepts:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h:
+
+/usr/include/c++/13/cctype:
+
+/usr/include/c++/13/bits/iterator_concepts.h:
 
 /usr/include/assimp/vector3.h:
 
 /usr/include/c++/13/bits/uniform_int_dist.h:
 
-/usr/include/c++/13/bits/ios_base.h:
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h:
+
+/usr/include/glm/ext/quaternion_float.hpp:
+
+/usr/include/glm/mat4x4.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/c++/13/tr1/gamma.tcc:
+
+/usr/include/c++/13/ext/atomicity.h:
+
+/usr/include/glm/ext/quaternion_double_precision.hpp:
+
+/usr/include/assimp/Compiler/pushpack1.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h:
+
+/usr/include/c++/13/bits/vector.tcc:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h:
+
+/usr/include/glm/detail/type_vec1.inl:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:
+
+/usr/include/assimp/color4.inl:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h:
+
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:
+
+/usr/include/glm/gtc/epsilon.inl:
+
+/usr/include/c++/13/bits/exception.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h:
+
+/home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h:
+
+/usr/include/c++/13/bits/hashtable_policy.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h:
+
+/usr/include/c++/13/bits/char_traits.h:
+
+/usr/include/c++/13/bits/std_function.h:
+
+/usr/include/glm/ext/matrix_projection.hpp:
+
+/usr/include/c++/13/bits/exception_defines.h:
 
 /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h:
 
-/usr/include/c++/13/bits/invoke.h:
+/usr/include/c++/13/bits/ios_base.h:
 
-/usr/include/SDL2/SDL_endian.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelFeatures/TransparentFeature.h:
+
+/usr/include/c++/13/bits/uses_allocator.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:
+
+/usr/include/c++/13/bits/stringfwd.h:
+
+/usr/include/c++/13/cerrno:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:
+
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/UtilData/DrawComponentData.h:
+
+/usr/include/c++/13/bits/ranges_util.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h:
+
+/usr/include/assimp/vector2.h:
+
+/usr/include/c++/13/bits/range_access.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
+
+/usr/include/c++/13/tr1/hypergeometric.tcc:
+
+/usr/include/glm/detail/type_mat4x4.inl:
+
+/usr/include/SDL2/begin_code.h:
+
+/usr/include/c++/13/bits/stl_bvector.h:
+
+/usr/include/c++/13/backward/binders.h:
+
+/usr/include/libintl.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/tags_system/Tag.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp:
+
+/usr/include/glm/detail/func_vector_relational.inl:
+
+/usr/include/SDL2/SDL_touch.h:
+
+/usr/include/linux/close_range.h:
+
+/usr/include/c++/13/bits/ranges_algobase.h:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp:
+
+/usr/include/assimp/MathFunctions.h:
+
+/usr/include/c++/13/atomic:
+
+/usr/include/glm/ext/vector_bool1.hpp:
+
+/usr/include/c++/13/cfloat:
+
+/usr/include/ctype.h:
 
 /usr/include/c++/13/bits/stl_iterator.h:
 
@@ -25642,11 +29505,61 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/geometric.hpp:
 
-/usr/include/c++/13/bits/fstream.tcc:
+/home/alex/Projects/BearEngine/main.cpp:
 
-/usr/include/c++/13/bits/istream.tcc:
+/usr/include/limits.h:
 
-/usr/include/c++/13/bits/exception.h:
+/usr/include/c++/13/cstdlib:
+
+/usr/include/c++/13/bits/unordered_map.h:
+
+/usr/include/glm/ext/vector_bool3_precision.hpp:
+
+/usr/include/c++/13/cstdint:
+
+/usr/include/glm/ext/matrix_transform.hpp:
+
+/usr/include/assimp/aabb.h:
+
+/home/alex/Projects/BearEngine/src/core/math/2D/Transform2D.cpp:
+
+/home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:
+
+/usr/include/glm/detail/type_vec3.hpp:
+
+/usr/include/c++/13/math.h:
+
+/usr/include/c++/13/tr1/exp_integral.tcc:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h:
+
+/usr/include/assimp/matrix3x3.h:
+
+/usr/include/SDL2/SDL_surface.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/Rigidbody2D.cpp:
+
+/usr/include/glm/detail/type_mat4x2.inl:
+
+/usr/include/c++/13/tr1/special_function_util.h:
+
+/usr/include/c++/13/tr1/poly_laguerre.tcc:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/CollisionReaction.cpp:
+
+/usr/include/freetype2/freetype/config/integer-types.h:
+
+/usr/include/c++/13/bits/basic_string.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Text.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h:
+
+/usr/include/assimp/light.h:
 
 /usr/include/c++/13/bits/enable_special_members.h:
 
@@ -25654,11 +29567,45 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/scalar_constants.hpp:
 
-/usr/include/c++/13/bits/cpp_type_traits.h:
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
-/home/alex/Projects/BearEngine/include/core/system_engine/time_system/Time.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:
 
-/usr/include/c++/13/cassert:
+/usr/include/c++/13/bits/stl_tempbuf.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h:
+
+/usr/include/glm/ext/quaternion_geometric.inl:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h:
+
+/usr/include/c++/13/format:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/IntersectionSegments3D.h:
+
+/usr/include/c++/13/stdexcept:
+
+/usr/include/c++/13/clocale:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/c++/13/bit:
+
+/usr/include/glm/ext/matrix_float3x4.hpp:
+
+/usr/include/c++/13/bits/cxxabi_init_exception.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h:
+
+/usr/include/c++/13/bits/basic_ios.tcc:
+
+/usr/include/glm/ext/vector_int2.hpp:
+
+/usr/include/c++/13/bits/stl_tree.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqintrin.h:
 
@@ -25668,123 +29615,107 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/freetype2/freetype/config/public-macros.h:
 
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:
+
+/home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h:
+
+/home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:
+
+/usr/include/c++/13/typeindex:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/usr/include/glm/ext/quaternion_geometric.hpp:
+
+/usr/include/glm/ext/matrix_float2x2_precision.hpp:
+
+/usr/include/glm/gtc/epsilon.hpp:
+
+/usr/include/stdc-predef.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:
+
+/usr/include/assimp/matrix4x4.inl:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/glm/ext/quaternion_trigonometric.inl:
+
+/usr/include/assert.h:
+
+/usr/include/glm/ext/vector_int3_sized.hpp:
+
+/usr/include/c++/13/debug/debug.h:
+
+/usr/include/c++/13/bits/std_abs.h:
+
+/usr/include/linux/errno.h:
+
+/home/alex/Projects/BearEngine/include/core/GameObject.h:
+
 /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
 
 /usr/include/c++/13/bits/charconv.h:
 
-/home/alex/Projects/BearEngine/include/core/GameObject.h:
-
 /usr/include/freetype2/freetype/fterrors.h:
 
-/usr/include/c++/13/bits/basic_string.h:
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
-/usr/include/c++/13/bits/basic_ios.tcc:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h:
 
-/usr/include/c++/13/bits/basic_ios.h:
+/usr/include/c++/13/algorithm:
 
-/usr/include/glm/detail/type_vec1.hpp:
+/usr/include/glm/ext/matrix_float3x3_precision.hpp:
 
-/usr/include/c++/13/bits/new_allocator.h:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:
 
-/home/alex/Projects/BearEngine/src/core/graphics_engine/Window.cpp:
+/usr/include/c++/13/climits:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.h:
+/usr/include/glm/ext/matrix_double2x4.hpp:
 
-/usr/include/c++/13/bits/atomic_base.h:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/c++/13/bit:
-
-/usr/include/glm/ext/matrix_float3x4.hpp:
-
-/usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/c++/13/bits/unique_ptr.h:
-
-/usr/include/c++/13/bits/align.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
-
-/usr/include/assimp/defs.h:
-
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/glm/ext/quaternion_common.hpp:
-
-/usr/include/c++/13/backward/binders.h:
-
-/usr/include/c++/13/array:
-
-/usr/include/glm/detail/qualifier.hpp:
-
-/usr/include/glm/detail/type_mat2x3.hpp:
-
-/usr/include/c++/13/bits/fs_path.h:
-
-/usr/include/glm/gtc/matrix_transform.inl:
-
-/usr/include/assimp/vector2.inl:
-
-/usr/include/assimp/texture.h:
-
-/usr/include/glm/ext/quaternion_relational.inl:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
-
-/usr/include/glm/ext/matrix_double2x3_precision.hpp:
-
-/usr/include/assimp/quaternion.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h:
-
-/usr/include/glm/mat2x4.hpp:
-
-/usr/include/c++/13/tr1/legendre_function.tcc:
-
-/usr/include/glm/gtc/matrix_transform.hpp:
-
-/usr/include/c++/13/backward/auto_ptr.h:
-
-/usr/include/assimp/postprocess.h:
-
-/usr/include/c++/13/bits/fs_ops.h:
-
-/usr/include/assimp/metadata.h:
-
-/usr/include/c++/13/iosfwd:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/Force.h:
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
 
 /usr/include/glm/detail/_vectorize.hpp:
 
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp:
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
-/usr/include/assimp/MathFunctions.h:
+/usr/include/c++/13/bits/move.h:
 
-/usr/include/glm/ext/vector_bool1.hpp:
+/usr/include/SDL2/SDL_keycode.h:
 
-/usr/include/c++/13/tr1/ell_integral.tcc:
+/usr/include/glm/gtc/vec1.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h:
+/usr/include/assimp/material.inl:
 
-/usr/include/c++/13/utility:
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
-/usr/include/SDL2/SDL_joystick.h:
+/usr/include/c++/13/ios:
 
-/usr/include/glm/ext/vector_int3_sized.hpp:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Tetrahedron3D.h:
 
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+/usr/include/assimp/color4.h:
 
-/usr/include/asm-generic/errno-base.h:
+/usr/include/c++/13/bits/uses_allocator_args.h:
+
+/usr/include/glm/detail/type_vec1.hpp:
+
+/usr/include/c++/13/variant:
+
+/usr/include/c++/13/bits/atomic_base.h:
+
+/usr/include/c++/13/bits/concept_check.h:
+
+/usr/include/assimp/matrix4x4.h:
+
+/usr/include/assimp/material.h:
+
+/usr/include/glm/ext/matrix_double4x3_precision.hpp:
+
+/usr/include/c++/13/iostream:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:
+
+/usr/include/asm-generic/errno.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnniintrin.h:
 
@@ -25796,169 +29727,59 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/vector_uint4.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
+/usr/include/c++/13/cmath:
 
-/usr/include/glm/ext/vector_bool4_precision.hpp:
+/usr/include/c++/13/bits/fs_ops.h:
 
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:
+/usr/include/assimp/metadata.h:
 
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h:
+/usr/include/c++/13/backward/auto_ptr.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+/usr/include/assimp/postprocess.h:
 
-/usr/include/c++/13/tuple:
+/usr/include/c++/13/bits/algorithmfwd.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.h:
+/usr/include/glm/ext/matrix_double2x3_precision.hpp:
 
-/usr/include/c++/13/bits/string_view.tcc:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/SDL2/SDL_guid.h:
-
-/home/alex/Projects/BearEngine/main.cpp:
-
-/usr/include/assimp/Compiler/pushpack1.h:
-
-/usr/include/SDL2/SDL_loadso.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:
-
-/usr/include/glm/gtc/epsilon.hpp:
-
-/usr/include/stdc-predef.h:
-
-/usr/include/freetype2/freetype/ftsystem.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h:
-
-/usr/include/c++/13/bits/std_function.h:
-
-/usr/include/SDL2/SDL_touch.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h:
-
-/usr/include/c++/13/bits/char_traits.h:
-
-/usr/include/glm/ext/matrix_projection.hpp:
-
-/usr/include/assimp/aabb.h:
-
-/usr/include/c++/13/bits/stl_multimap.h:
-
-/home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h:
-
-/usr/include/glm/detail/type_vec3.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniint8intrin.h:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h:
-
-/usr/include/c++/13/bits/range_access.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
-
-/usr/include/c++/13/tr1/hypergeometric.tcc:
-
-/usr/include/glm/detail/type_mat4x4.inl:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.h:
-
-/usr/include/assimp/vector3.inl:
-
-/usr/include/c++/13/bits/stl_vector.h:
-
-/home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h:
-
-/usr/include/SDL2/SDL_error.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h:
-
-/usr/include/glm/ext/quaternion_geometric.inl:
-
-/usr/include/c++/13/bits/fs_dir.h:
-
-/usr/include/SDL2/SDL_mouse.h:
-
-/usr/include/glm/detail/type_half.hpp:
-
-/usr/include/c++/13/fstream:
-
-/usr/include/SDL2/SDL_gesture.h:
-
-/usr/include/c++/13/cfloat:
-
-/usr/include/ctype.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Vertex3D.h:
-
-/usr/include/c++/13/bits/stl_heap.h:
-
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
-
-/usr/include/assimp/material.h:
-
-/usr/include/glm/ext/matrix_double4x3_precision.hpp:
-
-/usr/include/c++/13/locale:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h:
-
-/usr/include/c++/13/bits/stl_map.h:
-
-/usr/include/glm/detail/_fixes.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
-
-/usr/include/c++/13/bits/ostream.tcc:
-
-/usr/include/SDL2/SDL_clipboard.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Lights/PointLight3D.h:
-
-/usr/include/assimp/light.h:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h:
-
-/usr/include/c++/13/bits/locale_facets.h:
-
-/usr/include/c++/13/bits/uses_allocator_args.h:
-
-/usr/include/assimp/color4.h:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Tetrahedron3D.h:
-
-/usr/include/c++/13/unordered_set:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceFactory.cpp:
 
 /usr/include/assimp/quaternion.inl:
 
-/home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp:
+/usr/include/c++/13/istream:
 
-/usr/include/glm/ext/matrix_double2x2.hpp:
+/usr/include/assimp/vector3.inl:
+
+/usr/include/glm/ext/quaternion_common.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16intrin.h:
+
+/usr/include/SDL2/SDL_scancode.h:
+
+/usr/include/c++/13/bits/shared_ptr_base.h:
+
+/usr/include/glm/ext/vector_double3_precision.hpp:
+
+/usr/include/glm/detail/type_half.hpp:
+
+/usr/include/c++/13/fstream:
+
+/usr/include/SDL2/SDL_main.h:
+
+/usr/include/c++/13/bits/stl_pair.h:
+
+/usr/include/c++/13/bits/unique_ptr.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.h:
+
+/usr/include/c++/13/bits/atomic_wait.h:
+
+/usr/include/c++/13/string:
+
+/usr/include/features.h:
+
+/usr/include/c++/13/bits/basic_ios.h:
 
 /usr/include/c++/13/bits/shared_ptr_atomic.h:
 
@@ -25974,505 +29795,49 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/vector_double4.hpp:
 
-/usr/include/SDL2/SDL_sensor.h:
+/home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:
+/usr/include/c++/13/bits/stl_multimap.h:
 
-/usr/include/c++/13/bits/localefwd.h:
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
-/usr/include/glm/ext/matrix_double3x3.hpp:
+/usr/include/c++/13/bits/istream.tcc:
 
-/usr/include/SDL2/SDL_locale.h:
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
-/home/alex/Projects/BearEngine/src/core/phisic_engine/Rigidbody2D.cpp:
+/usr/include/freetype2/freetype/config/mac-support.h:
 
-/usr/include/glm/detail/type_mat4x2.inl:
+/usr/include/c++/13/bits/exception_ptr.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+/usr/include/c++/13/bits/fstream.tcc:
 
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:
+/usr/include/c++/13/memory:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h:
-
-/usr/include/c++/13/algorithm:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp:
-
-/usr/include/SDL2/SDL_power.h:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h:
-
-/usr/include/c++/13/bits/exception_defines.h:
-
-/usr/include/c++/13/ext/string_conversions.h:
-
-/usr/include/assimp/scene.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
-
-/usr/include/c++/13/ext/aligned_buffer.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelRenderer.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/UVManager.h:
-
-/usr/include/SDL2/SDL_hints.h:
-
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp:
-
-/usr/include/glm/gtc/quaternion.inl:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h:
-
-/usr/include/c++/13/bits/vector.tcc:
-
-/usr/include/SDL2/SDL_rwops.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h:
-
-/usr/include/glm/detail/type_vec1.inl:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h:
-
-/usr/include/glm/detail/func_common.inl:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:
-
-/usr/include/c++/13/bits/stl_tempbuf.h:
-
-/usr/include/assimp/color4.inl:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelComponent.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
-/usr/include/c++/13/ext/type_traits.h:
-
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Camera3D.cpp:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelFeatures/ModelFeatureType.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Camera.h:
-
-/usr/include/c++/13/functional:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:
-
-/usr/include/c++/13/cerrno:
-
-/usr/include/c++/13/bits/stringfwd.h:
-
-/usr/include/assert.h:
-
-/usr/include/glm/ext/quaternion_trigonometric.inl:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Text.h:
-
-/usr/include/SDL2/SDL_video.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:
-
-/usr/include/c++/13/cctype:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h:
-
-/usr/include/assimp/matrix3x3.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h:
-
-/usr/include/SDL2/SDL.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h:
-
-/usr/include/c++/13/bits/cxxabi_init_exception.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h:
-
-/usr/include/SDL2/SDL_blendmode.h:
-
-/usr/include/glm/detail/func_geometric.inl:
-
-/usr/include/c++/13/bits/streambuf_iterator.h:
-
-/usr/include/GLFW/glfw3.h:
-
-/usr/include/assimp/matrix4x4.h:
-
-/usr/include/c++/13/bits/stl_algobase.h:
-
-/usr/include/SDL2/SDL_render.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.h:
-
-/usr/include/SDL2/SDL_filesystem.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
-
-/usr/include/glm/ext/matrix_double3x2.hpp:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ElasticityDeformationData.h:
-
-/usr/include/glm/ext/matrix_double4x3.hpp:
-
-/home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp:
-
-/usr/include/SDL2/SDL_assert.h:
-
-/home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h:
-
-/usr/include/c++/13/unordered_map:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/BoxCollider2D.cpp:
-
-/usr/include/SDL2/SDL_timer.h:
-
-/usr/include/glm/gtc/constants.inl:
-
-/usr/include/SDL2/SDL_version.h:
-
-/usr/include/c++/13/bits/stl_bvector.h:
-
-/usr/include/SDL2/begin_code.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:
-
-/usr/include/c++/13/cwctype:
-
-/usr/include/c++/13/filesystem:
-
-/home/alex/Projects/BearEngine/include/core/math/Transform.h:
-
-/usr/include/glm/ext/vector_double2_precision.hpp:
-
-/usr/include/assimp/vector2.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/cetintrin.h:
-
-/home/alex/Projects/BearEngine/include/core/math/Vector.h:
-
-/usr/include/SDL2/SDL_platform.h:
-
-/usr/include/c++/13/bits/hashtable_policy.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h:
-
-/usr/include/alloca.h:
-
-/usr/include/glm/ext/matrix_double4x4.hpp:
-
-/home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h:
-
-/home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h:
-
-/usr/include/glm/ext/matrix_double2x3.hpp:
-
-/usr/include/c++/13/bits/move.h:
-
-/usr/include/SDL2/SDL_keycode.h:
-
-/usr/include/glm/gtc/vec1.hpp:
-
-/usr/include/assimp/material.inl:
-
-/usr/include/SDL2/SDL_stdinc.h:
-
-/usr/include/assimp/Compiler/poppack1.h:
-
-/usr/include/SDL2/SDL_messagebox.h:
-
-/usr/include/SDL2/SDL_atomic.h:
-
-/usr/include/glm/detail/type_mat3x4.inl:
-
-/usr/include/SDL2/SDL_shape.h:
-
-/usr/include/SDL2/SDL_quit.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h:
-
-/usr/include/SDL2/SDL_audio.h:
-
-/usr/include/SDL2/SDL_config.h:
-
-/usr/include/glm/detail/type_float.hpp:
-
-/usr/include/c++/13/bits/postypes.h:
-
-/usr/include/glm/vector_relational.hpp:
-
-/usr/include/SDL2/SDL_cpuinfo.h:
-
-/usr/include/c++/13/bits/uses_allocator.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/ModelFeatures/TransparentFeature.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:
-
-/usr/include/c++/13/bits/stl_pair.h:
-
-/usr/include/SDL2/SDL_main.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h:
-
-/usr/include/SDL2/SDL_gamecontroller.h:
-
-/usr/include/glm/detail/type_mat4x3.hpp:
-
-/home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:
-
-/usr/include/c++/13/bits/stl_relops.h:
-
-/usr/include/SDL2/SDL_haptic.h:
-
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
-/usr/include/glm/ext/matrix_float2x2.hpp:
-
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp:
-
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
-
-/usr/include/stdio.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.h:
-
-/usr/include/glm/gtc/type_ptr.inl:
-
-/usr/include/glm/common.hpp:
-
-/usr/include/SDL2/SDL_keyboard.h:
-
-/usr/include/SDL2/SDL_log.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h:
-
-/usr/include/glm/ext/quaternion_float.hpp:
-
-/usr/include/glm/mat4x4.hpp:
-
-/usr/include/SDL2/SDL_metal.h:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIVertex.h:
-
-/usr/include/c++/13/bits/functional_hash.h:
+/usr/include/glm/ext/matrix_float2x4.hpp:
 
 /usr/include/SDL2/SDL_mutex.h:
 
-/usr/include/c++/13/cstdint:
+/usr/include/c++/13/bits/functional_hash.h:
 
-/usr/include/glm/ext/matrix_transform.hpp:
+/usr/include/c++/13/tr1/legendre_function.tcc:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16intrin.h:
+/usr/include/glm/mat2x4.hpp:
 
-/usr/include/c++/13/bits/shared_ptr_base.h:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:
 
-/usr/include/glm/ext/vector_double3_precision.hpp:
-
-/usr/include/SDL2/SDL_scancode.h:
-
-/usr/include/glm/ext/vector_bool1_precision.hpp:
-
-/usr/include/wctype.h:
-
-/usr/include/assimp/camera.h:
-
-/usr/include/glm/ext/matrix_float3x3_precision.hpp:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:
-
-/usr/include/SDL2/SDL_surface.h:
-
-/usr/include/glm/ext/vector_int4_sized.hpp:
-
-/usr/include/SDL2/SDL_system.h:
+/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h:
 
 /usr/include/c++/13/bits/locale_classes.h:
 
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:
-
-/usr/include/c++/13/climits:
-
-/usr/include/glm/ext/matrix_double2x4.hpp:
-
-/usr/include/c++/13/cmath:
-
-/usr/include/c++/13/compare:
-
-/usr/include/c++/13/bits/ostream_insert.h:
-
-/usr/include/c++/13/system_error:
-
-/usr/include/c++/13/bits/stl_tree.h:
-
-/usr/include/glm/ext/vector_int2.hpp:
-
-/usr/include/c++/13/cstddef:
-
-/usr/include/c++/13/bits/unordered_map.h:
-
-/usr/include/glm/ext/vector_bool3_precision.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
-
-/usr/include/c++/13/cstring:
-
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp:
-
-/usr/include/glm/detail/type_half.inl:
-
-/usr/include/c++/13/ctime:
-
-/usr/include/c++/13/cwchar:
-
-/usr/include/c++/13/debug/assertions.h:
-
-/usr/include/glm/ext/vector_float3_precision.hpp:
-
-/usr/include/c++/13/debug/debug.h:
-
-/usr/include/c++/13/bits/std_abs.h:
-
-/usr/include/linux/errno.h:
-
-/usr/include/c++/13/exception:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/c++/13/pstl/glue_memory_defs.h:
-
-/usr/include/glm/detail/type_mat2x2.inl:
-
-/usr/include/c++/13/ext/atomicity.h:
-
-/usr/include/glm/ext/quaternion_double_precision.hpp:
-
-/usr/include/c++/13/ext/concurrence.h:
-
-/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp:
-
-/usr/include/c++/13/initializer_list:
-
-/usr/include/c++/13/cstdlib:
-
-/usr/include/limits.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/13/ios:
-
-/usr/include/asm-generic/errno.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:
-
-/usr/include/c++/13/iostream:
-
-/usr/include/c++/13/istream:
-
-/usr/include/c++/13/limits:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/Rigidbody2D.h:
-
-/usr/include/SDL2/SDL_hidapi.h:
-
-/usr/include/c++/13/map:
-
-/usr/include/c++/13/string_view:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/shaintrin.h:
-
-/usr/include/glm/ext/vector_uint3.hpp:
-
-/usr/include/c++/13/tr1/exp_integral.tcc:
-
-/usr/include/c++/13/math.h:
-
-/usr/include/glm/detail/type_quat.hpp:
-
-/usr/include/glm/ext/matrix_float2x4.hpp:
-
-/usr/include/c++/13/memory:
-
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
-
-/usr/include/c++/13/bits/exception_ptr.h:
-
-/usr/include/freetype2/freetype/config/mac-support.h:
-
-/usr/include/c++/13/new:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.h:
-
-/usr/include/c++/13/pstl/glue_algorithm_defs.h:
-
-/usr/include/c++/13/pstl/pstl_config.h:
-
-/usr/include/c++/13/sstream:
-
-/usr/include/glm/ext/vector_float1_precision.hpp:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/IntersectionSegments3D.h:
-
-/usr/include/c++/13/clocale:
-
-/usr/include/c++/13/stdexcept:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/amxbf16intrin.h:
-
-/usr/include/c++/13/stdlib.h:
-
-/usr/include/c++/13/tr1/beta_function.tcc:
-
-/usr/include/c++/13/tr1/gamma.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
-
-/usr/include/c++/13/tr1/poly_hermite.tcc:
-
-/usr/include/c++/13/tr1/special_function_util.h:
-
-/usr/include/c++/13/tr1/poly_laguerre.tcc:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/CollisionReaction.cpp:
-
-/usr/include/freetype2/freetype/config/integer-types.h:
-
-/usr/include/c++/13/bits/stl_uninitialized.h:
-
-/usr/include/glm/ext/quaternion_geometric.hpp:
-
-/usr/include/glm/ext/matrix_float2x2_precision.hpp:
-
-/usr/include/c++/13/typeindex:
-
-/usr/include/c++/13/vector:
-
-/usr/include/glm/ext/vector_double1.hpp:
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
 
 /usr/include/stdint.h:
 
 /usr/include/SDL2/close_code.h:
 
 /usr/include/errno.h:
-
-/usr/include/c++/13/string:
-
-/usr/include/features.h:
 
 /usr/include/SDL2/SDL_events.h:
 
@@ -26486,6 +29851,8 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/freetype2/freetype/freetype.h:
 
+/usr/include/c++/13/bits/ranges_uninitialized.h:
+
 /usr/include/freetype2/freetype/fterrdef.h:
 
 /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h:
@@ -26496,9 +29863,11 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/detail/type_mat4x4.hpp:
 
-/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Text.cpp:
+/usr/include/x86_64-linux-gnu/bits/environments.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Text.cpp:
 
 /usr/include/c++/13/tr1/bessel_function.tcc:
 
@@ -26512,17 +29881,29 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/detail/type_mat2x2.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+/usr/include/c++/13/ext/alloc_traits.h:
 
 /usr/include/assimp/anim.h:
 
-/usr/include/c++/13/ext/alloc_traits.h:
-
 /usr/include/freetype2/ft2build.h:
+
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.h:
+
+/usr/include/SDL2/SDL_keyboard.h:
+
+/usr/include/glm/gtc/type_ptr.inl:
+
+/usr/include/glm/common.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/glm/detail/compute_common.hpp:
 
 /usr/include/strings.h:
+
+/usr/include/glm/detail/func_common.inl:
 
 /home/alex/Projects/BearEngine/src/dependencies/stb/stb_image.h:
 
@@ -26536,6 +29917,12 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/sched.h:
 
+/usr/include/assimp/camera.h:
+
+/usr/include/wctype.h:
+
+/usr/include/glm/detail/func_geometric.inl:
+
 /usr/include/glm/detail/func_integer.inl:
 
 /usr/include/c++/13/set:
@@ -26548,13 +29935,17 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/detail/func_packing.inl:
 
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp:
-
-/usr/include/glm/detail/func_vector_relational.inl:
+/usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/glm/detail/setup.hpp:
 
 /usr/include/glm/ext/matrix_clip_space.inl:
+
+/usr/include/glm/detail/type_float.hpp:
+
+/usr/include/c++/13/bits/postypes.h:
+
+/usr/include/glm/vector_relational.hpp:
 
 /home/alex/Projects/BearEngine/src/core/system_engine/tags_system/TagManager.cpp:
 
@@ -26566,15 +29957,19 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/detail/type_mat3x2.inl:
 
-/usr/include/c++/13/tr1/riemann_zeta.tcc:
-
-/usr/include/glm/detail/type_mat3x3.inl:
-
-/usr/include/glm/ext/vector_uint4_sized.hpp:
+/usr/include/c++/13/bits/ranges_base.h:
 
 /usr/include/glm/detail/type_mat3x4.hpp:
 
+/usr/include/glm/detail/type_mat3x4.inl:
+
+/usr/include/glm/detail/type_mat4x3.hpp:
+
 /usr/include/glm/detail/type_mat4x3.inl:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/glm/detail/type_quat.hpp:
 
 /usr/include/assimp/types.h:
 
@@ -26590,23 +29985,25 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/locale.h:
 
+/usr/include/c++/13/span:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
 /usr/include/glm/mat3x3.hpp:
 
 /usr/include/glm/exponential.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
 /usr/include/glm/ext/matrix_clip_space.hpp:
 
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp:
+
+/usr/include/glm/ext/matrix_double2x2.hpp:
+
 /usr/include/glm/ext/matrix_double2x2_precision.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/include/SDL2/SDL_pixels.h:
-
-/usr/include/c++/13/type_traits:
-
-/usr/include/features-time64.h:
-
-/usr/include/glm/ext/matrix_double2x4_precision.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxtileintrin.h:
 
@@ -26614,7 +30011,21 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/vec4.hpp:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
+
+/usr/include/glm/ext/matrix_double3x2.hpp:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ElasticityDeformationData.h:
+
+/usr/include/c++/13/numbers:
+
+/usr/include/glm/ext/matrix_double4x3.hpp:
+
 /usr/include/glm/ext/matrix_double3x2_precision.hpp:
+
+/usr/include/SDL2/SDL_locale.h:
+
+/usr/include/glm/ext/matrix_double3x3.hpp:
 
 /home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp:
 
@@ -26638,11 +30049,19 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/matrix_double4x2_precision.hpp:
 
+/usr/include/alloca.h:
+
+/usr/include/glm/ext/matrix_double4x4.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
 /usr/include/SDL2/SDL_rect.h:
 
 /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Lights/DirectionalLight3D.h:
 
 /usr/include/glm/ext/matrix_double4x4_precision.hpp:
+
+/usr/include/c++/13/optional:
 
 /usr/include/glm/ext/quaternion_common.inl:
 
@@ -26672,8 +30091,6 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/matrix_projection.inl:
 
-/usr/include/inttypes.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/movdirintrin.h:
 
 /usr/include/glm/ext/quaternion_double.hpp:
@@ -26694,19 +30111,15 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/scalar_int_sized.hpp:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/usr/include/glm/ext/scalar_uint_sized.hpp:
-
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h:
+/usr/include/glm/ext/vector_bool1_precision.hpp:
 
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.h:
 
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp:
+
 /usr/include/c++/13/tr1/modified_bessel_func.tcc:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h:
 
 /usr/include/glm/ext/vector_bool2.hpp:
 
@@ -26716,11 +30129,11 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/vector_bool3.hpp:
 
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/13/include/hresetintrin.h:
 
 /usr/include/glm/ext/matrix_float3x2.hpp:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:
 
 /usr/include/glm/ext/vector_bool4.hpp:
 
@@ -26733,6 +30146,10 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imconfig.h:
 
 /usr/include/glm/ext/vector_double2.hpp:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Models/UVManager.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/glm/ext/vector_double4_precision.hpp:
 
@@ -26748,11 +30165,15 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/assimp/matrix3x3.inl:
 
+/usr/include/c++/13/bits/max_size_type.h:
+
 /usr/include/glm/ext/vector_float2_precision.hpp:
 
 /usr/include/glm/ext/vector_relational.hpp:
 
 /usr/include/glm/ext/vector_float3.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/glm/ext/vector_float4_precision.hpp:
 
@@ -26769,6 +30190,10 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 /usr/include/glm/detail/type_quat.inl:
 
 /usr/include/glm/ext/vector_int4.hpp:
+
+/usr/include/c++/13/bits/ranges_algo.h:
+
+/usr/include/glm/ext/vector_int4_sized.hpp:
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp:
 
@@ -26790,29 +30215,37 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/glm/ext/vector_uint2_sized.hpp:
 
+/usr/include/glm/ext/matrix_float2x2.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
 /usr/include/glm/ext/scalar_constants.inl:
 
 /usr/include/glm/ext/vector_uint3_sized.hpp:
 
 /usr/include/glm/fwd.hpp:
 
-/usr/include/pthread.h:
-
-/usr/include/glm/matrix.hpp:
-
-/usr/include/glm/glm.hpp:
-
 /usr/include/c++/13/bits/allocator.h:
 
 /usr/include/glm/gtc/constants.hpp:
 
-/usr/include/glm/gtc/epsilon.inl:
+/usr/include/glm/gtc/constants.inl:
 
 /usr/include/endian.h:
 
 /usr/include/glm/ext/matrix_float4x3_precision.hpp:
 
 /usr/include/glm/gtc/quaternion.hpp:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp:
+
+/usr/include/glm/gtc/quaternion.inl:
+
+/usr/include/glm/matrix.hpp:
+
+/usr/include/glm/glm.hpp:
+
+/usr/include/pthread.h:
 
 /usr/include/glm/gtc/type_ptr.hpp:
 
@@ -26833,10 +30266,6 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 /usr/include/glm/mat3x4.hpp:
 
 /usr/include/glm/mat4x2.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/glm/mat4x3.hpp:
 
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Fluid/LiquidCollisionData.h:
 
@@ -26864,16 +30293,138 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Pr
 
 /usr/include/linux/limits.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+/usr/include/string.h:
+
+/usr/include/c++/13/bits/stl_heap.h:
+
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+
+/usr/include/syscall.h:
+
+/usr/include/time.h:
+
+/usr/include/c++/13/locale:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp:
+
+/usr/include/unistd.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.h:
+
+/usr/include/SDL2/SDL_filesystem.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Button.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/usr/include/SDL2/SDL_guid.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/c++/13/bits/stl_vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/waitpkgintrin.h:
+
+/usr/include/glm/ext/scalar_uint_sized.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+
+/usr/include/x86_64-linux-gnu/bits/locale.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp:
+
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
+
+/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/glm/mat4x3.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/assimp/defs.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
+
+/usr/include/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
+
+/usr/include/x86_64-linux-gnu/bits/syscall.h:
+
+/usr/include/c++/13/ext/type_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/c++/13/cstdio:
 
 /usr/include/math.h:
 
 /usr/include/glm/ext/matrix_float4x4_precision.hpp:
 
-/usr/include/c++/13/cstdio:
-
 /usr/include/setjmp.h:
 
-/usr/include/string.h:
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
-/usr/include/time.h:
+/usr/include/SDL2/SDL_pixels.h:
+
+/usr/include/c++/13/type_traits:
+
+/usr/include/features-time64.h:
+
+/usr/include/glm/ext/matrix_double2x4_precision.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:

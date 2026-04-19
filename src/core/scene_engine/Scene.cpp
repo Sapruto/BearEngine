@@ -21,6 +21,12 @@ void Scene::AddGameObjects(std::vector<std::unique_ptr<GameObject>> objects){
 
 GameObject* Scene::CreateGameObject(){
     auto go = std::make_unique<GameObject>();
+    GameObject* rawPtr = go.get();
+    
+    if (isInitialized) {
+        go->SetHierarchySystem(&hierarchySystem);
+    }
+    
     return AddGameObject(std::move(go));
 }
 
@@ -149,6 +155,13 @@ void Scene::AddSceneEvent(SceneEvent event, TypeSceneEvent typeEvent){
     }
 }
 
-const std::vector<std::unique_ptr<GameObject>>* Scene::GetGameObjects() const{
-    return &gameObjects;
+const std::vector<GameObject*> Scene::GetGameObjects() const {
+    std::vector<GameObject*> result;
+    result.reserve(gameObjects.size());
+    for (const auto& obj : gameObjects) {
+        if (obj) {
+            result.push_back(obj.get());
+        }
+    }
+    return result;
 }

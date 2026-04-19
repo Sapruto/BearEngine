@@ -2,6 +2,8 @@
 
 #include <algorithm>
 
+#include "Component.h"
+
 HierarchyNode* HierarchySystem::FindNode(GameObject* obj){
     auto idIt = objectToId.find(obj);
     if (idIt == objectToId.end()) return nullptr;

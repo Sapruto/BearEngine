@@ -38,9 +38,17 @@ void InputSystem::Initialize(GLFWwindow* window) {
 }
 
 void InputSystem::Update() {
+    glfwPollEvents();
+    
+    if (window) {
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+        mouseX = xpos;
+        mouseY = ypos;
+    }
+    
     for (int i = 0; i < KEY_COUNT; i++) {
         KeyState& state = keyStates[i];
-        
         if (state == KeyState::JustPressed) {
             state = KeyState::Pressed;
         }
@@ -51,7 +59,6 @@ void InputSystem::Update() {
     
     for (int i = 0; i < MOUSE_BUTTON_COUNT; i++) {
         KeyState& state = mouseButtonStates[i];
-        
         if (state == KeyState::JustPressed) {
             state = KeyState::Pressed;
         }
@@ -62,10 +69,7 @@ void InputSystem::Update() {
     
     lastMouseX = mouseX;
     lastMouseY = mouseY;
-    
     mouseScrollX = mouseScrollY = 0;
-    
-    glfwPollEvents();
 }
 
 bool InputSystem::GetKey(Keys key) {

@@ -1,0 +1,409 @@
+resources_pathes {
+}
+
+object {
+    name _0
+    components {
+        Transform3D {
+            fieldPosition 0.000000,2.000000,0.000000
+            fieldScale 0.800000,1.200000,0.800000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _1
+    components {
+        Transform3D {
+            fieldPosition 0.000000,-1.000000,0.000000
+            fieldScale 30.000000,1.000000,30.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _2
+    components {
+        Transform3D {
+            fieldPosition -10.000000,2.000000,-5.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _3
+    components {
+        Transform3D {
+            fieldPosition -5.000000,4.000000,-8.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _4
+    components {
+        Transform3D {
+            fieldPosition 0.000000,6.000000,-5.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _5
+    components {
+        Transform3D {
+            fieldPosition 5.000000,8.000000,-2.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _6
+    components {
+        Transform3D {
+            fieldPosition 10.000000,10.000000,0.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _7
+    components {
+        Transform3D {
+            fieldPosition -8.000000,12.000000,5.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _8
+    components {
+        Transform3D {
+            fieldPosition -3.000000,14.000000,8.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _9
+    components {
+        Transform3D {
+            fieldPosition 3.000000,16.000000,10.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _10
+    components {
+        Transform3D {
+            fieldPosition 9.000000,18.000000,7.000000
+            fieldScale 2.000000,0.500000,2.000000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _11
+    components {
+        Transform3D {
+            fieldPosition -8.000000,3.000000,-3.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _12
+    components {
+        Transform3D {
+            fieldPosition -3.000000,5.000000,-6.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _13
+    components {
+        Transform3D {
+            fieldPosition 2.000000,7.000000,-3.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _14
+    components {
+        Transform3D {
+            fieldPosition 7.000000,9.000000,0.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _15
+    components {
+        Transform3D {
+            fieldPosition 12.000000,11.000000,2.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _16
+    components {
+        Transform3D {
+            fieldPosition -6.000000,13.000000,7.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _17
+    components {
+        Transform3D {
+            fieldPosition 0.000000,15.000000,9.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _18
+    components {
+        Transform3D {
+            fieldPosition 5.000000,17.000000,8.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _19
+    components {
+        Transform3D {
+            fieldPosition 11.000000,19.000000,6.000000
+            fieldScale 0.500000,0.500000,0.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        Polyhedron3D {
+        }
+        PhysicalBody {
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _20
+    components {
+        Transform3D {
+            fieldPosition 3.000000,3.000000,2.000000
+            fieldScale 1.500000,1.500000,1.500000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _21
+    components {
+        Transform3D {
+            fieldPosition -3.000000,2.000000,4.000000
+            fieldScale 1.200000,1.200000,1.200000
+            fieldRotation 0.000000,0.000000,0.000000
+        }
+        ModelComponent {
+        }
+    }
+}
+
+object {
+    name _22
+    components {
+        Image {
+        }
+        Unknown {
+        }
+    }
+}
+
+object {
+    name _23
+    components {
+        Image {
+        }
+        Unknown {
+        }
+    }
+}
+
+object {
+    name _24
+    components {
+        Image {
+        }
+        Unknown {
+        }
+    }
+}
+
+object {
+    name _25
+    components {
+        Text {
+        }
+        Unknown {
+        }
+    }
+}
+

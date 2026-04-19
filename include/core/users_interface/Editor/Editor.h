@@ -1,30 +1,54 @@
 #pragma once
 
-#include "Scene.h"
+#include "SceneDeserializer.h"
 #include "SceneManager.h"
 #include "GraphicsManager.h"
+#include "ResourceManager.h"
+#include "GraphicsUtilits/GraphicsUtilit.h"
+#include "GraphicsUtilits/UI/UtilitUI.h"
+#include "Canvas.h"
+#include "UIRendering.h"
+#include "InputSystem.h"
 
-#include "UtilitUI.h"
+class Inspector;
+class HierarchyViewer;
 
-class Editor{
+struct EditorTools {
+    Inspector* inspector = nullptr;
+    HierarchyViewer* hierarchyViewer = nullptr;
+};
+
+class Editor {
 private:
-    Scene editorScene;
-
+    SceneDeserializer sceneDeserializer;
+    SceneManager sceneManager;
     GraphicsManager graphicsManager;
-
     ResourceManager resources;
 
-    bool isRunEditor{true};
+    Scene* editorScene;
+    Scene* currentGameScene;
+    
+    UtilitUI::EditorUI* editorUI;
+    UIRendering* uiRenderer = nullptr;
+
+    InputSystem& input;
+    
+    bool isRunEditor = true;
+
+    EditorTools tools;
 
 public:
-    void Start(std::string path){
-        UtilitUI::InitGraphics(&graphicsManager, &editorScene, resources);
-    }
-    void Update(){
-        editorScene.UpdateScene();
-    }
+    Editor();
+    bool Start();
+    void Update();
+    void Destroy();
 
-    SceneManager* GetSceneManager() { return &sceneManager; }
+    SceneManager* GetSceneManager();
+    bool IsRunEditor() const;
+    void StopEditor();
 
-    bool IsRunEditor() { return isRunEditor; }
+    Inspector* GetInspector();
+
+    Scene* GetEditorScene();
+    Scene* GetCurrentGameScene();
 };

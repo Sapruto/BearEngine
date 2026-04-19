@@ -483,7 +483,7 @@ int main() {
                 3.0f + sin(time * 0.8f + offset) * 2.0f,
                 cos(time * 0.5f + offset) * 8.0f
             );
-            dynamicLights[i]->SetPosition(pos);
+            dynamicLights[i]->SetLocalPosition(pos);
         }
         
         static bool firstMouse = true;

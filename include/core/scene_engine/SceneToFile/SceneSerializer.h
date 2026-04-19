@@ -7,7 +7,7 @@
 
 class SceneSerializer {
 public:
-    SceneSerializer(const SceneSerializer&) = delete;
+    SceneSerializer() = default;
     ~SceneSerializer();
     
     SceneSerializer& operator=(const SceneSerializer&) = delete;
@@ -15,5 +15,5 @@ public:
     SceneSerializer(SceneSerializer&&) = default;
     SceneSerializer& operator=(SceneSerializer&&) = default;
 
-    static std::string GenerateTextThroughScene(const Scene& scene);
+    std::string GenerateTextThroughScene(const Scene& scene);
 };

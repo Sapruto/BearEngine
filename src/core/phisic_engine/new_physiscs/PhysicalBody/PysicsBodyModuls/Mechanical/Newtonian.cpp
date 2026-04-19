@@ -19,8 +19,14 @@ void ImpulseModule::ApplyArcadyChange(){
         velocity = velocity * (maxSpeed / speed);
     }
 
-    if (fabs(body->GetTransform()->position.x) > worldLimit) {
-        body->GetTransform()->position.x = (body->GetTransform()->position.x > 0) ? worldLimit : -worldLimit;
+    Transform3D* transform = body->GetTransform();
+    if (!transform) return;
+    
+    Vector3 pos = transform->GetLocalPosition();
+    
+    if (fabs(pos.x) > worldLimit) {
+        pos.x = (pos.x > 0) ? worldLimit : -worldLimit;
+        transform->SetLocalPosition(pos);
         velocity.x *= -0.5f;
     }
 }
@@ -61,8 +67,12 @@ void ImpulseModule::UpdateBody(){
     Vector3 acceleration = force_vector / mass; 
 
     velocity += acceleration * deltaTime; 
+        
+    Vector3 localPos = transform->GetLocalPosition();
     
-    transform->position += velocity * deltaTime;
+    localPos += velocity * deltaTime;
+    
+    transform->SetLocalPosition(localPos);
     
     if (mode == ImpulseModuleMode::ARCADY) {
         ApplyArcadyChange();

@@ -86,6 +86,16 @@ public:
         os << "(" << v.x << ", " << v.y << "," << v.z << ")";
         return os;
     }
+
+    static std::string ToString(const Vector3& v) {
+        return std::to_string(v.x) + "," + std::to_string(v.y) + "," + std::to_string(v.z);
+    }
+
+    static Vector3 FromString(const std::string& str) {
+        Vector3 result;
+        sscanf(str.c_str(), "%f,%f,%f", &result.x, &result.y, &result.z);
+        return result;
+    }
 };
 
 inline Vector3 operator+(const Vector3& a, const Vector3& b) {

@@ -1992,6 +1992,150 @@ src/core/system_engine/time_system/Time.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.s
 .PHONY : src/core/system_engine/time_system/Time.cpp.s
 
+src/core/users_interface/Editor/Editor.o: src/core/users_interface/Editor/Editor.cpp.o
+.PHONY : src/core/users_interface/Editor/Editor.o
+
+# target to build an object file
+src/core/users_interface/Editor/Editor.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o
+.PHONY : src/core/users_interface/Editor/Editor.cpp.o
+
+src/core/users_interface/Editor/Editor.i: src/core/users_interface/Editor/Editor.cpp.i
+.PHONY : src/core/users_interface/Editor/Editor.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/Editor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.i
+.PHONY : src/core/users_interface/Editor/Editor.cpp.i
+
+src/core/users_interface/Editor/Editor.s: src/core/users_interface/Editor/Editor.cpp.s
+.PHONY : src/core/users_interface/Editor/Editor.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/Editor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.s
+.PHONY : src/core/users_interface/Editor/Editor.cpp.s
+
+src/core/users_interface/Editor/FileBrowser.o: src/core/users_interface/Editor/FileBrowser.cpp.o
+.PHONY : src/core/users_interface/Editor/FileBrowser.o
+
+# target to build an object file
+src/core/users_interface/Editor/FileBrowser.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o
+.PHONY : src/core/users_interface/Editor/FileBrowser.cpp.o
+
+src/core/users_interface/Editor/FileBrowser.i: src/core/users_interface/Editor/FileBrowser.cpp.i
+.PHONY : src/core/users_interface/Editor/FileBrowser.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/FileBrowser.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.i
+.PHONY : src/core/users_interface/Editor/FileBrowser.cpp.i
+
+src/core/users_interface/Editor/FileBrowser.s: src/core/users_interface/Editor/FileBrowser.cpp.s
+.PHONY : src/core/users_interface/Editor/FileBrowser.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/FileBrowser.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s
+.PHONY : src/core/users_interface/Editor/FileBrowser.cpp.s
+
+src/core/users_interface/Editor/HierarchyViewer.o: src/core/users_interface/Editor/HierarchyViewer.cpp.o
+.PHONY : src/core/users_interface/Editor/HierarchyViewer.o
+
+# target to build an object file
+src/core/users_interface/Editor/HierarchyViewer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o
+.PHONY : src/core/users_interface/Editor/HierarchyViewer.cpp.o
+
+src/core/users_interface/Editor/HierarchyViewer.i: src/core/users_interface/Editor/HierarchyViewer.cpp.i
+.PHONY : src/core/users_interface/Editor/HierarchyViewer.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/HierarchyViewer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.i
+.PHONY : src/core/users_interface/Editor/HierarchyViewer.cpp.i
+
+src/core/users_interface/Editor/HierarchyViewer.s: src/core/users_interface/Editor/HierarchyViewer.cpp.s
+.PHONY : src/core/users_interface/Editor/HierarchyViewer.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/HierarchyViewer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.s
+.PHONY : src/core/users_interface/Editor/HierarchyViewer.cpp.s
+
+src/core/users_interface/Editor/Inspector.o: src/core/users_interface/Editor/Inspector.cpp.o
+.PHONY : src/core/users_interface/Editor/Inspector.o
+
+# target to build an object file
+src/core/users_interface/Editor/Inspector.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o
+.PHONY : src/core/users_interface/Editor/Inspector.cpp.o
+
+src/core/users_interface/Editor/Inspector.i: src/core/users_interface/Editor/Inspector.cpp.i
+.PHONY : src/core/users_interface/Editor/Inspector.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/Inspector.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.i
+.PHONY : src/core/users_interface/Editor/Inspector.cpp.i
+
+src/core/users_interface/Editor/Inspector.s: src/core/users_interface/Editor/Inspector.cpp.s
+.PHONY : src/core/users_interface/Editor/Inspector.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/Inspector.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.s
+.PHONY : src/core/users_interface/Editor/Inspector.cpp.s
+
+src/core/users_interface/Editor/SceneView.o: src/core/users_interface/Editor/SceneView.cpp.o
+.PHONY : src/core/users_interface/Editor/SceneView.o
+
+# target to build an object file
+src/core/users_interface/Editor/SceneView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o
+.PHONY : src/core/users_interface/Editor/SceneView.cpp.o
+
+src/core/users_interface/Editor/SceneView.i: src/core/users_interface/Editor/SceneView.cpp.i
+.PHONY : src/core/users_interface/Editor/SceneView.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/SceneView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.i
+.PHONY : src/core/users_interface/Editor/SceneView.cpp.i
+
+src/core/users_interface/Editor/SceneView.s: src/core/users_interface/Editor/SceneView.cpp.s
+.PHONY : src/core/users_interface/Editor/SceneView.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/SceneView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s
+.PHONY : src/core/users_interface/Editor/SceneView.cpp.s
+
+src/core/users_interface/Editor/Toolbar.o: src/core/users_interface/Editor/Toolbar.cpp.o
+.PHONY : src/core/users_interface/Editor/Toolbar.o
+
+# target to build an object file
+src/core/users_interface/Editor/Toolbar.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o
+.PHONY : src/core/users_interface/Editor/Toolbar.cpp.o
+
+src/core/users_interface/Editor/Toolbar.i: src/core/users_interface/Editor/Toolbar.cpp.i
+.PHONY : src/core/users_interface/Editor/Toolbar.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/Toolbar.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.i
+.PHONY : src/core/users_interface/Editor/Toolbar.cpp.i
+
+src/core/users_interface/Editor/Toolbar.s: src/core/users_interface/Editor/Toolbar.cpp.s
+.PHONY : src/core/users_interface/Editor/Toolbar.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/Toolbar.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s
+.PHONY : src/core/users_interface/Editor/Toolbar.cpp.s
+
 src/dependencies/glad/src/glad.o: src/dependencies/glad/src/glad.c.o
 .PHONY : src/dependencies/glad/src/glad.o
 
@@ -2448,6 +2592,24 @@ help:
 	@echo "... src/core/system_engine/time_system/Time.o"
 	@echo "... src/core/system_engine/time_system/Time.i"
 	@echo "... src/core/system_engine/time_system/Time.s"
+	@echo "... src/core/users_interface/Editor/Editor.o"
+	@echo "... src/core/users_interface/Editor/Editor.i"
+	@echo "... src/core/users_interface/Editor/Editor.s"
+	@echo "... src/core/users_interface/Editor/FileBrowser.o"
+	@echo "... src/core/users_interface/Editor/FileBrowser.i"
+	@echo "... src/core/users_interface/Editor/FileBrowser.s"
+	@echo "... src/core/users_interface/Editor/HierarchyViewer.o"
+	@echo "... src/core/users_interface/Editor/HierarchyViewer.i"
+	@echo "... src/core/users_interface/Editor/HierarchyViewer.s"
+	@echo "... src/core/users_interface/Editor/Inspector.o"
+	@echo "... src/core/users_interface/Editor/Inspector.i"
+	@echo "... src/core/users_interface/Editor/Inspector.s"
+	@echo "... src/core/users_interface/Editor/SceneView.o"
+	@echo "... src/core/users_interface/Editor/SceneView.i"
+	@echo "... src/core/users_interface/Editor/SceneView.s"
+	@echo "... src/core/users_interface/Editor/Toolbar.o"
+	@echo "... src/core/users_interface/Editor/Toolbar.i"
+	@echo "... src/core/users_interface/Editor/Toolbar.s"
 	@echo "... src/dependencies/glad/src/glad.o"
 	@echo "... src/dependencies/glad/src/glad.i"
 	@echo "... src/dependencies/glad/src/glad.s"

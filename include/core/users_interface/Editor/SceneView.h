@@ -1,8 +1,15 @@
 #pragma once
 
+#include "Renderer.h"
+
 class SceneView{
 private:
-    SceneManager* gameSceneManager;
+    Editor* editor;
+    
+    std::sting path;
 
-    SceneViewUI ui;
+public:
+    SceneView(Editor* editor, const std::string& path) : editor(editor), path(path) {}
+
+    void Update();
 };

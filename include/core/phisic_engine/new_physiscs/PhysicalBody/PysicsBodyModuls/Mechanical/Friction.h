@@ -34,7 +34,7 @@ private:
     void CalculateNormal(const T& segments) {
         if(!isValid) return;
         
-        Vector3 bodyPosition = body->GetTransform()->position;
+        const Vector3& bodyPosition = body->GetTransform()->GetPosition();
         
         for(const auto& segment : segments) {
             Vector3 direction = segment.getDirection().normalized();
@@ -67,6 +67,7 @@ private:
     float GetOtherMu(GameObject* otherObject);
 
 public:
+    Friction() = default;
     Friction(float mu);
 
     void Initialize() override;

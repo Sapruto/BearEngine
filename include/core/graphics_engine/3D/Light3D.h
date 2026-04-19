@@ -25,7 +25,7 @@ public:
     Vector3 GetColor() const { return color; }
     float GetIntensity() const { return intensity; }
     
-    void SetPosition(const Vector3& position) { this->position = position; }
+    void SetLocalPosition(const Vector3& position) { this->position = position; }
     void SetColor(const Vector3& color) { this->color = color; }
     void SetIntensity(float intensity) { this->intensity = intensity; }
 };

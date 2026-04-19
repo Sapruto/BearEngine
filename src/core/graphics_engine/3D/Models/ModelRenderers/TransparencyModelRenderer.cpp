@@ -26,8 +26,8 @@ std::vector<ModelComponent*> TransparencyModelRenderer::BuildHierarchy(std::vect
     
     std::sort(sortingLayer.begin(), sortingLayer.end(), 
         [camera](ModelComponent* a, ModelComponent* b) {
-            float distA = a->gameObject->GetComponentOfType<Transform3D>()->position.distanceTo(camera->position);
-            float distB = b->gameObject->GetComponentOfType<Transform3D>()->position.distanceTo(camera->position);
+            float distA = a->gameObject->GetComponentOfType<Transform3D>()->GetPosition().distanceTo(camera->position);
+            float distB = b->gameObject->GetComponentOfType<Transform3D>()->GetPosition().distanceTo(camera->position);
             return distA > distB;
         });
     

@@ -23,6 +23,9 @@ private:
     
 public:
     GameObject() = default;
+    GameObject(const std::string& name){
+        this->name = name;
+    }
     
     virtual ~GameObject();
     

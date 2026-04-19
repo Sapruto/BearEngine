@@ -1,5 +1,6 @@
 #pragma once
 
+#include <string>
 #include <iostream>
 #include <cmath>
 #include "Vector.h"
@@ -94,6 +95,16 @@ public:
     friend std::ostream& operator<<(std::ostream& os, const Vector2& v) {
         os << "(" << v.x << ", " << v.y << ")";
         return os;
+    }
+
+    static std::string ToString(const Vector2& v) {
+        return std::to_string(v.x) + "," + std::to_string(v.y);
+    }
+
+    static Vector2 FromString(const std::string& str) {
+        Vector2 result;
+        sscanf(str.c_str(), "%f,%f", &result.x, &result.y);
+        return result;
     }
 };
 

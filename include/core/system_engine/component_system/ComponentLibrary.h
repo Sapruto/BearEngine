@@ -16,7 +16,9 @@ private:
 public:
     template<typename T>
     static void Register(const std::string& name) {
-        factories[name] = []() { return std::make_unique<T>(); };
+        factories[name] = []() -> std::unique_ptr<Component> { 
+            return std::make_unique<T>();
+        };
         typeToName[typeid(T).name()] = name;
     }
     

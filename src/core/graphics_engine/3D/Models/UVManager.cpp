@@ -5,7 +5,7 @@
 #include "Transform3D.h"
 #include "Camera3D.h"
 
-ObjectUVData UVManager::CalculateObjectUV(ModelComponent* model, Camera3D* camera, float aspect) {
+ObjectUVData UVManager::CalculateObjectUV(ModelComponent* model) {
     ObjectUVData data;
     data.objectID = model->GetID();
     data.isVisible = false;
@@ -29,7 +29,9 @@ ObjectUVData UVManager::CalculateObjectUV(ModelComponent* model, Camera3D* camer
     return data;
 }
 
-void UVManager::UpdateObjectUVWithCamera(ObjectUVData& data, Camera3D* camera, float aspect) {
+void UVManager::UpdateObjectUVWithCamera(ObjectUVData& data) {
+    if(!camera) return;
+
     glm::mat4 mvp = camera->GetProjectionMatrix(aspect) * camera->GetViewMatrix() * data.modelMatrix;
     
     std::vector<Vector2> projectedVertices;
@@ -54,57 +56,48 @@ void UVManager::UpdateObjectUVWithCamera(ObjectUVData& data, Camera3D* camera, f
 }
 
 void UVManager::UpdateUVs(std::vector<ModelComponent*> models, Camera3D* camera, float aspect) {
+    if (this->aspect <= 0.001f || aspect <= 0.001f) {
+        this->aspect = 1.0f; 
+    }
+    else{
+        this->aspect = aspect;
+    }
+
+    if(!camera) return;
+
+    this->camera = camera;
+
     glm::mat4 currentView = camera->GetViewMatrix();
-    glm::mat4 currentProj = camera->GetProjectionMatrix(aspect);
+    glm::mat4 currentProj = camera->GetProjectionMatrix(this->aspect);
     
     if (currentView != m_LastViewMatrix || currentProj != m_LastProjectionMatrix) {
-        m_CameraChanged = true;
         m_LastViewMatrix = currentView;
         m_LastProjectionMatrix = currentProj;
     }
     
     for (auto* model : models) {
-        if (!model) continue;
-        
-        auto it = objectUVs.find(model->GetID());
-        Transform3D* transform = model->gameObject->GetComponentOfType<Transform3D>();
-        
-        bool modelChanged = false;
-        if (it != objectUVs.end()) {
-            if (it->second.modelMatrix != transform->GetMatrix()) {
-                modelChanged = true;
-            }
-        }
-        
-        if (it == objectUVs.end() || m_CameraChanged || modelChanged || m_NeedUpdate) {
-            if (it == objectUVs.end()) {
-                ObjectUVData newData = CalculateObjectUV(model, camera, aspect);
-                if (newData.isVisible) {
-                    UpdateObjectUVWithCamera(newData, camera, aspect);
-                    objectUVs[model->GetID()] = newData;
-                }
-            } 
-            else 
-            {
-                it->second.modelMatrix = transform->GetMatrix();
-                UpdateObjectUVWithCamera(it->second, camera, aspect);
-            }
-        }
-    }
-    
-    m_CameraChanged = false;
-    m_NeedUpdate = false;
-}
+        if(!model) continue;
 
-ObjectUVData UVManager::GetObjectUV(int objectID){
-    auto it = objectUVs.find(objectID);
-    if(it != objectUVs.end()){
-        return it->second;
+        objectUpdateFrameState[model->GetID()] = false;
     }
-    return ObjectUVData();
 }
 
 ObjectUVData UVManager::GetObjectUV(ModelComponent* model){
-    if(!model) return ObjectUVData();
-    return GetObjectUV(model->GetID());
+    if(!model || !camera) return ObjectUVData();
+
+    int id = model->GetID();
+    
+    if(!objectUpdateFrameState[id]){
+        ObjectUVData data = CalculateObjectUV(model);
+        objectUpdateFrameState[id] = true;
+        
+        if (data.isVisible) {
+            UpdateObjectUVWithCamera(data);
+            objectUVs[id] = data;
+        }
+        
+        return data;
+    }
+    
+    return objectUVs[id];
 }

@@ -22,6 +22,8 @@ public:
     };
 
 private:
+    Canvas* canvass{nullptr};
+
     Image* uiElement;
 
     MouseButton mouseButton;
@@ -52,4 +54,6 @@ public:
     void Subscribe(ClickState eventState, EventHandler callback) {
         subscriptions[eventState].push_back(callback);
     }
+
+    void SetCanvas(Canvas* cv) { canvass = cv; }
 };

@@ -84,6 +84,7 @@ private:
 public:
     explicit Polyhedron3D(std::vector<Vector3> newVertices);
 
+    Polyhedron3D() = default;
     ~Polyhedron3D();
 
     void Start() override;

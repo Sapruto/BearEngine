@@ -26,24 +26,23 @@ class Camera3D;
 class UVManager {
 private:
     std::unordered_map<int, ObjectUVData> objectUVs;
-    bool m_NeedUpdate = true;
+    std::unordered_map<int, bool> objectUpdateFrameState;
 
     glm::mat4 m_LastViewMatrix;
     glm::mat4 m_LastProjectionMatrix;
-    bool m_CameraChanged = true;
+
+    Camera3D* camera = nullptr;
+    float aspect = 1.0f;
     
-    ObjectUVData CalculateObjectUV(ModelComponent* model, Camera3D* camera, float aspect);
-    void UpdateObjectUVWithCamera(ObjectUVData& data, Camera3D* camera, float aspect);
+    ObjectUVData CalculateObjectUV(ModelComponent* model);
+    void UpdateObjectUVWithCamera(ObjectUVData& data);
     
 public:
     UVManager() = default;
     
     void UpdateUVs(std::vector<ModelComponent*> models, Camera3D* camera, float aspect);
     
-    ObjectUVData GetObjectUV(int objectID);
     ObjectUVData GetObjectUV(ModelComponent* model);
-    
-    void MarkForUpdate() { m_NeedUpdate = true; }
     
     const std::unordered_map<int, ObjectUVData>& GetAllUVs() const { return objectUVs; }
 };

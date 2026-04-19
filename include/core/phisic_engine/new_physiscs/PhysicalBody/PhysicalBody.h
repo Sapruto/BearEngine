@@ -37,6 +37,7 @@ private:
     void Resort();
 
 public:
+    PhysicalBody() = default;
     PhysicalBody(BaseCollider* collider, float density);
     PhysicalBody(BaseCollider* collider);
     PhysicalBody(BaseCollider* collider, float mass, float volume);

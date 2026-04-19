@@ -14,9 +14,9 @@ private:
     static unsigned int s_NextID;
     unsigned int m_ID;
 
-    ResourceManager& rm;
-    Model* model;
-    ModelRenderer* renderer; 
+    ResourceManager* rm{nullptr};
+    Model* model{nullptr};
+    ModelRenderer* renderer{nullptr}; 
 
     std::string modelPath; 
 
@@ -29,7 +29,8 @@ private:
     void CreateBuffers();
 
 public:
-    ModelComponent(ResourceManager& rm, ModelRenderer& r, const std::string& modelPath, float colorRGB[3]);
+    ModelComponent(ResourceManager& resource, ModelRenderer& r, const std::string& modelPath, float colorRGB[3]);
+    ModelComponent() = default;
     ~ModelComponent() override; 
 
     void SetColor(float colorRGB[3]);   

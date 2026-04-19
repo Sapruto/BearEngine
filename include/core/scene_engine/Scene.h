@@ -64,7 +64,7 @@ public:
         
         return result;
     }
-    const std::vector<std::unique_ptr<GameObject>>* GetGameObjects() const;
+    const std::vector<GameObject*> GetGameObjects() const;
 
     void InitializeScene();
 

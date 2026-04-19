@@ -84,6 +84,12 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/alex/Projects/BearEngine/src/core/system_engine/tags_system/Tag.cpp" "CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o.d"
   "/home/alex/Projects/BearEngine/src/core/system_engine/tags_system/TagManager.cpp" "CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o.d"
   "/home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp" "CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

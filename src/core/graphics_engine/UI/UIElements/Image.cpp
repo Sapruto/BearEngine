@@ -9,7 +9,16 @@
 #include "UIRenderSettings.h"
 #include "UIRect.h"
 
-Image::Image(Texture* tex) : settings(tex) {}
+Image::Image() {
+    settings = UIRenderSettings();
+}
+
+Image::Image(Texture* tex) {
+    UIRenderSettings s;
+    s.texture = tex;
+    settings = s;
+}
+
 
 void Image::CalculateGeometry() { 
     cachedVertices.clear();
@@ -18,21 +27,21 @@ void Image::CalculateGeometry() {
     UIRect rect = rectTransform->GetScreenRect(canvas->GetScreenWidth(), canvas->GetScreenHeight());
     if (rect.width <= 0.0f || rect.height <= 0.0f) return; 
     
-    auto& settings = GetRenderSettings();
+    const UIRenderSettings& s = GetRenderSettings();
     
     unsigned int baseIndex = static_cast<unsigned int>(cachedVertices.size());
     
-    float u1 = settings.uvRect.x;
-    float u2 = u1 + settings.uvRect.width;
-    float v1 = settings.uvRect.y;
-    float v2 = v1 + settings.uvRect.height;
+    float u1 = s.uvRect.x;
+    float u2 = u1 + s.uvRect.width;
+    float v1 = s.uvRect.y;
+    float v2 = v1 + s.uvRect.height;
     
     float x1 = rect.x;
     float x2 = x1 + rect.width;
     float y1 = rect.y;
     float y2 = y1 + rect.height;
     
-    auto& c = settings.color;
+    auto& c = s.color;
     
     cachedVertices.push_back({x1, y1, u1, v1, c.r, c.g, c.b, c.a});
     cachedVertices.push_back({x2, y1, u2, v1, c.r, c.g, c.b, c.a});
@@ -48,21 +57,21 @@ void Image::CalculateGeometry() {
 }
 
 Texture* Image::GetTexture() { 
-    return settings.texture; 
+    return settings.GetValue().texture; 
 }
 
 glm::vec4 Image::GetColor() { 
-    return settings.color; 
+    return settings.GetValue().color; 
 }
 
 void Image::SetTexture(Texture* texture) { 
-    settings.texture = texture; 
+    settings.GetValue().texture = texture; 
 }
 
 void Image::SetColor(glm::vec4 color) { 
-    settings.color = color; 
+    settings.GetValue().color = color; 
 }
 
 const UIRenderSettings& Image::GetRenderSettings() const{
-    return settings;
+    return settings.GetValue();
 }

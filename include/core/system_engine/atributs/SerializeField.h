@@ -6,6 +6,10 @@
 #include <type_traits>
 #include <memory>
 
+#include "Vector3.h"
+#include "Vector2.h"
+#include "UIRenderSettings.h"
+
 class SerializedFieldBase {
 public:
     virtual ~SerializedFieldBase() = default;
@@ -37,15 +41,27 @@ public:
     std::string ToString() const override {
         if constexpr (std::is_same_v<T, std::string>) return value;
         else if constexpr (std::is_same_v<T, bool>) return value ? "true" : "false";
+        else if constexpr (std::is_same_v<T, Vector3>) {
+            return std::to_string(value.x) + "," + std::to_string(value.y) + "," + std::to_string(value.z);
+        }
+        else if constexpr (std::is_same_v<T, Vector2>) {
+            return std::to_string(value.x) + "," + std::to_string(value.y);
+        }
+        else if constexpr (std::is_same_v<T, UIRenderSettings>) {
+            return value.ToString();
+        }
         else return std::to_string(value);
     }
-    
+
     void FromString(const std::string& str) override {
         if constexpr (std::is_same_v<T, std::string>) value = str;
         else if constexpr (std::is_same_v<T, int>) value = std::stoi(str);
         else if constexpr (std::is_same_v<T, float>) value = std::stof(str);
         else if constexpr (std::is_same_v<T, double>) value = std::stod(str);
         else if constexpr (std::is_same_v<T, bool>) value = (str == "true" || str == "1");
+        else if constexpr (std::is_same_v<T, Vector3>) value = Vector3::FromString(str);
+        else if constexpr (std::is_same_v<T, Vector2>) value = Vector2::FromString(str);
+        else if constexpr (std::is_same_v<T, UIRenderSettings>) value = UIRenderSettings::FromString(str);
     }
 
     std::string GetName() const override { return fieldName; }
@@ -65,11 +81,11 @@ public:
     SerializedField<type> name {#name};
 
 #define SERIALIZED_FIELDS(...) \
-    std::vector<SerializedFieldBase*> GetSerializedFields() override { \
-        return { __VA_ARGS__ }; \
+    std::vector<SerializedFieldBase*> GetSerializedFields() { \
+        return std::vector<SerializedFieldBase*>{ __VA_ARGS__ }; \
     } \
-    std::vector<const SerializedFieldBase*> GetSerializedFields() const override { \
-        return { __VA_ARGS__ }; \
+    std::vector<const SerializedFieldBase*> GetSerializedFields() const { \
+        return std::vector<const SerializedFieldBase*>{ __VA_ARGS__ }; \
     }
 
 #define REGISTER_FIELD(field) field {#field}

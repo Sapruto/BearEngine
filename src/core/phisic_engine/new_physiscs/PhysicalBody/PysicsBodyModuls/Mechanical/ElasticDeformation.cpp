@@ -20,7 +20,7 @@ void ElasticDeformation::ApplyTransformToBindingPoints(){
     if (!transform) return;
 
     for (auto& [index, data] : points) {
-        data.currentWorld = data.localPos + transform->position;
+        data.currentWorld = data.localPos + transform->GetPosition();
         
         if (!data.isChanged) {
             data.targetWorld = data.currentWorld;
