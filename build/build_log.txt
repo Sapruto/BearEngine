@@ -24,6 +24,6 @@ This warning is for project developers.  Use -Wno-dev to suppress it.
 -- GLM: /home/alex/Projects/BearEngine/src/dependencies/glm
 -- ImGui language: C++ (forced)
 -- ========================================
--- Configuring done (0.5s)
+-- Configuring done (1.2s)
 -- Generating done (0.0s)
 -- Build files have been written to: /home/alex/Projects/BearEngine/build

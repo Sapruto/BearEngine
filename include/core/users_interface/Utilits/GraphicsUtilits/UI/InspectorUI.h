@@ -93,127 +93,124 @@ namespace UtilitUI {
             helperObjects.clear();
         }
 
-    void CreateObjectComponents(GameObject* currentGameObject, 
-                                std::unordered_map<GameObject*, DrawComponentData>& inspectorObjects) {
-        if (!currentGameObject || !scene || !isLoaded) return;
-        
-        GameObject* headerGO = scene->CreateGameObject();
-        helperObjects.push_back(headerGO);
-        
-        Image* headerBg = UtilitUI::AddImage(headerGO, buttonTexture,
-            Vector2(-300, 500), Vector2(400, 40),
-            Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-            glm::vec4(0.3f, 0.3f, 0.35f, 1.0f));
-        headerBg->SetLayer(Layers::InspectorButton);
-        canvas->AddUIElement(headerBg);
-        
-        Text* headerText = UtilitUI::AddTextWithAnchors(headerGO, inspectorFont, 
-            "Inspector: " + currentGameObject->GetName(),
-            Vector2(-300, 505), Vector2(380, 30),
-            Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-            glm::vec4(1.0f));
-        headerText->SetLayer(Layers::InspectorText);
-        canvas->AddUIElement(headerText);
-        
-        GameObject* addBtnGO = scene->CreateGameObject();
-        helperObjects.push_back(addBtnGO);
-        
-        Image* addBtnBg = UtilitUI::AddImage(addBtnGO, buttonTexture,
-            Vector2(-300, 450), Vector2(150, 30),
-            Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-            glm::vec4(0.2f, 0.6f, 0.2f, 1.0f));
-        addBtnBg->SetLayer(Layers::InspectorButton);
-        canvas->AddUIElement(addBtnBg);
-        
-        Text* addBtnText = UtilitUI::AddTextWithAnchors(addBtnGO, inspectorFont, "+ Add Component",
-            Vector2(-300, 455), Vector2(140, 25),
-            Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-            glm::vec4(1.0f));
-        addBtnText->SetLayer(Layers::InspectorText);
-        canvas->AddUIElement(addBtnText);
-        
-        Button* addButton = addBtnGO->AddComponent<Button>();
-        addButton->SetUIElement(addBtnBg);
-        addButton->SetCanvas(canvas);
-        
-        int index = 0;
-        float yOffset = 400;
-        for (auto& [obj, data] : inspectorObjects) {
-            if (obj == activeInputObject) continue;
+        void CreateObjectComponents(GameObject* currentGameObject, 
+                                    std::unordered_map<GameObject*, DrawComponentData>& inspectorObjects) {
+            if (!currentGameObject || !scene || !isLoaded) return;
             
-            float currentY = yOffset - (index * 100);
+            GameObject* headerGO = scene->CreateGameObject();
+            helperObjects.push_back(headerGO);
             
-            Image* compBg = UtilitUI::AddImage(obj, componentBgTexture,
-                Vector2(-300, currentY), Vector2(400, 80),
+            Image* headerBg = UtilitUI::AddImage(headerGO, buttonTexture,
+                Vector2(-300, 500), Vector2(400, 40),
                 Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-                glm::vec4(0.25f, 0.25f, 0.3f, 1.0f));
-            compBg->SetLayer(Layers::InspectorButton);
-            canvas->AddUIElement(compBg);
+                glm::vec4(0.3f, 0.3f, 0.35f, 1.0f));
+            headerBg->SetLayer(Layers::InspectorButton);
+            canvas->AddUIElement(headerBg);
             
-            Text* compName = UtilitUI::AddTextWithAnchors(obj, inspectorFont, data.componentName,
-                Vector2(-280, currentY + 25), Vector2(200, 25),
-                Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-                glm::vec4(0.9f, 0.9f, 1.0f, 1.0f));
-            compName->SetLayer(Layers::InspectorText);
-            canvas->AddUIElement(compName);
-            
-            GameObject* removeBtnGO = scene->CreateGameObject();
-            helperObjects.push_back(removeBtnGO);
-            
-            Image* removeBg = UtilitUI::AddImage(removeBtnGO, buttonTexture,
-                Vector2(50, currentY + 25), Vector2(60, 25),
-                Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-                glm::vec4(0.7f, 0.2f, 0.2f, 1.0f));
-            removeBg->SetLayer(Layers::InspectorButton);
-            canvas->AddUIElement(removeBg);
-            
-            Text* removeText = UtilitUI::AddTextWithAnchors(removeBtnGO, inspectorFont, "X",
-                Vector2(50, currentY + 28), Vector2(60, 20),
+            Text* headerText = UtilitUI::AddTextWithAnchors(headerGO, inspectorFont, 
+                "Inspector: " + currentGameObject->GetName(),
+                Vector2(-300, 505), Vector2(380, 30),
                 Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
                 glm::vec4(1.0f));
-            removeText->SetLayer(Layers::InspectorText);
-            canvas->AddUIElement(removeText);
+            headerText->SetLayer(Layers::InspectorText);
+            canvas->AddUIElement(headerText);
             
-            Button* removeButton = removeBtnGO->AddComponent<Button>();
-            removeButton->SetUIElement(removeBg);
-            removeButton->SetCanvas(canvas);
+            GameObject* addBtnGO = scene->CreateGameObject();
+            helperObjects.push_back(addBtnGO);
             
-            float paramY = currentY - 10;
-            for (auto& [paramName, paramValue] : data.nameToParams) {
-                paramY -= 30;
+            Image* addBtnBg = UtilitUI::AddImage(addBtnGO, buttonTexture,
+                Vector2(-300, 450), Vector2(150, 30),
+                Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
+                glm::vec4(0.2f, 0.6f, 0.2f, 1.0f));
+            addBtnBg->SetLayer(Layers::InspectorButton);
+            canvas->AddUIElement(addBtnBg);
+            
+            Text* addBtnText = UtilitUI::AddTextWithAnchors(addBtnGO, inspectorFont, "+ Add Component",
+                Vector2(-300, 455), Vector2(140, 25),
+                Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
+                glm::vec4(1.0f));
+            addBtnText->SetLayer(Layers::InspectorText);
+            canvas->AddUIElement(addBtnText);
+            
+            Button* addButton = addBtnGO->AddComponent<Button>();
+            addButton->SetUIElement(addBtnBg);
+            addButton->SetCanvas(canvas);
+            
+            float yOffset = 400;
+            for (auto& [obj, data] : inspectorObjects) {
+                if (obj == activeInputObject) continue;
                 
-                Text* paramText = UtilitUI::AddTextWithAnchors(obj, inspectorFont, paramName + ":",
-                    Vector2(-280, paramY), Vector2(120, 25),
+                Image* compBg = UtilitUI::AddImage(obj, componentBgTexture,
+                    Vector2(-300, yOffset), Vector2(400, 80),
                     Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-                    glm::vec4(0.7f, 0.7f, 0.7f, 1.0f));
-                paramText->SetLayer(Layers::InspectorText);
-                canvas->AddUIElement(paramText);
+                    glm::vec4(0.25f, 0.25f, 0.3f, 1.0f));
+                compBg->SetLayer(Layers::InspectorButton);
+                canvas->AddUIElement(compBg);
                 
-                GameObject* valueBtnGO = scene->CreateGameObject();
-                helperObjects.push_back(valueBtnGO);
-                
-                Image* valueBg = UtilitUI::AddImage(valueBtnGO, inputBgTexture,
-                    Vector2(-140, paramY), Vector2(200, 25),
+                Text* compName = UtilitUI::AddTextWithAnchors(obj, inspectorFont, data.componentName,
+                    Vector2(-280, yOffset + 25), Vector2(200, 25),
                     Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
-                    glm::vec4(0.15f, 0.15f, 0.2f, 1.0f));
-                valueBg->SetLayer(Layers::InspectorButton);
-                canvas->AddUIElement(valueBg);
+                    glm::vec4(0.9f, 0.9f, 1.0f, 1.0f));
+                compName->SetLayer(Layers::InspectorText);
+                canvas->AddUIElement(compName);
                 
-                Text* valueText = UtilitUI::AddTextWithAnchors(valueBtnGO, inspectorFont, paramValue,
-                    Vector2(-140, paramY + 3), Vector2(190, 20),
+                GameObject* removeBtnGO = scene->CreateGameObject();
+                helperObjects.push_back(removeBtnGO);
+                
+                Image* removeBg = UtilitUI::AddImage(removeBtnGO, buttonTexture,
+                    Vector2(50, yOffset + 25), Vector2(60, 25),
+                    Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
+                    glm::vec4(0.7f, 0.2f, 0.2f, 1.0f));
+                removeBg->SetLayer(Layers::InspectorButton);
+                canvas->AddUIElement(removeBg);
+                
+                Text* removeText = UtilitUI::AddTextWithAnchors(removeBtnGO, inspectorFont, "X",
+                    Vector2(50, yOffset + 28), Vector2(60, 20),
                     Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
                     glm::vec4(1.0f));
-                valueText->SetLayer(Layers::InspectorText);
-                canvas->AddUIElement(valueText);
+                removeText->SetLayer(Layers::InspectorText);
+                canvas->AddUIElement(removeText);
                 
-                Button* valueButton = valueBtnGO->AddComponent<Button>();
-                valueButton->SetUIElement(valueBg);
-                valueButton->SetCanvas(canvas);
+                Button* removeButton = removeBtnGO->AddComponent<Button>();
+                removeButton->SetUIElement(removeBg);
+                removeButton->SetCanvas(canvas);
+                
+                float paramY = yOffset - 10;
+                for (auto& [paramName, paramValue] : data.nameToParams) {
+                    paramY -= 30;
+                    
+                    Text* paramText = UtilitUI::AddTextWithAnchors(obj, inspectorFont, paramName + ":",
+                        Vector2(-280, paramY), Vector2(120, 25),
+                        Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
+                        glm::vec4(0.7f, 0.7f, 0.7f, 1.0f));
+                    paramText->SetLayer(Layers::InspectorText);
+                    canvas->AddUIElement(paramText);
+                    
+                    GameObject* valueBtnGO = scene->CreateGameObject();
+                    helperObjects.push_back(valueBtnGO);
+                    
+                    Image* valueBg = UtilitUI::AddImage(valueBtnGO, inputBgTexture,
+                        Vector2(-140, paramY), Vector2(200, 25),
+                        Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
+                        glm::vec4(0.15f, 0.15f, 0.2f, 1.0f));
+                    valueBg->SetLayer(Layers::InspectorButton);
+                    canvas->AddUIElement(valueBg);
+                    
+                    Text* valueText = UtilitUI::AddTextWithAnchors(valueBtnGO, inspectorFont, paramValue,
+                        Vector2(-140, paramY + 3), Vector2(190, 20),
+                        Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
+                        glm::vec4(1.0f));
+                    valueText->SetLayer(Layers::InspectorText);
+                    canvas->AddUIElement(valueText);
+                    
+                    Button* valueButton = valueBtnGO->AddComponent<Button>();
+                    valueButton->SetUIElement(valueBg);
+                    valueButton->SetCanvas(canvas);
+                }
+                
+                yOffset -= 100;
             }
-            
-            index++;
         }
-    }
 
         void CreateAllComponents(GameObject* currentGameObject, std::vector<std::string>& componentNames) {
             if (!currentGameObject || !scene || !isLoaded) return;

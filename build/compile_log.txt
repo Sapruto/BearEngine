@@ -3,10 +3,10 @@
 [ 11%] Built target imgui_lib
 [ 12%] Linking CXX static library libstb_lib.a
 [ 12%] Built target stb_lib
-[ 13%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o
 [ 14%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o
-[ 15%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
-[ 16%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o
+[ 14%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o
+[ 15%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o
+[ 16%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
 In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:3,
@@ -21,7 +21,8 @@ In file included from /home/alex/Projects/BearEngine/include/core/graphics_engin
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:3,
                  from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:3,
-                 from /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp:1:
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/HierarchyViewer.h:3,
+                 from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:1:
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
    28 |     virtual void OnCollisionEnter(GameObject* other){}
@@ -30,8 +31,7 @@ In file included from /home/alex/Projects/BearEngine/include/core/graphics_engin
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:3,
                  from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/HierarchyViewer.h:3,
-                 from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:1:
+                 from /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp:1:
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
    28 |     virtual void OnCollisionEnter(GameObject* other){}
@@ -83,6 +83,8 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
 /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:84:77: warning: unused parameter ‘loadResources’ [-Wunused-parameter]
    84 |     void LoadResources(const std::unordered_map<std::string, ResourceType>& loadResources){
       |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:21:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:39:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
    39 |         ResourceManager* resources{nullptr};
@@ -93,8 +95,6 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:56:9: warning:   when initialized here [-Wreorder]
    56 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
       |         ^~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:21:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:39:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
    39 |         ResourceManager* resources{nullptr};
@@ -149,60 +149,6 @@ In file included from /home/alex/Projects/BearEngine/include/core/system_engine/
 /home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
    70 |         static std::type_index typeIdx = typeid(T);
       |                                ^~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:5:
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<Vector2>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘Vector2 SerializedField<Vector2>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = float; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<float>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘float SerializedField<float>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:30:70:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   70 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:7,
                  from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:6:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h: In function ‘bool UtilitGraphic::InitGraphics(GraphicsManager*, ResourceManager&)’:
@@ -218,11 +164,17 @@ In file included from /home/alex/Projects/BearEngine/include/core/users_interfac
 /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:49:12: warning: unused variable ‘currentCount’ [-Wunused-variable]
    49 |     size_t currentCount = currentGameScene->GetGameObjects().size();
       |            ^~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:7:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h: In function ‘bool UtilitGraphic::InitGraphics(GraphicsManager*, ResourceManager&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h:10:69: warning: unused parameter ‘resources’ [-Wunused-parameter]
-   10 |     inline bool InitGraphics(GraphicsManager* mgr, ResourceManager& resources) {
-      |                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
@@ -266,6 +218,54 @@ In file included from /home/alex/Projects/BearEngine/include/core/system_engine/
 /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
    28 |     SerializedField(const std::string& name, const T& defaultValue = T())
       |     ^~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:5:
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<Vector2>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘Vector2 SerializedField<Vector2>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = float; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:15:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<float>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘float SerializedField<float>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:30:70:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
+   70 |         static std::type_index typeIdx = typeid(T);
+      |                                ^~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:7:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h: In function ‘bool UtilitGraphic::InitGraphics(GraphicsManager*, ResourceManager&)’:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h:10:69: warning: unused parameter ‘resources’ [-Wunused-parameter]
+   10 |     inline bool InitGraphics(GraphicsManager* mgr, ResourceManager& resources) {
+      |                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~
 /home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Image]’:
 /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp:56:47:   required from here
 /home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
