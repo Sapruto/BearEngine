@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GraphicsUtilits/UI/UtilitUI.h"
+#include "GraphicsUtilits/UI/InspectorUI.h"
 #include "UtilData/DrawComponentData.h"
 
 #include "GameObject.h"
@@ -21,7 +21,7 @@ private:
 
     UtilitUI::InspectorUI* ui{nullptr};
 
-    bool gameObjectIsChanged{false};
+    void ClearInspector();
 
 public:
     Inspector(Scene* scene, UtilitUI::InspectorUI* ui) : scene(scene), ui(ui) {}

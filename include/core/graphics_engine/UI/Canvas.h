@@ -63,6 +63,8 @@ public:
             UIElement* element = uiElements[i];
             if(!element || !element->rectTransform) continue;
             
+            if(!element->GetVisible()) continue;
+
             UIRect rect = element->rectTransform->GetScreenRect(screenWidth, screenHeight);
             
             if(pos.x >= rect.x && pos.x <= rect.x + rect.width &&

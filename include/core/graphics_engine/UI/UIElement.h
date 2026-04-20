@@ -17,6 +17,8 @@ protected:
 
     int layer{0};
 
+    bool isVisible{true};
+
     virtual void CalculateGeometry() = 0;
 
 public:
@@ -41,12 +43,14 @@ public:
 
     virtual const UIRenderSettings& GetRenderSettings() const = 0;
 
+    bool GetVisible() const { return isVisible; }
     int GetLayer() const { return layer; }
     Canvas* GetCanvas() const { return canvas; }
 
     const std::vector<UIVertex>& GetUIVertices() const { return cachedVertices; }
     const std::vector<unsigned int>& GetUIIndices() const { return cachedIndices; }
 
+    void SetVisible(bool newVisible) { isVisible = newVisible; }
     void SetLayer(int newLayer) { layer = newLayer; }
     void SetCanvas(Canvas* newCanvas) { canvas = newCanvas; }
 };

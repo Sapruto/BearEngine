@@ -1,5 +1,5 @@
 #include "HierarchyViewer.h"
-#include "GraphicsUtilits/UI/UtilitUI.h"
+#include "GraphicsUtilits/UI/HierarchyViewerUI.h"
 #include "GameObject.h"
 #include "Scene.h"
 #include "Button.h"
@@ -28,15 +28,7 @@ void HierarchyViewer::StartHierarchy() {
     
     int index = 0;
     for (auto* gameObject : currentGameScene->GetGameObjects()) {
-        GameObject* uiObject = ui->CreateUIObject(gameObject, index);
-        
-        Button* btn = uiObject->GetComponentOfType<Button>();
-        if (btn) {
-            btn->Subscribe(Button::ClickState::JustPressed, [this, gameObject]() {
-                editor->GetInspector()->SetObject(gameObject);
-                editor->GetInspector()->StartInspectOfObject();
-            });
-        }
+        GameObject* uiObject = ui->CreateUIObject(gameObject, index, editor->GetInspector());
         
         hierarchyItems[gameObject] = {uiObject};
         editor->GetEditorScene()->AddGameObject(std::unique_ptr<GameObject>(uiObject));

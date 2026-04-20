@@ -90,6 +90,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o.d"
   "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o.d"
   "/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp" "CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o.d"
+  "/home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp" "CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o" "gcc" "CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

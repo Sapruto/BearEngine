@@ -163,6 +163,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o.d"
   "CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o"
   "CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o.d"
+  "CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o"
+  "CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o.d"
   "game"
   "game.pdb"
 )

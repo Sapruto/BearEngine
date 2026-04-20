@@ -5,6 +5,7 @@
 
 #include "UIElement.h"
 #include "Font.h"
+#include "Canvas.h"
 
 class Text : public UIElement {
 private:
@@ -34,7 +35,10 @@ public:
         settings.texture = const_cast<Texture*>(newFont.GetAtlas());
     }
 
-    void SetColor(glm::vec4 color) { settings.color = color; }
+    void SetColor(glm::vec4 newColor) { 
+        color = newColor;
+        settings.color = newColor;
+    }
 
     glm::vec4 GetColor() const { return settings.color; }
     const std::string& GetText() const { return text; }

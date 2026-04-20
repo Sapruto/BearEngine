@@ -51,6 +51,9 @@ public:
     
     double GetMouseX();
     double GetMouseY();
+
+    double GetMouseScrollX() { return mouseScrollX; }
+    double GetMouseScrollY() { return mouseScrollY; }
     
 private:
     KeyState& GetKeyState(int keyCode);

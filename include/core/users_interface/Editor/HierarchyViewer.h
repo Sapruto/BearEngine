@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GraphicsUtilits/UI/UtilitUI.h"
+#include "GraphicsUtilits/UI/HierarchyViewerUI.h"
 #include "Component.h"
 
 #include <memory>

@@ -14,6 +14,8 @@
 
 #include "Time.h"
 
+#include "Font.h"
+
 Editor::Editor() 
     : sceneDeserializer()
     , sceneManager(sceneDeserializer)
@@ -24,6 +26,8 @@ bool Editor::Start() {
     if (!UtilitGraphic::InitGraphics(&graphicsManager, resources)) {
         return false;
     }
+
+    Font::InitFreeType();
     
     uiRenderer = graphicsManager.AddRender<UIRendering>();
     

@@ -1,41 +1,37 @@
-[  1%] Building CXX object CMakeFiles/stb_lib.dir/stb_impl.cpp.o
-[  3%] Built target glad_lib
+[  2%] Built target glad_lib
+[  3%] Building CXX object CMakeFiles/stb_lib.dir/stb_impl.cpp.o
 [ 11%] Built target imgui_lib
 [ 12%] Linking CXX static library libstb_lib.a
 [ 12%] Built target stb_lib
-[ 13%] Building CXX object CMakeFiles/game.dir/main.cpp.o
-[ 14%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o
-[ 15%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o
+[ 13%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o
+[ 14%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o
+[ 15%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
 [ 16%] Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o
-In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:6,
-                 from /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h:7,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:3,
-                 from /home/alex/Projects/BearEngine/main.cpp:1:
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h: In member function ‘virtual void SceneEvent::OnCollisionEnter(Scene*)’:
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:38:42: warning: unused parameter ‘other’ [-Wunused-parameter]
-   38 |     virtual void OnCollisionEnter(Scene* other) {
-      |                                   ~~~~~~~^~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
                  from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/HierarchyViewer.h:3,
-                 from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:1:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
-   28 |     virtual void OnCollisionEnter(GameObject* other){}
-      |                                   ~~~~~~~~~~~~^~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:8:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
-   28 |     virtual void OnCollisionEnter(GameObject* other){}
-      |                                   ~~~~~~~~~~~~^~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:3,
                  from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h:3,
                  from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   28 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:3,
+                 from /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp:1:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
+   28 |     virtual void OnCollisionEnter(GameObject* other){}
+      |                                   ~~~~~~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/RenderComponent.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Renderer.h:5,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/HierarchyViewer.h:3,
+                 from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:1:
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
    28 |     virtual void OnCollisionEnter(GameObject* other){}
@@ -53,18 +49,20 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
 /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:28:47: warning: unused parameter ‘other’ [-Wunused-parameter]
    28 |     virtual void OnCollisionEnter(GameObject* other){}
       |                                   ~~~~~~~~~~~~^~~~~
-/home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h: In member function ‘void Scene::LoadResources(const std::unordered_map<std::__cxx11::basic_string<char>, ResourceType>&)’:
-/home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:84:77: warning: unused parameter ‘loadResources’ [-Wunused-parameter]
-   84 |     void LoadResources(const std::unordered_map<std::string, ResourceType>& loadResources){
-      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:6,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:12:
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:12:
 /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h: In member function ‘virtual void SceneEvent::OnCollisionEnter(Scene*)’:
 /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:38:42: warning: unused parameter ‘other’ [-Wunused-parameter]
    38 |     virtual void OnCollisionEnter(Scene* other) {
       |                                   ~~~~~~~^~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:6,
-                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:12:
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:12:
+/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h: In member function ‘virtual void SceneEvent::OnCollisionEnter(Scene*)’:
+/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:38:42: warning: unused parameter ‘other’ [-Wunused-parameter]
+   38 |     virtual void OnCollisionEnter(Scene* other) {
+      |                                   ~~~~~~~^~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:6,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:12:
 /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h: In member function ‘virtual void SceneEvent::OnCollisionEnter(Scene*)’:
 /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:38:42: warning: unused parameter ‘other’ [-Wunused-parameter]
    38 |     virtual void OnCollisionEnter(Scene* other) {
@@ -77,297 +75,158 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
 /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:84:77: warning: unused parameter ‘loadResources’ [-Wunused-parameter]
    84 |     void LoadResources(const std::unordered_map<std::string, ResourceType>& loadResources){
       |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘GameObject* UtilitUI::HierarchyViewerUI::CreateUIObject(GameObject*, int)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:136:18: warning: unused variable ‘tag’ [-Wunused-variable]
-  136 |             Tag* tag = obj->AddComponent<Tag>(AllTags::HierarchyViewerUI);
-      |                  ^~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:220:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
-  220 |         ResourceManager* resources{nullptr};
-      |                          ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:219:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
-  219 |         Scene* scene{nullptr};
-      |                ^~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:229:9: warning:   when initialized here [-Wreorder]
-  229 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
-      |         ^~~~~~~~~~~
 /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h: In member function ‘void Scene::LoadResources(const std::unordered_map<std::__cxx11::basic_string<char>, ResourceType>&)’:
 /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:84:77: warning: unused parameter ‘loadResources’ [-Wunused-parameter]
    84 |     void LoadResources(const std::unordered_map<std::string, ResourceType>& loadResources){
       |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:7:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h: In function ‘bool UtilitGraphic::InitGraphics(GraphicsManager*, ResourceManager&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h:10:69: warning: unused parameter ‘resources’ [-Wunused-parameter]
-   10 |     inline bool InitGraphics(GraphicsManager* mgr, ResourceManager& resources) {
-      |                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘GameObject* UtilitUI::HierarchyViewerUI::CreateUIObject(GameObject*, int)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:136:18: warning: unused variable ‘tag’ [-Wunused-variable]
-  136 |             Tag* tag = obj->AddComponent<Tag>(AllTags::HierarchyViewerUI);
-      |                  ^~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:220:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
-  220 |         ResourceManager* resources{nullptr};
+/home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h: In member function ‘void Scene::LoadResources(const std::unordered_map<std::__cxx11::basic_string<char>, ResourceType>&)’:
+/home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:84:77: warning: unused parameter ‘loadResources’ [-Wunused-parameter]
+   84 |     void LoadResources(const std::unordered_map<std::string, ResourceType>& loadResources){
+      |                        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:39:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
+   39 |         ResourceManager* resources{nullptr};
       |                          ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:219:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
-  219 |         Scene* scene{nullptr};
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:38:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
+   38 |         Scene* scene{nullptr};
       |                ^~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:229:9: warning:   when initialized here [-Wreorder]
-  229 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:56:9: warning:   when initialized here [-Wreorder]
+   56 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
       |         ^~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowObjectComponents(GameObject*, std::unordered_map<GameObject*, DrawComponentData>&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:317:27: warning: unused variable ‘paramText’ [-Wunused-variable]
-  317 |                     Text* paramText = UtilitUI::AddText(compGO, inspectorFont, paramName + ":",
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:327:27: warning: unused variable ‘valueText’ [-Wunused-variable]
-  327 |                     Text* valueText = UtilitUI::AddText(valueBtnGO, inspectorFont, paramValue,
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:291:24: warning: unused variable ‘compBg’ [-Wunused-variable]
-  291 |                 Image* compBg = UtilitUI::AddImage(compGO, componentBgTexture,
-      |                        ^~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:296:23: warning: unused variable ‘compName’ [-Wunused-variable]
-  296 |                 Text* compName = UtilitUI::AddText(compGO, inspectorFont, data.componentName,
-      |                       ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:306:23: warning: unused variable ‘removeText’ [-Wunused-variable]
-  306 |                 Text* removeText = UtilitUI::AddText(removeBtnGO, inspectorFont, "X",
-      |                       ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:263:20: warning: unused variable ‘headerBg’ [-Wunused-variable]
-  263 |             Image* headerBg = UtilitUI::AddImage(headerGO, buttonTexture,
-      |                    ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:268:19: warning: unused variable ‘headerText’ [-Wunused-variable]
-  268 |             Text* headerText = UtilitUI::AddText(headerGO, inspectorFont,
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:279:19: warning: unused variable ‘addBtnText’ [-Wunused-variable]
-  279 |             Text* addBtnText = UtilitUI::AddText(addBtnGO, inspectorFont, "+ Add Component",
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowAllComponents(GameObject*, std::vector<std::__cxx11::basic_string<char> >&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:353:23: warning: unused variable ‘btnText’ [-Wunused-variable]
-  353 |                 Text* btnText = UtilitUI::AddText(compBtnGO, inspectorFont, componentNames[i],
-      |                       ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowComponentSettings(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:366:20: warning: unused variable ‘settingsBg’ [-Wunused-variable]
-  366 |             Image* settingsBg = UtilitUI::AddImage(settingsGO, buttonTexture,
-      |                    ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:371:19: warning: unused variable ‘titleText’ [-Wunused-variable]
-  371 |             Text* titleText = UtilitUI::AddText(settingsGO, inspectorFont, "Component Settings",
-      |                   ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:381:19: warning: unused variable ‘closeText’ [-Wunused-variable]
-  381 |             Text* closeText = UtilitUI::AddText(closeBtnGO, inspectorFont, "X",
-      |                   ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowObjectComponents(GameObject*, std::unordered_map<GameObject*, DrawComponentData>&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:317:27: warning: unused variable ‘paramText’ [-Wunused-variable]
-  317 |                     Text* paramText = UtilitUI::AddText(compGO, inspectorFont, paramName + ":",
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:327:27: warning: unused variable ‘valueText’ [-Wunused-variable]
-  327 |                     Text* valueText = UtilitUI::AddText(valueBtnGO, inspectorFont, paramValue,
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:291:24: warning: unused variable ‘compBg’ [-Wunused-variable]
-  291 |                 Image* compBg = UtilitUI::AddImage(compGO, componentBgTexture,
-      |                        ^~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:296:23: warning: unused variable ‘compName’ [-Wunused-variable]
-  296 |                 Text* compName = UtilitUI::AddText(compGO, inspectorFont, data.componentName,
-      |                       ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:306:23: warning: unused variable ‘removeText’ [-Wunused-variable]
-  306 |                 Text* removeText = UtilitUI::AddText(removeBtnGO, inspectorFont, "X",
-      |                       ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:263:20: warning: unused variable ‘headerBg’ [-Wunused-variable]
-  263 |             Image* headerBg = UtilitUI::AddImage(headerGO, buttonTexture,
-      |                    ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:268:19: warning: unused variable ‘headerText’ [-Wunused-variable]
-  268 |             Text* headerText = UtilitUI::AddText(headerGO, inspectorFont,
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:279:19: warning: unused variable ‘addBtnText’ [-Wunused-variable]
-  279 |             Text* addBtnText = UtilitUI::AddText(addBtnGO, inspectorFont, "+ Add Component",
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowAllComponents(GameObject*, std::vector<std::__cxx11::basic_string<char> >&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:353:23: warning: unused variable ‘btnText’ [-Wunused-variable]
-  353 |                 Text* btnText = UtilitUI::AddText(compBtnGO, inspectorFont, componentNames[i],
-      |                       ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowComponentSettings(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:366:20: warning: unused variable ‘settingsBg’ [-Wunused-variable]
-  366 |             Image* settingsBg = UtilitUI::AddImage(settingsGO, buttonTexture,
-      |                    ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:371:19: warning: unused variable ‘titleText’ [-Wunused-variable]
-  371 |             Text* titleText = UtilitUI::AddText(settingsGO, inspectorFont, "Component Settings",
-      |                   ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:381:19: warning: unused variable ‘closeText’ [-Wunused-variable]
-  381 |             Text* closeText = UtilitUI::AddText(closeBtnGO, inspectorFont, "X",
-      |                   ^~~~~~~~~
-/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp: In member function ‘void Inspector::UpdateInspectOfObject()’:
-/home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp:75:21: warning: comparison of integer expressions of different signedness: ‘int’ and ‘std::unordered_map<GameObject*, DrawComponentData>::size_type’ {aka ‘long unsigned int’} [-Wsign-compare]
-   75 |             if (idx >= inspectorObjects.size()) break;
-      |                 ~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:21:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:39:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
+   39 |         ResourceManager* resources{nullptr};
+      |                          ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:38:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
+   38 |         Scene* scene{nullptr};
+      |                ^~~~~
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:56:9: warning:   when initialized here [-Wreorder]
+   56 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
+      |         ^~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h:3,
+                 from /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.h:21:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:39:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
+   39 |         ResourceManager* resources{nullptr};
+      |                          ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:38:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
+   38 |         Scene* scene{nullptr};
+      |                ^~~~~
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:56:9: warning:   when initialized here [-Wreorder]
+   56 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
+      |         ^~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:5:
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<Vector2>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘Vector2 SerializedField<Vector2>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = float; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:15:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<float>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘float SerializedField<float>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:30:70:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
+   70 |         static std::type_index typeIdx = typeid(T);
+      |                                ^~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:5:
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<Vector2>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘Vector2 SerializedField<Vector2>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = float; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:15:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<float>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘float SerializedField<float>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:30:70:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
+   70 |         static std::type_index typeIdx = typeid(T);
+      |                                ^~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
+   25 |     std::string fieldName;
+      |                 ^~~~~~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
+   24 |     T value;
+      |       ^~~~~
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
+   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
+      |     ^~~~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:7,
                  from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:6:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h: In function ‘bool UtilitGraphic::InitGraphics(GraphicsManager*, ResourceManager&)’:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h:10:69: warning: unused parameter ‘resources’ [-Wunused-parameter]
    10 |     inline bool InitGraphics(GraphicsManager* mgr, ResourceManager& resources) {
       |                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:8:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘GameObject* UtilitUI::HierarchyViewerUI::CreateUIObject(GameObject*, int)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:136:18: warning: unused variable ‘tag’ [-Wunused-variable]
-  136 |             Tag* tag = obj->AddComponent<Tag>(AllTags::HierarchyViewerUI);
-      |                  ^~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:220:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
-  220 |         ResourceManager* resources{nullptr};
-      |                          ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:219:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
-  219 |         Scene* scene{nullptr};
-      |                ^~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:229:9: warning:   when initialized here [-Wreorder]
-  229 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
-      |         ^~~~~~~~~~~
 /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp: In member function ‘void HierarchyViewer::StartHierarchy()’:
-/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:41:47: warning: missing initializer for member ‘HierarchyViewer::ItemData::button’ [-Wmissing-field-initializers]
-   41 |         hierarchyItems[gameObject] = {uiObject};
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:33:47: warning: missing initializer for member ‘HierarchyViewer::ItemData::button’ [-Wmissing-field-initializers]
+   33 |         hierarchyItems[gameObject] = {uiObject};
       |                                               ^
-/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:41:47: warning: missing initializer for member ‘HierarchyViewer::ItemData::label’ [-Wmissing-field-initializers]
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:33:47: warning: missing initializer for member ‘HierarchyViewer::ItemData::label’ [-Wmissing-field-initializers]
 /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp: In member function ‘void HierarchyViewer::UpdateHierarchy()’:
-/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:57:12: warning: unused variable ‘currentCount’ [-Wunused-variable]
-   57 |     size_t currentCount = currentGameScene->GetGameObjects().size();
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:49:12: warning: unused variable ‘currentCount’ [-Wunused-variable]
+   49 |     size_t currentCount = currentGameScene->GetGameObjects().size();
       |            ^~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:5:
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<Vector2>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘Vector2 SerializedField<Vector2>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = float; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<float>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘float SerializedField<float>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:28:70:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   70 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowObjectComponents(GameObject*, std::unordered_map<GameObject*, DrawComponentData>&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:317:27: warning: unused variable ‘paramText’ [-Wunused-variable]
-  317 |                     Text* paramText = UtilitUI::AddText(compGO, inspectorFont, paramName + ":",
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:327:27: warning: unused variable ‘valueText’ [-Wunused-variable]
-  327 |                     Text* valueText = UtilitUI::AddText(valueBtnGO, inspectorFont, paramValue,
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:291:24: warning: unused variable ‘compBg’ [-Wunused-variable]
-  291 |                 Image* compBg = UtilitUI::AddImage(compGO, componentBgTexture,
-      |                        ^~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:296:23: warning: unused variable ‘compName’ [-Wunused-variable]
-  296 |                 Text* compName = UtilitUI::AddText(compGO, inspectorFont, data.componentName,
-      |                       ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:306:23: warning: unused variable ‘removeText’ [-Wunused-variable]
-  306 |                 Text* removeText = UtilitUI::AddText(removeBtnGO, inspectorFont, "X",
-      |                       ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:263:20: warning: unused variable ‘headerBg’ [-Wunused-variable]
-  263 |             Image* headerBg = UtilitUI::AddImage(headerGO, buttonTexture,
-      |                    ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:268:19: warning: unused variable ‘headerText’ [-Wunused-variable]
-  268 |             Text* headerText = UtilitUI::AddText(headerGO, inspectorFont,
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:279:19: warning: unused variable ‘addBtnText’ [-Wunused-variable]
-  279 |             Text* addBtnText = UtilitUI::AddText(addBtnGO, inspectorFont, "+ Add Component",
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowAllComponents(GameObject*, std::vector<std::__cxx11::basic_string<char> >&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:353:23: warning: unused variable ‘btnText’ [-Wunused-variable]
-  353 |                 Text* btnText = UtilitUI::AddText(compBtnGO, inspectorFont, componentNames[i],
-      |                       ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowComponentSettings(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:366:20: warning: unused variable ‘settingsBg’ [-Wunused-variable]
-  366 |             Image* settingsBg = UtilitUI::AddImage(settingsGO, buttonTexture,
-      |                    ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:371:19: warning: unused variable ‘titleText’ [-Wunused-variable]
-  371 |             Text* titleText = UtilitUI::AddText(settingsGO, inspectorFont, "Component Settings",
-      |                   ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:381:19: warning: unused variable ‘closeText’ [-Wunused-variable]
-  381 |             Text* closeText = UtilitUI::AddText(closeBtnGO, inspectorFont, "X",
-      |                   ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:5:
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<Vector2>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘Vector2 SerializedField<Vector2>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = float; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<float>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘float SerializedField<float>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:28:70:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   70 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = UIRenderSettings; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElements/Image.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<UIRenderSettings>::fieldName’ will be initialized after [-Wreorder]
-   25 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:24:7: warning:   ‘UIRenderSettings SerializedField<UIRenderSettings>::value’ [-Wreorder]
-   24 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
-   28 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:7:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h: In function ‘bool UtilitGraphic::InitGraphics(GraphicsManager*, ResourceManager&)’:
 /home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/GraphicsUtilit.h:10:69: warning: unused parameter ‘resources’ [-Wunused-parameter]
    10 |     inline bool InitGraphics(GraphicsManager* mgr, ResourceManager& resources) {
       |                                                    ~~~~~~~~~~~~~~~~~^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Button]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:148:58:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   70 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Image]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:171:55:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Text]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:176:56:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h:10:
+In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:6,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/Canvas.h:4,
+                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRendering.h:5:
 /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
 /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
 /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:25:17: warning: ‘SerializedField<Vector2>::fieldName’ will be initialized after [-Wreorder]
@@ -390,9 +249,9 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
 /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
    28 |     SerializedField(const std::string& name, const T& defaultValue = T())
       |     ^~~~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:7:
+In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:3:
 /home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:28:70:   required from here
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:30:70:   required from here
 /home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
    70 |         static std::type_index typeIdx = typeid(T);
       |                                ^~~~~~~
@@ -407,85 +266,34 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
 /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
    28 |     SerializedField(const std::string& name, const T& defaultValue = T())
       |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Button]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:148:58:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Image]’:
+/home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp:56:47:   required from here
 /home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
    70 |         static std::type_index typeIdx = typeid(T);
       |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Image]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:171:55:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
 /home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Text]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:176:56:   required from here
+/home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp:61:48:   required from here
+/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
+/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Button]’:
+/home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp:87:50:   required from here
 /home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
 /home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Tag]’:
-/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:61:48:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Button]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:148:58:   required from here
+/home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp:53:48:   required from here
 /home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
    70 |         static std::type_index typeIdx = typeid(T);
       |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Image]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:171:55:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Text]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:176:56:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Editor.h:8:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘GameObject* UtilitUI::HierarchyViewerUI::CreateUIObject(GameObject*, int)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:136:18: warning: unused variable ‘tag’ [-Wunused-variable]
-  136 |             Tag* tag = obj->AddComponent<Tag>(AllTags::HierarchyViewerUI);
-      |                  ^~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:220:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
-  220 |         ResourceManager* resources{nullptr};
+In file included from /home/alex/Projects/BearEngine/include/core/users_interface/Editor/Inspector.h:3,
+                 from /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp:12:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h: In constructor ‘UtilitUI::InspectorUI::InspectorUI(Canvas*, ResourceManager*, Scene*)’:
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:39:26: warning: ‘UtilitUI::InspectorUI::resources’ will be initialized after [-Wreorder]
+   39 |         ResourceManager* resources{nullptr};
       |                          ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:219:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
-  219 |         Scene* scene{nullptr};
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:38:16: warning:   ‘Scene* UtilitUI::InspectorUI::scene’ [-Wreorder]
+   38 |         Scene* scene{nullptr};
       |                ^~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:229:9: warning:   when initialized here [-Wreorder]
-  229 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
+/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/InspectorUI.h:56:9: warning:   when initialized here [-Wreorder]
+   56 |         InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
       |         ^~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowObjectComponents(GameObject*, std::unordered_map<GameObject*, DrawComponentData>&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:317:27: warning: unused variable ‘paramText’ [-Wunused-variable]
-  317 |                     Text* paramText = UtilitUI::AddText(compGO, inspectorFont, paramName + ":",
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:327:27: warning: unused variable ‘valueText’ [-Wunused-variable]
-  327 |                     Text* valueText = UtilitUI::AddText(valueBtnGO, inspectorFont, paramValue,
-      |                           ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:291:24: warning: unused variable ‘compBg’ [-Wunused-variable]
-  291 |                 Image* compBg = UtilitUI::AddImage(compGO, componentBgTexture,
-      |                        ^~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:296:23: warning: unused variable ‘compName’ [-Wunused-variable]
-  296 |                 Text* compName = UtilitUI::AddText(compGO, inspectorFont, data.componentName,
-      |                       ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:306:23: warning: unused variable ‘removeText’ [-Wunused-variable]
-  306 |                 Text* removeText = UtilitUI::AddText(removeBtnGO, inspectorFont, "X",
-      |                       ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:263:20: warning: unused variable ‘headerBg’ [-Wunused-variable]
-  263 |             Image* headerBg = UtilitUI::AddImage(headerGO, buttonTexture,
-      |                    ^~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:268:19: warning: unused variable ‘headerText’ [-Wunused-variable]
-  268 |             Text* headerText = UtilitUI::AddText(headerGO, inspectorFont,
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:279:19: warning: unused variable ‘addBtnText’ [-Wunused-variable]
-  279 |             Text* addBtnText = UtilitUI::AddText(addBtnGO, inspectorFont, "+ Add Component",
-      |                   ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowAllComponents(GameObject*, std::vector<std::__cxx11::basic_string<char> >&)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:353:23: warning: unused variable ‘btnText’ [-Wunused-variable]
-  353 |                 Text* btnText = UtilitUI::AddText(compBtnGO, inspectorFont, componentNames[i],
-      |                       ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h: In member function ‘void UtilitUI::InspectorUI::ShowComponentSettings(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:366:20: warning: unused variable ‘settingsBg’ [-Wunused-variable]
-  366 |             Image* settingsBg = UtilitUI::AddImage(settingsGO, buttonTexture,
-      |                    ^~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:371:19: warning: unused variable ‘titleText’ [-Wunused-variable]
-  371 |             Text* titleText = UtilitUI::AddText(settingsGO, inspectorFont, "Component Settings",
-      |                   ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:381:19: warning: unused variable ‘closeText’ [-Wunused-variable]
-  381 |             Text* closeText = UtilitUI::AddText(closeBtnGO, inspectorFont, "X",
-      |                   ^~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h:10:
 /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector2; std::string = std::__cxx11::basic_string<char>]’:
 /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/RectTransform.h:10:5:   required from here
@@ -511,7 +319,7 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
       |     ^~~~~~~~~~~~~~~
 In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:7:
 /home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = RectTransform]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:28:70:   required from here
+/home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIElement.h:30:70:   required from here
 /home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
    70 |         static std::type_index typeIdx = typeid(T);
       |                                ^~~~~~~
@@ -526,16 +334,5 @@ In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/S
 /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:28:5: warning:   when initialized here [-Wreorder]
    28 |     SerializedField(const std::string& name, const T& defaultValue = T())
       |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Button]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:148:58:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-   70 |         static std::type_index typeIdx = typeid(T);
-      |                                ^~~~~~~
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Image]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:171:55:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
-/home/alex/Projects/BearEngine/include/core/GameObject.h: In instantiation of ‘T* GameObject::GetComponentOfType() [with T = Text]’:
-/home/alex/Projects/BearEngine/include/core/users_interface/Utilits/GraphicsUtilits/UI/UtilitUI.h:176:56:   required from here
-/home/alex/Projects/BearEngine/include/core/GameObject.h:70:32: warning: variable ‘typeIdx’ set but not used [-Wunused-but-set-variable]
 [ 17%] Linking CXX executable game
 [100%] Built target game

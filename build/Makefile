@@ -2136,6 +2136,30 @@ src/core/users_interface/Editor/Toolbar.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s
 .PHONY : src/core/users_interface/Editor/Toolbar.cpp.s
 
+src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.o: src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
+.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.o
+
+# target to build an object file
+src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
+.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
+
+src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.i: src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i
+.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.i
+
+# target to preprocess a source file
+src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i
+.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i
+
+src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.s: src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s
+.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.s
+
+# target to generate assembly for a file
+src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s
+.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s
+
 src/dependencies/glad/src/glad.o: src/dependencies/glad/src/glad.c.o
 .PHONY : src/dependencies/glad/src/glad.o
 
@@ -2610,6 +2634,9 @@ help:
 	@echo "... src/core/users_interface/Editor/Toolbar.o"
 	@echo "... src/core/users_interface/Editor/Toolbar.i"
 	@echo "... src/core/users_interface/Editor/Toolbar.s"
+	@echo "... src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.o"
+	@echo "... src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.i"
+	@echo "... src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.s"
 	@echo "... src/dependencies/glad/src/glad.o"
 	@echo "... src/dependencies/glad/src/glad.i"
 	@echo "... src/dependencies/glad/src/glad.s"

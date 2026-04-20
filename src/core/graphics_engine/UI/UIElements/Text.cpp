@@ -5,20 +5,23 @@ void Text::CalculateGeometry() {
     cachedVertices.clear();
     cachedIndices.clear();
     
-    if (!font || text.empty()) return;
+    if (!font || text.empty() || !canvas) return;
     
     settings.texture = const_cast<Texture*>(font->GetAtlas());
+    settings.color = color;
     
-    float scale = 2.5f;
-    float startX = 200;
-    float startY = 300;  
+    UIRect rect = rectTransform->GetScreenRect(canvas->GetScreenWidth(), canvas->GetScreenHeight());
     
+    float startX = rect.x;
+    float startY = rect.y + rect.height - font->GetSize();
     float x = startX;
     float y = startY;
     
+    float scale = 1.0f;
+    
     for (char c : text) {
         if (c == ' ') {
-            x += 20 * scale;
+            x += font->GetGlyphData('A').advance * scale * 0.5f;
             continue;
         }
         
@@ -51,6 +54,4 @@ void Text::CalculateGeometry() {
         
         x += glyph.advance * scale;
     }
-    
-    std::cout << "Text geometry generated: " << cachedVertices.size() << " vertices" << std::endl;
 }
