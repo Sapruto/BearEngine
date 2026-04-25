@@ -46,6 +46,8 @@ private:
     void ParseResource(const std::string& key, const std::string& value);
     void ParseHierarchy(ParserState& state);
 
+    void ResolveComponentCommunication(ParserState& state);
+
 public:
     SceneDeserializer() = default;
     

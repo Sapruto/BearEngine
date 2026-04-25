@@ -10,7 +10,7 @@ class Texture;
 class Vector3;
 class UIRenderSettings;
 
-class Image : public UIElement{
+class Image : public UIElement, public ISerializable {
 private:
     FIELD(UIRenderSettings, settings);
 
@@ -28,4 +28,6 @@ public:
     void SetColor(glm::vec4 color);
 
     const UIRenderSettings& GetRenderSettings() const override;
+
+    SERIALIZED_FIELDS(&settings)
 };

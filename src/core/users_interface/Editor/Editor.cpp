@@ -16,6 +16,12 @@
 
 #include "Font.h"
 
+#include "SceneView.h"
+#include "SceneCreator.h"
+
+#include "SceneSerializer.h"
+#include "SceneDeserializer.h"
+
 Editor::Editor() 
     : sceneDeserializer()
     , sceneManager(sceneDeserializer)
@@ -60,6 +66,12 @@ bool Editor::Start() {
     uiRenderer->RegisterRenderComponent(editorCanvas);
     
     input.Initialize(graphicsManager.GetWindow()->GetWindow());
+
+    SceneSerializer serializer;
+    SceneDeserializer deserializer;
+
+    sceneCreator = new SceneCreator(serializer, deserializer);
+    tools.sceneView = new SceneView(this, "Assets/scenes/test_scene1.scene", sceneCreator);
     
     return true;
 }
@@ -79,6 +91,11 @@ void Editor::Update() {
     tools.inspector->UpdateInspectOfObject();
 
     window->Clear();
+
+    if (tools.sceneView) {
+        tools.sceneView->Render();
+    }
+
     graphicsManager.Update();
     
     if (uiRenderer) {
@@ -89,6 +106,7 @@ void Editor::Update() {
 }
 
 void Editor::Destroy() {
+    delete tools.sceneView;
     delete tools.inspector;
     delete tools.hierarchyViewer;
 }

@@ -4,12 +4,21 @@
 #include <vector>
 #include <memory>
 
+#include "SceneDeserializer.h"
+#include "SceneSerializer.h"
+
 class Scene;
-class SceneSerializer;
 
 class SceneCreator {
+private:
+    SceneSerializer& serializer;
+    SceneDeserializer& deserializer;
+    
+    bool ValidatePath(const std::string& path) const;
+    bool ValidateFileName(const std::string& name) const;
+
 public:
-    explicit SceneCreator(SceneSerializer& serializer);
+    explicit SceneCreator(SceneSerializer& serializer, SceneDeserializer& deserializer);
     
     SceneCreator(const SceneCreator&) = delete;
     SceneCreator& operator=(const SceneCreator&) = delete;
@@ -24,10 +33,5 @@ public:
     bool DeleteSceneFile(const std::string& filePath);
     
     std::vector<std::unique_ptr<Scene>> GetScenes(const std::string& pathDirectory);
-    
-private:
-    SceneSerializer& m_serializer; 
-    
-    bool ValidatePath(const std::string& path) const;
-    bool ValidateFileName(const std::string& name) const;
+    std::unique_ptr<Scene> GetScene(const std::string& pathFile);
 };

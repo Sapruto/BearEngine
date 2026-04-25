@@ -15,7 +15,7 @@ HierarchyViewer::HierarchyViewer(Editor* editor, UtilitUI::HierarchyViewerUI* ui
 void HierarchyViewer::ClearHierarchy() {
     for (auto& [obj, data] : hierarchyItems) {
         if (data.uiObject) {
-            ui->DestroyUIObject(data.uiObject);
+            ui->DestroyUIObject(data.uiObject, editor->GetEditorScene());
         }
     }
     hierarchyItems.clear();

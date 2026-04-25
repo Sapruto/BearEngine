@@ -147,7 +147,8 @@ void InitUI(UIRendering* uiRenderer, ResourceManager& resources, Scene& scene) {
 
 void SaveScene(const Scene& scene) {
     SceneSerializer serializer;
-    SceneCreator sceneCreator(serializer);
+    SceneDeserializer deserializer;
+    SceneCreator sceneCreator(serializer, deserializer);
     
     std::string scenesPath = "Assets/scenes";
     

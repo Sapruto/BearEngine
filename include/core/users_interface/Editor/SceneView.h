@@ -1,15 +1,29 @@
 #pragma once
 
-#include "Renderer.h"
+#include "Camera3D.h"
+#include "ModelRenderer.h"
 
-class SceneView{
+#include <memory>
+
+class Editor;
+class SceneCreator;
+
+class SceneView {
 private:
     Editor* editor;
+    SceneCreator* creator;
+
+    std::string path;
+
+    std::vector<Component*> editComponents;
     
-    std::sting path;
-
+    Camera3D editorCamera;
+    ModelRenderer* modelRenderer = nullptr;
+    
 public:
-    SceneView(Editor* editor, const std::string& path) : editor(editor), path(path) {}
-
+    SceneView(Editor* editor, const std::string& path, SceneCreator* sc) : editor(editor), path(path), creator(sc) {}
+    
+    void Start();
     void Update();
+    void Render();
 };

@@ -278,11 +278,17 @@ OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2
 
+//Path to a file.
+STDUUID_INCLUDE_DIR:PATH=STDUUID_INCLUDE_DIR-NOTFOUND
+
 //The directory containing a CMake configuration file for assimp.
 assimp_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/assimp-5.3
 
 //The directory containing a CMake configuration file for glfw3.
 glfw3_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/glfw3
+
+//The directory containing a CMake configuration file for stduuid.
+stduuid_DIR:PATH=stduuid_DIR-NOTFOUND
 
 
 ########################

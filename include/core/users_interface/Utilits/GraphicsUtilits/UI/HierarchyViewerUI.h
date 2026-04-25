@@ -50,6 +50,6 @@ namespace UtilitUI {
         
         void UpdateUIObjectText(GameObject* obj, const std::string& name);
         
-        void DestroyUIObject(GameObject* obj);
+        void DestroyUIObject(GameObject* obj, Scene* scene);
     };
 }

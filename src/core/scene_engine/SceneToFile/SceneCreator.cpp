@@ -16,8 +16,8 @@
 using namespace std;
 namespace fs = std::filesystem;
 
-SceneCreator::SceneCreator(SceneSerializer& serializer) 
-    : m_serializer(serializer) 
+SceneCreator::SceneCreator(SceneSerializer& serializer, SceneDeserializer& deserializer) 
+    : serializer(serializer), deserializer(deserializer)
 {}
 
 SceneCreator::~SceneCreator() {
@@ -38,7 +38,7 @@ bool SceneCreator::CreateNewSceneFile(const std::string& path, const std::string
     return false;
 }
 bool SceneCreator::UpdateSceneFile(const std::string& filePath, const Scene& scene) {
-    std::string newScene = m_serializer.GenerateTextThroughScene(scene);
+    std::string newScene = serializer.GenerateTextThroughScene(scene);
 
     std::ofstream file(filePath, std::ios::trunc);
     
@@ -63,6 +63,46 @@ bool SceneCreator::DeleteSceneFile(const std::string& filePath){
     return false;
 }
 
-std::vector<std::unique_ptr<Scene>> GetScenes(const std::string& pathDirectory) {
-    return {};
+std::vector<std::unique_ptr<Scene>> SceneCreator::GetScenes(const std::string& pathDirectory) {
+    std::vector<std::unique_ptr<Scene>> scenes;
+    
+    if (!fs::exists(pathDirectory) || !fs::is_directory(pathDirectory)) {
+        return scenes;
+    }
+    
+    for (const auto& entry : fs::directory_iterator(pathDirectory)) {
+        if (fs::is_regular_file(entry.path())) {
+            std::string extension = entry.path().extension().string();
+            if (extension == ".scene") {
+                std::unique_ptr<Scene> scene = GetScene(entry.path().string());
+                if (scene) {
+                    scenes.push_back(std::move(scene));
+                }
+            }
+        }
+    }
+    
+    return scenes;
+}
+
+std::unique_ptr<Scene> SceneCreator::GetScene(const std::string& pathFile) {
+    if (!fs::exists(pathFile) || !fs::is_regular_file(pathFile)) {
+        return nullptr;
+    }
+    
+    std::ifstream file(pathFile);
+    if (!file.is_open()) {
+        return nullptr;
+    }
+    
+    std::stringstream buffer;
+    buffer << file.rdbuf();
+    std::string sceneText = buffer.str();
+    file.close();
+    
+    if (sceneText.empty()) {
+        return nullptr;
+    }
+    
+    return deserializer.GenerateSceneThroughFile(sceneText);
 }

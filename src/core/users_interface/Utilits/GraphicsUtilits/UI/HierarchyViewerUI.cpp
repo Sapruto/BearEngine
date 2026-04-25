@@ -71,7 +71,7 @@ void HierarchyViewerUI::UpdateUIObjectText(GameObject* obj, const std::string& n
     }
 }
 
-void HierarchyViewerUI::DestroyUIObject(GameObject* obj) {
+void HierarchyViewerUI::DestroyUIObject(GameObject* obj, Scene* scene) {
     if (!obj) return;
     
     Image* bg = obj->GetComponentOfType<Image>();
@@ -88,6 +88,6 @@ void HierarchyViewerUI::DestroyUIObject(GameObject* obj) {
     if (btn) {
         btn->ClearAllSubscriptions();
     }
-    
-    delete obj;
+
+    scene->RemoveGameObject(obj);
 }

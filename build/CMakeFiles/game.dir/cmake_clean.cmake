@@ -57,6 +57,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o.d"
   "CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o"
   "CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o.d"
+  "CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o"
+  "CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o.d"
   "CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o"
   "CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o.d"
   "CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o"

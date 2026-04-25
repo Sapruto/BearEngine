@@ -18,17 +18,17 @@ struct UIRenderSettings {
     UIRenderSettings() = default;
     UIRenderSettings(Texture* tex) : texture(tex) {}
     
-    std::string ToString() const {
+    static std::string ToString(const UIRenderSettings& set) {
         std::stringstream ss;
-        ss << textureID << "|"
-           << uvRect.x << "," << uvRect.y << "," << uvRect.width << "," << uvRect.height << "|"
-           << color.r << "," << color.g << "," << color.b << "," << color.a << "|"
-           << blendMode << "|"
-           << isMask << "|"
-           << alphaThreshold;
+        ss << set.textureID << "|"
+        << set.uvRect.x << "," << set.uvRect.y << "," << set.uvRect.width << "," << set.uvRect.height << "|"
+        << set.color.r << "," << set.color.g << "," << set.color.b << "," << set.color.a << "|"
+        << set.blendMode << "|"
+        << set.isMask << "|"
+        << set.alphaThreshold;
         return ss.str();
     }
-    
+        
     static UIRenderSettings FromString(const std::string& str) {
         UIRenderSettings settings;
         std::stringstream ss(str);

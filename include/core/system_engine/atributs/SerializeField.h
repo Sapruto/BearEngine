@@ -10,6 +10,16 @@
 #include "Vector2.h"
 #include "UIRenderSettings.h"
 
+template<typename T>
+concept HasStaticToString = requires(const T& val) {
+    { T::ToString(val) } -> std::convertible_to<std::string>;
+};
+
+template<typename T>
+concept HasStaticFromString = requires(const std::string& str) {
+    { T::FromString(str) } -> std::convertible_to<T>;
+};
+
 class SerializedFieldBase {
 public:
     virtual ~SerializedFieldBase() = default;
@@ -41,14 +51,8 @@ public:
     std::string ToString() const override {
         if constexpr (std::is_same_v<T, std::string>) return value;
         else if constexpr (std::is_same_v<T, bool>) return value ? "true" : "false";
-        else if constexpr (std::is_same_v<T, Vector3>) {
-            return std::to_string(value.x) + "," + std::to_string(value.y) + "," + std::to_string(value.z);
-        }
-        else if constexpr (std::is_same_v<T, Vector2>) {
-            return std::to_string(value.x) + "," + std::to_string(value.y);
-        }
-        else if constexpr (std::is_same_v<T, UIRenderSettings>) {
-            return value.ToString();
+        else if constexpr (HasStaticToString<T>) {
+            return T::ToString(value);
         }
         else return std::to_string(value);
     }
@@ -59,9 +63,9 @@ public:
         else if constexpr (std::is_same_v<T, float>) value = std::stof(str);
         else if constexpr (std::is_same_v<T, double>) value = std::stod(str);
         else if constexpr (std::is_same_v<T, bool>) value = (str == "true" || str == "1");
-        else if constexpr (std::is_same_v<T, Vector3>) value = Vector3::FromString(str);
-        else if constexpr (std::is_same_v<T, Vector2>) value = Vector2::FromString(str);
-        else if constexpr (std::is_same_v<T, UIRenderSettings>) value = UIRenderSettings::FromString(str);
+        else if constexpr (HasStaticFromString<T>) {
+            value = T::FromString(str);
+        }
     }
 
     std::string GetName() const override { return fieldName; }

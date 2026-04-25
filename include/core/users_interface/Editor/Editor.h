@@ -12,10 +12,13 @@
 
 class Inspector;
 class HierarchyViewer;
+class SceneCreator;
+class SceneView;
 
 struct EditorTools {
     Inspector* inspector = nullptr;
     HierarchyViewer* hierarchyViewer = nullptr;
+    SceneView* sceneView = nullptr;
 };
 
 class Editor {
@@ -27,6 +30,8 @@ private:
 
     Scene* editorScene;
     Scene* currentGameScene;
+
+    SceneCreator* sceneCreator;
     
     UtilitUI::EditorUI* editorUI;
     UIRendering* uiRenderer = nullptr;
@@ -51,4 +56,10 @@ public:
 
     Scene* GetEditorScene();
     Scene* GetCurrentGameScene();
+
+    GraphicsManager* GetGraphicsManager() { return &graphicsManager; }
+
+    void SetGameScene(std::unique_ptr<Scene> scene) {
+        currentGameScene = scene.release();
+    }
 };

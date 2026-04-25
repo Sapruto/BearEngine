@@ -81,6 +81,14 @@ void SceneDeserializer::ParseHierarchy(ParserState& state){
     system->AddGameObject(state.currentObject.get());
 }
 
+
+void SceneDeserializer::ResolveComponentCommunication(ParserState& state) {
+    for (auto* object : state.scene->GetGameObjects()) {
+
+    }
+}
+
+
 void SceneDeserializer::HandleKeyValue(const std::string& key, const std::string& value, ParserState& state) {
     if (key == SceneTokens::name) {
         ParseName(value, state);

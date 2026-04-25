@@ -864,6 +864,30 @@ src/core/graphics_engine/UI/UIElements/Text.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.s
 .PHONY : src/core/graphics_engine/UI/UIElements/Text.cpp.s
 
+src/core/graphics_engine/UI/UIElements/Toggle.o: src/core/graphics_engine/UI/UIElements/Toggle.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Toggle.o
+
+# target to build an object file
+src/core/graphics_engine/UI/UIElements/Toggle.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o
+.PHONY : src/core/graphics_engine/UI/UIElements/Toggle.cpp.o
+
+src/core/graphics_engine/UI/UIElements/Toggle.i: src/core/graphics_engine/UI/UIElements/Toggle.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Toggle.i
+
+# target to preprocess a source file
+src/core/graphics_engine/UI/UIElements/Toggle.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.i
+.PHONY : src/core/graphics_engine/UI/UIElements/Toggle.cpp.i
+
+src/core/graphics_engine/UI/UIElements/Toggle.s: src/core/graphics_engine/UI/UIElements/Toggle.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Toggle.s
+
+# target to generate assembly for a file
+src/core/graphics_engine/UI/UIElements/Toggle.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.s
+.PHONY : src/core/graphics_engine/UI/UIElements/Toggle.cpp.s
+
 src/core/graphics_engine/UI/UIRendering/UIRendering.o: src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o
 .PHONY : src/core/graphics_engine/UI/UIRendering/UIRendering.o
 
@@ -2475,6 +2499,9 @@ help:
 	@echo "... src/core/graphics_engine/UI/UIElements/Text.o"
 	@echo "... src/core/graphics_engine/UI/UIElements/Text.i"
 	@echo "... src/core/graphics_engine/UI/UIElements/Text.s"
+	@echo "... src/core/graphics_engine/UI/UIElements/Toggle.o"
+	@echo "... src/core/graphics_engine/UI/UIElements/Toggle.i"
+	@echo "... src/core/graphics_engine/UI/UIElements/Toggle.s"
 	@echo "... src/core/graphics_engine/UI/UIRendering/UIRendering.o"
 	@echo "... src/core/graphics_engine/UI/UIRendering/UIRendering.i"
 	@echo "... src/core/graphics_engine/UI/UIRendering/UIRendering.s"

@@ -4,11 +4,12 @@
 #include "RectTransform.h"
 #include "UIRenderSettings.h"
 #include "UIVertex.h"
+#include "SerializeField.h"
 
 class RenderSettings;
 class Canvas;
 
-class UIElement : public Component{
+class UIElement : public Component {
 protected:
     Canvas* canvas{nullptr};
 
