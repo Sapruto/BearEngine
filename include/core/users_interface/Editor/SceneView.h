@@ -4,26 +4,36 @@
 #include "ModelRenderer.h"
 
 #include <memory>
+#include <vector>
 
-class Editor;
-class SceneCreator;
+class SceneFileController;
+class GraphicsManager;
+class GameObject;
+class Component;
 
 class SceneView {
 private:
-    Editor* editor;
-    SceneCreator* creator;
-
-    std::string path;
-
+    SceneFileController* controller{nullptr};
+    GraphicsManager* graphicsManager{nullptr};
+    
     std::vector<Component*> editComponents;
     
     Camera3D editorCamera;
-    ModelRenderer* modelRenderer = nullptr;
+    ModelRenderer* modelRenderer{nullptr};
     
+    int viewportX{25};
+    int viewportY{250};
+    int viewportWidth{800};
+    int viewportHeight{600};
+
 public:
-    SceneView(Editor* editor, const std::string& path, SceneCreator* sc) : editor(editor), path(path), creator(sc) {}
+    SceneView(SceneFileController* controller, GraphicsManager* gfxMgr);
     
     void Start();
     void Update();
     void Render();
+    void ResizeViewport(int x, int y, int width, int height);
+    
+    void AddEditComponent(Component* comp) { editComponents.push_back(comp); }
+    void ClearEditComponents() { editComponents.clear(); }
 };

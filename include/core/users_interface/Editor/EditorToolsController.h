@@ -1,6 +1,6 @@
 #pragma once
 
-/*#include "GraphicsUtilits/GraphicsUtilit.h"
+#include "GraphicsUtilits/GraphicsUtilit.h"
 #include "UtilitUI.h"
 #include "Canvas.h"
 #include "UIRendering.h"
@@ -55,4 +55,4 @@ public:
 
     InspectorLogic* GetInspectorLogic() { return tools.inspectorLogic.get(); }
     Canvas* GetCanvas() { return editorCanvas; }
-};*/
+};

@@ -2088,54 +2088,6 @@ src/core/users_interface/Editor/FileBrowser.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s
 .PHONY : src/core/users_interface/Editor/FileBrowser.cpp.s
 
-src/core/users_interface/Editor/HierarchyViewer.o: src/core/users_interface/Editor/HierarchyViewer.cpp.o
-.PHONY : src/core/users_interface/Editor/HierarchyViewer.o
-
-# target to build an object file
-src/core/users_interface/Editor/HierarchyViewer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o
-.PHONY : src/core/users_interface/Editor/HierarchyViewer.cpp.o
-
-src/core/users_interface/Editor/HierarchyViewer.i: src/core/users_interface/Editor/HierarchyViewer.cpp.i
-.PHONY : src/core/users_interface/Editor/HierarchyViewer.i
-
-# target to preprocess a source file
-src/core/users_interface/Editor/HierarchyViewer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.i
-.PHONY : src/core/users_interface/Editor/HierarchyViewer.cpp.i
-
-src/core/users_interface/Editor/HierarchyViewer.s: src/core/users_interface/Editor/HierarchyViewer.cpp.s
-.PHONY : src/core/users_interface/Editor/HierarchyViewer.s
-
-# target to generate assembly for a file
-src/core/users_interface/Editor/HierarchyViewer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.s
-.PHONY : src/core/users_interface/Editor/HierarchyViewer.cpp.s
-
-src/core/users_interface/Editor/Inspector.o: src/core/users_interface/Editor/Inspector.cpp.o
-.PHONY : src/core/users_interface/Editor/Inspector.o
-
-# target to build an object file
-src/core/users_interface/Editor/Inspector.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o
-.PHONY : src/core/users_interface/Editor/Inspector.cpp.o
-
-src/core/users_interface/Editor/Inspector.i: src/core/users_interface/Editor/Inspector.cpp.i
-.PHONY : src/core/users_interface/Editor/Inspector.i
-
-# target to preprocess a source file
-src/core/users_interface/Editor/Inspector.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.i
-.PHONY : src/core/users_interface/Editor/Inspector.cpp.i
-
-src/core/users_interface/Editor/Inspector.s: src/core/users_interface/Editor/Inspector.cpp.s
-.PHONY : src/core/users_interface/Editor/Inspector.s
-
-# target to generate assembly for a file
-src/core/users_interface/Editor/Inspector.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.s
-.PHONY : src/core/users_interface/Editor/Inspector.cpp.s
-
 src/core/users_interface/Editor/SceneFileController.o: src/core/users_interface/Editor/SceneFileController.cpp.o
 .PHONY : src/core/users_interface/Editor/SceneFileController.o
 
@@ -2184,6 +2136,102 @@ src/core/users_interface/Editor/SceneView.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s
 .PHONY : src/core/users_interface/Editor/SceneView.cpp.s
 
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.o: src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.o
+
+# target to build an object file
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o
+
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.i: src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i
+
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.s: src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s
+
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.o: src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.o
+
+# target to build an object file
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o
+
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.i: src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i
+
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.s: src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s
+
+src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.o: src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.o
+
+# target to build an object file
+src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o
+
+src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.i: src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i
+
+src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.s: src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s
+
+src/core/users_interface/Editor/Systems/Inspector/InspectorUI.o: src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorUI.o
+
+# target to build an object file
+src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o
+
+src/core/users_interface/Editor/Systems/Inspector/InspectorUI.i: src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorUI.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i
+
+src/core/users_interface/Editor/Systems/Inspector/InspectorUI.s: src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorUI.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s
+.PHONY : src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s
+
 src/core/users_interface/Editor/Toolbar.o: src/core/users_interface/Editor/Toolbar.cpp.o
 .PHONY : src/core/users_interface/Editor/Toolbar.o
 
@@ -2207,30 +2255,6 @@ src/core/users_interface/Editor/Toolbar.s: src/core/users_interface/Editor/Toolb
 src/core/users_interface/Editor/Toolbar.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s
 .PHONY : src/core/users_interface/Editor/Toolbar.cpp.s
-
-src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.o: src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
-.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.o
-
-# target to build an object file
-src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
-.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
-
-src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.i: src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i
-.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.i
-
-# target to preprocess a source file
-src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i
-.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i
-
-src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.s: src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s
-.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.s
-
-# target to generate assembly for a file
-src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s
-.PHONY : src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s
 
 src/dependencies/glad/src/glad.o: src/dependencies/glad/src/glad.c.o
 .PHONY : src/dependencies/glad/src/glad.o
@@ -2700,24 +2724,27 @@ help:
 	@echo "... src/core/users_interface/Editor/FileBrowser.o"
 	@echo "... src/core/users_interface/Editor/FileBrowser.i"
 	@echo "... src/core/users_interface/Editor/FileBrowser.s"
-	@echo "... src/core/users_interface/Editor/HierarchyViewer.o"
-	@echo "... src/core/users_interface/Editor/HierarchyViewer.i"
-	@echo "... src/core/users_interface/Editor/HierarchyViewer.s"
-	@echo "... src/core/users_interface/Editor/Inspector.o"
-	@echo "... src/core/users_interface/Editor/Inspector.i"
-	@echo "... src/core/users_interface/Editor/Inspector.s"
 	@echo "... src/core/users_interface/Editor/SceneFileController.o"
 	@echo "... src/core/users_interface/Editor/SceneFileController.i"
 	@echo "... src/core/users_interface/Editor/SceneFileController.s"
 	@echo "... src/core/users_interface/Editor/SceneView.o"
 	@echo "... src/core/users_interface/Editor/SceneView.i"
 	@echo "... src/core/users_interface/Editor/SceneView.s"
+	@echo "... src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.o"
+	@echo "... src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.i"
+	@echo "... src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.s"
+	@echo "... src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.o"
+	@echo "... src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.i"
+	@echo "... src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.s"
+	@echo "... src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.o"
+	@echo "... src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.i"
+	@echo "... src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.s"
+	@echo "... src/core/users_interface/Editor/Systems/Inspector/InspectorUI.o"
+	@echo "... src/core/users_interface/Editor/Systems/Inspector/InspectorUI.i"
+	@echo "... src/core/users_interface/Editor/Systems/Inspector/InspectorUI.s"
 	@echo "... src/core/users_interface/Editor/Toolbar.o"
 	@echo "... src/core/users_interface/Editor/Toolbar.i"
 	@echo "... src/core/users_interface/Editor/Toolbar.s"
-	@echo "... src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.o"
-	@echo "... src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.i"
-	@echo "... src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.s"
 	@echo "... src/dependencies/glad/src/glad.o"
 	@echo "... src/dependencies/glad/src/glad.i"
 	@echo "... src/dependencies/glad/src/glad.s"

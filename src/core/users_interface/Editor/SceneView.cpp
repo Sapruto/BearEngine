@@ -1,59 +1,74 @@
 #include "SceneView.h"
-
-#include "Editor.h"
-#include "SceneCreator.h"
+#include "SceneFileController.h"
 #include "GraphicsManager.h"
+#include "Scene.h"
+#include "GameObject.h"
+#include "Component.h"
+#include "Tag.h"
+#include "EditorTags.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
+#include <iostream>
+
+SceneView::SceneView(SceneFileController* controller, GraphicsManager* gfxMgr) 
+    : controller(controller), graphicsManager(gfxMgr) {}
 
 void SceneView::Start() {
-    std::unique_ptr<Scene> loadedScene = creator->GetScene(path);
-    if (!loadedScene) return;
+    if (!controller) return;
     
-    editor->SetGameScene(std::move(loadedScene));
+    Scene* gameScene = controller->GetCurrentGameScene();
+    Scene* editScene = controller->GetEditorScene();
     
-    Scene* editScene = editor->GetEditorScene();
-    Scene* gameScene = editor->GetCurrentGameScene();
+    if (!gameScene || !editScene) return;
     
-    for (auto* gameObject : gameScene->GetGameObjects()){
+    for (auto* gameObject : gameScene->GetGameObjects()) {
         GameObject* editObject = editScene->CreateGameObject();
+        editObject->SetName(gameObject->GetName() + "_avatar");
         
-        std::vector<Component*> gameObjectComponents = gameObject->GetComponents();
-        
-        for (Component* comp : gameObjectComponents) {
-            gameObject->RemoveComponent(comp);
+        for (auto* comp : gameObject->GetComponents()) {
             editObject->AddComponent(comp);
         }
         
-        for (Component* comp : editComponents) {
+        for (auto* comp : editComponents) {
             editObject->AddComponent(comp);
         }
+        
+        editObject->AddComponent<Tag>(AllTags::SceneViewerObjects);
+        
+        controller->RegisterAvatar(gameObject, editObject);
     }
     
-    editorCamera.position = Vector3(0, 5, 10);
-    editorCamera.updateVectors();
-    
-    modelRenderer = editor->GetGraphicsManager()->GetRenderer<ModelRenderer>();
-    if (modelRenderer) {
-        editor->GetGraphicsManager()->SetCamera(&editorCamera);
+    modelRenderer = graphicsManager->GetRenderer<ModelRenderer>();
+    if (!modelRenderer) {
+        modelRenderer = new ModelRenderer();
     }
 }
 
 void SceneView::Update() {
-    Render();
+
 }
 
 void SceneView::Render() {
-    if (!modelRenderer) return;
+    if (!graphicsManager || !graphicsManager->GetCamera()) return;
     
     GLint viewport[4];
     glGetIntegerv(GL_VIEWPORT, viewport);
     
-    glViewport(50, 50, 800, 600);
-    glEnable(GL_DEPTH_TEST);
+    glEnable(GL_SCISSOR_TEST);
+    glScissor(viewportX, viewportY, viewportWidth, viewportHeight);
+    glClearColor(0.67f, 0.67f, 0.67f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glDisable(GL_SCISSOR_TEST);
     
-    modelRenderer->Update();
+    //if (modelRenderer) modelRenderer->Update();
     
     glViewport(viewport[0], viewport[1], viewport[2], viewport[3]);
+}
+
+void SceneView::ResizeViewport(int x, int y, int width, int height) {
+    viewportX = x;
+    viewportY = y;
+    viewportWidth = width;
+    viewportHeight = height;
 }

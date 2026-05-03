@@ -1,4 +1,4 @@
-/*#include "SceneFileController.h"
+#include "SceneFileController.h"
 
 #include "Editor.h"
 
@@ -41,7 +41,10 @@ void SceneFileController::ApplyEditorObjectChange() {
 }
 
 void SceneFileController::SaveScene() {
-    if (!currentGameScene) return;
+    if (!currentGameScene) {
+        std::cout << "Not Scene To Save" << std::endl;
+        return;
+    }
 
     ApplyEditorObjectChange();
     
@@ -148,4 +151,4 @@ std::vector<GameObject*> SceneFileController::GetHelpersFromTag(AllTags::Type ta
         }
     }
     return result;
-}*/
+}

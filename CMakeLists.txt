@@ -153,6 +153,21 @@ target_include_directories(game PRIVATE
     ${FREETYPE_INCLUDE_DIRS}
 )
 
+
+file(GLOB_RECURSE EDITOR_SOURCES "${ROOT_DIR}/include/core/users_interface/Editor/*.h")
+
+foreach(SOURCE_FILE ${EDITOR_SOURCES} ${EDITOR_UTILS_SOURCES})
+    get_filename_component(SOURCE_DIR ${SOURCE_FILE} DIRECTORY)
+    list(APPEND EDITOR_INCLUDE_DIRS ${SOURCE_DIR})
+endforeach()
+
+list(REMOVE_DUPLICATES EDITOR_INCLUDE_DIRS)
+
+foreach(EDITOR_INCLUDE_DIR ${EDITOR_INCLUDE_DIRS})
+    target_include_directories(game PRIVATE ${EDITOR_INCLUDE_DIR})
+endforeach()
+
+
 target_compile_definitions(game PRIVATE
     IMGUI_IMPL_OPENGL_LOADER_GLAD
     GLFW_INCLUDE_NONE

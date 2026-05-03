@@ -1,6 +1,6 @@
 #pragma once
 
-/*#include <memory>
+#include <memory>
 #include <vector>
 #include <unordered_map>
 #include <string>
@@ -67,4 +67,4 @@ public:
     GameObject* GetAvatar(GameObject* gameObj) {
         return editorCopyToGameObject[gameObj];
     }
-};*/
+};

@@ -1,65 +1,40 @@
 #pragma once
 
-#include "SceneDeserializer.h"
-#include "SceneManager.h"
 #include "GraphicsManager.h"
 #include "ResourceManager.h"
-#include "GraphicsUtilits/GraphicsUtilit.h"
-#include "GraphicsUtilits/UI/UtilitUI.h"
-#include "Canvas.h"
-#include "UIRendering.h"
 #include "InputSystem.h"
 
-class Inspector;
-class HierarchyViewer;
-class SceneCreator;
-class SceneView;
+#include "SceneFileController.h"
+#include "EditorToolsController.h"
 
-struct EditorTools {
-    Inspector* inspector = nullptr;
-    HierarchyViewer* hierarchyViewer = nullptr;
-    SceneView* sceneView = nullptr;
-};
+class InspectorLogic;
 
 class Editor {
 private:
-    SceneDeserializer sceneDeserializer;
-    SceneManager sceneManager;
     GraphicsManager graphicsManager;
     ResourceManager resources;
-
-    Scene* editorScene;
-    Scene* currentGameScene;
-
-    SceneCreator* sceneCreator;
-    
-    UtilitUI::EditorUI* editorUI;
-    UIRendering* uiRenderer = nullptr;
-
     InputSystem& input;
     
-    bool isRunEditor = true;
-
-    EditorTools tools;
+    SceneFileController sceneController;
+    EditorToolsController toolsController;
+    
+    bool isRunning{true};
 
 public:
     Editor();
+    
     bool Start();
     void Update();
-    void Destroy();
-
-    SceneManager* GetSceneManager();
-    bool IsRunEditor() const;
-    void StopEditor();
-
-    Inspector* GetInspector();
-
-    Scene* GetEditorScene();
+    void Destroy() {}
+    void Restart() {}
+    
     Scene* GetCurrentGameScene();
 
-    GraphicsManager* GetGraphicsManager() { return &graphicsManager; }
+    SceneFileController* GetSceneFileController() { return &sceneController; }
 
-    void SetGameScene(std::unique_ptr<Scene> scene) {
-        currentGameScene = scene.release();
-    }
+    bool IsRunEditor() { return isRunning; }
+
+    //to delete
+    Scene* GetEditorScene() { return sceneController.GetEditorScene(); }
+    InspectorLogic* GetInspectorLogic() { return toolsController.GetInspectorLogic(); }
 };

@@ -1,77 +1,20 @@
 #include "Editor.h"
 
-#include "SceneDeserializer.h"
-#include "Scene.h"
-#include "SceneManager.h"
-#include "GraphicsManager.h"
-#include "ResourceManager.h"
-#include "Canvas.h"
-#include "UIRendering.h"
-#include "InputSystem.h"
-
-#include "Inspector.h"
-#include "HierarchyViewer.h"
-
 #include "Time.h"
 
-#include "Font.h"
-
-#include "SceneView.h"
-#include "SceneCreator.h"
-
-#include "SceneSerializer.h"
-#include "SceneDeserializer.h"
-
-Editor::Editor() 
-    : sceneDeserializer()
-    , sceneManager(sceneDeserializer)
-    , input(InputSystem::GetInstance()) 
-{}
+Editor::Editor()
+    : input(InputSystem::GetInstance())
+    , sceneController(this, "Assets/scenes/scene67.scene", input)
+{
+}
 
 bool Editor::Start() {
-    if (!UtilitGraphic::InitGraphics(&graphicsManager, resources)) {
-        return false;
-    }
-
+    if (!UtilitGraphic::InitGraphics(&graphicsManager, resources)) return false;
     Font::InitFreeType();
-    
-    uiRenderer = graphicsManager.AddRender<UIRendering>();
-    
-    editorScene = new Scene("editorScene");
-    editorScene->InitializeScene();
-    editorScene->StartScene();
-    
-    currentGameScene = new Scene("GameScene");
-    currentGameScene->InitializeScene();
-    currentGameScene->StartScene();
-    
-    editorUI = new UtilitUI::EditorUI(uiRenderer, &resources, editorScene);
-    editorUI->LoadResources();
-    
-    Canvas* editorCanvas = new Canvas(1600.0f, 900.0f);
-    editorUI->CreateUI(editorCanvas);
-    
-    UtilitUI::HierarchyViewerUI* hierarchyUI = new UtilitUI::HierarchyViewerUI(editorCanvas, &resources);
-    hierarchyUI->LoadResources();
-    
-    tools.hierarchyViewer = new HierarchyViewer(this, hierarchyUI);
-    tools.hierarchyViewer->SetScene(currentGameScene);
-    tools.hierarchyViewer->StartHierarchy();
-
-    UtilitUI::InspectorUI* inspectorUI = new UtilitUI::InspectorUI(editorCanvas, &resources, editorScene);
-    inspectorUI->LoadResources();
-    
-    tools.inspector = new Inspector(currentGameScene, inspectorUI);
-    
-    uiRenderer->RegisterRenderComponent(editorCanvas);
-    
     input.Initialize(graphicsManager.GetWindow()->GetWindow());
 
-    SceneSerializer serializer;
-    SceneDeserializer deserializer;
-
-    sceneCreator = new SceneCreator(serializer, deserializer);
-    tools.sceneView = new SceneView(this, "Assets/scenes/test_scene1.scene", sceneCreator);
+    sceneController.Start();
+    if (!toolsController.Initialize(this, &graphicsManager, &resources, sceneController.GetEditorScene())) return false;
     
     return true;
 }
@@ -79,58 +22,18 @@ bool Editor::Start() {
 void Editor::Update() {
     Time::Tick();
     input.Update();
-
+    
     Window* window = graphicsManager.GetWindow();
     if (!window) return;
-
-    if (!window->GetWindow()) return;
     
-    editorScene->UpdateScene();
-
-    tools.hierarchyViewer->UpdateHierarchy();
-    tools.inspector->UpdateInspectOfObject();
-
     window->Clear();
 
-    if (tools.sceneView) {
-        tools.sceneView->Render();
-    }
-
-    graphicsManager.Update();
+    sceneController.Update();
     
-    if (uiRenderer) {
-        uiRenderer->Update();
-    }
+    toolsController.Update();
+    graphicsManager.Update();
     
     window->SwapBuffers();
 }
 
-void Editor::Destroy() {
-    delete tools.sceneView;
-    delete tools.inspector;
-    delete tools.hierarchyViewer;
-}
-
-SceneManager* Editor::GetSceneManager() { 
-    return &sceneManager; 
-}
-
-bool Editor::IsRunEditor() const { 
-    return isRunEditor; 
-}
-
-void Editor::StopEditor() { 
-    isRunEditor = false; 
-}
-
-Inspector* Editor::GetInspector() { 
-    return tools.inspector; 
-}
-
-Scene* Editor::GetEditorScene(){
-    return editorScene;
-}
-
-Scene* Editor::GetCurrentGameScene(){
-    return currentGameScene;
-}
+Scene* Editor::GetCurrentGameScene() { return sceneController.GetCurrentGameScene(); }

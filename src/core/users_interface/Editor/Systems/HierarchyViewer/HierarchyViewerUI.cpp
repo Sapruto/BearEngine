@@ -1,4 +1,4 @@
-#include "GraphicsUtilits/UI/HierarchyViewerUI.h"
+#include "HierarchyViewerUI.h"
 
 using namespace UtilitUI;
 
@@ -17,7 +17,7 @@ void HierarchyViewerUI::LoadResources() {
 
 Canvas* HierarchyViewerUI::GetCanvas() { return canvas; }
 
-GameObject* HierarchyViewerUI::CreateUIObject(GameObject* gameObject, int index, Inspector* inspector) {
+GameObject* HierarchyViewerUI::CreateUIObject(GameObject* gameObject, int index, InspectorLogic* inspector) {
     if(!canvas) return nullptr;
 
     float y = yOffset + index * ySpacing;

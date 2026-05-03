@@ -1189,38 +1189,10 @@ CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.i
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/HierarchyViewer.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.s
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.i
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Inspector.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.s
-
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneFileController.cpp
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneFileController.cpp
 
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.i: cmake_force
@@ -1234,7 +1206,7 @@ CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.s: c
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp
 
 CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.i: cmake_force
@@ -1245,10 +1217,66 @@ CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s
 
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i
+
+CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s
+
 CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp
 CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp
 
 CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.i: cmake_force
@@ -1258,20 +1286,6 @@ CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.i: cmake_force
 CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s
-
-CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp
-CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp
-
-CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp > CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.i
-
-CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp -o CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.s
 
 # Object files for target game
 game_OBJECTS = \
@@ -1355,12 +1369,13 @@ game_OBJECTS = \
 "CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o" \
 "CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o" \
 "CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o" \
 "CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o" \
 "CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o"
+"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o" \
+"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o" \
+"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o" \
+"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o" \
+"CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o"
 
 # External object files for target game
 game_EXTERNAL_OBJECTS =
@@ -1445,12 +1460,13 @@ game: CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o
 game: CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o
 game: CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o
 game: CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/HierarchyViewer.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.o
 game: CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o
 game: CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o
+game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o
+game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o
+game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o
+game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o
 game: CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Utilits/GraphicsUtilits/UI/HierarchyViewerUI.cpp.o
 game: CMakeFiles/game.dir/build.make
 game: libglad_lib.a
 game: libimgui_lib.a
@@ -1461,7 +1477,7 @@ game: /usr/lib/x86_64-linux-gnu/libSDL2.so
 game: /usr/lib/x86_64-linux-gnu/libassimp.so.5.3.0
 game: /usr/lib/x86_64-linux-gnu/libfreetype.so
 game: CMakeFiles/game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Linking CXX executable game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Linking CXX executable game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

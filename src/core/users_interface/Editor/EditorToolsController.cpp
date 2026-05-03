@@ -1,4 +1,4 @@
-/*#include "EditorToolsController.h"
+#include "EditorToolsController.h"
 #include "Editor.h"
 #include "Scene.h"
 #include "ResourceManager.h"
@@ -9,8 +9,7 @@ void EditorToolsController::UpdateLogic() {
     if (tools.sceneView) tools.sceneView->Update();
 }
 void EditorToolsController::UpdateUI() {
-    if (toolsUI.inspectorUI) toolsUI.inspectorUI->Update();
-    if (toolsUI.hierarchyViewerUI) toolsUI.hierarchyViewerUI->Update();
+    if (tools.sceneView) tools.sceneView->Render();
 }
 
 bool EditorToolsController::Initialize(Editor* editor, GraphicsManager* gMgr, ResourceManager* resMgr, Scene* editorScene) {
@@ -26,11 +25,12 @@ bool EditorToolsController::Initialize(Editor* editor, GraphicsManager* gMgr, Re
     editorCanvas = new Canvas(1600.0f, 900.0f);
     editorUI->CreateUI(editorCanvas);
     
-    auto* hierarchyUI = new HierarchyViewerUI(editorCanvas, editorScene, resources);
-    hierarchyUI->Start();
+    auto* hierarchyUI = new HierarchyViewerUI(editorCanvas, resources);
+    hierarchyUI->LoadResources();
     toolsUI.hierarchyViewerUI.reset(hierarchyUI);
     
-    auto* inspectorUI = new InspectorUI(editorCanvas, editorScene, resources);
+    auto* inspectorUI = new InspectorUI(editorCanvas, resources, editorScene);
+    inspectorUI->LoadResources();
     toolsUI.inspectorUI.reset(inspectorUI);
     
     tools.hierarchyViewer = std::make_unique<HierarchyViewer>(editor, hierarchyUI);
@@ -61,4 +61,4 @@ void EditorToolsController::Destroy() {
     
     delete editorUI;
     delete editorCanvas;
-}*/
+}

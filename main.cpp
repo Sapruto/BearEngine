@@ -1,6 +1,10 @@
 #include "Editor.h"
 
+#include "RegisterAllComponents.h"
+
 int main(){
+    SpaceRegisterComponents::RegisterAllComponents();
+
     Editor* editor = new Editor();
 
     bool isInitialize = editor->Start();
