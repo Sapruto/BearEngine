@@ -6,12 +6,14 @@
 unsigned int ModelComponent::s_NextID = 0;
 
 ModelComponent::ModelComponent(ResourceManager& resource, ModelRenderer& r, const std::string& modelPath, float colorRGB[3]) 
-    : rm(&resource), renderer(&r), modelPath(modelPath), m_ID(s_NextID++)
+    : rm(&resource), renderer(&r), m_ID(s_NextID++)
 {
     SetColor(colorRGB);
 
-    rm->LoadResource(modelPath, ResourceType::Model);
-    model = rm->GetResourceAs<Model>(modelPath);
+    this->modelPath.GetValue() = modelPath;
+
+    rm->LoadResource(this->modelPath.GetValue(), ResourceType::Model);
+    model = rm->GetResourceAs<Model>(this->modelPath.GetValue());
 
     if (model && model->IsLoaded()) {
         CreateBuffers();
@@ -19,6 +21,12 @@ ModelComponent::ModelComponent(ResourceManager& resource, ModelRenderer& r, cons
     
     if (renderer) {
         renderer->RegisterRenderComponent(this);
+    }
+}
+
+ModelComponent::~ModelComponent() {
+    if (renderer) {
+        renderer->UnRegisterRenderComponent(this);
     }
 }
 
@@ -56,14 +64,32 @@ void ModelComponent::CreateBuffers(){
     glBindVertexArray(0);
 }
 
+void ModelComponent::SetRenderer(ModelRenderer& r) {
+    renderer = &r;
+}
+
 void ModelComponent::SetColor(float colorRGB[3]){
     this->colorRGB[0] = colorRGB[0];
     this->colorRGB[1] = colorRGB[1];
     this->colorRGB[2] = colorRGB[2];
 }
 
-ModelComponent::~ModelComponent() {
+void ModelComponent::Start() {
+    if(!gameObject) return;
+
+    Scene* scene = const_cast<Scene*>(gameObject->GetScene());
+    if(!scene) return;
+
+    if (!rm) rm = scene->GetResourceManager();
+
+    rm->LoadResource(modelPath.GetValue(), ResourceType::Model);
+    if (!model) model = rm->GetResourceAs<Model>(modelPath.GetValue());
+
+    if (model && model->IsLoaded()) {
+        CreateBuffers();
+    }
+    
     if (renderer) {
-        renderer->UnRegisterRenderComponent(this);
+        renderer->RegisterRenderComponent(this);
     }
 }

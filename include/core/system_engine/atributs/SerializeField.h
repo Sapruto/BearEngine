@@ -20,6 +20,21 @@ concept HasStaticFromString = requires(const std::string& str) {
     { T::FromString(str) } -> std::convertible_to<T>;
 };
 
+template<typename T>
+concept HasToString = requires(const T& val) {
+    { val.ToString() } -> std::convertible_to<std::string>;
+};
+
+template<typename T>
+concept HasFromString = requires(T& val, const std::string& str) {
+    { val.FromString(str) };
+};
+
+template<typename T>
+concept HasStdToString = requires(const T& val) {
+    { std::to_string(val) } -> std::convertible_to<std::string>;
+};
+
 class SerializedFieldBase {
 public:
     virtual ~SerializedFieldBase() = default;
@@ -54,7 +69,11 @@ public:
         else if constexpr (HasStaticToString<T>) {
             return T::ToString(value);
         }
-        else return std::to_string(value);
+        else if constexpr (HasToString<T>) {
+            return value.ToString();
+        }
+        else if constexpr (HasStdToString<T>) return std::to_string(value);
+        else return "";
     }
 
     void FromString(const std::string& str) override {
@@ -65,6 +84,9 @@ public:
         else if constexpr (std::is_same_v<T, bool>) value = (str == "true" || str == "1");
         else if constexpr (HasStaticFromString<T>) {
             value = T::FromString(str);
+        }
+        else if constexpr (HasFromString<T>) {
+            value.FromString(str);
         }
     }
 
@@ -84,12 +106,28 @@ public:
 #define FIELD(type, name) \
     SerializedField<type> name {#name};
 
-#define SERIALIZED_FIELDS(...) \
-    std::vector<SerializedFieldBase*> GetSerializedFields() { \
+#define SERIALIZED_FIELDS_BASE(...) \
+    std::vector<SerializedFieldBase*> GetSerializedFields() override { \
         return std::vector<SerializedFieldBase*>{ __VA_ARGS__ }; \
     } \
-    std::vector<const SerializedFieldBase*> GetSerializedFields() const { \
+    std::vector<const SerializedFieldBase*> GetSerializedFields() const override { \
         return std::vector<const SerializedFieldBase*>{ __VA_ARGS__ }; \
+    }
+
+#define SERIALIZED_FIELDS(...) \
+    std::vector<SerializedFieldBase*> GetSerializedFields() override { \
+        auto fields = Component::GetSerializedFields(); \
+        for (auto* field : std::vector<SerializedFieldBase*>{ __VA_ARGS__ }) { \
+            fields.push_back(field); \
+        } \
+        return fields; \
+    } \
+    std::vector<const SerializedFieldBase*> GetSerializedFields() const override { \
+        auto fields = Component::GetSerializedFields(); \
+        for (auto* field : std::vector<const SerializedFieldBase*>{ __VA_ARGS__ }) { \
+            fields.push_back(field); \
+        } \
+        return fields; \
     }
 
 #define REGISTER_FIELD(field) field {#field}

@@ -10,24 +10,31 @@
 
 class Component;
 class HierarchySystem;
+class Scene;
 
 class GameObject{
 private:
     std::vector<std::unique_ptr<Component>> components;
 
-    const HierarchySystem* hierarchySystem;
+    const HierarchySystem* hierarchySystem{nullptr};
 
     bool destroyed{false}; 
 
     std::string name;
+
+    const Scene* scene{nullptr};
     
 public:
     GameObject() = default;
     GameObject(const std::string& name){
         this->name = name;
     }
+    GameObject(const Scene* scene);
     
     virtual ~GameObject();
+
+    void Initialize();
+    void Initialize(const Scene* scene);
     
     template<typename T, typename... Args>
     T* AddComponent(Args&&... args){
@@ -40,6 +47,7 @@ public:
         
         components.push_back(std::move(component));
         
+        ptr->Initialize();
         ptr->Start();
         
         return ptr;
@@ -49,15 +57,12 @@ public:
 
     //To delete
     template<typename T>
-    T* AddComponent(T* component){
-        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+    T* AddComponent(T* component) {
+        component->SetGameObject(this);
+        T* rawPtr = component;
+        components.push_back(std::unique_ptr<Component>(component));
         
-        std::unique_ptr<T> ptr(component);
-        ptr->SetGameObject(this);
-        T* rawPtr = ptr.get();
-        
-        components.push_back(std::move(ptr));
-        
+        rawPtr->Initialize();
         rawPtr->Start();
         
         return rawPtr;
@@ -95,4 +100,7 @@ public:
         if(hierarchySystem) return hierarchySystem;
         return nullptr;
     }
+
+    const Scene* GetScene();
+    void SetScene(const Scene* scene);
 };

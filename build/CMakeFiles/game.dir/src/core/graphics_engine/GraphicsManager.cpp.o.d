@@ -221,18 +221,36 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: \
  /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/array \
  /usr/include/c++/13/iostream /usr/include/c++/13/istream \
  /usr/include/c++/13/bits/istream.tcc /usr/include/c++/13/typeindex \
- /home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h \
- /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
- /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
- /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
- /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
- /usr/include/c++/13/bits/locale_facets_nonio.tcc \
- /usr/include/c++/13/bits/locale_conv.h \
- /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/iterator \
- /usr/include/c++/13/bits/stream_iterator.h /usr/include/c++/13/random \
+ /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
+ /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+ /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
+ /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h \
+ /usr/include/freetype2/ft2build.h \
+ /usr/include/freetype2/freetype/config/ftheader.h \
+ /usr/include/freetype2/freetype/freetype.h \
+ /usr/include/freetype2/freetype/config/ftconfig.h \
+ /usr/include/freetype2/freetype/config/ftoption.h \
+ /usr/include/freetype2/freetype/config/ftstdlib.h /usr/include/string.h \
+ /usr/include/strings.h /usr/include/c++/13/stdlib.h \
+ /usr/include/setjmp.h \
+ /usr/include/freetype2/freetype/config/integer-types.h \
+ /usr/include/freetype2/freetype/config/public-macros.h \
+ /usr/include/freetype2/freetype/config/mac-support.h \
+ /usr/include/freetype2/freetype/fttypes.h \
+ /usr/include/freetype2/freetype/ftsystem.h \
+ /usr/include/freetype2/freetype/ftimage.h \
+ /usr/include/freetype2/freetype/fterrors.h \
+ /usr/include/freetype2/freetype/ftmoderr.h \
+ /usr/include/freetype2/freetype/fterrdef.h \
+ /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -256,17 +274,10 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: \
  /usr/include/c++/13/tr1/poly_hermite.tcc \
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
  /usr/include/c++/13/tr1/riemann_zeta.tcc \
- /usr/include/c++/13/bits/random.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
- /usr/include/c++/13/bits/random.tcc /usr/include/c++/13/numeric \
- /usr/include/c++/13/bits/stl_numeric.h \
- /usr/include/c++/13/pstl/glue_numeric_defs.h \
- /usr/include/c++/13/optional /usr/include/c++/13/chrono \
- /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
- /usr/include/c++/13/bits/parse_numbers.h \
- /usr/include/c++/13/bits/chrono_io.h /usr/include/c++/13/format \
- /usr/include/c++/13/charconv /usr/include/c++/13/span \
- /usr/include/c++/13/variant /usr/include/c++/13/atomic \
+ /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h \
  /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
  /usr/include/glm/detail/setup.hpp /usr/include/c++/13/cassert \
  /usr/include/assert.h /usr/include/glm/simd/platform.h \
@@ -383,9 +394,48 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
+ /usr/include/assimp/Importer.hpp /usr/include/assimp/types.h \
+ /usr/include/assimp/defs.h /usr/include/assimp/config.h \
+ /usr/include/assimp/vector2.h /usr/include/assimp/vector3.h \
+ /usr/include/assimp/color4.h /usr/include/assimp/matrix3x3.h \
+ /usr/include/assimp/matrix4x4.h /usr/include/assimp/quaternion.h \
+ /usr/include/c++/13/cstring /usr/include/assimp/vector2.inl \
+ /usr/include/assimp/vector3.inl /usr/include/assimp/color4.inl \
+ /usr/include/assimp/matrix3x3.inl /usr/include/assimp/matrix4x4.inl \
+ /usr/include/assimp/MathFunctions.h /usr/include/assimp/quaternion.inl \
+ /usr/include/assimp/scene.h /usr/include/assimp/texture.h \
+ /usr/include/assimp/Compiler/pushpack1.h \
+ /usr/include/assimp/Compiler/poppack1.h /usr/include/assimp/mesh.h \
+ /usr/include/assimp/aabb.h /usr/include/assimp/light.h \
+ /usr/include/assimp/camera.h /usr/include/assimp/material.h \
+ /usr/include/assimp/material.inl /usr/include/assimp/anim.h \
+ /usr/include/assimp/metadata.h /usr/include/assimp/postprocess.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h \
+ /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
+ /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h \
+ /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/iterator \
+ /usr/include/c++/13/bits/stream_iterator.h /usr/include/c++/13/random \
+ /usr/include/c++/13/bits/random.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
+ /usr/include/c++/13/bits/random.tcc /usr/include/c++/13/numeric \
+ /usr/include/c++/13/bits/stl_numeric.h \
+ /usr/include/c++/13/pstl/glue_numeric_defs.h \
+ /usr/include/c++/13/optional /usr/include/c++/13/chrono \
+ /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
+ /usr/include/c++/13/bits/parse_numbers.h \
+ /usr/include/c++/13/bits/chrono_io.h /usr/include/c++/13/format \
+ /usr/include/c++/13/charconv /usr/include/c++/13/span \
+ /usr/include/c++/13/variant /usr/include/c++/13/atomic \
+ /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
+ /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
  /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
- /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
- /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
  /usr/include/GLFW/glfw3.h \
  /home/alex/Projects/BearEngine/include/core/graphics_engine/BaseGraphic/Camera.h \
  /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h

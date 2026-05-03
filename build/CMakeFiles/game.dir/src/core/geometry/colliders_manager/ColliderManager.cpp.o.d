@@ -224,18 +224,35 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: \
  /usr/include/c++/13/array /usr/include/c++/13/iostream \
  /usr/include/c++/13/istream /usr/include/c++/13/bits/istream.tcc \
  /usr/include/c++/13/typeindex \
- /home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h \
- /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
- /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
- /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
- /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
- /usr/include/c++/13/bits/locale_facets_nonio.tcc \
- /usr/include/c++/13/bits/locale_conv.h \
- /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/iterator \
- /usr/include/c++/13/bits/stream_iterator.h /usr/include/c++/13/random \
+ /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
+ /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/Resource.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Texture.h \
+ /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
+ /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Font.h \
+ /usr/include/freetype2/ft2build.h \
+ /usr/include/freetype2/freetype/config/ftheader.h \
+ /usr/include/freetype2/freetype/freetype.h \
+ /usr/include/freetype2/freetype/config/ftconfig.h \
+ /usr/include/freetype2/freetype/config/ftoption.h \
+ /usr/include/freetype2/freetype/config/ftstdlib.h /usr/include/string.h \
+ /usr/include/strings.h /usr/include/c++/13/stdlib.h \
+ /usr/include/setjmp.h \
+ /usr/include/freetype2/freetype/config/integer-types.h \
+ /usr/include/freetype2/freetype/config/public-macros.h \
+ /usr/include/freetype2/freetype/config/mac-support.h \
+ /usr/include/freetype2/freetype/fttypes.h \
+ /usr/include/freetype2/freetype/ftsystem.h \
+ /usr/include/freetype2/freetype/ftimage.h \
+ /usr/include/freetype2/freetype/fterrors.h \
+ /usr/include/freetype2/freetype/ftmoderr.h \
+ /usr/include/freetype2/freetype/fterrdef.h \
+ /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
  /usr/include/c++/13/cmath /usr/include/math.h \
  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
@@ -259,6 +276,153 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: \
  /usr/include/c++/13/tr1/poly_hermite.tcc \
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
  /usr/include/c++/13/tr1/riemann_zeta.tcc \
+ /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRect.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Model.h \
+ /usr/include/glm/glm.hpp /usr/include/glm/detail/_fixes.hpp \
+ /usr/include/glm/detail/setup.hpp /usr/include/c++/13/cassert \
+ /usr/include/assert.h /usr/include/glm/simd/platform.h \
+ /usr/include/c++/13/cfloat \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/float.h \
+ /usr/include/glm/fwd.hpp /usr/include/glm/detail/qualifier.hpp \
+ /usr/include/glm/detail/setup.hpp /usr/include/glm/vec2.hpp \
+ /usr/include/glm/ext/vector_bool2.hpp \
+ /usr/include/glm/detail/type_vec2.hpp \
+ /usr/include/glm/detail/type_vec2.inl \
+ /usr/include/glm/detail/compute_vector_relational.hpp \
+ /usr/include/glm/ext/vector_bool2_precision.hpp \
+ /usr/include/glm/ext/vector_float2.hpp \
+ /usr/include/glm/ext/vector_float2_precision.hpp \
+ /usr/include/glm/ext/vector_double2.hpp \
+ /usr/include/glm/ext/vector_double2_precision.hpp \
+ /usr/include/glm/ext/vector_int2.hpp \
+ /usr/include/glm/ext/vector_int2_sized.hpp \
+ /usr/include/glm/ext/scalar_int_sized.hpp \
+ /usr/include/glm/detail/setup.hpp /usr/include/glm/ext/vector_uint2.hpp \
+ /usr/include/glm/ext/vector_uint2_sized.hpp \
+ /usr/include/glm/ext/scalar_uint_sized.hpp /usr/include/glm/vec3.hpp \
+ /usr/include/glm/ext/vector_bool3.hpp \
+ /usr/include/glm/detail/type_vec3.hpp \
+ /usr/include/glm/detail/type_vec3.inl \
+ /usr/include/glm/ext/vector_bool3_precision.hpp \
+ /usr/include/glm/ext/vector_float3.hpp \
+ /usr/include/glm/ext/vector_float3_precision.hpp \
+ /usr/include/glm/ext/vector_double3.hpp \
+ /usr/include/glm/ext/vector_double3_precision.hpp \
+ /usr/include/glm/ext/vector_int3.hpp \
+ /usr/include/glm/ext/vector_int3_sized.hpp \
+ /usr/include/glm/ext/vector_uint3.hpp \
+ /usr/include/glm/ext/vector_uint3_sized.hpp /usr/include/glm/vec4.hpp \
+ /usr/include/glm/ext/vector_bool4.hpp \
+ /usr/include/glm/detail/type_vec4.hpp \
+ /usr/include/glm/detail/type_vec4.inl \
+ /usr/include/glm/ext/vector_bool4_precision.hpp \
+ /usr/include/glm/ext/vector_float4.hpp \
+ /usr/include/glm/ext/vector_float4_precision.hpp \
+ /usr/include/glm/ext/vector_double4.hpp \
+ /usr/include/glm/ext/vector_double4_precision.hpp \
+ /usr/include/glm/ext/vector_int4.hpp \
+ /usr/include/glm/ext/vector_int4_sized.hpp \
+ /usr/include/glm/ext/vector_uint4.hpp \
+ /usr/include/glm/ext/vector_uint4_sized.hpp /usr/include/glm/mat2x2.hpp \
+ /usr/include/glm/ext/matrix_double2x2.hpp \
+ /usr/include/glm/detail/type_mat2x2.hpp \
+ /usr/include/glm/detail/type_mat2x2.inl /usr/include/glm/matrix.hpp \
+ /usr/include/glm/mat2x3.hpp /usr/include/glm/ext/matrix_double2x3.hpp \
+ /usr/include/glm/detail/type_mat2x3.hpp \
+ /usr/include/glm/detail/type_mat2x3.inl \
+ /usr/include/glm/ext/matrix_double2x3_precision.hpp \
+ /usr/include/glm/ext/matrix_float2x3.hpp \
+ /usr/include/glm/ext/matrix_float2x3_precision.hpp \
+ /usr/include/glm/mat2x4.hpp /usr/include/glm/ext/matrix_double2x4.hpp \
+ /usr/include/glm/detail/type_mat2x4.hpp \
+ /usr/include/glm/detail/type_mat2x4.inl \
+ /usr/include/glm/ext/matrix_double2x4_precision.hpp \
+ /usr/include/glm/ext/matrix_float2x4.hpp \
+ /usr/include/glm/ext/matrix_float2x4_precision.hpp \
+ /usr/include/glm/mat3x2.hpp /usr/include/glm/ext/matrix_double3x2.hpp \
+ /usr/include/glm/detail/type_mat3x2.hpp \
+ /usr/include/glm/detail/type_mat3x2.inl \
+ /usr/include/glm/ext/matrix_double3x2_precision.hpp \
+ /usr/include/glm/ext/matrix_float3x2.hpp \
+ /usr/include/glm/ext/matrix_float3x2_precision.hpp \
+ /usr/include/glm/mat3x3.hpp /usr/include/glm/ext/matrix_double3x3.hpp \
+ /usr/include/glm/detail/type_mat3x3.hpp \
+ /usr/include/glm/detail/type_mat3x3.inl \
+ /usr/include/glm/ext/matrix_double3x3_precision.hpp \
+ /usr/include/glm/ext/matrix_float3x3.hpp \
+ /usr/include/glm/ext/matrix_float3x3_precision.hpp \
+ /usr/include/glm/mat3x4.hpp /usr/include/glm/ext/matrix_double3x4.hpp \
+ /usr/include/glm/detail/type_mat3x4.hpp \
+ /usr/include/glm/detail/type_mat3x4.inl \
+ /usr/include/glm/ext/matrix_double3x4_precision.hpp \
+ /usr/include/glm/ext/matrix_float3x4.hpp \
+ /usr/include/glm/ext/matrix_float3x4_precision.hpp \
+ /usr/include/glm/mat4x2.hpp /usr/include/glm/ext/matrix_double4x2.hpp \
+ /usr/include/glm/detail/type_mat4x2.hpp \
+ /usr/include/glm/detail/type_mat4x2.inl \
+ /usr/include/glm/ext/matrix_double4x2_precision.hpp \
+ /usr/include/glm/ext/matrix_float4x2.hpp \
+ /usr/include/glm/ext/matrix_float4x2_precision.hpp \
+ /usr/include/glm/mat4x3.hpp /usr/include/glm/ext/matrix_double4x3.hpp \
+ /usr/include/glm/detail/type_mat4x3.hpp \
+ /usr/include/glm/detail/type_mat4x3.inl \
+ /usr/include/glm/ext/matrix_double4x3_precision.hpp \
+ /usr/include/glm/ext/matrix_float4x3.hpp \
+ /usr/include/glm/ext/matrix_float4x3_precision.hpp \
+ /usr/include/glm/mat4x4.hpp /usr/include/glm/ext/matrix_double4x4.hpp \
+ /usr/include/glm/detail/type_mat4x4.hpp \
+ /usr/include/glm/detail/type_mat4x4.inl \
+ /usr/include/glm/ext/matrix_double4x4_precision.hpp \
+ /usr/include/glm/ext/matrix_float4x4.hpp \
+ /usr/include/glm/ext/matrix_float4x4_precision.hpp \
+ /usr/include/glm/detail/func_matrix.inl /usr/include/glm/geometric.hpp \
+ /usr/include/glm/detail/func_geometric.inl \
+ /usr/include/glm/exponential.hpp /usr/include/glm/detail/type_vec1.hpp \
+ /usr/include/glm/detail/type_vec1.inl \
+ /usr/include/glm/detail/func_exponential.inl \
+ /usr/include/glm/vector_relational.hpp \
+ /usr/include/glm/detail/func_vector_relational.inl \
+ /usr/include/glm/detail/_vectorize.hpp /usr/include/glm/common.hpp \
+ /usr/include/glm/detail/func_common.inl \
+ /usr/include/glm/detail/compute_common.hpp \
+ /usr/include/glm/ext/matrix_double2x2_precision.hpp \
+ /usr/include/glm/ext/matrix_float2x2.hpp \
+ /usr/include/glm/ext/matrix_float2x2_precision.hpp \
+ /usr/include/glm/trigonometric.hpp \
+ /usr/include/glm/detail/func_trigonometric.inl \
+ /usr/include/glm/packing.hpp /usr/include/glm/detail/func_packing.inl \
+ /usr/include/glm/detail/type_half.hpp \
+ /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
+ /usr/include/glm/detail/func_integer.inl \
+ /usr/include/assimp/Importer.hpp /usr/include/assimp/types.h \
+ /usr/include/assimp/defs.h /usr/include/assimp/config.h \
+ /usr/include/assimp/vector2.h /usr/include/assimp/vector3.h \
+ /usr/include/assimp/color4.h /usr/include/assimp/matrix3x3.h \
+ /usr/include/assimp/matrix4x4.h /usr/include/assimp/quaternion.h \
+ /usr/include/c++/13/cstring /usr/include/assimp/vector2.inl \
+ /usr/include/assimp/vector3.inl /usr/include/assimp/color4.inl \
+ /usr/include/assimp/matrix3x3.inl /usr/include/assimp/matrix4x4.inl \
+ /usr/include/assimp/MathFunctions.h /usr/include/assimp/quaternion.inl \
+ /usr/include/assimp/scene.h /usr/include/assimp/texture.h \
+ /usr/include/assimp/Compiler/pushpack1.h \
+ /usr/include/assimp/Compiler/poppack1.h /usr/include/assimp/mesh.h \
+ /usr/include/assimp/aabb.h /usr/include/assimp/light.h \
+ /usr/include/assimp/camera.h /usr/include/assimp/material.h \
+ /usr/include/assimp/material.inl /usr/include/assimp/anim.h \
+ /usr/include/assimp/metadata.h /usr/include/assimp/postprocess.h \
+ /home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h \
+ /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
+ /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h \
+ /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/iterator \
+ /usr/include/c++/13/bits/stream_iterator.h /usr/include/c++/13/random \
  /usr/include/c++/13/bits/random.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
  /usr/include/c++/13/bits/random.tcc /usr/include/c++/13/numeric \
@@ -270,6 +434,9 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: \
  /usr/include/c++/13/bits/chrono_io.h /usr/include/c++/13/format \
  /usr/include/c++/13/charconv /usr/include/c++/13/span \
  /usr/include/c++/13/variant /usr/include/c++/13/atomic \
+ /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
+ /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/UI/UIRendering/UIRenderSettings.h \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_tree.h \
  /usr/include/c++/13/bits/stl_map.h \

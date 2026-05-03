@@ -3,6 +3,9 @@
 #include "SceneTokens.h"
 #include "ResourceManager.h"
 
+#include "SerializeField.h"
+#include "SerializeFieldComponent.h"
+
 void SceneDeserializer::HandleToken(const std::string& token, ParserState& state) {
     if (token == SceneTokens::resources_pathes) {
         state.inResources = true;
@@ -13,15 +16,20 @@ void SceneDeserializer::HandleToken(const std::string& token, ParserState& state
         state.currentObject = std::make_unique<GameObject>();
     }
     else if (token == SceneTokens::components) {
-        state.inComponent = true;
+        state.inComponents = true;
     }
     else if(token == SceneTokens::hierarchy){
         state.inHierarchy = true;
     }
     else if (token == SceneTokens::end_part) {
-        if (state.inComponent && state.currentComponent) {
+        if (state.inComponent) {
             state.inComponent = false;
             state.currentComponent = nullptr;
+            return;
+        }
+        else if (state.inComponents) {
+            state.inComponents = false;
+            return;
         }
         else if (state.inObject && state.currentObject) {
             state.inObject = false;
@@ -29,16 +37,19 @@ void SceneDeserializer::HandleToken(const std::string& token, ParserState& state
                 state.scene->AddGameObject(std::move(state.currentObject));
             }
             state.currentObject.reset();
+            return;
         }
         else if(state.inHierarchy){
             state.inHierarchy = false;
+            return;
         }
         else if (state.inResources) {
             state.inResources = false;
+            return;
         }
     }
     else if (state.inObject && !token.empty()) {
-        if (!state.inComponent) {
+        if (!state.inComponent && state.inComponents) {
             state.currentCompName = token;
             auto comp = ComponentRegistry::Create(state.currentCompName);
             if (comp && state.currentObject) {
@@ -83,8 +94,24 @@ void SceneDeserializer::ParseHierarchy(ParserState& state){
 
 
 void SceneDeserializer::ResolveComponentCommunication(ParserState& state) {
-    for (auto* object : state.scene->GetGameObjects()) {
-
+    if (!state.scene) return;
+    
+    for (auto* gameObject : state.scene->GetGameObjects()) {
+        if (!gameObject) continue;
+        
+        auto components = gameObject->GetComponents();
+        
+        for (auto* component : components) {
+            if (!component) continue;
+            
+            if (auto* serializable = dynamic_cast<ISerializable*>(component)) {
+                for (auto* field : serializable->GetSerializedFields()) {
+                    if (auto* compField = dynamic_cast<SerializedFieldComponentBase*>(field)) {
+                        compField->Resolve(state.scene);
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -139,6 +166,9 @@ std::unique_ptr<Scene> SceneDeserializer::GenerateSceneThroughFile(const std::st
         }
     }
     scene->AddResources(allResources);
+    scene->RegisterAllComponents();
+
+    ResolveComponentCommunication(state);
 
     return scene;
 }

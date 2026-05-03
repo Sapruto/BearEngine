@@ -20,6 +20,7 @@ private:
         std::string currentCompName;
 
         bool inObject = false;
+        bool inComponents = false;
         bool inComponent = false;
         bool inHierarchy = false;
 
@@ -33,6 +34,7 @@ private:
             currentCompName.clear();
             inObject = false;
             inComponent = false;
+            inComponents = false;
         }
     };
 

@@ -59,6 +59,7 @@ namespace UtilitUI {
         txt->rectTransform->SetAnchoredPosition(position);
         txt->rectTransform->SetSizeDelta(size);
         txt->SetColor(color);
+        txt->SetVisible(false);
         return txt;
     }
 

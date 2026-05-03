@@ -1,5 +1,7 @@
 #include "Scene.h"
 
+#include "Component.h"
+
 GameObject* Scene::AddGameObject(std::unique_ptr<GameObject> gameObject){
     if (!gameObject) return nullptr;
     
@@ -62,6 +64,8 @@ void Scene::InitializeScene(){
     LoadResources(resources);
 
     for (auto& gameObject : gameObjects){
+        gameObject->SetScene(this);
+        gameObject->Initialize();
         gameObject->SetHierarchySystem(&hierarchySystem);
     }
 }
@@ -164,4 +168,29 @@ const std::vector<GameObject*> Scene::GetGameObjects() const {
         }
     }
     return result;
+}
+
+void Scene::RegisterAllComponents() {
+    ClearComponentRegistry();
+    
+    for (const auto& obj : gameObjects) {
+        if (!obj) continue;
+        
+        for (auto* comp : obj->GetComponents()) {
+            if (comp) {
+                RegisterComponent(comp);
+            }
+        }
+    }
+}
+
+void Scene::RegisterComponent(Component* comp) {
+    if (comp && !comp->GetUUID().empty()) {
+        uuidToComponent[comp->GetUUID()] = comp;
+    }
+}
+void Scene::UnregisterComponent(Component* comp) {
+    if (comp && !comp->GetUUID().empty()) {
+        uuidToComponent.erase(comp->GetUUID());
+    }
 }

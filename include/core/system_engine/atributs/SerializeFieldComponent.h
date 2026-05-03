@@ -2,58 +2,84 @@
 
 #include <string>
 #include <functional>
-
+#include <type_traits>
 #include "SerializeField.h"
 
+class SerializedFieldComponentBase : public SerializedFieldBase {
+public:
+    virtual void Resolve(Scene* scene) = 0;
+    virtual ~SerializedFieldComponentBase() = default;
+};
+
 template<typename T>
-class SerializedFieldComponent : public SerializedFieldBase {
+class SerializedFieldComponent : public SerializedFieldComponentBase {
 private:
-    T* value;
+    T value;
     std::string fieldName;
     std::string cachedUUID;
     
 public:
-    SerializedFieldComponent(const std::string& name, T* defaultValue = nullptr) 
+    SerializedFieldComponent(const std::string& name, const T& defaultValue = T()) 
         : fieldName(name), value(defaultValue) {}
     
-    operator T*() const { return value; }
-    T* operator->() const { return value; }
+    operator T() const { return value; }
     
-    SerializedFieldComponent& operator=(T* newValue) {
+    auto operator->() const {
+        if constexpr (std::is_pointer_v<T>) {
+            return value;
+        } else {
+            return &value;
+        }
+    }
+    
+    SerializedFieldComponent& operator=(const T& newValue) {
         value = newValue;
-        if (value) {
-            cachedUUID = value->GetUUID();
-        } 
-        else {
-            cachedUUID.clear();
+        if constexpr (std::is_pointer_v<T>) {
+            if (value) {
+                cachedUUID = value->GetUUID();
+            }
+        } else {
+            cachedUUID = value.GetUUID();
         }
         return *this;
     }
     
     std::string ToString() const override {
-        if (value) {
-            return value->GetUUID();
+        if constexpr (std::is_pointer_v<T>) {
+            if (value) {
+                return value->GetUUID();
+            }
+        } else {
+            return value.GetUUID();
         }
         return cachedUUID.empty() ? "null" : cachedUUID;
     }
     
     void FromString(const std::string& str) override {
         cachedUUID = str;
-        value = nullptr;
+        if constexpr (std::is_pointer_v<T>) {
+            value = nullptr;
+        }
     }
     
     std::string GetName() const override { return fieldName; }
     
-    void Resolve(Scene* scene) {
+    void Resolve(Scene* scene) override {
         if (!cachedUUID.empty() && cachedUUID != "null") {
-            value = scene->FindComponentByUUID<T>(cachedUUID);
+            using BaseType = typename std::remove_pointer<T>::type;
+            auto* resolved = scene->FindComponentByUUID<BaseType>(cachedUUID);
+            if constexpr (std::is_pointer_v<T>) {
+                value = resolved;
+            } 
+            else {
+                if (resolved) value = *resolved;
+            }
         }
     }
     
-    T* GetValue() const { return value; }
+    const T& GetValue() const { return value; }
+    T& GetValue() { return value; }
 };
 
 #define FIELD_COMPONENT(type, name) \
-    SerializedFieldRef<type> name {#name}; \
-    static_assert(std::is_base_of_v<Component, type>, "FIELD_COMPONENT can only be used with Component types"); \
-    void _register_##name() { RegisterRefField(&name); }
+    SerializedFieldComponent<type> name {#name};

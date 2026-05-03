@@ -235,6 +235,8 @@ void Polyhedron3D::Start(){
 }
 
 void Polyhedron3D::Update(){
+    if (vertices.empty() || !transform) return;
+
     if(isChanged){
         ApplyChanged();
     }
@@ -256,7 +258,7 @@ bool Polyhedron3D::ContainsPoint(const Vector3& point) const {
     return false;
 }
 
-bool Polyhedron3D::Intersects(const BaseCollider* other) const{
+bool Polyhedron3D::Intersects(const BaseCollider* other) const {
     const Polyhedron3D* otherPoly = dynamic_cast<const Polyhedron3D*>(other);
     
     if (!otherPoly) return false;

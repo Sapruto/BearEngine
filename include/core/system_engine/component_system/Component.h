@@ -1,26 +1,35 @@
 #pragma once
 
 #include "GameObject.h"
+#include "Scene.h"
 #include <vector>
 #include <uuid.h>
 #include <random>
 
-class Component {
+#include "SerializeField.h"
+
+class Component : public ISerializable {
 private:
-    std::string uuid;
+    FIELD(std::string, uuid);
 
 public:
     GameObject* gameObject;
 
-    Component() : gameObject(nullptr) {
+    Component() : gameObject(nullptr) {}
+    
+    virtual ~Component() {}
+
+    void Initialize() {
         static std::random_device rd;
         static std::mt19937 gen(rd());
         static uuids::uuid_random_generator uuid_gen(gen);
         
-        uuid = uuids::to_string(uuid_gen());
+        uuid.GetValue() = uuids::to_string(uuid_gen());
+
+        Scene* scene = const_cast<Scene*>(gameObject->GetScene());
+        if(scene) scene->RegisterComponent(this);
     }
-    
-    virtual ~Component() {}
+
     
     void SetGameObject(GameObject* obj) { 
         gameObject = obj; 
@@ -43,13 +52,13 @@ public:
     }
 
     void SetUUID(const std::string& str) {
-        uuid = str;
+        uuid.GetValue() = str;
     }
 
     GameObject* GetGameObject() const { 
         return gameObject; 
     }
-    const std::string& GetUUID() const { return uuid; }
+    const std::string& GetUUID() const { return uuid.GetValue(); }
 
     static Component* FromString(const std::string& str) {
         Component* comp = new Component();
@@ -60,4 +69,6 @@ public:
     static std::string ToString(Component* comp) {
         return comp->GetUUID();
     }
+
+    SERIALIZED_FIELDS_BASE(&uuid)
 };

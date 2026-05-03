@@ -2040,6 +2040,30 @@ src/core/users_interface/Editor/Editor.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.s
 .PHONY : src/core/users_interface/Editor/Editor.cpp.s
 
+src/core/users_interface/Editor/EditorToolsController.o: src/core/users_interface/Editor/EditorToolsController.cpp.o
+.PHONY : src/core/users_interface/Editor/EditorToolsController.o
+
+# target to build an object file
+src/core/users_interface/Editor/EditorToolsController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o
+.PHONY : src/core/users_interface/Editor/EditorToolsController.cpp.o
+
+src/core/users_interface/Editor/EditorToolsController.i: src/core/users_interface/Editor/EditorToolsController.cpp.i
+.PHONY : src/core/users_interface/Editor/EditorToolsController.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/EditorToolsController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.i
+.PHONY : src/core/users_interface/Editor/EditorToolsController.cpp.i
+
+src/core/users_interface/Editor/EditorToolsController.s: src/core/users_interface/Editor/EditorToolsController.cpp.s
+.PHONY : src/core/users_interface/Editor/EditorToolsController.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/EditorToolsController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.s
+.PHONY : src/core/users_interface/Editor/EditorToolsController.cpp.s
+
 src/core/users_interface/Editor/FileBrowser.o: src/core/users_interface/Editor/FileBrowser.cpp.o
 .PHONY : src/core/users_interface/Editor/FileBrowser.o
 
@@ -2111,6 +2135,30 @@ src/core/users_interface/Editor/Inspector.s: src/core/users_interface/Editor/Ins
 src/core/users_interface/Editor/Inspector.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/Inspector.cpp.s
 .PHONY : src/core/users_interface/Editor/Inspector.cpp.s
+
+src/core/users_interface/Editor/SceneFileController.o: src/core/users_interface/Editor/SceneFileController.cpp.o
+.PHONY : src/core/users_interface/Editor/SceneFileController.o
+
+# target to build an object file
+src/core/users_interface/Editor/SceneFileController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o
+.PHONY : src/core/users_interface/Editor/SceneFileController.cpp.o
+
+src/core/users_interface/Editor/SceneFileController.i: src/core/users_interface/Editor/SceneFileController.cpp.i
+.PHONY : src/core/users_interface/Editor/SceneFileController.i
+
+# target to preprocess a source file
+src/core/users_interface/Editor/SceneFileController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.i
+.PHONY : src/core/users_interface/Editor/SceneFileController.cpp.i
+
+src/core/users_interface/Editor/SceneFileController.s: src/core/users_interface/Editor/SceneFileController.cpp.s
+.PHONY : src/core/users_interface/Editor/SceneFileController.s
+
+# target to generate assembly for a file
+src/core/users_interface/Editor/SceneFileController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/game.dir/build.make CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.s
+.PHONY : src/core/users_interface/Editor/SceneFileController.cpp.s
 
 src/core/users_interface/Editor/SceneView.o: src/core/users_interface/Editor/SceneView.cpp.o
 .PHONY : src/core/users_interface/Editor/SceneView.o
@@ -2646,6 +2694,9 @@ help:
 	@echo "... src/core/users_interface/Editor/Editor.o"
 	@echo "... src/core/users_interface/Editor/Editor.i"
 	@echo "... src/core/users_interface/Editor/Editor.s"
+	@echo "... src/core/users_interface/Editor/EditorToolsController.o"
+	@echo "... src/core/users_interface/Editor/EditorToolsController.i"
+	@echo "... src/core/users_interface/Editor/EditorToolsController.s"
 	@echo "... src/core/users_interface/Editor/FileBrowser.o"
 	@echo "... src/core/users_interface/Editor/FileBrowser.i"
 	@echo "... src/core/users_interface/Editor/FileBrowser.s"
@@ -2655,6 +2706,9 @@ help:
 	@echo "... src/core/users_interface/Editor/Inspector.o"
 	@echo "... src/core/users_interface/Editor/Inspector.i"
 	@echo "... src/core/users_interface/Editor/Inspector.s"
+	@echo "... src/core/users_interface/Editor/SceneFileController.o"
+	@echo "... src/core/users_interface/Editor/SceneFileController.i"
+	@echo "... src/core/users_interface/Editor/SceneFileController.s"
 	@echo "... src/core/users_interface/Editor/SceneView.o"
 	@echo "... src/core/users_interface/Editor/SceneView.i"
 	@echo "... src/core/users_interface/Editor/SceneView.s"

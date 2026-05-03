@@ -67,3 +67,16 @@ namespace AllComponents {
         }
     };
 }
+
+#define BEGIN_COMPONENT(ClassType, ...) \
+    class ClassType : public __VA_ARGS__ { \
+    private: \
+        static const bool _registered; \
+    public:
+
+#define END_COMPONENT \
+    }; \
+    const bool ClassType::_registered = []() { \
+        ComponentRegistry::Register<ClassType>(#ClassType); \
+        return true; \
+    }();

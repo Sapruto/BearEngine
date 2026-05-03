@@ -5,14 +5,15 @@
 #include <string>
 #include "SceneEvent.h"
 #include "GameObject.h"
-#include "Component.h"
 
 #include "HierarchySystem.h"
 #include "ResourceManager.h"
 
 #include "ResourcesTypes.h"
 
-class Scene{
+class Component;
+
+class Scene {
 private:
     HierarchySystem  hierarchySystem;
 
@@ -33,6 +34,8 @@ private:
     bool isInitialized = false;
 
     std::string sceneName;
+
+    std::unordered_map<std::string, Component*> uuidToComponent;
 
 public:
     Scene() = default;
@@ -100,6 +103,23 @@ public:
 
     const HierarchySystem* GetHierarchySystem() const { return &hierarchySystem; }
     const ResourceManager* GetResourceManager() const { return &resourceManager; }
+
+
+    void ClearComponentRegistry() {
+        uuidToComponent.clear();
+    }
+    void RegisterAllComponents();
+
+    void RegisterComponent(Component* comp);
+    void UnregisterComponent(Component* comp);
+    template<typename T>
+    T* FindComponentByUUID(const std::string& uuid) {
+        auto it = uuidToComponent.find(uuid);
+        if (it != uuidToComponent.end()) {
+            return dynamic_cast<T*>(it->second);
+        }
+        return nullptr;
+    }
 
 private:
     void ProcessEvents(std::vector<SceneEvent>& events); 

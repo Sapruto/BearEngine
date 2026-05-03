@@ -35,6 +35,13 @@ private:
     void UnsubscribeAll(PhysicalBody* body);
 
 public:
+    PhysicsWorld() = default;
+
+    PhysicsWorld(const PhysicsWorld&) = delete;
+    PhysicsWorld& operator=(const PhysicsWorld&) = delete;
+
+    ~PhysicsWorld() = default;
+
     void SetColliderManager(std::shared_ptr<ColliderManager> colliderManager){ this->colliderManager = colliderManager; }
 
     void AddBody(PhysicalBody* body);

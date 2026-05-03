@@ -10,7 +10,7 @@ void PhysicFeature::FeatureInitialize(){
     if(!world) return;
 
     for(auto& event : events_subscribed){
-        const_cast<PhysicsWorld*>(world)->Subscribe(this, event);
+        if(PhysicsWorld* w = const_cast<PhysicsWorld*>(world)) w->Subscribe(this, event);
     }
 }
 

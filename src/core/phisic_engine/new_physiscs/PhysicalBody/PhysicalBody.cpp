@@ -46,7 +46,12 @@ void PhysicalBody::Initialize() {
 
     transform = gameObject->GetComponentOfType<Transform3D>();
 
-    volume = collider->GetVolume();
+    if (collider) {
+        volume = collider->GetVolume();
+    }
+    else {
+        volume = 1.0f;
+    }
 
     mass = volume * density;
 
