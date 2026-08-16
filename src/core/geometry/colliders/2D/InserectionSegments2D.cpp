@@ -7,13 +7,13 @@ int IntersectionSegments2D::sign(float value, float epsilon) {
     return 0;
 }
 
-bool IntersectionSegments2D::isPointOnSegment(const Vector2& point, 
-                                              const Vector2& segStart, 
-                                              const Vector2& segEnd) {
-    Vector2 segVec = segEnd - segStart;
-    Vector2 pointVec = point - segStart;
+bool IntersectionSegments2D::isPointOnSegment(const Vector2f& point, 
+                                              const Vector2f& segStart, 
+                                              const Vector2f& segEnd) {
+    Vector2f segVec = segEnd - segStart;
+    Vector2f pointVec = point - segStart;
     
-    if (std::abs(Vector2::cross(segVec, pointVec)) > 1e-6f) {
+    if (std::abs(Vector2f::Cross(segVec, pointVec)) > 1e-6f) {
         return false;
     }
     
@@ -23,30 +23,30 @@ bool IntersectionSegments2D::isPointOnSegment(const Vector2& point,
     return dotProduct >= 0 && dotProduct <= segLengthSq;
 }
 
-bool IntersectionSegments2D::isPointOnSegment(const Vector2& point, 
+bool IntersectionSegments2D::isPointOnSegment(const Vector2f& point, 
                                               const Segment& segment) {
     return isPointOnSegment(point, segment.point1, segment.point2);
 }
 
-Vector2 IntersectionSegments2D::calculateIntersection(
-    const Vector2& A, const Vector2& B,
-    const Vector2& C, const Vector2& D) 
+Vector2f IntersectionSegments2D::calculateIntersection(
+    const Vector2f& A, const Vector2f& B,
+    const Vector2f& C, const Vector2f& D) 
 {
-    Vector2 AB = B - A;
-    Vector2 CD = D - C;
-    Vector2 AC = C - A;
+    Vector2f AB = B - A;
+    Vector2f CD = D - C;
+    Vector2f AC = C - A;
     
-    float denominator = Vector2::cross(AB, CD);
+    float denominator = Vector2f::Cross(AB, CD);
     
     if (std::abs(denominator) < 1e-6f) {
-        return Vector2(0, 0);  
+        return Vector2f(0, 0);  
     }
     
-    float t = Vector2::cross(AC, CD) / denominator;
+    float t = Vector2f::Cross(AC, CD) / denominator;
     return A + AB * t;
 }
 
-Vector2 IntersectionSegments2D::calculateIntersection(
+Vector2f IntersectionSegments2D::calculateIntersection(
     const Segment& seg1, const Segment& seg2) 
 {
     return calculateIntersection(seg1.point1, seg1.point2, 
@@ -54,20 +54,20 @@ Vector2 IntersectionSegments2D::calculateIntersection(
 }
 
 bool IntersectionSegments2D::checkIntersection(
-    const Vector2& A, const Vector2& B,
-    const Vector2& C, const Vector2& D, 
-    Vector2* intersectionPoint) 
+    const Vector2f& A, const Vector2f& B,
+    const Vector2f& C, const Vector2f& D, 
+    Vector2f* intersectionPoint) 
 {
-    Vector2 AB = B - A;
+    Vector2f AB = B - A;
     
-    Vector2 AC = C - A;
-    Vector2 AD = D - A;
+    Vector2f AC = C - A;
+    Vector2f AD = D - A;
     
-    float crossZ1 = Vector2::cross(AB, AC);
-    float crossZ2 = Vector2::cross(AB, AD);
+    float CrossZ1 = Vector2f::Cross(AB, AC);
+    float CrossZ2 = Vector2f::Cross(AB, AD);
     
-    int sign1 = sign(crossZ1);
-    int sign2 = sign(crossZ2);
+    int sign1 = sign(CrossZ1);
+    int sign2 = sign(CrossZ2);
     
     bool firstCondition;
     
@@ -93,15 +93,15 @@ bool IntersectionSegments2D::checkIntersection(
         return false;
     }
     
-    Vector2 CD = D - C;         
-    Vector2 CA = A - C;      
-    Vector2 CB = B - C;         
+    Vector2f CD = D - C;         
+    Vector2f CA = A - C;      
+    Vector2f CB = B - C;         
     
-    float crossZ3 = Vector2::cross(CD, CA);  
-    float crossZ4 = Vector2::cross(CD, CB);
+    float CrossZ3 = Vector2f::Cross(CD, CA);  
+    float CrossZ4 = Vector2f::Cross(CD, CB);
     
-    int sign3 = sign(crossZ3);
-    int sign4 = sign(crossZ4);
+    int sign3 = sign(CrossZ3);
+    int sign4 = sign(CrossZ4);
     
     bool secondCondition;
     
@@ -134,7 +134,7 @@ bool IntersectionSegments2D::checkIntersection(
 
 bool IntersectionSegments2D::checkIntersection(
     const Segment& seg1, const Segment& seg2,
-    Vector2* intersectionPoint) 
+    Vector2f* intersectionPoint) 
 {
     return checkIntersection(seg1.point1, seg1.point2,
                              seg2.point1, seg2.point2,
@@ -143,17 +143,17 @@ bool IntersectionSegments2D::checkIntersection(
 
 bool IntersectionSegments2D::checkIntersection(
     const Segment& segment,
-    const Vector2& C, const Vector2& D,
-    Vector2* intersectionPoint) 
+    const Vector2f& C, const Vector2f& D,
+    Vector2f* intersectionPoint) 
 {
     return checkIntersection(segment.point1, segment.point2,
                              C, D, intersectionPoint);
 }
 
 bool IntersectionSegments2D::checkIntersection(
-    const Vector2& A, const Vector2& B,
+    const Vector2f& A, const Vector2f& B,
     const Segment& segment,
-    Vector2* intersectionPoint) 
+    Vector2f* intersectionPoint) 
 {
     return checkIntersection(A, B,
                              segment.point1, segment.point2,
@@ -161,13 +161,13 @@ bool IntersectionSegments2D::checkIntersection(
 }
 
 bool IntersectionSegments2D::checkPointOnSegment(
-    const Vector2& point, const Segment& segment) 
+    const Vector2f& point, const Segment& segment) 
 {
     return isPointOnSegment(point, segment.point1, segment.point2);
 }
 
 bool IntersectionSegments2D::getIntersectionPoint(
-    const Segment& seg1, const Segment& seg2, Vector2& outPoint) 
+    const Segment& seg1, const Segment& seg2, Vector2f& outPoint) 
 {
     return checkIntersection(seg1, seg2, &outPoint);
 }

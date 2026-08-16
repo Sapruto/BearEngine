@@ -6,7 +6,7 @@
 #include "GameObject.h"
 #include "ColliderManager.h"
 
-Polyhedron3D::Polyhedron3D(std::vector<Vector3> newVertices) {
+Polyhedron3D::Polyhedron3D(std::vector<Vector3f> newVertices) {
     for(const auto& v : newVertices) {
         vertices.push_back(Vertex3D(v));
     }
@@ -24,9 +24,9 @@ void Polyhedron3D::ApplyChanged(){
     CalculateTetrahedrons();
 }
 
-Vector3 Polyhedron3D::GetEdgeDirection(const std::pair<size_t, size_t>& edge) const {
-    Vector3 p1 = vertices[edge.first].localPoint;
-    Vector3 p2 = vertices[edge.second].localPoint;
+Vector3f Polyhedron3D::GetEdgeDirection(const std::pair<size_t, size_t>& edge) const {
+    Vector3f p1 = vertices[edge.first].localPoint;
+    Vector3f p2 = vertices[edge.second].localPoint;
     return (p2 - p1).normalized();
 }
 
@@ -110,7 +110,7 @@ size_t Polyhedron3D::FindNextVertex(size_t fromVertex, size_t notThisVertex) {
 }
 
 void Polyhedron3D::CalculateCenter(){
-    center = Vector3::Zero;
+    center = Vector3f::Zero();
     for(const auto& vertex : vertices){
         center += vertex.GetGlobalPoint(*transform);
     }
@@ -119,15 +119,15 @@ void Polyhedron3D::CalculateCenter(){
 
 void Polyhedron3D::CalculateAABB(){
     if (vertices.empty()){
-        cachedAABB = AABB(Vector3(0,0,0), Vector3(0,0,0));
+        cachedAABB = AABB(Vector3f(0,0,0), Vector3f(0,0,0));
         return;
     }
 
-    Vector3 min = vertices[0].GetGlobalPoint(*transform);
-    Vector3 max = min;
+    Vector3f min = vertices[0].GetGlobalPoint(*transform);
+    Vector3f max = min;
     
     for (const auto& vertex : vertices){
-        Vector3 global = vertex.GetGlobalPoint(*transform);
+        Vector3f global = vertex.GetGlobalPoint(*transform);
         
         min.x = std::min(min.x, global.x);
         min.y = std::min(min.y, global.y);
@@ -150,7 +150,7 @@ bool Polyhedron3D::IntersectAABB(const Polyhedron3D* other) const{
 }
 
 bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
-    std::vector<Vector3> allAxes;
+    std::vector<Vector3f> allAxes;
     
     for(const auto& face : faces) {
         allAxes.push_back(face.normal);
@@ -161,14 +161,14 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
     }
 
     float minOverlap = std::numeric_limits<float>::max();
-    Vector3 penetrationAxis = Vector3::Zero;
+    Vector3f penetrationAxis = Vector3f::Zero();
     for(const auto& myEdge : communications) {
-        Vector3 myEdgeDir = GetEdgeDirection(myEdge);
+        Vector3f myEdgeDir = GetEdgeDirection(myEdge);
         
         for(const auto& otherEdge : other->communications) {
-            Vector3 otherEdgeDir = other->GetEdgeDirection(otherEdge);
+            Vector3f otherEdgeDir = other->GetEdgeDirection(otherEdge);
             
-            Vector3 axis = myEdgeDir.cross(otherEdgeDir);
+            Vector3f axis = myEdgeDir.cross(otherEdgeDir);
             
             if(axis.magnitude() > 0.0001f) {
                 axis.normalize();
@@ -183,7 +183,7 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
         float myMax = -999999.0f;
         
         for(const auto& vertex : vertices) {
-            Vector3 global = vertex.GetGlobalPoint(*transform);
+            Vector3f global = vertex.GetGlobalPoint(*transform);
             float proj = global.dot(axis);
             myMin = std::min(myMin, proj);
             myMax = std::max(myMax, proj);
@@ -193,7 +193,7 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
         float otherMax = -999999.0f;
         
         for(const auto& vertex : other->vertices) {
-            Vector3 global = vertex.GetGlobalPoint(*other->transform);
+            Vector3f global = vertex.GetGlobalPoint(*other->transform);
             float proj = global.dot(axis);
             otherMin = std::min(otherMin, proj);
             otherMax = std::max(otherMax, proj);
@@ -205,7 +205,7 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
 
         float overlap = std::min(myMax, otherMax) - std::max(myMin, otherMin);
         
-        Vector3 direction = axis;
+        Vector3f direction = axis;
         
         if(myMax > otherMax){
             direction = -direction;
@@ -242,7 +242,7 @@ void Polyhedron3D::Update(){
     }
 }
 
-bool Polyhedron3D::ContainsPoint(const Vector3& point) const {
+bool Polyhedron3D::ContainsPoint(const Vector3f& point) const {
     if (point.x < cachedAABB.min.x || point.x > cachedAABB.max.x ||
         point.y < cachedAABB.min.y || point.y > cachedAABB.max.y ||
         point.z < cachedAABB.min.z || point.z > cachedAABB.max.z) {
@@ -269,7 +269,7 @@ bool Polyhedron3D::Intersects(const BaseCollider* other) const {
     return CheckExactIntersection(otherPoly);
 }
 
-Vector3 Polyhedron3D::GetCenter() const{
+Vector3f Polyhedron3D::GetCenter() const{
     return center;
 }
 
@@ -277,10 +277,10 @@ float Polyhedron3D::GetVolume() const{
     return 1.0f;
 }
 
-void Polyhedron3D::AddVertex(const Vector3& newVertex){
+void Polyhedron3D::AddVertex(const Vector3f& newVertex){
     isChanged = true;
 }
-void Polyhedron3D::AddVertex(const Vector3& newVertex, std::vector<size_t> vertexCommunications){
+void Polyhedron3D::AddVertex(const Vector3f& newVertex, std::vector<size_t> vertexCommunications){
     isChanged = true;
 }
 void Polyhedron3D::AddCommunication(size_t fromIndex, size_t toIndex){

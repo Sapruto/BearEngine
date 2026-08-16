@@ -4,7 +4,6 @@
 #include <string>
 #include <memory>
 #include <cstddef>
-#include "IntersectionSegments3D.h"
 #include "Collider.h"
 #include "BaseCollider.h"
 #include "Transform3D.h"
@@ -14,12 +13,24 @@
 
 #include "Tetrahedron3D.h"
 
-struct AABB{
-    AABB() : min(Vector3(0,0,0)), max(Vector3(0,0,0)) {}
-    AABB(const Vector3& min, const Vector3& max) : min(min), max(max) {}
+struct Segment3D {
+    Vector3f point1;
+    Vector3f point2;
     
-    Vector3 min;
-    Vector3 max;
+    Segment3D() : point1(), point2() {}
+    Segment3D(const Vector3f& p1, const Vector3f& p2) : point1(p1), point2(p2) {}
+    
+    Vector3f getDirection() const { return point2 - point1; }
+    float length() const { return point1.distanceTo(point2); }
+    float sqrLength() const { return (point2 - point1).sqrMagnitude(); }
+};
+
+struct AABB{
+    AABB() : min(Vector3f(0,0,0)), max(Vector3f(0,0,0)) {}
+    AABB(const Vector3f& min, const Vector3f& max) : min(min), max(max) {}
+    
+    Vector3f min;
+    Vector3f max;
 };
 
 struct Face {
@@ -27,19 +38,19 @@ struct Face {
     Face(std::vector<size_t> indices) : vertexIndices(indices) {}
 
     std::vector<size_t> vertexIndices;
-    Vector3 normal;        
+    Vector3f normal;        
     
     void CalculateNormal(const std::vector<Vertex3D>& allVertices) {
         if (vertexIndices.size() < 3) return;
         
-        Vector3 normal_sum(0, 0, 0);
+        Vector3f normal_sum(0, 0, 0);
         
         for (size_t i = 0; i < vertexIndices.size(); i++) {
             size_t current = vertexIndices[i];
             size_t next = vertexIndices[(i + 1) % vertexIndices.size()];
             
-            const Vector3& v_curr = allVertices[current].localPoint;
-            const Vector3& v_next = allVertices[next].localPoint;
+            const Vector3f& v_curr = allVertices[current].localPoint;
+            const Vector3f& v_next = allVertices[next].localPoint;
             
             normal_sum.x += (v_curr.y - v_next.y) * (v_curr.z + v_next.z);
             normal_sum.y += (v_curr.z - v_next.z) * (v_curr.x + v_next.x);
@@ -51,28 +62,17 @@ struct Face {
 };
 
 
-class Polyhedron3D : public Collider<Transform3D, Vector3> {
+class Polyhedron3D : public Collider<Transform3D, Vector3f> {
 private:
     AABB cachedAABB;
 
     std::vector<Tetrahedron3D> tetrahedrons;
 
-    std::vector<Vertex3D> vertices;
-    std::vector<Face> faces;
-    std::vector<std::pair<size_t, size_t>> communications;
-
-    Vector3 center;
-
-    bool isChanged;
+    Vector3f center;
 
     void ApplyChanged();
 
-    Vector3 GetEdgeDirection(const std::pair<size_t, size_t>& edge) const;
-
-    void CalculateTetrahedrons();
-    void CalculateAABB();
-    void CalculateCenter();
-    void CalculateFaces();
+    Vector3f GetEdgeDirection(const std::pair<size_t, size_t>& edge) const;
 
     size_t FindNextVertex(size_t fromVertex, size_t notThisVertex);
 
@@ -81,8 +81,19 @@ private:
 
     bool CheckExactIntersection(const Polyhedron3D* other) const;
 
+protected:
+    std::vector<Vertex3D> vertices;
+    std::vector<Face> faces;
+    std::vector<std::pair<size_t, size_t>> communications;
+    bool isChanged;
+    
+    void CalculateCenter();
+    void CalculateAABB();
+    void CalculateFaces();
+    void CalculateTetrahedrons();
+
 public:
-    explicit Polyhedron3D(std::vector<Vector3> newVertices);
+    explicit Polyhedron3D(std::vector<Vector3f> newVertices);
 
     Polyhedron3D() = default;
     ~Polyhedron3D();
@@ -92,13 +103,13 @@ public:
 
     float GetVolume() const override;
     
-    bool ContainsPoint(const Vector3& point) const override;
+    bool ContainsPoint(const Vector3f& point) const override;
     bool Intersects(const BaseCollider* other) const override;
-    Vector3 GetCenter() const override;
-    bool GetCollisionInfo(const BaseCollider* other, Vector3& point, Vector3& normal, float& penetration) const override{}
+    Vector3f GetCenter() const override;
+    bool GetCollisionInfo(const BaseCollider* other, Vector3f& point, Vector3f& normal, float& penetration) const override{}
 
-    void AddVertex(const Vector3& newVertex);
-    void AddVertex(const Vector3& newVertex, std::vector<size_t> vertexCommunications);
+    void AddVertex(const Vector3f& newVertex);
+    void AddVertex(const Vector3f& newVertex, std::vector<size_t> vertexCommunications);
 
     void AddCommunication(size_t fromIndex, size_t toIndex);
 

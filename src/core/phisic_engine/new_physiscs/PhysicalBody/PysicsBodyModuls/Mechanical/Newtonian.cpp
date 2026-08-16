@@ -4,7 +4,7 @@
 
 #include "PhysicalBody.h"
 
-ImpulseModule::ImpulseModule() : velocity(Vector3::Zero){
+ImpulseModule::ImpulseModule() : velocity(Vector3::Zero()){
     SubcribeEvent(PhysicEventType::ForceInteraction);
     SetLayer(0);
 }
@@ -51,7 +51,7 @@ void ImpulseModule::AddForce(const Force& new_force){
 
 void ImpulseModule::ReForce(const Force& new_force){
     main_force = new_force;
-    velocity = Vector3::Zero;
+    velocity = Vector3::Zero();
 }
 
 void ImpulseModule::UpdateBody(){
@@ -78,7 +78,7 @@ void ImpulseModule::UpdateBody(){
         ApplyArcadyChange();
     }
     
-    main_force = Force(Vector3::Zero, 0.0f);
+    main_force = Force(Vector3::Zero(), 0.0f);
 }
 
 void ImpulseModule::ReactionOnEvent(BasePhysicsEvent* event){

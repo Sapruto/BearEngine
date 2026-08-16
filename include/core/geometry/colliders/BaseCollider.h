@@ -12,7 +12,7 @@
 class ColliderManager;
 class PhysicalBody;
 
-class BaseCollider : public Component{
+class BaseCollider : public Component {
 private:
     bool isInitialzed{false};
 

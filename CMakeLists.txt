@@ -73,6 +73,13 @@ set_target_properties(stb_lib PROPERTIES LINKER_LANGUAGE CXX)
 
 file(GLOB_RECURSE CORE_SOURCES "${ROOT_DIR}/src/core/*.cpp")
 
+#FUCK EDITOR
+file(GLOB_RECURSE EDITOR_SOURCES_TO_REMOVE 
+    "${ROOT_DIR}/src/core/users_interface/Editor/*.cpp"
+)
+list(REMOVE_ITEM CORE_SOURCES ${EDITOR_SOURCES_TO_REMOVE})
+#END FUCKING
+
 add_executable(game ${ROOT_DIR}/main.cpp ${CORE_SOURCES})
 
 target_include_directories(game PRIVATE
@@ -82,13 +89,10 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core
     ${ROOT_DIR}/include/core/audio_engine
     ${ROOT_DIR}/include/core/exe_compiler
-    ${ROOT_DIR}/include/core/users_interface
     ${ROOT_DIR}/include/core/user_settings
     ${ROOT_DIR}/include/core/graphics_engine
-    ${ROOT_DIR}/include/core/graphics_engine/BaseGraphic
-    ${ROOT_DIR}/include/core/graphics_engine/Shaders
-    ${ROOT_DIR}/include/core/graphics_engine/Shaders/SpriteShaders
-    ${ROOT_DIR}/include/core/graphics_engine/Sprite
+    ${ROOT_DIR}/include/core/graphics_engine/base_graphics
+    ${ROOT_DIR}/include/core/graphics_engine/resources
     ${ROOT_DIR}/include/core/system_engine
     ${ROOT_DIR}/include/core/system_engine/atributs
     ${ROOT_DIR}/include/core/system_engine/component_system
@@ -122,25 +126,32 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsManagers
 
     ${ROOT_DIR}/include/core/graphics_engine/3D
-    ${ROOT_DIR}/include/core/graphics_engine/3D/Models
-    ${ROOT_DIR}/include/core/graphics_engine/3D/Models/ModelFeatures
-    ${ROOT_DIR}/include/core/graphics_engine/3D/Models/ModelRenderers
-    ${ROOT_DIR}/include/core/graphics_engine/3D/Lights
+    ${ROOT_DIR}/include/core/graphics_engine/3D/models
+    ${ROOT_DIR}/include/core/graphics_engine/3D/models/model_features
+    ${ROOT_DIR}/include/core/graphics_engine/3D/models/model_renderers
+    ${ROOT_DIR}/include/core/graphics_engine/3D/lights
+    ${ROOT_DIR}/include/core/graphics_engine/3D/uv
     
     ${ROOT_DIR}/include/core/graphics_engine/2D
-    ${ROOT_DIR}/include/core/graphics_engine/2D/Sprite
+    ${ROOT_DIR}/include/core/graphics_engine/2D/sprite
+    ${ROOT_DIR}/include/core/graphics_engine/2D/renderers
+    ${ROOT_DIR}/include/core/graphics_engine/2D/features
 
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Fluid
 
-    ${ROOT_DIR}/include/core/graphics_engine/UI
-    ${ROOT_DIR}/include/core/graphics_engine/UI/UIElements
-    ${ROOT_DIR}/include/core/graphics_engine/UI/UIRendering
+    ${ROOT_DIR}/include/core/ui_engine
+    ${ROOT_DIR}/include/core/ui_engine/ui_elements
+    ${ROOT_DIR}/include/core/ui_engine/ui_rendering
+    ${ROOT_DIR}/include/core/ui_engine/resources
 
     ${ROOT_DIR}/include/core/system_engine/hierarchy_system
 
-    ${ROOT_DIR}/include/core/users_interface
-    ${ROOT_DIR}/include/core/users_interface/Editor
-    ${ROOT_DIR}/include/core/users_interface/Utilits
+    #${ROOT_DIR}/include/core/users_interface
+    #${ROOT_DIR}/include/core/users_interface/Editor
+    #${ROOT_DIR}/include/core/users_interface/Utilits
+
+    #PHYSIC PROJECT, DELETE IN FEAURE PLEEEEEEEEEEEEEEEEASE 6766767676766767
+    ${ROOT_DIR}/test_games/PhysicProject
 
     
     ${GLM_DIR}

@@ -18,6 +18,26 @@ void SceneManager::Initialize(const std::string& scenesPath) {
     m_scenesPath = scenesPath;
 }
 
+void SceneManager::RegisterSceneFactory(const std::string& name, std::function<std::unique_ptr<Scene>()> factory) {
+    m_sceneFactories[name] = factory;
+}
+
+bool SceneManager::CreateScene(const std::string& name) {
+    auto it = m_sceneFactories.find(name);
+    if (it == m_sceneFactories.end()) {
+        return false;
+    }
+    
+    if (FindScene(name)) {
+        return false;
+    }
+    
+    auto scene = it->second();
+    scene->SetName(name);
+    m_scenes.push_back(std::move(scene));
+    return true;
+}
+
 bool SceneManager::LoadScenes() {
     m_scenes.clear();
     m_currentScene = nullptr;
@@ -63,12 +83,17 @@ bool SceneManager::SwitchToScene(int index) {
     }
     
     if (m_currentScene) {
+        m_currentScene->DestroyScene();
         m_currentScene->SetActive(false);
     }
     
     m_currentScene = newScene;
     if (m_currentScene) {
         m_currentScene->SetActive(true);
+        if (!m_currentScene->IsInitialized()) {
+            m_currentScene->InitializeScene();
+            m_currentScene->StartScene();
+        }
     }
     
     return true;
@@ -76,15 +101,26 @@ bool SceneManager::SwitchToScene(int index) {
 
 bool SceneManager::SwitchToScene(const std::string& sceneName) {
     Scene* newScene = FindScene(sceneName);
-    if (!newScene || newScene == m_currentScene) {
-        return false;
+    if (!newScene) {
+        if (CreateScene(sceneName)) {
+            newScene = FindScene(sceneName);
+        }
     }
     
+    if (!newScene || newScene == m_currentScene) return false;
+    
     if (m_currentScene) {
+        m_currentScene->DestroyScene();
         m_currentScene->SetActive(false);
     }
     
     m_currentScene = newScene;
+    
+    if (!m_currentScene->IsInitialized()) {
+        m_currentScene->InitializeScene();
+        m_currentScene->StartScene();
+    }
+    
     m_currentScene->SetActive(true);
     
     return true;
@@ -108,7 +144,41 @@ const Scene* SceneManager::GetCurrentScene() const {
 }
 
 void SceneManager::UpdateCurrentScene() {
-    if (m_currentScene) {
+    if (m_currentScene && m_currentScene->IsActive()) {
         m_currentScene->UpdateScene();
     }
+}
+
+void SceneManager::UnloadScene(const std::string& name) {
+    auto it = std::find_if(m_scenes.begin(), m_scenes.end(),
+        [&name](const auto& scene) {
+            return scene && scene->GetName() == name;
+        });
+    
+    if (it != m_scenes.end()) {
+        if (it->get() == m_currentScene) {
+            m_currentScene = nullptr;
+        }
+        m_scenes.erase(it);
+    }
+}
+
+void SceneManager::UnloadAllScenes() {
+    m_scenes.clear();
+    m_currentScene = nullptr;
+}
+
+bool SceneManager::HasScene(const std::string& name) const {
+    return FindScene(name) != nullptr;
+}
+
+std::vector<std::string> SceneManager::GetSceneNames() const {
+    std::vector<std::string> names;
+    names.reserve(m_scenes.size());
+    for (const auto& scene : m_scenes) {
+        if (scene) {
+            names.push_back(scene->GetName());
+        }
+    }
+    return names;
 }

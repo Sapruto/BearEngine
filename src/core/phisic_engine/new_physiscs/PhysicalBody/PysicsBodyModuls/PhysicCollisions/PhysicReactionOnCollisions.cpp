@@ -29,7 +29,7 @@ void PhysicReactionOnCollisions::ReactionOnEvent(BasePhysicsEvent* event){
     CollisionEvent* collisionEvent = dynamic_cast<CollisionEvent*>(event->GetData());
     if(!collisionEvent) return;
     
-    system->EnsureSameSystem(body, collisionEvent->GetOther()->gameObject->GetComponentOfType<PhysicalBody>(), treshold);
+    system->EnsureSameSystem(body, collisionEvent->GetOther()->GetGameObject()->GetComponentOfType<PhysicalBody>(), treshold);
 }
 
 void PhysicReactionOnCollisions::Destroy() {

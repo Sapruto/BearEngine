@@ -11,8 +11,9 @@
 class GraphicsManager {
 private:
     std::unique_ptr<Window> window;
-    std::unique_ptr<Camera> camera;
     std::unique_ptr<RenderSettings> renderSettings; 
+
+    Camera* camera;
     
     std::vector<std::unique_ptr<Renderer>> renders;
     
@@ -21,13 +22,23 @@ public:
         renderSettings = std::make_unique<RenderSettings>();
     }
 
-    void SetCamera(Camera* c) { camera.reset(c); }
+    void SetCamera(Camera* c) { camera = c; }
     void SetWindow(Window* w) { window.reset(w); }
     void SetRenderSettings(RenderSettings* settings) { renderSettings.reset(settings); }
 
-    void Update(){
+    void Start() {
+        for(auto& render : renders){
+            render->Start();
+        }
+    }
+    void Update() {
         for(auto& render : renders){
             render->Update();
+        }
+    }
+    void Destroy() {
+        for(auto& render : renders){
+            render->Destroy();
         }
     }
 
@@ -54,7 +65,7 @@ public:
 
     void ApplyRenderSettingsToCamera(bool applyOffset = false);
 
-    Camera* GetCamera() { return camera.get(); }
+    Camera* GetCamera() { return camera; }
     Window* GetWindow() { return window.get(); }
     RenderSettings* GetRenderSettings() { return renderSettings.get(); }
 };

@@ -21,7 +21,7 @@ bool Editor::Start() {
 
 void Editor::Update() {
     Time::Tick();
-    input.Update();
+    input.BeginUpdate();
     
     Window* window = graphicsManager.GetWindow();
     if (!window) return;
@@ -34,6 +34,8 @@ void Editor::Update() {
     graphicsManager.Update();
     
     window->SwapBuffers();
+
+    input.EndUpdate();
 }
 
 Scene* Editor::GetCurrentGameScene() { return sceneController.GetCurrentGameScene(); }

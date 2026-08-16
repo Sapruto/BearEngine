@@ -139,24 +139,10 @@ CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp -o CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.s
 
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp
-
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp > CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.i
-
-CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.s
-
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp
 
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.i: cmake_force
@@ -170,7 +156,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.s: cmake_for
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Tetrahedron3D.cpp
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Tetrahedron3D.cpp
 
 CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.i: cmake_force
@@ -184,7 +170,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.s: cmake_fo
 CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp
 CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders/BaseCollider.cpp
 
 CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.i: cmake_force
@@ -198,7 +184,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.s: cmake_force
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/ColliderManager.cpp
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/ColliderManager.cpp
 
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.i: cmake_force
@@ -212,7 +198,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.s: c
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o: /home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/CollisionReaction.cpp
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o -MF CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o.d -o CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o -c /home/alex/Projects/BearEngine/src/core/geometry/colliders_manager/CollisionReaction.cpp
 
 CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.i: cmake_force
@@ -226,7 +212,7 @@ CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.s:
 CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Camera2D.cpp
 CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Camera2D.cpp
 
 CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.i: cmake_force
@@ -237,38 +223,94 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Camera2D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/Sprite.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/Sprite.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/RenderPipeline2D.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/RenderPipeline2D.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/Sprite.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/RenderPipeline2D.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/Sprite.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/RenderPipeline2D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/UVManager2D.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/UVManager2D.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/UVManager2D.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/UVManager2D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/RendererSprite.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/RendererSprite.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/RendererSprite.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/RendererSprite.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp > CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.s
 
 CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Camera3D.cpp
 CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Camera3D.cpp
 
 CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.i: cmake_force
@@ -279,108 +321,136 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Camera3D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/PointLight3D.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/PointLight3D.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/PointLight3D.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Lights/PointLight3D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/PointLight3D.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelComponent.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelComponent.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelComponent.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelComponent.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelComponent.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderer.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/UVManager.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/UVManager.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/RenderPipeline.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/RenderPipeline.cpp
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/UVManager.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.i
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/RenderPipeline.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.i
 
-CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/Models/UVManager.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.s
+CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/RenderPipeline.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/FrustumCollider.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/FrustumCollider.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/FrustumCollider.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/FrustumCollider.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/UVManager.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/UVManager.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/UVManager.cpp > CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/UVManager.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.s
 
 CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/GraphicsManager.cpp
 CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/GraphicsManager.cpp
 
 CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.i: cmake_force
@@ -394,7 +464,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.s: cmake_force
 CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp
 CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp
 
 CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.i: cmake_force
@@ -405,108 +475,10 @@ CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.s
 
-CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/Canvas.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/Canvas.cpp
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/Canvas.cpp > CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.i
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/Canvas.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.s
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/RectTransform.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/RectTransform.cpp
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/RectTransform.cpp > CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.i
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/RectTransform.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.s
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Button.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Button.cpp
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Button.cpp > CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.i
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Button.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.s
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Image.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Image.cpp
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Image.cpp > CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.i
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Image.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.s
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Text.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Text.cpp
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Text.cpp > CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.i
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Text.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.s
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Toggle.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Toggle.cpp
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Toggle.cpp > CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.i
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIElements/Toggle.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.s
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp > CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.i
-
-CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.s
-
 CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/Window.cpp
 CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/Window.cpp
 
 CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.i: cmake_force
@@ -516,6 +488,34 @@ CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.i: cmake_force
 CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/Window.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Model.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Model.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Model.cpp > CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Model.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.s
+
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o: /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Texture.cpp
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o -MF CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o.d -o CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o -c /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Texture.cpp
+
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Texture.cpp > CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.i
+
+CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/graphics_engine/resources/Texture.cpp -o CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.s
 
 CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o: /home/alex/Projects/BearEngine/src/core/math/2D/Transform2D.cpp
@@ -531,24 +531,10 @@ CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/math/2D/Transform2D.cpp -o CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.s
 
-CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: /home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp
-CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o -MF CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o.d -o CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o -c /home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp
-
-CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp > CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.i
-
-CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/math/2D/Vector2.cpp -o CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.s
-
 CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: /home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp
 CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_34) "Building CXX object CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o -MF CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o.d -o CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o -c /home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp
 
 CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.i: cmake_force
@@ -559,24 +545,10 @@ CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp -o CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.s
 
-CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o: /home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp
-CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o -MF CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o.d -o CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o -c /home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp
-
-CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp > CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.i
-
-CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/math/3D/Vector3.cpp -o CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.s
-
 CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/Rigidbody2D.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_35) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/Rigidbody2D.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.i: cmake_force
@@ -590,7 +562,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.s: cmake_force
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_36) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.i: cmake_force
@@ -604,7 +576,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBod
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_37) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.i: cmake_force
@@ -618,7 +590,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_38) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Fields.cpp.i: cmake_force
@@ -632,7 +604,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_39) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Magnetism.cpp.i: cmake_force
@@ -646,7 +618,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_40) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp.i: cmake_force
@@ -660,7 +632,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_41) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp.i: cmake_force
@@ -674,7 +646,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_42) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp.i: cmake_force
@@ -688,7 +660,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_43) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.cpp.i: cmake_force
@@ -702,7 +674,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_44) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp.i: cmake_force
@@ -716,7 +688,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_45) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/CircularMover.cpp.i: cmake_force
@@ -730,7 +702,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_46) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.cpp.i: cmake_force
@@ -744,7 +716,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_47) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp.i: cmake_force
@@ -758,7 +730,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_48) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.cpp.i: cmake_force
@@ -772,7 +744,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_49) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp.i: cmake_force
@@ -786,7 +758,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_50) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.cpp.i: cmake_force
@@ -800,7 +772,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_51) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.cpp.i: cmake_force
@@ -814,7 +786,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_52) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicReactionOnCollisions.cpp.i: cmake_force
@@ -828,7 +800,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_53) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.cpp.i: cmake_force
@@ -842,7 +814,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_54) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp.i: cmake_force
@@ -856,7 +828,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_55) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/HeatTransfer.cpp.i: cmake_force
@@ -870,7 +842,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_56) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/PhaseTransitions.cpp.i: cmake_force
@@ -884,7 +856,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_57) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp.i: cmake_force
@@ -898,7 +870,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_58) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/ThermalExpansion.cpp.i: cmake_force
@@ -912,7 +884,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyM
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o: /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_59) "Building CXX object CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o -MF CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o.d -o CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.o -c /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp
 
 CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp.i: cmake_force
@@ -926,7 +898,7 @@ CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsW
 CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp
 CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_60) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o -MF CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o.d -o CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.o -c /home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp
 
 CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.i: cmake_force
@@ -940,7 +912,7 @@ CMakeFiles/game.dir/src/core/scene_engine/Scene.cpp.s: cmake_force
 CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneManager.cpp
 CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_61) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o -MF CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o.d -o CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.o -c /home/alex/Projects/BearEngine/src/core/scene_engine/SceneManager.cpp
 
 CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.i: cmake_force
@@ -954,7 +926,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneManager.cpp.s: cmake_force
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneCreator.cpp
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_62) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o -MF CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o.d -o CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.o -c /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneCreator.cpp
 
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.i: cmake_force
@@ -968,7 +940,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneCreator.cpp.s: cmake_
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_63) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o -MF CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o.d -o CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.o -c /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp
 
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.i: cmake_force
@@ -982,7 +954,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp.s: c
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneSerializer.cpp
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_64) "Building CXX object CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o -MF CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o.d -o CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.o -c /home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneSerializer.cpp
 
 CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.i: cmake_force
@@ -996,7 +968,7 @@ CMakeFiles/game.dir/src/core/scene_engine/SceneToFile/SceneSerializer.cpp.s: cma
 CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp
 CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_65) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/hierarchy_system/HierarchySystem.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.i: cmake_force
@@ -1010,7 +982,7 @@ CMakeFiles/game.dir/src/core/system_engine/hierarchy_system/HierarchySystem.cpp.
 CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp
 CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_66) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.i: cmake_force
@@ -1024,7 +996,7 @@ CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.s: cmake
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceFactory.cpp
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_67) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceFactory.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.i: cmake_force
@@ -1038,7 +1010,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.s
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceManager.cpp
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_68) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceManager.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.i: cmake_force
@@ -1052,7 +1024,7 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.s
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_69) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.i: cmake_force
@@ -1063,52 +1035,10 @@ CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.s
 
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp > CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.i
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.s
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp > CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.i
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.s
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp > CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.i
-
-CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp -o CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.s
-
 CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/tags_system/Tag.cpp
 CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_70) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/tags_system/Tag.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.i: cmake_force
@@ -1122,7 +1052,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.s: cmake_force
 CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/tags_system/TagManager.cpp
 CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_71) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/tags_system/TagManager.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.i: cmake_force
@@ -1136,7 +1066,7 @@ CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.s: cmake_f
 CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: CMakeFiles/game.dir/flags.make
 CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: /home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp
 CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_72) "Building CXX object CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o -MF CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o.d -o CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o -c /home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp
 
 CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.i: cmake_force
@@ -1147,145 +1077,117 @@ CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp -o CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp
+CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/Canvas.cpp
+CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_73) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/Canvas.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/Canvas.cpp > CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Editor.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/Canvas.cpp -o CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/EditorToolsController.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/EditorToolsController.cpp
+CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/RectTransform.cpp
+CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_74) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/RectTransform.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/EditorToolsController.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/RectTransform.cpp > CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/EditorToolsController.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/RectTransform.cpp -o CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp
+CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/resources/Font.cpp
+CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_75) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/resources/Font.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/resources/Font.cpp > CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/FileBrowser.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/resources/Font.cpp -o CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneFileController.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneFileController.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Button.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_76) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Button.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneFileController.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Button.cpp > CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneFileController.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Button.cpp -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_82) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Image.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_77) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Image.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Image.cpp > CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/SceneView.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Image.cpp -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_83) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Text.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_78) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Text.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Text.cpp > CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Text.cpp -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_84) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Toggle.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_79) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Toggle.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Toggle.cpp > CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Toggle.cpp -o CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.s
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_85) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: CMakeFiles/game.dir/flags.make
+CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/alex/Projects/BearEngine/src/core/ui_engine/ui_rendering/UIRendering.cpp
+CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_80) "Building CXX object CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o -MF CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o.d -o CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o -c /home/alex/Projects/BearEngine/src/core/ui_engine/ui_rendering/UIRendering.cpp
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.i
+CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/ui_engine/ui_rendering/UIRendering.cpp > CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.i
 
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.s
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_86) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.i
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.s
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o: CMakeFiles/game.dir/flags.make
-CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o: /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp
-CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o: CMakeFiles/game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_87) "Building CXX object CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o -MF CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o.d -o CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o -c /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp > CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.i
-
-CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/users_interface/Editor/Toolbar.cpp -o CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.s
+CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/alex/Projects/BearEngine/src/core/ui_engine/ui_rendering/UIRendering.cpp -o CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.s
 
 # Object files for target game
 game_OBJECTS = \
@@ -1294,37 +1196,35 @@ game_OBJECTS = \
 "CMakeFiles/game.dir/src/core/geometry/colliders/2D/BoxCollider2D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o" \
-"CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o" \
 "CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o" \
 "CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o" \
 "CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o" \
 "CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o" \
 "CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o" \
-"CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o" \
 "CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o" \
+"CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o" \
 "CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o" \
-"CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o" \
 "CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o" \
-"CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o" \
 "CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o" \
 "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o" \
 "CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o" \
@@ -1360,22 +1260,17 @@ game_OBJECTS = \
 "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o" \
 "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o" \
 "CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o" \
-"CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o" \
-"CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o" \
-"CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o" \
 "CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o" \
 "CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o" \
 "CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o" \
-"CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o"
+"CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o" \
+"CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o" \
+"CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o" \
+"CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o" \
+"CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o" \
+"CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o" \
+"CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o" \
+"CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o"
 
 # External object files for target game
 game_EXTERNAL_OBJECTS =
@@ -1385,37 +1280,35 @@ game: CMakeFiles/game.dir/src/core/GameObject.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/2D/BoxCollider2D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/2D/InserectionSegments2D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/2D/Polygon2D.cpp.o
-game: CMakeFiles/game.dir/src/core/geometry/colliders/3D/IntersectionSegments3D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/3D/Polyhedron3D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/3D/Tetrahedron3D.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders_manager/ColliderManager.cpp.o
 game: CMakeFiles/game.dir/src/core/geometry/colliders_manager/CollisionReaction.cpp.o
 game: CMakeFiles/game.dir/src/core/graphics_engine/2D/Camera2D.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/Sprite.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/2D/Sprite/SpriteRenderer.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/2D/UVManager2D.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp.o
 game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Camera3D.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/DirectionalLight3D.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Lights/PointLight3D.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelComponent.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderer.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/SimpleModelRenderer.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/ModelRenderers/TransparencyModelRenderer.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/3D/Models/UVManager.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/lights/PointLight3D.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/FrustumCollider.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/3D/uv/UVManager.cpp.o
 game: CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o
 game: CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/UI/Canvas.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/UI/RectTransform.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Button.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Image.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Text.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/UI/UIElements/Toggle.cpp.o
-game: CMakeFiles/game.dir/src/core/graphics_engine/UI/UIRendering/UIRendering.cpp.o
 game: CMakeFiles/game.dir/src/core/graphics_engine/Window.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/resources/Model.cpp.o
+game: CMakeFiles/game.dir/src/core/graphics_engine/resources/Texture.cpp.o
 game: CMakeFiles/game.dir/src/core/math/2D/Transform2D.cpp.o
-game: CMakeFiles/game.dir/src/core/math/2D/Vector2.cpp.o
 game: CMakeFiles/game.dir/src/core/math/3D/Transform3D.cpp.o
-game: CMakeFiles/game.dir/src/core/math/3D/Vector3.cpp.o
 game: CMakeFiles/game.dir/src/core/phisic_engine/Rigidbody2D.cpp.o
 game: CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp.o
 game: CMakeFiles/game.dir/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic/Electricity.cpp.o
@@ -1451,22 +1344,17 @@ game: CMakeFiles/game.dir/src/core/system_engine/input_system/InputSystem.cpp.o
 game: CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceFactory.cpp.o
 game: CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourceManager.cpp.o
 game: CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Audio.cpp.o
-game: CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Font.cpp.o
-game: CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Model.cpp.o
-game: CMakeFiles/game.dir/src/core/system_engine/resource_system/ResourcesTypes/Texture.cpp.o
 game: CMakeFiles/game.dir/src/core/system_engine/tags_system/Tag.cpp.o
 game: CMakeFiles/game.dir/src/core/system_engine/tags_system/TagManager.cpp.o
 game: CMakeFiles/game.dir/src/core/system_engine/time_system/Time.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/Editor.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/EditorToolsController.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/FileBrowser.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/SceneFileController.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/SceneView.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewer.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/HierarchyViewer/HierarchyViewerUI.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorLogic.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/Systems/Inspector/InspectorUI.cpp.o
-game: CMakeFiles/game.dir/src/core/users_interface/Editor/Toolbar.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/Canvas.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/RectTransform.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/resources/Font.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Button.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Image.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Text.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/ui_elements/Toggle.cpp.o
+game: CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o
 game: CMakeFiles/game.dir/build.make
 game: libglad_lib.a
 game: libimgui_lib.a
@@ -1477,7 +1365,7 @@ game: /usr/lib/x86_64-linux-gnu/libSDL2.so
 game: /usr/lib/x86_64-linux-gnu/libassimp.so.5.3.0
 game: /usr/lib/x86_64-linux-gnu/libfreetype.so
 game: CMakeFiles/game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_88) "Linking CXX executable game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_81) "Linking CXX executable game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

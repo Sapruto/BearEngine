@@ -6,7 +6,6 @@
 #include "ColliderManager.h"
 #include "CollisionEvent.h"
 #include "PhysicsCollisionData.h"
-#include "IntersectionSegments3D.h"
 
 void PhysicsWorld::UnsubscribeAll(PhysicalBody* body) {
     for (auto& [type, vec] : subscribers) {

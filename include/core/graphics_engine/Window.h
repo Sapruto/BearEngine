@@ -26,6 +26,9 @@ public:
     void PollEvents();
     
     bool ShouldClose();
+
+    int GetWidth() { return window_x; }
+    int GetHeight() { return window_y; }
     
     GLFWwindow* GetWindow() const;
 };

@@ -7,6 +7,47 @@
 
 InputSystem* InputSystem::instance = nullptr;
 
+void InputSystem::BeginUpdateMouse() {
+    if (window) {
+        double xpos, ypos;
+        glfwGetCursorPos(window, &xpos, &ypos);
+        mouseX = xpos;
+        mouseY = ypos;
+    }
+}
+
+void InputSystem::BeginUpdateKeys() {
+    glfwPollEvents();
+}
+
+void InputSystem::EndUpdateMouse() {
+    lastMouseX = mouseX;
+    lastMouseY = mouseY;
+    mouseScrollX = mouseScrollY = 0;
+}
+
+void InputSystem::EndUpdateKeys() {
+    for (int i = 0; i < KEY_COUNT; i++) {
+        KeyState& state = keyStates[i];
+        if (state == KeyState::JustPressed) {
+            state = KeyState::Pressed;
+        }
+        else if (state == KeyState::JustReleased) {
+            state = KeyState::Released;
+        }
+    }
+    
+    for (int i = 0; i < MOUSE_BUTTON_COUNT; i++) {
+        KeyState& state = mouseButtonStates[i];
+        if (state == KeyState::JustPressed) {
+            state = KeyState::Pressed;
+        }
+        else if (state == KeyState::JustReleased) {
+            state = KeyState::Released;
+        }
+    }
+}
+
 InputSystem::InputSystem() {
     keyStates.fill(KeyState::Released);
     mouseButtonStates.fill(KeyState::Released);
@@ -37,39 +78,14 @@ void InputSystem::Initialize(GLFWwindow* window) {
     lastMouseY = mouseY;
 }
 
-void InputSystem::Update() {
-    glfwPollEvents();
-    
-    if (window) {
-        double xpos, ypos;
-        glfwGetCursorPos(window, &xpos, &ypos);
-        mouseX = xpos;
-        mouseY = ypos;
-    }
-    
-    for (int i = 0; i < KEY_COUNT; i++) {
-        KeyState& state = keyStates[i];
-        if (state == KeyState::JustPressed) {
-            state = KeyState::Pressed;
-        }
-        else if (state == KeyState::JustReleased) {
-            state = KeyState::Released;
-        }
-    }
-    
-    for (int i = 0; i < MOUSE_BUTTON_COUNT; i++) {
-        KeyState& state = mouseButtonStates[i];
-        if (state == KeyState::JustPressed) {
-            state = KeyState::Pressed;
-        }
-        else if (state == KeyState::JustReleased) {
-            state = KeyState::Released;
-        }
-    }
-    
-    lastMouseX = mouseX;
-    lastMouseY = mouseY;
-    mouseScrollX = mouseScrollY = 0;
+void InputSystem::BeginUpdate() {
+    BeginUpdateKeys();
+    BeginUpdateMouse();
+}
+
+void InputSystem::EndUpdate() {
+    EndUpdateKeys();
+    EndUpdateMouse();
 }
 
 bool InputSystem::GetKey(Keys key) {

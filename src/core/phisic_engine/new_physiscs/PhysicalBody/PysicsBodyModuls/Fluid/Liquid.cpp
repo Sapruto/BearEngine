@@ -77,7 +77,7 @@ void Liquid::ReactionOnEvent(BasePhysicsEvent* event){
         otherColliderFromMe = selfColliderFromEvent;
     }
 
-    PhysicalBody* otherBody = otherColliderFromMe->gameObject->GetComponentOfType<PhysicalBody>();
+    PhysicalBody* otherBody = otherColliderFromMe->GetGameObject()->GetComponentOfType<PhysicalBody>();
     if(!otherBody) return;
 
     LiquidCollisionData collisionData(body);

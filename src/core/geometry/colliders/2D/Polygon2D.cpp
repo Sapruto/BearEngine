@@ -5,14 +5,14 @@
 #include "GameObject.h"
 #include "ColliderManager.h" 
 
-Polygon2D::Polygon2D(const std::vector<Vector2>& vertices) 
+Polygon2D::Polygon2D(const std::vector<Vector2f>& vertices) 
     : localVertices(vertices), worldVerticesValid(false), centerValid(false) {}
 
-Polygon2D::Polygon2D(std::vector<Vector2>&& vertices) 
+Polygon2D::Polygon2D(std::vector<Vector2f>&& vertices) 
     : localVertices(std::move(vertices)), worldVerticesValid(false), centerValid(false) {}
 
 Polygon2D Polygon2D::FromSegments(const std::vector<Segment>& segments) {
-    std::vector<Vector2> vertices;
+    std::vector<Vector2f> vertices;
     if (!segments.empty()) {
         vertices.push_back(segments[0].point1);
         
@@ -58,12 +58,12 @@ void Polygon2D::validateWorldVertices() const {
     }
 }
 
-const std::vector<Vector2>& Polygon2D::getWorldVertices() const {
+const std::vector<Vector2f>& Polygon2D::getWorldVertices() const {
     validateWorldVertices();
     return worldVerticesValid ? worldVerticesCache : localVertices;
 }
 
-std::vector<Segment> Polygon2D::buildSegmentsFromVertices(const std::vector<Vector2>& vertices) const {
+std::vector<Segment> Polygon2D::buildSegmentsFromVertices(const std::vector<Vector2f>& vertices) const {
     std::vector<Segment> segments;
     
     if (vertices.size() < 2) {
@@ -91,15 +91,16 @@ std::vector<Segment> Polygon2D::getLocalSegments() const {
     return buildSegmentsFromVertices(localVertices);
 }
 
-Vector2 Polygon2D::applyTransformToPoint(const Vector2& point, const Transform2D* t) const {
+Vector2f Polygon2D::applyTransformToPoint(const Vector2f& point, const Transform2D* t) const {
     if (!t) return point;
     
-    Vector2 result = point;
+    Vector2f result = point;
     
-    result.x *= t->scale.x;
-    result.y *= t->scale.y;
+    Vector2f scale = t->GetScale();
+    result.x *= scale.x;
+    result.y *= scale.y;
     
-    float angleRad = t->rotation * 3.1415f / 180.0f;
+    float angleRad = t->GetAngle();
     float cosA = cos(angleRad);
     float sinA = sin(angleRad);
     
@@ -108,31 +109,32 @@ Vector2 Polygon2D::applyTransformToPoint(const Vector2& point, const Transform2D
     result.x = x;
     result.y = y;
     
-    result.x += t->position.x;
-    result.y += t->position.y;
+    Vector2f pos = t->GetPosition();
+    result.x += pos.x;
+    result.y += pos.y;
     
     return result;
 }
 
-void Polygon2D::setVertices(const std::vector<Vector2>& vertices) {
+void Polygon2D::setVertices(const std::vector<Vector2f>& vertices) {
     localVertices = vertices;
     worldVerticesValid = false;
     centerValid = false;
 }
 
-void Polygon2D::setVertices(std::vector<Vector2>&& vertices) {
+void Polygon2D::setVertices(std::vector<Vector2f>&& vertices) {
     localVertices = std::move(vertices);
     worldVerticesValid = false;
     centerValid = false;
 }
 
-void Polygon2D::addVertex(const Vector2& vertex) {
+void Polygon2D::addVertex(const Vector2f& vertex) {
     localVertices.push_back(vertex);
     worldVerticesValid = false;
     centerValid = false;
 }
 
-void Polygon2D::insertVertex(size_t index, const Vector2& vertex) {
+void Polygon2D::insertVertex(size_t index, const Vector2f& vertex) {
     if (index <= localVertices.size()) {
         localVertices.insert(localVertices.begin() + index, vertex);
         worldVerticesValid = false;
@@ -155,7 +157,7 @@ void Polygon2D::clear() {
     centerValid = false;
 }
 
-bool Polygon2D::ContainsPoint(const Vector2& point) const {
+bool Polygon2D::ContainsPoint(const Vector2f& point) const {
     return containsPoint(point);
 }
 
@@ -183,14 +185,14 @@ bool Polygon2D::Intersects(const BaseCollider* other) const {
     return false;
 }
 
-Vector2 Polygon2D::GetCenter() const {
+Vector2f Polygon2D::GetCenter() const {
     if (!centerValid) {
         const_cast<Polygon2D*>(this)->calculateCenter(); 
     }
     return center;
 }
 
-bool Polygon2D::containsPoint(const Vector2& point) const {
+bool Polygon2D::containsPoint(const Vector2f& point) const {
     const auto& vertices = getWorldVertices();
     if (vertices.size() < 3) return false;
     
@@ -198,7 +200,7 @@ bool Polygon2D::containsPoint(const Vector2& point) const {
     for (const auto& v : vertices) {
         maxX = std::max(maxX, v.x);
     }
-    Vector2 rayEnd(maxX + 1.0f, point.y);
+    Vector2f rayEnd(maxX + 1.0f, point.y);
     Segment ray(point, rayEnd);
     
     int intersectionCount = 0;
@@ -251,13 +253,13 @@ bool Polygon2D::intersectsFast(const Polygon2D& other) const {
 
 void Polygon2D::calculateCenter() const {
     if (localVertices.empty()) {
-        const_cast<Polygon2D*>(this)->center = Vector2(0, 0);
+        const_cast<Polygon2D*>(this)->center = Vector2f(0, 0);
         const_cast<Polygon2D*>(this)->centerValid = true;
         return;
     }
     
     const auto& verts = getWorldVertices();
-    Vector2 sum(0, 0);
+    Vector2f sum(0, 0);
     
     for (const auto& v : verts) {
         sum += v;
@@ -267,7 +269,7 @@ void Polygon2D::calculateCenter() const {
     const_cast<Polygon2D*>(this)->centerValid = true;
 }
 
-const Vector2& Polygon2D::getCenter() const {
+const Vector2f& Polygon2D::getCenter() const {
     if (!centerValid) {
         const_cast<Polygon2D*>(this)->calculateCenter();
     }
@@ -279,8 +281,8 @@ float Polygon2D::GetVolume() const {
 }
 
 bool Polygon2D::GetCollisionInfo(const BaseCollider* other,
-                                Vector2& point,
-                                Vector2& normal,
+                                Vector2f& point,
+                                Vector2f& normal,
                                 float& penetration) const {
     return false;
 }

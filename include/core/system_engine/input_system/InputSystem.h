@@ -31,6 +31,12 @@ private:
     double mouseScrollX, mouseScrollY;
     
     std::string textInputBuffer;
+
+    void BeginUpdateMouse();
+    void BeginUpdateKeys();
+
+    void EndUpdateMouse();
+    void EndUpdateKeys();
     
     InputSystem();
     
@@ -39,7 +45,8 @@ public:
     
     void Initialize(GLFWwindow* window);
     
-    void Update();
+    void BeginUpdate();
+    void EndUpdate();
     
     bool GetKey(Keys key);
     bool GetKeyDown(Keys key); 
@@ -64,3 +71,9 @@ private:
     static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos);
     static void MouseScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
 };
+
+#define UpdateInputSystem(name, ...) void name() { \
+    InputSystem::GetInstance().BeginUpdate(); \
+    __VA_ARGS__ \
+    InputSystem::GetInstance().EndUpdate(); \
+}

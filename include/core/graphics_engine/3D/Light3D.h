@@ -1,31 +1,46 @@
 #pragma once
 
-#include <glm/glm.hpp>
 #include <memory>
+
+#include "Matrix/Matrix4x4.h"
 #include "Vector3.h"
+#include "Transform3D.h"
+#include "Component.h"
+#include "SerializeField.h"
 
-class Light3D {
+class Light3D : public Component {
 protected:
-    Vector3 position;
+    Transform3D* transform{nullptr};
 
-    Vector3 color;   
-    float intensity;   
+    FIELD(Vector3f, color);   
+    FIELD(float, intensity);   
 
 public:
     Light3D() = default;
-    Light3D(const Vector3& col, float intens) 
-        : color(col), intensity(intens) {}
+    Light3D(const Vector3f& col, float intens) {
+        color.GetValue() = col;
+        intensity.GetValue() = intens;
+    }
     virtual ~Light3D() = default;
     
-    virtual glm::mat4 GetLightSpaceMatrix(float aspect = 1.0f) const {
-        return glm::mat4(1.0f);
+    virtual Matrix4x4f GetLightSpaceMatrix(float aspect = 1.0f) const {
+        return Matrix4x4f::Identity();
     }
 
-    Vector3 GetPosition() const { return position; }
-    Vector3 GetColor() const { return color; }
-    float GetIntensity() const { return intensity; }
+    void Start() {
+        if (!gameObject) return;
+        transform = gameObject->GetComponentOfType<Transform3D>();
+    }
+
+    Vector3f GetPosition() const { 
+        if (transform) return transform->GetPosition();
+        return Vector3f::Zero();
+    }
+    Vector3f GetColor() const { return color.GetValue(); }
+    float GetIntensity() const { return intensity.GetValue(); }
     
-    void SetLocalPosition(const Vector3& position) { this->position = position; }
-    void SetColor(const Vector3& color) { this->color = color; }
-    void SetIntensity(float intensity) { this->intensity = intensity; }
+    void SetColor(const Vector3& color) { this->color.GetValue() = color; }
+    void SetIntensity(float intensity) { this->intensity.GetValue() = intensity; }
+
+    SERIALIZED_FIELDS(&color, &intensity)
 };

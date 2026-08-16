@@ -1,8 +1,8 @@
 #pragma once
 
 #include "PhysicsEvents.h"
-#include "IntersectionSegments3D.h"
 #include "GameObject.h"
+#include "Polyhedron3D.h"
 
 class PhysicsCollisionData : public AbstractPhysicsData{
 private:

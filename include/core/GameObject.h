@@ -7,100 +7,134 @@
 #include <memory>
 #include <typeindex>
 #include <typeinfo> 
+#include <unordered_set>
 
 class Component;
 class HierarchySystem;
 class Scene;
 
-class GameObject{
+class GameObject {
 private:
     std::vector<std::unique_ptr<Component>> components;
+    std::unordered_map<Component*, size_t> componentIndexMap;
+    std::unordered_map<std::type_index, std::unordered_set<size_t>> componentsByType;
 
-    const HierarchySystem* hierarchySystem{nullptr};
+    HierarchySystem* hierarchySystem{nullptr};
 
+    bool initialized{false};
+    bool started{false};
     bool destroyed{false}; 
 
     std::string name;
 
-    const Scene* scene{nullptr};
-    
-public:
-    GameObject() = default;
-    GameObject(const std::string& name){
-        this->name = name;
-    }
-    GameObject(const Scene* scene);
-    
-    virtual ~GameObject();
+    Scene* scene{nullptr};
 
-    void Initialize();
-    void Initialize(const Scene* scene);
-    
-    template<typename T, typename... Args>
-    T* AddComponent(Args&&... args){
-        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
-        
-        auto component = std::make_unique<T>(std::forward<Args>(args)...);
-        
+    template<typename T>
+    T* AddComponentInternal(std::unique_ptr<T>&& component) {
         component->SetGameObject(this);
         T* ptr = component.get();
         
+        size_t index = components.size();
+        componentIndexMap[ptr] = index;
         components.push_back(std::move(component));
+        componentsByType[typeid(T)].insert(index);
         
-        ptr->Initialize();
-        ptr->Start();
+        if (initialized) ptr->Initialize();
+        if (started) ptr->Start();
         
         return ptr;
     }
     
-    void RemoveComponent(Component* component);
+public:
+    GameObject(const std::string& name = "GameObject", Scene* scene = nullptr);
+    virtual ~GameObject();
 
-    //To delete
+    void Initialize();
+    void Initialize(Scene* scene);
+    
+    template<typename T, typename... Args>
+    T* AddComponent(Args&&... args) {
+        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
+        
+        auto component = std::make_unique<T>(std::forward<Args>(args)...);
+        return AddComponentInternal(std::move(component));
+    }
+    
     template<typename T>
     T* AddComponent(T* component) {
-        component->SetGameObject(this);
-        T* rawPtr = component;
-        components.push_back(std::unique_ptr<Component>(component));
+        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
         
-        rawPtr->Initialize();
-        rawPtr->Start();
+        if (!component) return nullptr;
         
-        return rawPtr;
+        std::unique_ptr<T> ptr(component);
+        return AddComponentInternal(std::move(ptr));
     }
+    
+    void RemoveComponent(Component* component);
 
     template<typename T>
-    T* GetComponentOfType(){
+    T* GetComponentOfType() {
         if (destroyed) return nullptr;
         
-        static std::type_index typeIdx = typeid(T);
-        
-        for (const auto& comp : components) {
-            if (typeid(*comp) == typeid(T)) {
-                return static_cast<T*>(comp.get());
+        auto it = componentsByType.find(typeid(T));
+        if (it != componentsByType.end() && !it->second.empty()) {
+            size_t index = *it->second.begin();
+            if (index < components.size()) {
+                return static_cast<T*>(components[index].get());
             }
         }
         return nullptr;
     }
     
-    void Start();
+    template<typename T>
+    std::vector<T*> GetComponentsOfType() {
+        std::vector<T*> result;
+        if (destroyed) return result;
+        
+        auto it = componentsByType.find(typeid(T));
+        if (it != componentsByType.end()) {
+            result.reserve(it->second.size());
+            for (size_t index : it->second) {
+                if (index < components.size()) {
+                    result.push_back(static_cast<T*>(components[index].get()));
+                }
+            }
+        }
+        return result;
+    }
     
+    template<typename T>
+    bool HasComponent() const {
+        if (destroyed) return false;
+        
+        auto it = componentsByType.find(typeid(T));
+        return it != componentsByType.end() && !it->second.empty();
+    }
+    
+    template<typename T>
+    size_t GetComponentCount() const {
+        auto it = componentsByType.find(typeid(T));
+        return (it != componentsByType.end()) ? it->second.size() : 0;
+    }
+    
+    void Start();
     void Update();
-
     void Destroy();
     
     std::vector<Component*> GetComponents();
 
-    bool IsDestroyed() const { return destroyed; }
-
     std::string GetName() const { return name; }
     void SetName(const std::string& newName) { name = newName; }
 
-    void SetHierarchySystem(const HierarchySystem* system) { hierarchySystem = system; }
-    const HierarchySystem* GetHierarchySystem() { 
-        if(hierarchySystem) return hierarchySystem;
-        return nullptr;
+    void SetHierarchySystem(HierarchySystem* system) { hierarchySystem = system; }
+    HierarchySystem* GetHierarchySystem() const { 
+        return hierarchySystem;
     }
 
-    const Scene* GetScene();
-    void SetScene(const Scene* scene);
+    Scene* GetScene() const { return scene; }
+    void SetScene(Scene* scene) { this->scene = scene; }
+
+    bool IsDestroyed() const { return destroyed; }
+    bool IsInitialized() const { return initialized; }
+    bool IsStarted() const { return started; }
 };

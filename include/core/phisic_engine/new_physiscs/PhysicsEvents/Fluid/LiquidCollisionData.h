@@ -9,12 +9,12 @@ class LiquidCollisionData : public AbstractPhysicsData {
 private:
     PhysicalBody* liquidBody;
     float volumeInLiquid;
-    Vector3 direction;
+    Vector3f direction;
     
 public:
     LiquidCollisionData(PhysicalBody* liquidBody = nullptr, 
                         float volumeInLiquid = 1.0f, 
-                        const Vector3& direction = Vector3::Up) 
+                        const Vector3f& direction = Vector3f::Up()) 
         : liquidBody(liquidBody), 
           volumeInLiquid(volumeInLiquid), 
           direction(direction) {}
@@ -24,5 +24,5 @@ public:
     float GetVolumeInLiquid() { return volumeInLiquid; }
     PhysicalBody* GetLiquidBody() { return liquidBody; }
 
-    Vector3 GetDirection() { return direction; }
+    Vector3f GetDirection() { return direction; }
 };

@@ -105,6 +105,7 @@ public:
     }
 
     void SetDensity(float density){ this->density = density; Initialize(); }
+    void SetMass(float mass) { this->mass = mass; }
     void SetPhysicWorld(PhysicsWorld* world){ this->world = world; }
     void ClearWorld(){ this->world = nullptr; }
 

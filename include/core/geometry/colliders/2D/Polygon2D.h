@@ -11,27 +11,27 @@
 
 class ColliderManager;
 
-class Polygon2D : public Collider<Transform2D, Vector2> {
+class Polygon2D : public Collider<Transform2D, Vector2f> {
 private:
-    std::vector<Vector2> localVertices;
-    mutable std::vector<Vector2> worldVerticesCache;
+    std::vector<Vector2f> localVertices;
+    mutable std::vector<Vector2f> worldVerticesCache;
     mutable bool worldVerticesValid{false};
     
-    mutable Vector2 center;
+    mutable Vector2f center;
     mutable bool centerValid{false};
     
     void validateWorldVertices() const;
     void calculateCenter() const;
     
-    std::vector<Segment> buildSegmentsFromVertices(const std::vector<Vector2>& vertices) const;
+    std::vector<Segment> buildSegmentsFromVertices(const std::vector<Vector2f>& vertices) const;
     
-    Vector2 applyTransformToPoint(const Vector2& point, const Transform2D* transform) const;
+    Vector2f applyTransformToPoint(const Vector2f& point, const Transform2D* transform) const;
     const Transform2D* GetTransform2D() const;
 
 public:
     Polygon2D() = default;
-    explicit Polygon2D(const std::vector<Vector2>& vertices);
-    explicit Polygon2D(std::vector<Vector2>&& vertices);
+    explicit Polygon2D(const std::vector<Vector2f>& vertices);
+    explicit Polygon2D(std::vector<Vector2f>&& vertices);
     
     static Polygon2D FromSegments(const std::vector<Segment>& segments);
     
@@ -40,28 +40,28 @@ public:
 
     float GetVolume() const override;
     
-    void setVertices(const std::vector<Vector2>& vertices);
-    void setVertices(std::vector<Vector2>&& vertices);
-    const std::vector<Vector2>& getLocalVertices() const { return localVertices; }
-    const std::vector<Vector2>& getWorldVertices() const;
+    void setVertices(const std::vector<Vector2f>& vertices);
+    void setVertices(std::vector<Vector2f>&& vertices);
+    const std::vector<Vector2f>& getLocalVertices() const { return localVertices; }
+    const std::vector<Vector2f>& getWorldVertices() const;
     
     std::vector<Segment> getWorldSegments() const;
     std::vector<Segment> getLocalSegments() const;
     
-    void addVertex(const Vector2& vertex);
-    void insertVertex(size_t index, const Vector2& vertex);
+    void addVertex(const Vector2f& vertex);
+    void insertVertex(size_t index, const Vector2f& vertex);
     void removeVertex(size_t index);
     void clear();
     
-    bool ContainsPoint(const Vector2& point) const override;
+    bool ContainsPoint(const Vector2f& point) const override;
     bool Intersects(const BaseCollider* other) const override;
 
-    Vector2 GetCenter() const override;    
+    Vector2f GetCenter() const override;    
     
-    bool containsPoint(const Vector2& point) const;
+    bool containsPoint(const Vector2f& point) const;
     bool intersectsFast(const Polygon2D& other) const;
     
-    const Vector2& getCenter() const;
+    const Vector2f& getCenter() const;
     size_t vertexCount() const { return localVertices.size(); }
     bool isEmpty() const { return localVertices.empty(); }
     
@@ -72,7 +72,7 @@ public:
     virtual ~Polygon2D() override = default; 
 
     bool GetCollisionInfo(const BaseCollider* other, 
-                          Vector2& point, 
-                          Vector2& normal, 
+                          Vector2f& point, 
+                          Vector2f& normal, 
                           float& penetration) const override;
 };

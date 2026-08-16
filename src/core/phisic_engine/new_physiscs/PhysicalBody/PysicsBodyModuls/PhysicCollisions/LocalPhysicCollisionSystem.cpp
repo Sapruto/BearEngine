@@ -57,7 +57,7 @@ void LocalPhysicCollisionSystem::UpdateLocalSystem(){
 
         auto& collisions = polyhedron->GetCurrentCollisions();
         for (const auto& [other, _] : collisions){
-            PhysicalBody* otherBody = other->gameObject->GetComponentOfType<PhysicalBody>();
+            PhysicalBody* otherBody = other->GetGameObject()->GetComponentOfType<PhysicalBody>();
             if(!otherBody) continue;
 
             LocalPhysicCollisionSystem* otherSystem = system->GetSystem(otherBody);

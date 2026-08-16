@@ -1,57 +1,51 @@
 #pragma once
 
+#include <string>
+#include <unordered_map>
+
 class Scene;
 
-enum class TypeSceneEvent{
-    toStart,
-    toUpdate,
-    toDestroy
-};
-
-class SceneEvent{
+class SceneEvent {
 protected:
-    Scene* scene;
+    Scene* scene{nullptr};
+    std::string name;
+    bool isActive = true;
+    bool isEnabled = true;
     
+    std::unordered_map<std::string, std::string> properties;
+
 public:
-    SceneEvent() : scene(nullptr) {}
+    SceneEvent() = default;
+    SceneEvent(const std::string& eventName) : name(eventName) {}
+    virtual ~SceneEvent() = default;
     
-    virtual ~SceneEvent() {}
+    virtual void OnSceneStart() {}
+    virtual void OnSceneUpdate() {}
+    virtual void OnSceneDestroy() {}
     
-    void SetScene(Scene* scene) { 
-        this->scene = scene; 
+    void SetScene(Scene* scene) { this->scene = scene; }
+    void ClearScene() { scene = nullptr; }
+    Scene* GetScene() const { return scene; }
+    
+    void SetName(const std::string& newName) { name = newName; }
+    std::string GetName() const { return name; }
+    
+    void SetActive(bool active) { isActive = active; }
+    bool IsActive() const { return isActive; }
+    
+    void SetEnabled(bool enabled) { isEnabled = enabled; }
+    bool IsEnabled() const { return isEnabled; }
+    
+    void SetProperty(const std::string& key, const std::string& value) {
+        properties[key] = value;
     }
-    
-    void ClearGameObject() { 
-        scene = nullptr; 
-    }
-    
-    virtual void Start() {
-        if (!scene) return;
-    }
-    
-    virtual void Update() {
-        if (!scene) return;
-    }
-    
-    virtual void Destroy() {}
-
-    virtual void OnCollisionEnter(Scene* other) {
-        if (!scene) return;
-    }
-    
-    Scene* GetGameObject() const { 
-        return scene; 
+    std::string GetProperty(const std::string& key) const {
+        auto it = properties.find(key);
+        return it != properties.end() ? it->second : "";
     }
     
-    bool IsValid() const {
-        return scene != nullptr;
-    }
-
-    void operator()() {
-        Update();
-    }
-
-    explicit operator bool() const {
-        return scene != nullptr;
-    }
+    bool IsValid() const { return scene != nullptr; }
+    
+    virtual std::string Serialize() const { return ""; }
+    virtual void Deserialize(const std::string& data) {}
 };

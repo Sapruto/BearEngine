@@ -103,6 +103,7 @@ void SceneFileController::Start() {
 
 void SceneFileController::Update() {
     if (input.GetKeyDown(Keys::S) && input.GetKey(Keys::LeftControl)) {
+        std::cout << "SAVE" << std::endl;
         SaveScene();
     }
 

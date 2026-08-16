@@ -1,63 +1,44 @@
 #pragma once
 
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
-
-#include "Transform2D.h"
-#include "Vector2.h"
-
 #include "Camera.h"
+#include "Transform2D.h"
+#include "Matrix/Matrix4x4.h"
+#include "Vector2.h"
 
 class Camera2D : public Camera {
 private:
-    Transform2D* transform;    
-    float zoom{1.0f};       
+    Transform2D* transform = nullptr;
+    Matrix4x4f viewMatrix;
+    Matrix4x4f projMatrix;
     
-    float orthoSize;
+    float orthoSize = 5.0f;
+    float aspect = 1.0f;
+    float nearPlane = -1.0f;
+    float farPlane = 1.0f;
     
-    float screenWidth;      
-    float screenHeight;    
+    bool dirty = true;
     
-    bool isDirty;     
-    glm::mat4 viewMatrix; 
-    glm::mat4 projMatrix;   
-    
-    void UpdateMatrices();  
+    void UpdateMatrices();
     
 public:
-    Camera2D(float width, float height, float orthoSize = 5.0f);
-
-    void Start() override{ 
-        transform = gameObject->GetComponentOfType<Transform2D>(); 
-        if(!transform) {
-            transform = gameObject->AddComponent<Transform2D>();
-        }
-        isDirty = true;
-    }
-    void Update() override{}
-    void Destroy() override{}
+    Camera2D() = default;
+    explicit Camera2D(float aspect, float orthoSize = 5.0f);
     
-    void SetLocalPosition(const Vector2& pos);
-    void Move(const Vector2& delta);
-    Vector2 GetPosition() const { 
-        return transform ? transform->position : Vector2(0, 0); 
-    }
+    void Start() override;
+    void Update() override;
     
-    void SetZoom(float z);
-    void AddZoom(float delta);
-    float GetZoom() const { return zoom; }
-    
-    const glm::mat4& GetViewMatrix();
-    const glm::mat4& GetProjectionMatrix();
-    
-    Vector2 ScreenToWorld(const Vector2& screenPoint);
-    Vector2 WorldToScreen(const Vector2& worldPoint);
-    
-    void SetScreenSize(float width, float height);
-
+    void SetOrthoSize(float size);
     float GetOrthoSize() const { return orthoSize; }
-    void SetOrthoSize(float size) { 
-        orthoSize = size; 
-        isDirty = true; 
-    }
+    
+    void SetAspect(float aspect);
+    float GetAspect() const { return aspect; }
+    
+    const Matrix4x4f& GetViewMatrix();
+    const Matrix4x4f& GetProjectionMatrix();
+    Transform2D* GetTransform() { return transform; }
+    
+    Vector2f ScreenToWorld(const Vector2f& screenPoint, float screenWidth, float screenHeight);
+    Vector2f WorldToScreen(const Vector2f& worldPoint, float screenWidth, float screenHeight);
+    
+    void SetTransform(Transform2D* t) { transform = t; dirty = true; }
 };

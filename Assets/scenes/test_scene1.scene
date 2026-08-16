@@ -16,11 +16,17 @@ object {
 object {
     name TestWall
     components {
-        Transform3D {
-            uuid 76d9eb5f-1171-48b0-a6c2-3d6335a5fe5b
-            fieldPosition 0.000000,0.000000,0.000000
-            fieldScale 1.000000,1.000000,1.000000
-            fieldRotation 0.000000,0.000000,0.000000
+        Text {
+            uuid 348248ab-b5e1-46c3-8550-6a3881d5f860
+        }
+        RectTransform {
+            uuid 1bc6811d-8171-452d-b69f-54e382ca73db
+            anchoredPosition 0.000000,0.000000
+            sizeDelta 100.000000,100.000000
+            pivot 0.500000,0.500000
+            anchorMin 0.500000,0.500000
+            anchorMax 0.500000,0.500000
+            rotation 0.000000
         }
     }
 }
@@ -33,13 +39,47 @@ object {
             settings 0|0,0,1,1|0.25,0.25,0.3,1|0|0|0.1
         }
         RectTransform {
-            uuid 5df0119d-38d9-4c7d-911a-2301fd6d1af9
+            uuid 486b1b7e-42a0-420a-98f3-2d0b91b1c7ab
+            anchoredPosition 480.000000,-370.000000
+            sizeDelta 120.000000,25.000000
+            pivot 0.500000,0.500000
+            anchorMin 0.500000,0.500000
+            anchorMax 0.500000,0.500000
+            rotation 0.000000
+        }
+        Text {
+            uuid 
+        }
+        Text {
+            uuid 
+        }
+    }
+}
+
+object {
+    name 
+    components {
+        Image {
+            uuid 
+            settings 0|0,0,1,1|0.25,0.25,0.3,1|0|0|0.1
+        }
+        RectTransform {
+            uuid 0721c5bd-88bf-4489-acdc-1ca7bae76cfe
             anchoredPosition 480.000000,-270.000000
             sizeDelta 120.000000,25.000000
             pivot 0.500000,0.500000
             anchorMin 0.500000,0.500000
             anchorMax 0.500000,0.500000
             rotation 0.000000
+        }
+        Text {
+            uuid 
+        }
+        Text {
+            uuid 
+        }
+        Text {
+            uuid 
         }
         Text {
             uuid 

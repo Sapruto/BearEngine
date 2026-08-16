@@ -12,21 +12,29 @@ class Component : public ISerializable {
 private:
     FIELD(std::string, uuid);
 
-public:
+protected:
     GameObject* gameObject;
 
+public:
     Component() : gameObject(nullptr) {}
     
-    virtual ~Component() {}
+    virtual ~Component() {
+        if(!gameObject) return;
+        
+        Scene* scene = gameObject->GetScene();
+        if(scene) scene->UnregisterComponent(this);
+    }
 
     void Initialize() {
-        static std::random_device rd;
-        static std::mt19937 gen(rd());
-        static uuids::uuid_random_generator uuid_gen(gen);
-        
-        uuid.GetValue() = uuids::to_string(uuid_gen());
+        if (uuid.GetValue().empty()) {
+            static std::random_device rd;
+            static std::mt19937 gen(rd());
+            static uuids::uuid_random_generator uuid_gen(gen);
+            
+            uuid.GetValue() = uuids::to_string(uuid_gen());
+        }
 
-        Scene* scene = const_cast<Scene*>(gameObject->GetScene());
+        Scene* scene = gameObject->GetScene();
         if(scene) scene->RegisterComponent(this);
     }
 
@@ -39,11 +47,11 @@ public:
         gameObject = nullptr;
     }
     
-    virtual void Start(){}
+    virtual void Start() {}
     
-    virtual void Update(){}
+    virtual void Update() {}
     
-    virtual void Destroy(){}
+    virtual void Destroy() {}
 
     virtual void OnCollisionEnter(GameObject* other){}
     

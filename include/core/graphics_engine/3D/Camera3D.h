@@ -1,31 +1,24 @@
 #pragma once
 
 #include "Camera.h"
-
 #include "Vector3.h"
-#include <glm/glm.hpp>
-#include <glm/gtc/matrix_transform.hpp>
+#include "Matrix/Matrix4x4.h"
+
+class Transform3D;
 
 class Camera3D : public Camera {
-public:
-    Vector3 position;
-    Vector3 front;
-    Vector3 up;
-    Vector3 right;
-    Vector3 worldUp;
-    
-    float yaw = -90.0f;
-    float pitch = 0.0f;
-    float fov = 45.0f;
+private:
+    const Transform3D* transform{nullptr};
     
 public:
-    Camera3D(Vector3 pos = Vector3(0, 0, 5));
+    Camera3D() = default;
     
-    glm::mat4 GetViewMatrix();
-    
-    glm::mat4 GetProjectionMatrix(float aspectRatio);
-    
-    void updateVectors();
+    void Start() override;
 
-    void ProcessMouse(float xoffset, float yoffset);
+    const Transform3D* GetTarget() const { return transform; }
+    
+    Vector3f GetPosition() const;
+    
+    Matrix4x4f GetViewMatrix();
+    Matrix4x4f GetProjectionMatrix(float aspectRatio);
 };
