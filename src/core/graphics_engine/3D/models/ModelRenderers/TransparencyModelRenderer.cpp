@@ -12,40 +12,54 @@
 
 #include "ModelsShaderPaths.h"
 
+const std::string TransparencyModelRenderer::UniformsName::inputTexture = "inputTexture";
+const std::string TransparencyModelRenderer::UniformsName::baseColor = "baseColor";
+const std::string TransparencyModelRenderer::UniformsName::opacity = "opacity";
+
 TransparencyModelRenderer::TransparencyModelRenderer() 
-    : m_Shader(ModelsShaderPaths::Base + "transparent/Vertex.glsl", 
-               ModelsShaderPaths::Base + "transparent/Fragment.glsl"),
-      m_ScreenQuadVAO(0),
-      m_ScreenQuadVBO(0)
+    : shader(ModelsShaderPaths::Base + "transparent/Vertex.glsl", 
+             ModelsShaderPaths::Base + "transparent/Fragment.glsl")
 {
     type = ModelFeatureType::Transparency;
 }
 
-std::vector<ModelComponent*> TransparencyModelRenderer::BuildHierarchy(std::vector<ModelComponent*> models, Camera3D* camera){
+std::vector<ModelComponent*> TransparencyModelRenderer::BuildHierarchy(std::vector<ModelComponent*> models, Camera3D* camera) {
     std::vector<ModelComponent*> sortingLayer = models;
     
     std::sort(sortingLayer.begin(), sortingLayer.end(), 
         [camera](ModelComponent* a, ModelComponent* b) {
-            float distA = a->GetGameObject()->GetComponentOfType<Transform3D>()->GetPosition().distanceTo(camera->GetPosition());
-            float distB = b->GetGameObject()->GetComponentOfType<Transform3D>()->GetPosition().distanceTo(camera->GetPosition());
+            float distA = a->GetGameObject()->GetComponentOfType<Transform3D>()->GetGlobalPosition().distanceTo(camera->GetGlobalPosition());
+            float distB = b->GetGameObject()->GetComponentOfType<Transform3D>()->GetGlobalPosition().distanceTo(camera->GetGlobalPosition());
             return distA > distB;
         });
     
     return sortingLayer;
 }
 
-void TransparencyModelRenderer::CacheUniformLocations() {
-    m_Shader.Bind();
-    m_Uniforms.inputTexture = glGetUniformLocation(m_Shader.GetID(), "inputTexture");
-    m_Uniforms.baseColor = glGetUniformLocation(m_Shader.GetID(), "baseColor");
-    m_Uniforms.opacity = glGetUniformLocation(m_Shader.GetID(), "opacity");
+void TransparencyModelRenderer::RenderModel(ModelComponent* modelComp, Transform3D* transform, const float* colorRGB, float opacity) {
+    shader.SetVec3(UniformsName::baseColor, colorRGB[0], colorRGB[1], colorRGB[2]);
+    shader.SetFloat(UniformsName::opacity, opacity);
+    
+    glBindVertexArray(modelComp->GetVAO());
+    glDrawElements(GL_TRIANGLES, modelComp->GetModel()->GetIndices().size(), 
+                   GL_UNSIGNED_INT, 0);
 }
 
 void TransparencyModelRenderer::Init() {
     if (isInitialized) return;
 
-    CacheUniformLocations();
+    std::cout << "TransparencyModelRenderer::Init - compiling shaders..." << std::endl;
+    
+    shader.Bind();
+    std::cout << "Shader ID: " << shader.GetID() << std::endl;
+    
+    if (shader.GetID() == 0) {
+        std::cout << "SHADER COMPILATION FAILED!" << std::endl;
+        return;
+    }
+    
     isInitialized = true;
+    std::cout << "TransparencyModelRenderer initialized successfully!" << std::endl;
 }
 
 void TransparencyModelRenderer::Shutdown() {
@@ -60,13 +74,16 @@ void TransparencyModelRenderer::RenderGroup(std::vector<ModelComponent*>& models
     Camera3D* camera = pipeline->GetCamera();
     if (!camera) return;
     
+    std::vector<ModelComponent*> sorted = BuildHierarchy(models, camera);
+    
+    shader.Bind();
+    
     glEnable(GL_BLEND);
     glBlendFunc(GL_ZERO, GL_ZERO);
     glDisable(GL_DEPTH_TEST);
     
-    std::vector<ModelComponent*> sorted = BuildHierarchy(models, camera);
     ClearUVRegion(sorted, pipeline);
-
+    
     glEnable(GL_BLEND);
     glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
     glDisable(GL_DEPTH_TEST);
@@ -77,16 +94,18 @@ void TransparencyModelRenderer::RenderGroup(std::vector<ModelComponent*>& models
         const ObjectUVData& uvData = pipeline->GetObjectUV(model);
         if (!uvData.isVisible || uvData.screenVertices.empty()) continue;
         
-        TransparentFeature* feature = model->GetFeatureOfType<TransparentFeature>();
-        if (feature) {
-            float opacity = feature->GetAlpha();
-            m_Shader.SetFloat("opacity", opacity);
-        }
-        const float* color = model->GetColor();
-        m_Shader.SetVec3("baseColor", color[0], color[1], color[2]);
+        GameObject* object = model->GetGameObject();
+        if (!object) continue;
         
-        glBindVertexArray(model->GetVAO());
-        glDrawElements(GL_TRIANGLES, uvData.indices.size(), GL_UNSIGNED_INT, 0);
+        Transform3D* transform = object->GetComponentOfType<Transform3D>();
+        if (!transform) continue;
+        
+        TransparentFeature* feature = model->GetFeatureOfType<TransparentFeature>();
+        float opacity = feature ? feature->GetAlpha() : 1.0f;
+        
+        const float* color = model->GetColor();
+        
+        RenderModel(model, transform, color, opacity);
     }
     
     glDisable(GL_BLEND);

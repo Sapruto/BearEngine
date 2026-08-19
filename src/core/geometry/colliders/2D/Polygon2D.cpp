@@ -96,7 +96,7 @@ Vector2f Polygon2D::applyTransformToPoint(const Vector2f& point, const Transform
     
     Vector2f result = point;
     
-    Vector2f scale = t->GetScale();
+    Vector2f scale = t->GetGlobalScale();
     result.x *= scale.x;
     result.y *= scale.y;
     
@@ -109,7 +109,7 @@ Vector2f Polygon2D::applyTransformToPoint(const Vector2f& point, const Transform
     result.x = x;
     result.y = y;
     
-    Vector2f pos = t->GetPosition();
+    Vector2f pos = t->GetGlobalPosition();
     result.x += pos.x;
     result.y += pos.y;
     

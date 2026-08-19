@@ -50,9 +50,9 @@ std::vector<SpriteComponent*> Transparent2DRenderer::SortByDepth(const std::vect
             
             if (!ta || !tb) return false;
             
-            Vector2f posA = ta->GetPosition();
-            Vector2f posB = tb->GetPosition();
-            Vector2f camPos = camera->GetTransform()->GetPosition();
+            Vector2f posA = ta->GetGlobalPosition();
+            Vector2f posB = tb->GetGlobalPosition();
+            Vector2f camPos = camera->GetTransform()->GetGlobalPosition();
             
             float distA = posA.distanceTo(camPos);
             float distB = posB.distanceTo(camPos);

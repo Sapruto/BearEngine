@@ -3,6 +3,7 @@
 #include "ModelFeatureRenderer.h"
 #include "Shader.h"
 
+#include <string>
 #include <vector>
 #include <memory>
 #include <algorithm> 
@@ -11,18 +12,25 @@ class ModelComponent;
 class ModelRenderer;
 class Transform3D;
 
-class SimpleModelRenderer : public ModelFeatureRenderer{
+class SimpleModelRenderer : public ModelFeatureRenderer {
 private:
-    Shader m_Shader;
+    Shader shader;
 
-    struct UniformLocations {
-        int projection = -1;
-        int view = -1;
-        int model = -1;
-        int color = -1;
-    } m_Uniforms;
+    struct UniformsName {
+        static const std::string projection;
+        static const std::string view;
+        static const std::string viewPos;
+        static const std::string color;
+        static const std::string lightCount;
+        static const std::string dirLightDirection;
+        static const std::string dirLightColor;
+        static const std::string useDirLight;
+        static const std::string lightPosPrefix;
+        static const std::string lightColorPrefix;
+        static const std::string lightSpaceMatrixPrefix;
+        static const std::string model;
+    };
 
-    void CacheUniformLocations();
     void RenderModel(ModelComponent* modelComp, Transform3D* transform, const float* colorRGB);
 
 public:
@@ -33,4 +41,6 @@ public:
     void Shutdown() override;
 
     void RenderGroup(std::vector<ModelComponent*>& models, RenderPipeline* pipeline) override;
+
+    Shader& GetShader() { return shader; }
 };

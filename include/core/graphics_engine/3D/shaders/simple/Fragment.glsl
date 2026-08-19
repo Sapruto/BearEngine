@@ -5,16 +5,17 @@ out vec4 FragColor;
 in vec3 Normal;
 in vec3 FragPos;
 
-uniform vec3 color;      
-uniform vec3 viewPos;    
+uniform vec3 color;
+uniform vec3 viewPos;
 
-uniform vec3 lightPos[16];  
-uniform vec3 lightColor[16];     
-uniform int lightCount;            
+uniform vec3 lightPos[16];
+uniform vec3 lightColor[16];
+uniform mat4 lightSpaceMatrix[16];
+uniform int lightCount;
 
-uniform vec3 dirLightDirection;    
-uniform vec3 dirLightColor;       
-uniform bool useDirLight;       
+uniform vec3 dirLightDirection;
+uniform vec3 dirLightColor;
+uniform bool useDirLight;   
 
 void main() {
     vec3 norm = normalize(Normal);

@@ -346,9 +346,9 @@ int main() {
         if (input.GetKey(Keys::Up)) camHeight += 2.0f * dtFrame;
         if (input.GetKey(Keys::Down)) camHeight -= 2.0f * dtFrame;
         
-        camera->GetPosition().x = sin(camAngle) * camDist;
-        camera->GetPosition().z = cos(camAngle) * camDist;
-        camera->GetPosition().y = camHeight;
+        camera->GetGlobalPosition().x = sin(camAngle) * camDist;
+        camera->GetGlobalPosition().z = cos(camAngle) * camDist;
+        camera->GetGlobalPosition().y = camHeight;
         
         Vector3 ballPos = ball.transform->GetLocalPosition();
         
@@ -369,9 +369,9 @@ int main() {
         }
 
         if (isEnterInfo) {
-            std::cout << "[FIRE] pos y = " << ball.transform->GetPosition().y << " \n";
+            std::cout << "[FIRE] pos y = " << ball.transform->GetGlobalPosition().y << " \n";
             std::cout << "[FIRE] v = " << shootSpeed / 2 << " m/s\n";
-            //stats.UpdateUI(shootSpeed, ball.transform->GetPosition().y);
+            //stats.UpdateUI(shootSpeed, ball.transform->GetGlobalPosition().y);
         }
         
         physicsWorld.Update();

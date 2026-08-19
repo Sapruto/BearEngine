@@ -39,14 +39,9 @@ public:
 
     void Update() override;
 
-    const Vector2f& GetPosition() const;
-    const Vector2f& GetScale() const;
-    const Quaternionf& GetRotation() const;
-
-    void SetPosition(const Vector2f& newWorldPos);
-    void SetScale(const Vector2f& newWorldScale);
-    void SetRotation(const Quaternionf& newWorldRot);
-    void SetAngle(float newWorldAngle);
+    const Vector2f& GetGlobalPosition() const;
+    const Vector2f& GetGlobalScale() const;
+    const Quaternionf& GetGlobalRotation() const;
 
     const Vector2f& GetLocalPosition() const;
     const Vector2f& GetLocalScale() const;

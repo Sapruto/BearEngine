@@ -2,99 +2,551 @@ resources_pathes {
 }
 
 object {
-    name TestPlayer
+    name Camera
     components {
-    }
-}
-
-object {
-    name TestEnemy
-    components {
-    }
-}
-
-object {
-    name TestWall
-    components {
-        Text {
-            uuid 348248ab-b5e1-46c3-8550-6a3881d5f860
+        Transform3D {
+            uuid fbf856bb-f0e8-405a-a125-b2d9db862029
+            fieldPosition (0, 10, 20)
+            fieldScale (1, 1, 1)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
+        Unknown {
+            uuid 5a89b183-43d4-4061-b891-b87dab58ebf0
+        }
+    }
+}
+
+object {
+    name Player
+    components {
+        Transform3D {
+            uuid aedc1fad-1e6f-42b6-ae77-5b3a01a93964
+            fieldPosition (0, 2, 0)
+            fieldScale (0.8, 1.2, 0.8)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid afe205c2-f86d-479e-b50b-9cfbaeb1f7aa
+        }
+        PhysicalBody {
+            uuid 5a90451c-a2b9-4aa1-aeca-466e399a26db
+        }
+        ModelComponent {
+            uuid a2a53d5c-747a-4eed-8384-e21424799841
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid a6872c26-b7ff-4f32-aa6a-9b893f0439e7
+            fieldPosition (0, -1, 0)
+            fieldScale (30, 1, 30)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid b38f261b-53c9-4368-8a21-c304fe16db42
+        }
+        PhysicalBody {
+            uuid 3d9db42a-559b-4221-bdae-a5acc996dc12
+        }
+        ModelComponent {
+            uuid 1ec85b48-3a4d-4e8c-9c5e-dabb062fb57b
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 287e3310-c8d0-4571-a3d3-bb084b8c85c6
+            fieldPosition (-10, 2, -5)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 08050beb-2f5e-4bb5-b5ad-cd12ef384b1c
+        }
+        PhysicalBody {
+            uuid e1e8771e-7e78-4e15-bf4f-da748763f1c2
+        }
+        ModelComponent {
+            uuid 02fcc3f8-d367-439e-a1fe-14b87190b6dd
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 26c55a95-9b85-42d4-8e36-fb608cf2bcf6
+            fieldPosition (-5, 4, -8)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 844a2cc3-053f-4100-b4f2-3e0647fd8195
+        }
+        PhysicalBody {
+            uuid 829f9c0f-28dc-44de-8896-50b341528f7f
+        }
+        ModelComponent {
+            uuid 741673cb-cbc7-4263-a771-9d6fa895cb2a
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 2fa72d34-f912-43ad-a3b1-6869a226073e
+            fieldPosition (0, 6, -5)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid f022ce10-ce74-4136-821b-a0d42574a3b7
+        }
+        PhysicalBody {
+            uuid b904499e-bdbb-4115-8541-3c103fa555df
+        }
+        ModelComponent {
+            uuid 49c3711f-b5b0-405b-8afb-4dded4361585
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid aa355fe7-4fec-4001-bbf6-ee59a7e371a6
+            fieldPosition (5, 8, -2)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 2e3b8940-bf58-4a1a-880c-0088213229bd
+        }
+        PhysicalBody {
+            uuid e0097596-5060-418c-b1d1-487b8874e7c9
+        }
+        ModelComponent {
+            uuid e8b706a4-2bb8-4f73-9900-5b60669dd6bd
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid add1f2e0-9f86-4d56-841d-dc3c7c02c048
+            fieldPosition (10, 10, 0)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 765b80a4-1551-4b81-9f3d-32631baa4a2a
+        }
+        PhysicalBody {
+            uuid 82ca10d1-4a28-45af-9917-5e0400cb2096
+        }
+        ModelComponent {
+            uuid a4aca195-09e8-4a6d-be61-fa3f026debc8
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 7ad9e8f6-8fde-4050-80c8-bf56d9e171df
+            fieldPosition (-8, 12, 5)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 950f74aa-6f67-49f2-9873-a32f9028b80d
+        }
+        PhysicalBody {
+            uuid 54d7d6fd-ca86-4e89-b2a0-5d4887442134
+        }
+        ModelComponent {
+            uuid 5b6b020a-dc1a-44c1-b3d8-5fbfd26e26e7
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 20955b0a-1ac7-48a5-a79f-ffbaf42c27df
+            fieldPosition (-3, 14, 8)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid d744941a-262a-4ab4-ba86-33cffaab0e8c
+        }
+        PhysicalBody {
+            uuid 398e4f4a-bb21-4be0-9bc0-f0fa00281f72
+        }
+        ModelComponent {
+            uuid 75197aa2-c271-48de-b213-6d22923527b9
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid ed70dc3b-fcbf-4e81-b781-a49fd9a0d258
+            fieldPosition (3, 16, 10)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 56a2d866-5594-4202-8f88-74d4741ab611
+        }
+        PhysicalBody {
+            uuid ea8995c5-602d-4179-a94d-0af0f529d84e
+        }
+        ModelComponent {
+            uuid c35ef00e-5403-442e-86b2-460eb57f313a
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 00ecb019-7231-4663-8535-873c76d91a58
+            fieldPosition (9, 18, 7)
+            fieldScale (2, 0.5, 2)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 9f88ac25-476a-4271-a349-55d42b6c8f86
+        }
+        PhysicalBody {
+            uuid 4c446fdb-863b-4d59-9da5-58f8c1bf465c
+        }
+        ModelComponent {
+            uuid b7948b09-d926-47ec-bf2f-bf309aa42c52
+            modelPath Assets/models/slon_sea.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid d2393a45-1767-4655-9ad5-e97e32ca6f83
+            fieldPosition (-8, 3, -3)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid d6194a50-fafb-4d5b-85c2-759ea238192e
+        }
+        PhysicalBody {
+            uuid 6e90a09e-57ff-438c-bf37-e08ef811d6d1
+        }
+        ModelComponent {
+            uuid d7c960cc-aa61-4544-89f4-d12dbf728553
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid fee9ec05-4aa9-44b8-914a-b51c42173251
+            fieldPosition (-3, 5, -6)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 05c9d307-b218-4309-b8d7-59b5a9582da6
+        }
+        PhysicalBody {
+            uuid dc765d0e-cc3d-4ff0-b471-75e3e088596d
+        }
+        ModelComponent {
+            uuid 01577f9e-f142-46f0-92d6-8b480bbb8d6c
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid c49f5877-7cae-4d3e-8d4f-70cb2ec5fc71
+            fieldPosition (2, 7, -3)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 43870c6b-0ccd-4df6-83f4-1fda3e08818f
+        }
+        PhysicalBody {
+            uuid 2323af56-9d9a-4781-b93b-285c41a2a9a3
+        }
+        ModelComponent {
+            uuid fd388a4d-72a1-404e-bb75-2c1f7c50d30a
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid cb7a13be-c195-49d9-9c9f-c3f7a81884b2
+            fieldPosition (7, 9, 0)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid bf2445cc-6fd2-46c3-b011-43da314fbef7
+        }
+        PhysicalBody {
+            uuid 2f09f220-c850-4ef2-ba66-ac838094f6d0
+        }
+        ModelComponent {
+            uuid 9cf3dbaa-fba3-4a7d-a2d1-7e3b218bf340
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 8b77d7d0-4a9d-427e-9d4e-12104e2533a9
+            fieldPosition (12, 11, 2)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 39070d3f-ddbc-44de-80da-747bd069c074
+        }
+        PhysicalBody {
+            uuid a9056480-2e47-423e-bf82-7945a0f7bb1a
+        }
+        ModelComponent {
+            uuid 3c0d84cb-d83c-4b5c-b821-ca4735e218aa
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 77b894aa-1d9a-4b51-b33e-84beef591b77
+            fieldPosition (-6, 13, 7)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 191640d3-0300-4ac3-96d3-fd4a0322dbdd
+        }
+        PhysicalBody {
+            uuid 723afa57-de14-4953-a68c-88930fcb81f5
+        }
+        ModelComponent {
+            uuid c09604d9-5c4f-4ccb-bacb-3c25fbfaf099
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid acc70b5e-6a15-44d1-93a1-65020a0b6dbd
+            fieldPosition (0, 15, 9)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid b60dbd4b-a481-4b39-8f15-0d70ff561a8d
+        }
+        PhysicalBody {
+            uuid b610dc3a-44e0-4df5-8c14-9c43036664d0
+        }
+        ModelComponent {
+            uuid 368806ec-997b-4fb2-bbac-c94d8533aefb
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid f543cc7c-80b7-47a0-9ff9-ab603422b232
+            fieldPosition (5, 17, 8)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 3d00e8c9-e8b1-4f99-a8c8-8542e490fa8c
+        }
+        PhysicalBody {
+            uuid 604c1e57-2de1-48e6-9c94-4e45ed79311b
+        }
+        ModelComponent {
+            uuid a5da5ffe-9102-4bc6-b97a-8e91f662e30b
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        Transform3D {
+            uuid 3fc6f02c-1d11-4765-b434-b399b0f13b35
+            fieldPosition (11, 19, 6)
+            fieldScale (0.5, 0.5, 0.5)
+            fieldRotation 0.000000,0.000000,0.000000,1.000000
+        }
+        Polyhedron3D {
+            uuid 4e1721a6-a463-4514-a195-9d4c4182889e
+        }
+        PhysicalBody {
+            uuid 7f2828f4-a000-4036-969d-75bd96d4d4b5
+        }
+        ModelComponent {
+            uuid e12320fa-891c-4f42-888a-b2d2eb17c37f
+            modelPath Assets/models/cube.obj
+            staticFeatures []
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
         RectTransform {
-            uuid 1bc6811d-8171-452d-b69f-54e382ca73db
-            anchoredPosition 0.000000,0.000000
-            sizeDelta 100.000000,100.000000
-            pivot 0.500000,0.500000
-            anchorMin 0.500000,0.500000
-            anchorMax 0.500000,0.500000
+            uuid 7f8a3767-15dd-4b05-8a6d-4cf327023b6b
+            anchoredPosition (0, 0)
+            sizeDelta (1920, 1080)
+            pivot (0.5, 0.5)
+            anchorMin (0, 0)
+            anchorMax (0, 0)
             rotation 0.000000
         }
-    }
-}
-
-object {
-    name 
-    components {
         Image {
-            uuid 
-            settings 0|0,0,1,1|0.25,0.25,0.3,1|0|0|0.1
-        }
-        RectTransform {
-            uuid 486b1b7e-42a0-420a-98f3-2d0b91b1c7ab
-            anchoredPosition 480.000000,-370.000000
-            sizeDelta 120.000000,25.000000
-            pivot 0.500000,0.500000
-            anchorMin 0.500000,0.500000
-            anchorMax 0.500000,0.500000
-            rotation 0.000000
-        }
-        Text {
-            uuid 
-        }
-        Text {
-            uuid 
+            uuid 851dfd76-3221-49c2-ac8a-6b18d58cdfff
+            settings 0|0,0,1,1|0.2,0.2,0.3,1|0|0|0.1
         }
     }
 }
 
 object {
-    name 
+    name GameObject
     components {
-        Image {
-            uuid 
-            settings 0|0,0,1,1|0.25,0.25,0.3,1|0|0|0.1
-        }
         RectTransform {
-            uuid 0721c5bd-88bf-4489-acdc-1ca7bae76cfe
-            anchoredPosition 480.000000,-270.000000
-            sizeDelta 120.000000,25.000000
-            pivot 0.500000,0.500000
-            anchorMin 0.500000,0.500000
-            anchorMax 0.500000,0.500000
+            uuid 8cceca6c-5acb-4ef7-844a-9dc7e7489a5d
+            anchoredPosition (100, 100)
+            sizeDelta (256, 256)
+            pivot (0.5, 0.5)
+            anchorMin (0, 0)
+            anchorMax (0, 0)
+            rotation 0.000000
+        }
+        Image {
+            uuid f438e5d8-069f-4fcf-87eb-9b7a4a5f56b5
+            settings 0|0,0,1,1|1,1,1,1|0|0|0.1
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        RectTransform {
+            uuid c3521a74-3f9d-41ce-a819-8110dfa61a03
+            anchoredPosition (800, 500)
+            sizeDelta (200, 80)
+            pivot (0.5, 0.5)
+            anchorMin (0, 0)
+            anchorMax (0, 0)
+            rotation 0.000000
+        }
+        Image {
+            uuid 404ea6ef-d411-4c9f-93df-fed8df0d4d55
+            settings 0|0,0,1,1|0.8,0.2,0.2,1|0|0|0.1
+        }
+    }
+}
+
+object {
+    name GameObject
+    components {
+        RectTransform {
+            uuid 084bf1f1-bf51-42b7-a3ff-8df7c9d419e8
+            anchoredPosition (400, 50)
+            sizeDelta (800, 100)
+            pivot (0.5, 0.5)
+            anchorMin (0, 0)
+            anchorMax (0, 0)
             rotation 0.000000
         }
         Text {
-            uuid 
-        }
-        Text {
-            uuid 
-        }
-        Text {
-            uuid 
-        }
-        Text {
-            uuid 
-        }
-        Text {
-            uuid 
-        }
-        Text {
-            uuid 
-        }
-        Text {
-            uuid 
-        }
-        Text {
-            uuid 
+            uuid 51c13e6e-a562-4a8a-ad8e-765f08ec30c8
         }
     }
 }

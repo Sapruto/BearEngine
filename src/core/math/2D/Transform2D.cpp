@@ -38,16 +38,16 @@ void Transform2D::updateWorld() {
             if (parentTransform) {
                 Vector3f localPos = Vector3f(position.x, position.y, 0);
                 
-                Vector3f parentPos = Vector3f(parentTransform->GetPosition().x, 
-                                               parentTransform->GetPosition().y, 0);
+                Vector3f parentPos = Vector3f(parentTransform->GetGlobalPosition().x, 
+                                               parentTransform->GetGlobalPosition().y, 0);
                 
-                Vector3f rotatedPos = parentTransform->GetRotation().rotateVector(localPos);
+                Vector3f rotatedPos = parentTransform->GetGlobalRotation().rotateVector(localPos);
                 Vector3f worldPos = parentPos + rotatedPos;
                 
                 position = Vector2f(worldPos.x, worldPos.y);
-                rotation = parentTransform->GetRotation() * rotation;
+                rotation = parentTransform->GetGlobalRotation() * rotation;
                 rotation = rotation.normalized();
-                scale = parentTransform->GetScale();
+                scale = parentTransform->GetGlobalScale();
             }
         }
     }
@@ -133,40 +133,16 @@ void Transform2D::Update() {
     }
 }
 
-const Vector2f& Transform2D::GetPosition() const {
+const Vector2f& Transform2D::GetGlobalPosition() const {
     return position; 
 }
 
-const Vector2f& Transform2D::GetScale() const {
+const Vector2f& Transform2D::GetGlobalScale() const {
     return scale; 
 }
 
-const Quaternionf& Transform2D::GetRotation() const {
+const Quaternionf& Transform2D::GetGlobalRotation() const {
     return rotation; 
-}
-
-void Transform2D::SetPosition(const Vector2f& newWorldPos) { 
-    position = newWorldPos;
-    fieldPosition = position;
-    dirty = true;
-}
-
-void Transform2D::SetScale(const Vector2f& newWorldScale) { 
-    scale = newWorldScale;
-    fieldScale = scale;
-    dirty = true;
-}
-
-void Transform2D::SetRotation(const Quaternionf& newWorldRot) { 
-    rotation = newWorldRot;
-    fieldRotation = QuaternionfToAngle(rotation);
-    dirty = true;
-}
-
-void Transform2D::SetAngle(float newWorldAngle) { 
-    rotation = angleToQuaternionf(newWorldAngle);
-    fieldRotation = newWorldAngle;
-    dirty = true;
 }
 
 const Vector2f& Transform2D::GetLocalPosition() const { 

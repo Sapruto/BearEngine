@@ -17,7 +17,7 @@ public:
 
     const Transform3D* GetTarget() const { return transform; }
     
-    Vector3f GetPosition() const;
+    Vector3f GetGlobalPosition() const;
     
     Matrix4x4f GetViewMatrix();
     Matrix4x4f GetProjectionMatrix(float aspectRatio);

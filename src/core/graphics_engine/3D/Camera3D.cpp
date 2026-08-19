@@ -9,8 +9,8 @@ void Camera3D::Start() {
     }
 }
 
-Vector3f Camera3D::GetPosition() const {
-    return transform ? transform->GetPosition() : Vector3f::Zero();
+Vector3f Camera3D::GetGlobalPosition() const {
+    return transform ? transform->GetGlobalPosition() : Vector3f::Zero();
 }
 
 Matrix4x4f Camera3D::GetViewMatrix() {
@@ -18,8 +18,8 @@ Matrix4x4f Camera3D::GetViewMatrix() {
         return Matrix4x4f::Identity();
     }
     
-    const Vector3f& pos = transform->GetPosition();
-    const Quaternionf& rot = transform->GetRotation();
+    const Vector3f& pos = transform->GetGlobalPosition();
+    const Quaternionf& rot = transform->GetGlobalRotation();
     
     Vector3f front = rot.rotateVector(Vector3f(0, 0, -1));
     Vector3f up = rot.rotateVector(Vector3f(0, 1, 0));

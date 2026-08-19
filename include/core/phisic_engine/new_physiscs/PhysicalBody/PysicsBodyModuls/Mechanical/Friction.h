@@ -34,7 +34,7 @@ private:
     void CalculateNormal(const T& segments) {
         if(!isValid) return;
         
-        const Vector3& bodyPosition = body->GetTransform()->GetPosition();
+        const Vector3& bodyPosition = body->GetTransform()->GetGlobalPosition();
         
         for(const auto& segment : segments) {
             Vector3 direction = segment.getDirection().normalized();

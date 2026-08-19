@@ -32,9 +32,9 @@ void Camera2D::UpdateMatrices() {
         nearPlane, farPlane
     );
     
-    Vector2f pos = transform->GetPosition();
+    Vector2f pos = transform->GetGlobalPosition();
     float rot = transform->GetAngle();
-    Vector2f scale = transform->GetScale();
+    Vector2f scale = transform->GetGlobalScale();
     
     Matrix4x4f translateMatrix = Matrix4x4f::Identity();
     translateMatrix(0, 3) = -pos.x;

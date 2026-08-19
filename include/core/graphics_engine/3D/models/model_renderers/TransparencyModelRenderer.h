@@ -10,24 +10,20 @@
 
 class ModelComponent;
 class ModelRenderer;
-
 class Camera3D;
 
 class TransparencyModelRenderer : public ModelFeatureRenderer {
 private:
-    Shader m_Shader;
-    GLuint m_ScreenQuadVAO;
-    GLuint m_ScreenQuadVBO;
-
-    struct UniformLocations {
-        GLuint inputTexture;
-        GLuint baseColor;
-        GLuint opacity;
-    } m_Uniforms;
+    Shader shader;
+    
+    struct UniformsName {
+        static const std::string inputTexture;
+        static const std::string baseColor;
+        static const std::string opacity;
+    };
 
     std::vector<ModelComponent*> BuildHierarchy(std::vector<ModelComponent*> models, Camera3D* camera);
-
-    void CacheUniformLocations();
+    void RenderModel(ModelComponent* modelComp, Transform3D* transform, const float* colorRGB, float opacity);
 
 public:
     TransparencyModelRenderer();

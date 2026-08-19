@@ -9,6 +9,6 @@ struct Vertex3D {
     Vector3 localPoint;
 
     Vector3 GetGlobalPoint(const Transform3D& transform) const {
-        return transform.GetRotation() * localPoint + transform.GetPosition();
+        return transform.GetGlobalRotation() * localPoint + transform.GetGlobalPosition();
     }
 };

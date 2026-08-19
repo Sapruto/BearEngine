@@ -24,13 +24,13 @@ public:
     Vector2f GetPivot() const { return pivot.GetValue(); }
     Vector2f GetAnchorMin() const { return anchorMin.GetValue(); }
     Vector2f GetAnchorMax() const { return anchorMax.GetValue(); }
-    float GetRotation() const { return rotation.GetValue(); }
+    float GetGlobalRotation() const { return rotation.GetValue(); }
     RectTransform* GetParent() const { return parent; }
     
     void SetAnchoredPosition(const Vector2f& pos) { anchoredPosition.GetValue() = pos; }
     void SetSizeDelta(const Vector2f& size) { sizeDelta.GetValue() = size; }
     void SetPivot(const Vector2f& newPivot) { pivot.GetValue() = newPivot; }
-    void SetRotation(float rot) { rotation.GetValue() = rot; }
+    void SetLocalRotation(float rot) { rotation.GetValue() = rot; }
     void SetParent(RectTransform* newParent) { parent = newParent; }
     
     void SetAnchors(Vector2f anchorMin, Vector2f anchorMax);

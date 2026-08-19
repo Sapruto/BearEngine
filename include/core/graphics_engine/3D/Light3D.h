@@ -32,8 +32,8 @@ public:
         transform = gameObject->GetComponentOfType<Transform3D>();
     }
 
-    Vector3f GetPosition() const { 
-        if (transform) return transform->GetPosition();
+    Vector3f GetGlobalPosition() const { 
+        if (transform) return transform->GetGlobalPosition();
         return Vector3f::Zero();
     }
     Vector3f GetColor() const { return color.GetValue(); }

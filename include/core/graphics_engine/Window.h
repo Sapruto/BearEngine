@@ -29,6 +29,10 @@ public:
 
     int GetWidth() { return window_x; }
     int GetHeight() { return window_y; }
+
+    void MakeCurrent() {
+        glfwMakeContextCurrent(window);
+    }
     
     GLFWwindow* GetWindow() const;
 };

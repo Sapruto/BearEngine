@@ -177,7 +177,7 @@ bool UVManager2D::IsSpriteVisible(SpriteComponent* sprite, SpriteUVData& data) {
     Transform2D* camTransform = camera->GetTransform();
     if (!camTransform) return false;
     
-    Vector2f camPos = camTransform->GetPosition();
+    Vector2f camPos = camTransform->GetGlobalPosition();
     
     float left = worldPos.x - halfWidth;
     float right = worldPos.x + halfWidth;

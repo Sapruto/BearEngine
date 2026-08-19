@@ -8,18 +8,22 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Vertex3D.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/BaseCollider.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders/Collider.h \
+  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h \
   /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Camera3D.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/lights/DirectionalLight3D.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/lights/PointLight3D.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelComponent.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelRenderer.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/RenderPipeline.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/ModelFeature.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/ModelFeatureType.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/TransparentFeature.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_renderers/ModelFeatureRenderer.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_renderers/SimpleModelRenderer.h \
+  /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_renderers/TransparencyModelRenderer.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/uv/FrustumCollider.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/uv/UVManager.h \
   /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h \
@@ -35,16 +39,33 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/Force.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicFeature.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h \
   /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h \
+  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneManager.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneCreator.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h \
+  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneSerializer.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldComponent.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
+  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/input_system/InputSystem.h \
@@ -55,9 +76,16 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h \
   /home/alex/Projects/BearEngine/include/core/system_engine/time_system/Time.h \
+  /home/alex/Projects/BearEngine/include/core/ui_engine/Canvas.h \
+  /home/alex/Projects/BearEngine/include/core/ui_engine/RectTransform.h \
+  /home/alex/Projects/BearEngine/include/core/ui_engine/UIElement.h \
   /home/alex/Projects/BearEngine/include/core/ui_engine/UIRect.h \
+  /home/alex/Projects/BearEngine/include/core/ui_engine/UIVertex.h \
   /home/alex/Projects/BearEngine/include/core/ui_engine/resources/Font.h \
+  /home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Image.h \
+  /home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Text.h \
   /home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRenderSettings.h \
+  /home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRendering.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
   /usr/include/GLFW/glfw3.h \
@@ -177,7 +205,6 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -290,7 +317,6 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -607,10 +633,8 @@ CMakeFiles/game.dir/main.cpp.o: /home/alex/Projects/BearEngine/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -4822,6 +4846,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o: /home/al
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -4909,7 +4934,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o: /home/al
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -5019,7 +5043,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o: /home/al
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -5332,10 +5355,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/RenderPipeline2D.cpp.o: /home/al
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -5930,6 +5951,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -5951,7 +5973,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o
   /home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -6018,7 +6039,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -6128,7 +6148,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -6441,10 +6460,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Simple2DRenderer.cpp.o
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -6490,6 +6507,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -6511,7 +6529,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.
   /home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRenderSettings.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -6578,7 +6595,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -6688,7 +6704,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -7001,10 +7016,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/renderers/Transparent2DRenderer.
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -7055,6 +7068,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o: /ho
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -7143,7 +7157,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o: /ho
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -7253,7 +7266,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o: /ho
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -7566,10 +7578,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/2D/sprite/RendererSprite.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -9265,6 +9275,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o: /ho
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -9354,7 +9365,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -9467,7 +9477,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o: /ho
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -9781,10 +9790,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelComponent.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -9844,6 +9851,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o: /hom
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -9933,7 +9941,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -10046,7 +10053,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o: /hom
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -10360,10 +10366,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o: /hom
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -10424,6 +10428,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleMode
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -10513,7 +10518,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleMode
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -10626,7 +10630,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleMode
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -10940,10 +10943,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/SimpleMode
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -11004,6 +11005,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/Transparen
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -11093,7 +11095,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/Transparen
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -11206,7 +11207,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/Transparen
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -11520,10 +11520,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderers/Transparen
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -11576,6 +11574,7 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o: /ho
   /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
   /home/alex/Projects/BearEngine/include/core/math/Transform.h \
@@ -11665,7 +11664,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o: /ho
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -11778,7 +11776,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o: /ho
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -12092,10 +12089,8 @@ CMakeFiles/game.dir/src/core/graphics_engine/3D/models/RenderPipeline.cpp.o: /ho
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -13791,11 +13786,11 @@ CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: /home/alex/Projects/B
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -33223,6 +33218,7 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
   /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
   /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h \
   /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
   /home/alex/Projects/BearEngine/include/core/math/Vector.h \
   /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h \
@@ -33247,7 +33243,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
   /home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRendering.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h \
   /home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h \
-  /usr/include/GLFW/glfw3.h \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -33314,7 +33309,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
-  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
@@ -33424,7 +33418,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/format \
-  /usr/include/c++/13/fstream \
   /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
@@ -33737,10 +33730,8 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -33767,19 +33758,13 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
   /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 
-/home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRendering.h:
-
 /home/alex/Projects/BearEngine/include/core/ui_engine/ShaderPathsUI.h:
 
 /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Toggle.cpp:
 
 /home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Image.cpp:
 
-/home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Image.h:
-
 /home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Button.h:
-
-/home/alex/Projects/BearEngine/include/core/ui_engine/UIVertex.h:
 
 /home/alex/Projects/BearEngine/src/core/system_engine/time_system/Time.cpp:
 
@@ -33793,13 +33778,9 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneTokens.h:
 
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneCreator.h:
-
 /usr/include/c++/13/codecvt:
 
 /usr/include/c++/13/bits/fs_fwd.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h:
 
 /home/alex/Projects/BearEngine/src/core/scene_engine/SceneManager.cpp:
 
@@ -33819,8 +33800,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.cpp:
 
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:
-
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Friction.cpp:
 
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/ElasticDeformation.h:
@@ -33831,15 +33810,11 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Viscosity.cpp:
 
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h:
-
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized/Deformation.cpp:
 
 /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Liquid.h:
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Buoyancy.cpp:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h:
 
 /home/alex/Projects/BearEngine/src/core/math/3D/Transform3D.cpp:
 
@@ -33853,6 +33828,10 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /home/alex/Projects/BearEngine/src/core/graphics_engine/Window.cpp:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+
+/usr/include/c++/13/bits/fstream.tcc:
+
 /home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp:
 
 /home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal/Temperature.cpp:
@@ -33860,8 +33839,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/uv/FrustumCollider.cpp:
 
 /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/RenderPipeline.cpp:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_renderers/TransparencyModelRenderer.h:
 
 /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/SimpleModelRenderer.cpp:
 
@@ -33903,8 +33880,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/bits/stl_multiset.h:
 
-/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h:
-
 /home/alex/Projects/BearEngine/include/core/geometry/colliders/2D/Polygon2D.h:
 
 /home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/Polygon2D.cpp:
@@ -33918,10 +33893,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 /usr/lib/gcc/x86_64-linux-gnu/13/include/xmmintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/x86gprintrin.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/Force.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/wbnoinvdintrin.h:
 
@@ -34027,10 +33998,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxtileintrin.h:
 
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxfp16intrin.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/amxcomplexintrin.h:
@@ -34068,8 +34035,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
@@ -34127,12 +34092,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
@@ -34155,29 +34114,45 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
-/usr/include/c++/13/bits/uniform_int_dist.h:
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
-/usr/include/c++/13/bits/locale_classes.tcc:
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
 
-/usr/include/assimp/vector3.h:
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
-/usr/include/c++/13/bits/iterator_concepts.h:
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqintrin.h:
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
-/usr/include/c++/13/bits/codecvt.h:
+/usr/include/x86_64-linux-gnu/bits/environments.h:
 
-/usr/include/c++/13/bits/stl_tempbuf.h:
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
 
-/usr/include/SDL2/SDL_cpuinfo.h:
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
 
-/usr/include/c++/13/bits/stl_function.h:
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/sprite/SpriteRenderer.h:
+
+/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/wchar.h:
+
+/usr/include/time.h:
 
 /home/alex/Projects/BearEngine/include/core/math/2D/Transform2D.h:
 
 /usr/include/c++/13/bits/stl_algo.h:
-
-/usr/include/c++/13/bits/stl_construct.h:
 
 /usr/include/c++/13/bits/std_mutex.h:
 
@@ -34185,19 +34160,15 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/bits/sstream.tcc:
 
-/usr/include/c++/13/bits/specfun.h:
-
-/usr/include/c++/13/bits/streambuf.tcc:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avxneconvertintrin.h:
 
 /usr/include/glm/mat3x2.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/wchar.h:
-
 /usr/include/c++/13/bits/shared_ptr.h:
+
+/usr/include/c++/13/fstream:
+
+/usr/include/glm/detail/type_half.hpp:
 
 /usr/include/c++/13/bits/refwrap.h:
 
@@ -34216,8 +34187,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 /usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
 
 /usr/include/c++/13/bits/predefined_ops.h:
-
-/usr/include/c++/13/bits/uses_allocator.h:
 
 /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h:
 
@@ -34249,57 +34218,35 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/bits/requires_hosted.h:
 
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneSerializer.h:
-
-/usr/include/assimp/Importer.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
 /usr/include/c++/13/bits/locale_facets.tcc:
 
 /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes.h:
 
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+/usr/include/assimp/vector3.h:
+
+/usr/include/c++/13/bits/uniform_int_dist.h:
+
 /usr/include/c++/13/bits/ios_base.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/lights/PointLight3D.h:
 
 /usr/include/c++/13/iterator:
 
 /usr/include/SDL2/SDL_endian.h:
 
-/usr/include/c++/13/bits/stl_iterator.h:
-
-/usr/include/c++/13/ext/numeric_traits.h:
-
 /usr/include/glm/geometric.hpp:
-
-/usr/include/c++/13/bits/fstream.tcc:
 
 /usr/include/c++/13/bits/istream.tcc:
 
 /usr/include/c++/13/bits/exception.h:
 
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
-/usr/include/c++/13/bits/erase_if.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveintrin.h:
-
-/usr/include/glm/ext/matrix_float4x2_precision.hpp:
-
-/usr/include/glm/ext/vector_double4.hpp:
-
-/usr/include/c++/13/bits/stream_iterator.h:
-
 /usr/include/c++/13/bits/enable_special_members.h:
 
 /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Camera3D.h:
 
-/usr/include/freetype2/freetype/config/public-macros.h:
-
-/usr/include/c++/13/bits/cxxabi_forced.h:
+/home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRendering.h:
 
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
@@ -34309,7 +34256,13 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/cassert:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vpopcntdqintrin.h:
+
+/usr/include/c++/13/bits/codecvt.h:
+
+/usr/include/c++/13/bits/cxxabi_forced.h:
+
+/usr/include/freetype2/freetype/config/public-macros.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
 
@@ -34325,17 +34278,11 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/bits/basic_ios.h:
 
-/usr/include/glm/detail/type_vec1.hpp:
-
 /usr/include/c++/13/bits/new_allocator.h:
 
 /usr/include/c++/13/bits/allocated_ptr.h:
 
 /usr/include/c++/13/bit:
-
-/usr/include/c++/13/bits/stl_numeric.h:
-
-/usr/include/glm/ext/matrix_float3x4.hpp:
 
 /usr/include/c++/13/bits/concept_check.h:
 
@@ -34354,6 +34301,10 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/lights/DirectionalLight3D.cpp:
 
 /usr/include/c++/13/array:
+
+/usr/include/x86_64-linux-gnu/asm/unistd.h:
+
+/usr/include/glm/detail/qualifier.hpp:
 
 /usr/include/glm/detail/type_mat2x3.hpp:
 
@@ -34389,21 +34340,87 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/iosfwd:
 
-/home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h:
+/usr/include/glm/ext/matrix_double4x3_precision.hpp:
 
-/usr/include/glm/ext/matrix_double2x3.hpp:
+/usr/include/assimp/material.h:
 
-/usr/include/c++/13/bits/move.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/wmmintrin.h:
 
-/usr/include/assimp/material.inl:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/Force.h:
 
-/usr/include/c++/13/chrono:
+/usr/include/glm/detail/_vectorize.hpp:
 
-/usr/include/SDL2/SDL_stdinc.h:
+/usr/include/assimp/color4.inl:
 
-/usr/include/c++/13/bits/parse_numbers.h:
+/usr/include/c++/13/bits/ranges_algobase.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/ModelFeatureType.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_renderers/SimpleModelRenderer.h:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp:
+
+/usr/include/assimp/MathFunctions.h:
+
+/usr/include/c++/13/atomic:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/uv/UVManager.h:
+
+/usr/include/c++/13/tr1/ell_integral.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
+
+/usr/include/assimp/defs.h:
+
+/usr/include/c++/13/bits/align.h:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
+
+/usr/include/glm/ext/vector_bool4_precision.hpp:
+
+/usr/include/SDL2/SDL_version.h:
+
+/usr/include/c++/13/cwctype:
+
+/usr/include/c++/13/filesystem:
+
+/home/alex/Projects/BearEngine/include/core/math/Transform.h:
+
+/usr/include/glm/ext/vector_double2_precision.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h:
+
+/usr/include/c++/13/bits/char_traits.h:
+
+/usr/include/c++/13/bits/std_function.h:
+
+/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/BoxCollider2D.cpp:
+
+/usr/include/SDL2/SDL_timer.h:
+
+/home/alex/Projects/BearEngine/src/core/ui_engine/RectTransform.cpp:
+
+/usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h:
+
+/usr/include/c++/13/bits/locale_classes.h:
+
+/usr/include/SDL2/SDL_system.h:
+
+/usr/include/glm/ext/matrix_float3x3_precision.hpp:
+
+/usr/include/SDL2/SDL_surface.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h:
+
+/usr/include/freetype2/freetype/ftsystem.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/ImpulsePhysicsData.h:
 
 /home/alex/Projects/BearEngine/main.cpp:
 
@@ -34413,73 +34430,11 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/libintl.h:
 
+/usr/include/assimp/Compiler/pushpack1.h:
+
+/home/alex/Projects/BearEngine/include/core/ui_engine/Canvas.h:
+
 /usr/include/SDL2/SDL_loadso.h:
-
-/usr/include/c++/13/bits/allocator.h:
-
-/usr/include/c++/13/unordered_map:
-
-/usr/include/SDL2/SDL_blendmode.h:
-
-/usr/include/glm/detail/func_geometric.inl:
-
-/usr/include/c++/13/bits/streambuf_iterator.h:
-
-/usr/include/GLFW/glfw3.h:
-
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
-
-/usr/include/SDL2/SDL_keycode.h:
-
-/usr/include/assimp/matrix4x4.h:
-
-/usr/include/c++/13/bits/stl_algobase.h:
-
-/usr/include/SDL2/SDL_render.h:
-
-/home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRenderSettings.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h:
-
-/usr/include/assimp/matrix3x3.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h:
-
-/usr/include/c++/13/cctype:
-
-/home/alex/Projects/BearEngine/include/core/ui_engine/UIRect.h:
-
-/usr/include/SDL2/SDL_haptic.h:
-
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
-/usr/include/glm/ext/matrix_float2x2.hpp:
-
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.cpp:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/input_system/Keys.h:
-
-/usr/include/c++/13/bits/align.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
-
-/usr/include/assimp/defs.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h:
-
-/usr/include/c++/13/utility:
-
-/usr/include/SDL2/SDL_joystick.h:
-
-/usr/include/assert.h:
-
-/usr/include/glm/ext/vector_int3_sized.hpp:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h:
-
-/usr/include/SDL2/SDL.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
@@ -34489,65 +34444,67 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:
 
+/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceFactory.cpp:
+
+/usr/include/assimp/quaternion.inl:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:
+
 /usr/include/stdc-predef.h:
 
+/home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/SDL2/SDL_guid.h:
+
 /usr/include/c++/13/bits/string_view.tcc:
-
-/usr/include/c++/13/bits/unique_ptr.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h:
-
-/usr/include/freetype2/freetype/ftsystem.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/PhysicsEvents.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnniintrin.h:
-
-/usr/include/SDL2/SDL_thread.h:
-
-/usr/include/assimp/mesh.h:
-
-/usr/include/c++/13/bits/ptr_traits.h:
-
-/usr/include/glm/ext/vector_uint4.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Polyhedron3D.h:
 
-/usr/include/c++/13/bits/cxxabi_init_exception.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h:
 
-/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h:
+/usr/include/c++/13/algorithm:
 
-/home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h:
+/usr/include/SDL2/SDL_power.h:
+
+/usr/include/c++/13/bits/hashtable_policy.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/BasePhysicManager.h:
+
+/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp:
+
+/usr/include/alloca.h:
+
+/usr/include/glm/ext/matrix_double4x4.hpp:
+
+/home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h:
+
+/usr/include/assimp/aabb.h:
+
+/usr/include/glm/detail/type_vec3.hpp:
 
 /usr/include/SDL2/SDL_sensor.h:
+
+/usr/include/c++/13/bits/iterator_concepts.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avxvnniint8intrin.h:
 
 /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionReaction.h:
 
-/usr/include/c++/13/atomic:
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h:
 
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/Gas.cpp:
+/usr/include/assimp/config.h:
 
-/usr/include/assimp/MathFunctions.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/RenderComponent.h:
 
-/usr/include/c++/13/cwchar:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Vertex3D.h:
 
-/home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp:
+/home/alex/Projects/BearEngine/include/core/ui_engine/RectTransform.h:
 
-/usr/include/SDL2/SDL_assert.h:
-
-/home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/uv/UVManager.h:
-
-/usr/include/c++/13/tr1/ell_integral.tcc:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h:
 
 /usr/include/c++/13/bits/chrono_io.h:
 
@@ -34563,21 +34520,35 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/detail/type_mat4x4.inl:
 
-/home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/amxint8intrin.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/lights/DirectionalLight3D.h:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Gravity.h:
 
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:
+/usr/include/SDL2/begin_code.h:
 
-/usr/include/assimp/matrix4x4.inl:
+/usr/include/c++/13/bits/stl_bvector.h:
 
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h:
 
-/usr/include/c++/13/bits/stl_relops.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
 
-/usr/include/SDL2/SDL_quit.h:
+/usr/include/c++/13/bits/ostream.tcc:
 
-/usr/include/SDL2/SDL_shape.h:
+/usr/include/SDL2/SDL_clipboard.h:
+
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp:
+
+/usr/include/unistd.h:
+
+/home/alex/Projects/BearEngine/include/core/ui_engine/resources/Font.h:
+
+/home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix3x3.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/Renderer.h:
+
+/usr/include/assert.h:
+
+/usr/include/glm/ext/vector_int3_sized.hpp:
 
 /usr/include/c++/13/bits/exception_defines.h:
 
@@ -34593,135 +34564,93 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/ext/aligned_buffer.h:
 
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Vertex3D.h:
+/usr/include/c++/13/bits/localefwd.h:
 
-/home/alex/Projects/BearEngine/include/core/ui_engine/RectTransform.h:
+/usr/include/glm/ext/matrix_double3x3.hpp:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h:
+/usr/include/SDL2/SDL_locale.h:
+
+/usr/include/SDL2/SDL_video.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/c++/13/ext/type_traits.h:
+
+/usr/include/c++/13/bits/specfun.h:
+
+/usr/include/c++/13/bits/streambuf.tcc:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_renderers/TransparencyModelRenderer.h:
 
 /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h:
 
 /usr/include/glm/detail/type_vec1.inl:
 
-/home/alex/Projects/BearEngine/include/core/ui_engine/Canvas.h:
-
-/usr/include/assimp/Compiler/pushpack1.h:
-
-/usr/include/c++/13/bits/stl_pair.h:
-
-/usr/include/SDL2/SDL_main.h:
-
 /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelComponent.h:
 
-/usr/include/c++/13/bits/hashtable_policy.h:
+/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneCreator.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/rdseedintrin.h:
+/usr/include/c++/13/bits/ranges_util.h:
 
-/usr/include/c++/13/bits/char_traits.h:
+/usr/include/asm-generic/errno-base.h:
 
-/usr/include/c++/13/bits/std_function.h:
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
-/home/alex/Projects/BearEngine/src/dependencies/glad/include/KHR/khrplatform.h:
+/usr/include/c++/13/ext/string_conversions.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h:
 
 /usr/include/c++/13/bits/locale_facets.h:
 
-/home/alex/Projects/BearEngine/include/core/ui_engine/UIElement.h:
+/home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Text.cpp:
+
+/usr/include/wctype.h:
+
+/usr/include/assimp/camera.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/ModelFeature.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512cdintrin.h:
 
 /usr/include/c++/13/bits/locale_facets_nonio.tcc:
 
-/usr/include/c++/13/bits/uses_allocator_args.h:
+/home/alex/Projects/BearEngine/include/core/ui_engine/UIElement.h:
 
-/usr/include/assimp/color4.h:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical/PhysicsCollisionData.h:
 
-/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Tetrahedron3D.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/uv/FrustumCollider.h:
 
-/usr/include/assimp/color4.inl:
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/assimp/matrix4x4.inl:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/xsavecintrin.h:
 
 /usr/include/c++/13/streambuf:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/emmintrin.h:
+/usr/include/c++/13/bits/parse_numbers.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_renderers/SimpleModelRenderer.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/ModelFeatureType.h:
 
-/usr/include/c++/13/bits/ranges_algobase.h:
+/usr/include/SDL2/SDL_stdinc.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/resources/Model.h:
+/usr/include/c++/13/bits/ranges_algo.h:
 
-/usr/include/c++/13/bits/unordered_set.h:
+/usr/include/glm/ext/vector_int4_sized.hpp:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/uv/FrustumCollider.h:
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldComponent.h:
 
-/usr/include/c++/13/bits/fs_path.h:
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/TransparentFeature.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/Camera.h:
-
-/usr/include/assimp/Compiler/poppack1.h:
-
-/usr/include/SDL2/SDL_messagebox.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512fp16intrin.h:
-
-/usr/include/glm/ext/vector_bool4_precision.hpp:
-
-/usr/include/SDL2/SDL_atomic.h:
-
-/usr/include/glm/detail/type_mat3x4.inl:
-
-/usr/include/SDL2/SDL_rwops.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h:
-
-/usr/include/c++/13/bits/vector.tcc:
-
-/usr/include/c++/13/optional:
-
-/usr/include/SDL2/SDL_audio.h:
-
-/usr/include/glm/detail/_fixes.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/rtmintrin.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
-
-/usr/include/c++/13/bits/ostream.tcc:
-
-/usr/include/SDL2/SDL_clipboard.h:
-
-/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h:
-
-/usr/include/assimp/light.h:
-
-/usr/include/SDL2/SDL_config.h:
-
-/usr/include/c++/13/bits/postypes.h:
-
-/usr/include/glm/vector_relational.hpp:
-
-/home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h:
-
-/usr/include/SDL2/SDL_error.h:
-
-/usr/include/c++/13/bits/fs_dir.h:
-
-/usr/include/SDL2/SDL_mouse.h:
-
-/usr/include/glm/detail/type_half.hpp:
-
-/usr/include/c++/13/fstream:
-
-/usr/include/assimp/vector3.inl:
-
-/usr/include/assimp/aabb.h:
+/usr/include/glm/ext/vector_bool3.hpp:
 
 /usr/include/assimp/vector2.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/SDL2/SDL_filesystem.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
 
@@ -34733,13 +34662,193 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/SDL2/SDL_platform.h:
 
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/home/alex/Projects/BearEngine/src/core/scene_engine/SceneToFile/SceneDeserializer.cpp:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/c++/13/bits/erase_if.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/xsaveintrin.h:
+
+/usr/include/glm/ext/matrix_float4x2_precision.hpp:
+
+/usr/include/glm/ext/vector_double4.hpp:
+
+/usr/include/c++/13/bits/fs_path.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/Camera.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/resources/Model.h:
+
+/home/alex/Projects/BearEngine/include/core/ui_engine/ui_rendering/UIRenderSettings.h:
+
+/usr/include/c++/13/bits/stl_algobase.h:
+
+/usr/include/SDL2/SDL_render.h:
+
+/usr/include/c++/13/bits/move.h:
+
+/usr/include/assimp/material.inl:
+
+/usr/include/c++/13/chrono:
+
+/usr/include/assimp/Importer.hpp:
+
+/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneSerializer.h:
+
+/home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h:
+
+/home/alex/Projects/BearEngine/src/core/scene_engine/Scene.cpp:
+
+/usr/include/SDL2/SDL_assert.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/component_system/ComponentLibrary.h:
+
+/usr/include/SDL2/SDL_quit.h:
+
+/usr/include/SDL2/SDL_shape.h:
+
+/usr/include/SDL2/SDL_haptic.h:
+
+/home/alex/Projects/BearEngine/include/core/ui_engine/UIRect.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/glm/ext/matrix_float2x2.hpp:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/hierarchy_system/HierarchySystem.h:
+
+/usr/include/glm/exponential.hpp:
+
+/usr/include/glm/mat3x3.hpp:
+
+/usr/include/SDL2/SDL.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/home/alex/Projects/BearEngine/include/core/scene_engine/SceneToFile/SceneDeserializer.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/serializeintrin.h:
+
+/usr/include/assimp/matrix3x3.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceFactory.h:
+
+/usr/include/c++/13/cctype:
+
+/usr/include/c++/13/bits/cxxabi_init_exception.h:
+
+/home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h:
+
+/home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourceManager.h:
+
+/usr/include/SDL2/SDL_blendmode.h:
+
+/usr/include/glm/detail/func_geometric.inl:
+
+/usr/include/SDL2/SDL_keycode.h:
+
+/usr/include/assimp/light.h:
+
+/home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/CollisionEvent.h:
+
+/usr/include/assimp/matrix4x4.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/lights/DirectionalLight3D.h:
+
+/home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h:
+
+/usr/include/c++/13/cwchar:
+
+/usr/include/c++/13/bits/allocator.h:
+
+/usr/include/c++/13/unordered_map:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnniintrin.h:
+
+/usr/include/SDL2/SDL_thread.h:
+
+/usr/include/assimp/mesh.h:
+
+/usr/include/c++/13/bits/ptr_traits.h:
+
+/usr/include/glm/ext/vector_uint4.hpp:
+
+/home/alex/Projects/BearEngine/include/core/ui_engine/UIVertex.h:
+
+/home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Image.h:
+
+/usr/include/SDL2/SDL_rect.h:
+
+/usr/include/glm/ext/matrix_double4x4_precision.hpp:
+
+/usr/include/SDL2/SDL_config.h:
+
+/usr/include/c++/13/bits/postypes.h:
+
+/usr/include/glm/vector_relational.hpp:
+
+/home/alex/Projects/BearEngine/src/dependencies/glad/include/glad/glad.h:
+
+/usr/include/glm/ext/matrix_double2x3.hpp:
+
+/usr/include/SDL2/SDL_rwops.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/mwaitintrin.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vnnivlintrin.h:
+
+/usr/include/c++/13/bits/vector.tcc:
+
+/usr/include/c++/13/optional:
+
+/usr/include/GLFW/glfw3.h:
+
+/usr/include/c++/13/bits/streambuf_iterator.h:
+
+/usr/include/assimp/Compiler/poppack1.h:
+
+/usr/include/SDL2/SDL_messagebox.h:
+
+/usr/include/SDL2/SDL_atomic.h:
+
+/usr/include/glm/detail/type_mat3x4.inl:
+
+/usr/include/SDL2/SDL_audio.h:
+
+/usr/include/SDL2/SDL_cpuinfo.h:
+
+/usr/include/glm/ext/matrix_float3x4.hpp:
+
+/usr/include/c++/13/bits/stl_numeric.h:
+
+/home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512dqintrin.h:
+
+/usr/include/SDL2/SDL_error.h:
+
+/usr/include/c++/13/bits/fs_dir.h:
+
+/usr/include/SDL2/SDL_mouse.h:
+
+/usr/include/assimp/vector3.inl:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h:
+
+/usr/include/SDL2/SDL_gamecontroller.h:
+
+/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/features/SpriteFeature.h:
+
+/usr/include/glm/detail/type_mat4x3.hpp:
+
 /usr/include/c++/13/bits/locale_facets_nonio.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/PhysicCollisionSystem.h:
-
-/usr/include/SDL2/SDL_filesystem.h:
-
-/usr/include/x86_64-linux-gnu/bits/confname.h:
 
 /usr/include/SDL2/SDL_gesture.h:
 
@@ -34753,19 +34862,11 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/SDL2/SDL_hints.h:
 
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp:
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.h:
 
-/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp:
+/usr/include/glm/common.hpp:
 
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
-
-/usr/include/stdio.h:
-
-/usr/include/c++/13/bits/localefwd.h:
-
-/usr/include/glm/ext/matrix_double3x3.hpp:
-
-/usr/include/SDL2/SDL_locale.h:
+/usr/include/SDL2/SDL_keyboard.h:
 
 /usr/include/SDL2/SDL_log.h:
 
@@ -34783,12 +34884,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/cstdint:
 
-/usr/include/c++/13/bits/stl_multimap.h:
-
-/home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h:
-
-/usr/include/glm/detail/type_vec3.hpp:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/avx512bf16intrin.h:
 
 /usr/include/c++/13/bits/shared_ptr_base.h:
@@ -34797,79 +34892,61 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/SDL2/SDL_scancode.h:
 
-/usr/include/glm/ext/matrix_float3x3_precision.hpp:
+/usr/include/c++/13/bits/stl_construct.h:
 
-/usr/include/SDL2/SDL_surface.h:
+/usr/include/c++/13/bits/stl_function.h:
 
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldComponent.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/uintrintrin.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/TransparentFeature.h:
+/usr/include/SDL2/SDL_joystick.h:
 
-/usr/include/c++/13/bits/ranges_algo.h:
+/usr/include/c++/13/utility:
 
-/usr/include/glm/ext/vector_int4_sized.hpp:
+/usr/include/c++/13/bits/stl_iterator.h:
 
-/usr/include/SDL2/SDL_system.h:
+/usr/include/c++/13/ext/numeric_traits.h:
 
-/home/alex/Projects/BearEngine/src/core/geometry/colliders/2D/BoxCollider2D.cpp:
+/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.cpp:
 
-/usr/include/SDL2/SDL_timer.h:
+/home/alex/Projects/BearEngine/src/core/graphics_engine/2D/sprite/SpriteComponent.cpp:
 
-/usr/include/SDL2/SDL_version.h:
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
 
-/usr/include/c++/13/bits/stl_bvector.h:
+/usr/include/stdio.h:
 
-/usr/include/SDL2/begin_code.h:
+/usr/include/glm/detail/_fixes.hpp:
 
-/usr/include/c++/13/cwctype:
+/home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h:
 
-/usr/include/c++/13/filesystem:
+/usr/include/c++/13/bits/stl_multimap.h:
 
-/home/alex/Projects/BearEngine/include/core/math/Transform.h:
+/usr/include/SDL2/SDL_main.h:
 
-/usr/include/glm/ext/vector_double2_precision.hpp:
+/usr/include/c++/13/bits/stl_pair.h:
 
-/usr/include/x86_64-linux-gnu/bits/time64.h:
+/usr/include/c++/13/bits/stl_relops.h:
 
-/usr/include/c++/13/ext/type_traits.h:
+/usr/include/c++/13/bits/stl_tempbuf.h:
 
-/usr/include/SDL2/SDL_video.h:
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
-/usr/include/assimp/config.h:
+/usr/include/c++/13/bits/stl_vector.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/RenderComponent.h:
+/usr/include/c++/13/bits/stream_iterator.h:
 
-/home/alex/Projects/BearEngine/src/core/system_engine/resource_system/ResourceFactory.cpp:
+/usr/include/c++/13/bits/unique_ptr.h:
 
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:
+/usr/include/c++/13/bits/unordered_set.h:
 
-/usr/include/assimp/quaternion.inl:
+/usr/include/c++/13/bits/uses_allocator.h:
 
-/usr/include/c++/13/bits/ranges_util.h:
+/usr/include/assimp/color4.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/avx512vp2intersectintrin.h:
+/home/alex/Projects/BearEngine/include/core/geometry/colliders/3D/Tetrahedron3D.h:
 
-/usr/include/SDL2/SDL_gamecontroller.h:
+/usr/include/c++/13/bits/uses_allocator_args.h:
 
-/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/features/SpriteFeature.h:
-
-/usr/include/glm/detail/type_mat4x3.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/mm_malloc.h:
-
-/usr/include/c++/13/algorithm:
-
-/usr/include/SDL2/SDL_power.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/Renderer.h:
-
-/usr/include/glm/ext/matrix_double4x3_precision.hpp:
-
-/usr/include/assimp/material.h:
-
-/usr/include/glm/detail/_vectorize.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
+/usr/include/glm/detail/type_vec1.hpp:
 
 /usr/include/c++/13/bits/utility.h:
 
@@ -34937,8 +35014,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/ext/concurrence.h:
 
-/usr/include/c++/13/ext/string_conversions.h:
-
 /usr/include/c++/13/functional:
 
 /usr/include/c++/13/initializer_list:
@@ -34967,6 +35042,14 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/limits:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/c++/13/locale:
+
 /home/alex/Projects/BearEngine/include/core/phisic_engine/Rigidbody2D.h:
 
 /usr/include/SDL2/SDL_hidapi.h:
@@ -34979,17 +35062,11 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/ext/vector_uint3.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
 /home/alex/Projects/BearEngine/src/core/ui_engine/ui_rendering/UIRendering.cpp:
 
 /usr/include/c++/13/tr1/exp_integral.tcc:
 
 /usr/include/c++/13/math.h:
-
-/usr/include/glm/ext/matrix_float2x4.hpp:
-
-/usr/include/c++/13/memory:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
@@ -35073,10 +35150,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/c++/13/tr1/riemann_zeta.tcc:
 
-/usr/include/glm/detail/qualifier.hpp:
-
-/usr/include/x86_64-linux-gnu/asm/unistd.h:
-
 /usr/include/c++/13/bits/stl_uninitialized.h:
 
 /usr/include/glm/ext/matrix_float2x2_precision.hpp:
@@ -35121,8 +35194,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/detail/type_mat4x4.hpp:
 
-/usr/include/x86_64-linux-gnu/bits/environments.h:
-
 /usr/lib/gcc/x86_64-linux-gnu/13/include/mmintrin.h:
 
 /usr/include/c++/13/tr1/bessel_function.tcc:
@@ -35139,35 +35210,21 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/detail/type_mat2x2.hpp:
 
-/usr/include/c++/13/bits/random.h:
+/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
 
 /usr/include/assimp/anim.h:
+
+/usr/include/c++/13/bits/random.h:
 
 /usr/include/c++/13/ext/alloc_traits.h:
 
 /usr/include/freetype2/ft2build.h:
-
-/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions/LocalPhysicCollisionSystem.h:
-
-/usr/include/SDL2/SDL_keyboard.h:
-
-/usr/include/glm/common.hpp:
 
 /usr/include/glm/detail/func_common.inl:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/xtestintrin.h:
 
 /usr/include/sched.h:
-
-/home/alex/Projects/BearEngine/src/core/ui_engine/ui_elements/Text.cpp:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/model_features/ModelFeature.h:
-
-/usr/include/assimp/camera.h:
-
-/usr/include/wctype.h:
 
 /usr/include/glm/detail/func_integer.inl:
 
@@ -35219,8 +35276,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/detail/type_mat4x3.inl:
 
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
 /usr/include/assimp/types.h:
 
 /usr/include/glm/detail/type_vec2.inl:
@@ -35238,10 +35293,6 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 /usr/include/c++/13/typeinfo:
 
 /usr/include/glm/detail/type_vec4.inl:
-
-/usr/include/glm/mat3x3.hpp:
-
-/usr/include/glm/exponential.hpp:
 
 /home/alex/Projects/BearEngine/src/core/system_engine/input_system/InputSystem.cpp:
 
@@ -35285,19 +35336,13 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/ext/matrix_double4x2_precision.hpp:
 
-/home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderers/TransparencyModelRenderer.cpp:
-
-/usr/include/alloca.h:
-
-/usr/include/glm/ext/matrix_double4x4.hpp:
-
-/usr/include/SDL2/SDL_rect.h:
-
-/usr/include/glm/ext/matrix_double4x4_precision.hpp:
-
 /usr/include/glm/ext/matrix_float2x3.hpp:
 
 /usr/include/glm/ext/matrix_float2x3_precision.hpp:
+
+/usr/include/c++/13/memory:
+
+/usr/include/glm/ext/matrix_float2x4.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/errno.h:
 
@@ -35331,13 +35376,13 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/ext/scalar_uint_sized.hpp:
 
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.h:
-
 /home/alex/Projects/BearEngine/src/core/geometry/colliders/3D/Polyhedron3D.cpp:
 
 /usr/include/c++/13/tr1/modified_bessel_func.tcc:
 
 /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical/Newtonian.h:
 
 /usr/include/glm/ext/vector_bool2.hpp:
 
@@ -35345,23 +35390,19 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/ext/vector_bool2_precision.hpp:
 
-/usr/include/glm/ext/vector_bool3.hpp:
-
 /home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Toggle.h:
-
-/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/hresetintrin.h:
 
 /usr/include/glm/ext/matrix_float3x2.hpp:
+
+/home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicsManagers/PhysicsWorld.h:
 
 /usr/include/glm/ext/vector_bool4.hpp:
 
 /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imconfig.h:
 
 /usr/include/glm/ext/vector_double2.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 /usr/include/glm/ext/vector_double3.hpp:
 
@@ -35385,9 +35426,9 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/ext/vector_int2_sized.hpp:
 
-/home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Text.h:
-
 /usr/include/freetype2/freetype/config/ftheader.h:
+
+/home/alex/Projects/BearEngine/include/core/ui_engine/ui_elements/Text.h:
 
 /usr/include/glm/ext/vector_int3.hpp:
 
@@ -35407,9 +35448,9 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/glm/fwd.hpp:
 
-/usr/include/pthread.h:
-
 /usr/include/glm/matrix.hpp:
+
+/usr/include/pthread.h:
 
 /usr/include/glm/glm.hpp:
 
@@ -35459,64 +35500,18 @@ CMakeFiles/game.dir/src/core/ui_engine/ui_rendering/UIRendering.cpp.o: /home/ale
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
+/usr/include/math.h:
+
 /usr/include/glm/ext/matrix_float4x4_precision.hpp:
 
 /usr/include/c++/13/cstdio:
-
-/usr/include/math.h:
 
 /usr/include/setjmp.h:
 
 /usr/include/string.h:
 
-/usr/include/c++/13/bits/stl_heap.h:
-
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
 
+/usr/include/c++/13/bits/stl_heap.h:
+
 /usr/include/syscall.h:
-
-/usr/include/time.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/popcntintrin.h:
-
-/usr/include/c++/13/bits/stl_map.h:
-
-/usr/include/c++/13/locale:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
-
-/home/alex/Projects/BearEngine/src/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid/ArchimedForce.cpp:
-
-/home/alex/Projects/BearEngine/include/core/ui_engine/resources/Font.h:
-
-/usr/include/unistd.h:
-
-/home/alex/Projects/BearEngine/src/core/ui_engine/RectTransform.cpp:
-
-/usr/include/c++/13/bits/locale_classes.h:
-
-/usr/include/x86_64-linux-gnu/SDL2/_real_SDL_config.h:
-
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
-/home/alex/Projects/BearEngine/include/core/graphics_engine/2D/sprite/SpriteRenderer.h:
-
-/usr/include/x86_64-linux-gnu/asm/unistd_64.h:
-
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/home/alex/Projects/BearEngine/include/core/system_engine/tags_system/TagLibrary.h:
-
-/usr/include/SDL2/SDL_guid.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/c++/13/bits/stl_vector.h:
-
-/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
-
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:

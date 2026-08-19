@@ -103,14 +103,21 @@ void RenderPipeline::InitQuad() {
 }
 
 void RenderPipeline::RenderQuad() {
-    if (!quadVAO) return;
+    if (!quadVAO) {
+        std::cout << "quadVAO is nullptr in RenderPipeline" << std::endl; 
+        return;
+    }
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     glBindVertexArray(quadVAO);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArray(0);
 }
 
 void RenderPipeline::BeginFrame() {
-    if (!framebuffer) return;
+    if (!framebuffer) {
+        std::cout << "framebuffer is nullptr in RenderPipeline" << std::endl; 
+        return;
+    }
     
     glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
     glViewport(0, 0, width, height);

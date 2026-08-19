@@ -976,10 +976,10 @@ extern DECLSPEC SDL_bool SDLCALL SDL_RenderIsClipEnabled(SDL_Renderer * renderer
  *
  * /since This function is available since SDL 2.0.0.
  *
- * /sa SDL_RenderGetScale
+ * /sa SDL_RenderGetGlobalScale
  * /sa SDL_RenderSetLogicalSize
  */
-extern DECLSPEC int SDLCALL SDL_RenderSetScale(SDL_Renderer * renderer,
+extern DECLSPEC int SDLCALL SDL_RenderSetLocalScale(SDL_Renderer * renderer,
                                                float scaleX, float scaleY);
 
 /**
@@ -991,9 +991,9 @@ extern DECLSPEC int SDLCALL SDL_RenderSetScale(SDL_Renderer * renderer,
  *
  * /since This function is available since SDL 2.0.0.
  *
- * /sa SDL_RenderSetScale
+ * /sa SDL_RenderSetLocalScale
  */
-extern DECLSPEC void SDLCALL SDL_RenderGetScale(SDL_Renderer * renderer,
+extern DECLSPEC void SDLCALL SDL_RenderGetGlobalScale(SDL_Renderer * renderer,
                                                float *scaleX, float *scaleY);
 
 /**
@@ -1012,8 +1012,8 @@ extern DECLSPEC void SDLCALL SDL_RenderGetScale(SDL_Renderer * renderer,
  *
  * /since This function is available since SDL 2.0.18.
  *
- * /sa SDL_RenderGetScale
- * /sa SDL_RenderSetScale
+ * /sa SDL_RenderGetGlobalScale
+ * /sa SDL_RenderSetLocalScale
  * /sa SDL_RenderGetLogicalSize
  * /sa SDL_RenderSetLogicalSize
  */
@@ -1038,8 +1038,8 @@ extern DECLSPEC void SDLCALL SDL_RenderWindowToLogical(SDL_Renderer * renderer,
  *
  * /since This function is available since SDL 2.0.18.
  *
- * /sa SDL_RenderGetScale
- * /sa SDL_RenderSetScale
+ * /sa SDL_RenderGetGlobalScale
+ * /sa SDL_RenderSetLocalScale
  * /sa SDL_RenderGetLogicalSize
  * /sa SDL_RenderSetLogicalSize
  */

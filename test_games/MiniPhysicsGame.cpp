@@ -443,10 +443,10 @@ int main() {
         }
         
         float cameraSpeed = 8.0f * deltaTime;
-        if (input.GetKey(Keys::Up)) camera->GetPosition().z -= cameraSpeed;
-        if (input.GetKey(Keys::Down)) camera->GetPosition().z += cameraSpeed;
-        if (input.GetKey(Keys::Left)) camera->GetPosition().x -= cameraSpeed;
-        if (input.GetKey(Keys::Right)) camera->GetPosition().x += cameraSpeed;
+        if (input.GetKey(Keys::Up)) camera->GetGlobalPosition().z -= cameraSpeed;
+        if (input.GetKey(Keys::Down)) camera->GetGlobalPosition().z += cameraSpeed;
+        if (input.GetKey(Keys::Left)) camera->GetGlobalPosition().x -= cameraSpeed;
+        if (input.GetKey(Keys::Right)) camera->GetGlobalPosition().x += cameraSpeed;
         
         Vector3 targetPos = playerTransform->position + Vector3(0, 5, 10);
         camera->position = camera->position * 0.95f + targetPos * 0.05f;

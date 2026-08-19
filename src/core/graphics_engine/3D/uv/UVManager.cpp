@@ -181,7 +181,7 @@ bool UVManager::IsObjectVisible(ModelComponent* model, ObjectUVData& data) {
         }
     }
     
-    Vector3f worldPos = transform->GetPosition();
+    Vector3f worldPos = transform->GetGlobalPosition();
     bool visible = IsPointVisible(worldPos);
     objectVisibilityState[model->GetID()] = visible;
     return visible;

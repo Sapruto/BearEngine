@@ -36,7 +36,7 @@ void RigidBody2D::Update(){
     if (dragFactor > 1) dragFactor = 1;
     velocity *= dragFactor;
     
-    transform->GetPosition() += velocity * dt;
+    transform->GetGlobalPosition() += velocity * dt;
     
     forces.clear();*/
 }

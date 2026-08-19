@@ -14,9 +14,9 @@ private:
     FIELD(Vector3f, fieldScale);
     FIELD(Quaternionf, fieldRotation);
 
-    Vector3f position;
-    Vector3f scale;
-    Quaternionf rotation;
+    Vector3f globalPosition;
+    Vector3f globalScale;
+    Quaternionf globalRotation;
 
     bool dirty = true;
     Matrix4x4f cachedMatrix;
@@ -42,13 +42,9 @@ public:
 
     void Update() override;
 
-    const Vector3f& GetPosition() const;
-    const Vector3f& GetScale() const;
-    const Quaternionf& GetRotation() const;
-
-    void SetPosition(const Vector3f& newWorldPos);
-    void SetScale(const Vector3f& newWorldScale);
-    void SetRotation(const Quaternionf& newWorldRot);
+    const Vector3f& GetGlobalPosition() const;
+    const Vector3f& GetGlobalScale() const;
+    const Quaternionf& GetGlobalRotation() const;
 
     const Vector3f& GetLocalPosition() const;
     const Vector3f& GetLocalScale() const;

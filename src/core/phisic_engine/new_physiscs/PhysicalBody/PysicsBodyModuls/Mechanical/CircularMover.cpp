@@ -33,7 +33,7 @@ void CircularMover::Initialize(){
 void CircularMover::UpdateBody() {
     if(!isValid) return;
 
-    const Vector3& currentPos = body->GetTransform()->GetPosition();
+    const Vector3& currentPos = body->GetTransform()->GetGlobalPosition();
     Vector3 fromCenter = currentPos - anchorPoint;
     float distance = fromCenter.magnitude();
     

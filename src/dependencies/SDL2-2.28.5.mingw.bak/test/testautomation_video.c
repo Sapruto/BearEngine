@@ -1045,7 +1045,7 @@ int video_getWindowPixelFormat(void *arg)
 }
 
 
-static SDL_bool getPositionFromEvent(int *x, int *y)
+static SDL_bool GetGlobalPositionFromEvent(int *x, int *y)
 {
     SDL_bool ret = SDL_FALSE;
     SDL_Event evt;
@@ -1157,7 +1157,7 @@ int video_getSetWindowPosition(void *arg)
                  * and then we get events signaling what actually happened, and they get passed on to the application if they're not what we expect. */
                 desiredX = currentX + 1;
                 desiredY = currentY + 1;
-                hasEvent = getPositionFromEvent(&desiredX, &desiredY);
+                hasEvent = GetGlobalPositionFromEvent(&desiredX, &desiredY);
                 SDLTest_AssertCheck(hasEvent == SDL_TRUE, "Changing position was not honored by WM, checking present of SDL_WINDOWEVENT_MOVED");
                 if (hasEvent) {
                     SDLTest_AssertCheck(desiredX == currentX, "Verify returned X position is the position from SDL event; expected: %d, got: %d", desiredX, currentX);

@@ -38,13 +38,10 @@ void ModelRenderer::BuildGroups(){
         if(!model) continue;
 
         std::vector<ModelFeature*> features = model->GetFeatures();
-        if (features.empty()) {
-            groups[ModelFeatureType::Simple].push_back(model);
-        } 
-        else {
-            for(auto* feature : features){
-                groups[feature->type].push_back(model);
-            }
+
+        groups[ModelFeatureType::Simple].push_back(model);
+        for(auto* feature : features){
+            groups[feature->type].push_back(model);
         }
     }
     InitBaseRenderer();
@@ -86,7 +83,7 @@ void ModelRenderer::Start() {
     InitBaseRenderer();
 
     for(auto& [type, modelFeatureRenderer] : modelFeatureRenderers){
-        if(modelFeatureRenderer) modelFeatureRenderer->Init();
+        if (modelFeatureRenderer) modelFeatureRenderer->Init();
     }
 
     isInitialized = true;
@@ -100,6 +97,7 @@ void ModelRenderer::Update(){
     UpdateUVs();
     
     pipeline->BeginFrame();
+
     for(auto& [type, modelFeatureRenderer] : modelFeatureRenderers){
         if(!modelFeatureRenderer || !groups.count(type)) continue;
 
