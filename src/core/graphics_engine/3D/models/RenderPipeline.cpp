@@ -5,8 +5,8 @@
 #include "Window.h"
 #include "Shader.h"
 #include <glad/glad.h>
-
 #include "ModelsShaderPaths.h"
+#include <iostream>
 
 RenderPipeline::RenderPipeline(Camera3D* cam, Window* win)
     : camera(cam), window(win), presentShader(
@@ -18,61 +18,68 @@ RenderPipeline::RenderPipeline(Camera3D* cam, Window* win)
         height = window->GetHeight();
     }
     
-    CreateFramebuffer(width, height);
+    CreateFramebuffers(width, height);
     InitQuad();
 }
 
 RenderPipeline::~RenderPipeline() {
-    DestroyFramebuffer();
+    DestroyFramebuffers();
     if (quadVAO) {
         glDeleteVertexArrays(1, &quadVAO);
         glDeleteBuffers(1, &quadVBO);
     }
 }
 
-void RenderPipeline::CreateFramebuffer(int w, int h) {
+void RenderPipeline::CreateFramebuffers(int w, int h) {
     if (w <= 0 || h <= 0) return;
     
     width = w;
     height = h;
-    
-    glGenTextures(1, &colorTexture);
-    glBindTexture(GL_TEXTURE_2D, colorTexture);
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glBindTexture(GL_TEXTURE_2D, 0);
-    
-    glGenRenderbuffers(1, &depthBuffer);
-    glBindRenderbuffer(GL_RENDERBUFFER, depthBuffer);
-    glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, width, height);
-    glBindRenderbuffer(GL_RENDERBUFFER, 0);
-    
-    glGenFramebuffers(1, &framebuffer);
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
-    glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorTexture, 0);
-    glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffer);
-    
-    GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
-    if (status != GL_FRAMEBUFFER_COMPLETE) {
 
+    for (int i = 0; i < 2; i++) {
+        glGenTextures(1, &colorTextures[i]);
+        glBindTexture(GL_TEXTURE_2D, colorTextures[i]);
+        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+        glBindTexture(GL_TEXTURE_2D, 0);
+
+        glGenRenderbuffers(1, &depthBuffers[i]);
+        glBindRenderbuffer(GL_RENDERBUFFER, depthBuffers[i]);
+        glRenderbufferStorage(GL_RENDERBUFFER, GL_DEPTH_COMPONENT, width, height);
+        glBindRenderbuffer(GL_RENDERBUFFER, 0);
+
+        glGenFramebuffers(1, &framebuffers[i]);
+        glBindFramebuffer(GL_FRAMEBUFFER, framebuffers[i]);
+        glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, colorTextures[i], 0);
+        glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_DEPTH_ATTACHMENT, GL_RENDERBUFFER, depthBuffers[i]);
+
+        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+        if (status != GL_FRAMEBUFFER_COMPLETE) {
+            std::cout << "Framebuffer " << i << " is not complete!" << std::endl;
+        }
     }
-    
+
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
+    currentRead = 0;
+    currentWrite = 1;
 }
 
-void RenderPipeline::DestroyFramebuffer() {
-    if (framebuffer) {
-        glDeleteFramebuffers(1, &framebuffer);
-        framebuffer = 0;
-    }
-    if (colorTexture) {
-        glDeleteTextures(1, &colorTexture);
-        colorTexture = 0;
-    }
-    if (depthBuffer) {
-        glDeleteRenderbuffers(1, &depthBuffer);
-        depthBuffer = 0;
+void RenderPipeline::DestroyFramebuffers() {
+    for (int i = 0; i < 2; i++) {
+        if (framebuffers[i]) {
+            glDeleteFramebuffers(1, &framebuffers[i]);
+            framebuffers[i] = 0;
+        }
+        if (colorTextures[i]) {
+            glDeleteTextures(1, &colorTextures[i]);
+            colorTextures[i] = 0;
+        }
+        if (depthBuffers[i]) {
+            glDeleteRenderbuffers(1, &depthBuffers[i]);
+            depthBuffers[i] = 0;
+        }
     }
 }
 
@@ -103,29 +110,32 @@ void RenderPipeline::InitQuad() {
 }
 
 void RenderPipeline::RenderQuad() {
-    if (!quadVAO) {
-        std::cout << "quadVAO is nullptr in RenderPipeline" << std::endl; 
-        return;
-    }
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    if (!quadVAO) return;
     glBindVertexArray(quadVAO);
     glDrawArrays(GL_TRIANGLES, 0, 6);
     glBindVertexArray(0);
 }
 
-void RenderPipeline::BeginFrame() {
-    if (!framebuffer) {
-        std::cout << "framebuffer is nullptr in RenderPipeline" << std::endl; 
+void RenderPipeline::SwapBuffers() {
+    std::swap(currentRead, currentWrite);
+}
+
+void RenderPipeline::BeginCurrentRender() {
+    if (!framebuffers[currentWrite]) {
+        std::cout << "Framebuffer is null!" << std::endl;
         return;
     }
     
-    glBindFramebuffer(GL_FRAMEBUFFER, framebuffer);
+    glBindFramebuffer(GL_FRAMEBUFFER, framebuffers[currentWrite]);
     glViewport(0, 0, width, height);
+    
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 }
 
-void RenderPipeline::EndFrame() {
+void RenderPipeline::EndCurrentRender() {
     glBindFramebuffer(GL_FRAMEBUFFER, 0);
+    
+    SwapBuffers();
 }
 
 void RenderPipeline::Present() {
@@ -134,11 +144,10 @@ void RenderPipeline::Present() {
     
     presentShader.Bind();
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D, colorTexture);
+    glBindTexture(GL_TEXTURE_2D, colorTextures[currentRead]);
     presentShader.SetInt("screenTexture", 0);
     
     RenderQuad();
-    
     presentShader.Unbind();
 }
 
@@ -155,8 +164,8 @@ void RenderPipeline::Resize(int w, int h) {
     width = w;
     height = h;
     
-    DestroyFramebuffer();
-    CreateFramebuffer(width, height);
+    DestroyFramebuffers();
+    CreateFramebuffers(width, height);
 }
 
 ObjectUVData RenderPipeline::GetObjectUV(ModelComponent* model) {

@@ -81,9 +81,6 @@ void SimpleModelRenderer::Shutdown() {
 
 void SimpleModelRenderer::RenderGroup(std::vector<ModelComponent*>& models, RenderPipeline* pipeline) {
     if (!pipeline || !isInitialized) return;
-
-    glEnable(GL_DEPTH_TEST);
-    glDepthFunc(GL_LESS);
     
     Camera3D* camera = dynamic_cast<Camera3D*>(pipeline->GetCamera());
     if (!camera) return;
@@ -91,6 +88,9 @@ void SimpleModelRenderer::RenderGroup(std::vector<ModelComponent*>& models, Rend
     const auto& lights = pipeline->GetLights();
     
     shader.Bind();
+
+    glEnable(GL_DEPTH_TEST);
+    glDepthFunc(GL_LESS);
     
     float aspect = (float)pipeline->GetWidth() / pipeline->GetHeight();
 

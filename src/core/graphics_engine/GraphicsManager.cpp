@@ -11,7 +11,3 @@ void GraphicsManager::RemoveRender(Renderer* render){
         renders.erase(it);
     }
 }
-
-void GraphicsManager::ApplyRenderSettingsToCamera(bool applyOffset) {
-
-}

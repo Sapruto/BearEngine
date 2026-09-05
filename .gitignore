@@ -5,6 +5,9 @@ Build/
 *.exe
 *.out
 
+#Assets directories
+Assets/
+
 # IDE files
 .vscode/
 .idea/

@@ -90,9 +90,6 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/audio_engine
     ${ROOT_DIR}/include/core/exe_compiler
     ${ROOT_DIR}/include/core/user_settings
-    ${ROOT_DIR}/include/core/graphics_engine
-    ${ROOT_DIR}/include/core/graphics_engine/base_graphics
-    ${ROOT_DIR}/include/core/graphics_engine/resources
     ${ROOT_DIR}/include/core/system_engine
     ${ROOT_DIR}/include/core/system_engine/atributs
     ${ROOT_DIR}/include/core/system_engine/component_system
@@ -125,6 +122,11 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical
     ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsManagers
 
+    ${ROOT_DIR}/include/core/graphics_engine
+    ${ROOT_DIR}/include/core/graphics_engine/core
+    ${ROOT_DIR}/include/core/graphics_engine/core/base_graphics
+    ${ROOT_DIR}/include/core/graphics_engine/resources
+
     ${ROOT_DIR}/include/core/graphics_engine/3D
     ${ROOT_DIR}/include/core/graphics_engine/3D/models
     ${ROOT_DIR}/include/core/graphics_engine/3D/models/model_features
@@ -149,9 +151,6 @@ target_include_directories(game PRIVATE
     #${ROOT_DIR}/include/core/users_interface
     #${ROOT_DIR}/include/core/users_interface/Editor
     #${ROOT_DIR}/include/core/users_interface/Utilits
-
-    #PHYSIC PROJECT, DELETE IN FEAURE PLEEEEEEEEEEEEEEEEASE 6766767676766767
-    ${ROOT_DIR}/test_games/PhysicProject
 
     
     ${GLM_DIR}

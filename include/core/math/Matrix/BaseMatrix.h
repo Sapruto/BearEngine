@@ -125,10 +125,10 @@ public:
     constexpr T& operator[](int index) { return data[index]; }
     constexpr const T& operator[](int index) const { return data[index]; }
     constexpr const T& operator()(int row, int col) const { 
-        return data[row * Cols + col]; 
+        return data[row * Cols + col];
     }
     T& operator()(int row, int col) { 
-        return data[row * Cols + col]; 
+        return data[row * Cols + col];
     }
     constexpr int Size() const { return Rows * Cols; }
 

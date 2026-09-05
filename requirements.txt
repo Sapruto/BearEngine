@@ -1,0 +1,10 @@
+glfw3 3.3 | ubuntu:libglfw3-dev arch:glfw fedora:glfw-devel
+assimp 5.0 | ubuntu:libassimp-dev arch:assimp fedora:assimp-devel
+freetype 2.10 | ubuntu:libfreetype-dev arch:freetype2 fedora:freetype-devel
+glm 0.9.9 | ubuntu:libglm-dev arch:glm fedora:glm-devel
+opengl  | ubuntu:libgl1-mesa-dev arch:mesa fedora:mesa-libGL-devel
+x11  | ubuntu:x11-dev arch:xorg-server fedora:libX11-devel
+
+cmake 3.16 | ubuntu:cmake arch:cmake fedora:cmake
+g++ 10 | ubuntu:g++ arch:gcc fedora:gcc-c++
+git | ubuntu:git arch:git fedora:git

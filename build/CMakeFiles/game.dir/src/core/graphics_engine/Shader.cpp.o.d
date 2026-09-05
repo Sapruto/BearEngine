@@ -1,7 +1,7 @@
 CMakeFiles/game.dir/src/core/graphics_engine/Shader.cpp.o: \
  /home/alex/Projects/BearEngine/src/core/graphics_engine/Shader.cpp \
  /usr/include/stdc-predef.h \
- /home/alex/Projects/BearEngine/include/core/graphics_engine/Shader.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/core/Shader.h \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \

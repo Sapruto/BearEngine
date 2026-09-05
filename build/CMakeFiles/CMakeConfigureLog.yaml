@@ -563,3 +563,205 @@ events:
         
       exitCode: 0
 ...
+
+---
+events:
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:682 (check_library_exists)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so"
+    directories:
+      source: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-yXBh7a"
+      binary: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-yXBh7a"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "X11_LIB_X11_SOLO"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-yXBh7a'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_d0b96/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_d0b96.dir/build.make CMakeFiles/cmTC_d0b96.dir/build
+        gmake[1]: Entering directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-yXBh7a'
+        Building C object CMakeFiles/cmTC_d0b96.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=XOpenDisplay -fPIE -o CMakeFiles/cmTC_d0b96.dir/CheckFunctionExists.c.o -c /home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-yXBh7a/CheckFunctionExists.c
+        Linking C executable cmTC_d0b96
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d0b96.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=XOpenDisplay CMakeFiles/cmTC_d0b96.dir/CheckFunctionExists.c.o -o cmTC_d0b96  /usr/lib/x86_64-linux-gnu/libX11.so /usr/lib/x86_64-linux-gnu/libXext.so 
+        gmake[1]: Leaving directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-yXBh7a'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:697 (check_function_exists)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for gethostbyname"
+    directories:
+      source: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-LduN1t"
+      binary: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-LduN1t"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_GETHOSTBYNAME"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-LduN1t'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_f1641/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_f1641.dir/build.make CMakeFiles/cmTC_f1641.dir/build
+        gmake[1]: Entering directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-LduN1t'
+        Building C object CMakeFiles/cmTC_f1641.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=gethostbyname -fPIE -o CMakeFiles/cmTC_f1641.dir/CheckFunctionExists.c.o -c /home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-LduN1t/CheckFunctionExists.c
+        Linking C executable cmTC_f1641
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_f1641.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=gethostbyname CMakeFiles/cmTC_f1641.dir/CheckFunctionExists.c.o -o cmTC_f1641 
+        gmake[1]: Leaving directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-LduN1t'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:711 (check_function_exists)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for connect"
+    directories:
+      source: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-mhUd1D"
+      binary: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-mhUd1D"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_CONNECT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-mhUd1D'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_75a78/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_75a78.dir/build.make CMakeFiles/cmTC_75a78.dir/build
+        gmake[1]: Entering directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-mhUd1D'
+        Building C object CMakeFiles/cmTC_75a78.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=connect -fPIE -o CMakeFiles/cmTC_75a78.dir/CheckFunctionExists.c.o -c /home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-mhUd1D/CheckFunctionExists.c
+        Linking C executable cmTC_75a78
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_75a78.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=connect CMakeFiles/cmTC_75a78.dir/CheckFunctionExists.c.o -o cmTC_75a78 
+        gmake[1]: Leaving directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-mhUd1D'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:720 (check_function_exists)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for remove"
+    directories:
+      source: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-7ciuY3"
+      binary: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-7ciuY3"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_REMOVE"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-7ciuY3'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_e6f2c/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_e6f2c.dir/build.make CMakeFiles/cmTC_e6f2c.dir/build
+        gmake[1]: Entering directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-7ciuY3'
+        Building C object CMakeFiles/cmTC_e6f2c.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=remove -fPIE -o CMakeFiles/cmTC_e6f2c.dir/CheckFunctionExists.c.o -c /home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-7ciuY3/CheckFunctionExists.c
+        Linking C executable cmTC_e6f2c
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e6f2c.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=remove CMakeFiles/cmTC_e6f2c.dir/CheckFunctionExists.c.o -o cmTC_e6f2c 
+        gmake[1]: Leaving directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-7ciuY3'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckFunctionExists.cmake:86 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:729 (check_function_exists)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for shmat"
+    directories:
+      source: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-GnzMW6"
+      binary: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-GnzMW6"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_HAVE_SHMAT"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-GnzMW6'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_90d7f/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_90d7f.dir/build.make CMakeFiles/cmTC_90d7f.dir/build
+        gmake[1]: Entering directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-GnzMW6'
+        Building C object CMakeFiles/cmTC_90d7f.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=shmat -fPIE -o CMakeFiles/cmTC_90d7f.dir/CheckFunctionExists.c.o -c /home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-GnzMW6/CheckFunctionExists.c
+        Linking C executable cmTC_90d7f
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_90d7f.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=shmat CMakeFiles/cmTC_90d7f.dir/CheckFunctionExists.c.o -o cmTC_90d7f 
+        gmake[1]: Leaving directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-GnzMW6'
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "/usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake:69 (try_compile)"
+      - "/usr/share/cmake-3.28/Modules/FindX11.cmake:739 (check_library_exists)"
+      - "CMakeLists.txt:17 (find_package)"
+    checks:
+      - "Looking for IceConnectionNumber in ICE"
+    directories:
+      source: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-1g1o18"
+      binary: "/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-1g1o18"
+    cmakeVariables:
+      CMAKE_C_FLAGS: ""
+      CMAKE_C_FLAGS_DEBUG: "-g"
+      CMAKE_EXE_LINKER_FLAGS: ""
+      CMAKE_POSITION_INDEPENDENT_CODE: "ON"
+    buildResult:
+      variable: "CMAKE_LIB_ICE_HAS_ICECONNECTIONNUMBER"
+      cached: true
+      stdout: |
+        Change Dir: '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-1g1o18'
+        
+        Run Build Command(s): /usr/bin/cmake -E env VERBOSE=1 /usr/bin/gmake -f Makefile cmTC_8670b/fast
+        /usr/bin/gmake  -f CMakeFiles/cmTC_8670b.dir/build.make CMakeFiles/cmTC_8670b.dir/build
+        gmake[1]: Entering directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-1g1o18'
+        Building C object CMakeFiles/cmTC_8670b.dir/CheckFunctionExists.c.o
+        /usr/bin/cc   -DCHECK_FUNCTION_EXISTS=IceConnectionNumber -fPIE -o CMakeFiles/cmTC_8670b.dir/CheckFunctionExists.c.o -c /home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-1g1o18/CheckFunctionExists.c
+        Linking C executable cmTC_8670b
+        /usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8670b.dir/link.txt --verbose=1
+        /usr/bin/cc  -DCHECK_FUNCTION_EXISTS=IceConnectionNumber CMakeFiles/cmTC_8670b.dir/CheckFunctionExists.c.o -o cmTC_8670b  -lICE 
+        gmake[1]: Leaving directory '/home/alex/Projects/BearEngine/build/CMakeFiles/CMakeScratch/TryCompile-1g1o18'
+        
+      exitCode: 0
+...

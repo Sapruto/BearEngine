@@ -476,6 +476,10 @@ int main() {
     std::cout << "Собрано: 0/" << totalCoins << "\n";
     
     float time = 0;
+
+    static double lastTime = glfwGetTime();
+    static int frameCount = 0;
+    static int fps = 0;
     
     while (!window->ShouldClose() && !input.GetKeyDown(Keys::Escape)) {
         Time::Tick();
@@ -583,6 +587,17 @@ int main() {
         window->SwapBuffers();
         
         input.EndUpdate();
+
+        frameCount++;
+        double currentTime = glfwGetTime();
+        if (currentTime - lastTime >= 1.0) {
+            fps = frameCount;
+            frameCount = 0;
+            lastTime = currentTime;
+            
+            std::string newTitle = "BEAR ENGINE - 3D Platformer | FPS: " + std::to_string(fps);
+            glfwSetWindowTitle(window->GetWindow(), newTitle.c_str());
+        }
     }
     
     mainScene.DestroyScene();

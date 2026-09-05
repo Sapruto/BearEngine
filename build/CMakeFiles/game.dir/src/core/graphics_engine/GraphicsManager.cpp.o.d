@@ -1,7 +1,7 @@
 CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: \
  /home/alex/Projects/BearEngine/src/core/graphics_engine/GraphicsManager.cpp \
  /usr/include/stdc-predef.h \
- /home/alex/Projects/BearEngine/include/core/graphics_engine/GraphicsManager.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/core/GraphicsManager.h \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -201,14 +201,14 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: \
  /usr/include/c++/13/bits/ranges_algobase.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/Renderer.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/core/base_graphics/Renderer.h \
  /usr/include/c++/13/algorithm /usr/include/c++/13/bits/stl_algo.h \
  /usr/include/c++/13/bits/algorithmfwd.h \
  /usr/include/c++/13/bits/stl_heap.h \
  /usr/include/c++/13/bits/uniform_int_dist.h \
  /usr/include/c++/13/bits/ranges_algo.h \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/RenderComponent.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/core/base_graphics/RenderComponent.h \
  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h \
  /home/alex/Projects/BearEngine/include/core/GameObject.h \
  /usr/include/c++/13/functional /usr/include/c++/13/bits/std_function.h \
@@ -436,7 +436,6 @@ CMakeFiles/game.dir/src/core/graphics_engine/GraphicsManager.cpp.o: \
  /usr/include/glm/detail/type_half.hpp \
  /usr/include/glm/detail/type_half.inl /usr/include/glm/integer.hpp \
  /usr/include/glm/detail/func_integer.inl \
- /home/alex/Projects/BearEngine/include/core/graphics_engine/Window.h \
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/core/Window.h \
  /usr/include/GLFW/glfw3.h \
- /home/alex/Projects/BearEngine/include/core/graphics_engine/base_graphics/Camera.h \
- /home/alex/Projects/BearEngine/include/core/graphics_engine/RenderSettings.h
+ /home/alex/Projects/BearEngine/include/core/graphics_engine/core/base_graphics/Camera.h

@@ -31,6 +31,9 @@ private:
         static const std::string model;
     };
 
+    GLuint instanceVBO;
+    std::vector<Matrix4x4f> instanceMatrices;
+
     void RenderModel(ModelComponent* modelComp, Transform3D* transform, const float* colorRGB);
 
 public:

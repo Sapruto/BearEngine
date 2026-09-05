@@ -24,6 +24,8 @@ bool Window::Initialize() {
         std::cout << "GLFW init error\n";
         return false;
     }
+
+    glfwSwapInterval(0);
     
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
     glfwWindowHint(GLFW_SAMPLES, 4);

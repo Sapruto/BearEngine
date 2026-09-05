@@ -44,7 +44,6 @@ void ModelRenderer::BuildGroups(){
             groups[feature->type].push_back(model);
         }
     }
-    InitBaseRenderer();
 
     for(auto& [type, modelFeatureRenderer] : modelFeatureRenderers) {
         if (modelFeatureRenderer) modelFeatureRenderer->Init();
@@ -89,21 +88,20 @@ void ModelRenderer::Start() {
     isInitialized = true;
 }
 
-void ModelRenderer::Update(){
+void ModelRenderer::Update() {
     if (!isInitialized) return;
 
     BuildGroups();
     
     UpdateUVs();
     
-    pipeline->BeginFrame();
-
     for(auto& [type, modelFeatureRenderer] : modelFeatureRenderers){
         if(!modelFeatureRenderer || !groups.count(type)) continue;
 
+        pipeline->BeginCurrentRender();
         modelFeatureRenderer->RenderGroup(groups[type], pipeline.get());
+        pipeline->EndCurrentRender();
     }
-    pipeline->EndFrame();
         
     pipeline->Present();
 }
