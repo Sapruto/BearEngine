@@ -9,6 +9,11 @@
 #include <filesystem>
 #include <optional>
 
+template<typename T>
+concept HasCompileImpl = requires(T t, const CompileContext& ctx) {
+    { t.CompileImpl(ctx) } -> std::same_as<CompileResult>;
+};
+
 struct ShaderReflection {
     std::string name;
     uint32_t location;
@@ -19,7 +24,6 @@ struct ShaderReflection {
 };
 
 struct CompileResult {
-    std::vector<uint8_t> bytecode;
     std::vector<uint32_t> spirv;
     std::vector<ShaderReflection> reflection;
     std::string entryPoint;
@@ -32,6 +36,7 @@ struct CompileResult {
 };
 
 template<typename ShaderCompilerImpl>
+requires(HasCompileImpl<ShaderCompilerImpl>)
 class BaseShaderCompiler {
 private:
     std::vector<std::string> includePaths;
@@ -49,27 +54,18 @@ private:
         return hash;
     }
 
-    template<typename T>
-    concept HasCompileImpl = requires(T t, const std::string& src) {
-        { t.CompileImpl(src) } -> std::same_as<CompileResult>;
-    };
-
 protected:
     struct CompileContext {
         const std::vector<std::string>& includePaths;
         const std::unordered_map<std::string, std::string>& defines;
         const std::string& entryPoint;
-        std::string shaderSource;
+        const std::string& shaderSource;
     };
 
 public:
-    BaseShaderCompiler() {
-        static_assert(HasCompileImpl<ShaderCompilerImpl>, 
-            "ShaderCompilerImpl must implement CompileImpl(const std::string&)");
-    }
-
     void SetShaderSource(const std::string& source) {
         shaderSource = source;
+        cache.clear();
     }
     
     void SetEntryPoint(const std::string& name) {
@@ -78,8 +74,8 @@ public:
     
     void AddIncludePaths(const std::vector<std::string>& paths) {
         for (const auto& p : paths) {
-            if (filesystem::exists(p) && filesystem::is_directory(p)) {
-                includePaths.push_back(filesystem::absolute(p).string());
+            if (std::filesystem::exists(p) && std::filesystem::is_directory(p)) {
+                includePaths.push_back(std::filesystem::absolute(p).string());
             }
         }
         std::unordered_set<std::string> seen;
@@ -94,6 +90,7 @@ public:
     
     void AddDefine(const std::string& name, const std::string& value = "1") {
         defines[name] = value;
+        cache.clear();
     }
     
     void RemoveDefine(const std::string& name) {
@@ -111,8 +108,9 @@ public:
             return it->second;
         }
         
+        CompileContext ctx{includePaths, defines, entryPoint, shaderSource};
         auto& impl = static_cast<ShaderCompilerImpl&>(*this);
-        CompileResult result = impl.CompileImpl(shaderSource);
+        CompileResult result = impl.CompileImpl(ctx);
         
         if (result.success) {
             cache[hash] = result;

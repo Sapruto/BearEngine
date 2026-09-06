@@ -1,10 +1,9 @@
 #pragma once
 
-#include <vector>
+#include <variant>
+#include "RHI/RectRHI.h"
 
-#include "RHI/Commands/BaseCommand.h"
-
-namespace FrameBufferCommands {
+namespace BufferExecute {
     enum class BufferType {
         Framebuffer,
         VAO,
@@ -84,23 +83,13 @@ namespace FrameBufferCommands {
 
     struct FBOBlitParams {
         unsigned int sourceFBO;
-        unsigned int destFBO;            
+        unsigned int destFBO;
         
-        struct FRect {
-            int x0, y0;  
-            int x1, y1; 
-        };
-        
-        FRect sourceRect;
-        FRect destRect;
+        RectRHI sourceRect;
+        RectRHI destRect;
         
         BlitMask mask;
         FilterMode filter;
-    };
-
-    struct FBOCheckStatusParams {
-        unsigned int fboID;
-        bool isThrowOnError;
     };
 
     
@@ -131,7 +120,7 @@ namespace FrameBufferCommands {
 
     struct VBOUnmapParams {
         unsigned int vboID;
-    }
+    };
     
 
     struct IBOCreateParams {
@@ -176,13 +165,12 @@ namespace FrameBufferCommands {
         unsigned int bufferId;
         bool isDelete;
     };
-    
+
     using BufferParams = std::variant<
         FBOCreateParams,
         FBOAttachTextureParams,
         FBOChangeParams,
         FBOBlitParams,
-        FBOCheckStatusParams,
 
         VBOCreateParams,
         VBOUpdateParams,
@@ -197,17 +185,4 @@ namespace FrameBufferCommands {
 
         BufferDestroyParams
     >;
-
-    struct BufferOperation {
-        BufferType bufferType;
-        BufferParams params;
-    };
-
-    struct BufferCommand : public BaseCommand {
-        std::vector<BufferOperation> operations;
-
-        BufferCommand() {
-            type = CommandType::BufferCommand;
-        }
-    };
 }

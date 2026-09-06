@@ -1,4 +1,4 @@
-#include "../TestCore.h"
+#include "TestCore.h"
 
 #include "Vector3.h"
 #include "Vector2.h"
