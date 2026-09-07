@@ -154,5 +154,21 @@ namespace BufferExecute {
                 VAOSetAttributeResult,
                 BufferDestroyResult
         > data;
+
+        BufferExecuteResult(const FBOCreateResult& r) : operationType(OperationType::FBO_CREATE), data(r) {}
+        BufferExecuteResult(const FBOAttachTextureResult& r) : operationType(OperationType::FBO_ATTACH_TEXTURE), data(r) {}
+        BufferExecuteResult(const FBOChangeResult& r) : operationType(OperationType::FBO_CHANGE), data(r) {}
+        BufferExecuteResult(const FBOBlitResult& r) : operationType(OperationType::FBO_BLIT), data(r) {}
+        BufferExecuteResult(const VBOCreateResult& r) : operationType(OperationType::VBO_CREATE), data(r) {}
+        BufferExecuteResult(const VBOUpdateResult& r) : operationType(OperationType::VBO_UPDATE), data(r) {}
+        BufferExecuteResult(const VBOMapResult& r) : operationType(OperationType::VBO_MAP), data(r) {}
+        BufferExecuteResult(const VBOUnmapResult& r) : operationType(OperationType::VBO_UNMAP), data(r) {}
+        BufferExecuteResult(const IBOCreateResult& r) : operationType(OperationType::IBO_CREATE), data(r) {}
+        BufferExecuteResult(const IBOUpdateResult& r) : operationType(OperationType::IBO_UPDATE), data(r) {}
+        BufferExecuteResult(const VAOCreateResult& r) : operationType(OperationType::VAO_CREATE), data(r) {}
+        BufferExecuteResult(const VAOSetAttributeResult& r) : operationType(OperationType::VAO_SET_ATTRIBUTE), data(r) {}
+        BufferExecuteResult(const BufferDestroyResult& r) : operationType(OperationType::BUFFER_DESTROY), data(r) {}
+        
+        BufferExecuteResult() = default;
     };
 }

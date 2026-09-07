@@ -20,15 +20,13 @@ concept HasProcessParamsImpl = requires(T* t, BaseDevice& device) {
 };
 
 struct BaseProcessResult {
-    int paramID;
+    int paramID = -1;
     bool success{true};
     std::string errorMessage;
 };
 
-using SubscriptionId = uint64_t;
-
 struct SubscriptionToken {
-    SubscriptionId id;
+    uint64_t id;
     int paramID;
     
     bool operator==(const SubscriptionToken& other) const {
@@ -47,7 +45,7 @@ template<typename ExecuterImplRHI, typename Params, typename ProcessResult>
 class BaseExecuterRHI {
 private:
     SubscriptionToken SubscribeInternal(int paramID, CallbackType callback, bool isOnce) {
-        SubscriptionId id = nextId.fetch_add(1);
+        uint64_t id = nextId.fetch_add(1);
         subscribers.emplace_back(id, paramID, std::move(callback), isOnce);
         return {id, paramID};
     }
@@ -67,12 +65,12 @@ protected:
     using OnceCallbackType = std::function<void(const std::vector<ProcessResult>&)>;
 
     struct Subscriber {
-        SubscriptionId id;
+        uint64_t id;
         int paramID;
         CallbackType callback;
         bool isOnce{false};
         
-        Subscriber(SubscriptionId id, int paramID, CallbackType callback, bool isOnce = false)
+        Subscriber(uint64_t id, int paramID, CallbackType callback, bool isOnce = false)
             : id(id), paramID(paramID), callback(std::move(callback)), isOnce(isOnce) {}
     };
 
@@ -81,7 +79,7 @@ protected:
     std::vector<Params> params;
     
     std::vector<Subscriber> subscribers;
-    std::atomic<SubscriptionId> nextId{1};
+    std::atomic<uint64_t> nextId{1};
 
     bool markProcess{false};
 

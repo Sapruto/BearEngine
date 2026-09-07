@@ -24,7 +24,6 @@ namespace SwapChainExecute {
         uint32_t oldHeight;
         uint32_t newWidth;
         uint32_t newHeight;
-        bool preserveContent;
         bool isResized;
         uint32_t backBufferCount;
         std::string errorMessage;
@@ -72,5 +71,12 @@ namespace SwapChainExecute {
         SwapChainPerformance performance;
         
         std::variant<SwapChainCreateResult, SwapChainResizeResult, SwapChainPresentResult, SwapChainDestroyResult> data;
+
+        SwapChainExecuteResult(const SwapChainCreateResult& r) : operationType(OperationType::CREATE), data(r) {}
+        SwapChainExecuteResult(const SwapChainResizeResult& r) : operationType(OperationType::RESIZE), data(r) {}
+        SwapChainExecuteResult(const SwapChainPresentResult& r) : operationType(OperationType::PRESENT), data(r) {}
+        SwapChainExecuteResult(const SwapChainDestroyResult& r) : operationType(OperationType::DESTROY), data(r) {}
+        
+        SwapChainExecuteResult() = default;
     };
 }
