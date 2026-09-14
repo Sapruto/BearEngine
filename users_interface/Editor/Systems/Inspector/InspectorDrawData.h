@@ -22,12 +22,12 @@ public:
     
     struct {
         std::string objectName;
-        Vector2 position;
+        Vector2f position;
         bool isVisible{true};
     } header;
     
     struct {
-        Vector2 position;
+        Vector2f position;
         bool isVisible{true};
         std::function<void()> onClick;
     } addButton;

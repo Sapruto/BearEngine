@@ -26,7 +26,7 @@ GameObject* HierarchyViewerUI::CreateUIObject(GameObject* gameObject, int index,
     
     obj->AddComponent<Tag>(AllTags::HierarchyViewerUI);
     
-    Image* bg = UtilitUI::AddImage(obj, objectTextureButton, Vector2(x, y), Vector2(250, 30), anchoredMin, anchoredMax, glm::vec4(0.2f, 0.2f, 0.2f, 1.0f));
+    Image* bg = UtilitUI::AddImage(obj, objectTextureButton, Vector2f(x, y), Vector2f(250, 30), anchoredMin, anchoredMax, glm::vec4(0.2f, 0.2f, 0.2f, 1.0f));
     canvas->AddUIElement(bg);
     bg->SetLayer(Layers::HierarchyButton);
     
@@ -41,7 +41,7 @@ GameObject* HierarchyViewerUI::CreateUIObject(GameObject* gameObject, int index,
     });
     
     if (objectFont) {
-        Text* label = UtilitUI::AddTextWithAnchors(obj, objectFont, gameObject->GetName(), Vector2(x, y), Vector2(230, 20), anchoredMin, anchoredMax, glm::vec4(1.0f));
+        Text* label = UtilitUI::AddTextWithAnchors(obj, objectFont, gameObject->GetName(), Vector2f(x, y), Vector2f(230, 20), anchoredMin, anchoredMax, glm::vec4(1.0f));
         canvas->AddUIElement(label);
         label->SetLayer(Layers::HierarchyText);
         label->SetVisible(false);
@@ -55,12 +55,12 @@ void HierarchyViewerUI::UpdateUIObjectPosition(GameObject* obj, int index) {
     
     Image* bg = obj->GetComponentOfType<Image>();
     if (bg) {
-        bg->rectTransform->SetAnchoredPosition(Vector2(x, y));
+        bg->rectTransform->SetAnchoredPosition(Vector2f(x, y));
     }
     
     Text* label = obj->GetComponentOfType<Text>();
     if (label) {
-        label->rectTransform->SetAnchoredPosition(Vector2(x, y));
+        label->rectTransform->SetAnchoredPosition(Vector2f(x, y));
     }
 }
 

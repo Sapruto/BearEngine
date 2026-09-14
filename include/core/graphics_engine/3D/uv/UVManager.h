@@ -2,33 +2,50 @@
 
 #include <unordered_map>
 #include <vector>
+#include <algorithm>
+#include <cstdint>
+
 #include "Vector2.h"
 #include "Vector3.h"
 #include "Matrix/Matrix4x4.h"
-#include "FrustumCollider.h"
 
 class ModelComponent;
 class Camera3D;
-class ColliderManager;
+
+struct UVAABB {
+    Vector3f min{ 0.0f, 0.0f, 0.0f };
+    Vector3f max{ 0.0f, 0.0f, 0.0f };
+
+    UVAABB() = default;
+    UVAABB(const Vector3f& mn, const Vector3f& mx) : min(mn), max(mx) {}
+
+    Vector3f center() const {
+        return (min + max) * 0.5f;
+    }
+
+    Vector3f extents() const {
+        return (max - min) * 0.5f;
+    }
+};
 
 struct ObjectUVData {
-    int objectID;
+    int objectID = -1;
     std::vector<Vector3f> localVertices;
     std::vector<Vector2f> screenVertices;
     std::vector<unsigned int> indices;
-    Matrix4x4f modelMatrix;
-    bool isVisible;
+    Matrix4x4f modelMatrix = Matrix4x4f::Identity();
+    bool isVisible = false;
     std::vector<float> depths;
     std::vector<Vector2f> uvCoordinates;
     bool wasVisibleLastFrame = false;
     bool isInFrustum = false;
-    AABB cachedAABB;
+    UVAABB cachedAABB;
     bool aabbValid = false;
     uint64_t lastUpdateFrame = 0;
     bool hasGeometry = false;
-    
-    ObjectUVData() : objectID(-1), isVisible(false), modelMatrix(Matrix4x4f::Identity()), aabbValid(false), hasGeometry(false) {}
-    
+
+    ObjectUVData() = default;
+
     void clear() {
         localVertices.clear();
         screenVertices.clear();
@@ -39,7 +56,7 @@ struct ObjectUVData {
         aabbValid = false;
         hasGeometry = false;
     }
-    
+
     void reserve(size_t vertexCount, size_t indexCount) {
         localVertices.reserve(vertexCount);
         screenVertices.reserve(vertexCount);
@@ -48,7 +65,7 @@ struct ObjectUVData {
         uvCoordinates.reserve(vertexCount);
         hasGeometry = (vertexCount > 0 && indexCount > 0);
     }
-    
+
     void updateAABB() {
         if (localVertices.empty()) {
             aabbValid = false;
@@ -64,73 +81,72 @@ struct ObjectUVData {
             maxV.y = std::max(maxV.y, v.y);
             maxV.z = std::max(maxV.z, v.z);
         }
-        cachedAABB = AABB(minV, maxV);
+        cachedAABB = UVAABB(minV, maxV);
         aabbValid = true;
     }
-    
+
     Vector3f getCenter() const {
         if (aabbValid) {
-            return (cachedAABB.min + cachedAABB.max) * 0.5f;
+            return cachedAABB.center();
         }
         return Vector3f(0, 0, 0);
     }
 };
 
-class UVManager : public CollisionReaction {
+struct UVPlane {
+    Vector3f normal;
+    float d = 0.0f;
+};
+
+class UVManager {
 private:
     std::unordered_map<int, ObjectUVData> objectUVs;
-    std::unordered_map<int, bool> objectUpdateFrameState;
-    std::unordered_map<int, bool> objectVisibilityState;
     std::unordered_map<int, Matrix4x4f> lastModelMatrices;
-    std::unordered_map<int, uint64_t> lastUpdateFrames;
-    
-    Matrix4x4f m_LastViewMatrix;
-    Matrix4x4f m_LastProjectionMatrix;
-    
+
     Camera3D* camera = nullptr;
-    ColliderManager* colliderManager = nullptr;
-    FrustumCollider* frustumCollider = nullptr;
-    bool ownFrustumCollider = false;
-    
+
     float aspect = 1.0f;
     float fov = 60.0f;
     float near = 0.1f;
     float far = 100.0f;
-    uint64_t m_FrameCounter = 0;
-    
-    ObjectUVData CalculateObjectUV(ModelComponent* model);
+    uint64_t frameCounter = 0;
+
+    UVPlane planes[6];
+
+    Matrix4x4f viewMatrix = Matrix4x4f::Identity();
+    Matrix4x4f projMatrix = Matrix4x4f::Identity();
+    Matrix4x4f viewProjMatrix = Matrix4x4f::Identity();
+    bool frameCacheValid = false;
+
+    void CalculateObjectUV(ModelComponent* model, ObjectUVData& data);
     void UpdateObjectUVWithCamera(ObjectUVData& data);
-    void ProjectVertices(const std::vector<Vector3f>& vertices, const Matrix4x4f& mvp, std::vector<Vector2f>& outScreen, std::vector<float>& outDepths);
-    void UpdateCache(const Matrix4x4f& view, const Matrix4x4f& proj);
-    bool HasObjectMoved(ModelComponent* model, const Matrix4x4f& currentMatrix);
-    bool IsObjectVisible(ModelComponent* model, ObjectUVData& data);
-    Vector3f TransformPoint(const Matrix4x4f& m, const Vector3f& v);
-    
-    bool IsPointVisible(const Vector3f& worldPoint);
-    bool IsAABBVisible(const AABB& aabb);
-    
-    void OnFrustumEnter(BaseCollider* self, BaseCollider* other);
-    void OnFrustumExit(BaseCollider* self, BaseCollider* other);
-    
+    void ProjectVertices(const std::vector<Vector3f>& vertices,
+                         const Matrix4x4f& mvp,
+                         std::vector<Vector2f>& outScreen,
+                         std::vector<float>& outDepths);
+
+    bool IsAABBVisible(const UVAABB& aabb) const;
+    bool IsPointVisible(const Vector3f& worldPoint) const;
+
+    void RebuildFrameCache();
+
 public:
     UVManager();
-    explicit UVManager(ColliderManager* manager);
     ~UVManager();
-    
-    void Initialize(ColliderManager* manager, Camera3D* camera, float aspect, float fov = 60.0f, float near = 0.1f, float far = 100.0f);
+
+    void Initialize(Camera3D* camera, float aspect,
+                    float fov = 60.0f, float near = 0.1f, float far = 100.0f);
     void SetCamera(Camera3D* camera);
-    void SetColliderManager(ColliderManager* manager);
-    void SetFrustumCollider(FrustumCollider* collider);
-    
+
     void UpdateUVs(const std::vector<ModelComponent*>& models);
     const ObjectUVData& GetObjectUV(ModelComponent* model);
     const std::unordered_map<int, ObjectUVData>& GetAllUVs() const { return objectUVs; }
-    
+
     void Cleanup();
     void InvalidateCache();
     bool HasChanged() const;
-    
-    void SetAspect(float aspect) { this->aspect = aspect; }
-    void SetFOV(float fov) { this->fov = fov; }
-    void SetNearFar(float near, float far) { this->near = near; this->far = far; }
+
+    void SetAspect(float aspect) { this->aspect = aspect; frameCacheValid = false; }
+    void SetFOV(float fov) { this->fov = fov; frameCacheValid = false; }
+    void SetNearFar(float n, float f) { near = n; far = f; frameCacheValid = false; }
 };

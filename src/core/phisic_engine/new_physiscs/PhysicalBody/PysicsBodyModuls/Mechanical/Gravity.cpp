@@ -16,7 +16,7 @@ void Gravity::Initialize(){
         return;
     }
     
-    Vector3 down(0, -1, 0);
+    Vector3f down(0, -1, 0);
     gravitationForce = Force(down, 9.8f * mass);
 }
 

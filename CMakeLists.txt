@@ -80,11 +80,20 @@ file(GLOB_RECURSE EDITOR_SOURCES_TO_REMOVE
 list(REMOVE_ITEM CORE_SOURCES ${EDITOR_SOURCES_TO_REMOVE})
 #END FUCKING
 
+file(GLOB_RECURSE RHI_SOURCES_TO_REMOVE 
+    "${ROOT_DIR}/src/core/graphics_engine/RHI/*.cpp"
+)
+list(REMOVE_ITEM CORE_SOURCES ${RHI_SOURCES_TO_REMOVE})
+
 add_executable(game ${ROOT_DIR}/main.cpp ${CORE_SOURCES})
 
 target_include_directories(game PRIVATE
     ${ROOT_DIR}/include
     ${ROOT_DIR}/src
+
+    ${ROOT_DIR}/include/core/math
+    ${ROOT_DIR}/include/core/math/Vector
+    ${ROOT_DIR}/include/core/math/Transform
     
     ${ROOT_DIR}/include/core
     ${ROOT_DIR}/include/core/audio_engine
@@ -98,9 +107,6 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/core/system_engine/resource_system/ResourcesTypes
     ${ROOT_DIR}/include/core/system_engine/tags_system
     ${ROOT_DIR}/include/core/system_engine/time_system
-    ${ROOT_DIR}/include/core/math
-    ${ROOT_DIR}/include/core/math/2D
-    ${ROOT_DIR}/include/core/math/3D
     ${ROOT_DIR}/include/core/scene_engine
     ${ROOT_DIR}/include/core/scene_engine/SceneToFile
     ${ROOT_DIR}/include/core/geometry

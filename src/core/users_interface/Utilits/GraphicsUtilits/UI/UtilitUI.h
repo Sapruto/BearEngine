@@ -16,10 +16,10 @@ namespace UtilitUI {
     inline Image* AddImage(
         GameObject* gameObject,
         Texture* uiTexture,
-        Vector2 position,
-        Vector2 deltaSize,
-        Vector2 anchorMin,
-        Vector2 anchorMax,
+        Vector2f position,
+        Vector2f deltaSize,
+        Vector2f anchorMin,
+        Vector2f anchorMax,
         glm::vec4 color
     ) {
         Image* image = gameObject->AddComponent<Image>();
@@ -33,10 +33,10 @@ namespace UtilitUI {
         return image;
     }
 
-    inline Text* AddText(GameObject* gameObject, Font* font, const std::string& text, Vector2 position, Vector2 size, glm::vec4 color) {
+    inline Text* AddText(GameObject* gameObject, Font* font, const std::string& text, Vector2f position, Vector2f size, glm::vec4 color) {
         Text* txt = gameObject->AddComponent<Text>(*font, text);
-        txt->rectTransform->SetAnchorMin(Vector2(0, 0));
-        txt->rectTransform->SetAnchorMax(Vector2(0, 0));
+        txt->rectTransform->SetAnchorMin(Vector2f(0, 0));
+        txt->rectTransform->SetAnchorMax(Vector2f(0, 0));
         txt->rectTransform->SetAnchoredPosition(position);
         txt->rectTransform->SetSizeDelta(size);
         txt->SetColor(color);
@@ -73,16 +73,16 @@ namespace UtilitUI {
             GameObject* bgGO = scene->CreateGameObject();
             bgGO->SetName("EditorBackground");
             Image* bg = AddImage(bgGO, baseTextureButton,
-                Vector2(0, 0), Vector2(1920, 1080),
-                Vector2(0, 0), Vector2(1, 1),
+                Vector2f(0, 0), Vector2f(1920, 1080),
+                Vector2f(0, 0), Vector2f(1, 1),
                 glm::vec4(0.1f, 0.1f, 0.15f, 1.0f));
             canvas->AddUIElement(bg);
 
             GameObject* logoGO = scene->CreateGameObject();
             logoGO->SetName("Logo");
             Image* logo = AddImage(logoGO, baseTextureButton,
-                Vector2(20, 20), Vector2(128, 128),
-                Vector2(0, 0), Vector2(0, 0),
+                Vector2f(20, 20), Vector2f(128, 128),
+                Vector2f(0, 0), Vector2f(0, 0),
                 glm::vec4(1.0f));
             canvas->AddUIElement(logo);
 
@@ -90,8 +90,8 @@ namespace UtilitUI {
             btnGO->SetName("TestButton");
             Button* btn = btnGO->AddComponent<Button>();
             Image* imageBtn = AddImage(btnGO, baseTextureButton,
-                Vector2(800, 450), Vector2(200, 80),
-                Vector2(0.5f, 0.5f), Vector2(0.5f, 0.5f),
+                Vector2f(800, 450), Vector2f(200, 80),
+                Vector2f(0.5f, 0.5f), Vector2f(0.5f, 0.5f),
                 glm::vec4(0.8f, 0.2f, 0.2f, 1.0f));
             canvas->AddUIElement(imageBtn);
         }
@@ -133,10 +133,10 @@ namespace UtilitUI {
             }
             bg->SetTexture(buttonTexture);
             bg->SetColor(bgColor);
-            bg->rectTransform->SetAnchorMin(Vector2(0, 0));
-            bg->rectTransform->SetAnchorMax(Vector2(0, 0));
-            bg->rectTransform->SetAnchoredPosition(Vector2(10, y));
-            bg->rectTransform->SetSizeDelta(Vector2(250, 30));
+            bg->rectTransform->SetAnchorMin(Vector2f(0, 0));
+            bg->rectTransform->SetAnchorMax(Vector2f(0, 0));
+            bg->rectTransform->SetAnchoredPosition(Vector2f(10, y));
+            bg->rectTransform->SetSizeDelta(Vector2f(250, 30));
             canvas->AddUIElement(bg);
             
             Text* label = obj->GetComponentOfType<Text>();
@@ -146,10 +146,10 @@ namespace UtilitUI {
                 label->SetText(obj->GetName());
             }
             label->SetColor(glm::vec4(1.0f));
-            label->rectTransform->SetAnchorMin(Vector2(0, 0));
-            label->rectTransform->SetAnchorMax(Vector2(0, 0));
-            label->rectTransform->SetAnchoredPosition(Vector2(20, y + 5));
-            label->rectTransform->SetSizeDelta(Vector2(230, 20));
+            label->rectTransform->SetAnchorMin(Vector2f(0, 0));
+            label->rectTransform->SetAnchorMax(Vector2f(0, 0));
+            label->rectTransform->SetAnchoredPosition(Vector2f(20, y + 5));
+            label->rectTransform->SetSizeDelta(Vector2f(230, 20));
             canvas->AddUIElement(label);
 
             return obj;

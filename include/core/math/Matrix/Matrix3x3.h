@@ -3,35 +3,38 @@
 #include "Matrix/BaseMatrix.h"
 
 template<typename T>
-struct Matrix3x3 : public BaseMatrix<T, 3, 3> {
+struct Matrix3x3 : public BaseMatrixAlias<T, 3, 3> {
 public:
-    using Base = BaseMatrix<T, 3, 3>;
-    using Base::BaseMatrix;
-    
+    using Base = BaseMatrixAlias<T, 3, 3>;
+    using Base::Base;
+
     constexpr T determinant() const {
-        const T* d = this->GetData();
-        return d[0] * (d[4] * d[8] - d[5] * d[7])
-                - d[1] * (d[3] * d[8] - d[5] * d[6])
-                + d[2] * (d[3] * d[7] - d[4] * d[6]);
+        return (*this)(0,0) * ((*this)(1,1) * (*this)(2,2) - (*this)(1,2) * (*this)(2,1))
+             - (*this)(0,1) * ((*this)(1,0) * (*this)(2,2) - (*this)(1,2) * (*this)(2,0))
+             + (*this)(0,2) * ((*this)(1,0) * (*this)(2,1) - (*this)(1,1) * (*this)(2,0));
     }
-    
-    BaseMatrix<T, 3, 3> inverse() const {
+
+    constexpr Matrix3x3 inverse() const {
         T det = determinant();
-        if (det == T(0)) return BaseMatrix<T, 3, 3>::Identity();
-        
-        BaseMatrix<T, 3, 3> inv;
-        const T* d = this->GetData();
-        
-        inv(0,0) = (d[4] * d[8] - d[5] * d[7]) / det;
-        inv(0,1) = (d[2] * d[7] - d[1] * d[8]) / det;
-        inv(0,2) = (d[1] * d[5] - d[2] * d[4]) / det;
-        inv(1,0) = (d[5] * d[6] - d[3] * d[8]) / det;
-        inv(1,1) = (d[0] * d[8] - d[2] * d[6]) / det;
-        inv(1,2) = (d[2] * d[3] - d[0] * d[5]) / det;
-        inv(2,0) = (d[3] * d[7] - d[4] * d[6]) / det;
-        inv(2,1) = (d[1] * d[6] - d[0] * d[7]) / det;
-        inv(2,2) = (d[0] * d[4] - d[1] * d[3]) / det;
+        if (det == T(0)) return Matrix3x3::Identity();
+
+        Matrix3x3 inv;
+        inv(0,0) = ((*this)(1,1) * (*this)(2,2) - (*this)(1,2) * (*this)(2,1)) / det;
+        inv(0,1) = ((*this)(0,2) * (*this)(2,1) - (*this)(0,1) * (*this)(2,2)) / det;
+        inv(0,2) = ((*this)(0,1) * (*this)(1,2) - (*this)(0,2) * (*this)(1,1)) / det;
+        inv(1,0) = ((*this)(1,2) * (*this)(2,0) - (*this)(1,0) * (*this)(2,2)) / det;
+        inv(1,1) = ((*this)(0,0) * (*this)(2,2) - (*this)(0,2) * (*this)(2,0)) / det;
+        inv(1,2) = ((*this)(0,2) * (*this)(1,0) - (*this)(0,0) * (*this)(1,2)) / det;
+        inv(2,0) = ((*this)(1,0) * (*this)(2,1) - (*this)(1,1) * (*this)(2,0)) / det;
+        inv(2,1) = ((*this)(0,1) * (*this)(2,0) - (*this)(0,0) * (*this)(2,1)) / det;
+        inv(2,2) = ((*this)(0,0) * (*this)(1,1) - (*this)(0,1) * (*this)(1,0)) / det;
         return inv;
+    }
+
+    static constexpr Matrix3x3 Identity() {
+        Matrix3x3 m;
+        for (int i = 0; i < 3; i++) m(i, i) = T(1);
+        return m;
     }
 };
 

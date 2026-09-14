@@ -16,7 +16,7 @@ namespace UtilitGraphic {
         }
         mgr->SetWindow(window);
 
-        Camera3D* camera = new Camera3D(Vector3(0, 10, 20));
+        Camera3D* camera = new Camera3D(Vector3f(0, 10, 20));
         mgr->SetCamera(camera);
 
         return true;

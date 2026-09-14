@@ -52,9 +52,9 @@ private:
 
     std::function<void()> onAddComponentCallback;
 
-    Vector2 basePosition{760, -670};
-    Vector2 baseAnchorMin{0.5f, 0.5f};
-    Vector2 baseAnchorMax{0.5f, 0.5f};
+    Vector2f basePosition{760, -670};
+    Vector2f baseAnchorMin{0.5f, 0.5f};
+    Vector2f baseAnchorMax{0.5f, 0.5f};
 
     // Вспомогательная функция для преобразования glm::vec4 в массив
     void Vec4ToArray(const glm::vec4& v, float out[4]) {
@@ -68,8 +68,8 @@ public:
     InspectorUI(Canvas* cv, ResourceManager* resMgr, Scene* scn)
         : canvas(cv), resources(resMgr), scene(scn), minScroll(0), maxScroll(0), yScroll(0), speedScroll(20), lastScroll(0) {}
 
-    void SetBasePosition(const Vector2& pos) { basePosition = pos; }
-    void SetBaseAnchors(const Vector2& min, const Vector2& max) { baseAnchorMin = min; baseAnchorMax = max; }
+    void SetBasePosition(const Vector2f& pos) { basePosition = pos; }
+    void SetBaseAnchors(const Vector2f& min, const Vector2f& max) { baseAnchorMin = min; baseAnchorMax = max; }
 
     void LoadResources() {
         if (!resources) return;
@@ -144,7 +144,7 @@ public:
         headerObjects.push_back(headerGO);
         
         Image* headerBg = UtilitUI::AddImage(headerGO, buttonTexture,
-            Vector2(basePosition.x - 300, basePosition.y + 500), Vector2(400, 40),
+            Vector2f(basePosition.x - 300, basePosition.y + 500), Vector2f(400, 40),
             baseAnchorMin, baseAnchorMax,
             color1);
         headerBg->SetLayer(UtilitUI::Layers::InspectorButton);
@@ -152,7 +152,7 @@ public:
         
         Text* headerText = UtilitUI::AddTextWithAnchors(headerGO, inspectorFont, 
             "Inspector: " + currentGameObject->GetName(),
-            Vector2(basePosition.x - 300, basePosition.y + 505), Vector2(380, 30),
+            Vector2f(basePosition.x - 300, basePosition.y + 505), Vector2f(380, 30),
             baseAnchorMin, baseAnchorMax,
             color2);
         headerText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -163,14 +163,14 @@ public:
         headerObjects.push_back(addBtnGO);
         
         Image* addBtnBg = UtilitUI::AddImage(addBtnGO, buttonTexture,
-            Vector2(basePosition.x - 300, basePosition.y + 450), Vector2(150, 30),
+            Vector2f(basePosition.x - 300, basePosition.y + 450), Vector2f(150, 30),
             baseAnchorMin, baseAnchorMax,
             color3);
         addBtnBg->SetLayer(UtilitUI::Layers::InspectorButton);
         canvas->AddUIElement(addBtnBg);
         
         Text* addBtnText = UtilitUI::AddTextWithAnchors(addBtnGO, inspectorFont, "+ Add Component",
-            Vector2(basePosition.x - 300, basePosition.y + 455), Vector2(140, 25),
+            Vector2f(basePosition.x - 300, basePosition.y + 455), Vector2f(140, 25),
             baseAnchorMin, baseAnchorMax,
             color2);
         addBtnText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -205,14 +205,14 @@ public:
             componentListObjects.push_back(compBtnGO);
             
             Image* btnBg = UtilitUI::AddImage(compBtnGO, buttonTexture,
-                Vector2(startX, yOffset + (i * 40)), Vector2(300, 35),
+                Vector2f(startX, yOffset + (i * 40)), Vector2f(300, 35),
                 baseAnchorMin, baseAnchorMax,
                 color1);
             btnBg->SetLayer(UtilitUI::Layers::InspectorButton);
             canvas->AddUIElement(btnBg);
             
             Text* btnText = UtilitUI::AddTextWithAnchors(compBtnGO, inspectorFont, componentNames[i],
-                Vector2(startX + 10, yOffset + (i * 40) + 8), Vector2(280, 25),
+                Vector2f(startX + 10, yOffset + (i * 40) + 8), Vector2f(280, 25),
                 baseAnchorMin, baseAnchorMax,
                 color2);
             btnText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -250,14 +250,14 @@ public:
             componentObjects.push_back(obj);
             
             Image* compBg = UtilitUI::AddImage(obj, componentBgTexture,
-                Vector2(basePosition.x - 300, yOffset), Vector2(400, 80),
+                Vector2f(basePosition.x - 300, yOffset), Vector2f(400, 80),
                 baseAnchorMin, baseAnchorMax,
                 color1);
             compBg->SetLayer(UtilitUI::Layers::InspectorButton);
             canvas->AddUIElement(compBg);
             
             Text* compName = UtilitUI::AddTextWithAnchors(obj, inspectorFont, data.componentName,
-                Vector2(basePosition.x - 280, yOffset + 25), Vector2(200, 25),
+                Vector2f(basePosition.x - 280, yOffset + 25), Vector2f(200, 25),
                 baseAnchorMin, baseAnchorMax,
                 color2);
             compName->SetLayer(UtilitUI::Layers::InspectorText);
@@ -267,14 +267,14 @@ public:
             GameObject* removeBtnGO = scene->CreateGameObject();
             
             Image* removeBg = UtilitUI::AddImage(removeBtnGO, buttonTexture,
-                Vector2(basePosition.x + 50, yOffset + 25), Vector2(60, 25),
+                Vector2f(basePosition.x + 50, yOffset + 25), Vector2f(60, 25),
                 baseAnchorMin, baseAnchorMax,
                 color3);
             removeBg->SetLayer(UtilitUI::Layers::InspectorButton);
             canvas->AddUIElement(removeBg);
             
             Text* removeText = UtilitUI::AddTextWithAnchors(removeBtnGO, inspectorFont, "X",
-                Vector2(basePosition.x + 50, yOffset + 28), Vector2(60, 20),
+                Vector2f(basePosition.x + 50, yOffset + 28), Vector2f(60, 20),
                 baseAnchorMin, baseAnchorMax,
                 color4);
             removeText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -294,7 +294,7 @@ public:
                 paramY -= 30;
                 
                 Text* paramText = UtilitUI::AddTextWithAnchors(obj, inspectorFont, paramName + ":",
-                    Vector2(basePosition.x - 280, paramY), Vector2(120, 25),
+                    Vector2f(basePosition.x - 280, paramY), Vector2f(120, 25),
                     baseAnchorMin, baseAnchorMax,
                     color5);
                 paramText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -304,14 +304,14 @@ public:
                 GameObject* valueBtnGO = scene->CreateGameObject();
                 
                 Image* valueBg = UtilitUI::AddImage(valueBtnGO, inputBgTexture,
-                    Vector2(basePosition.x - 140, paramY), Vector2(200, 25),
+                    Vector2f(basePosition.x - 140, paramY), Vector2f(200, 25),
                     baseAnchorMin, baseAnchorMax,
                     color6);
                 valueBg->SetLayer(UtilitUI::Layers::InspectorButton);
                 canvas->AddUIElement(valueBg);
                 
                 Text* valueText = UtilitUI::AddTextWithAnchors(valueBtnGO, inspectorFont, paramValue,
-                    Vector2(basePosition.x - 140, paramY + 3), Vector2(190, 20),
+                    Vector2f(basePosition.x - 140, paramY + 3), Vector2f(190, 20),
                     baseAnchorMin, baseAnchorMax,
                     color4);
                 valueText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -339,8 +339,8 @@ public:
             const std::vector<Component*>& components = obj->GetComponents();
             for (Component* comp : components) {
                 if (Image* img = dynamic_cast<Image*>(comp)) {
-                    Vector2 currentPos = img->rectTransform->GetAnchoredPosition();
-                    img->rectTransform->SetAnchoredPosition(Vector2(currentPos.x, yPos));
+                    Vector2f currentPos = img->rectTransform->GetAnchoredPosition();
+                    img->rectTransform->SetAnchoredPosition(Vector2f(currentPos.x, yPos));
                 }
             }
             index++;

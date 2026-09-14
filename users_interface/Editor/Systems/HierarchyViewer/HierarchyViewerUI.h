@@ -28,8 +28,8 @@ private:
     Canvas* canvas{nullptr};
     ResourceManager* resources{nullptr};
 
-    Vector2 anchoredMin = Vector2(0.8f, 0.0f);
-    Vector2 anchoredMax = Vector2(0.8f, 0.0f);
+    Vector2f anchoredMin = Vector2f(0.8f, 0.0f);
+    Vector2f anchoredMax = Vector2f(0.8f, 0.0f);
     float x = -250.0f;
     float yOffset = 50.0f;
     float ySpacing = 35.0f;

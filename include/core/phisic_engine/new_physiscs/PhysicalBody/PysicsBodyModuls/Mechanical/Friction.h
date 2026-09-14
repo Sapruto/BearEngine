@@ -10,7 +10,7 @@
 #include "Newtonian.h"
 
 struct ContactData {
-    Vector3 frictionForce; 
+    Vector3f frictionForce; 
     float contactMu;     
     float normalForce;
 };
@@ -24,7 +24,7 @@ private:
 
     ImpulseModule* impulseModule = nullptr;
 
-    std::vector<Vector3> normals;
+    std::vector<Vector3f> normals;
     
     std::vector<ContactData> contacts;
 
@@ -34,23 +34,23 @@ private:
     void CalculateNormal(const T& segments) {
         if(!isValid) return;
         
-        const Vector3& bodyPosition = body->GetTransform()->GetGlobalPosition();
+        const Vector3f& bodyPosition = body->GetTransform()->GetGlobalPosition();
         
         for(const auto& segment : segments) {
-            Vector3 direction = segment.getDirection().normalized();
+            Vector3f direction = segment.getDirection().normalized();
             
-            Vector3 normal;
+            Vector3f normal;
             if (abs(direction.x) < 0.9f) {
-                normal = Vector3(1, 0, 0).cross(direction);
+                normal = Vector3f(1, 0, 0).cross(direction);
             } 
             else {
-                normal = Vector3(0, 1, 0).cross(direction);
+                normal = Vector3f(0, 1, 0).cross(direction);
             }
             normal = normal.normalized();
             
-            Vector3 surfacePoint = (segment.point1 + segment.point2) * 0.5f;
+            Vector3f surfacePoint = (segment.point1 + segment.point2) * 0.5f;
             
-            Vector3 toBody = bodyPosition - surfacePoint;
+            Vector3f toBody = bodyPosition - surfacePoint;
             
             if (normal.dot(toBody) < 0) {
                 normal = -normal; 

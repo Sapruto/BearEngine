@@ -39,7 +39,7 @@ public:
     Vector3f GetColor() const { return color.GetValue(); }
     float GetIntensity() const { return intensity.GetValue(); }
     
-    void SetColor(const Vector3& color) { this->color.GetValue() = color; }
+    void SetColor(const Vector3f& color) { this->color.GetValue() = color; }
     void SetIntensity(float intensity) { this->intensity.GetValue() = intensity; }
 
     SERIALIZED_FIELDS(&color, &intensity)

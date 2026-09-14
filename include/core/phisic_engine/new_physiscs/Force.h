@@ -3,13 +3,13 @@
 #include "Vector3.h"
 
 struct Force {
-    Vector3 direction;
+    Vector3f direction;
     float magnitude;
     
     Force() : direction(0, 0, 0), magnitude(0) {}
-    Force(const Vector3& dir, float mag) : direction(dir.normalized()), magnitude(mag) {}
+    Force(const Vector3f& dir, float mag) : direction(dir.normalized()), magnitude(mag) {}
     
-    Vector3 GetForceVector() const {
+    Vector3f GetForceVector() const {
         return direction * magnitude;
     }
 
@@ -18,26 +18,26 @@ struct Force {
     }
     
     Force& operator+=(const Force& other) {
-        Vector3 total = GetForceVector() + other.GetForceVector();
+        Vector3f total = GetForceVector() + other.GetForceVector();
         float mag = total.magnitude();
         if (mag > 0) {
             direction = total / mag;  
             magnitude = mag;
         } else {
-            direction = Vector3(0, 0, 0);
+            direction = Vector3f(0, 0, 0);
             magnitude = 0;
         }
         return *this;
     }
     
     Force& operator-=(const Force& other) {
-        Vector3 total = GetForceVector() - other.GetForceVector();
+        Vector3f total = GetForceVector() - other.GetForceVector();
         float mag = total.magnitude();
         if (mag > 0) {
             direction = total / mag;
             magnitude = mag;
         } else {
-            direction = Vector3(0, 0, 0);
+            direction = Vector3f(0, 0, 0);
             magnitude = 0;
         }
         return *this;

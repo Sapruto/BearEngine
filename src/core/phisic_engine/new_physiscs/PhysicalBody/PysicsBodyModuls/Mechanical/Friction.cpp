@@ -31,7 +31,7 @@ void Friction::CalculateNormalForce(){
     if(!isValid) return;
 
     Force mainForce = impulseModule->GetForce();
-    Vector3 velocity = impulseModule->GetVelocity();
+    Vector3f velocity = impulseModule->GetVelocity();
 
     contacts.clear();
     N = 0.0f;
@@ -52,11 +52,11 @@ void Friction::CalculateNormalForce(){
             normalForceForThisPlane = 0;
         }
         
-        Vector3 velocityProjection = normal * (velocity.dot(normal));
-        Vector3 tangentialVelocity = velocity - velocityProjection;
+        Vector3f velocityProjection = normal * (velocity.dot(normal));
+        Vector3f tangentialVelocity = velocity - velocityProjection;
         
         if (tangentialVelocity.magnitude() > 0.0001f) {
-            Vector3 frictionDir = -tangentialVelocity.normalized();
+            Vector3f frictionDir = -tangentialVelocity.normalized();
             float frictionMagnitude = contactMu * normalForceForThisPlane;
             
             ContactData contact;
@@ -73,12 +73,12 @@ void Friction::UpdateBody(){
     if(!isValid) return;
 
     Force mainForce = impulseModule->GetForce();
-    Vector3 velocity = impulseModule->GetVelocity();
+    Vector3f velocity = impulseModule->GetVelocity();
 
     if (N <= 0.0001f) return; 
     
     if (velocity.magnitude() >= 0.0001f) {
-        Vector3 totalFrictionForce(0, 0, 0);
+        Vector3f totalFrictionForce(0, 0, 0);
         
         for(const auto& contact : contacts){
             totalFrictionForce += contact.frictionForce;
@@ -108,7 +108,7 @@ void Friction::UpdateBody(){
         
         float totalForceMagnitude = mainForce.magnitude;
         if (totalForceMagnitude > maxFriction) {
-            Vector3 frictionDir = -mainForce.direction;
+            Vector3f frictionDir = -mainForce.direction;
             impulseModule->AddForce(Force(frictionDir, maxFriction));
         }
     }

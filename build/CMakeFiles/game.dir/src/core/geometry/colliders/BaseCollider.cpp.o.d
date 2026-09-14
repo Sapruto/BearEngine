@@ -248,17 +248,9 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: \
  /usr/include/freetype2/freetype/fterrors.h \
  /usr/include/freetype2/freetype/ftmoderr.h \
  /usr/include/freetype2/freetype/fterrdef.h \
- /home/alex/Projects/BearEngine/include/core/math/2D/Vector2.h \
- /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
- /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
- /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
- /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
- /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
- /usr/include/c++/13/bits/locale_facets_nonio.tcc \
- /usr/include/c++/13/bits/locale_conv.h \
- /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/cmath \
- /usr/include/math.h /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+ /home/alex/Projects/BearEngine/include/core/math/Vector/Vector2.h \
+ /usr/include/c++/13/cmath /usr/include/math.h \
+ /usr/include/x86_64-linux-gnu/bits/math-vector.h \
  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
@@ -280,7 +272,8 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: \
  /usr/include/c++/13/tr1/poly_hermite.tcc \
  /usr/include/c++/13/tr1/poly_laguerre.tcc \
  /usr/include/c++/13/tr1/riemann_zeta.tcc \
- /home/alex/Projects/BearEngine/include/core/math/Vector.h \
+ /home/alex/Projects/BearEngine/include/core/math/Vector/BaseVector.h \
+ /usr/include/c++/13/sstream /usr/include/c++/13/bits/sstream.tcc \
  /home/alex/Projects/BearEngine/include/core/ui_engine/UIRect.h \
  /home/alex/Projects/BearEngine/include/core/system_engine/resource_system/ResourcesTypes/Audio.h \
  /home/alex/Projects/BearEngine/include/core/graphics_engine/resources/Model.h \
@@ -300,11 +293,19 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: \
  /usr/include/assimp/camera.h /usr/include/assimp/material.h \
  /usr/include/assimp/material.inl /usr/include/assimp/anim.h \
  /usr/include/assimp/metadata.h /usr/include/assimp/postprocess.h \
- /home/alex/Projects/BearEngine/include/core/math/3D/Vector3.h \
+ /home/alex/Projects/BearEngine/include/core/math/Vector/Vector3.h \
  /home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h \
  /home/alex/Projects/BearEngine/include/core/system_engine/component_system/uuid.h \
- /usr/include/c++/13/iterator /usr/include/c++/13/bits/stream_iterator.h \
- /usr/include/c++/13/random /usr/include/c++/13/bits/random.h \
+ /usr/include/c++/13/iomanip /usr/include/c++/13/locale \
+ /usr/include/c++/13/bits/locale_facets_nonio.h /usr/include/c++/13/ctime \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
+ /usr/include/libintl.h /usr/include/c++/13/bits/codecvt.h \
+ /usr/include/c++/13/bits/locale_facets_nonio.tcc \
+ /usr/include/c++/13/bits/locale_conv.h \
+ /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/iterator \
+ /usr/include/c++/13/bits/stream_iterator.h /usr/include/c++/13/random \
+ /usr/include/c++/13/bits/random.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
  /usr/include/c++/13/bits/random.tcc /usr/include/c++/13/numeric \
  /usr/include/c++/13/bits/stl_numeric.h \
@@ -441,8 +442,9 @@ CMakeFiles/game.dir/src/core/geometry/colliders/BaseCollider.cpp.o: \
  /usr/include/c++/13/bits/stl_multimap.h \
  /home/alex/Projects/BearEngine/include/core/geometry/colliders_manager/ColliderManager.h \
  /home/alex/Projects/BearEngine/include/core/phisic_engine/new_physiscs/PhysicalBody/PhysicalBody.h \
- /home/alex/Projects/BearEngine/include/core/math/3D/Transform3D.h \
- /home/alex/Projects/BearEngine/include/core/math/Transform.h \
+ /home/alex/Projects/BearEngine/include/core/math/Transform/Transform3D.h \
+ /home/alex/Projects/BearEngine/include/core/math/Transform/Transform.h \
  /home/alex/Projects/BearEngine/include/core/math/Quaternion.h \
  /home/alex/Projects/BearEngine/include/core/math/Matrix/Matrix4x4.h \
- /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h
+ /home/alex/Projects/BearEngine/include/core/math/Matrix/BaseMatrix.h \
+ /home/alex/Projects/BearEngine/include/core/math/Vector/VectorN.h

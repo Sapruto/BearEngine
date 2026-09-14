@@ -20,10 +20,10 @@ namespace UtilitUI {
     inline Image* AddImage(
         GameObject* gameObject,
         Texture* uiTexture,
-        Vector2 position,
-        Vector2 deltaSize,
-        Vector2 anchorMin,
-        Vector2 anchorMax,
+        Vector2f position,
+        Vector2f deltaSize,
+        Vector2f anchorMin,
+        Vector2f anchorMax,
         const float color[4]
     ) {
         Image* image = gameObject->AddComponent<Image>();
@@ -37,10 +37,10 @@ namespace UtilitUI {
         return image;
     }
 
-    inline Text* AddText(GameObject* gameObject, Font* font, const std::string& text, Vector2 position, Vector2 size, const float color[4]) {  // ИЗМЕНЕНО
+    inline Text* AddText(GameObject* gameObject, Font* font, const std::string& text, Vector2f position, Vector2f size, const float color[4]) {  // ИЗМЕНЕНО
         Text* txt = gameObject->AddComponent<Text>(*font, text);
-        txt->rectTransform->SetAnchorMin(Vector2(0, 0));
-        txt->rectTransform->SetAnchorMax(Vector2(0, 0));
+        txt->rectTransform->SetAnchorMin(Vector2f(0, 0));
+        txt->rectTransform->SetAnchorMax(Vector2f(0, 0));
         txt->rectTransform->SetAnchoredPosition(position);
         txt->rectTransform->SetSizeDelta(size);
         txt->SetColor(color);
@@ -48,8 +48,8 @@ namespace UtilitUI {
     }
 
     inline Text* AddTextWithAnchors(GameObject* gameObject, Font* font, const std::string& text, 
-                                    Vector2 position, Vector2 size, 
-                                    Vector2 anchorMin, Vector2 anchorMax,
+                                    Vector2f position, Vector2f size, 
+                                    Vector2f anchorMin, Vector2f anchorMax,
                                     const float color[4]) {  // ИЗМЕНЕНО
         Text* txt = gameObject->AddComponent<Text>(*font, text);
         txt->rectTransform->SetAnchorMin(anchorMin);
@@ -89,8 +89,8 @@ namespace UtilitUI {
             
             float bgColor[4] = {0.1f, 0.1f, 0.15f, 1.0f};
             Image* bg = AddImage(bgGO, baseTextureButton,
-                Vector2(0, 0), Vector2(1920, 1080),
-                Vector2(0, 0), Vector2(1, 1),
+                Vector2f(0, 0), Vector2f(1920, 1080),
+                Vector2f(0, 0), Vector2f(1, 1),
                 bgColor);
             canvas->AddUIElement(bg);
 
@@ -99,8 +99,8 @@ namespace UtilitUI {
             
             float logoColor[4] = {1.0f, 1.0f, 1.0f, 1.0f};
             Image* logo = AddImage(logoGO, baseTextureButton,
-                Vector2(20, 20), Vector2(128, 128),
-                Vector2(0, 0), Vector2(0, 0),
+                Vector2f(20, 20), Vector2f(128, 128),
+                Vector2f(0, 0), Vector2f(0, 0),
                 logoColor);
             canvas->AddUIElement(logo);
         }

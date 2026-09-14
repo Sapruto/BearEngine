@@ -11,8 +11,8 @@ class CircularMover : public PhysicFeature{
 private:
     ImpulseModule* impulseModule = nullptr;
 
-    Vector3 anchorPoint;
-    Vector3 direction;
+    Vector3f anchorPoint;
+    Vector3f direction;
 
     float radius;
     float periudRotate;
@@ -23,8 +23,8 @@ private:
     bool isValid = false;
 
 public:
-    CircularMover(const Vector3& anchorPoint, 
-    const Vector3& direction, 
+    CircularMover(const Vector3f& anchorPoint, 
+    const Vector3f& direction, 
     float radius,
     float periudRotate,
     float stiffness = 100.0f,
@@ -38,8 +38,8 @@ public:
 
     void Destroy() override {  }
 
-    void SetAnchorPoint(const Vector3& anchorPoint) { this->anchorPoint = anchorPoint; }
-    void SetDirection(const Vector3& direction) { this->direction = direction; }
+    void SetAnchorPoint(const Vector3f& anchorPoint) { this->anchorPoint = anchorPoint; }
+    void SetDirection(const Vector3f& direction) { this->direction = direction; }
     void SetRadius(float radius) { this->radius = radius; }
     void SetPeriudRotate(float periudRotate) { this->periudRotate = periudRotate; }
     void SetStiffness(float stiffness) { this->stiffness = stiffness; }

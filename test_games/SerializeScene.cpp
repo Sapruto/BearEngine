@@ -59,7 +59,7 @@ class TestComponent : public Component, public ISerializable {
 private:
     FIELD_COMPONENT(Transform3D*, trans);
 
-    FIELD(Vector3, pos);
+    FIELD(Vector3f, pos);
 
 public:
     void Start() override {}
@@ -83,9 +83,9 @@ enum class VisualMode {
 Polyhedron3D* CreateCubeCollider(float size) {
     float h = size * 0.5f;
     
-    std::vector<Vector3> vertices = {
-        Vector3(-h, -h, -h),  Vector3( h, -h, -h),  Vector3( h,  h, -h),  Vector3(-h,  h, -h),
-        Vector3(-h, -h,  h),  Vector3( h, -h,  h),  Vector3( h,  h,  h),  Vector3(-h,  h,  h)
+    std::vector<Vector3f> vertices = {
+        Vector3f(-h, -h, -h),  Vector3f( h, -h, -h),  Vector3f( h,  h, -h),  Vector3f(-h,  h, -h),
+        Vector3f(-h, -h,  h),  Vector3f( h, -h,  h),  Vector3f( h,  h,  h),  Vector3f(-h,  h,  h)
     };
     
     Polyhedron3D* cube = new Polyhedron3D(vertices);
@@ -125,10 +125,10 @@ void InitUI(UIRendering* uiRenderer, ResourceManager& resources, Scene& scene) {
     Image* background = bgGO->AddComponent<Image>();
     background->SetTexture(uiTexture);
     background->SetLayer(0);
-    background->rectTransform->SetAnchorMin(Vector2(0, 0));
-    background->rectTransform->SetAnchorMax(Vector2(0, 0));
-    background->rectTransform->SetAnchoredPosition(Vector2(0, 0));
-    background->rectTransform->SetSizeDelta(Vector2(1920, 1080));
+    background->rectTransform->SetAnchorMin(Vector2f(0, 0));
+    background->rectTransform->SetAnchorMax(Vector2f(0, 0));
+    background->rectTransform->SetAnchoredPosition(Vector2f(0, 0));
+    background->rectTransform->SetSizeDelta(Vector2f(1920, 1080));
     background->SetColor(glm::vec4(0.2f, 0.2f, 0.3f, 1.0f));
     uiCanvas->AddUIElement(background);
 
@@ -136,10 +136,10 @@ void InitUI(UIRendering* uiRenderer, ResourceManager& resources, Scene& scene) {
     Image* logo = logoGO->AddComponent<Image>();
     logo->SetTexture(uiTexture);
     logo->SetLayer(1);
-    logo->rectTransform->SetAnchorMin(Vector2(0, 0));
-    logo->rectTransform->SetAnchorMax(Vector2(0, 0));
-    logo->rectTransform->SetAnchoredPosition(Vector2(100, 100));
-    logo->rectTransform->SetSizeDelta(Vector2(256, 256));
+    logo->rectTransform->SetAnchorMin(Vector2f(0, 0));
+    logo->rectTransform->SetAnchorMax(Vector2f(0, 0));
+    logo->rectTransform->SetAnchoredPosition(Vector2f(100, 100));
+    logo->rectTransform->SetSizeDelta(Vector2f(256, 256));
     logo->SetColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
     uiCanvas->AddUIElement(logo);
 
@@ -147,23 +147,23 @@ void InitUI(UIRendering* uiRenderer, ResourceManager& resources, Scene& scene) {
     Image* button = buttonGO->AddComponent<Image>();
     button->SetTexture(uiTexture);
     button->SetLayer(2);
-    button->rectTransform->SetAnchorMin(Vector2(0, 0));
-    button->rectTransform->SetAnchorMax(Vector2(0, 0));
-    button->rectTransform->SetAnchoredPosition(Vector2(800, 500));
-    button->rectTransform->SetSizeDelta(Vector2(200, 80));
+    button->rectTransform->SetAnchorMin(Vector2f(0, 0));
+    button->rectTransform->SetAnchorMax(Vector2f(0, 0));
+    button->rectTransform->SetAnchoredPosition(Vector2f(800, 500));
+    button->rectTransform->SetSizeDelta(Vector2f(200, 80));
     button->SetColor(glm::vec4(0.8f, 0.2f, 0.2f, 1.0f));
     uiCanvas->AddUIElement(button);
 
     GameObject* titleGO = scene.CreateGameObject();
     Text* title = titleGO->AddComponent<Text>(*arialFont, "Welcome to UI System");
     title->SetLayer(3);
-    title->rectTransform->SetAnchorMin(Vector2(0, 0));
-    title->rectTransform->SetAnchorMax(Vector2(0, 0));
-    title->rectTransform->SetAnchoredPosition(Vector2(400, 50));
+    title->rectTransform->SetAnchorMin(Vector2f(0, 0));
+    title->rectTransform->SetAnchorMax(Vector2f(0, 0));
+    title->rectTransform->SetAnchoredPosition(Vector2f(400, 50));
     title->SetColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
     uiCanvas->AddUIElement(title);
 
-    title->rectTransform->SetSizeDelta(Vector2(800, 100));
+    title->rectTransform->SetSizeDelta(Vector2f(800, 100));
 
     uiRenderer->RegisterRenderComponent(uiCanvas);
 }
@@ -237,7 +237,7 @@ int main() {
     GraphicsManager graphics;
     graphics.SetWindow(window);
     
-    Camera3D* camera = new Camera3D(Vector3(0, 10, 20));
+    Camera3D* camera = new Camera3D(Vector3f(0, 10, 20));
     graphics.SetCamera(camera);
 
     InputSystem& input = InputSystem::GetInstance();
@@ -270,8 +270,8 @@ int main() {
     float gold[3] = {1, 0.8, 0};
     
     DirectionalLight3D* dirLight = renderer->AddLight<DirectionalLight3D>(
-        Vector3(-1, -2, -1).normalized(), 
-        Vector3(1, 1, 1), 0.8f
+        Vector3f(-1, -2, -1).normalized(), 
+        Vector3f(1, 1, 1), 0.8f
     );
     dirLight->SetShadowArea(50.0f);
     dirLight->SetShadowPlanes(1.0f, 100.0f);
@@ -279,8 +279,8 @@ int main() {
     std::vector<PointLight3D*> dynamicLights;
     for (int i = 0; i < 3; i++) {
         PointLight3D* light = renderer->AddLight<PointLight3D>(
-            Vector3(i * 5 - 5, 3, i * 3 - 3),
-            Vector3(0.2f + i * 0.2f, 0.3f, 0.8f),
+            Vector3f(i * 5 - 5, 3, i * 3 - 3),
+            Vector3f(0.2f + i * 0.2f, 0.3f, 0.8f),
             1.2f,
             15.0f
         );
@@ -291,8 +291,8 @@ int main() {
     player->SetName("Player");
 
     Transform3D* playerTransform = player->AddComponent<Transform3D>();
-    playerTransform->SetLocalPosition(Vector3(0, 2, 0));
-    playerTransform->SetLocalScale(Vector3(0.8f, 1.2f, 0.8f));
+    playerTransform->SetLocalPosition(Vector3f(0, 2, 0));
+    playerTransform->SetLocalScale(Vector3f(0.8f, 1.2f, 0.8f));
 
     TestComponent* testComp = player->AddComponent<TestComponent>();
     testComp->SetTransform(playerTransform);
@@ -327,8 +327,8 @@ int main() {
     
     GameObject* ground = mainScene.CreateGameObject();
     Transform3D* groundTrans = ground->AddComponent<Transform3D>();
-    groundTrans->SetLocalPosition(Vector3(0, -1, 0));
-    groundTrans->SetLocalScale(Vector3(30, 1, 30));
+    groundTrans->SetLocalPosition(Vector3f(0, -1, 0));
+    groundTrans->SetLocalScale(Vector3f(30, 1, 30));
     
     Polyhedron3D* groundCollider = CreateCubeCollider(1.0f);
     groundCollider->SetTag("Ground");
@@ -345,17 +345,17 @@ int main() {
     physicsWorld.AddBody(groundBody);
     platforms.push_back({ground, groundTrans, groundCollider, groundBody});
     
-    std::vector<Vector3> platformPositions = {
-        Vector3(-10, 2, -5), Vector3(-5, 4, -8), Vector3(0, 6, -5),
-        Vector3(5, 8, -2), Vector3(10, 10, 0), Vector3(-8, 12, 5),
-        Vector3(-3, 14, 8), Vector3(3, 16, 10), Vector3(9, 18, 7)
+    std::vector<Vector3f> platformPositions = {
+        Vector3f(-10, 2, -5), Vector3f(-5, 4, -8), Vector3f(0, 6, -5),
+        Vector3f(5, 8, -2), Vector3f(10, 10, 0), Vector3f(-8, 12, 5),
+        Vector3f(-3, 14, 8), Vector3f(3, 16, 10), Vector3f(9, 18, 7)
     };
     
     for (size_t i = 0; i < platformPositions.size(); i++) {
         GameObject* plat = mainScene.CreateGameObject();
         Transform3D* platTrans = plat->AddComponent<Transform3D>();
         platTrans->SetLocalPosition(platformPositions[i]);
-        platTrans->SetLocalScale(Vector3(2, 0.5f, 2));
+        platTrans->SetLocalScale(Vector3f(2, 0.5f, 2));
         
         Polyhedron3D* platCollider = CreateCubeCollider(1.0f);
         platCollider->SetTag("Platform");
@@ -376,17 +376,17 @@ int main() {
     
     std::vector<GameObject*> collectibles;
     std::vector<PhysicalBody*> collectibleBodies;
-    std::vector<Vector3> coinPositions = {
-        Vector3(-8, 3, -3), Vector3(-3, 5, -6), Vector3(2, 7, -3),
-        Vector3(7, 9, 0), Vector3(12, 11, 2), Vector3(-6, 13, 7),
-        Vector3(0, 15, 9), Vector3(5, 17, 8), Vector3(11, 19, 6)
+    std::vector<Vector3f> coinPositions = {
+        Vector3f(-8, 3, -3), Vector3f(-3, 5, -6), Vector3f(2, 7, -3),
+        Vector3f(7, 9, 0), Vector3f(12, 11, 2), Vector3f(-6, 13, 7),
+        Vector3f(0, 15, 9), Vector3f(5, 17, 8), Vector3f(11, 19, 6)
     };
     
     for (const auto& pos : coinPositions) {
         GameObject* coin = mainScene.CreateGameObject();
         Transform3D* coinTrans = coin->AddComponent<Transform3D>();
         coinTrans->SetLocalPosition(pos);
-        coinTrans->SetLocalScale(Vector3(0.5f, 0.5f, 0.5f));
+        coinTrans->SetLocalScale(Vector3f(0.5f, 0.5f, 0.5f));
         
         Polyhedron3D* coinCollider = CreateCubeCollider(0.5f);
         coinCollider->SetTag("Collectible");
@@ -459,8 +459,8 @@ int main() {
 
     GameObject* transparentCube = mainScene.CreateGameObject();
     Transform3D* transTransform = transparentCube->AddComponent<Transform3D>();
-    transTransform->SetLocalPosition(Vector3(3, 3, 2));
-    transTransform->SetLocalScale(Vector3(1.5f, 1.5f, 1.5f));
+    transTransform->SetLocalPosition(Vector3f(3, 3, 2));
+    transTransform->SetLocalScale(Vector3f(1.5f, 1.5f, 1.5f));
 
     float transparentColor[3] = {1.0f, 0.2f, 0.2f};
 
@@ -476,8 +476,8 @@ int main() {
 
     GameObject* transparentCube2 = mainScene.CreateGameObject();
     Transform3D* transTransform2 = transparentCube2->AddComponent<Transform3D>();
-    transTransform2->SetLocalPosition(Vector3(-3, 2, 4));
-    transTransform2->SetLocalScale(Vector3(1.2f, 1.2f, 1.2f));
+    transTransform2->SetLocalPosition(Vector3f(-3, 2, 4));
+    transTransform2->SetLocalScale(Vector3f(1.2f, 1.2f, 1.2f));
 
     float transparentColor2[3] = {0.2f, 0.2f, 1.0f};
     ModelComponent* transModel2 = new ModelComponent(*resources, *renderer, 
@@ -509,7 +509,7 @@ int main() {
         
         float moveSpeed = 5.0f * deltaTime;
         
-        Vector3 newPos = playerTransform->GetLocalPosition();
+        Vector3f newPos = playerTransform->GetLocalPosition();
         
         if (input.GetKey(Keys::W)) newPos.z -= moveSpeed;
         if (input.GetKey(Keys::S)) newPos.z += moveSpeed;
@@ -542,14 +542,14 @@ int main() {
         playerTransform->SetLocalPosition(newPos);
         
         float cameraSpeed = 8.0f * deltaTime;
-        Vector3 camPos = camera->position;
+        Vector3f camPos = camera->position;
         if (input.GetKey(Keys::Up)) camPos.z -= cameraSpeed;
         if (input.GetKey(Keys::Down)) camPos.z += cameraSpeed;
         if (input.GetKey(Keys::Left)) camPos.x -= cameraSpeed;
         if (input.GetKey(Keys::Right)) camPos.x += cameraSpeed;
         camera->position = camPos;
         
-        Vector3 targetPos = playerTransform->GetLocalPosition() + Vector3(0, 5, 10);
+        Vector3f targetPos = playerTransform->GetLocalPosition() + Vector3f(0, 5, 10);
         camera->position = camera->position * 0.95f + targetPos * 0.05f;
         
         if (input.GetKeyDown(Keys::F1)) {
@@ -579,7 +579,7 @@ int main() {
         
         for (size_t i = 0; i < dynamicLights.size(); i++) {
             float offset = i * 2.0f;
-            Vector3 pos(
+            Vector3f pos(
                 sin(time * 0.5f + offset) * 8.0f,
                 3.0f + sin(time * 0.8f + offset) * 2.0f,
                 cos(time * 0.5f + offset) * 8.0f

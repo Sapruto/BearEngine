@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Vector.h"
+#include "VectorN.h"
 
 template<typename T, int Rows, int Cols>
 struct BaseMatrix {
@@ -75,7 +75,7 @@ public:
         BaseMatrix<T, Cols, Rows> result;
         for (int i = 0; i < Rows; i++) {
             for (int j = 0; j < Cols; j++) {
-                result(j, i) = data[i * Cols + j];
+                result(j, i) = (*this)(i, j);
             }
         }
         return result;
@@ -96,7 +96,7 @@ public:
         return result;
     }
 
-    constexpr BaseMatrix adamMultiply(const BaseMatrix& other) const {
+    constexpr BaseMatrix hadamardMultiply(const BaseMatrix& other) const {
         BaseMatrix result;
         for (int i = 0; i < Rows * Cols; i++) {
             result.data[i] = data[i] * other.data[i];
@@ -124,10 +124,10 @@ public:
     constexpr const T* GetData() const { return data; }
     constexpr T& operator[](int index) { return data[index]; }
     constexpr const T& operator[](int index) const { return data[index]; }
-    constexpr const T& operator()(int row, int col) const { 
+    constexpr const T& operator()(int row, int col) const {
         return data[row * Cols + col];
     }
-    T& operator()(int row, int col) { 
+    constexpr T& operator()(int row, int col) {
         return data[row * Cols + col];
     }
     constexpr int Size() const { return Rows * Cols; }
@@ -146,10 +146,9 @@ public:
     }
 };
 
-/*
 template<typename T, int Rows, int Cols>
-constexpr Vector<T, Rows> operator*(const BaseMatrix<T, Rows, Cols>& m, const Vector<T, Cols>& v) {
-    Vector<T, Rows> result;
+constexpr VectorN<T, Rows> operator*(const BaseMatrix<T, Rows, Cols>& m, const VectorN<T, Cols>& v) {
+    VectorN<T, Rows> result;
     for (int i = 0; i < Rows; i++) {
         T sum = T();
         for (int j = 0; j < Cols; j++) {
@@ -159,4 +158,14 @@ constexpr Vector<T, Rows> operator*(const BaseMatrix<T, Rows, Cols>& m, const Ve
     }
     return result;
 }
-*/
+
+template<typename T, int Rows, int Cols>
+struct BaseMatrixAlias : BaseMatrix<T, Rows, Cols> {
+    using Base = BaseMatrix<T, Rows, Cols>;
+
+    using Base::Base;
+    using Base::Identity;
+    using Base::Zero;
+    using Base::multiply;
+    using Base::kroneckerMultiply;
+};

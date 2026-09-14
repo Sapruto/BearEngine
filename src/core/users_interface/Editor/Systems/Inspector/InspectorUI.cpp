@@ -35,7 +35,7 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
     obj->AddComponent<Tag>(AllTags::InspectorUI);
     
     Image* headerBg = UtilitUI::AddImage(headerGO, buttonTex,
-        Vector2(basePosition.x - 300, basePosition.y + yOffsetHeader), Vector2(400, 40),
+        Vector2f(basePosition.x - 300, basePosition.y + yOffsetHeader), Vector2f(400, 40),
         baseAnchorMin, baseAnchorMax,
         glm::vec4(0.3f, 0.3f, 0.35f, 1.0f));
     headerBg->SetLayer(UtilitUI::Layers::InspectorButton);
@@ -43,7 +43,7 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
     
     Text* headerText = UtilitUI::AddTextWithAnchors(headerGO, font,
         "Inspector: " + data->header.objectName,
-        Vector2(basePosition.x - 300, basePosition.y + yOffsetHeader + 5), Vector2(380, 30),
+        Vector2f(basePosition.x - 300, basePosition.y + yOffsetHeader + 5), Vector2f(380, 30),
         baseAnchorMin, baseAnchorMax,
         glm::vec4(1.0f));
     headerText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -52,14 +52,14 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
     GameObject* addBtnGO = scene->CreateGameObject();
     
     Image* addBtnBg = UtilitUI::AddImage(addBtnGO, buttonTex,
-        Vector2(basePosition.x - 300, basePosition.y + yOffsetAddButton), Vector2(150, 30),
+        Vector2f(basePosition.x - 300, basePosition.y + yOffsetAddButton), Vector2f(150, 30),
         baseAnchorMin, baseAnchorMax,
         glm::vec4(0.2f, 0.6f, 0.2f, 1.0f));
     addBtnBg->SetLayer(UtilitUI::Layers::InspectorButton);
     canvas->AddUIElement(addBtnBg);
     
     Text* addBtnText = UtilitUI::AddTextWithAnchors(addBtnGO, font, "+ Add Component",
-        Vector2(basePosition.x - 300, basePosition.y + yOffsetAddButton + 5), Vector2(140, 25),
+        Vector2f(basePosition.x - 300, basePosition.y + yOffsetAddButton + 5), Vector2f(140, 25),
         baseAnchorMin, baseAnchorMax,
         glm::vec4(1.0f));
     addBtnText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -77,14 +77,14 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
             GameObject* compBtnGO = scene->CreateGameObject();
             
             Image* btnBg = UtilitUI::AddImage(compBtnGO, buttonTex,
-                Vector2(basePosition.x - 150, basePosition.y + yOffsetComponentList + i * 40), Vector2(300, 35),
+                Vector2f(basePosition.x - 150, basePosition.y + yOffsetComponentList + i * 40), Vector2f(300, 35),
                 baseAnchorMin, baseAnchorMax,
                 glm::vec4(0.3f, 0.3f, 0.4f, 1.0f));
             btnBg->SetLayer(UtilitUI::Layers::InspectorButton);
             canvas->AddUIElement(btnBg);
             
             Text* btnText = UtilitUI::AddTextWithAnchors(compBtnGO, font, data->availableComponents[i],
-                Vector2(basePosition.x - 140, basePosition.y + yOffsetComponentList + i * 40 + 8), Vector2(280, 25),
+                Vector2f(basePosition.x - 140, basePosition.y + yOffsetComponentList + i * 40 + 8), Vector2f(280, 25),
                 baseAnchorMin, baseAnchorMax,
                 glm::vec4(1.0f));
             btnText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -106,14 +106,14 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
         GameObject* compGO = scene->CreateGameObject();
         
         Image* compBg = UtilitUI::AddImage(compGO, componentBgTex,
-            Vector2(basePosition.x - 300, yOffset), Vector2(400, 80),
+            Vector2f(basePosition.x - 300, yOffset), Vector2f(400, 80),
             baseAnchorMin, baseAnchorMax,
             glm::vec4(0.25f, 0.25f, 0.3f, 1.0f));
         compBg->SetLayer(UtilitUI::Layers::InspectorButton);
         canvas->AddUIElement(compBg);
         
         Text* compName = UtilitUI::AddTextWithAnchors(compGO, font, compData.componentName,
-            Vector2(basePosition.x - 280, yOffset + 25), Vector2(200, 25),
+            Vector2f(basePosition.x - 280, yOffset + 25), Vector2f(200, 25),
             baseAnchorMin, baseAnchorMax,
             glm::vec4(0.9f, 0.9f, 1.0f, 1.0f));
         compName->SetLayer(UtilitUI::Layers::InspectorText);
@@ -122,14 +122,14 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
         GameObject* removeBtnGO = scene->CreateGameObject();
         
         Image* removeBg = UtilitUI::AddImage(removeBtnGO, buttonTex,
-            Vector2(basePosition.x + 50, yOffset + 25), Vector2(60, 25),
+            Vector2f(basePosition.x + 50, yOffset + 25), Vector2f(60, 25),
             baseAnchorMin, baseAnchorMax,
             glm::vec4(0.7f, 0.2f, 0.2f, 1.0f));
         removeBg->SetLayer(UtilitUI::Layers::InspectorButton);
         canvas->AddUIElement(removeBg);
         
         Text* removeText = UtilitUI::AddTextWithAnchors(removeBtnGO, font, "X",
-            Vector2(basePosition.x + 50, yOffset + 28), Vector2(60, 20),
+            Vector2f(basePosition.x + 50, yOffset + 28), Vector2f(60, 20),
             baseAnchorMin, baseAnchorMax,
             glm::vec4(1.0f));
         removeText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -147,7 +147,7 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
             paramY -= ySpacingParams;
             
             Text* paramText = UtilitUI::AddTextWithAnchors(compGO, font, paramName + ":",
-                Vector2(basePosition.x - 280, paramY), Vector2(120, 25),
+                Vector2f(basePosition.x - 280, paramY), Vector2f(120, 25),
                 baseAnchorMin, baseAnchorMax,
                 glm::vec4(0.7f, 0.7f, 0.7f, 1.0f));
             paramText->SetLayer(UtilitUI::Layers::InspectorText);
@@ -156,14 +156,14 @@ void InspectorUI::DrawObject(GameObject* obj, BaseDrawData& baseData) {
             GameObject* valueBtnGO = scene->CreateGameObject();
             
             Image* valueBg = UtilitUI::AddImage(valueBtnGO, inputBgTex,
-                Vector2(basePosition.x - 140, paramY), Vector2(200, 25),
+                Vector2f(basePosition.x - 140, paramY), Vector2f(200, 25),
                 baseAnchorMin, baseAnchorMax,
                 glm::vec4(0.15f, 0.15f, 0.2f, 1.0f));
             valueBg->SetLayer(UtilitUI::Layers::InspectorButton);
             canvas->AddUIElement(valueBg);
             
             Text* valueText = UtilitUI::AddTextWithAnchors(valueBtnGO, font, paramValue,
-                Vector2(basePosition.x - 140, paramY + 3), Vector2(190, 20),
+                Vector2f(basePosition.x - 140, paramY + 3), Vector2f(190, 20),
                 baseAnchorMin, baseAnchorMax,
                 glm::vec4(1.0f));
             valueText->SetLayer(UtilitUI::Layers::InspectorText);

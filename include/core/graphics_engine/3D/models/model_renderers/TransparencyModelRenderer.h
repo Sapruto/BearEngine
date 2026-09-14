@@ -11,6 +11,7 @@
 class ModelComponent;
 class ModelRenderer;
 class Camera3D;
+class Transform3D;
 
 class TransparencyModelRenderer : public ModelFeatureRenderer {
 private:

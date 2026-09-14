@@ -13,7 +13,7 @@ bool IntersectionSegments2D::isPointOnSegment(const Vector2f& point,
     Vector2f segVec = segEnd - segStart;
     Vector2f pointVec = point - segStart;
     
-    if (std::abs(Vector2f::Cross(segVec, pointVec)) > 1e-6f) {
+    if (std::abs(Vector2f::cross(segVec, pointVec)) > 1e-6f) {
         return false;
     }
     
@@ -36,13 +36,13 @@ Vector2f IntersectionSegments2D::calculateIntersection(
     Vector2f CD = D - C;
     Vector2f AC = C - A;
     
-    float denominator = Vector2f::Cross(AB, CD);
+    float denominator = Vector2f::cross(AB, CD);
     
     if (std::abs(denominator) < 1e-6f) {
         return Vector2f(0, 0);  
     }
     
-    float t = Vector2f::Cross(AC, CD) / denominator;
+    float t = Vector2f::cross(AC, CD) / denominator;
     return A + AB * t;
 }
 
@@ -63,11 +63,11 @@ bool IntersectionSegments2D::checkIntersection(
     Vector2f AC = C - A;
     Vector2f AD = D - A;
     
-    float CrossZ1 = Vector2f::Cross(AB, AC);
-    float CrossZ2 = Vector2f::Cross(AB, AD);
+    float crossZ1 = Vector2f::cross(AB, AC);
+    float crossZ2 = Vector2f::cross(AB, AD);
     
-    int sign1 = sign(CrossZ1);
-    int sign2 = sign(CrossZ2);
+    int sign1 = sign(crossZ1);
+    int sign2 = sign(crossZ2);
     
     bool firstCondition;
     
@@ -97,11 +97,11 @@ bool IntersectionSegments2D::checkIntersection(
     Vector2f CA = A - C;      
     Vector2f CB = B - C;         
     
-    float CrossZ3 = Vector2f::Cross(CD, CA);  
-    float CrossZ4 = Vector2f::Cross(CD, CB);
+    float crossZ3 = Vector2f::cross(CD, CA);  
+    float crossZ4 = Vector2f::cross(CD, CB);
     
-    int sign3 = sign(CrossZ3);
-    int sign4 = sign(CrossZ4);
+    int sign3 = sign(crossZ3);
+    int sign4 = sign(crossZ4);
     
     bool secondCondition;
     

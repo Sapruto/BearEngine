@@ -21,12 +21,12 @@ private:
 
     ImpulseModule* impulseModule = nullptr;
 
-    std::vector<std::pair<float, Vector3>> lengthes;
+    std::vector<std::pair<float, Vector3f>> lengthes;
 
     struct PointData {
-        Vector3 localPos;    
-        Vector3 currentWorld; 
-        Vector3 targetWorld; 
+        Vector3f localPos;    
+        Vector3f currentWorld; 
+        Vector3f targetWorld; 
         bool isChanged;
     };
     
@@ -42,7 +42,7 @@ private:
     void UpdateLengthes();
 
 public:
-    ElasticDeformation(float k, const std::vector<Vector3>& bindingPoints); 
+    ElasticDeformation(float k, const std::vector<Vector3f>& bindingPoints); 
 
     void Initialize() override;
 

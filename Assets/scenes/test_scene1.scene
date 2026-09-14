@@ -5,13 +5,13 @@ object {
     name Camera
     components {
         Transform3D {
-            uuid 3c53ee54-e645-4b0d-bb1f-4cd63e7c31e8
+            uuid c923d1f0-3ceb-4ef4-a37e-2a2c3ceb41da
             fieldPosition (0, 10, 20)
             fieldScale (1, 1, 1)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Unknown {
-            uuid 79c68f29-a562-43ef-af25-f9942ea31cc8
+            uuid 37013d3b-e676-4bca-8292-cc0fe6b74716
         }
     }
 }
@@ -20,19 +20,19 @@ object {
     name Player
     components {
         Transform3D {
-            uuid 359dd9e6-da0e-4bc0-888d-381b89a49211
+            uuid 47b061f2-d88d-4577-bfc1-18cea569ee8b
             fieldPosition (0, 2, 0)
             fieldScale (0.8, 1.2, 0.8)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid f73766eb-43ad-496e-8179-8d7f9b38112a
+            uuid 5a627bbf-0b26-4477-a318-9686c6ea6e24
         }
         PhysicalBody {
-            uuid 884633a3-73c3-4d32-8826-ad9a2da2f7db
+            uuid 3b504288-e175-4165-b4e0-b7a8e3c487b9
         }
         ModelComponent {
-            uuid cf18546e-ad6c-4145-9730-0a273be75589
+            uuid 33da869d-927f-4880-95d5-f5ac0b424ba2
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -43,19 +43,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 92443f69-ce92-4e4b-b067-0315d964a688
+            uuid 2459b550-de5b-4abe-bce8-cdbb7e553d4a
             fieldPosition (0, -1, 0)
             fieldScale (30, 1, 30)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 4774221f-b978-4d25-a867-f0dd213c86da
+            uuid 8a8ef71f-6343-4dd4-8801-9f4efd1132ca
         }
         PhysicalBody {
-            uuid 4819e20f-110e-45e4-89bd-4d78b4bb7c84
+            uuid 0fd03500-4a2a-4990-8bf7-feed9af3a489
         }
         ModelComponent {
-            uuid ea7b792f-3d5c-4d0e-b5f1-55514be36c42
+            uuid 8591378e-f4b1-411b-ab86-38e3dac12490
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -66,19 +66,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid f4d37c66-c918-448a-ab3f-be87682d4ee8
+            uuid c19a0620-bc49-4e00-8a1a-bacb27658d9e
             fieldPosition (-10, 2, -5)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 5f00bec0-6478-4247-81b5-4d28a49a4351
+            uuid 7f34fd52-08dd-4cba-bbd9-2ce3d8466156
         }
         PhysicalBody {
-            uuid 438db79f-c57d-4dac-87a6-1a39c0c60a5d
+            uuid ccad56ad-a764-43ca-b936-c0deae6793ea
         }
         ModelComponent {
-            uuid d8f62f58-dc08-4749-bbff-e3bc251e56d7
+            uuid 6e8464ce-225f-4b36-a128-298838c0f50a
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -89,19 +89,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 5c3c01de-58db-41f6-9e6d-8bdbf4379a78
+            uuid 15c10a3b-7b63-4027-8793-4a878564c4c9
             fieldPosition (-5, 4, -8)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 99b3f574-b72f-4be7-add0-888b68514fae
+            uuid 969de09d-9eb4-4485-8900-033df6bcc978
         }
         PhysicalBody {
-            uuid 0f40f249-fb31-4a52-b017-d193a9fea92a
+            uuid c777255b-2c67-43c5-bb4f-70ca6039c088
         }
         ModelComponent {
-            uuid 36d0d243-be85-4d07-bfcd-bc02fe959905
+            uuid 6781f73a-fdc7-4ba4-ac1b-6444aa902666
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -112,19 +112,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 0555dc02-ec9b-45ad-b927-c638daa40c7e
+            uuid 8253da80-22b6-4773-ab88-de3a61c69145
             fieldPosition (0, 6, -5)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 8b4e4783-ed28-4e81-880d-bb86daefe7ae
+            uuid 61e87151-21cc-40a7-bb07-31418adb7e18
         }
         PhysicalBody {
-            uuid cee20f02-d053-4a88-ae8e-ba71617bd7cb
+            uuid 420950ae-410b-4219-9961-a9ff57489298
         }
         ModelComponent {
-            uuid 28674a29-e595-4817-b829-99222614a3c7
+            uuid f20bbebf-0d22-4924-839c-3eb2dffdf179
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -135,19 +135,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid e2f7dea0-8b85-41fc-92f0-81e79aceed7e
+            uuid c8fcd0fe-d8db-4c37-b5a3-8972bce17129
             fieldPosition (5, 8, -2)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 7ed3f061-8ff1-42c0-bf26-a4f35c339715
+            uuid d21341c2-8f21-4509-92d1-2cdad2c16a5c
         }
         PhysicalBody {
-            uuid d2dbe68a-2fe8-4774-9a43-354effed0ba7
+            uuid a54524d9-0333-4ec2-bb8d-eb8eca39207a
         }
         ModelComponent {
-            uuid 33614174-ca52-4212-9fd4-dd88f78ccd86
+            uuid 50343bce-7c79-4197-ab9e-39403792272c
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -158,19 +158,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 570a8a32-5f2b-43d0-81ef-2b97cfe5e6ae
+            uuid 5b93b47d-222e-45d7-a402-b6611ab3d67a
             fieldPosition (10, 10, 0)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 0c3cffe7-75d7-40be-9894-0d3adb5bde82
+            uuid 6e083ab3-25fa-41af-bbb9-320689ec6b99
         }
         PhysicalBody {
-            uuid dbacf22c-a705-4428-8d96-1d1b6e855d04
+            uuid 11e64a98-0940-4c0e-9e94-ae80edb7eb5b
         }
         ModelComponent {
-            uuid 71ec0865-cad4-4afd-8e5a-a553999261dd
+            uuid e9081c14-7aff-451a-8639-20d1a7ef3f9e
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -181,19 +181,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid b40a3f6c-9d38-48b3-a616-bc1087cbbd7b
+            uuid 1beb6448-92c5-4fe2-9e99-8f510701dfea
             fieldPosition (-8, 12, 5)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 4ea45993-9c2e-456d-bd24-bfe7d32a0159
+            uuid c2b2f4f2-7e88-4b59-93bc-edc18dbfd77a
         }
         PhysicalBody {
-            uuid 3f7d5cf1-88c6-4de4-b60d-53b3e7c0bd0c
+            uuid 68962b4a-8382-4211-a7d0-69c2798b5171
         }
         ModelComponent {
-            uuid 24bbd924-5ba8-41a8-b81b-a6e5ea4a4a5c
+            uuid 3847a01d-c131-4d1d-b7a0-84f536fd677b
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -204,19 +204,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 2344b9f3-ad06-4460-a988-5c959c6b7047
+            uuid fd0088f3-1b28-4ca3-9c2f-70ee6a5c9e62
             fieldPosition (-3, 14, 8)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 46627779-f37a-4751-a381-9aec29fa26a0
+            uuid c63328d2-8fb3-4df9-8477-2952be3c004e
         }
         PhysicalBody {
-            uuid 9733fc1a-d267-402b-9e83-c0d80415bc96
+            uuid 0ca6e0f0-4997-42c4-ac7d-27efcf38b15e
         }
         ModelComponent {
-            uuid 63fdb2b1-0ad8-42b9-aba5-ba8ddc21368c
+            uuid 57d3bca4-d83a-4077-be4d-069651541916
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -227,19 +227,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 5a7d1b4e-5d15-42f4-90b9-383b57cdd168
+            uuid 8ecdd7d0-fe22-4926-8aeb-56bd7da197b2
             fieldPosition (3, 16, 10)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 73b692cf-5940-4d1d-8f9a-0a12d21ad2e5
+            uuid 285eefcb-29bc-46cc-bfb6-c6219dfa2f16
         }
         PhysicalBody {
-            uuid 144435c8-6357-4a13-af83-23f48e06cd27
+            uuid 3bba5216-eff9-49b0-8d3d-a7d2fe11d1f6
         }
         ModelComponent {
-            uuid 3703ddea-6804-4930-bfea-7e661bec837d
+            uuid 75e83b10-5958-4402-ba5d-acf23f5a803a
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -250,19 +250,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 3b731323-f87f-4f64-97ab-5fe8e304ca69
+            uuid f0e60ca0-7f1d-4363-84c1-6fbbfe326055
             fieldPosition (9, 18, 7)
             fieldScale (2, 0.5, 2)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid fccd99d9-46df-41d1-b5a7-4a6b60760808
+            uuid 09c81088-3878-4a06-96a3-e1a2da1e46c4
         }
         PhysicalBody {
-            uuid 13317ea1-5add-4871-ac26-c6b12342a9bb
+            uuid 96f46267-4f4f-4ae7-8c67-af7c50d9d2dd
         }
         ModelComponent {
-            uuid a97d812c-22fc-415f-b7b4-82f2d181b31b
+            uuid de9a0403-52c6-4369-8a87-83620d52e0e1
             modelPath Assets/models/slon_sea.obj
             staticFeatures []
         }
@@ -273,19 +273,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid aba12aa9-585f-47fd-a832-3a8efa8662ee
+            uuid ff587046-dbfe-4743-be16-9347553a4f02
             fieldPosition (-8, 3, -3)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 3c59f776-a36e-4ad9-a7a3-4e7543a60e5d
+            uuid c1d0186e-a714-44f9-aadf-ca39206961b4
         }
         PhysicalBody {
-            uuid 6f63a69c-faa6-4aba-9366-94649925347a
+            uuid c51885fc-bcc5-4856-a1cd-bcdc4536750a
         }
         ModelComponent {
-            uuid 6a62946c-04b5-4802-a059-f0b1389a53fd
+            uuid 8fddd2af-02b1-4fc8-b998-5f94f1c74c87
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -296,19 +296,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 4418dabb-8c38-4848-8655-a4efc9c751ca
+            uuid 40336dc6-3745-46aa-87de-bd5c1da6fdce
             fieldPosition (-3, 5, -6)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 37f6d099-7311-420f-98e6-7cf7905a0bbe
+            uuid 51c25ef2-0703-42c8-b4be-c909c6351a23
         }
         PhysicalBody {
-            uuid 7dab32b7-e090-4ba6-8ecd-5da6d6fe4e74
+            uuid 66946357-d733-4f74-b783-ea56360b4449
         }
         ModelComponent {
-            uuid 210881ea-4a8c-41d3-8f24-de483f3c829b
+            uuid aa3bdff3-9e00-483d-90cc-f4dc6b38f9fb
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -319,19 +319,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 73e3b158-fd70-4d00-a7aa-80268250376f
+            uuid 787313a9-3bfe-403a-8af1-9456894e1f01
             fieldPosition (2, 7, -3)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid dd5daf5a-e17a-4215-a291-6c84b738464c
+            uuid ceae3288-c635-4cd3-b03f-0906821282f0
         }
         PhysicalBody {
-            uuid 70c58238-2212-4b90-8fcd-644ddee86d89
+            uuid 620e04e2-4861-4e36-94bb-f182139986f6
         }
         ModelComponent {
-            uuid 9d2a1aec-1d61-4fcd-82ec-708fe655e11e
+            uuid 68e73418-8c3e-4a43-b5b8-4150e6853f4a
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -342,19 +342,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 5d456674-7840-4624-856a-32ee6b9e15aa
+            uuid 8b118528-a403-401a-b6ac-0a287d814be7
             fieldPosition (7, 9, 0)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 7808ec47-3c75-4458-aa3b-7aa13b76f1d3
+            uuid 9b496bce-1410-43db-8967-5ffc68d87e65
         }
         PhysicalBody {
-            uuid a682cf18-7f49-4fea-ada6-df70dba6ae6d
+            uuid cb1f696d-4a48-4328-be40-93ad44005023
         }
         ModelComponent {
-            uuid acd131b3-a102-4018-93e3-277273279772
+            uuid 7d8e3396-7c50-401b-ad4c-94a52d32466a
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -365,19 +365,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 921cddae-e6e2-43a0-a634-a33812139dd7
+            uuid 54f27fa6-68b6-42f4-8e00-4d212a901052
             fieldPosition (12, 11, 2)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid d27a1143-a523-4c75-ab30-0085609b237a
+            uuid ea2ebfed-725a-4b94-a435-6a487743c918
         }
         PhysicalBody {
-            uuid e7cfe385-f7bb-4c02-bca8-b6f12729f012
+            uuid 54b706e2-aee6-4ac4-8f47-6f4725d18a02
         }
         ModelComponent {
-            uuid c56e4abf-59a5-4254-af16-85fa797dc9f5
+            uuid 123851b0-87a2-4ce2-b19e-5c0c75404ff0
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -388,19 +388,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid c1b9607b-8592-442d-a6fe-a59aad02e0f0
+            uuid 3d4895b6-e7a6-464a-be9b-89eb2b5d3173
             fieldPosition (-6, 13, 7)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid f9242a43-6c0d-48b4-a32a-15696124d52f
+            uuid e638233f-6be0-49f8-9585-28d28d5f677b
         }
         PhysicalBody {
-            uuid 9bedd78e-9346-4abf-9988-ed91f9b34458
+            uuid 4b033fd6-13e4-4c09-9d04-8c1ce6e56493
         }
         ModelComponent {
-            uuid 481397c9-2b89-40fc-9195-49a49da13829
+            uuid 922b1751-dbeb-4b34-aac9-002e17460662
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -411,19 +411,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid c17050a2-00ac-4e77-a618-9e1d467ddb18
+            uuid f82f0c38-61f9-4ba3-bf69-579ca7f6d7a8
             fieldPosition (0, 15, 9)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid ea7f6bbd-87ad-42fd-a5b4-9ce65265b0dc
+            uuid 4be887bc-6c91-4dce-b044-19abe9f4604d
         }
         PhysicalBody {
-            uuid e10e84d4-68f9-42cd-8c5c-8b04d4358528
+            uuid 027b1f64-aa2d-4c0f-b2c2-d2ac742ca48b
         }
         ModelComponent {
-            uuid caa3a64c-5a8d-45f8-8e67-ba0db39cf0c2
+            uuid c41f15bb-af74-46c6-81ff-0a4946179e88
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -434,19 +434,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 9d90d4ab-9a98-438b-a138-51412d040641
+            uuid 5a8dd2c9-c7d4-4821-bbe4-f53363baa2af
             fieldPosition (5, 17, 8)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid 04372446-f824-4373-8c28-d62e73bacb9f
+            uuid 98eff703-e53c-459f-a213-e26f543791fb
         }
         PhysicalBody {
-            uuid b6c20375-ecc0-4b62-8955-c6ba825a6e8e
+            uuid 553a4d32-ee7f-4700-806c-e58265a278fc
         }
         ModelComponent {
-            uuid 8a677aa2-caf1-4805-9b08-056e331980db
+            uuid 686a9989-7100-4ab4-b01a-3373d1081ae5
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -457,19 +457,19 @@ object {
     name GameObject
     components {
         Transform3D {
-            uuid 2945d46b-d9dd-4245-9419-521af65036e8
+            uuid 01870199-5f11-4d70-8915-7461d36532e4
             fieldPosition (11, 19, 6)
             fieldScale (0.5, 0.5, 0.5)
             fieldRotation 0.000000,0.000000,0.000000,1.000000
         }
         Polyhedron3D {
-            uuid d4f4e5aa-2288-4147-aea4-d0b9efb4ee68
+            uuid 1a800fb5-6284-4da4-8c13-2547330b8bcb
         }
         PhysicalBody {
-            uuid 30c7fb9f-cfdd-49b7-af78-96b8ca63fa3b
+            uuid fd127995-9d38-43e2-93e3-e098b3de2f98
         }
         ModelComponent {
-            uuid e9337738-689d-495c-af55-7ff9a12063bd
+            uuid d7461236-d1ab-4a1c-8070-e1774217820c
             modelPath Assets/models/cube.obj
             staticFeatures []
         }
@@ -480,7 +480,7 @@ object {
     name GameObject
     components {
         RectTransform {
-            uuid eee157ac-69a9-4bc5-b3ae-be215bcb949d
+            uuid cc437d51-ccf1-4a7e-bbfd-53f359940cc9
             anchoredPosition (0, 0)
             sizeDelta (1920, 1080)
             pivot (0.5, 0.5)
@@ -489,7 +489,7 @@ object {
             rotation 0.000000
         }
         Image {
-            uuid caa7364f-e573-4b2d-85bc-607472579f66
+            uuid 9e678f02-57ec-4507-adb6-663fbed0e74e
             settings 0|0,0,1,1|0.2,0.2,0.3,1|0|0|0.1
         }
     }
@@ -499,7 +499,7 @@ object {
     name GameObject
     components {
         RectTransform {
-            uuid 57167a6b-4bc5-48a0-9da2-97c361fc95e2
+            uuid def45347-e5f2-4a1e-a7ed-8be6561f60da
             anchoredPosition (100, 100)
             sizeDelta (256, 256)
             pivot (0.5, 0.5)
@@ -508,7 +508,7 @@ object {
             rotation 0.000000
         }
         Image {
-            uuid fcd8cfc1-2bd1-4285-9a4d-71bddd6c27c7
+            uuid ae47fe39-21d5-4a51-8ec6-226b0f8fbfcf
             settings 0|0,0,1,1|1,1,1,1|0|0|0.1
         }
     }
@@ -518,7 +518,7 @@ object {
     name GameObject
     components {
         RectTransform {
-            uuid fddc1ed3-cae9-4dfb-843b-eea0251d5b19
+            uuid 44747796-2daf-4fd2-982d-19d37b2199e3
             anchoredPosition (800, 500)
             sizeDelta (200, 80)
             pivot (0.5, 0.5)
@@ -527,7 +527,7 @@ object {
             rotation 0.000000
         }
         Image {
-            uuid adcc2444-4cd8-4592-8948-55ba9fd31105
+            uuid 7c4fae49-60a0-4a7a-bc4a-99f35caad1e5
             settings 0|0,0,1,1|0.8,0.2,0.2,1|0|0|0.1
         }
     }
@@ -537,7 +537,7 @@ object {
     name GameObject
     components {
         RectTransform {
-            uuid 6ce71785-0604-4b8c-b5fd-a78b72dc5af6
+            uuid 6532be85-b391-4597-9c2f-a188e151e1d0
             anchoredPosition (400, 50)
             sizeDelta (800, 100)
             pivot (0.5, 0.5)
@@ -546,7 +546,7 @@ object {
             rotation 0.000000
         }
         Text {
-            uuid 324a4c9c-0576-48c1-9a62-c8abd16686f0
+            uuid cead41ad-b057-4703-929a-0c0a96357cc8
         }
     }
 }

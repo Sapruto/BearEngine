@@ -6,14 +6,14 @@
 
 class ElasticityDeformationData : public AbstractPhysicsData {
 private:
-    std::unordered_map<int, Vector3> changedBindingPoints;
+    std::unordered_map<int, Vector3f> changedBindingPoints;
 
 public:
-    const std::unordered_map<int, Vector3>& GetChangedBindingPoints() const { 
+    const std::unordered_map<int, Vector3f>& GetChangedBindingPoints() const { 
         return changedBindingPoints;
     }
 
-    void SetChangedBindingPoints(const std::unordered_map<int, Vector3>& points) {
+    void SetChangedBindingPoints(const std::unordered_map<int, Vector3f>& points) {
         changedBindingPoints = points;
     }
 };

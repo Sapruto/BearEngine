@@ -1,7 +1,7 @@
 #include "ElasticDeformation.h"
 #include "PhysicalBody.h"
 
-ElasticDeformation::ElasticDeformation(float k, const std::vector<Vector3>& points) 
+ElasticDeformation::ElasticDeformation(float k, const std::vector<Vector3f>& points) 
     : k(k) 
 {
     for (size_t i = 0; i < points.size(); i++) {
@@ -33,11 +33,11 @@ void ElasticDeformation::UpdateLengthes(){
     
     for (auto& [index, data] : points) {
         if (data.isChanged) {
-            Vector3 displacement = data.targetWorld - data.currentWorld;
+            Vector3f displacement = data.targetWorld - data.currentWorld;
             float length = displacement.magnitude();
             
             if (length > 1e-6) {
-                Vector3 direction = displacement.normalized();
+                Vector3f direction = displacement.normalized();
                 lengthes.push_back({length, direction});
             }
         }

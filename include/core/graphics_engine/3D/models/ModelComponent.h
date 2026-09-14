@@ -25,7 +25,8 @@ private:
 
     FIELD(std::string, modelPath); 
 
-    float colorRGB[3]; 
+    float colorRGB[3];
+    bool calculateUV{false};
 
     FIELD_INDEXABLE(std::vector<ModelFeature*>, staticFeatures);
     std::vector<std::unique_ptr<ModelFeature>> dynamicFeature;
@@ -88,6 +89,9 @@ public:
     unsigned int GetID() const { return m_ID; }
 
     void Start() override;
+
+    bool ChangeCaculateUV(bool newValue) { calculateUV = newValue; }
+    bool IsCalculateUV() { return calculateUV; }
 
     SERIALIZED_FIELDS(&modelPath, &staticFeatures)
 };

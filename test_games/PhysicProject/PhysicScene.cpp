@@ -51,7 +51,7 @@ const float BALL_MASS = 0.7f;
 const float GRAVITY_VALUE = 9.8f;
 const float BALL_RADIUS = 0.3f;
 
-const Vector3 START_POS = Vector3(-0.5f, 2.0f, 0.4f);
+const Vector3f START_POS = Vector3f(-0.5f, 2.0f, 0.4f);
 
 template<typename T>
 std::string toString(T val)
@@ -64,9 +64,9 @@ std::string toString(T val)
 
 Polyhedron3D* CreateCubeCollider(float size) {
     float h = size * 0.5f;
-    std::vector<Vector3> vertices = {
-        Vector3(-h, -h, -h), Vector3( h, -h, -h), Vector3( h,  h, -h), Vector3(-h,  h, -h),
-        Vector3(-h, -h,  h), Vector3( h, -h,  h), Vector3( h,  h,  h), Vector3(-h,  h,  h)
+    std::vector<Vector3f> vertices = {
+        Vector3f(-h, -h, -h), Vector3f( h, -h, -h), Vector3f( h,  h, -h), Vector3f(-h,  h, -h),
+        Vector3f(-h, -h,  h), Vector3f( h, -h,  h), Vector3f( h,  h,  h), Vector3f(-h,  h,  h)
     };
     Polyhedron3D* cube = new Polyhedron3D(vertices);
     for (int i = 0; i < 8; i++) {
@@ -84,7 +84,7 @@ Polyhedron3D* CreateCubeCollider(float size) {
 }
 
 Polyhedron3D* CreateSphereCollider(float radius, int segments = 12) {
-    std::vector<Vector3> vertices;
+    std::vector<Vector3f> vertices;
     for (int i = 0; i <= segments; i++) {
         float theta = i * M_PI / segments;
         float sinTheta = sin(theta);
@@ -94,7 +94,7 @@ Polyhedron3D* CreateSphereCollider(float radius, int segments = 12) {
             float x = radius * sinTheta * cos(phi);
             float y = radius * cosTheta;
             float z = radius * sinTheta * sin(phi);
-            vertices.push_back(Vector3(x, y, z));
+            vertices.push_back(Vector3f(x, y, z));
         }
     }
     Polyhedron3D* sphere = new Polyhedron3D(vertices);
@@ -121,11 +121,11 @@ public:
     Gravity* gravity;
     
     bool isPhysicsActive = false;
-    Vector3 startPos;
+    Vector3f startPos;
     
     Ball(Scene* scene, ResourceManager* resources, ModelRenderer* renderer, 
          PhysicsWorld* world, ColliderManager* collMgr, 
-         const Vector3& pos, float radius) {
+         const Vector3f& pos, float radius) {
         
         startPos = pos;
         
@@ -134,7 +134,7 @@ public:
         
         transform = obj->AddComponent<Transform3D>();
         transform->SetLocalPosition(pos);
-        transform->SetLocalScale(Vector3(radius, radius, radius));
+        transform->SetLocalScale(Vector3f(radius, radius, radius));
         
         Polyhedron3D* collider = CreateSphereCollider(radius, 10);
         collider->SetTag("Ball");
@@ -163,19 +163,19 @@ public:
     void Fire(float speed) {
         isPhysicsActive = true;
         gravity->SetGravitation(GRAVITY_VALUE);
-        impulse->SetVelocity(Vector3(0, speed, 0));
+        impulse->SetVelocity(Vector3f(0, speed, 0));
     }
     
     void Reset() {
         isPhysicsActive = false;
         gravity->SetGravitation(0.0f);
-        impulse->SetVelocity(Vector3::Zero);
+        impulse->SetVelocity(Vector3f::Zero);
         transform->SetLocalPosition(startPos);
     }
     
     void UpdatePhysics() {
         if (!isPhysicsActive) {
-            impulse->SetVelocity(Vector3::Zero);
+            impulse->SetVelocity(Vector3f::Zero);
             transform->SetLocalPosition(startPos);
         }
     }
@@ -205,32 +205,32 @@ public:
         Image* background = bgGO->AddComponent<Image>();
         background->SetTexture(uiTexture);
         background->SetLayer(0);
-        background->rectTransform->SetAnchorMin(Vector2(0, 0));
-        background->rectTransform->SetAnchorMax(Vector2(0, 0));
-        background->rectTransform->SetAnchoredPosition(Vector2(0, 0));
-        background->rectTransform->SetSizeDelta(Vector2(920, 800));
+        background->rectTransform->SetAnchorMin(Vector2f(0, 0));
+        background->rectTransform->SetAnchorMax(Vector2f(0, 0));
+        background->rectTransform->SetAnchoredPosition(Vector2f(0, 0));
+        background->rectTransform->SetSizeDelta(Vector2f(920, 800));
         background->SetColor(glm::vec4(0.2f, 0.2f, 0.3f, 1.0f));
         uiCanvas->AddUIElement(background);
 
         GameObject* titleGO = scene.CreateGameObject();
         V = titleGO->AddComponent<Text>(*arialFont, std::to_string(0));
         V->SetLayer(3);
-        V->rectTransform->SetAnchorMin(Vector2(0, 0));
-        V->rectTransform->SetAnchorMax(Vector2(0, 0));
-        V->rectTransform->SetAnchoredPosition(Vector2(400, 50));
+        V->rectTransform->SetAnchorMin(Vector2f(0, 0));
+        V->rectTransform->SetAnchorMax(Vector2f(0, 0));
+        V->rectTransform->SetAnchoredPosition(Vector2f(400, 50));
         V->SetColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
         uiCanvas->AddUIElement(V);
 
         GameObject* uiGO = scene.CreateGameObject();
         h = uiGO->AddComponent<Text>(*arialFont, "0");
         h->SetLayer(3);
-        h->rectTransform->SetAnchorMin(Vector2(0, 0));
-        h->rectTransform->SetAnchorMax(Vector2(0, 0));
-        h->rectTransform->SetAnchoredPosition(Vector2(400, 100));
+        h->rectTransform->SetAnchorMin(Vector2f(0, 0));
+        h->rectTransform->SetAnchorMax(Vector2f(0, 0));
+        h->rectTransform->SetAnchoredPosition(Vector2f(400, 100));
         h->SetColor(glm::vec4(1.0f, 1.0f, 1.0f, 1.0f));
         uiCanvas->AddUIElement(h);
 
-        h->rectTransform->SetSizeDelta(Vector2(800, 100));
+        h->rectTransform->SetSizeDelta(Vector2f(800, 100));
 
         uiRenderer->RegisterRenderComponent(uiCanvas);*/
     }
@@ -255,7 +255,7 @@ int main() {
     GraphicsManager graphics;
     graphics.SetWindow(window);
     
-    Camera3D* camera = new Camera3D(Vector3(0, 3, 10));
+    Camera3D* camera = new Camera3D(Vector3f(0, 3, 10));
     graphics.SetCamera(camera);
     
     InputSystem& input = InputSystem::GetInstance();
@@ -280,13 +280,13 @@ int main() {
     resources->LoadResource(MODEL_PISTOLET, ResourceType::Model);
     
     DirectionalLight3D* dirLight = renderer->AddLight<DirectionalLight3D>(
-        Vector3(-1, -2, -1).normalized(), Vector3(1, 1, 1), 0.8f);
+        Vector3f(-1, -2, -1).normalized(), Vector3f(1, 1, 1), 0.8f);
     dirLight->SetShadowArea(30.0f);
     
     GameObject* ground = mainScene.CreateGameObject();
     Transform3D* groundT = ground->AddComponent<Transform3D>();
-    groundT->SetLocalPosition(Vector3(0, -0.8f, 0));
-    groundT->SetLocalScale(Vector3(20, 0.2f, 20));
+    groundT->SetLocalPosition(Vector3f(0, -0.8f, 0));
+    groundT->SetLocalScale(Vector3f(20, 0.2f, 20));
     
     Polyhedron3D* groundCol = CreateCubeCollider(1.0f);
     groundCol->SetTag("Ground");
@@ -305,9 +305,9 @@ int main() {
     
     GameObject* gun = mainScene.CreateGameObject();
     Transform3D* gunTransform = gun->AddComponent<Transform3D>();
-    gunTransform->SetLocalPosition(Vector3(0, 0.2f, 0.5f));
-    gunTransform->SetLocalScale(Vector3(1.0f, 1.0f, 1.0f));
-    gunTransform->SetLocalRotation(Vector3(0.0f, 0.0f, 90.0f));
+    gunTransform->SetLocalPosition(Vector3f(0, 0.2f, 0.5f));
+    gunTransform->SetLocalScale(Vector3f(1.0f, 1.0f, 1.0f));
+    gunTransform->SetLocalRotation(Vector3f(0.0f, 0.0f, 90.0f));
     ModelComponent* gunModel = new ModelComponent(*resources, *renderer, MODEL_PISTOLET, gunColor);
     gun->AddComponent(gunModel);
     renderer->RegisterRenderComponent(gunModel);
@@ -350,7 +350,7 @@ int main() {
         camera->GetGlobalPosition().z = cos(camAngle) * camDist;
         camera->GetGlobalPosition().y = camHeight;
         
-        Vector3 ballPos = ball.transform->GetLocalPosition();
+        Vector3f ballPos = ball.transform->GetLocalPosition();
         
         if (input.GetKey(Keys::R) && !isCharged && !ball.isPhysicsActive) {
             isCharged = true;

@@ -9,9 +9,9 @@ struct Tetrahedron3D {
 
     Tetrahedron3D(const std::array<Vertex3D, 4>& verts) : vertices(verts) {}
 
-    float Determinant(const Vector3& a, const Vector3& b, const Vector3& c, const Vector3& d) const;
+    float Determinant(const Vector3f& a, const Vector3f& b, const Vector3f& c, const Vector3f& d) const;
     
-    bool ContainsPoint(const Vector3& point, const Transform3D& transform) const;
+    bool ContainsPoint(const Vector3f& point, const Transform3D& transform) const;
     
     float CalculateVolume(const Transform3D& transform) const;
 };

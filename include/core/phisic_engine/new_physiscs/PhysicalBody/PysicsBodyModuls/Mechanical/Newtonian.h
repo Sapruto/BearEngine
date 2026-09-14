@@ -17,7 +17,7 @@ class ImpulseModule : public PhysicFeature{
 private:
     Force main_force;
 
-    Vector3 velocity;
+    Vector3f velocity;
 
     ImpulseModuleMode mode;
     float damping;
@@ -32,7 +32,7 @@ public:
 
     void SetMode(ImpulseModuleMode newMode){  mode = newMode; }
 
-    void AddForce(Vector3 direction, float magnitude);
+    void AddForce(Vector3f direction, float magnitude);
     void AddForce(const Force& new_force);
 
     void ReForce(const Force& new_force);
@@ -44,12 +44,12 @@ public:
 
     void Destroy() override;
     
-    void SetVelocity(const Vector3& newVel) { velocity = newVel; }
+    void SetVelocity(const Vector3f& newVel) { velocity = newVel; }
     void SetDamping(float newDamping) { damping = newDamping; }
     void SetMaxSpeed(float newMaxSpeed) { maxSpeed = newMaxSpeed; }
     void SetWorldLimit(float newWorldLimit) { worldLimit = newWorldLimit; }
 
-    const Vector3& GetVelocity() const { return velocity; }  
-    Vector3 GetVelocity() { return velocity; }  
+    const Vector3f& GetVelocity() const { return velocity; }  
+    Vector3f GetVelocity() { return velocity; }  
     const Force& GetForce() const { return main_force; }  
 };

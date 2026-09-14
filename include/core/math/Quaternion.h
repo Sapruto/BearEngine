@@ -8,23 +8,23 @@
 
 template<typename T = float>
 struct Quaternion {
-    Vector3Impl<T> ratioVec;
+    Vector3<T> ratioVec;
     T scalar;
 
-    Quaternion() : ratioVec(Vector3Impl<T>::Zero()), scalar(T(0)) {}
-    constexpr Quaternion(Vector3Impl<T> ratioVec, T scalar) 
+    Quaternion() : ratioVec(Vector3<T>::Zero()), scalar(T(0)) {}
+    constexpr Quaternion(Vector3<T> ratioVec, T scalar) 
         : ratioVec(ratioVec), scalar(scalar) {}
 
     static Quaternion Identity() {
-        return Quaternion(Vector3Impl<T>(0, 0, 0), T(1));
+        return Quaternion(Vector3<T>(0, 0, 0), T(1));
     }
     
-    static Quaternion createRotation(const T& angle, const Vector3Impl<T>& axis) {
+    static Quaternion createRotation(const T& angle, const Vector3<T>& axis) {
         T halfA = angle / T(2);
         T sinA = std::sin(halfA);
         T cosA = std::cos(halfA);
 
-        Vector3Impl<T> normalizedAxis = axis.normalized();
+        Vector3<T> normalizedAxis = axis.normalized();
         
         Quaternion q;
         q.ratioVec = normalizedAxis * sinA;
@@ -56,7 +56,7 @@ struct Quaternion {
     }
 
     Quaternion conjugate() const {
-        return Quaternion(Vector3Impl<T>(-ratioVec.x, -ratioVec.y, -ratioVec.z), scalar);
+        return Quaternion(Vector3<T>(-ratioVec.x, -ratioVec.y, -ratioVec.z), scalar);
     }
 
     T magnitude() const {
@@ -69,7 +69,7 @@ struct Quaternion {
     Quaternion normalized() const {
         T mag = magnitude();
         if (mag == T(0)) return Identity();
-        return Quaternion(Vector3Impl<T>(ratioVec.x / mag, 
+        return Quaternion(Vector3<T>(ratioVec.x / mag, 
                                         ratioVec.y / mag, 
                                         ratioVec.z / mag), 
                             scalar / mag);
@@ -84,17 +84,17 @@ struct Quaternion {
         if (normSq == T(0)) return Identity();
         
         Quaternion conj = conjugate();
-        return Quaternion(Vector3Impl<T>(conj.ratioVec.x / normSq,
+        return Quaternion(Vector3<T>(conj.ratioVec.x / normSq,
                                         conj.ratioVec.y / normSq,
                                         conj.ratioVec.z / normSq),
                             conj.scalar / normSq);
     }
 
-    Vector3Impl<T> rotateVector(const Vector3Impl<T>& vec) const {
-        Vector3Impl<T> vecPart = ratioVec;
+    Vector3<T> rotateVector(const Vector3<T>& vec) const {
+        Vector3<T> vecPart = ratioVec;
         T scalarPart = scalar;
         
-        Vector3Impl<T> t = vecPart.cross(vec) * T(2);
+        Vector3<T> t = vecPart.cross(vec) * T(2);
         return vec + t * scalarPart + vecPart.cross(t);
     }
 
@@ -125,21 +125,21 @@ struct Quaternion {
     }
     
     Quaternion operator+(const Quaternion& other) const {
-        return Quaternion(Vector3Impl<T>(ratioVec.x + other.ratioVec.x,
+        return Quaternion(Vector3<T>(ratioVec.x + other.ratioVec.x,
                                         ratioVec.y + other.ratioVec.y,
                                         ratioVec.z + other.ratioVec.z),
                             scalar + other.scalar);
     }
     
     Quaternion operator-(const Quaternion& other) const {
-        return Quaternion(Vector3Impl<T>(ratioVec.x - other.ratioVec.x,
+        return Quaternion(Vector3<T>(ratioVec.x - other.ratioVec.x,
                                         ratioVec.y - other.ratioVec.y,
                                         ratioVec.z - other.ratioVec.z),
                             scalar - other.scalar);
     }
     
     Quaternion operator*(const T& scale) const {
-        return Quaternion(Vector3Impl<T>(ratioVec.x * scale,
+        return Quaternion(Vector3<T>(ratioVec.x * scale,
                                         ratioVec.y * scale,
                                         ratioVec.z * scale),
                             scalar * scale);
@@ -182,7 +182,7 @@ struct Quaternion {
         return result;
     }
 
-    Vector3Impl<T> operator*(const Vector3Impl<T>& vec) const {
+    Vector3<T> operator*(const Vector3<T>& vec) const {
         return rotateVector(vec);
     }
 };

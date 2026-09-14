@@ -40,7 +40,7 @@ const std::string SimpleModelRenderer::UniformsName::lightColorPrefix = "lightCo
 const std::string SimpleModelRenderer::UniformsName::lightSpaceMatrixPrefix = "lightSpaceMatrix";
 const std::string SimpleModelRenderer::UniformsName::model = "model";
 
-SimpleModelRenderer::SimpleModelRenderer() 
+SimpleModelRenderer::SimpleModelRenderer()
     : shader(ModelsShaderPaths::Base + "simple/Vertex.glsl",
              ModelsShaderPaths::Base + "simple/Fragment.glsl")
 {

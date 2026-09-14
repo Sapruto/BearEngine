@@ -10,7 +10,7 @@ private:
     }
 
 public:
-    explicit OpenGLDevice(std::shared_ptr<OpenGLWindow> win) 
+    explicit OpenGLDevice(std::shared_ptr<OpenGLWindow> win)
         : BaseDevice(win) {}
     
     bool Initialize() override {

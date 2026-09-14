@@ -11,8 +11,8 @@ class RigidBody2D : public Component {
 private:
     Transform2D* transform;
     std::vector<Force> forces;
-    Vector2 velocity;
-    Vector2 acceleration;
+    Vector2f velocity;
+    Vector2f acceleration;
     float mass;
     float drag;
     
@@ -24,14 +24,14 @@ public:
     
     void Update() override;
     
-    void AddForce(const Vector2& force);
+    void AddForce(const Vector2f& force);
     
-    void AddForce(const Vector2& direction, float magnitude);
+    void AddForce(const Vector2f& direction, float magnitude);
     
-    void AddImpulse(const Vector2& impulse);
+    void AddImpulse(const Vector2f& impulse);
     
-    void SetVelocity(const Vector2& vel);
-    Vector2 GetVelocity() const;
+    void SetVelocity(const Vector2f& vel);
+    Vector2f GetVelocity() const;
     
     void SetMass(float newMass);
     float GetMass() const;

@@ -11,18 +11,18 @@
 #include <utility>   
 #include <functional>
 
-void LocalPhysicCollisionSystem::CalculateImpulse(ImpulseModule* A, ImpulseModule* B, const Vector3& normal){
+void LocalPhysicCollisionSystem::CalculateImpulse(ImpulseModule* A, ImpulseModule* B, const Vector3f& normal){
     float restitution = 1.0f; // А вот плохо так по нищему делать, надо сделать менеджер упругости и через него вот эту штуку считать ну это потом можно пока и так сойдет
 
-    Vector3 velocityA = A->GetVelocity();
-    Vector3 velocityB = B->GetVelocity();
+    Vector3f velocityA = A->GetVelocity();
+    Vector3f velocityB = B->GetVelocity();
 
     float velocityOnProjection = (velocityB - velocityA).dot(normal);
 
     if(velocityOnProjection >= 0) return;
 
     float scalar = -(1 + restitution) * velocityOnProjection / (1/A->GetBody()->GetMass() + 1/B->GetBody()->GetMass());
-    Vector3 impulse = normal * scalar;
+    Vector3f impulse = normal * scalar;
 
     A->SetVelocity(velocityA += (impulse / A->GetBody()->GetMass()));
     B->SetVelocity(velocityB -= (impulse / B->GetBody()->GetMass()));
@@ -83,10 +83,10 @@ void LocalPhysicCollisionSystem::UpdateLocalSystem(){
             ImpulseModule* otherImpulseModule = otherBody->GetFeatureOfType<ImpulseModule>();
             if (!otherImpulseModule) continue;
             
-            const Vector3* penetration = polyhedron->GetOverlapAxis(other);
+            const Vector3f* penetration = polyhedron->GetOverlapAxis(other);
             if (!penetration) continue;
             
-            Vector3 normal = penetration->normalized();
+            Vector3f normal = penetration->normalized();
             CalculateImpulse(impulseModule, otherImpulseModule, normal);
         }
     }

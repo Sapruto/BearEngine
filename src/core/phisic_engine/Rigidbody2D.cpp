@@ -22,7 +22,7 @@ void RigidBody2D::Update(){
     if (dt > 0.1f) dt = 0.1f;
     velocity += acceleration * dt;
     
-    Vector2 totalForce(0, 0);
+    Vector2f totalForce(0, 0);
     for (const auto& force : forces) {
         totalForce += force.GetForceVector();
     }
@@ -41,19 +41,19 @@ void RigidBody2D::Update(){
     forces.clear();*/
 }
 
-void RigidBody2D::AddForce(const Vector2& force) {
+void RigidBody2D::AddForce(const Vector2f& force) {
     //forces.push_back(Force(force.normalized(), force.magnitude()));
 }
-void RigidBody2D::AddForce(const Vector2& direction, float magnitude) {
+void RigidBody2D::AddForce(const Vector2f& direction, float magnitude) {
     //forces.push_back(Force(direction, magnitude));
 }
 
-void RigidBody2D::AddImpulse(const Vector2& impulse) {
+void RigidBody2D::AddImpulse(const Vector2f& impulse) {
     velocity += impulse / mass;
 }
 
-void RigidBody2D::SetVelocity(const Vector2& vel) { velocity = vel; }
-Vector2 RigidBody2D::GetVelocity() const { return velocity; }
+void RigidBody2D::SetVelocity(const Vector2f& vel) { velocity = vel; }
+Vector2f RigidBody2D::GetVelocity() const { return velocity; }
 
 void RigidBody2D::SetMass(float newMass) { mass = newMass > 0 ? newMass : 1.0f; }
 float RigidBody2D::GetMass() const { return mass; }

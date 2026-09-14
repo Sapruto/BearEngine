@@ -58,7 +58,7 @@
 class TestComponent : public Component, public ISerializable {
 private:
     FIELD_COMPONENT(Transform3D*, trans);
-    FIELD(Vector3, pos);
+    FIELD(Vector3f, pos);
 
 public:
     void Start() override {}
@@ -79,9 +79,9 @@ public:
 Polyhedron3D* CreateCubeCollider(float size) {
     float h = size * 0.5f;
     
-    std::vector<Vector3> vertices = {
-        Vector3(-h, -h, -h),  Vector3( h, -h, -h),  Vector3( h,  h, -h),  Vector3(-h,  h, -h),
-        Vector3(-h, -h,  h),  Vector3( h, -h,  h),  Vector3( h,  h,  h),  Vector3(-h,  h,  h)
+    std::vector<Vector3f> vertices = {
+        Vector3f(-h, -h, -h),  Vector3f( h, -h, -h),  Vector3f( h,  h, -h),  Vector3f(-h,  h, -h),
+        Vector3f(-h, -h,  h),  Vector3f( h, -h,  h),  Vector3f( h,  h,  h),  Vector3f(-h,  h,  h)
     };
     
     Polyhedron3D* cube = new Polyhedron3D(vertices);
@@ -139,7 +139,7 @@ int main() {
     GraphicsManager graphics;
     graphics.SetWindow(window);
     
-    Camera3D* camera = new Camera3D(Vector3(0, 12, 20));
+    Camera3D* camera = new Camera3D(Vector3f(0, 12, 20));
     graphics.SetCamera(camera);
 
     InputSystem& input = InputSystem::GetInstance();
@@ -212,18 +212,18 @@ int main() {
     }
     
     DirectionalLight3D* sunLight = renderer->AddLight<DirectionalLight3D>(
-        Vector3(-1, -2, -1).normalized(), 
-        Vector3(1, 1, 1), 1.0f
+        Vector3f(-1, -2, -1).normalized(), 
+        Vector3f(1, 1, 1), 1.0f
     );
     sunLight->SetShadowArea(40.0f);
     sunLight->SetShadowPlanes(1.0f, 50.0f);
     
     PointLight3D* ambientLight = renderer->AddLight<PointLight3D>(
-        Vector3(0, 10, 0), Vector3(0.3f, 0.3f, 0.4f), 0.5f, 50.0f
+        Vector3f(0, 10, 0), Vector3f(0.3f, 0.3f, 0.4f), 0.5f, 50.0f
     );
     
     PointLight3D* playerLight = renderer->AddLight<PointLight3D>(
-        Vector3(0, 2, 0), Vector3(1.0f, 0.5f, 0.2f), 1.2f, 12.0f
+        Vector3f(0, 2, 0), Vector3f(1.0f, 0.5f, 0.2f), 1.2f, 12.0f
     );
     
     auto colliderManager = std::make_shared<ColliderManager>();
@@ -267,7 +267,7 @@ int main() {
         input.Update();
         
         if (playerTransform) {
-            Vector3 newPos = playerTransform->GetLocalPosition();
+            Vector3f newPos = playerTransform->GetLocalPosition();
             float moveSpeed = 7.0f * deltaTime;
             
             if (input.GetKey(Keys::W)) newPos.z -= moveSpeed;
@@ -295,13 +295,13 @@ int main() {
             
             playerTransform->SetLocalPosition(newPos);
             
-            Vector3 targetPos = newPos + Vector3(0, 5, 14);
+            Vector3f targetPos = newPos + Vector3f(0, 5, 14);
             camera->position = camera->position * 0.94f + targetPos * 0.06f;
             
-            playerLight->SetLocalPosition(newPos + Vector3(0, 2, 0));
+            playerLight->SetLocalPosition(newPos + Vector3f(0, 2, 0));
         }
         
-        Vector3 camPos = camera->position;
+        Vector3f camPos = camera->position;
         if (input.GetKey(Keys::Up)) camPos.z -= 10.0f * Time::DeltaTime();
         if (input.GetKey(Keys::Down)) camPos.z += 10.0f * Time::DeltaTime();
         if (input.GetKey(Keys::Left)) camPos.x -= 10.0f * Time::DeltaTime();
@@ -327,7 +327,7 @@ int main() {
         }
         
         float lightY = 5.0f + sin(time * 0.8f) * 2.0f;
-        ambientLight->SetLocalPosition(Vector3(sin(time * 0.3f) * 8.0f, lightY, cos(time * 0.3f) * 8.0f));
+        ambientLight->SetLocalPosition(Vector3f(sin(time * 0.3f) * 8.0f, lightY, cos(time * 0.3f) * 8.0f));
         
         physicsWorld.Update();
         mainScene->UpdateScene();

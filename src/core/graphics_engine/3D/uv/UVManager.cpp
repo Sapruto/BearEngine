@@ -4,390 +4,298 @@
 #include "Model.h"
 #include "Transform3D.h"
 #include "Camera3D.h"
-#include "ColliderManager.h"
-#include "Polyhedron3D.h"
+
 #include <algorithm>
 #include <cmath>
 
-UVManager::UVManager() {
-    auto enterHandler = [this](BaseCollider* self, BaseCollider* other) {
-        OnFrustumEnter(self, other);
-    };
-    auto exitHandler = [this](BaseCollider* self, BaseCollider* other) {
-        OnFrustumExit(self, other);
-    };
-    
-    Subscribe(enterHandler, CollisionEvent::State::ENTER);
-    Subscribe(exitHandler, CollisionEvent::State::EXIT);
-}
+UVManager::UVManager() = default;
+UVManager::~UVManager() = default;
 
-UVManager::UVManager(ColliderManager* manager) : UVManager() {
-    Initialize(manager, nullptr, 1.0f);
-
-    auto enterHandler = [this](BaseCollider* self, BaseCollider* other) {
-        OnFrustumEnter(self, other);
-    };
-    auto exitHandler = [this](BaseCollider* self, BaseCollider* other) {
-        OnFrustumExit(self, other);
-    };
-    
-    Subscribe(enterHandler, CollisionEvent::State::ENTER);
-    Subscribe(exitHandler, CollisionEvent::State::EXIT);
-}
-
-UVManager::~UVManager() {
-    if (ownFrustumCollider && frustumCollider) {
-        delete frustumCollider;
-        frustumCollider = nullptr;
-    }
-}
-
-void UVManager::Initialize(ColliderManager* manager, Camera3D* camera, float aspect, float fov, float near, float far) {
-    this->colliderManager = manager;
+void UVManager::Initialize(Camera3D* camera, float aspect,
+                           float fov, float near, float far) {
     this->camera = camera;
     this->aspect = aspect;
     this->fov = fov;
     this->near = near;
     this->far = far;
-    
-    if (colliderManager && !frustumCollider) {
-        frustumCollider = new FrustumCollider(camera, aspect, fov, near, far);
-        colliderManager->AddCollider(frustumCollider);
-        ownFrustumCollider = true;
-    }
+    frameCacheValid = false;
 }
 
 void UVManager::SetCamera(Camera3D* camera) {
     this->camera = camera;
-    if (frustumCollider) {
-        frustumCollider->SetCamera(camera);
-    }
+    frameCacheValid = false;
 }
 
-void UVManager::SetColliderManager(ColliderManager* manager) {
-    this->colliderManager = manager;
-    if (frustumCollider && colliderManager) {
-        colliderManager->AddCollider(frustumCollider);
+void UVManager::RebuildFrameCache() {
+    if (!camera) {
+        frameCacheValid = false;
+        return;
     }
+    viewMatrix = camera->GetViewMatrix();
+    projMatrix = camera->GetProjectionMatrix(aspect);
+    viewProjMatrix = projMatrix * viewMatrix;
+
+    const float m00 = viewProjMatrix(0,0), m01 = viewProjMatrix(0,1), m02 = viewProjMatrix(0,2), m03 = viewProjMatrix(0,3);
+    const float m10 = viewProjMatrix(1,0), m11 = viewProjMatrix(1,1), m12 = viewProjMatrix(1,2), m13 = viewProjMatrix(1,3);
+    const float m20 = viewProjMatrix(2,0), m21 = viewProjMatrix(2,1), m22 = viewProjMatrix(2,2), m23 = viewProjMatrix(2,3);
+    const float m30 = viewProjMatrix(3,0), m31 = viewProjMatrix(3,1), m32 = viewProjMatrix(3,2), m33 = viewProjMatrix(3,3);
+
+    planes[0].normal = Vector3f(m30 + m00, m31 + m01, m32 + m02);
+    planes[0].d = m33 + m03;
+
+    planes[1].normal = Vector3f(m30 - m00, m31 - m01, m32 - m02);
+    planes[1].d = m33 - m03;
+
+    planes[2].normal = Vector3f(m30 + m10, m31 + m11, m32 + m12);
+    planes[2].d = m33 + m13;
+
+    planes[3].normal = Vector3f(m30 - m10, m31 - m11, m32 - m12);
+    planes[3].d = m33 - m13;
+
+    planes[4].normal = Vector3f(m30 + m20, m31 + m21, m32 + m22);
+    planes[4].d = m33 + m23;
+
+    planes[5].normal = Vector3f(m30 - m20, m31 - m21, m32 - m22);
+    planes[5].d = m33 - m23;
+
+    frameCacheValid = true;
 }
 
-void UVManager::SetFrustumCollider(FrustumCollider* collider) {
-    if (ownFrustumCollider && frustumCollider) {
-        if (colliderManager) {
-            colliderManager->RemoveCollider(frustumCollider);
-        }
-        delete frustumCollider;
-    }
-    frustumCollider = collider;
-    ownFrustumCollider = false;
-}
-
-bool UVManager::IsPointVisible(const Vector3f& worldPoint) {
+bool UVManager::IsPointVisible(const Vector3f& worldPoint) const {
     if (!camera) return true;
-    
-    Matrix4x4f view = camera->GetViewMatrix();
-    Matrix4x4f proj = camera->GetProjectionMatrix(aspect);
-    Matrix4x4f mvp = proj * view;
-    
-    Vector3f clipPos = TransformPoint(mvp, worldPoint);
-    
-    return clipPos.x >= -1.0f && clipPos.x <= 1.0f &&
-           clipPos.y >= -1.0f && clipPos.y <= 1.0f &&
-           clipPos.z >= -1.0f && clipPos.z <= 1.0f;
+
+    const float x = worldPoint.x;
+    const float y = worldPoint.y;
+    const float z = worldPoint.z;
+
+    const float cx = viewProjMatrix(0,0)*x + viewProjMatrix(0,1)*y + viewProjMatrix(0,2)*z + viewProjMatrix(0,3);
+    const float cy = viewProjMatrix(1,0)*x + viewProjMatrix(1,1)*y + viewProjMatrix(1,2)*z + viewProjMatrix(1,3);
+    const float cz = viewProjMatrix(2,0)*x + viewProjMatrix(2,1)*y + viewProjMatrix(2,2)*z + viewProjMatrix(2,3);
+    const float cw = viewProjMatrix(3,0)*x + viewProjMatrix(3,1)*y + viewProjMatrix(3,2)*z + viewProjMatrix(3,3);
+
+    if (std::abs(cw) < 0.0001f) return false;
+    const float invW = 1.0f / cw;
+    const float nx = cx * invW;
+    const float ny = cy * invW;
+    const float nz = cz * invW;
+
+    return nx >= -1.0f && nx <= 1.0f &&
+           ny >= -1.0f && ny <= 1.0f &&
+           nz >= -1.0f && nz <= 1.0f;
 }
 
-bool UVManager::IsAABBVisible(const AABB& aabb) {
-    if (!frustumCollider) return true;
-    return frustumCollider->IsVisible(aabb);
-}
+bool UVManager::IsAABBVisible(const UVAABB& aabb) const {
+    if (!camera) return true;
 
-void UVManager::OnFrustumEnter(BaseCollider* self, BaseCollider* other) {
-    GameObject* go = other->GetGameObject();
-    if (!go) return;
-    
-    ModelComponent* model = go->GetComponentOfType<ModelComponent>();
-    if (!model) return;
-    
-    int id = model->GetID();
-    objectVisibilityState[id] = true;
-    
-    auto it = objectUVs.find(id);
-    if (it != objectUVs.end()) {
-        it->second.isInFrustum = true;
-        it->second.isVisible = true;
-    }
-}
+    const float minX = aabb.min.x, minY = aabb.min.y, minZ = aabb.min.z;
+    const float maxX = aabb.max.x, maxY = aabb.max.y, maxZ = aabb.max.z;
 
-void UVManager::OnFrustumExit(BaseCollider* self, BaseCollider* other) {
-    GameObject* go = other->GetGameObject();
-    if (!go) return;
-    
-    ModelComponent* model = go->GetComponentOfType<ModelComponent>();
-    if (!model) return;
-    
-    int id = model->GetID();
-    objectVisibilityState[id] = false;
-    
-    auto it = objectUVs.find(id);
-    if (it != objectUVs.end()) {
-        it->second.isInFrustum = false;
-        it->second.isVisible = false;
-    }
-}
+    for (int i = 0; i < 6; ++i) {
+        const Vector3f& n = planes[i].normal;
+        const float d = planes[i].d;
 
-Vector3f UVManager::TransformPoint(const Matrix4x4f& m, const Vector3f& v) {
-    float w = m(3,0) * v.x + m(3,1) * v.y + m(3,2) * v.z + m(3,3);
-    if (std::abs(w) < 0.0001f) return Vector3f(0, 0, 0);
-    return Vector3f(
-        (m(0,0) * v.x + m(0,1) * v.y + m(0,2) * v.z + m(0,3)) / w,
-        (m(1,0) * v.x + m(1,1) * v.y + m(1,2) * v.z + m(1,3)) / w,
-        (m(2,0) * v.x + m(2,1) * v.y + m(2,2) * v.z + m(2,3)) / w
-    );
-}
+        const float px = (n.x >= 0.0f) ? maxX : minX;
+        const float py = (n.y >= 0.0f) ? maxY : minY;
+        const float pz = (n.z >= 0.0f) ? maxZ : minZ;
 
-bool UVManager::HasObjectMoved(ModelComponent* model, const Matrix4x4f& currentMatrix) {
-    int id = model->GetID();
-    auto it = lastModelMatrices.find(id);
-    if (it == lastModelMatrices.end()) return true;
-    return it->second != currentMatrix;
-}
-
-bool UVManager::IsObjectVisible(ModelComponent* model, ObjectUVData& data) {
-    if (!frustumCollider) return true;
-    
-    auto visIt = objectVisibilityState.find(model->GetID());
-    if (visIt != objectVisibilityState.end()) {
-        return visIt->second;
-    }
-    
-    Transform3D* transform = model->GetGameObject()->GetComponentOfType<Transform3D>();
-    if (!transform) return false;
-    
-    Polyhedron3D* polyhedron = model->GetGameObject()->GetComponentOfType<Polyhedron3D>();
-    if (polyhedron) {
-        bool visible = frustumCollider->Intersects(polyhedron);
-        objectVisibilityState[model->GetID()] = visible;
-        return visible;
-    }
-    
-    if (data.hasGeometry) {
-        if (!data.aabbValid) {
-            data.updateAABB();
-        }
-        if (data.aabbValid) {
-            bool visible = IsAABBVisible(data.cachedAABB);
-            objectVisibilityState[model->GetID()] = visible;
-            return visible;
+        if (n.x * px + n.y * py + n.z * pz + d < 0.0f) {
+            return false;
         }
     }
-    
-    Vector3f worldPos = transform->GetGlobalPosition();
-    bool visible = IsPointVisible(worldPos);
-    objectVisibilityState[model->GetID()] = visible;
-    return visible;
+    return true;
 }
 
-ObjectUVData UVManager::CalculateObjectUV(ModelComponent* model) {
-    ObjectUVData data;
+void UVManager::CalculateObjectUV(ModelComponent* model, ObjectUVData& data) {
+    if (!model->IsCalculateUV()) return;
+
     data.objectID = model->GetID();
     data.isVisible = false;
-    
+
     Transform3D* transform = model->GetGameObject()->GetComponentOfType<Transform3D>();
-    if (!transform) return data;
-    
+    if (!transform) {
+        data.hasGeometry = false;
+        return;
+    }
+
     Model* mesh = model->GetModel();
     if (!mesh) {
         data.hasGeometry = false;
         data.isVisible = true;
-        return data;
+        return;
     }
-    
+
     const auto& vertices = mesh->GetVertices();
     const auto& indices = mesh->GetIndices();
-    
+
     if (vertices.empty() || indices.empty()) {
         data.hasGeometry = false;
         data.isVisible = true;
-        return data;
+        return;
     }
-    
-    data.reserve(vertices.size(), indices.size());
-    
-    for (const auto& vertex : vertices) {
-        data.localVertices.emplace_back(vertex.Position.x, vertex.Position.y, vertex.Position.z);
+
+    data.localVertices.resize(vertices.size());
+    for (size_t i = 0; i < vertices.size(); ++i) {
+        const auto& p = vertices[i].Position;
+        data.localVertices[i] = Vector3f(p.x, p.y, p.z);
     }
-    
+
     data.indices = indices;
     data.modelMatrix = transform->GetMatrix();
     data.hasGeometry = true;
     data.updateAABB();
     data.isVisible = true;
-    
-    return data;
 }
 
-void UVManager::ProjectVertices(const std::vector<Vector3f>& vertices, const Matrix4x4f& mvp, std::vector<Vector2f>& outScreen, std::vector<float>& outDepths) {
-    outScreen.clear();
-    outDepths.clear();
-    outScreen.reserve(vertices.size());
-    outDepths.reserve(vertices.size());
-    
+void UVManager::ProjectVertices(const std::vector<Vector3f>& vertices,
+                                const Matrix4x4f& mvp,
+                                std::vector<Vector2f>& outScreen,
+                                std::vector<float>& outDepths) {
+    const size_t n = vertices.size();
+    outScreen.resize(n);
+    outDepths.resize(n);
+
+    const float m00 = mvp(0,0), m01 = mvp(0,1), m02 = mvp(0,2), m03 = mvp(0,3);
+    const float m10 = mvp(1,0), m11 = mvp(1,1), m12 = mvp(1,2), m13 = mvp(1,3);
+    const float m20 = mvp(2,0), m21 = mvp(2,1), m22 = mvp(2,2), m23 = mvp(2,3);
+    const float m30 = mvp(3,0), m31 = mvp(3,1), m32 = mvp(3,2), m33 = mvp(3,3);
+
     const float nearClip = 0.001f;
-    
-    for (const auto& localPos : vertices) {
-        Vector3f clipPos = TransformPoint(mvp, localPos);
-        if (std::abs(clipPos.z) < nearClip) {
-            outScreen.emplace_back(-1.0f, -1.0f);
-            outDepths.push_back(1.0f);
+
+    for (size_t i = 0; i < n; ++i) {
+        const float x = vertices[i].x;
+        const float y = vertices[i].y;
+        const float z = vertices[i].z;
+
+        const float cx = m00*x + m01*y + m02*z + m03;
+        const float cy = m10*x + m11*y + m12*z + m13;
+        const float cz = m20*x + m21*y + m22*z + m23;
+        const float cw = m30*x + m31*y + m32*z + m33;
+
+        if (std::abs(cw) < nearClip) {
+            outScreen[i] = Vector2f(-1.0f, -1.0f);
+            outDepths[i] = 1.0f;
             continue;
         }
-        float invW = 1.0f / clipPos.z;
-        outScreen.emplace_back(clipPos.x * invW, clipPos.y * invW);
-        outDepths.push_back(clipPos.z);
+        const float invW = 1.0f / cw;
+        outScreen[i] = Vector2f(cx * invW, cy * invW);
+        outDepths[i] = cz * invW;
     }
 }
 
 void UVManager::UpdateObjectUVWithCamera(ObjectUVData& data) {
-    if (!camera || !data.isVisible) return;
-    
-    if (!data.hasGeometry || data.localVertices.empty()) {
+    if (!camera || !data.isVisible || !data.hasGeometry || data.localVertices.empty()) {
         data.screenVertices.clear();
         data.depths.clear();
         data.uvCoordinates.clear();
         return;
     }
-    
-    Matrix4x4f view = camera->GetViewMatrix();
-    Matrix4x4f proj = camera->GetProjectionMatrix(aspect);
-    Matrix4x4f mvp = proj * view * data.modelMatrix;
-    
-    ProjectVertices(data.localVertices, mvp, data.screenVertices, data.depths);
-    
-    data.uvCoordinates.clear();
-    data.uvCoordinates.reserve(data.screenVertices.size());
-    
-    for (const auto& screenPos : data.screenVertices) {
-        data.uvCoordinates.emplace_back((screenPos.x + 1.0f) * 0.5f, (screenPos.y + 1.0f) * 0.5f);
-    }
-}
 
-void UVManager::UpdateCache(const Matrix4x4f& view, const Matrix4x4f& proj) {
-    if (view != m_LastViewMatrix || proj != m_LastProjectionMatrix) {
-        m_LastViewMatrix = view;
-        m_LastProjectionMatrix = proj;
+    const Matrix4x4f mvp = viewProjMatrix * data.modelMatrix;
+    ProjectVertices(data.localVertices, mvp, data.screenVertices, data.depths);
+
+    const size_t n = data.screenVertices.size();
+    data.uvCoordinates.resize(n);
+    for (size_t i = 0; i < n; ++i) {
+        const Vector2f& s = data.screenVertices[i];
+        data.uvCoordinates[i] = Vector2f((s.x + 1.0f) * 0.5f, (s.y + 1.0f) * 0.5f);
     }
 }
 
 void UVManager::UpdateUVs(const std::vector<ModelComponent*>& models) {
-    if (!camera || !colliderManager) return;
-    
-    if (frustumCollider) {
-        frustumCollider->SetAspect(aspect);
-        frustumCollider->SetFOV(fov);
-        frustumCollider->SetNearFar(near, far);
-        frustumCollider->Update();
-    }
-    
-    Matrix4x4f view = camera->GetViewMatrix();
-    Matrix4x4f proj = camera->GetProjectionMatrix(aspect);
-    UpdateCache(view, proj);
-    
-    m_FrameCounter++;
-    for (auto* model : models) {
-        if (model) {
-            objectUpdateFrameState[model->GetID()] = false;
-        }
+    if (!camera) return;
+
+    RebuildFrameCache();
+    ++frameCounter;
+
+    for (ModelComponent* model : models) {
+        if (!model) continue;
+        GetObjectUV(model);
     }
 }
 
 const ObjectUVData& UVManager::GetObjectUV(ModelComponent* model) {
     static ObjectUVData emptyData;
     if (!model || !camera) return emptyData;
-    
-    int id = model->GetID();
-    
-    auto frameIt = lastUpdateFrames.find(id);
-    if (frameIt != lastUpdateFrames.end() && frameIt->second == m_FrameCounter) {
-        auto uvIt = objectUVs.find(id);
-        if (uvIt != objectUVs.end()) {
-            return uvIt->second;
-        }
-        return emptyData;
-    }
-    
-    auto stateIt = objectUpdateFrameState.find(id);
-    if (stateIt != objectUpdateFrameState.end() && stateIt->second) {
-        auto uvIt = objectUVs.find(id);
-        if (uvIt != objectUVs.end()) {
-            return uvIt->second;
-        }
-        return emptyData;
-    }
-    
+
+    if (!frameCacheValid) RebuildFrameCache();
+
+    const int id = model->GetID();
+
     Transform3D* transform = model->GetGameObject()->GetComponentOfType<Transform3D>();
     if (!transform) return emptyData;
-    
-    Matrix4x4f currentMatrix = transform->GetMatrix();
-    bool moved = HasObjectMoved(model, currentMatrix);
-    
-    ObjectUVData data;
+
+    const Matrix4x4f currentMatrix = transform->GetMatrix();
+
     auto uvIt = objectUVs.find(id);
-    if (uvIt != objectUVs.end() && !moved) {
-        data = uvIt->second;
-    } 
-    else {
-        data = CalculateObjectUV(model);
+    auto matIt = lastModelMatrices.find(id);
+
+    const bool moved = (matIt == lastModelMatrices.end()) || (matIt->second != currentMatrix);
+
+    if (!moved && uvIt != objectUVs.end()) {
+        ObjectUVData& data = uvIt->second;
+        if (data.hasGeometry) {
+            const bool visible = data.aabbValid ? IsAABBVisible(data.cachedAABB) : true;
+            data.isInFrustum = visible;
+            data.isVisible = visible;
+            data.wasVisibleLastFrame = visible;
+            data.lastUpdateFrame = frameCounter;
+
+            if (visible) {
+                UpdateObjectUVWithCamera(data);
+            }
+        }
+        return data;
     }
-    
-    objectUpdateFrameState[id] = true;
-    lastUpdateFrames[id] = m_FrameCounter;
-    
+
+    ObjectUVData& data = objectUVs[id];
+
+    CalculateObjectUV(model, data);
+    data.lastUpdateFrame = frameCounter;
+
     if (data.isVisible) {
-        bool visible = IsObjectVisible(model, data);
+        const bool visible = data.hasGeometry
+            ? (data.aabbValid ? IsAABBVisible(data.cachedAABB) : true)
+            : IsPointVisible(transform->GetGlobalPosition());
+
         data.isInFrustum = visible;
         data.isVisible = visible;
-        
-        if (visible && moved && data.hasGeometry) {
+
+        if (visible && data.hasGeometry) {
             UpdateObjectUVWithCamera(data);
-        } 
+        }
         else if (!visible) {
             data.clear();
         }
     }
-    
+
     data.wasVisibleLastFrame = data.isVisible;
     lastModelMatrices[id] = currentMatrix;
-    objectUVs[id] = std::move(data);
-    return objectUVs[id];
+    return data;
 }
 
 void UVManager::Cleanup() {
     std::vector<int> toRemove;
     for (const auto& [id, data] : objectUVs) {
-        if (objectUpdateFrameState.find(id) == objectUpdateFrameState.end()) {
+        if (data.lastUpdateFrame != frameCounter) {
             toRemove.push_back(id);
         }
     }
     for (int id : toRemove) {
         objectUVs.erase(id);
-        objectVisibilityState.erase(id);
         lastModelMatrices.erase(id);
-        lastUpdateFrames.erase(id);
     }
 }
 
 void UVManager::InvalidateCache() {
-    m_LastViewMatrix = Matrix4x4f::Identity();
-    m_LastProjectionMatrix = Matrix4x4f::Identity();
-    m_FrameCounter = 0;
-    objectVisibilityState.clear();
+    frameCacheValid = false;
+    frameCounter = 0;
+    objectUVs.clear();
     lastModelMatrices.clear();
-    lastUpdateFrames.clear();
 }
 
 bool UVManager::HasChanged() const {
     if (!camera) return false;
-    Matrix4x4f currentView = camera->GetViewMatrix();
-    Matrix4x4f currentProj = camera->GetProjectionMatrix(aspect);
-    return (currentView != m_LastViewMatrix || currentProj != m_LastProjectionMatrix);
+    const Matrix4x4f currentView = camera->GetViewMatrix();
+    const Matrix4x4f currentProj = camera->GetProjectionMatrix(aspect);
+    return (currentView != viewMatrix || currentProj != projMatrix);
 }

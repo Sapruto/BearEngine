@@ -11,14 +11,14 @@ private:
     int attempts{0};
     int maxAttemps{10};
 
-    Vector3 overallMomentum;
+    Vector3f overallMomentum;
     float threshold;
 
     bool isActive;
 
     PhysicCollisionSystem* system;
 
-    void CalculateImpulse(ImpulseModule* A, ImpulseModule* B, const Vector3& normal);
+    void CalculateImpulse(ImpulseModule* A, ImpulseModule* B, const Vector3f& normal);
 public:
     LocalPhysicCollisionSystem() = default;
     LocalPhysicCollisionSystem(PhysicCollisionSystem* system, float threshold=2) : system(system), threshold(threshold)  {}
