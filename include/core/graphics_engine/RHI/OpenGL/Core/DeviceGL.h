@@ -1,16 +1,16 @@
 #pragma once
 
 #include "RHI/Base/Core/BaseDevice.h"
-#include "RHI/OpenGL/Core/OpenGLWindow.h"
+#include "RHI/OpenGL/Core/WindowGL.h"
 
 class OpenGLDevice : public BaseDevice {
 private:
-    OpenGLWindow* GetGLWindow() const {
-        return static_cast<OpenGLWindow*>(window.get());
+    WindowGL* GetGLWindow() const {
+        return static_cast<WindowGL*>(window.get());
     }
 
 public:
-    explicit OpenGLDevice(std::shared_ptr<OpenGLWindow> win)
+    explicit OpenGLDevice(std::shared_ptr<WindowGL> win)
         : BaseDevice(win) {}
     
     bool Initialize() override {
@@ -37,6 +37,27 @@ public:
         auto glWindow = GetGLWindow();
         if (glWindow) {
             glWindow->SwapBuffers();
+        }
+    }
+
+    void Clear(ClearFlagsRHI flags = ClearFlagsRHI::All) override {
+        GLbitfield mask = 0;
+
+        if (HasFlag(flags, ClearFlagsRHI::Color)) {
+            glClearColor(clearColor.r, clearColor.g, clearColor.b, clearColor.a);
+            mask |= GL_COLOR_BUFFER_BIT;
+        }
+        if (HasFlag(flags, ClearFlagsRHI::Depth)) {
+            glClearDepth(clearDepthValue);
+            mask |= GL_DEPTH_BUFFER_BIT;
+        }
+        if (HasFlag(flags, ClearFlagsRHI::Stencil)) {
+            glClearStencil(clearStencilValue);
+            mask |= GL_STENCIL_BUFFER_BIT;
+        }
+
+        if (mask != 0) {
+            glClear(mask);
         }
     }
     

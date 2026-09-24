@@ -7,7 +7,7 @@
 #include "Vector2.h"
 
 class BaseWindow {
-private:
+protected:
     std::any nativeHandle;
     RectRHI windowSize;
     
@@ -28,8 +28,7 @@ private:
     bool needsResize{false};
     bool needsRedraw{false};
 
-protected:
-    void SetSize(int w, int h) { 
+    void SetSize(float w, float h) { 
         windowSize = {0, 0, w, h}; 
         if (resizeCallback) resizeCallback(w, h);
     }
@@ -50,4 +49,6 @@ public:
     
     void SetResizeCallback(std::function<void(int,int)> cb) { resizeCallback = cb; }
     void SetCloseCallback(std::function<void()> cb) { closeCallback = cb; }
+
+    virtual bool ShouldClose() const = 0;
 };

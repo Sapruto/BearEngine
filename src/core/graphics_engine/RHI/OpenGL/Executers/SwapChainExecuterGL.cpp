@@ -1,16 +1,10 @@
-#include "RHI/OpenGL/Executers/SwapChainGL.h"
+#include "RHI/OpenGL/Executers/SwapChainExecuterGL.h"
 
 #include "RHI/Base/Core/BaseDevice.h"
 #include "RHI/Base/Core/BaseWindow.h"
 
-#include <iostream>
-
 namespace SwapChainExecute {
-    GLFWwindow* SwapChainGL::GetWindow(void* windowHandle) {
-        return static_cast<GLFWwindow*>(windowHandle);
-    }
-
-    bool SwapChainGL::CheckGLError(const char* op, std::string& errorMsg, GLenum& errorCode) {
+    bool SwapChainExecuterGL::CheckGLError(const char* op, std::string& errorMsg, GLenum& errorCode) {
         GLenum err = glGetError();
         if (err != GL_NO_ERROR) {
             errorMsg = std::string("OpenGL Error ") + op + ": " + std::to_string(err);
@@ -20,7 +14,7 @@ namespace SwapChainExecute {
         return true;
     }
 
-    GLenum SwapChainGL::GetGLInterval(IntervalType interval) {
+    GLenum SwapChainExecuterGL::GetGLInterval(IntervalType interval) {
         switch (interval) {
             case IntervalType::FIFO: return 1;
             case IntervalType::IMMEDIATE: return 0;
@@ -30,12 +24,8 @@ namespace SwapChainExecute {
         }
     }
 
-    bool SwapChainGL::IsValid() {
-        return window != nullptr && glfwGetCurrentContext() != nullptr;
-    }
-
     
-    SwapChainExecuteResult SwapChainGL::ProcessSwapChainCreateImpl(BaseDevice& device, const SwapChainCreateParams& params) {
+    SwapChainExecuteResult SwapChainExecuterGL::ProcessSwapChainCreateImpl(BaseDevice& device, const SwapChainCreateParams& params) {
         std::string errorMsg;
         GLenum errorCode = GL_NO_ERROR;
         bool success = true;
@@ -56,8 +46,9 @@ namespace SwapChainExecute {
             return SwapChainExecuteResult(result);
         }
 
-        void* nativeHandle = std::any_cast<void*>(baseWindow->GetNativeHandle());
-        window = GetWindow(nativeHandle);
+        GLFWwindow* nativeHandle = std::any_cast<GLFWwindow*>(baseWindow->GetNativeHandle());
+        window = nativeHandle;
+
         if (!window) {
             SwapChainCreateResult result;
             result.windowHandle = nativeHandle;
@@ -91,9 +82,7 @@ namespace SwapChainExecute {
         if (success) {
             glfwSwapInterval(GetGLInterval(params.intervalType));
             CheckGLError("glfwSwapInterval", errorMsg, errorCode);
-        }
 
-        if (success) {
             glfwShowWindow(window);
         }
 
@@ -113,7 +102,7 @@ namespace SwapChainExecute {
     }
 
 
-    SwapChainExecuteResult SwapChainGL::ProcessSwapChainResizeImpl(BaseDevice& device, const SwapChainResizeParams& params) {
+    SwapChainExecuteResult SwapChainExecuterGL::ProcessSwapChainResizeImpl(BaseDevice& device, const SwapChainResizeParams& params) {
         std::string errorMsg;
         GLenum errorCode = GL_NO_ERROR;
         bool success = true;
@@ -152,7 +141,7 @@ namespace SwapChainExecute {
     }
 
 
-    SwapChainExecuteResult SwapChainGL::ProcessSwapChainPresentImpl(BaseDevice& device, const SwapChainPresentParams& params) {
+    SwapChainExecuteResult SwapChainExecuterGL::ProcessSwapChainPresentImpl(BaseDevice& device, const SwapChainPresentParams& params) {
         std::string errorMsg;
         GLenum errorCode = GL_NO_ERROR;
         bool success = true;
@@ -203,7 +192,7 @@ namespace SwapChainExecute {
     }
 
 
-    SwapChainExecuteResult SwapChainGL::ProcessSwapChainDestroyImpl(BaseDevice& device, const SwapChainDestroyParams& params) {
+    SwapChainExecuteResult SwapChainExecuterGL::ProcessSwapChainDestroyImpl(BaseDevice& device, const SwapChainDestroyParams& params) {
         std::string errorMsg;
         GLenum errorCode = GL_NO_ERROR;
         bool success = true;
@@ -243,5 +232,9 @@ namespace SwapChainExecute {
         result.errorMessage = errorMsg;
 
         return SwapChainExecuteResult(result);
+    }
+
+    bool SwapChainExecuterGL::IsValid() {
+        return glfwGetCurrentContext() != nullptr;
     }
 }

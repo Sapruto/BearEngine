@@ -44,12 +44,15 @@ namespace BufferExecute {
     };
     
     template<typename BufferExecuterImpl>
-    requires(HasBufferExecuterImpl<BufferExecuterImpl>)
     class BufferExecuter : public BaseExecuterRHI<BufferExecuterImpl, BufferParams, BufferExecuteResult> {
     private:
         BufferExecuterImpl* impl;
 
-    protected:
+    public:
+        BufferExecuter() : impl(static_cast<BufferExecuterImpl*>(this)) {
+            this->type = ExecuterTypeRHI::BufferExecuter;
+        }
+        
         BufferExecuteResult ProcessFBOCreate(BaseDevice& device, const FBOCreateParams& params) {
             return impl->ProcessFBOCreateImpl(device, params);
         }
@@ -153,11 +156,6 @@ namespace BufferExecute {
                     result.errorMessage = "Unknown parameter type";
                     return result;
             }
-        }
-        
-    public:
-        BufferExecuter() : impl(static_cast<BufferExecuterImpl*>(this)) {
-            this->type = ExecuterTypeRHI::BufferExecuter;
         }
         
         void ProcessParamsImpl(BaseDevice& device) {

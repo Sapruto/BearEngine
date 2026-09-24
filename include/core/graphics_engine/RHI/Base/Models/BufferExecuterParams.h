@@ -61,6 +61,7 @@ namespace BufferExecute {
     };
 
     enum class ParamType : uint8_t {
+        BASE,
         FBO_CREATE,
         FBO_ATTACH_TEXTURE,
         FBO_CHANGE,
@@ -85,9 +86,7 @@ namespace BufferExecute {
         void SetType(ParamType newType) { type = newType; }
 
     public:
-        BaseBufferParams() : type(ParamType::FBO_CREATE) {}
-        virtual ~BaseBufferParams() = default;
-        
+        BaseBufferParams() : type(ParamType::BASE) {}
         ParamType GetType() const { return type; }
     };
 

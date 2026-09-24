@@ -8,12 +8,12 @@
 #include <algorithm>
 
 #include "RHI/Base/Core/BaseDevice.h"
-#include "RHI/Fabric/CurrentExecuters.h"
+#include "RHI/Base/Executers/IExecuterRHI.h"
 
 class ExecuterQueueRHI {
 private:
-    std::vector<FabricRHI::ExecuteImplVariant*> executers;
-    std::mutex executersMutex;
+    std::vector<IExecuterRHI*> executers;
+    mutable std::mutex executersMutex;
     
     std::atomic<bool> isExecuting{false};
     std::shared_ptr<BaseDevice> device;
@@ -36,9 +36,10 @@ private:
             
             if (needSort) {
                 std::sort(executers.begin(), executers.end(),
-                    [](FabricRHI::ExecuteImplVariant* a, FabricRHI::ExecuteImplVariant* b) {
+                    [](IExecuterRHI* a, IExecuterRHI* b) {
                         return a->GetLayer() < b->GetLayer();
                     });
+                needSort = false;
             }
             
             for (auto* exec : executers) {
@@ -71,18 +72,11 @@ public:
         Clear();
     }
 
-    void AddExecuter(FabricRHI::ExecuteImplVariant* exec) {
+    void AddExecuter(IExecuterRHI* exec) {
         if (!exec) return;
         std::lock_guard<std::mutex> lock(executersMutex);
         executers.push_back(exec);
         needSort = true;
-    }
-
-    template<typename T, typename... Args>
-    T* CreateAndAdd(Args&&... args) {
-        auto* exec = new T(std::forward<Args>(args)...);
-        AddExecuter(exec);
-        return exec;
     }
 
     void MarkAllForProcessing() {
@@ -92,7 +86,7 @@ public:
         }
     }
 
-    void MarkForProcessing(FabricRHI::ExecuteImplVariant* exec) {
+    void MarkForProcessing(IExecuterRHI* exec) {
         if (!exec) return;
         exec->MarkProcess(true);
     }
@@ -104,7 +98,7 @@ public:
         }
     }
 
-    void RemoveExecuter(FabricRHI::ExecuteImplVariant* exec) {
+    void RemoveExecuter(IExecuterRHI* exec) {
         if (!exec) return;
         std::lock_guard<std::mutex> lock(executersMutex);
         auto it = std::find(executers.begin(), executers.end(), exec);
@@ -158,7 +152,7 @@ public:
         return !executers.empty();
     }
 
-    FabricRHI::ExecuteImplVariant* GetExecuter(size_t index) {
+    IExecuterRHI* GetExecuter(size_t index) {
         std::lock_guard<std::mutex> lock(executersMutex);
         if (index < executers.size()) {
             return executers[index];
@@ -166,7 +160,7 @@ public:
         return nullptr;
     }
 
-    const FabricRHI::ExecuteImplVariant* GetExecuter(size_t index) const {
+    const IExecuterRHI* GetExecuter(size_t index) const {
         std::lock_guard<std::mutex> lock(executersMutex);
         if (index < executers.size()) {
             return executers[index];
@@ -184,7 +178,7 @@ public:
     bool HasMarkedExecuters() const {
         std::lock_guard<std::mutex> lock(executersMutex);
         return std::any_of(executers.begin(), executers.end(),
-            [](FabricRHI::ExecuteImplVariant* exec) {
+            [](IExecuterRHI* exec) {
                 return exec && exec->IsMarkedToProcess();
             });
     }
@@ -192,7 +186,7 @@ public:
     size_t GetMarkedExecuterCount() const {
         std::lock_guard<std::mutex> lock(executersMutex);
         return std::count_if(executers.begin(), executers.end(),
-            [](FabricRHI::ExecuteImplVariant* exec) {
+            [](IExecuterRHI* exec) {
                 return exec && exec->IsMarkedToProcess();
             });
     }

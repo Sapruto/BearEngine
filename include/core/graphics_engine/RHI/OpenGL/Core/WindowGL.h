@@ -26,4 +26,6 @@ public:
     void SwapBuffers() override;
     
     GLFWwindow* GetGLFWWindow() const { return window; }
+
+    bool ShouldClose() const override;
 };

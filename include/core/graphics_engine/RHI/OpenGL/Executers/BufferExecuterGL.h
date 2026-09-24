@@ -9,7 +9,7 @@
 #include <string>
 
 namespace BufferExecute {
-    class BufferExecuterGL : public BufferExecuter<BufferExecuterGL> {
+    class BufferExecuterGL final : public BufferExecuter<BufferExecuterGL> {
     private:
         bool CheckGLError(const char* op, std::string& errorMsg, GLenum& errorCode);
         void BindFBO(unsigned int fboId, BindTarget bindTarget);
@@ -23,7 +23,10 @@ namespace BufferExecute {
         GLenum GetGLAttributeType(AttributeType type);
         GLsizei GetAttributeSize(AttributeType type);
 
-    protected:
+        size_t GetBufferSize(GLenum target, GLuint bufferID);
+        const void* ExtractDataFromVariant(const IBOUpdateParams& params, size_t& elementSize);
+
+    public:
         BufferExecuteResult ProcessFBOCreateImpl(BaseDevice& device, const FBOCreateParams& params);
         BufferExecuteResult ProcessFBOAttachImpl(BaseDevice& device, const FBOAttachTextureParams& params);
         BufferExecuteResult ProcessFBOChangeImpl(BaseDevice& device, const FBOChangeParams& params);

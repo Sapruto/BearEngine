@@ -10,9 +10,11 @@
 #include <unordered_map>
 #include <memory>
 #include <atomic>
+#include <stdexcept>
 
 #include "RHI/Base/Core/BaseDevice.h"
 #include "RHI/Base/Executers/ExecuterTypeRHI.h"
+#include "RHI/Base/Executers/IExecuterRHI.h"
 
 template<typename T>
 concept HasProcessParamsImpl = requires(T* t, BaseDevice& device) {
@@ -38,11 +40,23 @@ struct SubscriptionToken {
     }
 };
 
+template<typename T>
+struct is_variant : std::false_type {};
+template<typename... Ts>
+struct is_variant<std::variant<Ts...>> : std::true_type {};
+template<typename T>
+inline constexpr bool is_variant_v = is_variant<T>::value;
+
 template<typename ExecuterImplRHI, typename Params, typename ProcessResult>
-    requires(std::is_variant_v<Params> && 
-            HasProcessParamsImpl<ExecuterImplRHI> && 
+    requires(is_variant_v<Params> && 
             std::is_base_of_v<BaseProcessResult, ProcessResult>)
-class BaseExecuterRHI {
+class BaseExecuterRHI : public IExecuterRHI {
+protected:
+    using ParamsType = Params;
+    using ResultType = ProcessResult;
+    using CallbackType = std::function<void(const std::vector<ProcessResult>&)>;
+    using OnceCallbackType = std::function<void(const std::vector<ProcessResult>&)>;
+
 private:
     SubscriptionToken SubscribeInternal(int paramID, CallbackType callback, bool isOnce) {
         uint64_t id = nextId.fetch_add(1);
@@ -59,11 +73,6 @@ private:
     }
 
 protected:
-    using ParamsType = Params;
-    using ResultType = ProcessResult;
-    using CallbackType = std::function<void(const std::vector<ProcessResult>&)>;
-    using OnceCallbackType = std::function<void(const std::vector<ProcessResult>&)>;
-
     struct Subscriber {
         uint64_t id;
         int paramID;
@@ -74,7 +83,7 @@ protected:
             : id(id), paramID(paramID), callback(std::move(callback)), isOnce(isOnce) {}
     };
 
-    ExecuterTypeRHI type;
+    ExecuterTypeRHI type{ExecuterTypeRHI::Base};
     unsigned int layer{0};
     std::vector<Params> params;
     
@@ -117,7 +126,7 @@ public:
     BaseExecuterRHI() = default;
     ~BaseExecuterRHI() = default;
 
-    void ProcessParams(BaseDevice& device) {
+    void ProcessParams(BaseDevice& device) override {
         static_cast<ExecuterImplRHI*>(this)->ProcessParamsImpl(device);
     }
 
@@ -181,11 +190,11 @@ public:
     }
 
     ExecuterTypeRHI GetExecuterType() const { return type; }
-    int GetLayer() const { return layer; }
+    unsigned int GetLayer() const override { return layer; }
     const std::vector<Params>& GetParams() const { return params; }
     std::vector<Params>& GetParams() { return params; }
 
-    void SetLayer(unsigned int newLayer) { layer = newLayer; }
+    void SetLayer(unsigned int newLayer) override { layer = newLayer; }
 
     int AddParam(Params param) {
         int id = static_cast<int>(params.size());
@@ -251,10 +260,10 @@ public:
         layer = 0;
     }
 
-    void MarkProcess(bool newValue) {
+    void MarkProcess(bool newValue) override {
         markProcess = newValue;
     }
-    bool IsMarkedToProcess() const { return markProcess; }
+    bool IsMarkedToProcess() const override { return markProcess; }
 
     bool operator==(const BaseExecuterRHI& other) const {
         return this == &other;

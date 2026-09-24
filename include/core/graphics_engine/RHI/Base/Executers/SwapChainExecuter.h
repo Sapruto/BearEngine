@@ -22,12 +22,15 @@ namespace SwapChainExecute {
     };
     
     template<typename SwapChainExecuterImpl>
-    requires(HasSwapChainExecuterImpl<SwapChainExecuterImpl>)
     class SwapChainExecuter : public BaseExecuterRHI<SwapChainExecuterImpl, SwapChainParams, SwapChainExecuteResult> {
     private:
         SwapChainExecuterImpl* impl;
 
-    protected:
+    public:
+        SwapChainExecuter() : impl(static_cast<SwapChainExecuterImpl*>(this)) {
+            this->type = ExecuterTypeRHI::SwapChainExecuter;
+        }
+        
         SwapChainExecuteResult ProcessSwapChainCreate(BaseDevice& device, const SwapChainCreateParams& params) {
             return impl->ProcessSwapChainCreateImpl(device, params);
         }
@@ -68,11 +71,6 @@ namespace SwapChainExecute {
                     result.errorMessage = "Unknown parameter type";
                     return result;
             }
-        }
-        
-    public:
-        SwapChainExecuter() : impl(static_cast<SwapChainExecuterImpl*>(this)) {
-            this->type = ExecuterTypeRHI::SwapChainExecuter;
         }
         
         void ProcessParamsImpl(BaseDevice& device) {

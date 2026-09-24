@@ -43,8 +43,8 @@ void WindowGL::MouseCallback(GLFWwindow* window, double xpos, double ypos) {
 bool WindowGL::Create(const std::string& title, int w, int h) {
     this->title = title;
     
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
     glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
     
@@ -85,4 +85,8 @@ void WindowGL::PollEvents() {
 
 void WindowGL::SwapBuffers() {
     glfwSwapBuffers(window);
+}
+
+bool WindowGL::ShouldClose() const {
+    return window ? glfwWindowShouldClose(window) : true;
 }

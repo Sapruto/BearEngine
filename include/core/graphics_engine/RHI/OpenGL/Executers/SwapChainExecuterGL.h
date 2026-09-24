@@ -11,10 +11,8 @@
 #include <chrono>
 
 namespace SwapChainExecute {
-    class SwapChainGL : public SwapChainExecuter<SwapChainGL> {
+    class SwapChainExecuterGL final : public SwapChainExecuter<SwapChainExecuterGL> {
     private:
-        GLFWwindow* GetWindow(void* windowHandle);
-        
         bool CheckGLError(const char* op, std::string& errorMsg, GLenum& errorCode);
         GLenum GetGLInterval(IntervalType interval);
         
@@ -27,7 +25,7 @@ namespace SwapChainExecute {
         uint64_t presentCounter{0};
         double lastPresentTime{0.0};
 
-    protected:
+    public:
         SwapChainExecuteResult ProcessSwapChainCreateImpl(BaseDevice& device, const SwapChainCreateParams& params);
         SwapChainExecuteResult ProcessSwapChainResizeImpl(BaseDevice& device, const SwapChainResizeParams& params);
         SwapChainExecuteResult ProcessSwapChainPresentImpl(BaseDevice& device, const SwapChainPresentParams& params);
