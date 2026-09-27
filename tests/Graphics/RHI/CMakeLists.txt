@@ -24,7 +24,6 @@ set_target_properties(glad_lib PROPERTIES LINKER_LANGUAGE C)
 file(GLOB_RECURSE RHI_SOURCES
     "${ROOT_DIR}/src/core/graphics_engine/RHI/*.cpp"
 )
-list(FILTER RHI_SOURCES EXCLUDE REGEX "FabricRHI\\.cpp$")
 
 list(APPEND RHI_SOURCES
     "${CMAKE_CURRENT_SOURCE_DIR}/Examples/OpenGLTriangle.cpp"

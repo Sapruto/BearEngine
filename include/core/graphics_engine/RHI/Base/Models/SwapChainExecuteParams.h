@@ -43,6 +43,13 @@ namespace SwapChainExecute {
         SwapChainCreateParams() {
             SetType(ParamType::CREATE);
         }
+
+        SwapChainCreateParams(void* windowHandle, uint32_t width, uint32_t height,
+                              uint32_t swapChainSize, IntervalType intervalType, float colorSpace)
+            : windowHandle(windowHandle), width(width), height(height),
+              swapChainSize(swapChainSize), intervalType(intervalType), colorSpace(colorSpace) {
+            SetType(ParamType::CREATE);
+        }
     };
 
     struct SwapChainResizeParams : public BaseSwapChainParams {
@@ -51,6 +58,11 @@ namespace SwapChainExecute {
         bool preserveContent;
 
         SwapChainResizeParams() {
+            SetType(ParamType::RESIZE);
+        }
+
+        SwapChainResizeParams(uint32_t newWidth, uint32_t newHeight, bool preserveContent)
+            : newWidth(newWidth), newHeight(newHeight), preserveContent(preserveContent) {
             SetType(ParamType::RESIZE);
         }
     };
@@ -62,12 +74,22 @@ namespace SwapChainExecute {
         SwapChainPresentParams() {
             SetType(ParamType::PRESENT);
         }
+
+        SwapChainPresentParams(uint32_t syncInterval, IntervalType intervalType)
+            : syncInterval(syncInterval), intervalType(intervalType) {
+            SetType(ParamType::PRESENT);
+        }
     };
 
     struct SwapChainDestroyParams : public BaseSwapChainParams {
         bool forceImmediate;
 
         SwapChainDestroyParams() {
+            SetType(ParamType::DESTROY);
+        }
+
+        SwapChainDestroyParams(bool forceImmediate)
+            : forceImmediate(forceImmediate) {
             SetType(ParamType::DESTROY);
         }
     };

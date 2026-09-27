@@ -3,14 +3,14 @@
 #include "RHI/Base/Core/BaseDevice.h"
 #include "RHI/OpenGL/Core/WindowGL.h"
 
-class OpenGLDevice : public BaseDevice {
+class DeviceGL : public BaseDevice {
 private:
     WindowGL* GetGLWindow() const {
         return static_cast<WindowGL*>(window.get());
     }
 
 public:
-    explicit OpenGLDevice(std::shared_ptr<WindowGL> win)
+    explicit DeviceGL(std::shared_ptr<WindowGL> win)
         : BaseDevice(win) {}
     
     bool Initialize() override {

@@ -1,18 +1,55 @@
-#include "RHI/Fabric/FabricRHI.h"
+/*#include "RHI/Fabric/FabricRHI.h"
 
-#include "RHI/OpenGL/WindowGL.h"
-#include "RHI/OpenGL/DeviceGL.h"
-#include "RHI/OpenGL/ShaderGL.h"
+#include "RHI/OpenGL/Core/DeviceGL.h"
+#include "RHI/OpenGL/Core/WindowGL.h"
+#include "RHI/OpenGL/Core/ShaderGL.h"
+#include "RHI/OpenGL/Core/ContextInstanceGL.h"
 
 #include "RHI/OpenGL/Executers/BufferExecuterGL.h"
 #include "RHI/OpenGL/Executers/DrawExecuterGL.h"
 #include "RHI/OpenGL/Executers/SwapChainExecuterGL.h"
 
 namespace FabricRHI {
-    std::unique_ptr<BaseWindow> CreateWindow(BackendType type,
-                                             const std::string& title,
+    using BufferExecuterVariant = std::variant<std::monostate,
+                                                BufferExecute::BufferExecuterGL*>;
+
+    using DrawExecuterVariant = std::variant<std::monostate,
+                                                DrawExecute::DrawExecuterGL*>;
+
+    using SwapChainExecuterVariant = std::variant<std::monostate,
+                                                SwapChainExecute::SwapChainExecuterGL*>;
+
+    using AnyExecuterVariant = std::variant<
+        std::monostate,
+        BufferExecuterVariant,
+        DrawExecuterVariant,
+        SwapChainExecuterVariant
+    >;
+
+    BackendType BackendBaseType = BackendType::OpenGL;
+
+    std::unique_ptr<BaseContextInstanceRHI> CreateContext(BackendType type) {
+        if (type == BackendType::USE_BASE) type = BackendBaseType;
+
+        switch (type) {
+            case BackendType::OpenGL: {
+                auto context = std::make_unique<ContextInstanceGL>();
+                return context;
+            }
+            case BackendType::Vulkan:
+                //TODO
+                return nullptr;
+            default:
+                return nullptr;
+        }
+    }
+
+    std::unique_ptr<BaseWindow> CreateWindow(const std::string& title,
                                              unsigned int width,
-                                             unsigned int height) {
+                                             unsigned int height,
+                                             BackendType type) {
+        if (type == BackendType::USE_BASE) type = BackendBaseType;
+
         switch (type) {
             case BackendType::OpenGL: {
                 auto window = std::make_unique<WindowGL>();
@@ -29,9 +66,10 @@ namespace FabricRHI {
         }
     }
 
-    std::unique_ptr<BaseDevice> CreateDevice(BackendType type,
-                                             std::shared_ptr<BaseWindow> window) {
+    std::unique_ptr<BaseDevice> CreateDevice(std::shared_ptr<BaseWindow> window,
+                                             BackendType type) {
         if (!window) return nullptr;
+        if (type == BackendType::USE_BASE) type = BackendBaseType;
 
         switch (type) {
             case BackendType::OpenGL: {
@@ -47,20 +85,38 @@ namespace FabricRHI {
         }
     }
 
-    std::unique_ptr<BaseShader> CreateShader(BackendType type,
-                                             const std::string& vertexPath,
-                                             const std::string& fragmentPath) {
+    std::unique_ptr<BaseShader> CreateShader(const std::string& vertexPath,
+                                             const std::string& fragmentPath,
+                                             BackendType type) {
+        if (type == BackendType::USE_BASE) type = BackendBaseType;
+
         switch (type) {
             case BackendType::OpenGL: {
                 auto shader = std::make_unique<ShaderGL>(vertexPath, fragmentPath);
-                if (!shader->Initialize()) {
-                    return nullptr;
-                }
                 return shader;
             }
             case BackendType::Vulkan:
                 //TODO
                 return nullptr;
+            default:
+                return nullptr;
+        }
+    }
+
+    void* WindowNativeHandleToVoid(const std::any& native, BackendType type) {
+        if (type == BackendType::USE_BASE) type = BackendBaseType;
+
+        switch (type) {
+            case BackendType::OpenGL: {
+                if (auto* pp = std::any_cast<GLFWwindow*>(&native)) {
+                    return static_cast<void*>(*pp);
+                }
+                return nullptr;
+            }
+            case BackendType::Vulkan: {
+                // TODO
+                return nullptr;
+            }
             default:
                 return nullptr;
         }
@@ -75,8 +131,8 @@ namespace FabricRHI {
 
         void RebuildRaw() {
             raw.clear();
-            if (bufferExec)    raw.push_back(bufferExec.get());
-            if (drawExec)      raw.push_back(drawExec.get());
+            if (bufferExec) raw.push_back(bufferExec.get());
+            if (drawExec) raw.push_back(drawExec.get());
             if (swapChainExec) raw.push_back(swapChainExec.get());
         }
 
@@ -97,6 +153,7 @@ namespace FabricRHI {
     ExecutersOwner& ExecutersOwner::operator=(ExecutersOwner&&) noexcept = default;
 
     void ExecutersOwner::Create(BackendType type) {
+        if (type == BackendType::USE_BASE) type = BackendBaseType;
         impl->Clear();
 
         switch (type) {
@@ -117,17 +174,45 @@ namespace FabricRHI {
         impl->RebuildRaw();
     }
 
-    std::vector<IExecuterRHI*> ExecutersOwner::GetExecuters() const {
+    std::vector<IExecuterRHI*> ExecutersOwner::GetIExecuters() const {
         return impl->raw;
     }
 
-    IExecuterRHI* ExecutersOwner::GetExecuter(ExecuterTypeRHI type) const {
+    IExecuterRHI* ExecutersOwner::GetIExecuter(ExecuterTypeRHI type) const {
         for (auto* e : impl->raw) {
             if (e && e->GetExecuterType() == type) {
                 return e;
             }
         }
         return nullptr;
+    }
+
+    AnyExecuterVariant ExecutersOwner::GetExecuter(ExecuterTypeRHI type, BackendType backend) const {
+        if (backend == BackendType::USE_BASE) backend = impl->backend;
+
+        switch (backend) {
+            case BackendType::OpenGL: {
+                switch (type) {
+                    case ExecuterTypeRHI::BufferExecuter:
+                        if (impl->bufferExec)    return impl->bufferExec.get();
+                        return std::monostate{};
+                    case ExecuterTypeRHI::DrawExecuter:
+                        if (impl->drawExec)      return impl->drawExec.get();
+                        return std::monostate{};
+                    case ExecuterTypeRHI::SwapChainExecuter:
+                        if (impl->swapChainExec) return impl->swapChainExec.get();
+                        return std::monostate{};
+                    default:
+                        return std::monostate{};
+                }
+            }
+            case BackendType::Vulkan: {
+                // TODO
+                return std::monostate{};
+            }
+            default:
+                return std::monostate{};
+        }
     }
 
     void ExecutersOwner::Clear() {
@@ -138,3 +223,4 @@ namespace FabricRHI {
         return impl->raw.empty();
     }
 }
+*/

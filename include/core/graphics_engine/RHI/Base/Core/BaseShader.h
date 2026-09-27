@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <cstdint>
 #include "Vector2.h"
 #include "Vector3.h"
 #include "Vector4.h"
@@ -46,6 +47,8 @@ public:
     virtual void SetMat2(const std::string& name, const BaseMatrix<float, 2, 2>& m) = 0;
     virtual void SetMat3(const std::string& name, const BaseMatrix<float, 3, 3>& m) = 0;
     virtual void SetMat4(const std::string& name, const BaseMatrix<float, 4, 4>& m) = 0;
+
+    virtual uint64_t GetNativeHandle() const = 0;
 
     bool IsReady() const { return isReady; }
 };

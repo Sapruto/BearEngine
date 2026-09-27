@@ -2,6 +2,7 @@
 
 #include <string>
 #include <unordered_map>
+#include <cstdint>
 
 #include "RHI/Base/Core/BaseShader.h"
 
@@ -43,5 +44,5 @@ public:
     void SetMat3(const std::string& name, const BaseMatrix<float, 3, 3>& m) override;
     void SetMat4(const std::string& name, const BaseMatrix<float, 4, 4>& m) override;
 
-    unsigned int GetID() const { return rendererID; }
+    uint64_t GetNativeHandle() const override { return static_cast<uint64_t>(rendererID); }
 };

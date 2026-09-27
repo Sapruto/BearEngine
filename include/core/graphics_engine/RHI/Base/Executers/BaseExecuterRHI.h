@@ -254,6 +254,19 @@ public:
         return std::nullopt;
     }
 
+    template<typename ParamT>
+    int AddParamAndMark(ParamT&& p) {
+        int id = this->AddParam(ParamsType{std::forward<ParamT>(p)});
+        MarkProcess(true);
+        return id;
+    }
+
+    int AddParamAndMark(ParamsType&& p) {
+        int id = AddParam(p);
+        MarkProcess(true);
+        return id;
+    }
+
     void Reset() {
         params.clear();
         UnsubscribeAll();
