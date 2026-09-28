@@ -8,8 +8,8 @@ namespace FabricRHI {
         impl->Clear();
 
         if (type == BackendType::OpenGL) {
-            impl->bufferExec    = std::make_unique<BufferExecuter>();
-            impl->drawExec      = std::make_unique<DrawExecuter>();
+            impl->bufferExec = std::make_unique<BufferExecuter>();
+            impl->drawExec = std::make_unique<DrawExecuter>();
             impl->swapChainExec = std::make_unique<SwapChainExecuter>();
         }
 

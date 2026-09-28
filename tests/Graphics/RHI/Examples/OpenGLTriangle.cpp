@@ -4,11 +4,7 @@
 #include <vector>
 
 #include "RHI/Fabric/CreatorRHI.h"
-#include "RHI/Fabric/IExecutersOwner.h"
-
-#include "RHI/OpenGL/Executers/BufferExecuterGL.h"
-#include "RHI/OpenGL/Executers/DrawExecuterGL.h"
-#include "RHI/OpenGL/Executers/SwapChainExecuterGL.h"
+#include "RHI/Fabric/BackendTraits.h"
 
 #include "RHI/Base/Models/BufferExecuterParams.h"
 #include "RHI/Base/Models/BufferExecuterResult.h"
@@ -39,6 +35,8 @@ static const float kVertices[] = {
 };
 
 int main() {
+    using Backend = OpenGLBackend;
+
     CreatorRHI rhi(BackendType::OpenGL);
 
     auto context = rhi.CreateContext();
@@ -47,7 +45,7 @@ int main() {
         return 1;
     }
 
-    auto windowUnique = rhi.CreateWindow("RHI Triangle", 800, 600);
+    auto windowUnique = rhi.CreateWindow("RHI Mandelbrot", 800, 600);
     if (!windowUnique) {
         std::cerr << "[RHI] window create failed\n";
         return 1;
@@ -73,27 +71,20 @@ int main() {
 
     ExecuterQueueRHI queue(device);
 
-    auto executers = rhi.CreateExecuters();
+    auto executers = rhi.CreateExecutersT<Backend>();
     if (!executers || executers->IsEmpty()) {
         std::cerr << "[RHI] failed to create executers\n";
         return 1;
     }
 
-    auto* bufferExec = dynamic_cast<BufferExecuterGL*>(
-        executers->GetExecuterRaw(ExecuterTypeRHI::BufferExecuter));
-    auto* drawExec = dynamic_cast<DrawExecuterGL*>(
-        executers->GetExecuterRaw(ExecuterTypeRHI::DrawExecuter));
-    auto* swapChainExec = dynamic_cast<SwapChainExecuterGL*>(
-        executers->GetExecuterRaw(ExecuterTypeRHI::SwapChainExecuter));
+    auto* bufferExec = executers->GetExecuterAs<typename Backend::BufferExecuter>(ExecuterTypeRHI::BufferExecuter);
+    auto* drawExec = executers->GetExecuterAs<typename Backend::DrawExecuter>(ExecuterTypeRHI::DrawExecuter);
+    auto* swapChainExec = executers->GetExecuterAs<typename Backend::SwapChainExecuter>(ExecuterTypeRHI::SwapChainExecuter);
 
     if (!bufferExec || !drawExec || !swapChainExec) {
         std::cerr << "[RHI] failed to obtain executers\n";
         return 1;
     }
-
-    bufferExec->SetLayer(0);
-    drawExec->SetLayer(1);
-    swapChainExec->SetLayer(2);
 
     for (auto* e : executers->GetIExecuters()) {
         queue.AddExecuter(e);
@@ -146,7 +137,7 @@ int main() {
         queue.Execute();
     }
 
-    device->SetClearColor(0.0f, 1.0f, 0.0f, 1.0f);
+    device->SetClearColor(0.05f, 0.05f, 0.1f, 1.0f);
 
     while (!window->ShouldClose()) {
         window->PollEvents();

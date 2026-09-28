@@ -24,7 +24,7 @@ namespace FabricRHI {
                 return Fn<OpenGLBackend>::Run(std::forward<Args>(args)...);
 
             case BackendType::Vulkan:
-                // TODO: return Fn<VulkanBackend>::Run(...);
+                //TODO
                 return Fn<OpenGLBackend>::Run(std::forward<Args>(args)...);
 
             default:

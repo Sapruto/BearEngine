@@ -127,6 +127,7 @@ public:
     ~BaseExecuterRHI() = default;
 
     void ProcessParams(BaseDevice& device) override {
+        if (!markProcess) return;
         static_cast<ExecuterImplRHI*>(this)->ProcessParamsImpl(device);
     }
 

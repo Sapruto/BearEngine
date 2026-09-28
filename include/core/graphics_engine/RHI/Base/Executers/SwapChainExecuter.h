@@ -6,6 +6,8 @@
 #include "RHI/Base/Models/SwapChainExecuteParams.h"
 #include "RHI/Base/Models/SwapChainExecuteResult.h"
 
+#include "RHI/Base/Executers/BaseExecuterLayers.h"
+
 namespace SwapChainExecute {
     template<typename T>
     concept HasSwapChainExecuterImpl = requires(T* t, BaseDevice& device,
@@ -28,6 +30,7 @@ namespace SwapChainExecute {
 
     public:
         SwapChainExecuter() : impl(static_cast<SwapChainExecuterImpl*>(this)) {
+            this->SetLayer(static_cast<unsigned int>(BaseExecuterLayers::SwapChain));
             this->type = ExecuterTypeRHI::SwapChainExecuter;
         }
         

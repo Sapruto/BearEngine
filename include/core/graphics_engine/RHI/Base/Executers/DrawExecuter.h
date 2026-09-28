@@ -6,6 +6,8 @@
 #include "RHI/Base/Models/DrawExecuteParams.h"
 #include "RHI/Base/Models/DrawExecuteResult.h"
 
+#include "RHI/Base/Executers/BaseExecuterLayers.h"
+
 namespace DrawExecute {
     template<typename T>
     concept HasDrawExecuterImpl = requires(T* t, BaseDevice& device,
@@ -23,6 +25,7 @@ namespace DrawExecute {
 
     public:
         DrawExecuter() : impl(static_cast<DrawExecuterImpl*>(this)) {
+            this->SetLayer(static_cast<unsigned int>(BaseExecuterLayers::Draw));
             this->type = ExecuterTypeRHI::DrawExecuter;
         }
 

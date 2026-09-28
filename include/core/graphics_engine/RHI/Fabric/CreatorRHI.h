@@ -6,6 +6,7 @@
 
 #include "RHI/Fabric/FabricTypes.h"
 #include "RHI/Fabric/IExecutersOwner.h"
+#include "RHI/Fabric/ExecutersOwnerT.h"
 
 #include "RHI/Base/Core/BaseDevice.h"
 #include "RHI/Base/Core/BaseWindow.h"
@@ -41,6 +42,12 @@ namespace FabricRHI {
                                                 const std::string& fragmentPath) const;
 
         std::unique_ptr<IExecutersOwner> CreateExecuters() const;
+        template<typename Backend>
+        std::unique_ptr<ExecutersOwnerT<Backend>> CreateExecutersT() const {
+            auto owner = std::make_unique<ExecutersOwnerT<Backend>>();
+            owner->Create(Backend::kType);
+            return owner;
+        }
 
         void* WindowNativeHandleToVoid(const std::any& native) const;
     };

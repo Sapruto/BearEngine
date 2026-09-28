@@ -78,6 +78,15 @@ namespace FabricRHI {
         DrawExecuter* GetDrawExecuter() const { return impl->drawExec.get(); }
         SwapChainExecuter* GetSwapChainExecuter() const { return impl->swapChainExec.get(); }
 
+        template<typename T>
+        T* GetExecuterAs(ExecuterTypeRHI type) const {
+            AnyVariant v = GetExecuter(type);
+            if (auto* pp = std::get_if<T*>(&v)) {
+                return *pp;
+            }
+            return nullptr;
+        }
+
         AnyVariant GetExecuter(ExecuterTypeRHI type) const {
             switch (type) {
                 case ExecuterTypeRHI::BufferExecuter:

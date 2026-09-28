@@ -6,6 +6,8 @@
 #include "RHI/Base/Models/BufferExecuterParams.h"
 #include "RHI/Base/Models/BufferExecuterResult.h"
 
+#include "RHI/Base/Executers/BaseExecuterLayers.h"
+
 namespace BufferExecute {
     template<typename T>
     concept HasBufferExecuterImpl = requires(T* t, BaseDevice& device, 
@@ -50,6 +52,7 @@ namespace BufferExecute {
 
     public:
         BufferExecuter() : impl(static_cast<BufferExecuterImpl*>(this)) {
+            this->SetLayer(static_cast<unsigned int>(BaseExecuterLayers::Buffer));
             this->type = ExecuterTypeRHI::BufferExecuter;
         }
         
