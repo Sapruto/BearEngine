@@ -45,6 +45,6 @@ namespace BufferExecute {
         
         BufferExecuteResult ProcessBufferDestroyImpl(BaseDevice& device, const BufferDestroyParams& params);
 
-        bool IsValid();
+        bool IsValid() override;
     };
 }

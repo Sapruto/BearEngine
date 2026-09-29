@@ -14,4 +14,6 @@ public:
     virtual unsigned int GetLayer() const = 0;
     virtual void SetLayer(unsigned int layer) = 0;
     virtual ExecuterTypeRHI GetExecuterType() const = 0;
+
+    virtual bool IsValid() = 0;
 };

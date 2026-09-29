@@ -20,6 +20,6 @@ namespace DrawExecute {
         DrawExecuteResult ProcessDrawElementsImpl(BaseDevice& device, const DrawElementsParam& params);
         DrawExecuteResult ProcessDrawArraysImpl(BaseDevice& device, const DrawArrays& params);
 
-        bool IsValid();
+        bool IsValid() override;
     };
 }

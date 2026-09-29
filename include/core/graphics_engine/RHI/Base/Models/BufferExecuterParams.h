@@ -266,7 +266,7 @@ namespace BufferExecute {
         size_t offset;
         size_t count;
         IndexType indexType;
-        const std::variant<std::vector<uint8_t>, std::vector<uint16_t>, std::vector<uint32_t>> data;
+        std::variant<std::vector<uint8_t>, std::vector<uint16_t>, std::vector<uint32_t>> data;
         bool isFullUpdate;
 
         IBOUpdateParams() : iboID(0), offset(0), count(0), indexType(IndexType::UInt),

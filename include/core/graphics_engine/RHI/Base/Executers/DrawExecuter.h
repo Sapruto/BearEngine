@@ -1,11 +1,12 @@
 #pragma once
 
 #include <concepts>
+#include <variant>
+#include <type_traits>
 #include "RHI/Base/Executers/BaseExecuterRHI.h"
 #include "RHI/Base/Executers/ExecuterTypeRHI.h"
 #include "RHI/Base/Models/DrawExecuteParams.h"
 #include "RHI/Base/Models/DrawExecuteResult.h"
-
 #include "RHI/Base/Executers/BaseExecuterLayers.h"
 
 namespace DrawExecute {
@@ -14,37 +15,32 @@ namespace DrawExecute {
                                            const DrawElementsParam& drawElements,
                                            const DrawArrays& drawArrays) {
         { t->ProcessDrawElementsImpl(device, drawElements) } -> std::same_as<DrawExecuteResult>;
-        { t->ProcessDrawArraysImpl(device, drawArrays) }     -> std::same_as<DrawExecuteResult>;
+        { t->ProcessDrawArraysImpl(device, drawArrays) } -> std::same_as<DrawExecuteResult>;
         { t->IsValid() } -> std::same_as<bool>;
     };
 
     template<typename DrawExecuterImpl>
     class DrawExecuter : public BaseExecuterRHI<DrawExecuterImpl, DrawParams, DrawExecuteResult> {
-    private:
-        DrawExecuterImpl* impl;
+        using Base = BaseExecuterRHI<DrawExecuterImpl, DrawParams, DrawExecuteResult>;
 
     public:
-        DrawExecuter() : impl(static_cast<DrawExecuterImpl*>(this)) {
+        DrawExecuter() {
+            static_assert(HasDrawExecuterImpl<DrawExecuterImpl>,
+                        "DrawExecuterImpl must implement all Process*Impl methods and IsValid()");
+
             this->SetLayer(static_cast<unsigned int>(BaseExecuterLayers::Draw));
             this->type = ExecuterTypeRHI::DrawExecuter;
         }
 
-        DrawExecuteResult ProcessDrawElements(BaseDevice& device, const DrawElementsParam& params) {
-            return impl->ProcessDrawElementsImpl(device, params);
-        }
-
-        DrawExecuteResult ProcessDrawArrays(BaseDevice& device, const DrawArrays& params) {
-            return impl->ProcessDrawArraysImpl(device, params);
-        }
-
         DrawExecuteResult ProcessCurrentParam(BaseDevice& device, const DrawParams& param) {
+            auto* self = static_cast<DrawExecuterImpl*>(this);
             return std::visit([&](const auto& p) -> DrawExecuteResult {
                 using T = std::decay_t<decltype(p)>;
                 if constexpr (std::is_same_v<T, DrawElementsParam>) {
-                    return ProcessDrawElements(device, p);
+                    return self->ProcessDrawElementsImpl(device, p);
                 }
                 else if constexpr (std::is_same_v<T, DrawArrays>) {
-                    return ProcessDrawArrays(device, p);
+                    return self->ProcessDrawArraysImpl(device, p);
                 }
                 else {
                     DrawExecuteResult result;
@@ -55,23 +51,12 @@ namespace DrawExecute {
             }, param);
         }
 
-        void ProcessParamsImpl(BaseDevice& device) {
-            if (!impl->IsValid()) return;
+        DrawExecuteResult ProcessDrawElements(BaseDevice& device, const DrawElementsParam& params) {
+            return static_cast<DrawExecuterImpl*>(this)->ProcessDrawElementsImpl(device, params);
+        }
 
-            std::vector<DrawExecuteResult> results;
-            results.reserve(this->params.size());
-
-            for (size_t i = 0; i < this->params.size(); ++i) {
-                const auto& param = this->params[i];
-
-                DrawExecuteResult result = ProcessCurrentParam(device, param);
-                result.paramID = static_cast<int>(i);
-
-                results.push_back(std::move(result));
-            }
-
-            this->NotifySubscribers(results);
-            this->ClearParams();
+        DrawExecuteResult ProcessDrawArrays(BaseDevice& device, const DrawArrays& params) {
+            return static_cast<DrawExecuterImpl*>(this)->ProcessDrawArraysImpl(device, params);
         }
     };
 }

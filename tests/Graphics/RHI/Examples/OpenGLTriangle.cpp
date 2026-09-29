@@ -24,15 +24,21 @@ using namespace SwapChainExecute;
 #define RHI_SHADER_DIR "shaders"
 #endif
 
-static const float kVertices[] = {
-    -1.0f, -1.0f, 0.0f,  0,0,0,
-     1.0f, -1.0f, 0.0f,  0,0,0,
-     1.0f,  1.0f, 0.0f,  0,0,0,
+namespace {
+    constexpr float kVertices[] = {
+        -1.0f, -1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+        1.0f, -1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+        1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
 
-    -1.0f, -1.0f, 0.0f,  0,0,0,
-     1.0f,  1.0f, 0.0f,  0,0,0,
-    -1.0f,  1.0f, 0.0f,  0,0,0,
-};
+        -1.0f, -1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+        1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+        -1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+    };
+
+    constexpr uint32_t kWidth = 800;
+    constexpr uint32_t kHeight = 600;
+    constexpr const char* kWindowTitle = "RHI Triangle";
+}
 
 int main() {
     using Backend = OpenGLBackend;
@@ -45,19 +51,17 @@ int main() {
         return 1;
     }
 
-    auto windowUnique = rhi.CreateWindow("RHI Mandelbrot", 800, 600);
-    if (!windowUnique) {
+    std::shared_ptr<BaseWindow> window = rhi.CreateWindow(kWindowTitle, kWidth, kHeight);
+    if (!window) {
         std::cerr << "[RHI] window create failed\n";
         return 1;
     }
-    std::shared_ptr<BaseWindow> window = std::move(windowUnique);
 
-    auto deviceUnique = rhi.CreateDevice(window);
-    if (!deviceUnique || !deviceUnique->Initialize()) {
+    std::shared_ptr<BaseDevice> device = rhi.CreateDevice(window);
+    if (!device || !device->Initialize()) {
         std::cerr << "[RHI] device init failed\n";
         return 1;
     }
-    std::shared_ptr<BaseDevice> device = std::move(deviceUnique);
 
     const std::string vsPath = std::string(RHI_SHADER_DIR) + "/tri.vert";
     const std::string fsPath = std::string(RHI_SHADER_DIR) + "/tri.frag";
@@ -77,9 +81,12 @@ int main() {
         return 1;
     }
 
-    auto* bufferExec = executers->GetExecuterAs<typename Backend::BufferExecuter>(ExecuterTypeRHI::BufferExecuter);
-    auto* drawExec = executers->GetExecuterAs<typename Backend::DrawExecuter>(ExecuterTypeRHI::DrawExecuter);
-    auto* swapChainExec = executers->GetExecuterAs<typename Backend::SwapChainExecuter>(ExecuterTypeRHI::SwapChainExecuter);
+    auto* bufferExec = executers->GetExecuterAs<typename Backend::BufferExecuter>(
+                              ExecuterTypeRHI::BufferExecuter);
+    auto* drawExec = executers->GetExecuterAs<typename Backend::DrawExecuter>(
+                              ExecuterTypeRHI::DrawExecuter);
+    auto* swapChainExec = executers->GetExecuterAs<typename Backend::SwapChainExecuter>(
+                              ExecuterTypeRHI::SwapChainExecuter);
 
     if (!bufferExec || !drawExec || !swapChainExec) {
         std::cerr << "[RHI] failed to obtain executers\n";
@@ -90,50 +97,60 @@ int main() {
         queue.AddExecuter(e);
     }
 
+    auto submit = [](auto* exec, auto param, int layer = 0) {
+        return exec->AddParamAndMark(param, layer, true);
+    };
+
     unsigned int vbo = 0;
     unsigned int vao = 0;
 
     {
         VBOCreateParams p(kVertices, sizeof(kVertices), BufferUsage::Static, true, true);
-        int id = bufferExec->AddParamAndMark(BufferParams{p});
-        bufferExec->SubscribeOnce(id, [&](const std::vector<BufferExecuteResult>& r){
-            if (r.empty()) return;
-            if (auto* res = std::get_if<VBOCreateResult>(&r[0].data)) {
-                vbo = res->vboID;
-            }
-        });
+        const uint64_t id = submit(bufferExec, BufferParams{p});
+
+        bufferExec->SubscribeOnce(id,
+            [&vbo](const std::vector<BufferExecuteResult>& results) {
+                if (results.empty()) return;
+                if (auto* res = std::get_if<VBOCreateResult>(&results[0].data)) {
+                    vbo = res->vboID;
+                }
+            });
+
         queue.Execute();
     }
 
     {
         VAOCreateParams p(vbo, 0, true, true);
-        int id = bufferExec->AddParamAndMark(BufferParams{p});
-        bufferExec->SubscribeOnce(id, [&](const std::vector<BufferExecuteResult>& r){
-            if (r.empty()) return;
-            if (auto* res = std::get_if<VAOCreateResult>(&r[0].data)) {
-                vao = res->vaoID;
-            }
-        });
+        const uint64_t id = submit(bufferExec, BufferParams{p});
+
+        bufferExec->SubscribeOnce(id,
+            [&vao](const std::vector<BufferExecuteResult>& results) {
+                if (results.empty()) return;
+                if (auto* res = std::get_if<VAOCreateResult>(&results[0].data)) {
+                    vao = res->vaoID;
+                }
+            });
+
         queue.Execute();
     }
 
     {
-        VAOSetAttributeParams p(vao, vbo, 0, AttributeType::Float3, 0,
-                                sizeof(float) * 6, false, false, true, 0);
-        bufferExec->AddParamAndMark(BufferParams{p});
-        queue.Execute();
+        VAOSetAttributeParams p(vao, vbo, 0, AttributeType::Float3,
+                                0, sizeof(float) * 6, false, false, true, 0);
+        submit(bufferExec, BufferParams{p});
     }
 
     {
         VAOSetAttributeParams p(vao, vbo, 1, AttributeType::Float3,
                                 sizeof(float) * 3, sizeof(float) * 6, false, false, true, 0);
-        bufferExec->AddParamAndMark(BufferParams{p});
-        queue.Execute();
+        submit(bufferExec, BufferParams{p});
     }
 
+    queue.Execute();
+
     {
-        SwapChainCreateParams p(nullptr, 800, 600, 2, IntervalType::FIFO, 0.0f);
-        swapChainExec->AddParamAndMark(SwapChainParams{p});
+        SwapChainCreateParams p(nullptr, kWidth, kHeight, 2, IntervalType::FIFO, 0.0f);
+        submit(swapChainExec, SwapChainParams{p});
         queue.Execute();
     }
 
@@ -145,26 +162,24 @@ int main() {
 
         {
             DrawArrays dp(DrawMode::TRIANGLES, 0, 6, vao, programID);
-            drawExec->AddParamAndMark(DrawParams{dp});
-            queue.Execute();
+            submit(drawExec, DrawParams{dp});
         }
 
         {
             SwapChainPresentParams p(1, IntervalType::FIFO);
-            swapChainExec->AddParamAndMark(SwapChainParams{p});
-            queue.Execute();
+            submit(swapChainExec, SwapChainParams{p});
         }
-    }
 
-    {
-        BufferDestroyParams p(vbo, BufferType::VBO);
-        bufferExec->AddParamAndMark(BufferParams{p});
         queue.Execute();
     }
 
     {
-        SwapChainDestroyParams p(false);
-        swapChainExec->AddParamAndMark(SwapChainParams{p});
+        BufferDestroyParams p(vbo, BufferType::VBO);
+        submit(bufferExec, BufferParams{p});
+
+        SwapChainDestroyParams p2(false);
+        submit(swapChainExec, SwapChainParams{p2});
+
         queue.Execute();
     }
 
@@ -172,7 +187,6 @@ int main() {
         queue.RemoveExecuter(e);
     }
 
-    shader->UncompileShader();
     shader.reset();
 
     device->Shutdown();

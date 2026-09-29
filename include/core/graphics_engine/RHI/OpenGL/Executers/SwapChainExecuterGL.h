@@ -31,6 +31,6 @@ namespace SwapChainExecute {
         SwapChainExecuteResult ProcessSwapChainPresentImpl(BaseDevice& device, const SwapChainPresentParams& params);
         SwapChainExecuteResult ProcessSwapChainDestroyImpl(BaseDevice& device, const SwapChainDestroyParams& params);
         
-        bool IsValid();
+        bool IsValid() override;
     };
 }

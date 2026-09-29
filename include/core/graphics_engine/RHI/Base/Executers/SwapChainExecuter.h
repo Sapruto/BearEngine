@@ -1,11 +1,12 @@
 #pragma once
 
 #include <concepts>
+#include <variant>
+#include <type_traits>
 #include "RHI/Base/Executers/BaseExecuterRHI.h"
 #include "RHI/Base/Executers/ExecuterTypeRHI.h"
 #include "RHI/Base/Models/SwapChainExecuteParams.h"
 #include "RHI/Base/Models/SwapChainExecuteResult.h"
-
 #include "RHI/Base/Executers/BaseExecuterLayers.h"
 
 namespace SwapChainExecute {
@@ -19,80 +20,62 @@ namespace SwapChainExecute {
         { t->ProcessSwapChainResizeImpl(device, resize) } -> std::same_as<SwapChainExecuteResult>;
         { t->ProcessSwapChainPresentImpl(device, present) } -> std::same_as<SwapChainExecuteResult>;
         { t->ProcessSwapChainDestroyImpl(device, destroy) } -> std::same_as<SwapChainExecuteResult>;
-
         { t->IsValid() } -> std::same_as<bool>;
     };
-    
+
     template<typename SwapChainExecuterImpl>
     class SwapChainExecuter : public BaseExecuterRHI<SwapChainExecuterImpl, SwapChainParams, SwapChainExecuteResult> {
-    private:
-        SwapChainExecuterImpl* impl;
+        using Base = BaseExecuterRHI<SwapChainExecuterImpl, SwapChainParams, SwapChainExecuteResult>;
 
     public:
-        SwapChainExecuter() : impl(static_cast<SwapChainExecuterImpl*>(this)) {
+        SwapChainExecuter() {
+            static_assert(HasSwapChainExecuterImpl<SwapChainExecuterImpl>,
+                        "HasSwapChainExecuterImpl must implement all Process*Impl methods and IsValid()");
+
             this->SetLayer(static_cast<unsigned int>(BaseExecuterLayers::SwapChain));
             this->type = ExecuterTypeRHI::SwapChainExecuter;
         }
-        
-        SwapChainExecuteResult ProcessSwapChainCreate(BaseDevice& device, const SwapChainCreateParams& params) {
-            return impl->ProcessSwapChainCreateImpl(device, params);
-        }
-        
-        SwapChainExecuteResult ProcessSwapChainResize(BaseDevice& device, const SwapChainResizeParams& params) {
-            return impl->ProcessSwapChainResizeImpl(device, params);
-        }
-        
-        SwapChainExecuteResult ProcessSwapChainPresent(BaseDevice& device, const SwapChainPresentParams& params) {
-            return impl->ProcessSwapChainPresentImpl(device, params);
-        }
-        
-        SwapChainExecuteResult ProcessSwapChainDestroy(BaseDevice& device, const SwapChainDestroyParams& params) {
-            return impl->ProcessSwapChainDestroyImpl(device, params);
-        }
-        
+
         SwapChainExecuteResult ProcessCurrentParam(BaseDevice& device, const SwapChainParams& param) {
-            ParamType type = std::visit([](const auto& p) -> ParamType {
-                return p.GetType();
-            }, param);
-            
-            switch (type) {
-                case ParamType::CREATE:
-                    return ProcessSwapChainCreate(device, std::get<SwapChainCreateParams>(param));
-                    
-                case ParamType::RESIZE:
-                    return ProcessSwapChainResize(device, std::get<SwapChainResizeParams>(param));
-                    
-                case ParamType::PRESENT:
-                    return ProcessSwapChainPresent(device, std::get<SwapChainPresentParams>(param));
-                    
-                case ParamType::DESTROY:
-                    return ProcessSwapChainDestroy(device, std::get<SwapChainDestroyParams>(param));
-                    
-                default:
+            auto* self = static_cast<SwapChainExecuterImpl*>(this);
+            return std::visit([&](const auto& p) -> SwapChainExecuteResult {
+                using T = std::decay_t<decltype(p)>;
+
+                if constexpr (std::is_same_v<T, SwapChainCreateParams>) {
+                    return self->ProcessSwapChainCreateImpl(device, p);
+                }
+                else if constexpr (std::is_same_v<T, SwapChainResizeParams>) {
+                    return self->ProcessSwapChainResizeImpl(device, p);
+                }
+                else if constexpr (std::is_same_v<T, SwapChainPresentParams>) {
+                    return self->ProcessSwapChainPresentImpl(device, p);
+                }
+                else if constexpr (std::is_same_v<T, SwapChainDestroyParams>) {
+                    return self->ProcessSwapChainDestroyImpl(device, p);
+                }
+                else {
                     SwapChainExecuteResult result;
                     result.success = false;
-                    result.errorMessage = "Unknown parameter type";
+                    result.errorMessage = "Unknown swapchain param type";
                     return result;
-            }
+                }
+            }, param);
         }
-        
-        void ProcessParamsImpl(BaseDevice& device) {
-            if (!impl->IsValid()) return;
 
-            std::vector<SwapChainExecuteResult> results;
-            results.reserve(this->params.size());
-            
-            for (size_t i = 0; i < this->params.size(); ++i) {
-                const auto& param = this->params[i];
-                
-                SwapChainExecuteResult result = ProcessCurrentParam(device, param);
-                result.paramID = static_cast<int>(i);
-                
-                results.push_back(std::move(result));
-            }
-            
-            this->NotifySubscribers(results);
-            this->ClearParams();
+        SwapChainExecuteResult ProcessSwapChainCreate(BaseDevice& device, const SwapChainCreateParams& p) {
+            return static_cast<SwapChainExecuterImpl*>(this)->ProcessSwapChainCreateImpl(device, p);
+        }
+
+        SwapChainExecuteResult ProcessSwapChainResize(BaseDevice& device, const SwapChainResizeParams& p) {
+            return static_cast<SwapChainExecuterImpl*>(this)->ProcessSwapChainResizeImpl(device, p);
+        }
+
+        SwapChainExecuteResult ProcessSwapChainPresent(BaseDevice& device, const SwapChainPresentParams& p) {
+            return static_cast<SwapChainExecuterImpl*>(this)->ProcessSwapChainPresentImpl(device, p);
+        }
+
+        SwapChainExecuteResult ProcessSwapChainDestroy(BaseDevice& device, const SwapChainDestroyParams& p) {
+            return static_cast<SwapChainExecuterImpl*>(this)->ProcessSwapChainDestroyImpl(device, p);
         }
     };
 }
