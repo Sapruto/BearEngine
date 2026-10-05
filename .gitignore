@@ -21,3 +21,7 @@ output.log
 *.so
 *.dll
 *.dylib
+
+
+*.cash
+*.vscode
