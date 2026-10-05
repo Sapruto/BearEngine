@@ -1,0 +1,5 @@
+CompileFlags:
+  Add:
+    - -I/home/alex/Projects/BearEngine/include
+    - -I/home/alex/Projects/BearEngine/include/Shared
+    - -I/home/alex/Projects/BearEngine/include/Systems

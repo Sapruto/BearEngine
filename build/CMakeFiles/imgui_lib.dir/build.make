@@ -69,124 +69,124 @@ include CMakeFiles/imgui_lib.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/imgui_lib.dir/flags.make
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o: /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui.cpp
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o -MF CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o.d -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o -c /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o: /home/alex/Projects/BearEngine/exports/imgui-master/imgui.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o -MF CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o.d -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o -c /home/alex/Projects/BearEngine/exports/imgui-master/imgui.cpp
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui.cpp > CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.i
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/exports/imgui-master/imgui.cpp > CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.i
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui.cpp -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.s
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/exports/imgui-master/imgui.cpp -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.s
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o: /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_demo.cpp
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o -MF CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o.d -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o -c /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_demo.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o: /home/alex/Projects/BearEngine/exports/imgui-master/imgui_demo.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o -MF CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o.d -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o -c /home/alex/Projects/BearEngine/exports/imgui-master/imgui_demo.cpp
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_demo.cpp > CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.i
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/exports/imgui-master/imgui_demo.cpp > CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.i
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_demo.cpp -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.s
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/exports/imgui-master/imgui_demo.cpp -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.s
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o: /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_draw.cpp
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o -MF CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o.d -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o -c /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_draw.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o: /home/alex/Projects/BearEngine/exports/imgui-master/imgui_draw.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o -MF CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o.d -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o -c /home/alex/Projects/BearEngine/exports/imgui-master/imgui_draw.cpp
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_draw.cpp > CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.i
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/exports/imgui-master/imgui_draw.cpp > CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.i
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_draw.cpp -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.s
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/exports/imgui-master/imgui_draw.cpp -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.s
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o: /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_tables.cpp
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o -MF CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o.d -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o -c /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_tables.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o: /home/alex/Projects/BearEngine/exports/imgui-master/imgui_tables.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o -MF CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o.d -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o -c /home/alex/Projects/BearEngine/exports/imgui-master/imgui_tables.cpp
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_tables.cpp > CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.i
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/exports/imgui-master/imgui_tables.cpp > CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.i
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_tables.cpp -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.s
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/exports/imgui-master/imgui_tables.cpp -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.s
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o: /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_widgets.cpp
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o -MF CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o.d -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o -c /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_widgets.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o: /home/alex/Projects/BearEngine/exports/imgui-master/imgui_widgets.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o -MF CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o.d -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o -c /home/alex/Projects/BearEngine/exports/imgui-master/imgui_widgets.cpp
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_widgets.cpp > CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.i
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/exports/imgui-master/imgui_widgets.cpp > CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.i
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/src/dependencies/imgui-master/imgui_widgets.cpp -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.s
+CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/exports/imgui-master/imgui_widgets.cpp -o CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.s
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o: /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o -MF CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o.d -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o -c /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o: /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_glfw.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o -MF CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o.d -o CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o -c /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_glfw.cpp
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp > CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.i
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_glfw.cpp > CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.i
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.s
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_glfw.cpp -o CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.s
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o: /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o -MF CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o -c /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/imgui_lib.dir/flags.make
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o: /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_opengl3.cpp
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o: CMakeFiles/imgui_lib.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -MD -MT CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o -MF CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o.d -o CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o -c /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_opengl3.cpp
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp > CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.i
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -E /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_opengl3.cpp > CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.i
 
-CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp -o CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.s
+CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -x c++ -S /home/alex/Projects/BearEngine/exports/imgui-master/backends/imgui_impl_opengl3.cpp -o CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.s
 
 # Object files for target imgui_lib
 imgui_lib_OBJECTS = \
-"CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o" \
-"CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o" \
-"CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o" \
-"CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o" \
-"CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o" \
-"CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o" \
-"CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o"
+"CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o" \
+"CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o" \
+"CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o" \
+"CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o" \
+"CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o" \
+"CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o" \
+"CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o"
 
 # External object files for target imgui_lib
 imgui_lib_EXTERNAL_OBJECTS =
 
-libimgui_lib.a: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui.cpp.o
-libimgui_lib.a: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_demo.cpp.o
-libimgui_lib.a: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_draw.cpp.o
-libimgui_lib.a: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_tables.cpp.o
-libimgui_lib.a: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/imgui_widgets.cpp.o
-libimgui_lib.a: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_glfw.cpp.o
-libimgui_lib.a: CMakeFiles/imgui_lib.dir/src/dependencies/imgui-master/backends/imgui_impl_opengl3.cpp.o
+libimgui_lib.a: CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o
+libimgui_lib.a: CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o
+libimgui_lib.a: CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o
+libimgui_lib.a: CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o
+libimgui_lib.a: CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o
+libimgui_lib.a: CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o
+libimgui_lib.a: CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o
 libimgui_lib.a: CMakeFiles/imgui_lib.dir/build.make
 libimgui_lib.a: CMakeFiles/imgui_lib.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/alex/Projects/BearEngine/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libimgui_lib.a"

@@ -1,0 +1,32 @@
+name: TestScene,
+version: 0,
+	resources_pathes: {
+	},
+object: {
+	name: Alpha,
+	components: {
+			TestNamedComponent: {
+				label: first,
+				value: 42,
+			},
+		},
+},
+object: {
+	name: Beta,
+	components: {
+			TestFloatComponent: {
+				x: 3.140000,
+			},
+			TestNamedComponent: {
+				label: second,
+				value: -7,
+			},
+		},
+},
+object: {
+	name: Gamma,
+	components: {
+		},
+},
+hierarchy: {
+},

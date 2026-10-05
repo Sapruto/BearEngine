@@ -1,110 +1,23 @@
-[  3%] Built target glad_lib
-[  3%] Building CXX object CMakeFiles/stb_lib.dir/stb_impl.cpp.o
-[ 11%] Built target imgui_lib
-[ 12%] Linking CXX static library libstb_lib.a
-[ 12%] Built target stb_lib
-[ 13%] Building CXX object CMakeFiles/game.dir/src/core/graphics_engine/3D/models/ModelRenderer.cpp.o
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelComponent.h:9,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelRenderer.h:4,
-                 from /home/alex/Projects/BearEngine/src/core/graphics_engine/3D/models/ModelRenderer.cpp:1:
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:132:37: warning: backslash-newline at end of file
-  132 | #define FIELD_INDEXABLE(type, name) \
-      |                                      
-In file included from /home/alex/Projects/BearEngine/include/core/scene_engine/Scene.h:11,
-                 from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:4,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/core/base_graphics/RenderComponent.h:3,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/core/base_graphics/Renderer.h:5,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelRenderer.h:3:
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h: In member function ‘virtual void SceneEvent::Deserialize(const std::string&)’:
-/home/alex/Projects/BearEngine/include/core/scene_engine/SceneEvent.h:50:49: warning: unused parameter ‘data’ [-Wunused-parameter]
-   50 |     virtual void Deserialize(const std::string& data) {}
-      |                              ~~~~~~~~~~~~~~~~~~~^~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h: In member function ‘virtual void Component::OnCollisionEnter(GameObject*)’:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:56:47: warning: unused parameter ‘other’ [-Wunused-parameter]
-   56 |     virtual void OnCollisionEnter(GameObject* other){}
-      |                                   ~~~~~~~~~~~~^~~~~
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelComponent.h: In member function ‘bool ModelComponent::ChangeCaculateUV(bool)’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelComponent.h:93:68: warning: no return statement in function returning non-void [-Wreturn-type]
-   93 |     bool ChangeCaculateUV(bool newValue) { calculateUV = newValue; }
-      |                                                                    ^
-In file included from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:7,
-                 from /home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelRenderer.h:6:
-/home/alex/Projects/BearEngine/include/core/math/Transform/Transform3D.h: At global scope:
-/home/alex/Projects/BearEngine/include/core/math/Transform/Transform3D.h:11:7: warning: direct base ‘ISerializable’ inaccessible in ‘Transform3D’ due to ambiguity [-Winaccessible-base]
-   11 | class Transform3D : public Transform, public ISerializable {
-      |       ^~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h: In member function ‘virtual Matrix4x4f Light3D::GetLightSpaceMatrix(float) const’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:26:50: warning: unused parameter ‘aspect’ [-Wunused-parameter]
-   26 |     virtual Matrix4x4f GetLightSpaceMatrix(float aspect = 1.0f) const {
-      |                                            ~~~~~~^~~~~~~~~~~~~
-In file included from /home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:9:
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = std::__cxx11::basic_string<char>; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/system_engine/component_system/Component.h:13:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:50:17: warning: ‘SerializedField<std::__cxx11::basic_string<char> >::fieldName’ will be initialized after [-Wreorder]
-   50 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:49:7: warning:   ‘std::__cxx11::basic_string<char> SerializedField<std::__cxx11::basic_string<char> >::value’ [-Wreorder]
-   49 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:53:5: warning:   when initialized here [-Wreorder]
-   53 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h: In instantiation of ‘SerializedFieldIndexable<T>::SerializedFieldIndexable(const std::string&, const T&) [with T = std::vector<ModelFeature*>; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/models/ModelComponent.h:31:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:15:17: warning: ‘SerializedFieldIndexable<std::vector<ModelFeature*> >::fieldName’ will be initialized after [-Wreorder]
-   15 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:14:7: warning:   ‘std::vector<ModelFeature*> SerializedFieldIndexable<std::vector<ModelFeature*> >::value’ [-Wreorder]
-   14 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:31:5: warning:   when initialized here [-Wreorder]
-   31 |     SerializedFieldIndexable(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Vector3<float>; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/math/Transform/Transform3D.h:13:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:50:17: warning: ‘SerializedField<Vector3<float> >::fieldName’ will be initialized after [-Wreorder]
-   50 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:49:7: warning:   ‘Vector3<float> SerializedField<Vector3<float> >::value’ [-Wreorder]
-   49 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:53:5: warning:   when initialized here [-Wreorder]
-   53 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = Quaternion<float>; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/math/Transform/Transform3D.h:15:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:50:17: warning: ‘SerializedField<Quaternion<float> >::fieldName’ will be initialized after [-Wreorder]
-   50 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:49:7: warning:   ‘Quaternion<float> SerializedField<Quaternion<float> >::value’ [-Wreorder]
-   49 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:53:5: warning:   when initialized here [-Wreorder]
-   53 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = float; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/graphics_engine/3D/Light3D.h:16:5:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:50:17: warning: ‘SerializedField<float>::fieldName’ will be initialized after [-Wreorder]
-   50 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:49:7: warning:   ‘float SerializedField<float>::value’ [-Wreorder]
-   49 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:53:5: warning:   when initialized here [-Wreorder]
-   53 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h: In instantiation of ‘SerializedField<T>::SerializedField(const std::string&, const T&) [with T = ModelFeature*; std::string = std::__cxx11::basic_string<char>]’:
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:20:22:   required from ‘std::string SerializedFieldIndexable<T>::ElementToString(const typename T::value_type&) const [with T = std::vector<ModelFeature*>; std::string = std::__cxx11::basic_string<char>; typename T::value_type = ModelFeature*]’
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:47:19:   required from ‘std::string SerializedFieldIndexable<T>::ToString() const [with T = std::vector<ModelFeature*>; std::string = std::__cxx11::basic_string<char>]’
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeFieldIndexable.h:42:17:   required from here
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:50:17: warning: ‘SerializedField<ModelFeature*>::fieldName’ will be initialized after [-Wreorder]
-   50 |     std::string fieldName;
-      |                 ^~~~~~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:49:7: warning:   ‘ModelFeature* SerializedField<ModelFeature*>::value’ [-Wreorder]
-   49 |     T value;
-      |       ^~~~~
-/home/alex/Projects/BearEngine/include/core/system_engine/atributs/SerializeField.h:53:5: warning:   when initialized here [-Wreorder]
-   53 |     SerializedField(const std::string& name, const T& defaultValue = T())
-      |     ^~~~~~~~~~~~~~~
-[ 15%] Linking CXX executable game
-[100%] Built target game
+[  7%] Building C object CMakeFiles/glad_lib.dir/exports/glad/src/glad.c.o
+[ 21%] Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_draw.cpp.o
+[ 21%] Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_demo.cpp.o
+[ 35%] Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_widgets.cpp.o
+[ 35%] Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui.cpp.o
+[ 42%] Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_glfw.cpp.o
+[ 57%] Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/backends/imgui_impl_opengl3.cpp.o
+[ 57%] Building CXX object CMakeFiles/stb_lib.dir/stb_impl.cpp.o
+[ 64%] Building CXX object CMakeFiles/imgui_lib.dir/exports/imgui-master/imgui_tables.cpp.o
+[ 71%] Linking C static library libglad_lib.a
+[ 71%] Built target glad_lib
+[ 78%] Linking CXX static library libstb_lib.a
+[ 78%] Built target stb_lib
+[ 85%] Linking CXX static library libimgui_lib.a
+[ 85%] Built target imgui_lib
+[ 92%] Building CXX object CMakeFiles/game.dir/main.cpp.o
+/home/alex/Projects/BearEngine/main.cpp:1:10: fatal error: GraphicsManager.h: No such file or directory
+    1 | #include "GraphicsManager.h"
+      |          ^~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [CMakeFiles/game.dir/build.make:76: CMakeFiles/game.dir/main.cpp.o] Error 1
+make[1]: *** [CMakeFiles/Makefile2:169: CMakeFiles/game.dir/all] Error 2
+make: *** [Makefile:91: all] Error 2

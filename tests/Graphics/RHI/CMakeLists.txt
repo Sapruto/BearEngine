@@ -13,16 +13,16 @@ find_package(glfw3 REQUIRED)
 find_package(Threads REQUIRED)
 
 set(ROOT_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/../../..)
-set(GLAD_DIR  ${ROOT_DIR}/src/dependencies/glad)
-set(GLM_DIR   ${ROOT_DIR}/src/dependencies/glm)
-set(STB_DIR   ${ROOT_DIR}/src/dependencies/stb)
+set(GLAD_DIR  ${ROOT_DIR}/exports/glad)
+set(GLM_DIR   ${ROOT_DIR}/exports/glm)
+set(STB_DIR   ${ROOT_DIR}/exports/stb)
 
 add_library(glad_lib STATIC ${GLAD_DIR}/src/glad.c)
 target_include_directories(glad_lib PUBLIC ${GLAD_DIR}/include)
 set_target_properties(glad_lib PROPERTIES LINKER_LANGUAGE C)
 
 file(GLOB_RECURSE RHI_SOURCES
-    "${ROOT_DIR}/src/core/graphics_engine/RHI/*.cpp"
+    "${ROOT_DIR}/src/RHI/*.cpp"
 )
 
 list(APPEND RHI_SOURCES
@@ -32,15 +32,15 @@ list(APPEND RHI_SOURCES
 add_executable(rhi_triangle ${RHI_SOURCES})
 
 target_include_directories(rhi_triangle PRIVATE
-    ${ROOT_DIR}/src/core/graphics_engine
-    ${ROOT_DIR}/include/core/graphics_engine
+    ${ROOT_DIR}/src/RHI
+    ${ROOT_DIR}/include/RHI
 
     ${ROOT_DIR}/src
     ${ROOT_DIR}/include
 
-    ${ROOT_DIR}/include/core/math
-    ${ROOT_DIR}/include/core/math/Vector
-    ${ROOT_DIR}/include/core/math/Transform
+    ${ROOT_DIR}/include/Math
+    ${ROOT_DIR}/include/Math/Vector
+    ${ROOT_DIR}/include/Math/Transform
 
     ${GLM_DIR}
     ${GLAD_DIR}/include

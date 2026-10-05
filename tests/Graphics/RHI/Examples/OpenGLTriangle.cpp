@@ -3,18 +3,23 @@
 #include <string>
 #include <vector>
 
+#include "RHI/RuntimeRHI.h"
+
 #include "RHI/Fabric/CreatorRHI.h"
 #include "RHI/Fabric/BackendTraits.h"
 
-#include "RHI/Base/Models/BufferExecuterParams.h"
-#include "RHI/Base/Models/BufferExecuterResult.h"
+#include "RHI/Base/Models/BufferExecutorParams.h"
+#include "RHI/Base/Models/BufferExecutorResult.h"
 #include "RHI/Base/Models/DrawExecuteParams.h"
 #include "RHI/Base/Models/DrawExecuteResult.h"
 #include "RHI/Base/Models/SwapChainExecuteParams.h"
 #include "RHI/Base/Models/SwapChainExecuteResult.h"
 
-#include "RHI/ExecuterQueueRHI.h"
+#include "RHI/Base/Executors/ExecutorQueueRHI.h"
 
+using namespace RHI;
+using namespace Base;
+using namespace Executors;
 using namespace FabricRHI;
 using namespace BufferExecute;
 using namespace DrawExecute;
@@ -27,15 +32,15 @@ using namespace SwapChainExecute;
 namespace {
     constexpr float kVertices[] = {
         -1.0f, -1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
-        1.0f, -1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
-        1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+         1.0f, -1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+         1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
 
         -1.0f, -1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
-        1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
+         1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
         -1.0f,  1.0f, 0.0f,  0.0f, 0.0f, 0.0f,
     };
 
-    constexpr uint32_t kWidth = 800;
+    constexpr uint32_t kWidth  = 800;
     constexpr uint32_t kHeight = 600;
     constexpr const char* kWindowTitle = "RHI Triangle";
 }
@@ -43,25 +48,14 @@ namespace {
 int main() {
     using Backend = OpenGLBackend;
 
-    CreatorRHI rhi(BackendType::OpenGL);
-
-    auto context = rhi.CreateContext();
-    if (!context || !context->Initialize()) {
-        std::cerr << "[RHI] context init failed\n";
+    auto& rhi = RuntimeRHI::GetInstance();
+    if (!rhi.Initialize(BackendType::OpenGL, kWindowTitle, kWidth, kHeight)) {
+        std::cerr << "[RHI] runtime init failed\n";
         return 1;
     }
 
-    std::shared_ptr<BaseWindow> window = rhi.CreateWindow(kWindowTitle, kWidth, kHeight);
-    if (!window) {
-        std::cerr << "[RHI] window create failed\n";
-        return 1;
-    }
-
-    std::shared_ptr<BaseDevice> device = rhi.CreateDevice(window);
-    if (!device || !device->Initialize()) {
-        std::cerr << "[RHI] device init failed\n";
-        return 1;
-    }
+    BaseWindow* window = rhi.Window();
+    BaseDevice* device = rhi.Device();
 
     const std::string vsPath = std::string(RHI_SHADER_DIR) + "/tri.vert";
     const std::string fsPath = std::string(RHI_SHADER_DIR) + "/tri.frag";
@@ -69,32 +63,36 @@ int main() {
     auto shader = rhi.CreateShader(vsPath, fsPath);
     if (!shader || !shader->IsReady()) {
         std::cerr << "[RHI] shader compile failed\n";
+        rhi.Shutdown();
         return 1;
     }
     const uint64_t programID = shader->GetNativeHandle();
 
-    ExecuterQueueRHI queue(device);
+    std::shared_ptr<BaseDevice> deviceView(device, [](BaseDevice*) {});
+    ExecutorQueueRHI queue(deviceView);
 
-    auto executers = rhi.CreateExecutersT<Backend>();
+    auto* executers = rhi.ExecutorsT<Backend>();
     if (!executers || executers->IsEmpty()) {
         std::cerr << "[RHI] failed to create executers\n";
+        rhi.Shutdown();
         return 1;
     }
 
-    auto* bufferExec = executers->GetExecuterAs<typename Backend::BufferExecuter>(
-                              ExecuterTypeRHI::BufferExecuter);
-    auto* drawExec = executers->GetExecuterAs<typename Backend::DrawExecuter>(
-                              ExecuterTypeRHI::DrawExecuter);
-    auto* swapChainExec = executers->GetExecuterAs<typename Backend::SwapChainExecuter>(
-                              ExecuterTypeRHI::SwapChainExecuter);
+    auto* bufferExec = executers->GetExecutorAs<typename Backend::BufferExecutor>(
+                                ExecutorTypeRHI::BufferExecutor);
+    auto* drawExec = executers->GetExecutorAs<typename Backend::DrawExecutor>(
+                                ExecutorTypeRHI::DrawExecutor);
+    auto* swapChainExec = executers->GetExecutorAs<typename Backend::SwapChainExecutor>(
+                                ExecutorTypeRHI::SwapChainExecutor);
 
     if (!bufferExec || !drawExec || !swapChainExec) {
         std::cerr << "[RHI] failed to obtain executers\n";
+        rhi.Shutdown();
         return 1;
     }
 
-    for (auto* e : executers->GetIExecuters()) {
-        queue.AddExecuter(e);
+    for (auto* e : executers->GetIExecutors()) {
+        queue.AddExecutor(e);
     }
 
     auto submit = [](auto* exec, auto param, int layer = 0) {
@@ -139,13 +137,11 @@ int main() {
                                 0, sizeof(float) * 6, false, false, true, 0);
         submit(bufferExec, BufferParams{p});
     }
-
     {
         VAOSetAttributeParams p(vao, vbo, 1, AttributeType::Float3,
                                 sizeof(float) * 3, sizeof(float) * 6, false, false, true, 0);
         submit(bufferExec, BufferParams{p});
     }
-
     queue.Execute();
 
     {
@@ -164,7 +160,6 @@ int main() {
             DrawArrays dp(DrawMode::TRIANGLES, 0, 6, vao, programID);
             submit(drawExec, DrawParams{dp});
         }
-
         {
             SwapChainPresentParams p(1, IntervalType::FIFO);
             submit(swapChainExec, SwapChainParams{p});
@@ -183,20 +178,13 @@ int main() {
         queue.Execute();
     }
 
-    for (auto* e : executers->GetIExecuters()) {
-        queue.RemoveExecuter(e);
+    for (auto* e : executers->GetIExecutors()) {
+        queue.RemoveExecutor(e);
     }
+    queue.Clear();
 
     shader.reset();
 
-    device->Shutdown();
-    device.reset();
-
-    window->Destroy();
-    window.reset();
-
-    context->Shutdown();
-    context.reset();
-
+    rhi.Shutdown();
     return 0;
 }

@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/alex/Projects/BearEngine/src/dependencies/glad/include
+C_INCLUDES = -I/home/alex/Projects/BearEngine/exports/glad/include
 
 C_FLAGS = -g
 

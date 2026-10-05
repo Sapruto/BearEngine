@@ -44,10 +44,10 @@
 
 #include "Scene.h"
 #include "SceneManager.h"
-#include "SceneDeserializer.h"
+#include "Systems/Serialization/SceneParser/SceneDeserializer.h"
 
 #include "SceneCreator.h"
-#include "SceneSerializer.h"
+#include "Systems/Serialization/SceneParser/SceneSerializer.h"
 
 #include "ComponentLibrary.h"
 

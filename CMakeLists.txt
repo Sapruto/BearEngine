@@ -3,6 +3,7 @@ project(BearEngine)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Debug)
@@ -16,10 +17,10 @@ find_package(assimp REQUIRED)
 find_package(Freetype REQUIRED)
 
 set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-set(IMGUI_DIR ${ROOT_DIR}/src/dependencies/imgui-master)
-set(GLAD_DIR ${ROOT_DIR}/src/dependencies/glad)
-set(STB_DIR ${ROOT_DIR}/src/dependencies/stb)
-set(GLM_DIR ${ROOT_DIR}/src/dependencies/glm)
+set(IMGUI_DIR ${ROOT_DIR}/exports/imgui-master)
+set(GLAD_DIR ${ROOT_DIR}/exports/glad)
+set(STB_DIR ${ROOT_DIR}/exports/stb)
+set(GLM_DIR ${ROOT_DIR}/exports/glm)
 
 add_library(glad_lib STATIC ${GLAD_DIR}/src/glad.c)
 target_include_directories(glad_lib PUBLIC ${GLAD_DIR}/include)
@@ -71,7 +72,7 @@ add_library(stb_lib STATIC ${CMAKE_CURRENT_BINARY_DIR}/stb_impl.cpp)
 target_include_directories(stb_lib PUBLIC ${STB_DIR})
 set_target_properties(stb_lib PROPERTIES LINKER_LANGUAGE CXX)
 
-file(GLOB_RECURSE CORE_SOURCES "${ROOT_DIR}/src/core/*.cpp")
+file(GLOB_RECURSE CORE_SOURCES CONFIGURE_DEPENDS "${ROOT_DIR}/src/core/*.cpp")
 
 #FUCK EDITOR
 file(GLOB_RECURSE EDITOR_SOURCES_TO_REMOVE 
@@ -89,83 +90,94 @@ add_executable(game ${ROOT_DIR}/main.cpp ${CORE_SOURCES})
 
 target_include_directories(game PRIVATE
     ${ROOT_DIR}/include
-    ${ROOT_DIR}/src
 
-    ${ROOT_DIR}/include/core/math
-    ${ROOT_DIR}/include/core/math/Vector
-    ${ROOT_DIR}/include/core/math/Transform
-    
-    ${ROOT_DIR}/include/core
-    ${ROOT_DIR}/include/core/audio_engine
-    ${ROOT_DIR}/include/core/exe_compiler
-    ${ROOT_DIR}/include/core/user_settings
-    ${ROOT_DIR}/include/core/system_engine
-    ${ROOT_DIR}/include/core/system_engine/atributs
-    ${ROOT_DIR}/include/core/system_engine/component_system
-    ${ROOT_DIR}/include/core/system_engine/input_system
-    ${ROOT_DIR}/include/core/system_engine/resource_system
-    ${ROOT_DIR}/include/core/system_engine/resource_system/ResourcesTypes
-    ${ROOT_DIR}/include/core/system_engine/tags_system
-    ${ROOT_DIR}/include/core/system_engine/time_system
-    ${ROOT_DIR}/include/core/scene_engine
-    ${ROOT_DIR}/include/core/scene_engine/SceneToFile
-    ${ROOT_DIR}/include/core/geometry
-    ${ROOT_DIR}/include/core/geometry/colliders_manager
-    ${ROOT_DIR}/include/core/geometry/colliders
-    ${ROOT_DIR}/include/core/geometry/colliders/2D
-    ${ROOT_DIR}/include/core/geometry/colliders/3D
-    ${ROOT_DIR}/include/core/phisic_engine
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/PhysicCollisions
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Electromagnetic
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Fluid
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Mechanical
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Specialized
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicalBody/PysicsBodyModuls/Thermal
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Mechanical
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsManagers
+    ${ROOT_DIR}/include/Math
+    ${ROOT_DIR}/include/Math/Algebra
+    ${ROOT_DIR}/include/Math/Algebra/Matrix
+    ${ROOT_DIR}/include/Math/Algebra/Transform
+    ${ROOT_DIR}/include/Math/Algebra/Vector
+    ${ROOT_DIR}/include/Math/Geometry
 
-    ${ROOT_DIR}/include/core/graphics_engine
-    ${ROOT_DIR}/include/core/graphics_engine/core
-    ${ROOT_DIR}/include/core/graphics_engine/core/base_graphics
-    ${ROOT_DIR}/include/core/graphics_engine/resources
+    ${ROOT_DIR}/include/Audio
+    ${ROOT_DIR}/include/Audio/Resources
 
-    ${ROOT_DIR}/include/core/graphics_engine/3D
-    ${ROOT_DIR}/include/core/graphics_engine/3D/models
-    ${ROOT_DIR}/include/core/graphics_engine/3D/models/model_features
-    ${ROOT_DIR}/include/core/graphics_engine/3D/models/model_renderers
-    ${ROOT_DIR}/include/core/graphics_engine/3D/lights
-    ${ROOT_DIR}/include/core/graphics_engine/3D/uv
-    
-    ${ROOT_DIR}/include/core/graphics_engine/2D
-    ${ROOT_DIR}/include/core/graphics_engine/2D/sprite
-    ${ROOT_DIR}/include/core/graphics_engine/2D/renderers
-    ${ROOT_DIR}/include/core/graphics_engine/2D/features
+    ${ROOT_DIR}/include/Graphics
+    ${ROOT_DIR}/include/Graphics/core
+    ${ROOT_DIR}/include/Graphics/core/base_graphics
+    ${ROOT_DIR}/include/Graphics/resources
 
-    ${ROOT_DIR}/include/core/phisic_engine/new_physiscs/PhysicsEvents/Fluid
+    ${ROOT_DIR}/include/Graphics/2D
+    ${ROOT_DIR}/include/Graphics/2D/features
+    ${ROOT_DIR}/include/Graphics/2D/renderers
+    ${ROOT_DIR}/include/Graphics/2D/Shaders
+    ${ROOT_DIR}/include/Graphics/2D/sprite
 
-    ${ROOT_DIR}/include/core/ui_engine
-    ${ROOT_DIR}/include/core/ui_engine/ui_elements
-    ${ROOT_DIR}/include/core/ui_engine/ui_rendering
-    ${ROOT_DIR}/include/core/ui_engine/resources
+    ${ROOT_DIR}/include/Graphics/3D
+    ${ROOT_DIR}/include/Graphics/3D/lights
+    ${ROOT_DIR}/include/Graphics/3D/models
+    ${ROOT_DIR}/include/Graphics/3D/models/model_features
+    ${ROOT_DIR}/include/Graphics/3D/models/model_renderers
+    ${ROOT_DIR}/include/Graphics/3D/shaders
+    ${ROOT_DIR}/include/Graphics/3D/shaders/quad
+    ${ROOT_DIR}/include/Graphics/3D/shaders/simple
+    ${ROOT_DIR}/include/Graphics/3D/shaders/transparent
+    ${ROOT_DIR}/include/Graphics/3D/uv
 
-    ${ROOT_DIR}/include/core/system_engine/hierarchy_system
+    ${ROOT_DIR}/include/Graphics/RHI
+    ${ROOT_DIR}/include/Graphics/RHI/Base
+    ${ROOT_DIR}/include/Graphics/RHI/Base/Core
+    ${ROOT_DIR}/include/Graphics/RHI/Base/Executors
+    ${ROOT_DIR}/include/Graphics/RHI/Base/Models
+    ${ROOT_DIR}/include/Graphics/RHI/Fabric
+    ${ROOT_DIR}/include/Graphics/RHI/OpenGL
+    ${ROOT_DIR}/include/Graphics/RHI/OpenGL/Core
+    ${ROOT_DIR}/include/Graphics/RHI/OpenGL/Executors
+    ${ROOT_DIR}/include/Graphics/RHI/Vulkan
 
-    #${ROOT_DIR}/include/core/users_interface
-    #${ROOT_DIR}/include/core/users_interface/Editor
-    #${ROOT_DIR}/include/core/users_interface/Utilits
+    ${ROOT_DIR}/include/Physics
+    ${ROOT_DIR}/include/Physics/Body
+    ${ROOT_DIR}/include/Physics/Body/Electromagnetic
+    ${ROOT_DIR}/include/Physics/Body/Fluid
+    ${ROOT_DIR}/include/Physics/Body/Mechanical
+    ${ROOT_DIR}/include/Physics/Body/Mechanical/Elasticity
+    ${ROOT_DIR}/include/Physics/Body/PhysicCollisions
+    ${ROOT_DIR}/include/Physics/Body/Specialized
+    ${ROOT_DIR}/include/Physics/Body/Thermal
+    ${ROOT_DIR}/include/Physics/Colliders
+    ${ROOT_DIR}/include/Physics/Colliders/2D
+    ${ROOT_DIR}/include/Physics/Colliders/3D
+    ${ROOT_DIR}/include/Physics/Colliders/Base
+    ${ROOT_DIR}/include/Physics/Events
+    ${ROOT_DIR}/include/Physics/Events/Fluid
+    ${ROOT_DIR}/include/Physics/Events/Mechanical
+    ${ROOT_DIR}/include/Physics/World
 
-    
+    ${ROOT_DIR}/include/Shared/Input
+    ${ROOT_DIR}/include/Shared/Resource
+    ${ROOT_DIR}/include/Shared/Resource/ResourcesTypes
+    ${ROOT_DIR}/include/Shared/Time
+
+    ${ROOT_DIR}/include/Systems/Hierarchy
+    ${ROOT_DIR}/include/Systems/Tags
+
+    ${ROOT_DIR}/include/UI
+    ${ROOT_DIR}/include/UI/Resources
+    ${ROOT_DIR}/include/UI/ui_elements
+    ${ROOT_DIR}/include/UI/ui_rendering
+    ${ROOT_DIR}/include/UI/ui_shaders
+
+    ${ROOT_DIR}/include/World
+    ${ROOT_DIR}/include/World/Components
+    ${ROOT_DIR}/include/World/Scene
+    ${ROOT_DIR}/include/World/Serialization
+    ${ROOT_DIR}/include/World/Serialization/SceneParser
+
     ${GLM_DIR}
     ${GLAD_DIR}/include
     ${IMGUI_DIR}
     ${IMGUI_DIR}/backends
     ${STB_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    
     ${FREETYPE_INCLUDE_DIRS}
 )
 

@@ -1,7 +1,7 @@
 CMakeFiles/stb_lib.dir/stb_impl.cpp.o: \
  /home/alex/Projects/BearEngine/build/stb_impl.cpp \
  /usr/include/stdc-predef.h \
- /home/alex/Projects/BearEngine/src/dependencies/stb/stb_image.h \
+ /home/alex/Projects/BearEngine/exports/stb/stb_image.h \
  /usr/include/stdio.h \
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
  /usr/include/features.h /usr/include/features-time64.h \

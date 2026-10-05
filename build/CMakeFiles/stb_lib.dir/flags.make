@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/alex/Projects/BearEngine/src/dependencies/stb
+CXX_INCLUDES = -I/home/alex/Projects/BearEngine/exports/stb
 
 CXX_FLAGS = -g -std=gnu++20
 
