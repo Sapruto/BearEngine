@@ -25,3 +25,4 @@ output.log
 
 *.cash
 *.vscode
+/.cache/

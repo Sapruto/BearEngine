@@ -1,6 +1,0 @@
-/home/alex/Projects/BearEngine/build/CMakeFiles/glad_lib.dir
-/home/alex/Projects/BearEngine/build/CMakeFiles/imgui_lib.dir
-/home/alex/Projects/BearEngine/build/CMakeFiles/stb_lib.dir
-/home/alex/Projects/BearEngine/build/CMakeFiles/game.dir
-/home/alex/Projects/BearEngine/build/CMakeFiles/edit_cache.dir
-/home/alex/Projects/BearEngine/build/CMakeFiles/rebuild_cache.dir
