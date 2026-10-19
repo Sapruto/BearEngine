@@ -1,56 +1,36 @@
 #pragma once
 
-#include <any>
 #include <memory>
 #include <string>
 
-#include "RHI/Fabric/FabricTypes.h"
-#include "RHI/Fabric/IExecutorsOwner.h"
 #include "RHI/Fabric/ExecutorsOwnerT.h"
-
-#include "RHI/Base/Core/BaseDevice.h"
-#include "RHI/Base/Core/BaseWindow.h"
-#include "RHI/Base/Core/BaseShader.h"
-#include "RHI/Base/Core/BaseContextInstanceRHI.h"
+#include "RHI/Fabric/ICreatorRHI.h"
 
 namespace RHI::FabricRHI {
-    namespace B = RHI::Base;
-
-    class CreatorRHI {
-    private:
-        BackendType backend;
-
+    template<typename Backend>
+    class CreatorRHI : public ICreatorRHI {
     public:
-        explicit CreatorRHI(BackendType type = BackendType::USE_BASE);
-        ~CreatorRHI();
-
-        CreatorRHI(CreatorRHI&&) noexcept;
-        CreatorRHI& operator=(CreatorRHI&&) noexcept;
-        CreatorRHI(const CreatorRHI&) = delete;
-        CreatorRHI& operator=(const CreatorRHI&) = delete;
-
-        void SetBackend(BackendType type);
-        BackendType GetBackend() const;
-
-        std::unique_ptr<B::BaseContextInstanceRHI> CreateContext() const;
-
-        std::unique_ptr<B::BaseWindow> CreateWindow(const std::string& title,
-                                                unsigned int width,
-                                                unsigned int height) const;
-
-        std::unique_ptr<B::BaseDevice> CreateDevice(std::shared_ptr<B::BaseWindow> window) const;
-
-        std::unique_ptr<B::BaseShader> CreateShader(const std::string& vertexPath,
-                                                const std::string& fragmentPath) const;
-
-        std::unique_ptr<IExecutorsOwner> CreateExecutors() const;
-        template<typename Backend>
-        std::unique_ptr<ExecutorsOwnerT<Backend>> CreateExecutorsT() const {
-            auto owner = std::make_unique<ExecutorsOwnerT<Backend>>();
-            owner->Create(Backend::kType);
-            return owner;
+        std::unique_ptr<Base::BaseContextInstanceRHI> CreateContext() const override {
+            return std::make_unique<typename Backend::ContextInstance>();
         }
 
-        void* WindowNativeHandleToVoid(const std::any& native) const;
+        std::unique_ptr<Base::BaseWindow> CreateWindow(const std::string& title,
+                                                        uint32_t w, uint32_t h) const override {
+            auto window = std::make_unique<typename Backend::Window>();
+            if (!window->Create(title, w, h)) return nullptr;
+            return window;
+        }
+
+        std::unique_ptr<Base::BaseDevice> CreateDevice(std::shared_ptr<Base::BaseWindow> window) const override {
+            auto native = std::dynamic_pointer_cast<typename Backend::Window>(window);
+            if (!native) return nullptr;
+            return std::make_unique<typename Backend::Device>(std::move(native));
+        }
+
+        std::unique_ptr<IExecutorsOwner> CreateExecutors() const override {
+            auto owner = std::make_unique<ExecutorsOwnerT<Backend>>();
+            owner->Create();
+            return owner;
+        }
     };
 }

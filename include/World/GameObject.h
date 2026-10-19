@@ -22,6 +22,7 @@ private:
     HierarchySystem* hierarchySystem{nullptr};
 
     bool initialized{false};
+    bool awaked{false};
     bool started{false};
     bool destroyed{false}; 
 
@@ -59,15 +60,22 @@ public:
         auto component = std::make_unique<T>(std::forward<Args>(args)...);
         return AddComponentInternal(std::move(component));
     }
-    
     template<typename T>
-    T* AddComponent(T* component) {
-        static_assert(std::is_base_of<Component, T>::value, "T must be derived from Component");
-        
+    T* TakeComponentByPtr(T* component) {
+        static_assert(std::is_base_of_v<Component, T>, "T must be derived from Component");
+
         if (!component) return nullptr;
-        
+
         std::unique_ptr<T> ptr(component);
         return AddComponentInternal(std::move(ptr));
+    }
+    template<typename T>
+    T* TakeComponent(std::unique_ptr<T> component) {
+        static_assert(std::is_base_of_v<Component, T>, "T must be derived from Component");
+
+        if (!component) return nullptr;
+
+        return AddComponentInternal(std::move(component));
     }
     
     void RemoveComponent(Component* component);
@@ -117,6 +125,7 @@ public:
         return (it != componentsByType.end()) ? it->second.size() : 0;
     }
     
+    void Awake();
     void Start();
     void Update();
     void Destroy();

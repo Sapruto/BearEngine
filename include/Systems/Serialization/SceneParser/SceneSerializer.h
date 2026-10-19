@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 #include "Systems/Serialization/Chunks/IChankParser.h"
 
 namespace Serialization {

@@ -1,5 +1,7 @@
 #include "RHI/OpenGL/Core/WindowGL.h"
 
+#include <glad/glad.h>
+#include "GLFW/glfw3.h"
 #include <iostream>
 
 using namespace RHI::OpenGL;
@@ -45,11 +47,6 @@ void WindowGL::MouseCallback(GLFWwindow* window, double xpos, double ypos) {
 bool WindowGL::Create(const std::string& title, int w, int h) {
     this->title = title;
     
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
-    glfwWindowHint(GLFW_VISIBLE, GLFW_FALSE);
-    
     window = glfwCreateWindow(w, h, title.c_str(), nullptr, nullptr);
     if (!window) {
         const char* desc;
@@ -70,6 +67,8 @@ bool WindowGL::Create(const std::string& title, int w, int h) {
     glfwGetFramebufferSize(window, &fbWidth, &fbHeight);
     SetSize(fbWidth, fbHeight);
     glViewport(0, 0, fbWidth, fbHeight);
+
+    glfwSetWindowUserPointer(window, this);
     
     return true;
 }
@@ -85,8 +84,10 @@ void WindowGL::PollEvents() {
     glfwPollEvents();
 }
 
-void WindowGL::SwapBuffers() {
-    glfwSwapBuffers(window);
+void WindowGL::SetTitle(const std::string& title) {
+    if (window) {
+        glfwSetWindowTitle(window, title.c_str());
+    }
 }
 
 bool WindowGL::ShouldClose() const {

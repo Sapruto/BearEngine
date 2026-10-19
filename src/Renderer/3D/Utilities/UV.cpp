@@ -1,4 +1,4 @@
-#include "UVManager.h"
+/*#include "UVManager.h"
 
 #include "ModelComponent.h"
 #include "Model.h"
@@ -298,4 +298,4 @@ bool UVManager::HasChanged() const {
     const Matrix4x4f currentView = camera->GetViewMatrix();
     const Matrix4x4f currentProj = camera->GetProjectionMatrix(aspect);
     return (currentView != viewMatrix || currentProj != projMatrix);
-}
+}*/

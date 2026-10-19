@@ -1,29 +1,32 @@
-#include "DirectionalLight3D.h"
+#include "Renderer/3D/Settings/Lights/DirectionalLight3D.h"
 
-#include "Matrix/Matrix4x4.h"
 #include <cmath>
 
-DirectionalLight3D::DirectionalLight3D()
-    : Light3D() {
+DirectionalLight3D::DirectionalLight3D()  {
     direction.GetValue() = Vector3f(0.0f, -1.0f, 0.0f);
     shadowAreaSize.GetValue() = 50.0f;
     nearPlane.GetValue() = 1.0f;
     farPlane.GetValue() = 100.0f;
 }
 
-DirectionalLight3D::DirectionalLight3D(const Vector3f& dir, const Vector3f& col, float intens)
-    : Light3D(col, intens) {
+DirectionalLight3D::DirectionalLight3D(const Vector3f& dir, const Vector3f& col, float intens)  {
     direction.GetValue() = dir.normalized();
+    color.GetValue() = col;
+    intensity.GetValue() = intens;
     shadowAreaSize.GetValue() = 50.0f;
     nearPlane.GetValue() = 1.0f;
     farPlane.GetValue() = 100.0f;
+}
+
+void DirectionalLight3D::SetColor(const Vector3f& col) {
+    color.GetValue() = col.normalized();
 }
 
 void DirectionalLight3D::SetDirection(const Vector3f& dir) {
     direction.GetValue() = dir.normalized();
 }
 
-Matrix4x4f DirectionalLight3D::GetLightSpaceMatrix(float aspect) const {
+Matrix4x4f DirectionalLight3D::GetLightSpaceMatrix() const {
     Matrix4x4f lightProjection = Matrix4x4f::ortho(
         -shadowAreaSize.GetValue(), shadowAreaSize.GetValue(),
         -shadowAreaSize.GetValue(), shadowAreaSize.GetValue(),
@@ -42,4 +45,12 @@ Matrix4x4f DirectionalLight3D::GetLightSpaceMatrix(float aspect) const {
     Matrix4x4f lightView = Matrix4x4f::lookAt(lightPos, lightTarget, up);
     
     return Matrix4x4f((lightProjection * lightView).GetData());
+}
+
+LightData DirectionalLight3D::GetLightData() const {
+    DirectionalLightData data;
+    data.direction = GetDirection();
+    data.color = GetColor();
+    data.intensity = GetIntensity();
+    return data;
 }

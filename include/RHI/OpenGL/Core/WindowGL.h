@@ -2,8 +2,7 @@
 
 #include "RHI/Base/Core/BaseWindow.h"
 
-#include "glad/glad.h"
-#include "GLFW/glfw3.h"
+struct GLFWwindow;
 
 namespace RHI::OpenGL {
     class WindowGL : public Base::BaseWindow {
@@ -24,9 +23,10 @@ namespace RHI::OpenGL {
         bool Create(const std::string& title, int w, int h) override;
         void Destroy() override;
         void PollEvents() override;
-        void SwapBuffers() override;
         
         GLFWwindow* GetGLFWWindow() const { return window; }
+
+        void SetTitle(const std::string& title) override;
 
         bool ShouldClose() const override;
     };

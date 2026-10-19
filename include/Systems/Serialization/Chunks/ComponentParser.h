@@ -24,7 +24,7 @@ namespace Serialization::Chunks {
             auto comp = ComponentRegistry::Create(state.currentCompName);
             if (comp && state.currentObject) {
                 state.currentComponent = comp.get();
-                state.currentObject->AddComponent(comp.release());
+                state.currentObject->TakeComponent(std::move(comp));
             }
             state.Push(ParseContext::COMPONENT);
         }

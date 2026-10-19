@@ -3,8 +3,7 @@
 namespace RHI::Base {
     class BaseContextInstanceRHI {
     protected:
-        bool initialized{false};
-        bool vsync{true};
+        bool initialized = false;
 
     public:
         BaseContextInstanceRHI() = default;
@@ -14,6 +13,5 @@ namespace RHI::Base {
         virtual void Shutdown() = 0;
 
         bool IsInitialized() const { return initialized; }
-        bool IsVSync() const { return vsync; }
     };
 }

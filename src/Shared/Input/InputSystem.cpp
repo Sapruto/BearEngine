@@ -1,9 +1,6 @@
-#include "InputSystem.h"
+#include "Shared/Input/InputSystem.h"
 
-#include <iostream>
-#include <string>
-
-#include "Keys.h"
+#include "Shared/Input/Keys.h"
 
 InputSystem* InputSystem::instance = nullptr;
 
@@ -132,7 +129,7 @@ double InputSystem::GetMouseY() {
     return GetInstance().mouseY;
 }
 
-void InputSystem::KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods) {
+void InputSystem::KeyCallback([[maybe_unused]] GLFWwindow* window, int key, [[maybe_unused]] int scancode, int action, [[maybe_unused]] int mods) {
     InputSystem& input = InputSystem::GetInstance();
     
     if (key < 0 || key >= KEY_COUNT) return;
@@ -149,7 +146,7 @@ void InputSystem::KeyCallback(GLFWwindow* window, int key, int scancode, int act
     }
 }
 
-void InputSystem::MouseButtonCallback(GLFWwindow* window, int button, int action, int mods) {
+void InputSystem::MouseButtonCallback([[maybe_unused]] GLFWwindow* window, int button, int action, int mods) {
     InputSystem& input = InputSystem::GetInstance();
     
     if (button < 0 || button >= MOUSE_BUTTON_COUNT) return;
@@ -163,14 +160,14 @@ void InputSystem::MouseButtonCallback(GLFWwindow* window, int button, int action
             break;
     }
 }
- 
-void InputSystem::MousePositionCallback(GLFWwindow* window, double xpos, double ypos) {
+
+void InputSystem::MousePositionCallback([[maybe_unused]] GLFWwindow* window, double xpos, double ypos) {
     InputSystem& input = InputSystem::GetInstance();
     input.mouseX = xpos;
     input.mouseY = ypos;
 }
 
-void InputSystem::MouseScrollCallback(GLFWwindow* window, double xoffset, double yoffset) {
+void InputSystem::MouseScrollCallback([[maybe_unused]] GLFWwindow* window, double xoffset, double yoffset) {
     InputSystem& input = InputSystem::GetInstance();
     input.mouseScrollX = xoffset;
     input.mouseScrollY = yoffset;

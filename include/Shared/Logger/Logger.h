@@ -1,12 +1,11 @@
 #pragma once
 
-#include <string>
 #include <string_view>
 #include <ostream>
+#include "iostream"
 #include <mutex>
 #include <chrono>
 #include <format>
-#include <memory>
 
 namespace Logging {
     enum class LogLevel {
@@ -29,8 +28,8 @@ namespace Logging {
             switch (level) {
                 case LogLevel::Trace: return "TRACE";
                 case LogLevel::Debug: return "DEBUG";
-                case LogLevel::Info:  return "INFO";
-                case LogLevel::Warn:  return "WARN";
+                case LogLevel::Info: return "INFO";
+                case LogLevel::Warn: return "WARN";
                 case LogLevel::Error: return "ERROR";
                 case LogLevel::Fatal: return "FATAL";
             }

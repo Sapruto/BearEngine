@@ -127,7 +127,7 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/Graphics/RHI/Base
     ${ROOT_DIR}/include/Graphics/RHI/Base/Core
     ${ROOT_DIR}/include/Graphics/RHI/Base/Executors
-    ${ROOT_DIR}/include/Graphics/RHI/Base/Models
+    ${ROOT_DIR}/include/Graphics/RHI/Base/Contracts
     ${ROOT_DIR}/include/Graphics/RHI/Fabric
     ${ROOT_DIR}/include/Graphics/RHI/OpenGL
     ${ROOT_DIR}/include/Graphics/RHI/OpenGL/Core

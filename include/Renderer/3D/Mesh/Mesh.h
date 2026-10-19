@@ -1,80 +1,53 @@
 #pragma once
 
-#include "Model.h"
-#include "RenderComponent.h"
-#include "ResourceManager.h"
-#include "MeshShading.h"
-
-#include "Systems/Serialization/SerializeField.h"
-#include "Systems/Serialization/SerializeFieldIndexable.h"
-
-#include "Vector/Vector3.h"
-
-#include <atomic>
+#include "Shared/Resource/Resource.h"
 #include <string>
-#include <memory>
 #include <vector>
+#include <assimp/Importer.hpp> 
+#include <assimp/scene.h> 
+#include <assimp/postprocess.h>
 
-class RendererScene;
+#include "Math/Vector/Vector2.h"
+#include "Math/Vector/Vector3.h"
 
-class Mesh : public RenderComponent {
+#include "RHI/Base/Handles.h"
+
+struct Vertex {
+    Vector3f Position;
+    Vector3f Normal;
+    Vector2f TexCoords;
+    Vector3f Tangent;
+    Vector3f Bitangent;
+};
+
+class Mesh : public Resource {
 private:
-    std::atomic<unsigned> Mesh::nextID = 0;
-    unsigned int id;
+    Assimp::Importer importer;
+    const aiScene* scene{nullptr};
 
-    ResourceManager* rm{nullptr};
-    Model* model{nullptr};
+    std::vector<Vertex> vertices;
+    std::vector<unsigned int> indices;
 
-    FIELD(std::string, modelPath);
-    FIELD(Vector3f, colorRGB);
+    RHI::Handles::BufferHandle vboHandle;
+    RHI::Handles::BufferHandle iboHandle;
 
-    FIELD_INDEXABLE(std::vector<MeshShading*>, fieldFeatures);
-    std::vector<std::unique_ptr<MeshShading>> features;
+    void ProcessNode(aiNode* node, const aiScene* scene);
+    void ProcessMesh(aiMesh* mesh);
 
+    void CreateBuffers();
+    void DeleteBuffers();
+    
 public:
-    Mesh(ResourceManager& resource, const std::string& modelPath, Vector3f colorRGB);
-    Mesh() : id(nextID.fetch_add(1)) = default;
-    ~Mesh() override;
-
-    void SetColor(const Vector3f& color) {
-        this->colorRGB.GetValue() = color;
-    }
+    explicit Mesh(const std::string& path);
+    ~Mesh() override { Unload(); }
     
-    Model* GetModel() const { return model; }
-    Vector3f GetColor() const { return colorRGB.GetValue(); }
-    const std::string& GetModelPath() const { return modelPath.GetValue(); }
+    bool Load() override;
+    void Unload() override;
+    bool IsLoaded() const override { return scene != nullptr; }
 
-    void AddStaticFeature(MeshShading* feature) {
-        fieldFeatures.push_back(feature);
-    };
+    const std::vector<Vertex>& GetVertices() const { return vertices; }
+    const std::vector<unsigned int>& GetIndices() const { return indices; }
 
-    void AddFeature(std::unique_ptr<MeshShading> feature) {
-        features.push_back(std::move(feature));
-    }
-
-    template<typename T>
-    T* GetFeatureOfType() {
-        for (auto& feature : features) {
-            T* casted = dynamic_cast<T*>(feature.get());
-            if (casted) {
-                return casted;
-            }
-        }
-        return nullptr;
-    }
-    
-    std::vector<MeshShading*> GetFeatures() {
-        std::vector<MeshShading*> result;
-        result.reserve(features.size());
-        for (auto& feature : features) {
-            result.push_back(feature.get());
-        }
-        return result;
-    }
-
-    unsigned int GetID() const { return id; }
-
-    void Start() override;
-
-    SERIALIZED_FIELDS(&modelPath, &fieldFeatures)
+    RHI::Handles::BufferHandle GetVBO() const { return vboHandle; }
+    RHI::Handles::BufferHandle GetIBO() const { return iboHandle; }
 };

@@ -6,9 +6,9 @@
 
 #include <glad/glad.h>
 
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Vector4.h"
+#include "Math/Vector/Vector2.h"
+#include "Math/Vector/Vector3.h"
+#include "Math/Vector/Vector4.h"
 
 using namespace RHI::OpenGL;
 

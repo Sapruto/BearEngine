@@ -1,22 +1,21 @@
 #pragma once
 
 #include <cmath>
-#include "Transform.h"
-#include "HierarchySystem.h"
-#include "SerializeField.h"
-#include "Vector3.h"
-#include "Quaternion.h"
-#include "Matrix/Matrix4x4.h"
+#include "Math/Transform/Transform.h"
+#include "Systems/Serialization/SerializeField.h"
+#include "Math/Vector/Vector3.h"
+#include "Math/Quaternion.h"
+#include "Math/Matrix/Matrix4x4.h"
 
-class Transform3D : public Transform, public ISerializable {
+class Transform3D : public Transform {
 private:
-    FIELD(Vector3f, fieldPosition);
-    FIELD(Vector3f, fieldScale);
-    FIELD(Quaternionf, fieldRotation);
-
     Vector3f globalPosition;
     Vector3f globalScale;
     Quaternionf globalRotation;
+
+    FIELD(Vector3f, fieldPosition);
+    FIELD(Vector3f, fieldScale);
+    FIELD(Quaternionf, fieldRotation);
 
     bool dirty = true;
     Matrix4x4f cachedMatrix;

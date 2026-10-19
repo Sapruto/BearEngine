@@ -138,11 +138,6 @@ namespace RHI::Executors {
             return isExecuting.load();
         }
 
-        void Present() {
-            if (!device) throw std::runtime_error("Device is dead");
-            device->Present();
-        }
-
         size_t GetExecutorCount() const {
             std::lock_guard<std::mutex> lock(executersMutex);
             return executers.size();

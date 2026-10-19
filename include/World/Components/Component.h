@@ -47,14 +47,11 @@ public:
     void ClearGameObject(){
         gameObject = nullptr;
     }
-    
-    virtual void Start() {}
-    
-    virtual void Update() {}
-    
-    virtual void Destroy() {}
 
-    virtual void OnCollisionEnter(GameObject* other){}
+    virtual void Awake() {}
+    virtual void Start() {}
+    virtual void Update() {}
+    virtual void Destroy() {}
     
     bool IsValid() const {
         return gameObject != nullptr;
@@ -79,5 +76,5 @@ public:
         return comp->GetUUID();
     }
 
-    SERIALIZED_FIELDS_BASE(&uuid)
+    SERIALIZED_FIELDS(&uuid)
 };

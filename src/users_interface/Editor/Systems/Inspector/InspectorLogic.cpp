@@ -4,7 +4,7 @@
 
 #include "Component.h"
 #include "GameObject.h"
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 #include "SerializeField.h"
 
 void InspectorLogic::ClearInspector(){

@@ -7,7 +7,7 @@
 template<typename T>
 struct Matrix4x4 : public BaseMatrixAlias<T, 4, 4> {
 private:
-    constexpr void getMinor3x3(int row, int col, T* minor) const {
+    constexpr void GetMinor3x3(int row, int col, T* minor) const {
         int idx = 0;
         for (int i = 0; i < 4; i++) {
             if (i == row) continue;
@@ -30,10 +30,10 @@ public:
 
     constexpr T determinant() const {
         T minor00[9], minor01[9], minor02[9], minor03[9];
-        getMinor3x3(0, 0, minor00);
-        getMinor3x3(0, 1, minor01);
-        getMinor3x3(0, 2, minor02);
-        getMinor3x3(0, 3, minor03);
+        GetMinor3x3(0, 0, minor00);
+        GetMinor3x3(0, 1, minor01);
+        GetMinor3x3(0, 2, minor02);
+        GetMinor3x3(0, 3, minor03);
 
         return (*this)(0,0) * determinant3x3(minor00)
              - (*this)(0,1) * determinant3x3(minor01)
@@ -49,7 +49,7 @@ public:
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 T minor[9];
-                getMinor3x3(i, j, minor);
+                GetMinor3x3(i, j, minor);
                 T cofactor = determinant3x3(minor);
                 if ((i + j) % 2 != 0) cofactor = -cofactor;
                 inv(j, i) = cofactor / det;
@@ -103,6 +103,10 @@ public:
         m(3,2) = -(far + near) / (far - near);
         m(3,3) = 1.0f;
         return m;
+    }
+
+    static constexpr Matrix4x4 Zero() {
+        return Matrix4x4();
     }
 };
 

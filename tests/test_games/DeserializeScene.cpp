@@ -43,7 +43,7 @@
 #include "SimpleModelRenderer.h"
 #include "TransparentFeature.h"
 
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 #include "SceneManager.h"
 #include "Systems/Serialization/SceneParser/SceneDeserializer.h"
 

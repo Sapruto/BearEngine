@@ -56,6 +56,13 @@ public:
         auto it = typeToName.find(typeName);
         return it != typeToName.end() ? it->second : "Unknown";
     }
+
+    template<typename T>
+    static void Attach(GameObject* obj, const std::string& name) {
+        if (name == typeToName[typeid(T).name()]) {
+            obj->AddComponent<T>();
+        }
+    }
 };
 
 namespace AllComponents {

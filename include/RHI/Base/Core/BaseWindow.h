@@ -41,7 +41,6 @@ namespace RHI::Base {
         virtual bool Create(const std::string& title, int w, int h) = 0;
         virtual void Destroy() = 0;
         virtual void PollEvents() = 0;
-        virtual void SwapBuffers() = 0;
         
         int GetWidth() const { return windowSize.width; }
         int GetHeight() const { return windowSize.height; }
@@ -50,6 +49,8 @@ namespace RHI::Base {
         
         void SetResizeCallback(std::function<void(int,int)> cb) { resizeCallback = cb; }
         void SetCloseCallback(std::function<void()> cb) { closeCallback = cb; }
+
+        virtual void SetTitle(const std::string& title) = 0;
 
         virtual bool ShouldClose() const = 0;
     };

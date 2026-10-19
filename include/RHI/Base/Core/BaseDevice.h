@@ -2,6 +2,7 @@
 
 #include <memory>
 #include <any>
+#include "RHI/Base/Core/BaseResourceStore.h"
 #include "RHI/Base/Core/BaseWindow.h"
 
 namespace RHI::Base {
@@ -36,17 +37,16 @@ namespace RHI::Base {
         ClearColorRHI clearColor{};
         double clearDepthValue{1.0};
         int clearStencilValue{0};
+
+        std::shared_ptr<Resource::IResourceStore> storage;
         
     public:
-        explicit BaseDevice(std::shared_ptr<BaseWindow> win) : window(win) {}
+        explicit BaseDevice(std::shared_ptr<BaseWindow> win, std::shared_ptr<Resource::IResourceStore> store)
+        : window(win), storage(store) {}
         virtual ~BaseDevice() = default;
         
         virtual bool Initialize() = 0;
         virtual void Shutdown() = 0;
-
-        virtual void Present() = 0;
-
-        virtual void Clear(ClearFlagsRHI flags = ClearFlagsRHI::All) = 0;
 
         void SetClearColor(float r, float g, float b, float a) { clearColor = {r, g, b, a}; }
         void SetClearColor(const ClearColorRHI& c) { clearColor = c; }
@@ -59,5 +59,7 @@ namespace RHI::Base {
         
         std::shared_ptr<BaseWindow> GetWindow() const { return window; }
         const std::any& GetNativeDevice() const { return nativeDevice; }
+
+        std::shared_ptr<Resource::IResourceStore> GetResource() const { return storage; }
     };
 }

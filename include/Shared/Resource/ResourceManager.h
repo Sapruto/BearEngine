@@ -6,10 +6,10 @@
 #include <cstddef>
 #include <string>
 
-#include "Resource/Resource.h"
+#include "Shared/Resource/Resource.h"
 
-#include "Resource/ResourcesTypes.h"
-#include "Resource/Resource.h"
+#include "Shared/Resource/ResourcesTypes.h"
+#include "Shared/Resource/Resource.h"
 
 class ResourceManager {
 private:

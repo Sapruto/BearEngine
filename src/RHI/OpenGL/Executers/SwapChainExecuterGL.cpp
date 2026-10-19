@@ -1,242 +1,129 @@
 #include "RHI/OpenGL/Executors/SwapChainExecutorGL.h"
 
 #include "RHI/Base/Core/BaseDevice.h"
-#include "RHI/Base/Core/BaseWindow.h"
+#include "RHI/OpenGL/Core/DeviceGL.h"
+#include "RHI/OpenGL/Core/ResourceGL.h"
+#include "RHI/OpenGL/HandlesGL.h"
+#include "RHI/OpenGL/Utilities.h"
 
 using namespace RHI::Base;
+using namespace RHI::Executors::SwapChainExecutor;
+using namespace RHI::Handles;
+using namespace RHI::OpenGL;
+using namespace RHI::OpenGL::Utilities;
 
-namespace RHI::Executors::SwapChainExecute {
-    bool SwapChainExecutorGL::CheckGLError(const char* op, std::string& errorMsg, GLenum& errorCode) {
-        GLenum err = glGetError();
-        if (err != GL_NO_ERROR) {
-            errorMsg = std::string("OpenGL Error ") + op + ": " + std::to_string(err);
-            errorCode = err;
-            return false;
-        }
-        return true;
+SwapChainExecuteResult SwapChainExecutorGL::ProcessCreateSwapChainImpl(BaseDevice& device, const SwapChainCreateParams& params) {
+    SwapChainExecuteResult result;
+
+    DeviceGL& deviceGL = static_cast<DeviceGL&>(device);
+    window = deviceGL.GetGLFWWindow();
+
+    if (!window) {
+        return SwapChainExecuteResult(SwapChainCreateResult{
+            params.width, params.height, params.bufferCount,
+            params.presentMode, params.colorSpace,
+            false, "Failed to get GLFWwindow"
+        });
     }
 
-    GLenum SwapChainExecutorGL::GetGLInterval(IntervalType interval) {
-        switch (interval) {
-            case IntervalType::FIFO: return 1;
-            case IntervalType::IMMEDIATE: return 0;
-            case IntervalType::FIFO_RELAXED: return 1;
-            case IntervalType::MAILBOX:return 1;
-            default: return 1;
+    if (!glfwGetCurrentContext()) {
+        glfwMakeContextCurrent(window);
+    }
+
+    currentWidth = params.width;
+    currentHeight = params.height;
+    currentBufferCount = params.bufferCount > 0 ? params.bufferCount : 2;
+    currentPresentMode = params.presentMode;
+    currentColorSpace = params.colorSpace;
+
+    glViewport(0, 0, currentWidth, currentHeight);
+    glfwSwapInterval(ToGLInterval(params.presentMode));
+    glfwShowWindow(window);
+
+    return SwapChainExecuteResult(SwapChainCreateResult{
+        currentWidth, currentHeight, currentBufferCount,
+        currentPresentMode, currentColorSpace,
+        true, ""
+    });
+}
+
+SwapChainExecuteResult SwapChainExecutorGL::ProcessResizeSwapChainImpl([[maybe_unused]] BaseDevice& device, const SwapChainResizeParams& params) {
+    uint32_t oldWidth = currentWidth;
+    uint32_t oldHeight = currentHeight;
+
+    if (!window) {
+        return SwapChainExecuteResult(SwapChainResizeResult{
+            oldWidth, oldHeight, 0, 0, currentBufferCount,
+            false, "Window is null"
+        });
+    }
+
+    currentWidth = params.newWidth;
+    currentHeight = params.newHeight;
+    glViewport(0, 0, currentWidth, currentHeight);
+
+    return SwapChainExecuteResult(SwapChainResizeResult{
+        oldWidth, oldHeight, currentWidth, currentHeight,
+        currentBufferCount, true, ""
+    });
+}
+
+SwapChainExecuteResult SwapChainExecutorGL::ProcessPresentSwapChainImpl(
+        [[maybe_unused]] BaseDevice& device,
+        const SwapChainPresentParams& params) {
+
+    if (!window) {
+        return SwapChainExecuteResult(SwapChainPresentResult{
+            params.presentMode, frameCounter, false, "Window is null"
+        });
+    }
+
+    if (params.presentMode != currentPresentMode) {
+        currentPresentMode = params.presentMode;
+        glfwSwapInterval(ToGLInterval(params.presentMode));
+    }
+
+    if (params.renderTarget.id != 0) {
+        DeviceGL& deviceGL = static_cast<DeviceGL&>(device);
+        ResourceGL& resourceGL = static_cast<ResourceGL&>(*deviceGL.GetResource());
+
+        auto* rt = resourceGL.GetNativeAs<RenderTargetGL>(params.renderTarget);
+        if (rt) {
+            glBindFramebuffer(GL_READ_FRAMEBUFFER, rt->fbo);
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+            glBlitFramebuffer(
+                0, 0, rt->width, rt->height,
+                0, 0, currentWidth, currentHeight,
+                GL_COLOR_BUFFER_BIT, GL_NEAREST);
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
         }
     }
 
-    
-    SwapChainExecuteResult SwapChainExecutorGL::ProcessSwapChainCreateImpl(RHI::Base::BaseDevice& device, const SwapChainCreateParams& params) {
-        std::string errorMsg;
-        GLenum errorCode = GL_NO_ERROR;
-        bool success = true;
-        
-        auto baseWindow = device.GetWindow();
-        if (!baseWindow) {
-            SwapChainCreateResult result;
-            result.windowHandle = nullptr;
-            result.width = 0;
-            result.height = 0;
-            result.swapChainSize = 0;
-            result.actualSwapChainSize = 0;
-            result.bufferCount = 0;
-            result.intervalType = params.intervalType;
-            result.isCreated = false;
-            result.isInitialized = false;
-            result.errorMessage = "BaseWindow is null";
-            return SwapChainExecuteResult(result);
-        }
+    glfwSwapBuffers(window);
+    frameCounter++;
 
-        GLFWwindow* nativeHandle = std::any_cast<GLFWwindow*>(baseWindow->GetNativeHandle());
-        window = nativeHandle;
+    return SwapChainExecuteResult(SwapChainPresentResult{
+        currentPresentMode, frameCounter, true, ""
+    });
+}
 
-        if (!window) {
-            SwapChainCreateResult result;
-            result.windowHandle = nativeHandle;
-            result.width = 0;
-            result.height = 0;
-            result.swapChainSize = 0;
-            result.actualSwapChainSize = 0;
-            result.bufferCount = 0;
-            result.intervalType = params.intervalType;
-            result.isCreated = false;
-            result.isInitialized = false;
-            result.errorMessage = "Failed to get GLFWwindow from native handle";
-            return SwapChainExecuteResult(result);
-        }
-
-        if (!glfwGetCurrentContext()) {
-            glfwMakeContextCurrent(window);
-            success = CheckGLError("glfwMakeContextCurrent", errorMsg, errorCode);
-        }
-
-        currentWidth = params.width;
-        currentHeight = params.height;
-        swapChainSize = params.swapChainSize > 0 ? params.swapChainSize : 2;
-        currentInterval = params.intervalType;
-
-        if (success) {
-            glViewport(0, 0, currentWidth, currentHeight);
-            success = CheckGLError("glViewport", errorMsg, errorCode);
-        }
-
-        if (success) {
-            glfwSwapInterval(GetGLInterval(params.intervalType));
-            CheckGLError("glfwSwapInterval", errorMsg, errorCode);
-
-            glfwShowWindow(window);
-        }
-
-        SwapChainCreateResult result;
-        result.windowHandle = nativeHandle;
-        result.width = currentWidth;
-        result.height = currentHeight;
-        result.swapChainSize = params.swapChainSize;
-        result.actualSwapChainSize = swapChainSize;
-        result.bufferCount = swapChainSize;
-        result.intervalType = currentInterval;
-        result.isCreated = success;
-        result.isInitialized = success;
-        result.errorMessage = errorMsg;
-
-        return SwapChainExecuteResult(result);
+SwapChainExecuteResult SwapChainExecutorGL::ProcessDestroySwapChainImpl([[maybe_unused]] BaseDevice& device, const SwapChainDestroyParams& params) {
+    if (!window) {
+        return SwapChainExecuteResult(SwapChainDestroyResult{
+            false, "Window is null"
+        });
     }
 
-
-    SwapChainExecuteResult SwapChainExecutorGL::ProcessSwapChainResizeImpl(RHI::Base::BaseDevice& device, const SwapChainResizeParams& params) {
-        std::string errorMsg;
-        GLenum errorCode = GL_NO_ERROR;
-        bool success = true;
-        
-        uint32_t oldWidth = currentWidth;
-        uint32_t oldHeight = currentHeight;
-
-        if (!window) {
-            SwapChainResizeResult result;
-            result.oldWidth = oldWidth;
-            result.oldHeight = oldHeight;
-            result.newWidth = 0;
-            result.newHeight = 0;
-            result.isResized = false;
-            result.backBufferCount = 0;
-            result.errorMessage = "Window is null";
-            return SwapChainExecuteResult(result);
-        }
-
-        currentWidth = params.newWidth;
-        currentHeight = params.newHeight;
-
-        glViewport(0, 0, currentWidth, currentHeight);
-        success = CheckGLError("glViewport", errorMsg, errorCode);
-
-        SwapChainResizeResult result;
-        result.oldWidth = oldWidth;
-        result.oldHeight = oldHeight;
-        result.newWidth = currentWidth;
-        result.newHeight = currentHeight;
-        result.isResized = success;
-        result.backBufferCount = swapChainSize;
-        result.errorMessage = errorMsg;
-
-        return SwapChainExecuteResult(result);
+    if (params.forceImmediate) {
+        glfwDestroyWindow(window);
+        window = nullptr;
+        return SwapChainExecuteResult(SwapChainDestroyResult{ true, "" });
     }
 
+    glfwSetWindowShouldClose(window, GLFW_TRUE);
+    return SwapChainExecuteResult(SwapChainDestroyResult{ true, "" });
+}
 
-    SwapChainExecuteResult SwapChainExecutorGL::ProcessSwapChainPresentImpl(RHI::Base::BaseDevice& device, const SwapChainPresentParams& params) {
-        std::string errorMsg;
-        GLenum errorCode = GL_NO_ERROR;
-        bool success = true;
-        
-        if (!window) {
-            SwapChainPresentResult result;
-            result.syncInterval = params.syncInterval;
-            result.intervalType = params.intervalType;
-            result.isPresented = false;
-            result.frameNumber = frameCounter;
-            result.presentationTimeMs = 0.0;
-            result.gpuTimeMs = 0.0;
-            result.presentCounter = presentCounter;
-            result.errorMessage = "Window is null";
-            return SwapChainExecuteResult(result);
-        }
-
-        auto startTime = std::chrono::high_resolution_clock::now();
-
-        if (params.intervalType != currentInterval) {
-            currentInterval = params.intervalType;
-            glfwSwapInterval(GetGLInterval(params.intervalType));
-            CheckGLError("glfwSwapInterval", errorMsg, errorCode);
-        }
-
-        glfwSwapBuffers(window);
-        CheckGLError("glfwSwapBuffers", errorMsg, errorCode);
-
-        auto endTime = std::chrono::high_resolution_clock::now();
-        auto duration = std::chrono::duration_cast<std::chrono::microseconds>(endTime - startTime);
-        double presentTimeMs = duration.count() / 1000.0;
-
-        frameCounter++;
-        presentCounter++;
-        lastPresentTime = presentTimeMs;
-
-        SwapChainPresentResult result;
-        result.syncInterval = params.syncInterval;
-        result.intervalType = currentInterval;
-        result.isPresented = success;
-        result.frameNumber = frameCounter;
-        result.presentationTimeMs = presentTimeMs;
-        result.gpuTimeMs = -1.0;
-        result.presentCounter = presentCounter;
-        result.errorMessage = errorMsg;
-        
-        return SwapChainExecuteResult(result);
-    }
-
-
-    SwapChainExecuteResult SwapChainExecutorGL::ProcessSwapChainDestroyImpl(RHI::Base::BaseDevice& device, const SwapChainDestroyParams& params) {
-        std::string errorMsg;
-        GLenum errorCode = GL_NO_ERROR;
-        bool success = true;
-        
-        if (!window) {
-            SwapChainDestroyResult result;
-            result.forceImmediate = params.forceImmediate;
-            result.isDestroyed = false;
-            result.resourcesFreed = false;
-            result.freedMemoryBytes = 0;
-            result.errorMessage = "Window is null";
-            return SwapChainExecuteResult(result);
-        }
-
-        if (params.forceImmediate) {
-            glfwDestroyWindow(window);
-            window = nullptr;
-            
-            SwapChainDestroyResult result;
-            result.forceImmediate = params.forceImmediate;
-            result.isDestroyed = true;
-            result.resourcesFreed = true;
-            result.freedMemoryBytes = 0;
-            result.errorMessage = "";
-            return SwapChainExecuteResult(result);
-        }
-
-        glfwSetWindowShouldClose(window, GLFW_TRUE);
-        
-        CheckGLError("glfwSetWindowShouldClose", errorMsg, errorCode);
-
-        SwapChainDestroyResult result;
-        result.forceImmediate = params.forceImmediate;
-        result.isDestroyed = success;
-        result.resourcesFreed = success;
-        result.freedMemoryBytes = 0;
-        result.errorMessage = errorMsg;
-
-        return SwapChainExecuteResult(result);
-    }
-
-    bool SwapChainExecutorGL::IsValid() {
-        return glfwGetCurrentContext() != nullptr;
-    }
+bool SwapChainExecutorGL::IsValid() {
+    return glfwGetCurrentContext() != nullptr;
 }

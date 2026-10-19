@@ -1,8 +1,6 @@
-#include "HierarchySystem.h"
+#include "Systems/Hierarchy/HierarchySystem.h"
 
 #include <algorithm>
-
-#include "Component.h"
 
 HierarchyNode* HierarchySystem::FindNode(GameObject* obj) {
     auto idIt = objectToId.find(obj);

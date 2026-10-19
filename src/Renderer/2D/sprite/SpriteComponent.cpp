@@ -3,7 +3,7 @@
 #include "ResourceManager.h"
 #include "Transform2D.h"
 #include "GameObject.h"
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 #include <glad/glad.h>
 #include <cstring>
 

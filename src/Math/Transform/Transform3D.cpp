@@ -1,7 +1,7 @@
-#include "Transform3D.h"
+#include "Math/Transform/Transform3D.h"
 
-#include "GameObject.h"
-#include "HierarchySystem.h"
+#include "World/GameObject.h"
+#include "Systems/Hierarchy/HierarchySystem.h"
 #include <cmath>
 
 Transform3D::Transform3D() 

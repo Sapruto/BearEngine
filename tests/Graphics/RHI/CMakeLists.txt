@@ -12,16 +12,16 @@ find_package(OpenGL REQUIRED)
 find_package(glfw3 REQUIRED)
 find_package(Threads REQUIRED)
 
-set(ROOT_DIR  ${CMAKE_CURRENT_SOURCE_DIR}/../../..)
-set(GLAD_DIR  ${ROOT_DIR}/exports/glad)
-set(GLM_DIR   ${ROOT_DIR}/exports/glm)
-set(STB_DIR   ${ROOT_DIR}/exports/stb)
+set(ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../..)
+set(GLAD_DIR ${ROOT_DIR}/exports/glad)
+set(GLM_DIR ${ROOT_DIR}/exports/glm)
+set(STB_DIR ${ROOT_DIR}/exports/stb)
 
 add_library(glad_lib STATIC ${GLAD_DIR}/src/glad.c)
 target_include_directories(glad_lib PUBLIC ${GLAD_DIR}/include)
 set_target_properties(glad_lib PROPERTIES LINKER_LANGUAGE C)
 
-file(GLOB_RECURSE RHI_SOURCES
+file(GLOB_RECURSE RHI_SOURCES CONFIGURE_DEPENDS
     "${ROOT_DIR}/src/RHI/*.cpp"
 )
 

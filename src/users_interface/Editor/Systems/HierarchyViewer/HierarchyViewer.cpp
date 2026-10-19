@@ -2,7 +2,7 @@
 
 #include "HierarchyViewerUI.h"
 #include "GameObject.h"
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 #include "Button.h"
 #include "Editor.h"
 #include "InspectorLogic.h"

@@ -1,7 +1,4 @@
-#include "Time.h"
-
-#include "SDL.h"
-#include <cstdint>
+#include "Shared/Time/Time.h"
 
 Uint64 Time::lastTick = 0;
 Uint64 Time::frequency = 0;

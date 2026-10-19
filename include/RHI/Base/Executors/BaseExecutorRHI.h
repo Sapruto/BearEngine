@@ -7,13 +7,11 @@
 #include <functional>
 #include <variant>
 #include <type_traits>
-#include <unordered_map>
-#include <memory>
 #include <atomic>
 #include <stdexcept>
 #include <string>
-#include <chrono>
 #include <limits>
+#include <utility>
 
 #include "RHI/Base/Core/BaseDevice.h"
 #include "RHI/Base/Executors/ExecutorTypeRHI.h"
@@ -26,13 +24,20 @@ namespace RHI::Executors {
         { t->ProcessCurrentParam(device, p) } -> std::same_as<typename T::ResultType>;
     };
 
-    inline constexpr uint64_t kAnyParamId = std::numeric_limits<uint64_t>::max();
+    template<typename T>
+    struct is_variant : std::false_type {};
+    template<typename... Ts>
+    struct is_variant<std::variant<Ts...>> : std::true_type {};
+    template<typename T>
+    inline constexpr bool is_variant_v = is_variant<T>::value;
+
+    inline constexpr uint64_t AnyParamId = std::numeric_limits<uint64_t>::max();
 
     struct BaseProcessResult {
-        uint64_t paramId = kAnyParamId;
+        uint64_t paramId = AnyParamId;
         int layer = -1;
         bool success{true};
-        std::string errorMessage;
+        std::string errorMessage = "";
 
         BaseProcessResult() = default;
         BaseProcessResult(uint64_t id, bool ok = true, std::string msg = {})
@@ -44,11 +49,16 @@ namespace RHI::Executors {
             , layer(layer)
             , success(ok)
             , errorMessage(std::move(msg)) {}
+
+        void ProcessFailed(const std::string& newErrorMessage) {
+            success = false;
+            errorMessage = newErrorMessage;
+        }
     };
 
     struct SubscriptionToken {
         uint64_t id{0};
-        uint64_t paramId{kAnyParamId};
+        uint64_t paramId{AnyParamId};
 
         bool operator==(const SubscriptionToken& other) const noexcept {
             return id == other.id && paramId == other.paramId;
@@ -83,12 +93,72 @@ namespace RHI::Executors {
         }
     };
 
-    template<typename T>
-    struct is_variant : std::false_type {};
-    template<typename... Ts>
-    struct is_variant<std::variant<Ts...>> : std::true_type {};
-    template<typename T>
-    inline constexpr bool is_variant_v = is_variant<T>::value;
+    class ScopedSubscription {
+        IExecutorRHI* owner = nullptr;
+        SubscriptionToken token{};
+    public:
+        ScopedSubscription() = default;
+        ScopedSubscription(IExecutorRHI* o, SubscriptionToken t) : owner(o), token(t) {}
+        ScopedSubscription(ScopedSubscription&& o) noexcept
+            : owner(o.owner), token(o.token) { o.owner = nullptr; }
+        ScopedSubscription& operator=(ScopedSubscription&& o) noexcept {
+            if (this != &o) { Release(); owner = o.owner; token = o.token; o.owner = nullptr; }
+            return *this;
+        }
+        ScopedSubscription(const ScopedSubscription&) = delete;
+        ScopedSubscription& operator=(const ScopedSubscription&) = delete;
+        ~ScopedSubscription() { Release(); }
+
+        void Release() {
+            if (owner && token.IsValid()) owner->Unsubscribe(token);
+            owner = nullptr;
+            token = SubscriptionToken{};
+        }
+
+        void Reset() { Release(); }
+
+        void Swap(ScopedSubscription& o) noexcept {
+            std::swap(owner, o.owner);
+            std::swap(token, o.token);
+        }
+
+        const SubscriptionToken& Get() const { return token; }
+        bool IsValid() const noexcept { return owner != nullptr && token.IsValid(); }
+    };
+
+    template<typename Executor>
+    class ParamBuilder {
+        static_assert(std::is_base_of_v<IExecutorRHI, Executor>,
+                    "Executor must derive from IExecutorRHI");
+
+    private:
+        using ParamsT = typename Executor::ParamsType;
+
+        Executor* owner = nullptr;
+        ParamsT value;
+        int layer = 0;
+        bool removeAfterExecute = false;
+        bool enabled = true;
+        bool markProcess = false;
+
+    public:
+        ParamBuilder(Executor* o, ParamsT v)
+            : owner(o), value(std::move(v)) {}
+
+        ParamBuilder& OnLayer(int l) noexcept { layer = l; return *this; }
+        ParamBuilder& RemoveAfterExecute(bool v = true) noexcept { removeAfterExecute = v; return *this; }
+        ParamBuilder& Enabled(bool v = true) noexcept { enabled = v; return *this; }
+        ParamBuilder& Disabled(bool v = true) noexcept { enabled = !v; return *this; }
+        ParamBuilder& MarkProcess(bool v = true) noexcept { markProcess = v; return *this; }
+
+        uint64_t Commit() {
+            if (!owner) return 0;
+
+            const uint64_t id = owner->AddParam(std::move(value), layer, removeAfterExecute, enabled);
+            if (markProcess) owner->MarkProcess(true);
+            return id;
+        }
+    };
 
     template<typename ExecutorImplRHI, typename Params, typename ProcessResult>
         requires(is_variant_v<Params> &&
@@ -131,6 +201,8 @@ namespace RHI::Executors {
         std::atomic<uint64_t> nextParamId{1};
         std::atomic<uint64_t> nextSubscriptionId{1};
 
+        bool isNotifying{false};
+
         SubscriptionToken SubscribeInternal(uint64_t paramId, int layerFilter, CallbackType callback, bool isOnce) {
             const uint64_t id = nextSubscriptionId.fetch_add(1);
             subscribers.emplace_back(id, paramId, layerFilter, std::move(callback), isOnce);
@@ -147,32 +219,51 @@ namespace RHI::Executors {
         void NotifySubscribers(const std::vector<ProcessResult>& results) {
             if (subscribers.empty()) return;
 
-            std::vector<size_t> toRemove;
+            std::vector<Subscriber*> snapshot;
+            snapshot.reserve(subscribers.size());
+            for (auto& s : subscribers) snapshot.push_back(&s);
 
-            for (size_t i = 0; i < subscribers.size(); i++) {
-                auto& sub = subscribers[i];
-                if (!sub.enabled) continue;
+            std::vector<uint64_t> toRemoveIds;
+            toRemoveIds.reserve(snapshot.size());
 
-                if (sub.paramId == kAnyParamId && sub.layerFilter == -1) {
-                    sub.callback(results);
+            isNotifying = true;
+
+            for (auto* sub : snapshot) {
+                auto it = std::find_if(subscribers.begin(), subscribers.end(),
+                    [&](const Subscriber& s) { return s.id == sub->id; });
+                if (it == subscribers.end()) continue;
+                sub = &*it;
+
+                if (!sub->enabled) continue;
+
+                if (sub->paramId == AnyParamId && sub->layerFilter == -1) {
+                    sub->callback(results);
                 }
                 else {
                     std::vector<ProcessResult> filtered;
                     filtered.reserve(results.size());
                     for (const auto& r : results) {
-                        if (sub.paramId != kAnyParamId && r.paramId != sub.paramId) continue;
-                        if (sub.layerFilter != -1 && r.layer != sub.layerFilter) continue;
+                        if (sub->paramId != AnyParamId && r.paramId != sub->paramId) continue;
+                        if (sub->layerFilter != -1 && r.layer != sub->layerFilter) continue;
                         filtered.push_back(r);
                     }
                     if (filtered.empty()) continue;
-                    sub.callback(filtered);
+                    sub->callback(filtered);
                 }
 
-                if (sub.isOnce) toRemove.push_back(i);
+                if (sub->isOnce) toRemoveIds.push_back(sub->id);
             }
 
-            for (auto it = toRemove.rbegin(); it != toRemove.rend(); it++) {
-                subscribers.erase(subscribers.begin() + *it);
+            isNotifying = false;
+
+            if (!toRemoveIds.empty()) {
+                subscribers.erase(
+                    std::remove_if(subscribers.begin(), subscribers.end(),
+                        [&](const Subscriber& s) {
+                            return std::find(toRemoveIds.begin(), toRemoveIds.end(), s.id)
+                                != toRemoveIds.end();
+                        }),
+                    subscribers.end());
             }
         }
 
@@ -201,8 +292,7 @@ namespace RHI::Executors {
             std::vector<ProcessResult> results;
             results.reserve(params.size());
 
-            for (size_t i = 0; i < params.size(); i++) {
-                auto& token = params[i];
+            for (auto& token : params) {
                 if (!ShouldProcessParam(token)) continue;
 
                 ProcessResult r = ProcessSingleParam(device, token.params);
@@ -211,8 +301,8 @@ namespace RHI::Executors {
                 results.push_back(std::move(r));
             }
 
-            NotifySubscribers(results);
             PruneAutoRemoveParams();
+            NotifySubscribers(results);
             markProcess = false;
         }
 
@@ -227,17 +317,17 @@ namespace RHI::Executors {
             return SubscribeInternal(paramId, -1, std::move(cb), true);
         }
         SubscriptionToken SubscribeAll(CallbackType cb) {
-            return SubscribeInternal(kAnyParamId, -1, std::move(cb), false);
+            return SubscribeInternal(AnyParamId, -1, std::move(cb), false);
         }
         SubscriptionToken SubscribeAllOnce(CallbackType cb) {
-            return SubscribeInternal(kAnyParamId, -1, std::move(cb), true);
+            return SubscribeInternal(AnyParamId, -1, std::move(cb), true);
         }
 
         SubscriptionToken SubscribeOnLayer(uint64_t paramId, int layer, CallbackType cb) {
             return SubscribeInternal(paramId, layer, std::move(cb), false);
         }
         SubscriptionToken SubscribeAllOnLayer(int layer, CallbackType cb) {
-            return SubscribeInternal(kAnyParamId, layer, std::move(cb), false);
+            return SubscribeInternal(AnyParamId, layer, std::move(cb), false);
         }
 
         bool SetSubscriptionEnabled(const SubscriptionToken& token, bool enabled) {
@@ -248,7 +338,7 @@ namespace RHI::Executors {
             return true;
         }
 
-        bool Unsubscribe(const SubscriptionToken& token) {
+        bool Unsubscribe(const SubscriptionToken& token) override {
             auto it = std::find_if(subscribers.begin(), subscribers.end(),
                 [&](const Subscriber& s) {
                     return s.id == token.id && s.paramId == token.paramId;
@@ -273,21 +363,33 @@ namespace RHI::Executors {
         bool HasSubscribers(uint64_t paramId) const {
             return std::any_of(subscribers.begin(), subscribers.end(),
                 [paramId](const Subscriber& s) {
-                    return s.paramId == paramId || s.paramId == kAnyParamId;
+                    return s.paramId == paramId || s.paramId == AnyParamId;
                 });
         }
 
         size_t GetSubscriberCount() const { return subscribers.size(); }
 
-        ExecutorTypeRHI GetExecutorType() const { return type; }
+        ExecutorTypeRHI GetExecutorType() const override { return type; }
         unsigned int GetLayer() const override { return layer; }
         void SetLayer(unsigned int newLayer) override { layer = newLayer; }
 
         const std::vector<ParamTokenT>& GetParams() const { return params; }
 
-        uint64_t AddParam(Params param, int paramLayer = 0, bool removeAfterExecute = false, bool enabled = true) {
+        uint64_t AddParam(Params&& param, int paramLayer = 0, bool removeAfterExecute = false, bool enabled = true) {
             const uint64_t id = nextParamId.fetch_add(1);
             params.emplace_back(id, paramLayer, std::move(param), removeAfterExecute, enabled);
+            return id;
+        }
+
+        uint64_t AddParam(const Params& param, int paramLayer = 0, bool removeAfterExecute = false, bool enabled = true) {
+            Params copy = param;
+            return AddParam(std::move(copy), paramLayer, removeAfterExecute, enabled);
+        }
+
+        template<typename ParamT>
+        uint64_t AddParamDirect(ParamT&& p, int paramLayer = 0, bool removeAfterExecute = false) {
+            const uint64_t id = nextParamId.fetch_add(1);
+            params.emplace_back(id, paramLayer, Params{ std::forward<ParamT>(p) }, removeAfterExecute, true);
             return id;
         }
 
@@ -303,6 +405,11 @@ namespace RHI::Executors {
             const uint64_t id = AddParam(Params{std::forward<ParamT>(p)}, paramLayer, removeAfterExecute);
             MarkProcess(true);
             return id;
+        }
+
+        template<typename ParamT>
+        ParamBuilder<ExecutorImplRHI> Add(ParamT&& p) {
+            return ParamBuilder<ExecutorImplRHI>(impl(), Params{ std::forward<ParamT>(p) });
         }
 
         void RemoveParam(size_t index) {
@@ -321,7 +428,7 @@ namespace RHI::Executors {
         void ClearParams() {
             params.clear();
             auto newEnd = std::remove_if(subscribers.begin(), subscribers.end(),
-                [](const Subscriber& s) { return s.paramId != kAnyParamId; });
+                [](const Subscriber& s) { return s.paramId != AnyParamId; });
             subscribers.erase(newEnd, subscribers.end());
         }
 
@@ -412,6 +519,13 @@ namespace RHI::Executors {
         void MarkProcess(bool newValue) override { markProcess = newValue; }
         bool IsMarkedToProcess() const override { return markProcess; }
 
+        void MarkAndProcess(RHI::Base::BaseDevice& device) {
+            MarkProcess(true);
+            ProcessParams(device);
+        }
+
+        void operator()(RHI::Base::BaseDevice& device) { ProcessParams(device); }
+
         void Reset() {
             params.clear();
             UnsubscribeAll();
@@ -423,6 +537,89 @@ namespace RHI::Executors {
             Reset();
             nextParamId.store(1);
             nextSubscriptionId.store(1);
+        }
+
+        template<typename F>
+        SubscriptionToken OnceTyped(uint64_t paramId, F&& f) {
+            return SubscribeOnce(paramId,
+                [f = std::forward<F>(f)](const std::vector<ProcessResult>& results) mutable {
+                    for (const auto& r : results)
+                        std::visit([&](auto& v) {
+                            using T = std::decay_t<decltype(v)>;
+                            if constexpr (std::is_invocable_v<F, T&>) { f(v); }
+                        }, r.data);
+                });
+        }
+
+        SubscriptionToken On(uint64_t paramId, CallbackType cb) { return Subscribe(paramId, std::move(cb)); }
+        SubscriptionToken Once(uint64_t paramId, CallbackType cb) { return SubscribeOnce(paramId, std::move(cb)); }
+        SubscriptionToken OnAll(CallbackType cb) { return SubscribeAll(std::move(cb)); }
+        SubscriptionToken OnceAll(CallbackType cb) { return SubscribeAllOnce(std::move(cb)); }
+        SubscriptionToken OnLayer(uint64_t paramId, int l, CallbackType cb) { return SubscribeOnLayer(paramId, l, std::move(cb)); }
+        SubscriptionToken OnAllLayer(int l, CallbackType cb) { return SubscribeAllOnLayer(l, std::move(cb)); }
+
+        template<typename F> ScopedSubscription ScopedOn(uint64_t id, F&& f)
+            { return { this, On(id, std::forward<F>(f)) }; }
+        template<typename F> ScopedSubscription ScopedOnAll(F&& f)
+            { return { this, OnAll(std::forward<F>(f)) }; }
+        template<typename F> ScopedSubscription ScopedOnce(uint64_t id, F&& f)
+            { return { this, Once(id, std::forward<F>(f)) }; }
+
+        template<typename F> void ForEachParam(F&& f) {
+            for (auto& t : params) f(t);
+        }
+
+        template<typename F> void ForEachParamOfType(F&& f) {
+            for (auto& t : params) {
+                std::visit([&](auto& v) {
+                    using T = std::decay_t<decltype(v)>;
+                    if constexpr (std::is_invocable_v<F, T&>) f(v);
+                }, t.params);
+            }
+        }
+
+        template<typename T> T* GetParamPtrByType() {
+            for (auto& p : params)
+                if (auto* v = std::get_if<T>(&p.params)) return v;
+            return nullptr;
+        }
+
+        template<typename T> const T* GetParamPtrByType() const {
+            for (const auto& p : params)
+                if (auto* v = std::get_if<T>(&p.params)) return v;
+            return nullptr;
+        }
+
+        template<typename T> std::vector<T> GetAllParamsByType() const {
+            std::vector<T> out;
+            for (const auto& p : params)
+                if (auto* v = std::get_if<T>(&p.params)) out.push_back(*v);
+            return out;
+        }
+
+        template<typename T> std::vector<const T*> GetAllParamPtrsByType() const {
+            std::vector<const T*> out;
+            for (const auto& p : params)
+                if (auto* v = std::get_if<T>(&p.params)) out.push_back(v);
+            return out;
+        }
+
+        template<typename T, typename F>
+        SubscriptionToken OnceTyped(uint64_t paramId, F&& f) {
+            return SubscribeOnce(paramId,
+                [f = std::forward<F>(f)](const std::vector<ProcessResult>& results) mutable {
+                    for (const auto& r : results)
+                        if (auto* v = std::get_if<T>(&r.data)) { f(*v); return; }
+                });
+        }
+
+        ParamBuilder<ExecutorImplRHI> Add(Params p) {
+            return ParamBuilder<ExecutorImplRHI>(impl(), std::move(p));
+        }
+
+        template<typename ParamT>
+        ParamBuilder<ExecutorImplRHI> AddT(ParamT&& p) {
+            return ParamBuilder<ExecutorImplRHI>(impl(), Params{ std::forward<ParamT>(p) });
         }
     };
 }

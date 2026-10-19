@@ -1,8 +1,8 @@
-#include "TagManager.h"
+#include "Systems/Tags/TagManager.h"
 
-#include "Tag.h" 
-#include "TagLibrary.h"
-#include "GameObject.h"
+#include "Systems/Tags/Tag.h" 
+#include "Systems/Tags/TagLibrary.h"
+#include "World/GameObject.h"
 #include <vector>
 #include <unordered_map>
 
@@ -25,8 +25,7 @@ void TagManager::RegisterObject(GameObject* obj, const TagLibrary& tag, bool unr
         existingTag->SetTag(tag);
     } 
     else {
-        Tag* tagComponent = new Tag(tag);
-        obj->AddComponent(tagComponent);
+        obj->TakeComponent(std::make_unique<Tag>(tag));
     }
 }
 

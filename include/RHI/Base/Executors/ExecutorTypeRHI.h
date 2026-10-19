@@ -4,8 +4,9 @@ namespace RHI::Executors {
     enum class ExecutorTypeRHI {
         Base,
         SwapChainExecutor,
-        BufferExecutor,
+        ResourceExecutor,
         GeometryExecutor,
-        DrawExecutor
+        DrawExecutor,
+        PipelineExecutor
     };
 }

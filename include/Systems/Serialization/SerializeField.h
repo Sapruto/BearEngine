@@ -10,7 +10,7 @@
 class Scene;
 
 namespace SerializeField {
-    template<typename> inline constexpr bool always_false_v = false;
+    template<typename> inline constexpr bool alwaysFalse = false;
 
     template<typename T>
     concept HasToString = requires(const T& val) {
@@ -66,7 +66,7 @@ namespace SerializeField {
             }
             else if constexpr (HasStdToString<T>) return std::to_string(value);
             else {
-                static_assert(always_false_v<T>, "SerializedField<T>: T has no ToString...");
+                static_assert(alwaysFalse<T>, "SerializedField<T>: T has no ToString...");
                 return "";
             }
         }
@@ -107,7 +107,7 @@ namespace SerializeField {
                 value.FromString(str);
             }
             else {
-                static_assert(always_false_v<T>, "SerializedField<T>: T has no FromString...");
+                static_assert(alwaysFalse<T>, "SerializedField<T>: T has no FromString...");
                 return;
             }
         }
@@ -128,7 +128,7 @@ namespace SerializeField {
     #define FIELD(type, name) \
         SerializedField<type> name {#name};
 
-    #define SERIALIZED_FIELDS_BASE(...) \
+    #define SERIALIZED_FIELDS(...) \
         std::vector<ISerializedField*> GetSerializedFields() override { \
             return std::vector<ISerializedField*>{ __VA_ARGS__ }; \
         } \
@@ -136,7 +136,7 @@ namespace SerializeField {
             return std::vector<const ISerializedField*>{ __VA_ARGS__ }; \
         }
 
-    #define SERIALIZED_FIELDS(BASE, ...) \
+    #define SERIALIZED_FIELDS_BASE(BASE, ...) \
         std::vector<ISerializedField*> GetSerializedFields() override { \
             auto fields = BASE::GetSerializedFields(); \
             ISerializedField* arr[] = { __VA_ARGS__ }; \

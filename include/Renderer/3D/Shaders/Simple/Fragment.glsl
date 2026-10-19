@@ -10,7 +10,6 @@ uniform vec3 viewPos;
 
 uniform vec3 lightPos[16];
 uniform vec3 lightColor[16];
-uniform mat4 lightSpaceMatrix[16];
 uniform int lightCount;
 
 uniform vec3 dirLightDirection;

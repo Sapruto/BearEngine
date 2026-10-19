@@ -4,7 +4,7 @@
 #include <sstream>
 #include <cstdlib>
 #include <cmath>
-#include "Vector3.h"
+#include "Math/Vector/Vector3.h"
 
 template<typename T = float>
 struct Quaternion {
@@ -153,11 +153,11 @@ struct Quaternion {
         return Quaternion(-ratioVec, -scalar);
     }
     
-    static std::string ToString(const Quaternion& q) {
-        return std::to_string(q.ratioVec.x) + "," +
-               std::to_string(q.ratioVec.y) + "," +
-               std::to_string(q.ratioVec.z) + "," +
-               std::to_string(q.scalar);
+    std::string ToString() const {
+        return std::to_string(ratioVec.x) + "," +
+                std::to_string(ratioVec.y) + "," +
+                std::to_string(ratioVec.z) + "," +
+                std::to_string(scalar);
     }
     
     static Quaternion FromString(const std::string& str) {

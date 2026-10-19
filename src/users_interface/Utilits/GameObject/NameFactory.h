@@ -5,7 +5,7 @@
 #include <memory>
 
 #include "GameObject.h"
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 
 
 class NameFactory{

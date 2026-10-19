@@ -5,6 +5,8 @@
 namespace RHI::Base { class BaseDevice; }
 
 namespace RHI::Executors {
+    struct SubscriptionToken;
+
     class IExecutorRHI {
     public:
         virtual ~IExecutorRHI() = default;
@@ -15,6 +17,8 @@ namespace RHI::Executors {
         virtual unsigned int GetLayer() const = 0;
         virtual void SetLayer(unsigned int layer) = 0;
         virtual ExecutorTypeRHI GetExecutorType() const = 0;
+
+        virtual bool Unsubscribe(const SubscriptionToken& token) = 0;
 
         virtual bool IsValid() = 0;
     };

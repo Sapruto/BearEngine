@@ -7,7 +7,7 @@
 
 #include "Logger/Logger.h"
 
-#include "ResourcesTypes.h"
+#include "Shared/Resource/ResourcesTypes.h"
 
 class Scene;
 class HierarchySystem;

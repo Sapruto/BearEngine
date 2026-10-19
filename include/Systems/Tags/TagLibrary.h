@@ -1,7 +1,6 @@
 #pragma once
 
 #include <cstdint>
-#include <atomic>
 #include <string>
 #include <unordered_map>
 
@@ -18,7 +17,7 @@ public:
         }
     }
     
-    uint32_t value() const { return value; }
+    uint32_t GetValue() const { return value; }
     std::string name() const {
         auto it = nameMap.find(value);
         return it != nameMap.end() ? it->second : "Unknown";

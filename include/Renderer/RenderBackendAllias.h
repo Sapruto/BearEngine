@@ -2,4 +2,6 @@
 
 #include "RHI/Fabric/BackendTraits.h"
 
-using Backend = RHI::FabricRHI::OpenGLBackend;
+namespace Renderer::Base {
+    using Backend = RHI::FabricRHI::OpenGLBackend;
+}

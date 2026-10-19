@@ -4,8 +4,9 @@
 
 namespace RHI::Executors {
     enum class BaseExecutorLayers : unsigned int {
-        Buffer = 1,
-        Draw = 2,
-        SwapChain = 3
+        Resources = 1,
+        Pipeline = 2,
+        Draw = 3,
+        SwapChain = 4
     };
 }

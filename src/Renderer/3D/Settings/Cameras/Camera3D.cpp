@@ -1,7 +1,7 @@
-#include "Camera3D.h"
+#include "Renderer/3D/Settings/Cameras/Camera3D.h"
 
-#include "Transform3D.h"
-#include "Quaternion.h"
+#include "Math/Transform/Transform3D.h"
+#include "Math/Quaternion.h"
 
 void Camera3D::Start() {
     if (gameObject) {

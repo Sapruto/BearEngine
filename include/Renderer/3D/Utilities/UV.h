@@ -5,9 +5,9 @@
 #include <algorithm>
 #include <cstdint>
 
-#include "Vector2.h"
-#include "Vector3.h"
-#include "Matrix/Matrix4x4.h"
+#include "Math/Vector/Vector2.h"
+#include "Math/Vector/Vector3.h"
+#include "Math/Matrix/Matrix4x4.h"
 
 class Mesh;
 class Camera3D;

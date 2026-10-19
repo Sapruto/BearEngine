@@ -2,13 +2,12 @@
 
 #include <cmath>
 #include "Transform.h"
-#include "HierarchySystem.h"
-#include "SerializeField.h"
-#include "Vector2.h"
-#include "Quaternion.h"
-#include "Matrix/Matrix4x4.h"
+#include "Systems/Hierarchy/HierarchySystem.h"
+#include "Math/Vector/Vector2.h"
+#include "Math/Quaternion.h"
+#include "Math/Matrix/Matrix4x4.h"
 
-class Transform2D : public Transform, public ISerializable {
+class Transform2D : public Transform {
 private:
     FIELD(Vector2f, fieldPosition);
     FIELD(Vector2f, fieldScale);

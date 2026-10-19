@@ -95,7 +95,7 @@ public:
         return current + toTarget / dist * maxDistanceDelta;
     }
 
-    static std::string ToString(const VectorImpl& v) {
+    static std::string ToStringStatic(const VectorImpl& v) {
         std::ostringstream oss;
         oss << "(";
         for (int i = 0; i < Count; i++) {
@@ -121,6 +121,10 @@ public:
         return v;
     }
 
+    std::string ToString() const {
+        return BaseVector::ToStringStatic(vectorImpl());
+    }
+    
     constexpr VectorImpl& operator+=(const VectorImpl& o) {
         for (int i = 0; i < Count; i++) vectorImpl()[i] += o[i];
         return vectorImpl();

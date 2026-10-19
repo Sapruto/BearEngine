@@ -1,6 +1,6 @@
-#include "Scene.h"
-#include "Component.h"
-#include "SceneEvent.h"
+#include "World/Scene/Scene.h"
+#include "World/Scene/SceneEvent.h"
+#include "World/Components/Component.h"
 
 GameObject* Scene::AddGameObject(std::unique_ptr<GameObject> gameObject){
     if (!gameObject) return nullptr;
@@ -87,6 +87,14 @@ void Scene::InitializeScene() {
     for (auto& event : sceneEvents) {
         event->SetScene(this);
         event->OnSceneStart();
+    }
+}
+
+void Scene::AwakeScene() {
+    for (auto& gameObject : gameObjects){
+        if (gameObject) {
+            gameObject->Awake();
+        }
     }
 }
 

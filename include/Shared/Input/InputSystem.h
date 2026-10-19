@@ -66,10 +66,10 @@ private:
     KeyState& GetKeyState(int keyCode);
     KeyState& GetMouseButtonState(int button);
 
-    static void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mods);
-    static void MouseButtonCallback(GLFWwindow* window, int button, int action, int mods);
-    static void MousePositionCallback(GLFWwindow* window, double xpos, double ypos);
-    static void MouseScrollCallback(GLFWwindow* window, double xoffset, double yoffset);
+    static void KeyCallback([[maybe_unused]] GLFWwindow* window, int key, int scancode, int action, int mods);
+    static void MouseButtonCallback([[maybe_unused]] GLFWwindow* window, int button, int action, int mods);
+    static void MousePositionCallback([[maybe_unused]] GLFWwindow* window, double xpos, double ypos);
+    static void MouseScrollCallback([[maybe_unused]] GLFWwindow* window, double xoffset, double yoffset);
 };
 
 #define UpdateInputSystem(name, ...) void name() { \

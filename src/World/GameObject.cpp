@@ -1,12 +1,11 @@
-#include "GameObject.h"
+#include "World/GameObject.h"
+
+#include "World/Components/Component.h"
+#include "World/Scene/Scene.h"
 
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <typeindex>
-#include <typeinfo> 
-#include "Component.h"
-#include "Scene.h"
 
 GameObject::GameObject(const std::string& name, Scene* scene) 
 : name(name), scene(scene) {}
@@ -75,6 +74,17 @@ void GameObject::RemoveComponent(Component* component) {
     }
     
     components.pop_back();
+}
+
+void GameObject::Awake() {
+    if (awaked) return;
+
+    for (auto& comp : components) {
+        if (comp) {
+            comp->Awake();
+        }
+    }
+    awaked = true;
 }
 
 void GameObject::Start() {

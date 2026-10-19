@@ -98,6 +98,7 @@ public:
 
     void SetActive(bool active);
     void InitializeScene();
+    void AwakeScene();
     void StartScene();
     void UpdateScene();
     void DestroyScene();

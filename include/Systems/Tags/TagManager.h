@@ -1,7 +1,7 @@
 #pragma once
 
-#include "TagLibrary.h"
-#include "GameObject.h"
+#include "Systems/Tags/TagLibrary.h"
+#include "World/GameObject.h"
 #include <vector>
 #include <unordered_map>
 

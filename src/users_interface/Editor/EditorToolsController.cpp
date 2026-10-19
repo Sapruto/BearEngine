@@ -1,6 +1,6 @@
 #include "EditorToolsController.h"
 #include "Editor.h"
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 #include "ResourceManager.h"
 
 void EditorToolsController::UpdateLogic() {

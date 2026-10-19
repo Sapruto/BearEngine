@@ -1,4 +1,4 @@
-#include "ResourceManager.h"
+#include "Shared/Resource/ResourceManager.h"
 
 #include <vector>
 #include <unordered_map>
@@ -6,13 +6,10 @@
 #include <utility>
 #include <string>
 
-#include "Resource.h"
+#include "Shared/Resource/Resource.h"
 
-#include "Texture.h"
-#include "Font.h"
-#include "Audio.h"
-#include "ResourcesTypes.h"
-#include "ResourceFactory.h"
+#include "Shared/Resource/ResourcesTypes.h"
+#include "Shared/Resource/ResourceFactory.h"
 
 
 ResourceManager::~ResourceManager() { 

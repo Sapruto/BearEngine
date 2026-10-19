@@ -4,8 +4,8 @@
 #include "Systems/Serialization/Chunks/ParsingContext.h"
 #include "Systems/Serialization/Chunks/ChunkTokens.h"
 
-#include "Scene.h"
-#include "HierarchySystem.h"
+#include "World/Scene/Scene.h"
+#include "Systems/Hierarchy/HierarchySystem.h"
 
 namespace Serialization::Chunks {
     class HierarchyParser final : public IChankParser {

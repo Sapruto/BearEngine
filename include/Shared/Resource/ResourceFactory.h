@@ -4,7 +4,7 @@
 #include <string>
 #include <memory>
 
-#include "ResourcesTypes.h"
+#include "Shared/Resource/ResourcesTypes.h"
 
 class ResourceFactory {
 public:

@@ -1,7 +1,7 @@
 #include "SceneView.h"
 #include "SceneFileController.h"
 #include "GraphicsManager.h"
-#include "Scene.h"
+#include "World/Scene/Scene.h"
 #include "GameObject.h"
 #include "Component.h"
 #include "Tag.h"
