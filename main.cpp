@@ -4,7 +4,7 @@
 #include "Model.h"
 #include "ModelComponent.h"
 #include "ModelRenderer.h"
-#include "ResourceManager.h"
+#include "ResourceSystem.h"
 #include "GameObject.h"
 #include "Transform3D.h"
 #include "InputSystem.h"
@@ -44,10 +44,10 @@
 
 #include "World/Scene/Scene.h"
 #include "SceneManager.h"
-#include "Systems/Serialization/SceneParser/SceneDeserializer.h"
+#include "Engine/Serialization/SceneParser/SceneDeserializer.h"
 
 #include "SceneCreator.h"
-#include "Systems/Serialization/SceneParser/SceneSerializer.h"
+#include "Engine/Serialization/SceneParser/SceneSerializer.h"
 
 #include "ComponentLibrary.h"
 
@@ -89,7 +89,7 @@ Polyhedron3D* CreateCubeCollider(float size) {
     return cube;
 }
 
-void InitUI(UIRendering* uiRenderer, ResourceManager& resources, Scene& scene) {
+void InitUI(UIRendering* uiRenderer, ResourceSystem& resources, Scene& scene) {
     Font::InitFreeType();
 
     resources.LoadResource("Assets/ui/icon.png", ResourceType::Texture);
@@ -218,11 +218,11 @@ int main() {
 
     PhysicsWorld physicsWorld;
     
-    ResourceManager resourceManager;
+    ResourceSystem ResourceSystem;
     Scene mainScene("MainScene");
-    mainScene.SetResourceManager(&resourceManager);
+    mainScene.SetResourceSystem(&ResourceSystem);
     
-    ResourceManager* resources = mainScene.GetResourceManager();
+    ResourceSystem* resources = mainScene.GetResourceSystem();
     
     resources->LoadResource("Assets/models/cube.obj", ResourceType::Model);
     resources->LoadResource("Assets/models/platform.obj", ResourceType::Model);

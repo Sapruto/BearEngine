@@ -2,7 +2,7 @@
 
 #include "UIRendering.h"
 #include "Canvas.h"
-#include "ResourceManager.h"
+#include "ResourceSystem.h"
 #include "Font.h"
 #include "Texture.h"
 #include "Image.h"
@@ -48,12 +48,12 @@ namespace UtilitUI {
         Font* baseFont = nullptr;
         Texture* baseTextureButton = nullptr;
         UIRendering* uiRenderer = nullptr;
-        ResourceManager* resources = nullptr;
+        ResourceSystem* resources = nullptr;
 
         Scene* scene = nullptr;
 
     public:
-        void Init(UIRendering* renderer, ResourceManager* resMgr, Scene* scene) {
+        void Init(UIRendering* renderer, ResourceSystem* resMgr, Scene* scene) {
             uiRenderer = renderer;
             resources = resMgr;
             this->scene = scene;

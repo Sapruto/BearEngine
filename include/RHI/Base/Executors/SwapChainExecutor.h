@@ -9,7 +9,7 @@
 
 namespace RHI::Executors::SwapChainExecutor {
     template<typename T>
-    concept HasSwapChainExecutorImpl = requires(T* t, RHI::Base::BaseDevice& device,
+    concept HasSwapChainExecutorImpl = requires (T* t, RHI::Base::BaseDevice& device,
                                                 const SwapChainCreateParams& create,
                                                 const SwapChainResizeParams& resize,
                                                 const SwapChainPresentParams& present,

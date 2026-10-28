@@ -1,10 +1,21 @@
 CompileFlags:
   Add:
     - -I/home/alex/Projects/BearEngine/include
-    - -I/home/alex/Projects/BearEngine/include/Shared
-    - -I/home/alex/Projects/BearEngine/include/Systems
-    - -I/home/alex/Projects/BearEngine/exprots
+    - -I/home/alex/Projects/BearEngine/exports
+    - -I/home/alex/Projects/BearEngine/exports/uuid
     - -I/home/alex/Projects/BearEngine/exports/glad/include
 
 Completion:
   HeaderInsertion: IWYU
+
+Diagnostics:
+  ClangTidy:
+    Add:
+      - readability-identifier-naming
+    CheckOptions:
+      readability-identifier-naming.ClassCase: CamelCase
+      readability-identifier-naming.StructCase: CamelCase
+      readability-identifier-naming.NamespaceCase: CamelCase
+      readability-identifier-naming.MethodCase: CamelCase
+      readability-identifier-naming.FunctionCase: CamelCase
+      readability-identifier-naming.MemberCase: camelBack

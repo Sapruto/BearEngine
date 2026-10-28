@@ -1,7 +1,7 @@
 #include "EditorToolsController.h"
 #include "Editor.h"
 #include "World/Scene/Scene.h"
-#include "ResourceManager.h"
+#include "ResourceSystem.h"
 
 void EditorToolsController::UpdateLogic() {
     if (tools.hierarchyViewer) tools.hierarchyViewer->Update();
@@ -12,7 +12,7 @@ void EditorToolsController::UpdateUI() {
     if (tools.sceneView) tools.sceneView->Render();
 }
 
-bool EditorToolsController::Initialize(Editor* editor, GraphicsManager* gMgr, ResourceManager* resMgr, Scene* editorScene) {
+bool EditorToolsController::Initialize(Editor* editor, GraphicsManager* gMgr, ResourceSystem* resMgr, Scene* editorScene) {
     this->editor = editor;
     this->graphicsManager = gMgr;
     this->resources = resMgr;

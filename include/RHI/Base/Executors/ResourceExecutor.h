@@ -9,7 +9,7 @@
 
 namespace RHI::Executors::ResourceExecutor {
     template<typename T>
-    concept HasResourceExecutorImpl = requires(
+    concept HasResourceExecutorImpl = requires (
         T* t, RHI::Base::BaseDevice& device,
         const CreateBufferParams& createBuffer,
         const UpdateBufferParams& updateBuffer,

@@ -1,203 +1,99 @@
 #include "World/Scene/Scene.h"
-#include "World/Scene/SceneEvent.h"
-#include "World/Components/Component.h"
 
-GameObject* Scene::AddGameObject(std::unique_ptr<GameObject> gameObject){
+#include <algorithm>
+#include <utility>
+
+Scene::Scene()
+    : hierarchySystem(std::make_unique<HierarchySystem>())
+{
+    eventBus.SetOwner(this);
+}
+
+Scene::Scene(const std::string& name)
+    : hierarchySystem(std::make_unique<HierarchySystem>())
+    , sceneName(name)
+{
+    eventBus.SetOwner(this);
+}
+
+GameObject* Scene::AddGameObject(std::unique_ptr<GameObject> gameObject) {
     if (!gameObject) return nullptr;
-    
+
     GameObject* rawPtr = gameObject.get();
     gameObject->SetScene(this);
     if (hierarchySystem) {
-        gameObject->SetHierarchySystem(hierarchySystem);
+        gameObject->SetHierarchySystem(hierarchySystem.get());
     }
-    
-    if (isActive && isInitialized){
+
+    if (isActive && isInitialized) {
+        gameObject->Initialize();
+
+        eventBus.OnAddObject(rawPtr);
+
+        gameObject->Awake();
         gameObject->Start();
     }
-    
+
     gameObjects.push_back(std::move(gameObject));
-    InvalidateCache();
+    finder.Invalidate();
     MarkDirty();
     return rawPtr;
 }
 
-void Scene::AddGameObjects(std::vector<std::unique_ptr<GameObject>> objects){
+void Scene::AddGameObjects(std::vector<std::unique_ptr<GameObject>> objects) {
     for (auto& obj : objects) {
         AddGameObject(std::move(obj));
     }
 }
 
-GameObject* Scene::CreateGameObject(){
+GameObject* Scene::CreateGameObject() {
     auto go = std::make_unique<GameObject>();
-    GameObject* rawPtr = go.get();
-    
+
     go->SetScene(this);
     if (hierarchySystem) {
-        go->SetHierarchySystem(hierarchySystem);
+        go->SetHierarchySystem(hierarchySystem.get());
     }
-    
+
     if (isInitialized) {
         go->Initialize();
     }
-    
+
     return AddGameObject(std::move(go));
 }
 
-void Scene::RemoveGameObject(GameObject* gameObject){
+void Scene::RemoveGameObject(GameObject* gameObject) {
     if (!gameObject) return;
-    
+
     auto it = std::find_if(gameObjects.begin(), gameObjects.end(),
-        [gameObject](const std::unique_ptr<GameObject>& go){
+        [gameObject](const std::unique_ptr<GameObject>& go) {
             return go.get() == gameObject;
         });
-    
-    if (it != gameObjects.end()){
+
+    if (it != gameObjects.end()) {
+        eventBus.OnRemoveObject(gameObject);
+
         (*it)->Destroy();
         gameObjects.erase(it);
-        InvalidateCache();
+        finder.Invalidate();
         MarkDirty();
     }
 }
 
-void Scene::SetActive(bool active){
-    if (isActive == active) return;
-    
-    isActive = active;
-    
-    if (active && !isInitialized){
-        InitializeScene();
-        StartScene();
-        isInitialized = true;
-    }
-}
+void Scene::QueueRemoveGameObject(GameObject* gameObject) {
+    if (!gameObject) return;
 
-void Scene::InitializeScene() {
-    if (isInitialized) return;
-
-    LoadResources();
-
-    for (auto& gameObject : gameObjects) {
-        gameObject->SetScene(this);
-        if (hierarchySystem) {
-            gameObject->SetHierarchySystem(hierarchySystem);
-        }
-        gameObject->Initialize();
-    }
-    
-    for (auto& event : sceneEvents) {
-        event->SetScene(this);
-        event->OnSceneStart();
-    }
-}
-
-void Scene::AwakeScene() {
-    for (auto& gameObject : gameObjects){
-        if (gameObject) {
-            gameObject->Awake();
-        }
-    }
-}
-
-void Scene::StartScene() {
-    for (auto& gameObject : gameObjects){
-        if (gameObject) {
-            gameObject->Start();
-        }
-    }
-    for (auto& event : sceneEvents) {
-        event->OnSceneStart();
-    }
-}
-
-void Scene::QueueRemoveGameObject(GameObject* gameObject){
-    if(!gameObject) return;
-    
-    if(isUpdating){
+    if (isUpdating) {
         objectsToRemove.push_back(gameObject);
-    } 
-    else{
+    } else {
         RemoveGameObject(gameObject);
     }
 }
 
-void Scene::ProcessRemovalQueue(){
-    for(auto* obj : objectsToRemove){
+void Scene::ProcessRemovalQueue() {
+    for (auto* obj : objectsToRemove) {
         RemoveGameObject(obj);
     }
     objectsToRemove.clear();
-}
-
-void Scene::UpdateScene() {
-    if (!isActive || isDestroyed) return;
-    
-    isUpdating = true; 
-    
-    for(auto& gameObject : gameObjects) {
-        if (!gameObject->IsDestroyed()) {
-            gameObject->Update();
-        }
-    }
-    
-    for(auto& event : sceneEvents) {
-        if (event && event->IsEnabled()) {
-            event->OnSceneUpdate();
-        }
-    }
-    
-    isUpdating = false;
-    
-    ProcessRemovalQueue();
-    
-    gameObjects.erase(
-        std::remove_if(gameObjects.begin(), gameObjects.end(),
-            [](const auto& go) { return go->IsDestroyed(); }),
-        gameObjects.end()
-    );
-}
-
-void Scene::DestroyScene() {
-    if(!isInitialized) return;
-    
-    for(auto& event : sceneEvents) {
-        event->OnSceneDestroy();
-    }
-    sceneEvents.clear();
-    
-    for(auto& gameObject : gameObjects){
-        if(gameObject){
-            gameObject->Destroy();
-        }
-    }
-    
-    gameObjects.clear();
-    objectsToRemove.clear();
-    uuidToComponent.clear();
-    queryCache.clear();
-    
-    isInitialized = false;
-    isActive = false;
-    isDestroyed = true;
-}
-
-void Scene::AddResources(const std::unordered_map<std::string, ResourceType>& newResources) {
-    resources.insert(newResources.begin(), newResources.end());
-}
-
-void Scene::LoadResources() {
-    if (!resourceManager) return;
-    
-    for(auto& [resourcePath, resourceType] : resources){
-        resourceManager->LoadResource(resourcePath, resourceType);
-    }
-}
-
-void Scene::ResetResources(){
-    if (!resourceManager) return;
-    
-    for(auto& [resourcePath, resourceType] : resources){
-        resourceManager->UnloadResource(resourcePath);
-    }
-    resources.clear();
 }
 
 const std::vector<GameObject*> Scene::GetGameObjects() const {
@@ -211,52 +107,93 @@ const std::vector<GameObject*> Scene::GetGameObjects() const {
     return result;
 }
 
-void Scene::RegisterAllComponents() {
-    ClearComponentRegistry();
-    
-    for (const auto& obj : gameObjects) {
-        if (!obj) continue;
-        
-        for (auto* comp : obj->GetComponents()) {
-            if (comp) {
-                RegisterComponent(comp);
-            }
+void Scene::SetActive(bool active) {
+    if (isActive == active) return;
+
+    isActive = active;
+
+    if (active && !isInitialized) {
+        InitializeScene();
+        StartScene();
+        isInitialized = true;
+    }
+}
+
+void Scene::InitializeScene() {
+    if (isInitialized) return;
+
+    for (auto& gameObject : gameObjects) {
+        if (!gameObject) continue;
+        gameObject->SetScene(this);
+        if (hierarchySystem) {
+            gameObject->SetHierarchySystem(hierarchySystem.get());
+        }
+        gameObject->Initialize();
+    }
+}
+
+void Scene::AwakeScene() {
+    for (auto& gameObject : gameObjects) {
+        if (gameObject) {
+            gameObject->Awake();
         }
     }
 }
 
-void Scene::RegisterComponent(Component* comp) {
-    if (comp && !comp->GetUUID().empty()) {
-        uuidToComponent[comp->GetUUID()] = comp;
+void Scene::StartScene() {
+    for (auto& gameObject : gameObjects) {
+        if (gameObject) {
+            gameObject->Start();
+        }
     }
+    eventBus.OnSceneStart();
 }
 
-void Scene::UnregisterComponent(Component* comp) {
-    if (comp && !comp->GetUUID().empty()) {
-        uuidToComponent.erase(comp->GetUUID());
+void Scene::UpdateScene() {
+    if (!isActive || isDestroyed) return;
+
+    isUpdating = true;
+
+    for (auto& gameObject : gameObjects) {
+        if (gameObject && !gameObject->IsDestroyed()) {
+            gameObject->Update();
+        }
     }
+
+    eventBus.OnSceneUpdate();
+
+    isUpdating = false;
+
+    ProcessRemovalQueue();
+
+    gameObjects.erase(
+        std::remove_if(gameObjects.begin(), gameObjects.end(),
+            [](const std::unique_ptr<GameObject>& go) {
+                return !go || go->IsDestroyed();
+            }),
+        gameObjects.end());
+
+    finder.Invalidate();
 }
 
-void Scene::AddSceneEvent(std::unique_ptr<SceneEvent> event) {
-    if (!event) return;
-    
-    event->SetScene(this);
-    if (isInitialized) {
-        event->OnSceneStart();
-    }
-    sceneEvents.push_back(std::move(event));
-}
+void Scene::DestroyScene() {
+    if (isDestroyed) return;
 
-void Scene::RemoveSceneEvent(SceneEvent* event) {
-    if (!event) return;
-    
-    auto it = std::find_if(sceneEvents.begin(), sceneEvents.end(),
-        [event](const std::unique_ptr<SceneEvent>& e) {
-            return e.get() == event;
-        });
-    
-    if (it != sceneEvents.end()) {
-        (*it)->OnSceneDestroy();
-        sceneEvents.erase(it);
+    for (auto& gameObject : gameObjects) {
+        if (gameObject) {
+            eventBus.OnRemoveObject(gameObject.get());
+            gameObject->Destroy();
+        }
     }
+
+    eventBus.OnSceneDestroy();
+
+    gameObjects.clear();
+    objectsToRemove.clear();
+    componentCatalog.Clear();
+    finder.Clear();
+
+    isInitialized = false;
+    isActive = false;
+    isDestroyed = true;
 }

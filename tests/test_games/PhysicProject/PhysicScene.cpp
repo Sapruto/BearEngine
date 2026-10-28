@@ -4,7 +4,7 @@
 #include "Model.h"
 #include "ModelComponent.h"
 #include "ModelRenderer.h"
-#include "ResourceManager.h"
+#include "ResourceSystem.h"
 #include "GameObject.h"
 #include "Transform3D.h"
 #include "InputSystem.h"
@@ -123,7 +123,7 @@ public:
     bool isPhysicsActive = false;
     Vector3f startPos;
     
-    Ball(Scene* scene, ResourceManager* resources, ModelRenderer* renderer, 
+    Ball(Scene* scene, ResourceSystem* resources, ModelRenderer* renderer, 
          PhysicsWorld* world, ColliderManager* collMgr, 
          const Vector3f& pos, float radius) {
         
@@ -188,7 +188,7 @@ private:
     Text* h;
 
 public:
-    void InitUI(UIRendering* uiRenderer, ResourceManager& resources, Scene& scene) {
+    void InitUI(UIRendering* uiRenderer, ResourceSystem& resources, Scene& scene) {
         /*Font::InitFreeType();
 
         resources.LoadResource("Assets/ui/icon.png", ResourceType::Texture);
@@ -271,7 +271,7 @@ int main() {
     physicsWorld.SetColliderManager(colliderManager);
     
     Scene mainScene("MainScene");
-    ResourceManager* resources = mainScene.GetResourceManager();
+    ResourceSystem* resources = mainScene.GetResourceSystem();
 
     PhysicsStats stats;
     stats.InitUI(uiRenderer, *resources, mainScene);

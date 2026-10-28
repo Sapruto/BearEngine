@@ -9,7 +9,7 @@
 
 namespace RHI::Executors::PipelineExecutor {
     template<typename T>
-    concept HasPipelineExecutorImpl = requires(T* t, RHI::Base::BaseDevice& device,
+    concept HasPipelineExecutorImpl = requires (T* t, RHI::Base::BaseDevice& device,
                                             const CreatePipelineParams& create,
                                             const DestroyPipelineParams& destroy) {
         { t->ProcessCreatePipelineImpl(device, create) } -> std::same_as<PipelineExecuteResult>;

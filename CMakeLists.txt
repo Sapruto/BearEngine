@@ -152,13 +152,13 @@ target_include_directories(game PRIVATE
     ${ROOT_DIR}/include/Physics/Events/Mechanical
     ${ROOT_DIR}/include/Physics/World
 
-    ${ROOT_DIR}/include/Shared/Input
-    ${ROOT_DIR}/include/Shared/Resource
-    ${ROOT_DIR}/include/Shared/Resource/ResourcesTypes
-    ${ROOT_DIR}/include/Shared/Time
+    ${ROOT_DIR}/include/Systems/Input
+    ${ROOT_DIR}/include/Systems/Resource
+    ${ROOT_DIR}/include/Systems/Resource/ResourcesTypes
+    ${ROOT_DIR}/include/Systems/Time
 
-    ${ROOT_DIR}/include/Systems/Hierarchy
-    ${ROOT_DIR}/include/Systems/Tags
+    ${ROOT_DIR}/include/World/Hierarchy
+    ${ROOT_DIR}/include/Aspects/Tags
 
     ${ROOT_DIR}/include/UI
     ${ROOT_DIR}/include/UI/Resources

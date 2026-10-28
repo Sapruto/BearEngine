@@ -9,84 +9,57 @@
 #include <unordered_map>
 #include <cstdint>
 
-#include "RHI/Fabric/FabricTypes.h"
-#include "RHI/Fabric/ExecutorsOwnerT.h"
 #include "RHI/RuntimeRHI.h"
-#include "RHI/Base/Contracts/SwapChainExecutorParams.h"
-#include "RHI/Base/Executors/ExecutorQueueRHI.h"
+#include "Domains/Renderer/Base/GraphicInstance.h"
 
-#include "Renderer/RenderBackendAllias.h"
-#include "Renderer/3D/Scene/RendererScene3D.h"
-#include "Renderer/3D/Passes/DefaultPass.h"
-#include "Renderer/3D/Materials/DefaultMaterial.h"
-#include "Renderer/3D/Settings/Cameras/Camera3D.h"
-#include "Renderer/3D/Settings/Lights/DirectionalLight3D.h"
-#include "Renderer/3D/Mesh/Renderable3D.h"
-#include "Renderer/3D/Mesh/Mesh.h"
-
-#include "Shared/Resource/ResourceManager.h"
-
+#include "World/World.h"
+#include "World/Scene/Scene.h"
+#include "World/Scene/Theater.h"
 #include "World/GameObject.h"
-#include "World/Components/Component.h"
+
 #include "Math/Transform/Transform3D.h"
 #include "Math/Quaternion.h"
+#include "Math/Vector/Vector4.h"
 
-using namespace RHI;
-using namespace RHI::FabricRHI;
-using namespace RHI::Executors;
-using namespace RHI::Executors::SwapChainExecutor;
+#include "Domains/Renderer/3D/Scene/RendererScene3D.h"
+#include "Domains/Renderer/3D/Passes/DefaultPass.h"
+#include "Domains/Renderer/3D/Materials/DefaultMaterial.h"
+#include "Domains/Renderer/3D/Settings/Cameras/Camera3D.h"
+#include "Domains/Renderer/3D/Settings/Lights/DirectionalLight3D.h"
+#include "Domains/Renderer/3D/Mesh/Renderable3D.h"
+#include "Domains/Renderer/3D/Mesh/Mesh.h"
 
-constexpr unsigned int kWidth  = 1280;
-constexpr unsigned int kHeight = 720;
-constexpr float        kFpsIntervalSec = 5.0f;
+#include "Systems/Resource/ResourceSystem.h"
 
-constexpr int   kCubeCount   = 1000;
-constexpr float kCubeRadius  = 0.25f;
-constexpr float kBoxHalf     = 12.0f;
-constexpr float kSpeedMin    = 1.5f;
-constexpr float kSpeedMax    = 4.5f;
-constexpr float kRestitution = 0.95f;
+using namespace Renderer::Base;
+
+constexpr float kFpsIntervalSec = 5.0f;
+constexpr int   kCubeCount      = 10;
+constexpr float kCubeRadius     = 0.25f;
+constexpr float kBoxHalf        = 12.0f;
+constexpr float kSpeedMin       = 1.5f;
+constexpr float kSpeedMax       = 40.5f;
+constexpr float kRestitution    = 0.95f;
 
 static void PrintContextInfo() {
     std::cout << "  context=" << (glfwGetCurrentContext() ? "ok" : "NULL") << "\n";
-    std::cout << "  GL_VERSION=" << glGetString(GL_VERSION) << "\n";
-    std::cout << "  GL_RENDERER=" << glGetString(GL_RENDERER) << "\n";
-    std::cout << "  GLSL=" << glGetString(GL_SHADING_LANGUAGE_VERSION) << "\n";
     std::cout << "  main thread=" << std::this_thread::get_id() << "\n";
 }
 
-static bool SetupSwapChain(ExecutorsOwnerT<Renderer::Base::Backend>* executors,
-                            ExecutorQueueRHI* queue) {
-    auto* swapChainExec = executors->GetSwapChainExecutor();
-    if (!swapChainExec) return false;
-
-    SwapChainCreateParams scp;
-    scp.width       = kWidth;
-    scp.height      = kHeight;
-    scp.bufferCount = 2;
-    scp.presentMode = PresentMode::IMMEDIATE;
-    scp.colorSpace  = ColorSpace::SRGB_NONLINEAR;
-
-    swapChainExec->AddT<SwapChainCreateParams>(SwapChainCreateParams{ scp })
-        .RemoveAfterExecute().MarkProcess().Commit();
-    queue->Execute();
-    return true;
-}
-
-static Mesh* PreloadMesh(ResourceManager& resourceManager, const char* meshPath) {
-    resourceManager.LoadResource(meshPath, ResourceType::Mesh);
-    auto* mesh = resourceManager.GetResourceAs<Mesh>(meshPath);
+static Mesh* PreloadMesh(ResourceSystem& resourceSystem, const char* meshPath) {
+    resourceSystem.LoadResource(meshPath, ResourceType::Mesh);
+    auto* mesh = resourceSystem.GetResourceAs<Mesh>(meshPath);
     if (!mesh) return nullptr;
 
     std::cout << "  verts=" << mesh->GetVertices().size()
-                << " idx="  << mesh->GetIndices().size()
-                << " VBO="  << mesh->GetVBO().id
-                << " IBO="  << mesh->GetIBO().id << "\n";
+              << " idx="  << mesh->GetIndices().size()
+              << " VBO="  << mesh->GetVBO().id
+              << " IBO="  << mesh->GetIBO().id << "\n";
     return mesh;
 }
 
-static void SetupInputCallbacks(GLFWwindow* window) {
-    glfwSetKeyCallback(window, [](GLFWwindow* w, int key, int, int action, int) {
+static void SetupInputCallbacks() {
+    glfwSetKeyCallback(glfwGetCurrentContext(), [](GLFWwindow* w, int key, int, int action, int) {
         if (action != GLFW_PRESS) return;
         if (key == GLFW_KEY_ESCAPE || key == GLFW_KEY_Q) {
             glfwSetWindowShouldClose(w, GLFW_TRUE);
@@ -220,13 +193,14 @@ private:
     std::unordered_map<CellKey, std::vector<size_t>, CellKeyHash> grid_;
 };
 
-static void BuildScene(RendererScene3D& scene,
-                        ResourceManager& resourceManager,
-                        const char* meshPath,
-                        std::vector<Particle>& outParticles,
-                        std::vector<GameObject*>& outGOs,
-                        GameObject*& outCameraGO,
-                        GameObject*& outLightGO) {
+static void BuildScene(Scene& scene,
+                       RendererScene3D& renderScene,
+                       ResourceSystem& resourceSystem,
+                       const char* meshPath,
+                       std::vector<Particle>& outParticles,
+                       std::vector<GameObject*>& outGOs,
+                       GameObject*& outCameraGO,
+                       GameObject*& outLightGO) {
     outParticles.clear();
     outGOs.clear();
     outParticles.reserve(kCubeCount);
@@ -239,21 +213,19 @@ static void BuildScene(RendererScene3D& scene,
     std::uniform_real_distribution<float> colorDist(0.2f, 1.0f);
 
     for (int i = 0; i < kCubeCount; ++i) {
-        auto* cube = new GameObject("Cube" + std::to_string(i));
-        cube->SetScene(nullptr);
+        GameObject* cube = scene.CreateGameObject();
+        cube->SetName("Cube" + std::to_string(i));
 
         auto* tr = cube->AddComponent<Transform3D>();
         const Vector3f pos(posDist(rng), posDist(rng), posDist(rng));
         tr->SetLocalPosition(pos);
         tr->SetLocalScale(Vector3f(kCubeRadius * 2.0f, kCubeRadius * 2.0f, kCubeRadius * 2.0f));
 
-        auto* renderable = cube->AddComponent<Renderable3D>(resourceManager, meshPath);
+        auto* renderable = cube->AddComponent<Renderable3D>(resourceSystem, meshPath);
 
         auto mat = std::make_unique<DefaultMaterial>();
         mat->SetColor(Vector3f(colorDist(rng), colorDist(rng), colorDist(rng)));
         renderable->AddMaterial(std::move(mat));
-
-        scene.RegisterRenderable(renderable);
 
         Vector3f dir(dirDist(rng), dirDist(rng), dirDist(rng));
         if (dir.x * dir.x + dir.y * dir.y + dir.z * dir.z < 1e-4f) dir = Vector3f(1.0f, 0.0f, 0.0f);
@@ -269,18 +241,18 @@ static void BuildScene(RendererScene3D& scene,
         outGOs.push_back(cube);
     }
 
-    outCameraGO = new GameObject("Camera");
-    outCameraGO->SetScene(nullptr);
+    outCameraGO = scene.CreateGameObject();
+    outCameraGO->SetName("Camera");
 
     auto* camTransform = outCameraGO->AddComponent<Transform3D>();
     camTransform->SetLocalPosition(Vector3f(0.0f, 0.0f, kBoxHalf * 3.0f));
     camTransform->SetLocalRotation(Quaternionf::Identity());
 
     auto* camera = outCameraGO->AddComponent<Camera3D>();
-    scene.SetCurrentCamera(camera);
+    renderScene.SetCurrentCamera(camera);
 
-    outLightGO = new GameObject("Light");
-    outLightGO->SetScene(nullptr);
+    outLightGO = scene.CreateGameObject();
+    outLightGO->SetName("Light");
 
     auto* lightTransform = outLightGO->AddComponent<Transform3D>();
     lightTransform->SetLocalPosition(Vector3f(5.0f, 10.0f, 5.0f));
@@ -290,75 +262,92 @@ static void BuildScene(RendererScene3D& scene,
     dirLight->SetColor(Vector3f(1.0f, 1.0f, 1.0f));
     dirLight->SetIntensity(1.0f);
 
-    scene.AddLight(dirLight);
-
-    for (auto* go : outGOs) {
-        go->Initialize();
-        go->Awake();
-        go->Start();
-    }
-
-    outCameraGO->Initialize();
-    outCameraGO->Awake();
-    outCameraGO->Start();
-
-    outLightGO->Initialize();
-    outLightGO->Awake();
-    outLightGO->Start();
+    renderScene.AddLight(dirLight);
 }
 
 int main() {
-    using Backend = Renderer::Base::Backend;
-    using Clock   = std::chrono::steady_clock;
+    using Clock = std::chrono::steady_clock;
 
+    GraphicInstance instance;
     std::cout << "=== [1] RHI init ===\n";
-    auto& rhi = RuntimeRHI::GetInstance();
-    if (!rhi.Initialize(BackendType::OpenGL, "Cube", kWidth, kHeight)) {
+    if (!instance.Initialize(GraphicConfig())) {
         std::cerr << "RHI init failed\n";
         return 1;
     }
     PrintContextInfo();
 
-    auto* window    = rhi.Window();
-    auto* queue     = rhi.Queue();
-    auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(rhi.Executors());
+    std::cout << "\n=== [2] World / Theater / Scene ===\n";
+    World world;
 
-    std::cout << "\n=== [2] SwapChain ===\n";
-    if (!SetupSwapChain(executors, queue)) {
-        std::cerr << "  swapchain setup failed\n";
+    auto* domainRoot = world.GetDomainRoot();
+    if (!domainRoot) {
+        std::cerr << "No DomainRoot\n";
+        instance.Shutdown();
         return 1;
     }
-    std::cout << "  swapchain created\n";
+
+    auto* renderScene = domainRoot->AddDomainSystem<RendererScene3D>();
+    if (!renderScene) {
+        std::cerr << "AddDomainSystem<RendererScene3D> returned nullptr\n";
+        instance.Shutdown();
+        return 1;
+    }
+    renderScene->SetClearColor(Vector4f(0.02f, 0.03f, 0.08f, 1.0f));
+    renderScene->RegisterRenderer<DefaultPass>(std::make_unique<DefaultPass>());
+
+    auto* theater = world.GetTheater();
+    if (!theater) {
+        std::cerr << "No Theater\n";
+        instance.Shutdown();
+        return 1;
+    }
+
+    Scene* scene = theater->AddScene(std::make_unique<Scene>("main"));
+    if (!scene) {
+        std::cerr << "AddScene returned nullptr\n";
+        instance.Shutdown();
+        return 1;
+    }
+    theater->ChangeCurrentScene(scene);
+
+    auto* app = world.GetApplication();
+    auto* resourceSystem = app ? app->GetSystemOfType<ResourceSystem>() : nullptr;
+    if (!resourceSystem) {
+        std::cerr << "No ResourceSystem\n";
+        instance.Shutdown();
+        return 1;
+    }
 
     std::cout << "\n=== [3] Mesh preload ===\n";
-    ResourceManager resourceManager;
-    const char* meshPath = "/home/alex/Projects/BearEngine/Assets/models/cube.obj";
-    if (!PreloadMesh(resourceManager, meshPath)) {
-        std::cerr << "  MESH LOAD FAILED\n";
+    const char* meshPath = "Assets/models/cube.obj";
+    if (!PreloadMesh(*resourceSystem, meshPath)) {
+        std::cerr << "MESH LOAD FAILED\n";
+        instance.Shutdown();
         return 1;
     }
 
-    std::cout << "\n=== [4] Scene setup ===\n";
-    RendererScene3D scene;
+    std::cout << "\n=== [4] Build scene ===\n";
     std::vector<Particle> particles;
     std::vector<GameObject*> cubes;
     GameObject* cameraGO = nullptr;
     GameObject* lightGO  = nullptr;
-    BuildScene(scene, resourceManager, meshPath, particles, cubes, cameraGO, lightGO);
-    std::cout << "  components initialized (" << particles.size() << " cubes)\n";
+    BuildScene(*scene, *renderScene, *resourceSystem, meshPath, particles, cubes, cameraGO, lightGO);
+    std::cout << "  cubes=" << particles.size() << "\n";
 
-    std::cout << "\n=== [5] Register pass + Start ===\n";
-    scene.RegisterRenderer<DefaultPass>(std::make_unique<DefaultPass>());
-    scene.Start();
-    scene.SetClearColor(0.02f, 0.03f, 0.08f, 1.0f);
-    std::cout << "  scene started\n";
+    std::cout << "\n=== [5] StartWorld ===\n";
+    SetupInputCallbacks();
+    world.StartWorld();
 
-    SetupInputCallbacks(glfwGetCurrentContext());
-
-    std::cout << "\n=== [6] Main loop ===\n";
-    std::cout << "  ESC or Q to exit\n";
-
+    std::cout << "\n=== [6] Main loop ===\n  ESC/Q to exit\n";
     PhysicsWorld physics;
+
+    auto* window = instance.GetWindow();
+    if (!window) {
+        std::cerr << "No window\n";
+        world.DestroyWorld();
+        instance.Shutdown();
+        return 1;
+    }
 
     auto lastStats = Clock::now();
     auto lastFrame = Clock::now();
@@ -366,6 +355,7 @@ int main() {
     int  fpsFrames = 0;
 
     while (!window->ShouldClose()) {
+        instance.BeginFrame();
         window->PollEvents();
 
         const auto now = Clock::now();
@@ -375,13 +365,8 @@ int main() {
         if (dt <= 0.0f) dt = 1.0f / 60.0f;
 
         physics.Step(particles, dt);
-        for (auto* cube : cubes) {
-            cube->Update();
-        }
-        cameraGO->Update();
-        lightGO->Update();
 
-        scene.Update();
+        world.UpdateWorld();
 
         ++frame;
         ++fpsFrames;
@@ -395,16 +380,13 @@ int main() {
             fpsFrames = 0;
             lastStats = Clock::now();
         }
+
+        instance.EndFrame();
     }
 
     std::cout << "\n=== [7] Cleanup ===\n";
-    scene.Destroy();
-
-    for (auto* cube : cubes) delete cube;
-    delete cameraGO;
-    delete lightGO;
-
-    rhi.Shutdown();
+    world.DestroyWorld();
+    instance.Shutdown();
     std::cout << "  done\n";
     return 0;
 }

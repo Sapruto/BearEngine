@@ -1,7 +1,7 @@
 #include "Math/Transform/Transform2D.h"
 
 #include "World/GameObject.h"
-#include "Systems/Hierarchy/HierarchySystem.h"
+#include "World/Hierarchy/HierarchySystem.h"
 #include <cmath>
 
 Transform2D::Transform2D() 

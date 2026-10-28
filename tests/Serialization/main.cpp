@@ -8,9 +8,9 @@
 #include "GameObject.h"
 #include "Component.h"
 #include "ComponentLibrary.h"
-#include "Systems/Serialization/SerializeField.h"
+#include "Engine/Serialization/SerializeField.h"
 
-#include "Systems/Serialization/SceneParser/SceneCreator.h"
+#include "Engine/Serialization/SceneParser/SceneCreator.h"
 
 using namespace SerializeField;
 using namespace Serialization;
@@ -30,7 +30,7 @@ private:
     FIELD(std::string, label)
     FIELD(int, value)
 
-    SERIALIZED_FIELDS_BASE(&label, &value)
+    SERIALIZED_FIELDS(&label, &value)
 END_COMPONENT(TestNamedComponent)
 
 BEGIN_COMPONENT(TestFloatComponent, Component)
@@ -44,7 +44,7 @@ public:
 private:
     FIELD(float, x)
 
-    SERIALIZED_FIELDS_BASE(&x)
+    SERIALIZED_FIELDS(&x)
 END_COMPONENT(TestFloatComponent)
 
 static int g_passed = 0;

@@ -4,7 +4,7 @@
 #include "Model.h"
 #include "ModelComponent.h"
 #include "ModelRenderer.h"
-#include "ResourceManager.h"
+#include "ResourceSystem.h"
 #include "GameObject.h"
 #include "Transform3D.h"
 #include "InputSystem.h"
@@ -45,10 +45,10 @@
 
 #include "World/Scene/Scene.h"
 #include "SceneManager.h"
-#include "Systems/Serialization/SceneParser/SceneDeserializer.h"
+#include "Engine/Serialization/SceneParser/SceneDeserializer.h"
 
 #include "SceneCreator.h"
-#include "Systems/Serialization/SceneParser/SceneSerializer.h"
+#include "Engine/Serialization/SceneParser/SceneSerializer.h"
 
 #include "ComponentLibrary.h"
 
@@ -156,7 +156,7 @@ int main() {
     std::unique_ptr<Scene> mainScene = deserializer.GenerateSceneThroughFile(sceneText);
     if (!mainScene) return -1;
     
-    ResourceManager* resources = mainScene->GetResourceManager();
+    ResourceSystem* resources = mainScene->GetResourceSystem();
     resources->LoadResource("Assets/models/cube.obj", ResourceType::Model);
     resources->LoadResource("Assets/models/slon_sea.obj", ResourceType::Model);
     resources->LoadResource("Assets/ui/icon.png", ResourceType::Texture);

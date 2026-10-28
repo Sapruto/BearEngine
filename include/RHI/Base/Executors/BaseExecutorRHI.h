@@ -19,7 +19,7 @@
 
 namespace RHI::Executors {
     template<typename T>
-    concept HasProcessCurrentParam = requires(T* t, RHI::Base::BaseDevice& device,
+    concept HasProcessCurrentParam = requires (T* t, RHI::Base::BaseDevice& device,
                                             const typename T::ParamsType& p) {
         { t->ProcessCurrentParam(device, p) } -> std::same_as<typename T::ResultType>;
     };
@@ -161,7 +161,7 @@ namespace RHI::Executors {
     };
 
     template<typename ExecutorImplRHI, typename Params, typename ProcessResult>
-        requires(is_variant_v<Params> &&
+        requires (is_variant_v<Params> &&
                 std::is_base_of_v<BaseProcessResult, ProcessResult>)
     class BaseExecutorRHI : public IExecutorRHI {
     public:

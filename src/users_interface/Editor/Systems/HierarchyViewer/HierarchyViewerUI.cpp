@@ -2,7 +2,7 @@
 
 using namespace UtilitUI;
 
-HierarchyViewerUI::HierarchyViewerUI(Canvas* cv, ResourceManager* resMgr) 
+HierarchyViewerUI::HierarchyViewerUI(Canvas* cv, ResourceSystem* resMgr) 
     : canvas(cv), resources(resMgr) {}
 
 void HierarchyViewerUI::LoadResources() {

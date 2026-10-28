@@ -4,10 +4,10 @@
 #include "Camera3D.h"
 #include "UIRendering.h"
 #include "GraphicsManager.h"
-#include "ResourceManager.h"
+#include "ResourceSystem.h"
 
 namespace UtilitGraphic {
-    inline bool InitGraphics(GraphicsManager* mgr, ResourceManager& resources) {
+    inline bool InitGraphics(GraphicsManager* mgr, ResourceSystem& resources) {
         float clearColor[4] = {0.1f, 0.1f, 0.15f, 1.0f};
         Window* window = new Window(1600, 900, clearColor, "BEAR ENGINE");
         if (!window->Initialize()) {

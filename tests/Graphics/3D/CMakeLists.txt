@@ -31,6 +31,10 @@ file(GLOB_RECURSE RENDERER_3D_SOURCES CONFIGURE_DEPENDS
     "${ROOT_DIR}/src/Renderer/3D/*.cpp"
 )
 
+file(GLOB_RECURSE RENDERER_BASE CONFIGURE_DEPENDS
+    "${ROOT_DIR}/src/Renderer/Base/*.cpp"
+)
+
 file(GLOB_RECURSE WORLD_SOURCES CONFIGURE_DEPENDS
     "${ROOT_DIR}/src/World/*.cpp"
 )
@@ -44,7 +48,7 @@ file(GLOB_RECURSE SYSTEMS_SOURCES CONFIGURE_DEPENDS
 )
 
 file(GLOB_RECURSE SHARED_SOURCES CONFIGURE_DEPENDS
-    "${ROOT_DIR}/src/Shared/*.cpp"
+    "${ROOT_DIR}/src/Systems/*.cpp"
 )
 
 list(REMOVE_ITEM RENDERER_3D_SOURCES
@@ -55,6 +59,7 @@ list(REMOVE_ITEM RENDERER_3D_SOURCES
 list(APPEND ALL_SOURCES
     ${RHI_SOURCES}
     ${RENDERER_3D_SOURCES}
+    ${RENDERER_BASE}
     ${WORLD_SOURCES}
     ${MATH_SOURCES}
     ${SYSTEMS_SOURCES}
@@ -68,8 +73,8 @@ target_include_directories(cube_example PRIVATE
     ${ROOT_DIR}/src
     ${ROOT_DIR}/include
 
-    ${ROOT_DIR}/src/Shared
-    ${ROOT_DIR}/include/Shared
+    ${ROOT_DIR}/src/Systems
+    ${ROOT_DIR}/include/Systems
 
     ${ROOT_DIR}/src/Systems
     ${ROOT_DIR}/include/Systems

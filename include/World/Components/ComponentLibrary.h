@@ -5,7 +5,8 @@
 #include <memory>
 #include <functional>
 #include <vector>
-#include "Component.h"
+
+#include "World/Components/Component.h"
 
 class ComponentRegistry {
 private:

@@ -1,11 +1,12 @@
 #pragma once
 
-#include "World/GameObject.h"
-#include "World/Scene/Scene.h"
 #include <World/Components/uuid.h>
-#include <random>
+#include "../GameObject.h"
+#include "../Scene/Scene.h"
 
-#include "Systems/Serialization/SerializeField.h"
+#include "Engine/Serialization/SerializeField.h"
+
+#include <random>
 
 using namespace SerializeField;
 
@@ -20,10 +21,11 @@ public:
     Component() : gameObject(nullptr) {}
     
     virtual ~Component() {
-        if(!gameObject) return;
-        
-        Scene* scene = gameObject->GetScene();
-        if(scene) scene->UnregisterComponent(this);
+        if (gameObject) {
+            if (Scene* scene = gameObject->GetScene()) {
+                scene->GetCatalog().Unregister(this);
+            }
+        }
     }
 
     void Initialize() {
@@ -35,8 +37,11 @@ public:
             uuid.GetValue() = uuids::to_string(uuid_gen());
         }
 
-        Scene* scene = gameObject->GetScene();
-        if(scene) scene->RegisterComponent(this);
+        if (gameObject) {
+            if (Scene* scene = gameObject->GetScene()) {
+                scene->GetCatalog().Register(this);
+            }
+        }
     }
 
     
@@ -66,14 +71,12 @@ public:
     }
     const std::string& GetUUID() const { return uuid.GetValue(); }
 
-    static Component* FromString(const std::string& str) {
-        Component* comp = new Component();
-        comp->SetUUID(str);
-        return comp;
+    std::string ToString() const {
+        return this->GetUUID();
     }
-
-    static std::string ToString(Component* comp) {
-        return comp->GetUUID();
+    
+    void FromString(const std::string& str) {
+        SetUUID(str);
     }
 
     SERIALIZED_FIELDS(&uuid)

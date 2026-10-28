@@ -23,17 +23,11 @@ find_package(OpenGL REQUIRED)
 file(GLOB_RECURSE WORLD_SOURCES CONFIGURE_DEPENDS
     ${ROOT_DIR}/src/World/*.cpp
 )
-file(GLOB_RECURSE SHARED_SOURCES CONFIGURE_DEPENDS
-    ${ROOT_DIR}/src/Shared/*.cpp
+file(GLOB_RECURSE SYSTEM_SOURCES CONFIGURE_DEPENDS
+    ${ROOT_DIR}/src/Systems/*.cpp
 )
 file(GLOB_RECURSE HIERARCHY_SOURCES CONFIGURE_DEPENDS
     ${ROOT_DIR}/src/Systems/Hierarchy/*.cpp
-)
-file(GLOB_RECURSE RENDERER_RESOURCES_SOURCES CONFIGURE_DEPENDS
-    ${ROOT_DIR}/src/Renderer/Resources/*.cpp
-)
-file(GLOB_RECURSE UI_RESOURCES_SOURCES CONFIGURE_DEPENDS
-    ${ROOT_DIR}/src/UI/Resources/*.cpp
 )
 file(GLOB_RECURSE LOGGER_SOURCES CONFIGURE_DEPENDS
     ${ROOT_DIR}/src/Logger/*.cpp
@@ -54,10 +48,8 @@ set_target_properties(stb_lib PROPERTIES LINKER_LANGUAGE CXX)
 set(TEST_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
     ${WORLD_SOURCES}
-    ${SHARED_SOURCES}
+    ${SYSTEM_SOURCES}
     ${HIERARCHY_SOURCES}
-    ${RENDERER_RESOURCES_SOURCES}
-    ${UI_RESOURCES_SOURCES}
     ${LOGGER_SOURCES}
 )
 
@@ -81,18 +73,14 @@ target_include_directories(scene_tests PRIVATE
     ${ROOT_DIR}/include/Systems
     ${ROOT_DIR}/include/Systems/Hierarchy
 
-    ${ROOT_DIR}/include/Shared
-    ${ROOT_DIR}/include/Shared/Resource
-    ${ROOT_DIR}/include/Shared/Resource/ResourcesTypes
-    ${ROOT_DIR}/include/Shared/Logger
-    ${ROOT_DIR}/include/Shared/Input
-    ${ROOT_DIR}/include/Shared/Time
+    ${ROOT_DIR}/include/Systems
+    ${ROOT_DIR}/include/Systems/Resource
+    ${ROOT_DIR}/include/Systems/Resource/ResourcesTypes
+    ${ROOT_DIR}/include/Systems/Logger
+    ${ROOT_DIR}/include/Systems/Input
+    ${ROOT_DIR}/include/Systems/Time
 
     ${ROOT_DIR}/include/Renderer
-    ${ROOT_DIR}/include/Renderer/Resources
-
-    ${ROOT_DIR}/include/UI
-    ${ROOT_DIR}/include/UI/Resources
 
     ${GLAD_DIR}/include
     ${STB_DIR}

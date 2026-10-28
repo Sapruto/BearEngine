@@ -9,7 +9,7 @@
 
 namespace RHI::Executors::DrawExecutor {
     template<typename T>
-    concept HasDrawExecutorImpl = requires(
+    concept HasDrawExecutorImpl = requires (
         T* t, RHI::Base::BaseDevice& device,
         const DrawArraysParams& drawArrays,
         const DrawElementsParams& drawElements,

@@ -41,6 +41,7 @@ private:
         componentsByType[typeid(T)].insert(index);
         
         if (initialized) ptr->Initialize();
+        if (awaked) ptr->Awake();
         if (started) ptr->Start();
         
         return ptr;

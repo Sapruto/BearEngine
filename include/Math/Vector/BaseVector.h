@@ -11,7 +11,7 @@ struct BaseVector {
 private:
     constexpr void CheckOperator() const {
         static_assert(
-            requires(const VectorImpl& v, int i) {
+            requires (const VectorImpl& v, int i) {
                 { v[i] } -> std::convertible_to<const T&>;
             },
             "VectorImpl must provide operator[](int) -> const T&"
@@ -106,7 +106,7 @@ public:
         return oss.str();
     }
 
-    static VectorImpl FromString(const std::string& str) {
+    static VectorImpl FromStringStatic(const std::string& str) {
         VectorImpl v;
         std::istringstream iss(str);
         char open, comma, close;
@@ -125,6 +125,8 @@ public:
         return BaseVector::ToStringStatic(vectorImpl());
     }
     
+    void FromString(const std::string& str) { vectorImpl() = BaseVector::FromStringStatic(str); }
+
     constexpr VectorImpl& operator+=(const VectorImpl& o) {
         for (int i = 0; i < Count; i++) vectorImpl()[i] += o[i];
         return vectorImpl();

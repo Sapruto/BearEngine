@@ -4,7 +4,7 @@
 #include "Model.h"
 #include "ModelComponent.h"
 #include "ModelRenderer.h"
-#include "ResourceManager.h"
+#include "ResourceSystem.h"
 #include "GameObject.h"
 #include "Transform3D.h"
 #include "InputSystem.h"
@@ -72,7 +72,7 @@ Polyhedron3D* CreateCubeCollider(float size) {
     return cube;
 }
 
-void InitUI(UIRendering* uiRenderer, ResourceManager& resources) {
+void InitUI(UIRendering* uiRenderer, ResourceSystem& resources) {
     Font::InitFreeType();
 
     resources.LoadResource("Assets/ui/icon.png", ResourceType::Texture);
@@ -177,7 +177,7 @@ int main() {
     InputSystem& input = InputSystem::GetInstance();
     input.Initialize(window->GetWindow());
     
-    ResourceManager resources;
+    ResourceSystem resources;
     
     resources.LoadResource("Assets/models/cube.obj", ResourceType::Model);
     resources.LoadResource("Assets/models/platform.obj", ResourceType::Model);

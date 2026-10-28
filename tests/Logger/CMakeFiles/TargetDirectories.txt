@@ -1,0 +1,3 @@
+/home/alex/Projects/BearEngine/tests/Logger/CMakeFiles/logger_tests.dir
+/home/alex/Projects/BearEngine/tests/Logger/CMakeFiles/edit_cache.dir
+/home/alex/Projects/BearEngine/tests/Logger/CMakeFiles/rebuild_cache.dir

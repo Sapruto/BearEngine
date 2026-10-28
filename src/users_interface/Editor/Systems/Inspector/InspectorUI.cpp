@@ -1,6 +1,6 @@
 /*#include "InspectorUI.h"
 
-InspectorUI::InspectorUI(Canvas* cv, Scene* scn, ResourceManager* resMgr) {
+InspectorUI::InspectorUI(Canvas* cv, Scene* scn, ResourceSystem* resMgr) {
     canvas = cv;
     scene = scn;
     
