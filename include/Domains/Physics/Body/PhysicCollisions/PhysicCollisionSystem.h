@@ -2,10 +2,10 @@
 
 #include "LocalPhysicCollisionSystem.h"
 
-#include "BasePhysicManager.h"
+#include "BasePhysicsSimulation.h"
 #include "PhysicalBody.h"
 
-class PhysicCollisionSystem : public BasePhysicManager{
+class PhysicCollisionSystem : public BasePhysicsSimulation{
 private:
     std::vector<LocalPhysicCollisionSystem> bodySystems;
 

@@ -2,14 +2,14 @@
 
 class PhysicsWorld;
 
-class BasePhysicManager{
+class BasePhysicsSimulation{
 protected:
     PhysicsWorld* world;
 
     int layer;
 
 public:
-    BasePhysicManager() = default;
+    BasePhysicsSimulation() = default;
 
     virtual void Start() = 0;
     virtual void Update() = 0;

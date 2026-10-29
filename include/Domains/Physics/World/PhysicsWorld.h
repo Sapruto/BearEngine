@@ -3,13 +3,14 @@
 #include <memory>
 #include <vector>
 #include <algorithm>
-#include <unordered_map> 
-#include "PhysicsEvents.h"
-#include "BasePhysicManager.h"
+#include <unordered_map>
 
-class PhysicalBody;
+#include "BasePhysicsSimulation.h"
+#include "../Events/PhysicsEvents.h"
+#include "../Body/PhysicalBody.h"
+#include "../Body/PhysicFeature.h"
+
 class ColliderManager;
-class PhysicFeature;
 
 class PhysicsWorld{
 private:
@@ -18,7 +19,7 @@ private:
 
     std::shared_ptr<ColliderManager> colliderManager;
 
-    std::vector<BasePhysicManager*> physicsManagers;
+    std::vector<BasePhysicsSimulation*> physicsManagers;
 
     bool isStarted{false};
 
@@ -63,7 +64,7 @@ public:
         
         return manager;
     }
-    void RemovePhysicsManager(BasePhysicManager* manager) {
+    void RemovePhysicsManager(BasePhysicsSimulation* manager) {
         auto it = std::find(physicsManagers.begin(), physicsManagers.end(), manager);
         if (it != physicsManagers.end()) {
             if (*it) {

@@ -1,16 +1,16 @@
 #pragma once
 
-#include "Transform3D.h"
-#include "BaseCollider.h"
-#include "Component.h"
+#include "Math/Transform/Transform3D.h"
+#include "World/Components/Component.h"
+
+#include "PhysicFeature.h"
+#include "../Colliders/Base/BaseCollider.h"
 
 #include <vector>
 #include <memory>
 #include <algorithm>
 #include <typeinfo>
 #include <typeindex>
-
-class PhysicFeature;
 
 class PhysicsWorld;
 

@@ -27,14 +27,6 @@ file(GLOB_RECURSE RHI_SOURCES CONFIGURE_DEPENDS
     "${ROOT_DIR}/src/RHI/*.cpp"
 )
 
-file(GLOB_RECURSE RENDERER_3D_SOURCES CONFIGURE_DEPENDS
-    "${ROOT_DIR}/src/Renderer/3D/*.cpp"
-)
-
-file(GLOB_RECURSE RENDERER_BASE CONFIGURE_DEPENDS
-    "${ROOT_DIR}/src/Renderer/Base/*.cpp"
-)
-
 file(GLOB_RECURSE WORLD_SOURCES CONFIGURE_DEPENDS
     "${ROOT_DIR}/src/World/*.cpp"
 )
@@ -47,23 +39,24 @@ file(GLOB_RECURSE SYSTEMS_SOURCES CONFIGURE_DEPENDS
     "${ROOT_DIR}/src/Systems/*.cpp"
 )
 
-file(GLOB_RECURSE SHARED_SOURCES CONFIGURE_DEPENDS
-    "${ROOT_DIR}/src/Systems/*.cpp"
+set(DOMAINS_SOURCES
+    "${ROOT_DIR}/src/Domains/Renderer/Base/GraphicInstance.cpp"
+    "${ROOT_DIR}/src/Domains/Renderer/Base/Shader.cpp"
+
+    "${ROOT_DIR}/src/Domains/Renderer/3D/Scene/RendererScene3D.cpp"
+    "${ROOT_DIR}/src/Domains/Renderer/3D/Passes/DefaultPass.cpp"
+    "${ROOT_DIR}/src/Domains/Renderer/3D/Mesh/Mesh.cpp"
+    "${ROOT_DIR}/src/Domains/Renderer/3D/Mesh/Renderable3D.cpp"
+    "${ROOT_DIR}/src/Domains/Renderer/3D/Settings/Cameras/Camera3D.cpp"
+    "${ROOT_DIR}/src/Domains/Renderer/3D/Settings/Lights/DirectionalLight3D.cpp"
 )
 
-list(REMOVE_ITEM RENDERER_3D_SOURCES
-    "${ROOT_DIR}/src/Renderer/3D/Passes/TransparencyRenderer.cpp"
-    "${ROOT_DIR}/src/Renderer/3D/Utilities/UV.cpp"
-)
-
-list(APPEND ALL_SOURCES
+set(ALL_SOURCES
     ${RHI_SOURCES}
-    ${RENDERER_3D_SOURCES}
-    ${RENDERER_BASE}
+    ${DOMAINS_SOURCES}
     ${WORLD_SOURCES}
     ${MATH_SOURCES}
     ${SYSTEMS_SOURCES}
-    ${SHARED_SOURCES}
     "${CMAKE_CURRENT_SOURCE_DIR}/example1.cpp"
 )
 
@@ -72,9 +65,6 @@ add_executable(cube_example ${ALL_SOURCES})
 target_include_directories(cube_example PRIVATE
     ${ROOT_DIR}/src
     ${ROOT_DIR}/include
-
-    ${ROOT_DIR}/src/Systems
-    ${ROOT_DIR}/include/Systems
 
     ${ROOT_DIR}/src/Systems
     ${ROOT_DIR}/include/Systems

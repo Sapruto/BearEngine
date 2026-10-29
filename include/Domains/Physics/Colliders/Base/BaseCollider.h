@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Component.h"
+#include "World/Components/Component.h"
 #include <vector>
 #include <unordered_map>
 #include <string>
