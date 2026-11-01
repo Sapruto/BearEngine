@@ -34,7 +34,7 @@
 using namespace Renderer::Base;
 
 constexpr float kFpsIntervalSec = 5.0f;
-constexpr int   kCubeCount      = 10;
+constexpr int   kCubeCount      = 100;
 constexpr float kCubeRadius     = 0.25f;
 constexpr float kBoxHalf        = 12.0f;
 constexpr float kSpeedMin       = 1.5f;

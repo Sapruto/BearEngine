@@ -1,127 +1,65 @@
 #pragma once
 
-#include "Math/Transform/Transform3D.h"
-#include "World/Components/Component.h"
-
-#include "PhysicFeature.h"
-#include "../Colliders/Base/BaseCollider.h"
-
-#include <vector>
+#include <unordered_map>
 #include <memory>
-#include <algorithm>
-#include <typeinfo>
 #include <typeindex>
+#include <utility>
 
-class PhysicsWorld;
+#include "World/Components/Component.h"
+#include "IPhysicFeature.h"
 
-class PhysicalBody : public Component{
-private:
-    BaseCollider* collider;
+namespace Physic::Body {
+    class PhysicalBody : public Component {
+    private:
+        std::unordered_map<std::type_index, std::unique_ptr<IPhysicFeature>> typeToFeature;
 
-    Transform3D* transform; 
-    
-    float mass;
-    float volume;
-    float density;
+    public:
+        PhysicalBody() = default;
+        ~PhysicalBody() override = default;
 
-    std::vector<std::unique_ptr<PhysicFeature>> features;
-    std::vector<PhysicFeature*> sortedFeatures;
-    bool needsResort = true; 
+        template<typename T, typename... Args>
+        T* UpsertFeature(Args&&... args) {
+            static_assert(std::is_base_of_v<IPhysicFeature, T>,
+                            "T must be derived from IPhysicFeature");
 
-    const PhysicsWorld* world;
+            auto feature = std::make_unique<T>(std::forward<Args>(args)...);
+            T* ptr = feature.get();
 
-    bool isIntialized = false;
-    bool isDestroyed = false;
-    bool isValid;
-
-    void Resort();
-
-public:
-    PhysicalBody() = default;
-    PhysicalBody(BaseCollider* collider, float density);
-    PhysicalBody(BaseCollider* collider);
-    PhysicalBody(BaseCollider* collider, float mass, float volume);
-    ~PhysicalBody();
-
-    void Initialize();
-    void PhysicsUpdate();
-    
-    void Destroy();
-
-    template<typename T, typename... Args>
-    T* AddFeature(Args&&... args) {
-        static_assert(std::is_base_of<PhysicFeature, T>::value, "T must be derived from PhysicFeature");
-        
-        auto feature = std::make_unique<T>(std::forward<Args>(args)...);
-        T* ptr = feature.get();
-        
-        features.push_back(std::move(feature));
-        
-        ptr->SetBody(this);
-        if(isIntialized) {
-            ptr->Initialize();
-            ptr->FeatureInitialize();
+            typeToFeature[std::type_index(typeid(T))] = std::move(feature);
+            return ptr;
         }
-        
-        needsResort = true;
-        
-        return ptr;
-    }
-    
-    template<typename T, typename... Args>
-    T* AddFeatureWithLayer(int layer, Args&&... args) {
-        static_assert(std::is_base_of<PhysicFeature, T>::value, "T must be derived from PhysicFeature");
-        
-        auto feature = std::make_unique<T>(std::forward<Args>(args)...);
-        T* ptr = feature.get();
-        
-        features.push_back(std::move(feature));
-        
-        ptr->SetBody(this);
-        ptr->SetLayer(layer); 
-        
-        if(isIntialized) {
-            ptr->Initialize();
-            ptr->FeatureInitialize();
-        }
-        
-        needsResort = true; 
-        
-        return ptr;
-    }
-    
-    void RemoveFeature(PhysicFeature* feature);
 
-    template<typename T>
-    T* GetFeatureOfType() {
-        static std::type_index typeIdx = typeid(T);
-        
-        for (const auto& feature : features) {
-            if (typeid(*feature) == typeid(T)) {
-                return static_cast<T*>(feature.get());
+        template<typename T>
+        bool RemoveFeature() {
+            return typeToFeature.erase(std::type_index(typeid(T))) > 0;
+        }
+
+        template<typename T>
+        T* GetFeatureOfType() {
+            auto it = typeToFeature.find(std::type_index(typeid(T)));
+            return it != typeToFeature.end() ? static_cast<T*>(it->second.get()) : nullptr;
+        }
+
+        template<typename T>
+        const T* GetFeatureOfType() const {
+            auto it = typeToFeature.find(std::type_index(typeid(T)));
+            return it != typeToFeature.end() ? static_cast<const T*>(it->second.get()) : nullptr;
+        }
+
+        template<typename Base>
+        Base* FindFeatureByBase() {
+            for (auto& [_, feature] : typeToFeature) {
+                if (auto* p = dynamic_cast<Base*>(feature.get()))
+                    return p;
             }
+            return nullptr;
+        } //! THIS METHOD IS VARY LAZY AND SLOW. YOU DON'T WANT TO USE THIS IN UPDATE OR OTHER.
+
+        template<typename T>
+        bool HasFeature() const {
+            return typeToFeature.find(std::type_index(typeid(T))) != typeToFeature.end();
         }
-        return nullptr;
-    }
 
-    void SetDensity(float density){ this->density = density; Initialize(); }
-    void SetMass(float mass) { this->mass = mass; }
-    void SetPhysicWorld(PhysicsWorld* world){ this->world = world; }
-    void ClearWorld(){ this->world = nullptr; }
-
-    float GetMass(){ return mass; }
-    float GetDensity(){ return density; }
-    float GetVolume(){ return volume; }
-    BaseCollider* GetBaseCollider(){return collider;}
-    Transform3D* GetTransform() { return transform; }
-    const PhysicsWorld* GetWorld() { return world; }
-
-    std::vector<PhysicFeature*> GetFeatures() {
-        std::vector<PhysicFeature*> result;
-        result.reserve(features.size());
-        for (const auto& feature : features) {
-            result.push_back(feature.get());
-        }
-        return result;
-    }
-};
+        const std::unordered_map<std::type_index, std::unique_ptr<IPhysicFeature>>& GetTypeToFeatures() const { return typeToFeature; }
+    };
+}

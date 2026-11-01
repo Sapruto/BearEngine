@@ -9,10 +9,6 @@
 
 class Transform3D : public Transform {
 private:
-    Vector3f globalPosition;
-    Vector3f globalScale;
-    Quaternionf globalRotation;
-
     FIELD(Vector3f, fieldPosition);
     FIELD(Vector3f, fieldScale);
     FIELD(Quaternionf, fieldRotation);
@@ -20,38 +16,41 @@ private:
     bool dirty = true;
     Matrix4x4f cachedMatrix;
 
-    Transform3D combine(const Transform3D& parent) const;
-    void updateWorld();
+    void UpdateWorld();
 
 public:
     Transform3D();
 
-    void rotate(float pitch, float yaw, float roll);
+    void Rotate(float pitch, float yaw, float roll);
 
-    Vector3f forward() const;
-    Vector3f backward() const;
-    Vector3f right() const;
-    Vector3f left() const;
-    Vector3f up() const;
-    Vector3f down() const;
+    Vector3f Forward() const;
+    Vector3f Backward() const;
+    Vector3f Right() const;
+    Vector3f Left() const;
+    Vector3f Up() const;
+    Vector3f Down() const;
 
-    void lookAt(const Vector3f& target);
+    void LookAt(const Vector3f& target);
 
     Matrix4x4f GetMatrix() const;
 
     void Update() override;
 
-    const Vector3f& GetGlobalPosition() const;
-    const Vector3f& GetGlobalScale() const;
-    const Quaternionf& GetGlobalRotation() const;
+    Vector3f GetGlobalPosition() const;
+    Vector3f GetGlobalScale() const;
+    Quaternionf GetGlobalRotation() const;
 
     const Vector3f& GetLocalPosition() const;
     const Vector3f& GetLocalScale() const;
     const Quaternionf& GetLocalRotation() const;
 
-    void SetLocalPosition(const Vector3f& newPos);
-    void SetLocalScale(const Vector3f& newScale);
-    void SetLocalRotation(const Quaternionf& newRot);
+    void SetLocalPosition(const Vector3f& p);
+    void SetLocalScale(const Vector3f& s);
+    void SetLocalRotation(const Quaternionf& r);
+
+    void SetGlobalPositionAsLocal(const Vector3f& p);
+    void SetGlobalScaleAsLocal(const Vector3f& s);
+    void SetGlobalRotationAsLocal(const Quaternionf& r);
 
     SERIALIZED_FIELDS(&fieldPosition, &fieldScale, &fieldRotation)
 };
