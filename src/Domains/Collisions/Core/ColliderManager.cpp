@@ -1,4 +1,4 @@
-#include "ColliderManager.h"
+#include "Domains/Collisions/Core/ColliderManager.h"
 #include <algorithm>
 
 ColliderManager::~ColliderManager() {

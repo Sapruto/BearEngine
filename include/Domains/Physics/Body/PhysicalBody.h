@@ -1,20 +1,26 @@
 #pragma once
 
+#include "World/Components/Component.h"
+#include "IPhysicFeature.h"
+
+#include <atomic>
 #include <unordered_map>
 #include <memory>
 #include <typeindex>
 #include <utility>
 
-#include "World/Components/Component.h"
-#include "IPhysicFeature.h"
-
 namespace Physic::Body {
+    using BodyId = uint32_t;
+
     class PhysicalBody : public Component {
     private:
         std::unordered_map<std::type_index, std::unique_ptr<IPhysicFeature>> typeToFeature;
+        BodyId id = 0;
+
+        inline static std::atomic<BodyId> nextId{1};
 
     public:
-        PhysicalBody() = default;
+        PhysicalBody() : id(nextId.fetch_add(1)) {}
         ~PhysicalBody() override = default;
 
         template<typename T, typename... Args>
@@ -61,5 +67,7 @@ namespace Physic::Body {
         }
 
         const std::unordered_map<std::type_index, std::unique_ptr<IPhysicFeature>>& GetTypeToFeatures() const { return typeToFeature; }
+
+        BodyId GetId() { return id; }
     };
 }

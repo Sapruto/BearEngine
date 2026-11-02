@@ -1,9 +1,6 @@
 #pragma once
 
-#include "Component.h"
-#include <vector>
 #include <unordered_map>
-#include <string>
 #include "BaseCollider.h"
 
 class CollisionEvent;
@@ -24,9 +21,9 @@ public:
     virtual IVector GetCenter() const = 0;
     
     virtual bool GetCollisionInfo(const BaseCollider* other, 
-                                  IVector& point, 
-                                  IVector& normal, 
-                                  float& penetration) const {
+                                    IVector& point, 
+                                    IVector& normal, 
+                                    float& penetration) const {
         return false;
     }
     

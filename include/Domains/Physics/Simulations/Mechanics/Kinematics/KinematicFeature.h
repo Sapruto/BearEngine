@@ -3,7 +3,7 @@
 #include "../../../Body/IPhysicFeature.h"
 #include "Math/Vector/Vector3.h"
 
-namespace Physic::Mechanics {
+namespace Physic::Mechanics::Kinematics {
     struct KinematicFeature : public Body::IPhysicFeature {
         Vector3f velocity;
 

@@ -9,7 +9,6 @@
 #include "CollisionReaction.h"
 
 class ColliderManager;
-class PhysicalBody;
 
 class BaseCollider : public Component {
 private:
@@ -91,8 +90,6 @@ public:
     virtual float GetVolume() const = 0; 
 
     void Destroy() override;
-
-    PhysicalBody* GetPhysicalBody() const;
 
     CollisionReaction* GetCollisionReaction() { return m_ReactionCollision.get(); }
     CollisionReaction* GetTriggerReaction() { return m_ReactionTrigger.get(); }

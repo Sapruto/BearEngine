@@ -3,19 +3,18 @@
 #include <vector>
 #include <algorithm>
 
-#include "IPhysicSimulator.h"
-#include "PhysicEventBus.h"
-#include "../Body/PhysicalBody.h"
 #include "../../Core/DomainSystem.h"
+#include "../Body/BodyRegistry.h"
+#include "../Events/PhysicEventBus.h"
+#include "IPhysicSimulator.h"
 #include "Systems/Core/HasRequired.h"
 
 namespace Physic {
     class PhysicDomain : public Domains::IDomainSystem, public Systems::HasRequired {
     private:
-        std::vector<Body::PhysicalBody*> bodies;
-
         std::vector<std::unique_ptr<IPhysicSimulator>> simulators;
 
+        Body::BodyRegistry bodyRegistry;
         Events::PhysicEventBus eventBus;
 
         bool isStarted = false;
@@ -58,12 +57,10 @@ namespace Physic {
             needSort = true;
         }
 
-        const std::vector<Body::PhysicalBody*>& GetAllBodies() const { return bodies; }
-        size_t GetBodyCount() const { return bodies.size(); }
-
         void AddByObject(GameObject* gameObject) override;
         void RemoveByObject(GameObject* gameObject) override;
 
+        Body::BodyRegistry& GetBodyRegistry() { return bodyRegistry; }
         Events::PhysicEventBus& GetEventBus() { return eventBus; }
     };
 }

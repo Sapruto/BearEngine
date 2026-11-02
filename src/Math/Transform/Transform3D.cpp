@@ -8,7 +8,10 @@ Transform3D::Transform3D()
     : fieldPosition("fieldPosition", Vector3f::Zero())
     , fieldScale("fieldScale", Vector3f::One())
     , fieldRotation("fieldRotation", Quaternionf::Identity())
-    , dirty(true) {}
+    , dirty(true)
+{
+    cachedMatrix = Matrix4x4f::Identity();
+}
 
 void Transform3D::UpdateWorld() {
     if (!dirty) return;
@@ -150,6 +153,7 @@ void Transform3D::LookAt(const Vector3f& target) {
 }
 
 Matrix4x4f Transform3D::GetMatrix() const {
+    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
     return cachedMatrix;
 }
 
@@ -158,10 +162,12 @@ void Transform3D::Update() {
 }
 
 Vector3f Transform3D::GetGlobalPosition() const {
+    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
     return Vector3f(cachedMatrix(0, 3), cachedMatrix(1, 3), cachedMatrix(2, 3));
 }
 
 Vector3f Transform3D::GetGlobalScale() const {
+    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
     Vector3f sx(cachedMatrix(0, 0), cachedMatrix(1, 0), cachedMatrix(2, 0));
     Vector3f sy(cachedMatrix(0, 1), cachedMatrix(1, 1), cachedMatrix(2, 1));
     Vector3f sz(cachedMatrix(0, 2), cachedMatrix(1, 2), cachedMatrix(2, 2));
@@ -169,6 +175,7 @@ Vector3f Transform3D::GetGlobalScale() const {
 }
 
 Quaternionf Transform3D::GetGlobalRotation() const {
+    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
     Vector3f sx(cachedMatrix(0, 0), cachedMatrix(1, 0), cachedMatrix(2, 0));
     Vector3f sy(cachedMatrix(0, 1), cachedMatrix(1, 1), cachedMatrix(2, 1));
     Vector3f sz(cachedMatrix(0, 2), cachedMatrix(1, 2), cachedMatrix(2, 2));

@@ -1,7 +1,7 @@
 #pragma once
 
-#include "Transform3D.h"
-#include "Vector3.h"
+#include "Math/Transform/Transform3D.h"
+#include "Math/Vector/Vector3.h"
 
 struct Vertex3D {
     explicit Vertex3D(const Vector3f& point) : localPoint(point) {}

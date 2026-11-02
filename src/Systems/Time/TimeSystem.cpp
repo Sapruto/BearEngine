@@ -1,10 +1,10 @@
 #include "Systems/Time/TimeSystem.h"
 
-void TimeSystem::Initialize() {
-    if (!initialized) {
+void TimeSystem::StartSystem() {
+    if (!isStarted) {
         frequency = SDL_GetPerformanceFrequency();
         lastTick = SDL_GetPerformanceCounter();
-        initialized = true;
+        isStarted = true;
     }
 }
 
@@ -16,8 +16,8 @@ void TimeSystem::SetTimeScale(float scale) { timeScale = scale; }
 float TimeSystem::TimeSinceStart() { return timeSinceStart; }
 Uint32 TimeSystem::FrameCount() { return frameCount; }
 
-void TimeSystem::Tick() {
-    if (!initialized) Initialize();
+void TimeSystem::BeginFrameSystem() {
+    if (!isStarted) return;
     
     Uint64 currentTick = SDL_GetPerformanceCounter();
     

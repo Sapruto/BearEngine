@@ -1,9 +1,11 @@
 #include "Domains/Renderer/3D/Mesh/Renderable3D.h"
 
+#include "Systems/Resource/ResourceSystem.h"
+
 std::atomic<unsigned> Renderable3D::nextId = 0;
 
-Renderable3D::Renderable3D(ResourceSystem& resource, const std::string& meshPath) 
-    : id(nextId.fetch_add(1)), resourceSystem(&resource)
+Renderable3D::Renderable3D(const std::string& meshPath) 
+    : id(nextId.fetch_add(1))
 {
     this->meshPath = meshPath;
 
@@ -13,7 +15,7 @@ Renderable3D::Renderable3D(ResourceSystem& resource, const std::string& meshPath
 void Renderable3D::Awake() {
     if (gameObject) transform = gameObject->GetComponentOfType<Transform3D>();
 
-    if (!resourceSystem) resourceSystem = GetRequire()->GetSystemByType<ResourceSystem>();
+    auto resourceSystem = GetRequire()->GetSystemByType<ResourceSystem>();
     mesh = resourceSystem->GetResourceAs<Mesh>(meshPath);
     if (!mesh) {
         resourceSystem->LoadResource(meshPath, ResourceType::Mesh);
@@ -27,8 +29,7 @@ void Renderable3D::Start() {
     Scene* scene = gameObject->GetScene();
     if(!scene) return;
 
-    if (!resourceSystem) resourceSystem = GetRequire()->GetSystemByType<ResourceSystem>();
-
+    auto resourceSystem = GetRequire()->GetSystemByType<ResourceSystem>();
     if (!resourceSystem->GetResourceAs<Mesh>(meshPath.GetValue())) resourceSystem->LoadResource(meshPath.GetValue(), ResourceType::Mesh);
     if (!mesh) mesh = resourceSystem->GetResourceAs<Mesh>(meshPath.GetValue());
 }

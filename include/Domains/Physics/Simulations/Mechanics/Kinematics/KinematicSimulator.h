@@ -2,25 +2,31 @@
 
 #include "../../../Core/IPhysicSimulator.h"
 #include "../../Core/TransformSimulation/TransformEvent.h"
-#include "../../Core/TransformSimulation/TransformFeature.h"
+#include "../../SimulatorLayers.h"
+#include "Domains/Physics/Body/PhysicalBody.h"
 #include "KinematicFeature.h"
 #include "KinematicEvent.h"
 
-namespace Physic::Mechanics {
+namespace Physic::Mechanics::Kinematics {
     class KinematicSimulator : public IPhysicSimulator {
     private:
-        std::unordered_map<KinematicFeature*, KinematicEvent> pending;
         size_t subscriptionId = 0;
 
         void OnKinematicEvent(const KinematicEvent& e) {
-            if (!e.feature) return;
+            if (e.bodyId == 0) return;
 
-            auto& slot = pending[e.feature];
-            slot.feature = e.feature;
-            slot.acceleration = slot.acceleration + e.acceleration;
+            auto body = GetBodyRegistry().GetBody(e.bodyId);
+            if (!body) return;
+            
+            auto feature = body->GetFeatureOfType<KinematicFeature>();
+            if (!feature) return;
+            
+            feature->velocity += (e.acceleration * GetTimeSystem().DeltaTime());
         }
 
     public:
+        KinematicSimulator() { SetLayer(SimulatorLayers::Mechanics::KINEMATICS); }
+
         void StartSimulation() override {
             subscriptionId = GetEventBus().Subscribe<KinematicEvent>(
                 [this](const KinematicEvent& e) { OnKinematicEvent(e); },
@@ -28,22 +34,18 @@ namespace Physic::Mechanics {
             );
         }
 
-        void BeginFrameSimulation(const std::vector<Body::PhysicalBody*>& bodies) override {
+        void EndFrameSimulation() override {
+            const std::vector<Body::PhysicalBody*>& bodies = GetBodyRegistry().GetAllBodies();
+            auto& eventBus = GetEventBus();
+
             for (auto* body : bodies) {
                 if (!body) continue;
 
-                auto* feature = body->GetFeatureOfType<KinematicFeature>();
-                feature->velocity += pending[feature].acceleration;
-            }
-        }
-
-        void EndFrameSimulation(const std::vector<Body::PhysicalBody*>& bodies) override {
-            for (auto* body : bodies) {
-                if (!body) continue;
-
-                auto* transformFeature = body->GetFeatureOfType<Transform::TransformFeature>();
                 auto* kinematicFeature = body->GetFeatureOfType<KinematicFeature>();
-                GetEventBus().AddEvent(std::make_unique<Transform::TransformEvent>(transformFeature, kinematicFeature->velocity * GetTimeSystem().DeltaTime()));
+                if (!kinematicFeature) continue;
+
+                auto distance = kinematicFeature->velocity * GetTimeSystem().DeltaTime();
+                eventBus.AddEvent(std::make_unique<Transform::TransformEvent>(body->GetId(), distance));
             }
         }
 
@@ -52,7 +54,6 @@ namespace Physic::Mechanics {
                 GetEventBus().Unsubscribe<KinematicEvent>(subscriptionId);
                 subscriptionId = 0;
             }
-            pending.clear();
         }
     };
 }

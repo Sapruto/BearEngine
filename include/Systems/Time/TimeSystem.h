@@ -13,12 +13,12 @@ private:
     float unscaledDeltaTime = 0.0f;
     float timeSinceStart = 0.0f;
     Uint32 frameCount = 1;
-    bool initialized = false;
+    bool isStarted = false;
 
 public:
-    void Initialize();
+    void StartSystem() override;
     
-    void Tick();
+    void BeginFrameSystem() override;
     
     float DeltaTime();
     float UnscaledDeltaTime();

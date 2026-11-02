@@ -1,36 +1,41 @@
 #pragma once
 
 #include "../../../Core/IPhysicSimulator.h"
+#include "../../SimulatorLayers.h"
 #include "Math/Transform/Transform3D.h"
 #include "TransformFeature.h"
 #include "TransformEvent.h"
 
 #include <unordered_map>
+#include <vector>
 
 namespace Physic::Transform {
     class TransformSimulator : public IPhysicSimulator {
     private:
-        std::unordered_map<TransformFeature*, TransformEvent> pending;
+        std::unordered_map<Body::BodyId, TransformEvent> pending;
         size_t subscriptionId = 0;
 
         void OnTransformEvent(const TransformEvent& e) {
-            if (!e.feature) return;
+            if (e.bodyId == 0) return;
 
-            auto& slot = pending[e.feature];
-            slot.feature = e.feature;
+            auto& slot = pending[e.bodyId];
             slot.changePosition = slot.changePosition + e.changePosition;
             slot.changeScale = slot.changeScale + e.changeScale;
-            slot.changeRotation = (slot.changeRotation * e.changeRotation).normalized();
+            slot.changeRotation = slot.changeRotation * e.changeRotation;
         }
 
     public:
+        TransformSimulator() { SetLayer(SimulatorLayers::CORE); }
+
         void StartSimulation() override {
             subscriptionId = GetEventBus().Subscribe<TransformEvent>(
                 [this](const TransformEvent& e) { OnTransformEvent(e); },
                 Events::EventDispatchMode::Immediate);
         }
 
-        void BeginFrameSimulation(const std::vector<Body::PhysicalBody*>& bodies) override {
+        void BeginFrameSimulation() override {
+            const std::vector<Body::PhysicalBody*>& bodies = GetBodyRegistry().GetAllBodies();
+
             for (auto* body : bodies) {
                 if (!body) continue;
 
@@ -44,7 +49,9 @@ namespace Physic::Transform {
             }
         }
 
-        void EndFrameSimulation(const std::vector<Body::PhysicalBody*>& bodies) override {
+        void EndFrameSimulation() override {
+            const std::vector<Body::PhysicalBody*>& bodies = GetBodyRegistry().GetAllBodies();
+
             for (auto* body : bodies) {
                 if (!body) continue;
 
@@ -52,7 +59,7 @@ namespace Physic::Transform {
                 auto* transform = body->GetGameObject()->GetComponentOfType<Transform3D>();
                 if (!feature || !transform) continue;
 
-                auto it = pending.find(feature);
+                auto it = pending.find(body->GetId());
                 if (it != pending.end()) {
                     const auto& e = it->second;
                     feature->position = feature->position + e.changePosition;
@@ -65,6 +72,8 @@ namespace Physic::Transform {
                 transform->SetGlobalScaleAsLocal(feature->scale);
                 transform->SetGlobalRotationAsLocal(feature->rotation);
             }
+
+            pending.clear();
         }
 
         void DestroySimulation() override {

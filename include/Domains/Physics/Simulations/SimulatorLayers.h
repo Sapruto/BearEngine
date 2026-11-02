@@ -1,9 +1,18 @@
 #pragma once
 
-#include <cstdint>
+namespace Physic::SimulatorLayers {
+    inline const unsigned int CORE = 0;
 
-namespace Physic::Simulators {
-    enum class SimulatoLayers : uint32_t {
-        
+    namespace Mechanics {
+        inline const unsigned int KINEMATICS = 5;
+        inline const unsigned int DYNAMICS = 6;
+
+        namespace Forces {
+            inline const unsigned int GRAVITY = 7;
+        }
     };
+
+    namespace Thermodynamics {
+        inline const unsigned int THERMAL = 8;
+    }
 }

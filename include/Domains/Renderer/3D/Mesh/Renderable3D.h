@@ -6,7 +6,6 @@
 #include "../../Base/IRenderable.h"
 
 #include "Systems/Core/HasRequired.h"
-#include "Systems/Resource/ResourceSystem.h"
 
 #include "Engine/Serialization/SerializeField.h"
 
@@ -25,7 +24,6 @@ private:
     static std::atomic<unsigned> nextId;
     unsigned int id;
 
-    ResourceSystem* resourceSystem{nullptr};
     Mesh* mesh{nullptr};
     FIELD(std::string, meshPath);
 
@@ -34,7 +32,7 @@ private:
     std::vector<std::unique_ptr<Material>> materials;
 
 public:
-    Renderable3D(ResourceSystem& resource, const std::string& meshPath);
+    Renderable3D(const std::string& meshPath);
     Renderable3D() : id(nextId.fetch_add(1)) {}
 
     void Awake() override;

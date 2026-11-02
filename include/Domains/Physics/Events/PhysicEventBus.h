@@ -62,6 +62,12 @@ namespace Physic::Events {
         }
 
     public:
+        PhysicEventBus() = default;
+        PhysicEventBus(const PhysicEventBus&) = delete;
+        PhysicEventBus& operator=(const PhysicEventBus&) = delete;
+        PhysicEventBus(PhysicEventBus&&) noexcept = default;
+        PhysicEventBus& operator=(PhysicEventBus&&) noexcept = default;
+
         template<typename T>
             requires (std::derived_from<T, IPhysicEvent>)
         T* AddEvent(std::unique_ptr<T> event) {

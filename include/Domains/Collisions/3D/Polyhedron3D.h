@@ -4,10 +4,10 @@
 #include <string>
 #include <memory>
 #include <cstddef>
-#include "Collider.h"
-#include "BaseCollider.h"
-#include "Transform3D.h"
-#include "Vector3.h"
+#include "../Core/Collider.h"
+#include "../Core/BaseCollider.h"
+#include "Math/Transform/Transform3D.h"
+#include "Math/Vector/Vector3.h"
 
 #include "Vertex3D.h"
 

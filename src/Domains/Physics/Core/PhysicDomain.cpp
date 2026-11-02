@@ -25,8 +25,9 @@ void PhysicDomain::StartDomain() {
     
     auto& timeSystem = *GetRequire()->GetSystemByType<TimeSystem>();
     for (auto& simulator : simulators) {
-        simulator->SetTimeSystem(timeSystem);
-        simulator->SetEventBus(eventBus);
+        simulator->SetBodyRegistry(&bodyRegistry);
+        simulator->SetTimeSystem(&timeSystem);
+        simulator->SetEventBus(&eventBus);
         simulator->StartSimulation();
     }
     isStarted = true;
@@ -40,15 +41,15 @@ void PhysicDomain::BeginFrameDomain() {
     Sort();
 
     for (auto& simulator : simulators) {
-        simulator->BeginFrameSimulation(bodies);
+        simulator->BeginFrameSimulation();
     }
 }
 
 void PhysicDomain::EndFrameDomain() {
     Sort();
 
-    for (auto& simulator : simulators) {
-        simulator->EndFrameSimulation(bodies);
+    for (auto it = simulators.rbegin(); it != simulators.rend(); it++) {
+        (*it)->EndFrameSimulation();
     }
 
     GetEventBus().DispatchEndFrame();
@@ -57,8 +58,8 @@ void PhysicDomain::EndFrameDomain() {
 void PhysicDomain::DestroyDomain() {
     Sort();
 
-    for (auto& simulator : simulators) {
-        simulator->DestroySimulation();
+    for (auto it = simulators.rbegin(); it != simulators.rend(); it++) {
+        (*it)->DestroySimulation();
     }
     GetEventBus().ClearAll();
 }
@@ -67,16 +68,12 @@ void PhysicDomain::AddByObject(GameObject* gameObject) {
     if (!gameObject) return;
     Body::PhysicalBody* body = gameObject->GetComponentOfType<Body::PhysicalBody>();
     if (!body) return;
-    if (std::find(bodies.begin(), bodies.end(), body) == bodies.end()) bodies.push_back(body);
+    bodyRegistry.Register(body);
 }
 
 void PhysicDomain::RemoveByObject(GameObject* gameObject) {
     if (!gameObject) return;
     Body::PhysicalBody* body = gameObject->GetComponentOfType<Body::PhysicalBody>();
     if (!body) return;
-    auto it = std::find(bodies.begin(), 
-                    bodies.end(), body);
-    if (it != bodies.end()) {
-        bodies.erase(it);
-    }
+    bodyRegistry.Unregister(body);
 }

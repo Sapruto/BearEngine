@@ -1,7 +1,6 @@
-#include "BaseCollider.h"
-#include "ColliderManager.h"
-#include "CollisionEvent.h"
-#include "PhysicalBody.h"
+#include "Domains/Collisions/Core/BaseCollider.h"
+#include "Domains/Collisions/Core/ColliderManager.h"
+#include "Domains/Collisions/Core/CollisionEvent.h"
 
 void BaseCollider::Destroy() {
     if (m_isBeingDestroyed) return;
@@ -23,8 +22,4 @@ void BaseCollider::Destroy() {
     
     currentCollisions.clear();
     Component::Destroy();
-}
-
-PhysicalBody* BaseCollider::GetPhysicalBody() const {
-    return gameObject ? gameObject->GetComponentOfType<PhysicalBody>() : nullptr;
 }

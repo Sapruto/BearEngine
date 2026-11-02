@@ -10,11 +10,17 @@
 
 class ApplicationFabric {
 public:
+    static void SetupApplication(Application* application) {
+        if (!application) return;
+
+        application->AddSystem<ResourceSystem>();
+        application->AddSystem<TimeSystem>();
+    }
+
     static std::unique_ptr<Application> Create() {
         std::unique_ptr<Application> application = std::make_unique<Application>();
         
-        application->AddSystem<ResourceSystem>();
-        application->AddSystem<TimeSystem>();
+        ApplicationFabric::SetupApplication(application.get());
 
         return std::move(application);
     }
