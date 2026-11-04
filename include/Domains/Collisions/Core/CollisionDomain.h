@@ -9,9 +9,9 @@
 #include "CollisionEvent.h"
 #include "BaseCollider.h"
 
-class ColliderManager {
+class CollisionDomain {
 private:
-    std::vector<BaseCollider*> all_colliders;
+    std::vector<BaseCollider*> colliders;
     
     std::unordered_map<BaseCollider*, std::unordered_map<BaseCollider*, bool>> previousCollisions;
     
@@ -20,8 +20,8 @@ private:
     void CheckPair(BaseCollider* a, BaseCollider* b);
 
 public:
-    ColliderManager() = default;
-    ~ColliderManager();
+    CollisionDomain() = default;
+    ~CollisionDomain();
 
     void Initialize();
 

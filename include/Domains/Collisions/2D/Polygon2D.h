@@ -9,7 +9,7 @@
 #include "Transform2D.h"
 #include "Vector2.h"
 
-class ColliderManager;
+class CollisionDomain;
 
 class Polygon2D : public Collider<Transform2D, Vector2f> {
 private:

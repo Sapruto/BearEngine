@@ -28,7 +28,7 @@ void Transform3D::UpdateWorld() {
             if (pt) {
                 Vector3f rp = pt->GetGlobalRotation().rotateVector(gp);
                 gp = pt->GetGlobalPosition() + rp;
-                gr = (pt->GetGlobalRotation() * gr).normalized();
+                gr = (pt->GetGlobalRotation() * gr).Normalized();
                 gs = pt->GetGlobalScale();
             }
         }
@@ -73,7 +73,7 @@ void Transform3D::Rotate(float pitch, float yaw, float roll) {
     Quaternionf qx = Quaternionf::createRotation(pitch, Vector3f(1, 0, 0));
     Quaternionf qy = Quaternionf::createRotation(yaw, Vector3f(0, 1, 0));
     Quaternionf qz = Quaternionf::createRotation(roll, Vector3f(0, 0, 1));
-    fieldRotation = (qz * qy * qx * fieldRotation.GetValue()).normalized();
+    fieldRotation = (qz * qy * qx * fieldRotation.GetValue()).Normalized();
     dirty = true;
 }
 
@@ -102,13 +102,13 @@ Vector3f Transform3D::Down() const {
 }
 
 void Transform3D::LookAt(const Vector3f& target) {
-    Vector3f dir = (target - GetGlobalPosition()).normalized();
-    if (dir.magnitude() < 0.0001f) return;
+    Vector3f dir = (target - GetGlobalPosition()).Normalized();
+    if (dir.Magnitude() < 0.0001f) return;
 
     Vector3f up = Vector3f(0, 1, 0);
     Vector3f z = dir;
-    Vector3f x = up.cross(z).normalized();
-    Vector3f y = z.cross(x).normalized();
+    Vector3f x = up.Cross(z).Normalized();
+    Vector3f y = z.Cross(x).Normalized();
 
     Matrix4x4f m;
     m(0,0) = x.x; m(0,1) = y.x; m(0,2) = z.x; m(0,3) = 0;
@@ -148,7 +148,7 @@ void Transform3D::LookAt(const Vector3f& target) {
             q.ratioVec.z = 0.25f * s;
         }
     }
-    fieldRotation = q.normalized();
+    fieldRotation = q.Normalized();
     dirty = true;
 }
 
@@ -171,7 +171,7 @@ Vector3f Transform3D::GetGlobalScale() const {
     Vector3f sx(cachedMatrix(0, 0), cachedMatrix(1, 0), cachedMatrix(2, 0));
     Vector3f sy(cachedMatrix(0, 1), cachedMatrix(1, 1), cachedMatrix(2, 1));
     Vector3f sz(cachedMatrix(0, 2), cachedMatrix(1, 2), cachedMatrix(2, 2));
-    return Vector3f(sx.magnitude(), sy.magnitude(), sz.magnitude());
+    return Vector3f(sx.Magnitude(), sy.Magnitude(), sz.Magnitude());
 }
 
 Quaternionf Transform3D::GetGlobalRotation() const {
@@ -180,9 +180,9 @@ Quaternionf Transform3D::GetGlobalRotation() const {
     Vector3f sy(cachedMatrix(0, 1), cachedMatrix(1, 1), cachedMatrix(2, 1));
     Vector3f sz(cachedMatrix(0, 2), cachedMatrix(1, 2), cachedMatrix(2, 2));
 
-    float mx = sx.magnitude();
-    float my = sy.magnitude();
-    float mz = sz.magnitude();
+    float mx = sx.Magnitude();
+    float my = sy.Magnitude();
+    float mz = sz.Magnitude();
     if (mx > 0.0f) sx = sx / mx;
     if (my > 0.0f) sy = sy / my;
     if (mz > 0.0f) sz = sz / mz;
@@ -225,7 +225,7 @@ Quaternionf Transform3D::GetGlobalRotation() const {
             q.ratioVec.z = 0.25f * s;
         }
     }
-    return q.normalized();
+    return q.Normalized();
 }
 
 const Vector3f& Transform3D::GetLocalPosition() const { return fieldPosition.GetValue(); }
@@ -260,7 +260,7 @@ void Transform3D::SetGlobalPositionAsLocal(const Vector3f& p) {
             if (pt) {
                 Vector3f rp = pt->GetGlobalRotation().inverse().rotateVector(p - pt->GetGlobalPosition());
                 lp = rp;
-                lr = (pt->GetGlobalRotation().inverse() * lr).normalized();
+                lr = (pt->GetGlobalRotation().inverse() * lr).Normalized();
                 Vector3f pgs = pt->GetGlobalScale();
                 ls = Vector3f(
                     pgs.x != 0.0f ? ls.x / pgs.x : ls.x,
@@ -309,7 +309,7 @@ void Transform3D::SetGlobalRotationAsLocal(const Quaternionf& r) {
         if (!ps.empty()) {
             Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
             if (pt) {
-                lr = (pt->GetGlobalRotation().inverse() * r).normalized();
+                lr = (pt->GetGlobalRotation().inverse() * r).Normalized();
             }
         }
     }

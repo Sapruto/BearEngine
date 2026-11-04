@@ -1,4 +1,4 @@
-#include "Tetrahedron3D.h"
+#include "Domains/Collisions/3D/Polyhedron3D.h"
 
 #include <cmath>
 #include <iostream>
@@ -9,7 +9,7 @@ float Tetrahedron3D::Determinant(const Vector3f& a, const Vector3f& b, const Vec
     Vector3f ac = c - a;
     Vector3f ad = d - a;
     
-    return ab.dot(ac.cross(ad));
+    return ab.Dot(ac.Cross(ad));
 }
 
 bool Tetrahedron3D::ContainsPoint(const Vector3f& point, const Transform3D& transform) const {
@@ -34,7 +34,7 @@ float Tetrahedron3D::CalculateVolume(const Transform3D& transform) const {
     Vector3f ac = vertices[2].GetGlobalPoint(transform) - vertices[0].GetGlobalPoint(transform);
     Vector3f ad = vertices[3].GetGlobalPoint(transform) - vertices[0].GetGlobalPoint(transform);
     
-    float volume = std::abs(ad.dot(ab.cross(ac))) / 6.0f;
+    float volume = std::abs(ad.Dot(ab.Cross(ac))) / 6.0f;
     
     return volume;
 }

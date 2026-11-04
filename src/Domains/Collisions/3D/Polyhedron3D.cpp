@@ -1,10 +1,9 @@
-#include "Polyhedron3D.h"
+#include "Domains/Collisions/3D/Polyhedron3D.h"
 #include <algorithm>
 #include <limits>
 #include <cmath>
 #include <set>
 #include "GameObject.h"
-#include "ColliderManager.h"
 
 Polyhedron3D::Polyhedron3D(std::vector<Vector3f> newVertices) {
     for(const auto& v : newVertices) {
@@ -27,7 +26,7 @@ void Polyhedron3D::ApplyChanged(){
 Vector3f Polyhedron3D::GetEdgeDirection(const std::pair<size_t, size_t>& edge) const {
     Vector3f p1 = vertices[edge.first].localPoint;
     Vector3f p2 = vertices[edge.second].localPoint;
-    return (p2 - p1).normalized();
+    return (p2 - p1).Normalized();
 }
 
 void Polyhedron3D::CalculateTetrahedrons(){
@@ -81,7 +80,7 @@ void Polyhedron3D::CalculateFaces() {
             for (const auto& existingFace : faces) {
                 if (existingFace.vertexIndices.size() == faceVertices.size()) {
                     std::set<size_t> existingSet(existingFace.vertexIndices.begin(), 
-                                                  existingFace.vertexIndices.end());
+                                                    existingFace.vertexIndices.end());
                     std::set<size_t> newSet(faceVertices.begin(), faceVertices.end());
                     if (existingSet == newSet) {
                         isDuplicate = true;
@@ -145,8 +144,8 @@ bool Polyhedron3D::IntersectAABB(const Polyhedron3D* other) const{
     const AABB& otherAABB = other->GetAABB();
 
     return (cachedAABB.min.x <= otherAABB.max.x && cachedAABB.max.x >= otherAABB.min.x) &&
-           (cachedAABB.min.y <= otherAABB.max.y && cachedAABB.max.y >= otherAABB.min.y) &&
-           (cachedAABB.min.z <= otherAABB.max.z && cachedAABB.max.z >= otherAABB.min.z);
+            (cachedAABB.min.y <= otherAABB.max.y && cachedAABB.max.y >= otherAABB.min.y) &&
+            (cachedAABB.min.z <= otherAABB.max.z && cachedAABB.max.z >= otherAABB.min.z);
 }
 
 bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
@@ -168,10 +167,10 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
         for(const auto& otherEdge : other->communications) {
             Vector3f otherEdgeDir = other->GetEdgeDirection(otherEdge);
             
-            Vector3f axis = myEdgeDir.cross(otherEdgeDir);
+            Vector3f axis = myEdgeDir.Cross(otherEdgeDir);
             
-            if(axis.magnitude() > 0.0001f) {
-                axis.normalize();
+            if(axis.Magnitude() > 0.0001f) {
+                axis.Normalize();
                 allAxes.push_back(axis);
             }
         }
@@ -184,7 +183,7 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
         
         for(const auto& vertex : vertices) {
             Vector3f global = vertex.GetGlobalPoint(*transform);
-            float proj = global.dot(axis);
+            float proj = global.Dot(axis);
             myMin = std::min(myMin, proj);
             myMax = std::max(myMax, proj);
         }
@@ -194,7 +193,7 @@ bool Polyhedron3D::IntersectSAT(const Polyhedron3D* other) const{
         
         for(const auto& vertex : other->vertices) {
             Vector3f global = vertex.GetGlobalPoint(*other->transform);
-            float proj = global.dot(axis);
+            float proj = global.Dot(axis);
             otherMin = std::min(otherMin, proj);
             otherMax = std::max(otherMax, proj);
         }

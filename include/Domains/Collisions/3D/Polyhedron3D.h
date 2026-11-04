@@ -20,9 +20,9 @@ struct Segment3D {
     Segment3D() : point1(), point2() {}
     Segment3D(const Vector3f& p1, const Vector3f& p2) : point1(p1), point2(p2) {}
     
-    Vector3f getDirection() const { return point2 - point1; }
-    float length() const { return point1.distanceTo(point2); }
-    float sqrLength() const { return (point2 - point1).sqrMagnitude(); }
+    Vector3f GetDirection() const { return point2 - point1; }
+    float Magnitude() const { return point1.DistanceTo(point2); }
+    float SqrMagnitude() const { return (point2 - point1).SqrMagnitude(); }
 };
 
 struct AABB{
@@ -43,21 +43,21 @@ struct Face {
     void CalculateNormal(const std::vector<Vertex3D>& allVertices) {
         if (vertexIndices.size() < 3) return;
         
-        Vector3f normal_sum(0, 0, 0);
+        Vector3f normalSum(0, 0, 0);
         
         for (size_t i = 0; i < vertexIndices.size(); i++) {
             size_t current = vertexIndices[i];
             size_t next = vertexIndices[(i + 1) % vertexIndices.size()];
             
-            const Vector3f& v_curr = allVertices[current].localPoint;
-            const Vector3f& v_next = allVertices[next].localPoint;
+            const Vector3f& vCurr = allVertices[current].localPoint;
+            const Vector3f& vNext = allVertices[next].localPoint;
             
-            normal_sum.x += (v_curr.y - v_next.y) * (v_curr.z + v_next.z);
-            normal_sum.y += (v_curr.z - v_next.z) * (v_curr.x + v_next.x);
-            normal_sum.z += (v_curr.x - v_next.x) * (v_curr.y + v_next.y);
+            normalSum.x += (vCurr.y - vNext.y) * (vCurr.z + vNext.z);
+            normalSum.y += (vCurr.z - vNext.z) * (vCurr.x + vNext.x);
+            normalSum.z += (vCurr.x - vNext.x) * (vCurr.y + vNext.y);
         }
         
-        normal = normal_sum.normalized();
+        normal = normalSum.Normalized();
     }
 };
 

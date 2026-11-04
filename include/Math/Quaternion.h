@@ -24,17 +24,17 @@ struct Quaternion {
         T sinA = std::sin(halfA);
         T cosA = std::cos(halfA);
 
-        Vector3<T> normalizedAxis = axis.normalized();
+        Vector3<T> NormalizedAxis = axis.Normalized();
         
         Quaternion q;
-        q.ratioVec = normalizedAxis * sinA;
+        q.ratioVec = NormalizedAxis * sinA;
         q.scalar = cosA;
         
         return q;
     }
     
     static Quaternion slerp(const Quaternion& a, const Quaternion& b, T t) {
-        T dot = a.scalar * b.scalar + a.ratioVec.dot(b.ratioVec);
+        T dot = a.scalar * b.scalar + a.ratioVec.Dot(b.ratioVec);
         Quaternion b2 = b;
         
         if (dot < T(0)) {
@@ -44,7 +44,7 @@ struct Quaternion {
         
         if (dot > T(0.9995)) {
             Quaternion result = a + (b2 - a) * t;
-            return result.normalized();
+            return result.Normalized();
         }
         
         T theta = std::acos(dot);
@@ -59,15 +59,15 @@ struct Quaternion {
         return Quaternion(Vector3<T>(-ratioVec.x, -ratioVec.y, -ratioVec.z), scalar);
     }
 
-    T magnitude() const {
+    T Magnitude() const {
         return std::sqrt(scalar * scalar 
                         + ratioVec.x * ratioVec.x 
                         + ratioVec.y * ratioVec.y 
                         + ratioVec.z * ratioVec.z);
     }
 
-    Quaternion normalized() const {
-        T mag = magnitude();
+    Quaternion Normalized() const {
+        T mag = Magnitude();
         if (mag == T(0)) return Identity();
         return Quaternion(Vector3<T>(ratioVec.x / mag, 
                                         ratioVec.y / mag, 
@@ -94,8 +94,8 @@ struct Quaternion {
         Vector3<T> vecPart = ratioVec;
         T scalarPart = scalar;
         
-        Vector3<T> t = vecPart.cross(vec) * T(2);
-        return vec + t * scalarPart + vecPart.cross(t);
+        Vector3<T> t = vecPart.Cross(vec) * T(2);
+        return vec + t * scalarPart + vecPart.Cross(t);
     }
 
     Quaternion operator*(const Quaternion& other) const {

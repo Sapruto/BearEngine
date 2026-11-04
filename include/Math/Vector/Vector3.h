@@ -11,12 +11,12 @@ struct Vector3 : BaseVectorAlias<Vector3<T>, T, 3> {
     };
 
     constexpr Vector3() : data{} {}
-    constexpr Vector3(T _x, T _y, T _z) : data{ _x, _y, _z } {}
+    constexpr Vector3(T x_, T y_, T z_) : data{ x_, y_, z_ } {}
 
     constexpr T& operator[](int i) { return data[i]; }
     constexpr const T& operator[](int i) const { return data[i]; }
 
-    constexpr Vector3 cross(const Vector3& other) const {
+    constexpr Vector3 Cross(const Vector3& other) const {
         return Vector3(
             y * other.z - z * other.y,
             z * other.x - x * other.z,
@@ -24,9 +24,9 @@ struct Vector3 : BaseVectorAlias<Vector3<T>, T, 3> {
         );
     }
 
-    static T angle(const Vector3& from, const Vector3& to) {
-        T d = from.dot(to);
-        T mags = from.magnitude() * to.magnitude();
+    static T Angle(const Vector3& from, const Vector3& to) {
+        T d = from.Dot(to);
+        T mags = from.Magnitude() * to.Magnitude();
         if (mags < static_cast<T>(0.00001)) return 0;
         return std::acos(d / mags);
     }

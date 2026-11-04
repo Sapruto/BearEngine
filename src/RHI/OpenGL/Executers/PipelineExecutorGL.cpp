@@ -27,9 +27,9 @@ void PipelineExecutorGL::SetVertexAttributes(GLuint& vao, const std::vector<Vert
         for (const auto& attr : attributes) {
             GLint components = FormatComponents(attr.format);
             GLenum type = FormatComponentType(attr.format);
-            GLboolean normalized = FormatIsNormalized(attr.format);
+            GLboolean Normalized = FormatIsNormalized(attr.format);
 
-            glVertexAttribFormat(attr.location, components, type, normalized, attr.offset);
+            glVertexAttribFormat(attr.location, components, type, Normalized, attr.offset);
             glVertexAttribBinding(attr.location, attr.binding);
             glEnableVertexAttribArray(attr.location);
         }

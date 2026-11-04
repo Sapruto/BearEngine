@@ -57,10 +57,10 @@ list(APPEND DOMAIN_SOURCES ${_physics_inc})
 foreach(_f
     "${ROOT_DIR}/src/Domains/Collisions/Core/BaseCollider.cpp"
     "${ROOT_DIR}/src/Domains/Collisions/Core/CollisionReaction.cpp"
-    "${ROOT_DIR}/src/Domains/Collisions/Core/ColliderManager.cpp"
+    "${ROOT_DIR}/src/Domains/Collisions/Core/CollisionDomain.cpp"
     "${ROOT_DIR}/include/Domains/Collisions/Core/BaseCollider.cpp"
     "${ROOT_DIR}/include/Domains/Collisions/Core/CollisionReaction.cpp"
-    "${ROOT_DIR}/include/Domains/Collisions/Core/ColliderManager.cpp"
+    "${ROOT_DIR}/include/Domains/Collisions/Core/CollisionDomain.cpp"
     "${ROOT_DIR}/src/Domains/Physics/Body/PhysicalBody.cpp"
     "${ROOT_DIR}/include/Domains/Physics/Body/PhysicalBody.cpp"
 )

@@ -6,13 +6,14 @@ namespace Physic::SimulatorLayers {
     namespace Mechanics {
         inline const unsigned int KINEMATICS = 5;
         inline const unsigned int DYNAMICS = 6;
+        inline const unsigned int CONTACT = 7;
 
         namespace Forces {
-            inline const unsigned int GRAVITY = 7;
+            inline const unsigned int GRAVITY = 8;
         }
     };
 
     namespace Thermodynamics {
-        inline const unsigned int THERMAL = 8;
+        inline const unsigned int THERMAL = 9;
     }
 }

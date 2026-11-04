@@ -1,30 +1,30 @@
-#include "Domains/Collisions/Core/ColliderManager.h"
+#include "Domains/Collisions/Core/CollisionDomain.h"
 #include <algorithm>
 
-ColliderManager::~ColliderManager() {
-    for (auto* collider : all_colliders) {
+CollisionDomain::~CollisionDomain() {
+    for (auto* collider : colliders) {
         if (collider) {
-            collider->SetColliderManager(nullptr);
+            collider->SetCollisionDomain(nullptr);
         }
     }
-    all_colliders.clear();
+    colliders.clear();
     previousCollisions.clear();
     currentFrameEvents.clear();
 }
 
-void ColliderManager::AddCollider(BaseCollider* collider) {
+void CollisionDomain::AddCollider(BaseCollider* collider) {
     if (!collider) return;
     
-    if (std::find(all_colliders.begin(), all_colliders.end(), collider) != all_colliders.end()) {
+    if (std::find(colliders.begin(), colliders.end(), collider) != colliders.end()) {
         return;
     }
     
-    collider->SetColliderManager(this);
+    collider->SetCollisionDomain(this);
     collider->Initialize();
-    all_colliders.push_back(collider);
+    colliders.push_back(collider);
 }
 
-void ColliderManager::CheckPair(BaseCollider* a, BaseCollider* b) {
+void CollisionDomain::CheckPair(BaseCollider* a, BaseCollider* b) {
     if (!a->IsEnabled() || !b->IsEnabled()) return;
     if (!a->Intersects(b)) return;
     
@@ -34,27 +34,27 @@ void ColliderManager::CheckPair(BaseCollider* a, BaseCollider* b) {
     CollisionEvent* rawEventA = eventForA.get();
     CollisionEvent* rawEventB = eventForB.get();
     
-    a->_AddCollision(b, rawEventA);
-    b->_AddCollision(a, rawEventB);
+    a->AddCollision(b, rawEventA);
+    b->AddCollision(a, rawEventB);
     
     currentFrameEvents.push_back(std::move(eventForA));
     currentFrameEvents.push_back(std::move(eventForB));
 }
 
-void ColliderManager::Initialize() {
-    for(auto* collider : all_colliders){
+void CollisionDomain::Initialize() {
+    for(auto* collider : colliders){
         if (!collider) continue;
         collider->Initialize();
     }
 }
 
-void ColliderManager::Update(){
+void CollisionDomain::Update(){
     CheckCollisions();
     ProcessEvents();
 }
 
-void ColliderManager::ProcessEvents() {
-    for (auto* collider : all_colliders) {
+void CollisionDomain::ProcessEvents() {
+    for (auto* collider : colliders) {
         if (!collider) continue;
         
         auto& current = collider->GetCurrentCollisions();
@@ -110,40 +110,40 @@ void ColliderManager::ProcessEvents() {
     }
 }
 
-void ColliderManager::RemoveCollider(BaseCollider* collider) {
+void CollisionDomain::RemoveCollider(BaseCollider* collider) {
     if (!collider) return;
     
-    auto it = std::find(all_colliders.begin(), all_colliders.end(), collider);
-    if (it != all_colliders.end()) {
-        for (auto* other : all_colliders) {
+    auto it = std::find(colliders.begin(), colliders.end(), collider);
+    if (it != colliders.end()) {
+        for (auto* other : colliders) {
             if (other && other != collider) {
-                other->_RemoveCollision(collider);
+                other->RemoveCollision(collider);
             }
         }
         
-        collider->_ClearCollisions();
-        collider->SetColliderManager(nullptr);
+        collider->ClearCollisions();
+        collider->SetCollisionDomain(nullptr);
         
         previousCollisions.erase(collider);
-        all_colliders.erase(it);
+        colliders.erase(it);
     }
 }
 
-void ColliderManager::CheckCollisions() {
+void CollisionDomain::CheckCollisions() {
     currentFrameEvents.clear();
     
-    for (auto* collider : all_colliders) {
+    for (auto* collider : colliders) {
         if (collider) {
-            collider->_ClearCollisions();
+            collider->ClearCollisions();
         }
     }
     
-    for (size_t i = 0; i < all_colliders.size(); ++i) {
-        auto* a = all_colliders[i];
+    for (size_t i = 0; i < colliders.size(); ++i) {
+        auto* a = colliders[i];
         if (!a || !a->IsEnabled()) continue;
         
-        for (size_t j = i + 1; j < all_colliders.size(); ++j) {
-            auto* b = all_colliders[j];
+        for (size_t j = i + 1; j < colliders.size(); ++j) {
+            auto* b = colliders[j];
             if (!b || !b->IsEnabled()) continue;
             
             CheckPair(a, b);
@@ -151,7 +151,7 @@ void ColliderManager::CheckCollisions() {
     }
 }
 
-std::vector<BaseCollider*> ColliderManager::GetCollisionsFor(BaseCollider* collider) const {
+std::vector<BaseCollider*> CollisionDomain::GetCollisionsFor(BaseCollider* collider) const {
     std::vector<BaseCollider*> result;
     if (!collider) return result;
     
@@ -166,6 +166,6 @@ std::vector<BaseCollider*> ColliderManager::GetCollisionsFor(BaseCollider* colli
     return result;
 }
 
-bool ColliderManager::AreColliding(const BaseCollider* a, const BaseCollider* b) const {
+bool CollisionDomain::AreColliding(const BaseCollider* a, const BaseCollider* b) const {
     return a && b && a->IsCollidingWith(b);
 }

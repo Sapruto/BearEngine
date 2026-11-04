@@ -20,7 +20,7 @@ Transform2D Transform2D::combine(const Transform2D& parent) const {
     result.position = parent.position + Vector2f(rotatedPos.x, rotatedPos.y);
 
     result.rotation = parent.rotation * rotation;
-    result.rotation = result.rotation.normalized();
+    result.rotation = result.rotation.Normalized();
 
     result.scale = parent.scale;
 
@@ -46,7 +46,7 @@ void Transform2D::updateWorld() {
                 
                 position = Vector2f(worldPos.x, worldPos.y);
                 rotation = parentTransform->GetGlobalRotation() * rotation;
-                rotation = rotation.normalized();
+                rotation = rotation.Normalized();
                 scale = parentTransform->GetGlobalScale();
             }
         }
@@ -78,7 +78,7 @@ Quaternionf Transform2D::angleToQuaternionf(float angle) const {
 void Transform2D::rotate(float angleRad) {
     Quaternionf q = Quaternionf::createRotation(angleRad, Vector3f(0, 0, 1));
     rotation = q * rotation;
-    rotation = rotation.normalized();
+    rotation = rotation.Normalized();
     dirty = true;
 }
 
@@ -93,12 +93,12 @@ Vector2f Transform2D::right() const {
 }
 
 void Transform2D::lookAt(const Vector2f& target) {
-    Vector2f direction = (target - position).normalized();
-    if (direction.magnitude() < 0.0001f) return;
+    Vector2f direction = (target - position).Normalized();
+    if (direction.Magnitude() < 0.0001f) return;
     
     float angle = std::atan2(direction.x, direction.y);
     rotation = Quaternionf::createRotation(angle, Vector3f(0, 0, 1));
-    rotation = rotation.normalized();
+    rotation = rotation.Normalized();
     dirty = true;
 }
 

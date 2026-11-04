@@ -168,7 +168,7 @@ int main() {
     GameObject* lightGO = scene->CreateGameObject();
     lightGO->AddComponent<Transform3D>()->SetLocalPosition(Vector3f(5.0f, 10.0f, 5.0f));
     auto* dirLight = lightGO->AddComponent<DirectionalLight3D>();
-    dirLight->SetDirection(Vector3f(-1.0f, -1.0f, -1.0f).normalized());
+    dirLight->SetDirection(Vector3f(-1.0f, -1.0f, -1.0f).Normalized());
     dirLight->SetColor(Vector3f(1.0f, 1.0f, 1.0f));
     dirLight->SetIntensity(1.0f);
     renderScene->AddLight(dirLight);

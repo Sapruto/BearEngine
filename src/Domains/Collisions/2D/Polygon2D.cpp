@@ -3,7 +3,7 @@
 #include <limits>
 #include <cmath> 
 #include "GameObject.h"
-#include "ColliderManager.h" 
+#include "CollisionDomain.h" 
 
 Polygon2D::Polygon2D(const std::vector<Vector2f>& vertices) 
     : localVertices(vertices), worldVerticesValid(false), centerValid(false) {}

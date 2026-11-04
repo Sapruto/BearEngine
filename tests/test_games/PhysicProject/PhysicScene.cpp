@@ -11,7 +11,7 @@
 #include "Time.h"
 
 #include "Force.h"
-#include "ColliderManager.h"
+#include "CollisionDomain.h"
 #include "PhysicsWorld.h"
 #include "PhysicalBody.h"
 #include "Polyhedron3D.h"  
@@ -124,7 +124,7 @@ public:
     Vector3f startPos;
     
     Ball(Scene* scene, ResourceSystem* resources, ModelRenderer* renderer, 
-         PhysicsWorld* world, ColliderManager* collMgr, 
+         PhysicsWorld* world, CollisionDomain* collMgr, 
          const Vector3f& pos, float radius) {
         
         startPos = pos;
@@ -267,8 +267,8 @@ int main() {
     UIRendering* uiRenderer = graphics.AddRender<UIRendering>();
     
     PhysicsWorld physicsWorld;
-    auto colliderManager = std::make_shared<ColliderManager>();
-    physicsWorld.SetColliderManager(colliderManager);
+    auto colliderManager = std::make_shared<CollisionDomain>();
+    physicsWorld.SetCollisionDomain(colliderManager);
     
     Scene mainScene("MainScene");
     ResourceSystem* resources = mainScene.GetResourceSystem();
@@ -280,7 +280,7 @@ int main() {
     resources->LoadResource(MODEL_PISTOLET, ResourceType::Model);
     
     DirectionalLight3D* dirLight = renderer->AddLight<DirectionalLight3D>(
-        Vector3f(-1, -2, -1).normalized(), Vector3f(1, 1, 1), 0.8f);
+        Vector3f(-1, -2, -1).Normalized(), Vector3f(1, 1, 1), 0.8f);
     dirLight->SetShadowArea(30.0f);
     
     GameObject* ground = mainScene.CreateGameObject();

@@ -89,16 +89,16 @@ in vec4 vColor;
 out vec4 FragColor;
 
 void main() {
-    vec3 N = normalize(vNormal);
-    vec3 V = normalize(viewPos.xyz - vFragPos);
+    vec3 N = Normalize(vNormal);
+    vec3 V = Normalize(viewPos.xyz - vFragPos);
 
     vec3 result = vec3(0.0);
 
     if (lightParams.y == 1.0) {
-        vec3 L = normalize(-dirDirection.xyz);
-        float ndotl = max(dot(N, L), 0.0);
+        vec3 L = Normalize(-dirDirection.xyz);
+        float ndotl = max(Dot(N, L), 0.0);
         vec3 R = reflect(-L, N);
-        float spec = pow(max(dot(V, R), 0.0), 32.0);
+        float spec = pow(max(Dot(V, R), 0.0), 32.0);
 
         vec3 ambient = 0.1 * dirColor.rgb;
         vec3 diffuse = ndotl * dirColor.rgb;

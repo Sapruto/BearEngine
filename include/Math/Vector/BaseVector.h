@@ -24,25 +24,25 @@ public:
     constexpr VectorImpl& vectorImpl() { return static_cast<VectorImpl&>(*this); }
     constexpr const VectorImpl& vectorImpl() const { return static_cast<const VectorImpl&>(*this); }
 
-    constexpr T sqrMagnitude() const {
+    constexpr T SqrMagnitude() const {
         T sum = T();
         for (int i = 0; i < Count; i++) sum += vectorImpl()[i] * vectorImpl()[i];
         return sum;
     }
 
-    T magnitude() const {
-        return std::sqrt(sqrMagnitude());
+    T Magnitude() const {
+        return std::sqrt(SqrMagnitude());
     }
 
-    void normalize() {
-        T mag = magnitude();
+    void Normalize() {
+        T mag = Magnitude();
         if (mag > static_cast<T>(1e-5)) {
             for (int i = 0; i < Count; i++) vectorImpl()[i] /= mag;
         }
     }
 
-    VectorImpl normalized() const {
-        T mag = magnitude();
+    VectorImpl Normalized() const {
+        T mag = Magnitude();
         if (mag > static_cast<T>(1e-5)) {
             VectorImpl r;
             for (int i = 0; i < Count; i++) r[i] = vectorImpl()[i] / mag;
@@ -51,24 +51,24 @@ public:
         return VectorImpl();
     }
 
-    constexpr T dot(const VectorImpl& other) const {
+    constexpr T Dot(const VectorImpl& other) const {
         T sum = T();
         for (int i = 0; i < Count; i++) sum += vectorImpl()[i] * other[i];
         return sum;
     }
 
-    T distanceTo(const VectorImpl& other) const {
-        return (vectorImpl() - other).magnitude();
+    T DistanceTo(const VectorImpl& other) const {
+        return (vectorImpl() - other).Magnitude();
     }
 
-    VectorImpl clampMagnitude(T maxLength) const {
-        T mag = magnitude();
-        if (mag > maxLength) return normalized() * maxLength;
+    VectorImpl ClampMagnitude(T maxLength) const {
+        T mag = Magnitude();
+        if (mag > maxLength) return Normalized() * maxLength;
         return vectorImpl();
     }
 
-    VectorImpl reflect(const VectorImpl& normal) const {
-        return vectorImpl() - normal * (static_cast<T>(2.0) * dot(normal));
+    VectorImpl Reflect(const VectorImpl& normal) const {
+        return vectorImpl() - normal * (static_cast<T>(2.0) * Dot(normal));
     }
 
     static constexpr VectorImpl Zero() {
@@ -83,14 +83,14 @@ public:
         return r;
     }
 
-    static constexpr VectorImpl lerp(const VectorImpl& a, const VectorImpl& b, T t) {
+    static constexpr VectorImpl Lerp(const VectorImpl& a, const VectorImpl& b, T t) {
         t = t < 0 ? 0 : t > 1 ? 1 : t;
         return a + (b - a) * t;
     }
 
-    static VectorImpl moveTowards(const VectorImpl& current, const VectorImpl& target, T maxDistanceDelta) {
+    static VectorImpl MoveTowards(const VectorImpl& current, const VectorImpl& target, T maxDistanceDelta) {
         VectorImpl toTarget = target - current;
-        T dist = toTarget.magnitude();
+        T dist = toTarget.Magnitude();
         if (dist <= maxDistanceDelta || dist == 0) return target;
         return current + toTarget / dist * maxDistanceDelta;
     }
@@ -176,8 +176,8 @@ struct BaseVectorAlias : BaseVector<Derived, T, Count> {
 
     using Base::Zero;
     using Base::One;
-    using Base::lerp;
-    using Base::moveTowards;
+    using Base::Lerp;
+    using Base::MoveTowards;
     using Base::ToString;
     using Base::FromString;
 };

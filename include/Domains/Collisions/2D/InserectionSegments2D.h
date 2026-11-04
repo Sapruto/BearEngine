@@ -11,8 +11,8 @@ struct Segment {
     Segment(const Vector2f& p1, const Vector2f& p2) : point1(p1), point2(p2) {}
     
     Vector2f getDirection() const { return point2 - point1; }
-    float length() const { return point1.distanceTo(point2); }
-    float sqrLength() const { return (point2 - point1).sqrMagnitude(); }
+    float length() const { return point1.DistanceTo(point2); }
+    float sqrLength() const { return (point2 - point1).SqrMagnitude(); }
 };
 
 class IntersectionSegments2D {

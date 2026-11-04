@@ -10,7 +10,7 @@ DirectionalLight3D::DirectionalLight3D()  {
 }
 
 DirectionalLight3D::DirectionalLight3D(const Vector3f& dir, const Vector3f& col, float intens)  {
-    direction.GetValue() = dir.normalized();
+    direction.GetValue() = dir.Normalized();
     color.GetValue() = col;
     intensity.GetValue() = intens;
     shadowAreaSize.GetValue() = 50.0f;
@@ -19,11 +19,11 @@ DirectionalLight3D::DirectionalLight3D(const Vector3f& dir, const Vector3f& col,
 }
 
 void DirectionalLight3D::SetColor(const Vector3f& col) {
-    color.GetValue() = col.normalized();
+    color.GetValue() = col.Normalized();
 }
 
 void DirectionalLight3D::SetDirection(const Vector3f& dir) {
-    direction.GetValue() = dir.normalized();
+    direction.GetValue() = dir.Normalized();
 }
 
 Matrix4x4f DirectionalLight3D::GetLightSpaceMatrix() const {
@@ -33,7 +33,7 @@ Matrix4x4f DirectionalLight3D::GetLightSpaceMatrix() const {
         nearPlane.GetValue(), farPlane.GetValue()
     );
     
-    Vector3f dir = direction.GetValue().normalized();
+    Vector3f dir = direction.GetValue().Normalized();
     Vector3f lightPos = -dir * DEFAULT_LIGHT_OFFSET;
     Vector3f lightTarget = lightPos + dir;
     Vector3f up(0.0f, 1.0f, 0.0f);

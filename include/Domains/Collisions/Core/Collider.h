@@ -4,7 +4,7 @@
 #include "BaseCollider.h"
 
 class CollisionEvent;
-class ColliderManager;
+class CollisionDomain;
 
 template<typename ITransform, typename IVector>
 class Collider : public BaseCollider {
@@ -20,10 +20,10 @@ public:
     virtual bool ContainsPoint(const IVector& point) const = 0;
     virtual IVector GetCenter() const = 0;
     
-    virtual bool GetCollisionInfo(const BaseCollider* other, 
-                                    IVector& point, 
-                                    IVector& normal, 
-                                    float& penetration) const {
+    virtual bool GetCollisionInfo([[maybe_unused]] const BaseCollider* other, 
+                                    [[maybe_unused]] IVector& point, 
+                                    [[maybe_unused]] IVector& normal, 
+                                    [[maybe_unused]] float& penetration) const {
         return false;
     }
     

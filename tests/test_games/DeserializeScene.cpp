@@ -11,7 +11,7 @@
 #include "Time.h"
 
 #include "Force.h"
-#include "ColliderManager.h"
+#include "CollisionDomain.h"
 #include "PhysicsWorld.h"
 #include "PhysicalBody.h"
 #include "Polyhedron3D.h"  
@@ -212,7 +212,7 @@ int main() {
     }
     
     DirectionalLight3D* sunLight = renderer->AddLight<DirectionalLight3D>(
-        Vector3f(-1, -2, -1).normalized(), 
+        Vector3f(-1, -2, -1).Normalized(), 
         Vector3f(1, 1, 1), 1.0f
     );
     sunLight->SetShadowArea(40.0f);
@@ -226,8 +226,8 @@ int main() {
         Vector3f(0, 2, 0), Vector3f(1.0f, 0.5f, 0.2f), 1.2f, 12.0f
     );
     
-    auto colliderManager = std::make_shared<ColliderManager>();
-    physicsWorld.SetColliderManager(colliderManager);
+    auto colliderManager = std::make_shared<CollisionDomain>();
+    physicsWorld.SetCollisionDomain(colliderManager);
     
     for (auto* obj : mainScene->GetGameObjects()) {
         Polyhedron3D* collider = obj->GetComponentOfType<Polyhedron3D>();

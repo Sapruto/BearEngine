@@ -10,9 +10,10 @@
 namespace Physic::Mechanics::Kinematics {
     class KinematicSimulator : public IPhysicSimulator {
     private:
-        size_t subscriptionId = 0;
+        size_t subscriptionAccelerationId = 0;
+        size_t subscriptionImpulseId = 0;
 
-        void OnKinematicEvent(const KinematicEvent& e) {
+        void OnAccelerationEvent(const AccelerationEvent& e) {
             if (e.bodyId == 0) return;
 
             auto body = GetBodyRegistry().GetBody(e.bodyId);
@@ -24,12 +25,28 @@ namespace Physic::Mechanics::Kinematics {
             feature->velocity += (e.acceleration * GetTimeSystem().DeltaTime());
         }
 
+        void OnImpulseEvent(const ImpulseEvent& e) {
+            if (e.bodyId == 0) return;
+
+            auto body = GetBodyRegistry().GetBody(e.bodyId);
+            if (!body) return;
+            
+            auto feature = body->GetFeatureOfType<KinematicFeature>();
+            if (!feature) return;
+            
+            feature->velocity += e.deltaVelocity;
+        }
+
     public:
         KinematicSimulator() { SetLayer(SimulatorLayers::Mechanics::KINEMATICS); }
 
         void StartSimulation() override {
-            subscriptionId = GetEventBus().Subscribe<KinematicEvent>(
-                [this](const KinematicEvent& e) { OnKinematicEvent(e); },
+            subscriptionAccelerationId = GetEventBus().Subscribe<AccelerationEvent>(
+                [this](const AccelerationEvent& e) { OnAccelerationEvent(e); },
+                Events::EventDispatchMode::Immediate
+            );
+            subscriptionImpulseId = GetEventBus().Subscribe<ImpulseEvent>(
+                [this](const ImpulseEvent& e) { OnImpulseEvent(e); },
                 Events::EventDispatchMode::Immediate
             );
         }
@@ -50,9 +67,13 @@ namespace Physic::Mechanics::Kinematics {
         }
 
         void DestroySimulation() override {
-            if (subscriptionId != 0) {
-                GetEventBus().Unsubscribe<KinematicEvent>(subscriptionId);
-                subscriptionId = 0;
+            if (subscriptionAccelerationId != 0) {
+                GetEventBus().Unsubscribe<AccelerationEvent>(subscriptionAccelerationId);
+                subscriptionAccelerationId = 0;
+            }
+            if (subscriptionImpulseId != 0) {
+                GetEventBus().Unsubscribe<ImpulseEvent>(subscriptionImpulseId);
+                subscriptionImpulseId = 0;
             }
         }
     };

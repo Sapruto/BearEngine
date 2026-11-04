@@ -11,7 +11,7 @@
 #include "Time.h"
 
 #include "Force.h"
-#include "ColliderManager.h"
+#include "CollisionDomain.h"
 #include "PhysicsWorld.h"
 #include "PhysicalBody.h"
 #include "Polyhedron3D.h"  
@@ -205,7 +205,7 @@ int main() {
     float gold[3] = {1, 0.8, 0};
     
     DirectionalLight3D* dirLight = renderer->AddLight<DirectionalLight3D>(
-        Vector3f(-1, -2, -1).normalized(), 
+        Vector3f(-1, -2, -1).Normalized(), 
         Vector3f(1, 1, 1), 0.8f
     );
     dirLight->SetShadowArea(50.0f);
@@ -328,8 +328,8 @@ int main() {
         collectibles.push_back(coin);
     }
     
-    auto colliderManager = std::make_shared<ColliderManager>();
-    physicsWorld.SetColliderManager(colliderManager);
+    auto colliderManager = std::make_shared<CollisionDomain>();
+    physicsWorld.SetCollisionDomain(colliderManager);
     
     colliderManager->AddCollider(playerCollider);
     for (auto& p : platforms) {
@@ -422,8 +422,8 @@ int main() {
             if (input.GetKey(Keys::A)) moveDir.x -= 1.0f;
             if (input.GetKey(Keys::D)) moveDir.x += 1.0f;
             
-            if (moveDir.magnitude() > 0) {
-                moveDir = moveDir.normalized();
+            if (moveDir.Magnitude() > 0) {
+                moveDir = moveDir.Normalized();
                 impulse->AddForce(moveDir * moveSpeed, 10.0f);
             }
             

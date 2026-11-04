@@ -21,8 +21,8 @@ private:
 public:
     CollisionReaction() {
         for (auto state : {CollisionEvent::State::ENTER, 
-                           CollisionEvent::State::STAY, 
-                           CollisionEvent::State::EXIT}) {
+                            CollisionEvent::State::STAY, 
+                            CollisionEvent::State::EXIT}) {
             subscriptions[state] = {};
         }
     }

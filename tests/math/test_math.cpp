@@ -26,22 +26,22 @@ bool TestVector3Basic() {
 
 bool TestVector3Magnitude() {
     Vector3f v(3.0f, 4.0f, 0.0f);
-    TEST_ASSERT_EQUAL(v.magnitude(), 5.0f);
-    TEST_ASSERT_EQUAL(v.sqrMagnitude(), 25.0f);
+    TEST_ASSERT_EQUAL(v.Magnitude(), 5.0f);
+    TEST_ASSERT_EQUAL(v.SqrMagnitude(), 25.0f);
     return true;
 }
 
 bool TestVector3Dot() {
     Vector3f v1(1.0f, 2.0f, 3.0f);
     Vector3f v2(4.0f, 5.0f, 6.0f);
-    TEST_ASSERT_EQUAL(v1.dot(v2), 32.0f);
+    TEST_ASSERT_EQUAL(v1.Dot(v2), 32.0f);
     return true;
 }
 
 bool TestVector3Cross() {
     Vector3f v1(1.0f, 0.0f, 0.0f);
     Vector3f v2(0.0f, 1.0f, 0.0f);
-    Vector3f cross = v1.cross(v2);
+    Vector3f cross = v1.Cross(v2);
     TEST_ASSERT_EQUAL(cross.x, 0.0f);
     TEST_ASSERT_EQUAL(cross.y, 0.0f);
     TEST_ASSERT_EQUAL(cross.z, 1.0f);
@@ -50,8 +50,8 @@ bool TestVector3Cross() {
 
 bool TestVector3Normalize() {
     Vector3f v(3.0f, 4.0f, 0.0f);
-    Vector3f n = v.normalized();
-    TEST_ASSERT_FLOAT_EQUAL(n.magnitude(), 1.0f, 0.0001f);
+    Vector3f n = v.Normalized();
+    TEST_ASSERT_FLOAT_EQUAL(n.Magnitude(), 1.0f, 0.0001f);
     TEST_ASSERT_FLOAT_EQUAL(n.x, 0.6f, 0.0001f);
     TEST_ASSERT_FLOAT_EQUAL(n.y, 0.8f, 0.0001f);
     return true;
@@ -167,7 +167,7 @@ bool TestVector2Basic() {
     TEST_ASSERT_EQUAL(sum.x, 4.0f);
     TEST_ASSERT_EQUAL(sum.y, 6.0f);
     
-    TEST_ASSERT_FLOAT_EQUAL(v1.magnitude(), 2.2360f, 0.001f);
+    TEST_ASSERT_FLOAT_EQUAL(v1.Magnitude(), 2.2360f, 0.001f);
     return true;
 }
 

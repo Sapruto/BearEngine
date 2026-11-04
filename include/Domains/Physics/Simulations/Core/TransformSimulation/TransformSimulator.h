@@ -64,7 +64,7 @@ namespace Physic::Transform {
                     const auto& e = it->second;
                     feature->position = feature->position + e.changePosition;
                     feature->scale = feature->scale + e.changeScale;
-                    feature->rotation = (e.changeRotation * feature->rotation).normalized();
+                    feature->rotation = (e.changeRotation * feature->rotation).Normalized();
                     pending.erase(it);
                 }
 

@@ -11,7 +11,7 @@
 #include "Time.h"
 
 #include "Force.h"
-#include "ColliderManager.h"
+#include "CollisionDomain.h"
 #include "PhysicsWorld.h"
 #include "PhysicalBody.h"
 #include "Polyhedron3D.h"  
@@ -254,7 +254,7 @@ int main() {
     float red[3] = {1.0f, 0.0f, 0.0f};
     
     DirectionalLight3D* dirLight = new DirectionalLight3D(
-        Vector3f(-1, -2, -1).normalized(), 
+        Vector3f(-1, -2, -1).Normalized(), 
         Vector3f(1, 1, 1), 
         0.8f
     );
@@ -384,8 +384,8 @@ int main() {
     }
     
     // ===== КОЛЛАЙДЕРЫ =====
-    auto colliderManager = std::make_shared<ColliderManager>();
-    physicsWorld.SetColliderManager(colliderManager);
+    auto colliderManager = std::make_shared<CollisionDomain>();
+    physicsWorld.SetCollisionDomain(colliderManager);
     
     colliderManager->AddCollider(playerCollider);
     

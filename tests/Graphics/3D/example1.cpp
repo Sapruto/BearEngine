@@ -229,7 +229,7 @@ static void BuildScene(Scene& scene,
 
         Vector3f dir(dirDist(rng), dirDist(rng), dirDist(rng));
         if (dir.x * dir.x + dir.y * dir.y + dir.z * dir.z < 1e-4f) dir = Vector3f(1.0f, 0.0f, 0.0f);
-        dir = dir.normalized();
+        dir = dir.Normalized();
 
         Particle p;
         p.go        = cube;
@@ -258,7 +258,7 @@ static void BuildScene(Scene& scene,
     lightTransform->SetLocalPosition(Vector3f(5.0f, 10.0f, 5.0f));
 
     auto* dirLight = outLightGO->AddComponent<DirectionalLight3D>();
-    dirLight->SetDirection(Vector3f(-1.0f, -1.0f, -1.0f).normalized());
+    dirLight->SetDirection(Vector3f(-1.0f, -1.0f, -1.0f).Normalized());
     dirLight->SetColor(Vector3f(1.0f, 1.0f, 1.0f));
     dirLight->SetIntensity(1.0f);
 

@@ -59,7 +59,7 @@ namespace Physic::Body {
                     return p;
             }
             return nullptr;
-        } //! THIS METHOD IS VARY LAZY AND SLOW. YOU DON'T WANT TO USE THIS IN UPDATE OR OTHER.
+        } //! THIS METHOD IS VERY LAZY AND SLOW. YOU DON'T WANT TO USE THIS IN UPDATE OR OTHER.
 
         template<typename T>
         bool HasFeature() const {

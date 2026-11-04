@@ -65,17 +65,17 @@ public:
     }
 
     static Matrix4x4<T> lookAt(const Vector3<T>& eye, const Vector3<T>& target, const Vector3<T>& up) {
-        Vector3<T> forward = (target - eye).normalized();
-        Vector3<T> right = forward.cross(up).normalized();
-        Vector3<T> newUp = right.cross(forward);
+        Vector3<T> forward = (target - eye).Normalized();
+        Vector3<T> right = forward.Cross(up).Normalized();
+        Vector3<T> newUp = right.Cross(forward);
 
         Matrix4x4<T> view;
         view(0, 0) = right.x;    view(0, 1) = newUp.x;    view(0, 2) = -forward.x;   view(0, 3) = 0;
         view(1, 0) = right.y;    view(1, 1) = newUp.y;    view(1, 2) = -forward.y;   view(1, 3) = 0;
         view(2, 0) = right.z;    view(2, 1) = newUp.z;    view(2, 2) = -forward.z;   view(2, 3) = 0;
-        view(3, 0) = -right.dot(eye);
-        view(3, 1) = -newUp.dot(eye);
-        view(3, 2) = forward.dot(eye);
+        view(3, 0) = -right.Dot(eye);
+        view(3, 1) = -newUp.Dot(eye);
+        view(3, 2) = forward.Dot(eye);
         view(3, 3) = 1;
         return view;
     }

@@ -60,7 +60,7 @@ namespace Physic::Mechanics::Dynamics {
                 if (massFeature->GetMass() == 0) continue;
 
                 auto acceleration = dynamicFeature->force / massFeature->GetMass();
-                GetEventBus().AddEvent(std::make_unique<Kinematics::KinematicEvent>(body->GetId(), acceleration));
+                GetEventBus().AddEvent(std::make_unique<Kinematics::AccelerationEvent>(body->GetId(), acceleration));
             }
         }
 
