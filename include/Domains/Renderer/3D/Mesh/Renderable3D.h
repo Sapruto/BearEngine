@@ -21,8 +21,7 @@ class RendererScene;
 
 class Renderable3D : public IRenderable, public Systems::HasRequired {
 private:
-    static std::atomic<unsigned> nextId;
-    unsigned int id;
+    uint32_t id;
 
     Mesh* mesh{nullptr};
     FIELD(std::string, meshPath);
@@ -30,6 +29,8 @@ private:
     Transform3D* transform;
 
     std::vector<std::unique_ptr<Material>> materials;
+    
+    static std::atomic<uint32_t> nextId;
 
 public:
     Renderable3D(const std::string& meshPath);

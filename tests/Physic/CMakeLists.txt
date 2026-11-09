@@ -77,14 +77,14 @@ set(ALL_SOURCES
     ${MATH_SOURCES}
     ${SYSTEMS_SOURCES}
     ${DOMAIN_SOURCES}
-    "${CMAKE_CURRENT_SOURCE_DIR}/cube_physics_example.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/thermal_physic.cpp"
 )
 
 list(FILTER ALL_SOURCES EXCLUDE REGEX "/TransparencyRenderer\\.")
 
-add_executable(cube_physics_example ${ALL_SOURCES})
+add_executable(thermal_physic ${ALL_SOURCES})
 
-target_include_directories(cube_physics_example PRIVATE
+target_include_directories(thermal_physic PRIVATE
     ${ROOT_DIR}/src
     ${ROOT_DIR}/include
 
@@ -163,19 +163,19 @@ target_include_directories(cube_physics_example PRIVATE
     ${SDL2_INCLUDE_DIRS}
 )
 
-target_compile_definitions(cube_physics_example PRIVATE
+target_compile_definitions(thermal_physic PRIVATE
     IMGUI_IMPL_OPENGL_LOADER_GLAD
     GLFW_INCLUDE_NONE
     RHI_SHADER_DIR="${CMAKE_CURRENT_SOURCE_DIR}/Shaders"
     PROJECT_ROOT_DIR="${ROOT_DIR}"
 )
 
-target_compile_options(cube_physics_example PRIVATE
+target_compile_options(thermal_physic PRIVATE
     -Wall -Wextra -g -O0
     -fPIC
 )
 
-target_link_libraries(cube_physics_example PRIVATE
+target_link_libraries(thermal_physic PRIVATE
     glad_lib
     OpenGL::GL
     glfw

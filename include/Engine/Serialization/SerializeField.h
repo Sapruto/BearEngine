@@ -124,29 +124,29 @@ namespace SerializeField {
         virtual std::vector<ISerializedField*> GetSerializedFields() = 0;
         virtual std::vector<const ISerializedField*> GetSerializedFields() const = 0;
     };
-
-    #define FIELD(type, name) \
-        SerializedField<type> name {#name};
-
-    #define SERIALIZED_FIELDS(...) \
-        std::vector<ISerializedField*> GetSerializedFields() override { \
-            return std::vector<ISerializedField*>{ __VA_ARGS__ }; \
-        } \
-        std::vector<const ISerializedField*> GetSerializedFields() const override { \
-            return std::vector<const ISerializedField*>{ __VA_ARGS__ }; \
-        }
-
-    #define SERIALIZED_FIELDS_BASE(BASE, ...) \
-        std::vector<ISerializedField*> GetSerializedFields() override { \
-            auto fields = BASE::GetSerializedFields(); \
-            ISerializedField* arr[] = { __VA_ARGS__ }; \
-            for (auto* f : arr) fields.push_back(f); \
-            return fields; \
-        } \
-        std::vector<const ISerializedField*> GetSerializedFields() const override { \
-            auto fields = BASE::GetSerializedFields(); \
-            const ISerializedField* arr[] = { __VA_ARGS__ }; \
-            for (auto* f : arr) fields.push_back(f); \
-            return fields; \
-        }
 }
+
+#define FIELD(type, name) \
+    SerializeField::SerializedField<type> name {#name};
+
+#define SERIALIZED_FIELDS(...) \
+    std::vector<SerializeField::ISerializedField*> GetSerializedFields() override { \
+        return std::vector<SerializeField::ISerializedField*>{ __VA_ARGS__ }; \
+    } \
+    std::vector<const SerializeField::ISerializedField*> GetSerializedFields() const override { \
+        return std::vector<const SerializeField::ISerializedField*>{ __VA_ARGS__ }; \
+    }
+
+#define SERIALIZED_FIELDS_BASE(BASE, ...) \
+    std::vector<SerializeField::ISerializedField*> GetSerializedFields() override { \
+        auto fields = BASE::GetSerializedFields(); \
+        ISerializedField* arr[] = { __VA_ARGS__ }; \
+        for (auto* f : arr) fields.push_back(f); \
+        return fields; \
+    } \
+    std::vector<const SerializeField::ISerializedField*> GetSerializedFields() const override { \
+        auto fields = BASE::GetSerializedFields(); \
+        const SerializeField::ISerializedField* arr[] = { __VA_ARGS__ }; \
+        for (auto* f : arr) fields.push_back(f); \
+        return fields; \
+    }

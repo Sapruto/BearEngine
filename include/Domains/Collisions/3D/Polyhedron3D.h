@@ -71,17 +71,15 @@ private:
     Vector3f center;
 
     void ApplyChanged();
-
-    Vector3f GetEdgeDirection(const std::pair<size_t, size_t>& edge) const;
-
+    
     size_t FindNextVertex(size_t fromVertex, size_t notThisVertex);
-
+    
     bool IntersectAABB(const Polyhedron3D* other) const;
     bool IntersectSAT(const Polyhedron3D* other) const; 
-
+    
     bool CheckExactIntersection(const Polyhedron3D* other) const;
-
-protected:
+    
+    protected:
     std::vector<Vertex3D> vertices;
     std::vector<Face> faces;
     std::vector<std::pair<size_t, size_t>> communications;
@@ -91,38 +89,40 @@ protected:
     void CalculateAABB();
     void CalculateFaces();
     void CalculateTetrahedrons();
-
-public:
+    
+    public:
     explicit Polyhedron3D(std::vector<Vector3f> newVertices);
-
+    
     Polyhedron3D() = default;
     ~Polyhedron3D();
-
+    
     void Start() override;
     void Update() override;
-
+    
     float GetVolume() const override;
     
     bool ContainsPoint(const Vector3f& point) const override;
     bool Intersects(const BaseCollider* other) const override;
     Vector3f GetCenter() const override;
     bool GetCollisionInfo(const BaseCollider* other, Vector3f& point, Vector3f& normal, float& penetration) const override{}
-
+    
     void AddVertex(const Vector3f& newVertex);
     void AddVertex(const Vector3f& newVertex, std::vector<size_t> vertexCommunications);
-
+    
     void AddCommunication(size_t fromIndex, size_t toIndex);
-
+    
     std::vector<Vertex3D>& GetVertices() { return vertices; }
     Vertex3D& GetVertex(size_t index) { return vertices[index]; }
-
+    
     const std::vector<std::pair<size_t, size_t>>& GetCommunications() const { return communications; }
-
+    
     std::vector<Face>& GetFaces() { return faces; }
     Face& GetFace(size_t index) { return faces[index]; }
-
+    
     AABB& GetAABB() { return cachedAABB; }
     const AABB& GetAABB() const { return cachedAABB; }
-
+    
     std::vector<Segment3D> GetIntersectionSegments(const Polyhedron3D& other) const;
+
+    Vector3f GetEdgeDirection(const std::pair<size_t, size_t>& edge) const;
 };

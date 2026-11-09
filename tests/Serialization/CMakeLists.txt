@@ -24,10 +24,7 @@ file(GLOB_RECURSE WORLD_SOURCES CONFIGURE_DEPENDS
     ${ROOT_DIR}/src/World/*.cpp
 )
 file(GLOB_RECURSE SYSTEM_SOURCES CONFIGURE_DEPENDS
-    ${ROOT_DIR}/src/Systems/*.cpp
-)
-file(GLOB_RECURSE HIERARCHY_SOURCES CONFIGURE_DEPENDS
-    ${ROOT_DIR}/src/Systems/Hierarchy/*.cpp
+    ${ROOT_DIR}/src/Engine/*.cpp
 )
 file(GLOB_RECURSE LOGGER_SOURCES CONFIGURE_DEPENDS
     ${ROOT_DIR}/src/Logger/*.cpp
@@ -66,12 +63,12 @@ target_include_directories(scene_tests PRIVATE
     ${ROOT_DIR}/include/World
     ${ROOT_DIR}/include/World/Scene
     ${ROOT_DIR}/include/World/Components
-    ${ROOT_DIR}/include/World/Serialization
-    ${ROOT_DIR}/include/World/Serialization/SceneParser
-    ${ROOT_DIR}/include/World/Serialization/SceneParser/Chunks
+    ${ROOT_DIR}/include/Engine/Serialization
+    ${ROOT_DIR}/include/Engine/Serialization/SceneParser
+    ${ROOT_DIR}/include/Engine/Serialization/SceneParser/Chunks
 
     ${ROOT_DIR}/include/Systems
-    ${ROOT_DIR}/include/Systems/Hierarchy
+    ${ROOT_DIR}/include/World/Hierarchy
 
     ${ROOT_DIR}/include/Systems
     ${ROOT_DIR}/include/Systems/Resource

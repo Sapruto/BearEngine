@@ -8,9 +8,7 @@
 
 #include <random>
 
-using namespace SerializeField;
-
-class Component : public ISerializable {
+class Component : public SerializeField::ISerializable {
 private:
     FIELD(std::string, uuid);
 
