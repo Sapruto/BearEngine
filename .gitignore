@@ -27,4 +27,4 @@ output.log
 *.vscode
 /.cache/
 
-exprots
+exports/
