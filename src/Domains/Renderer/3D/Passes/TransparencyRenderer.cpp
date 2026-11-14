@@ -17,7 +17,7 @@ const std::string TransparencyRenderer::UniformsName::baseColor = "baseColor";
 const std::string TransparencyRenderer::UniformsName::opacity = "opacity";
 
 TransparencyRenderer::TransparencyRenderer() 
-    : shader(ModelsShaderPaths::Base + "transparent/Vertex.glsl", 
+    : shader(ModelsShaderPaths::Base + "transparent/MeshVertex.glsl", 
              ModelsShaderPaths::Base + "transparent/Fragment.glsl")
 {
     type = ModelFeatureType::Transparency;
@@ -40,7 +40,7 @@ void TransparencyRenderer::RenderModel(ModelComponent* modelComp, Transform3D* t
     shader.SetVec3(UniformsName::baseColor, colorRGB[0], colorRGB[1], colorRGB[2]);
     shader.SetFloat(UniformsName::opacity, opacity);
     
-    glBindVertexArray(modelComp->GetVAO());
+    glBindMeshVertexArray(modelComp->GetVAO());
     glDrawElements(GL_TRIANGLES, modelComp->GetModel()->GetIndices().size(), 
                    GL_UNSIGNED_INT, 0);
 }

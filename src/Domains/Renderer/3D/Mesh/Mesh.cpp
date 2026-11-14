@@ -41,41 +41,41 @@ void Mesh::ProcessMesh(aiMesh* mesh) {
     unsigned int vertexOffset = vertices.size();
     
     for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
-        Vertex vertex;
+        MeshVertex vertex;
         
-        vertex.Position.x = mesh->mVertices[i].x;
-        vertex.Position.y = mesh->mVertices[i].y;
-        vertex.Position.z = mesh->mVertices[i].z;
+        vertex.position.x = mesh->mVertices[i].x;
+        vertex.position.y = mesh->mVertices[i].y;
+        vertex.position.z = mesh->mVertices[i].z;
         
         if (mesh->HasNormals()) {
-            vertex.Normal.x = mesh->mNormals[i].x;
-            vertex.Normal.y = mesh->mNormals[i].y;
-            vertex.Normal.z = mesh->mNormals[i].z;
+            vertex.normal.x = mesh->mNormals[i].x;
+            vertex.normal.y = mesh->mNormals[i].y;
+            vertex.normal.z = mesh->mNormals[i].z;
         } 
         else {
-            vertex.Normal = Vector3f(0.0f, 1.0f, 0.0f);
+            vertex.normal = Vector3f(0.0f, 1.0f, 0.0f);
         }
         
         if (mesh->HasTextureCoords(0)) {
-            vertex.TexCoords.x = mesh->mTextureCoords[0][i].x;
-            vertex.TexCoords.y = mesh->mTextureCoords[0][i].y;
+            vertex.texCoords.x = mesh->mTextureCoords[0][i].x;
+            vertex.texCoords.y = mesh->mTextureCoords[0][i].y;
         } 
         else {
-            vertex.TexCoords = Vector2f::Zero();
+            vertex.texCoords = Vector2f::Zero();
         }
         
         if (mesh->HasTangentsAndBitangents()) {
-            vertex.Tangent.x = mesh->mTangents[i].x;
-            vertex.Tangent.y = mesh->mTangents[i].y;
-            vertex.Tangent.z = mesh->mTangents[i].z;
+            vertex.tangent.x = mesh->mTangents[i].x;
+            vertex.tangent.y = mesh->mTangents[i].y;
+            vertex.tangent.z = mesh->mTangents[i].z;
             
-            vertex.Bitangent.x = mesh->mBitangents[i].x;
-            vertex.Bitangent.y = mesh->mBitangents[i].y;
-            vertex.Bitangent.z = mesh->mBitangents[i].z;
+            vertex.bitangent.x = mesh->mBitangents[i].x;
+            vertex.bitangent.y = mesh->mBitangents[i].y;
+            vertex.bitangent.z = mesh->mBitangents[i].z;
         } 
         else {
-            vertex.Tangent = Vector3f::Zero();
-            vertex.Bitangent = Vector3f::Zero();
+            vertex.tangent = Vector3f::Zero();
+            vertex.bitangent = Vector3f::Zero();
         }
         
         vertices.push_back(vertex);
@@ -103,10 +103,10 @@ void Mesh::CreateBuffers() {
     {
         auto id = resourceExecutor->AddT<CreateBufferParams>(
                 CreateBufferParams{ BufferDesc{
-                    vertices.size() * sizeof(Vertex),
+                    vertices.size() * sizeof(MeshVertex),
                     BufferUsage::VERTEX,
                     MemoryType::DEVICE_LOCAL,
-                    static_cast<uint32_t>(sizeof(Vertex)),
+                    static_cast<uint32_t>(sizeof(MeshVertex)),
                     false,
                     pathName + "_VBO" } })
             .RemoveAfterExecute()

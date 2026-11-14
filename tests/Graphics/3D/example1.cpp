@@ -221,7 +221,7 @@ static void BuildScene(Scene& scene,
         tr->SetLocalPosition(pos);
         tr->SetLocalScale(Vector3f(kCubeRadius * 2.0f, kCubeRadius * 2.0f, kCubeRadius * 2.0f));
 
-        auto* renderable = cube->AddComponent<Renderable3D>(resourceSystem, meshPath);
+        auto* renderable = cube->AddComponent<Renderable3D>(meshPath);
 
         auto mat = std::make_unique<DefaultMaterial>();
         mat->SetColor(Vector3f(colorDist(rng), colorDist(rng), colorDist(rng)));

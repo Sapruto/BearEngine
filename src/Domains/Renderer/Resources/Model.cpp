@@ -56,7 +56,7 @@ void Model::ProcessMesh(aiMesh* mesh, const aiScene* scene) {
     unsigned int vertexOffset = vertices.size();
     
     for (unsigned int i = 0; i < mesh->mNumVertices; i++) {
-        Vertex vertex;
+        MeshVertex vertex;
         
         vertex.Position.x = mesh->mVertices[i].x;
         vertex.Position.y = mesh->mVertices[i].y;

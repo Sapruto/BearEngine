@@ -1,7 +1,8 @@
 #pragma once
 
 #include "Math/Vector/Vector3.h"
-#include "Vertex3D.h"
+#include "Math/Transform/Transform3D.h"
+#include "Math/Geometry/Vertex.h"
 #include <array>
 
 struct Tetrahedron3D {
@@ -11,7 +12,7 @@ struct Tetrahedron3D {
 
     float Determinant(const Vector3f& a, const Vector3f& b, const Vector3f& c, const Vector3f& d) const;
     
-    bool ContainsPoint(const Vector3f& point, const Transform3D& transform) const;
+    bool ContainsPoint(const Vector3f& point, Transform3D* transform) const;
     
-    float CalculateVolume(const Transform3D& transform) const;
+    float CalculateVolume(Transform3D* transform) const;
 };

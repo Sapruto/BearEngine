@@ -30,7 +30,7 @@ using namespace RHI::FabricRHI;
 using namespace Renderer::Base;
 using namespace Renderer::Utilities;
 
-constexpr const char kVertexShader[] = R"(
+constexpr const char kMeshVertexShader[] = R"(
 #version 450 core
 
 layout(std140, binding = 0) uniform CameraUBO {
@@ -63,7 +63,9 @@ void main() {
     vNormal = mat3(transpose(inverse(model))) * aNormal;
     vColor = aColor;
 
-    gl_Position = projection * view * worldPos;
+    mat4 V = transpose(view);
+    mat4 P = transpose(projection);
+    gl_Position = P * V * worldPos;
 }
 )";
 
@@ -120,7 +122,7 @@ void DefaultPass::CreateShaders(ShaderHandle& vs, ShaderHandle& fs) {
     {
         ShaderDesc desc;
         desc.stage = ShaderStage::VERTEX;
-        desc.bytecode = ToBytes(kVertexShader);
+        desc.bytecode = ToBytes(kMeshVertexShader);
 
         const auto id = resourceExecutor->AddT<CreateShaderParams>(CreateShaderParams{ desc })
             .RemoveAfterExecute().MarkProcess().Commit();
@@ -214,11 +216,11 @@ void DefaultPass::CreatePipeline(ShaderHandle vs, ShaderHandle fs) {
     };
 
     state.vertexAttributes = {
-        { 0, 0, offsetof(Vertex, Position),  Format::FLOAT3 },
-        { 1, 0, offsetof(Vertex, Normal),    Format::FLOAT3 },
-        { 2, 0, offsetof(Vertex, TexCoords), Format::FLOAT2 },
-        { 3, 0, offsetof(Vertex, Tangent),   Format::FLOAT3 },
-        { 4, 0, offsetof(Vertex, Bitangent), Format::FLOAT3 },
+        { 0, 0, offsetof(MeshVertex, position),  Format::FLOAT3 },
+        { 1, 0, offsetof(MeshVertex, normal),    Format::FLOAT3 },
+        { 2, 0, offsetof(MeshVertex, texCoords), Format::FLOAT2 },
+        { 3, 0, offsetof(MeshVertex, tangent),   Format::FLOAT3 },
+        { 4, 0, offsetof(MeshVertex, bitangent), Format::FLOAT3 },
 
         { 5, 1, offsetof(InstanceData, model) +  0, Format::FLOAT4 },
         { 6, 1, offsetof(InstanceData, model) + 16, Format::FLOAT4 },
@@ -228,7 +230,7 @@ void DefaultPass::CreatePipeline(ShaderHandle vs, ShaderHandle fs) {
     };
 
     state.vertexBindings = {
-        { 0, sizeof(Vertex),       false, 1 },
+        { 0, sizeof(MeshVertex),       false, 1 },
         { 1, sizeof(InstanceData), true,  1 }
     };
 

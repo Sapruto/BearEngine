@@ -5,7 +5,7 @@
 #include "MassFeature.h"
 #include "MassEvent.h"
 
-#include "Domains/Collisions/Core/BaseCollider.h"
+#include "Domains/Collisions/Core/IShape.h"
 #include "Logger/Logger.h"
 
 #include <unordered_set>
@@ -57,7 +57,7 @@ namespace Physic::Mass {
                 if (!feature->IsVolumeFromCollider()) continue;
 
                 auto* poly = body->GetGameObject()
-                                ->GetComponentOfType<BaseCollider>();
+                                ->GetComponentOfType<IShape>();
                 if (!poly) {
                     if (warnedBodies.insert(body).second) {
                         Logging::LoggerFacade::Warn(

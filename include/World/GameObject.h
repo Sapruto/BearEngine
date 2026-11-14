@@ -1,13 +1,11 @@
 #pragma once
 
-#include <functional>
 #include <vector>
 #include <algorithm>
-#include <iostream>
 #include <memory>
 #include <typeindex>
-#include <typeinfo> 
 #include <unordered_set>
+#include <unordered_map>
 
 class Component;
 class HierarchySystem;
@@ -92,6 +90,14 @@ public:
                 return static_cast<T*>(components[index].get());
             }
         }
+        return nullptr;
+    }
+
+    template<typename T>
+    T* GetComponentDerivedByType() {
+        if (destroyed) return nullptr;
+        for (auto& c : components)
+            if (auto* p = dynamic_cast<T*>(c.get())) return p;
         return nullptr;
     }
     

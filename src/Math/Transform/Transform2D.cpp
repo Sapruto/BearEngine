@@ -4,13 +4,13 @@
 #include "World/Hierarchy/HierarchySystem.h"
 #include <cmath>
 
-Transform2D::Transform2D() 
-    : position(Vector2f::Zero())
-    , scale(Vector2f::One())
-    , rotation(Quaternionf::Identity())
-    , fieldPosition("fieldPosition", Vector2f::Zero())
+Transform2D::Transform2D()
+    : fieldPosition("fieldPosition", Vector2f::Zero())
     , fieldScale("fieldScale", Vector2f::One())
     , fieldRotation("fieldRotation", 0.0f)
+    , position(Vector2f::Zero())
+    , scale(Vector2f::One())
+    , rotation(Quaternionf::Identity())
     , dirty(true) {}
 
 Transform2D Transform2D::combine(const Transform2D& parent) const {
@@ -29,7 +29,7 @@ Transform2D Transform2D::combine(const Transform2D& parent) const {
 
 void Transform2D::updateWorld() {
     if (!dirty) return;
-    
+
     HierarchySystem* system = const_cast<HierarchySystem*>(gameObject->GetHierarchySystem());
     if (system) {
         std::vector<GameObject*> parents = system->GetParents(gameObject);
@@ -37,13 +37,13 @@ void Transform2D::updateWorld() {
             Transform2D* parentTransform = parents[0]->GetComponentOfType<Transform2D>();
             if (parentTransform) {
                 Vector3f localPos = Vector3f(position.x, position.y, 0);
-                
-                Vector3f parentPos = Vector3f(parentTransform->GetGlobalPosition().x, 
-                                               parentTransform->GetGlobalPosition().y, 0);
-                
+
+                Vector3f parentPos = Vector3f(parentTransform->GetGlobalPosition().x,
+                                              parentTransform->GetGlobalPosition().y, 0);
+
                 Vector3f rotatedPos = parentTransform->GetGlobalRotation().rotateVector(localPos);
                 Vector3f worldPos = parentPos + rotatedPos;
-                
+
                 position = Vector2f(worldPos.x, worldPos.y);
                 rotation = parentTransform->GetGlobalRotation() * rotation;
                 rotation = rotation.Normalized();
@@ -51,11 +51,11 @@ void Transform2D::updateWorld() {
             }
         }
     }
-    
+
     cachedMatrix = Matrix4x4f::Identity();
     cachedMatrix(0, 3) = position.x;
     cachedMatrix(1, 3) = position.y;
-    
+
     float angle = QuaternionfToAngle(rotation);
     float cosA = std::cos(angle);
     float sinA = std::sin(angle);
@@ -63,7 +63,7 @@ void Transform2D::updateWorld() {
     cachedMatrix(0, 1) = -sinA * scale.y;
     cachedMatrix(1, 0) = sinA * scale.x;
     cachedMatrix(1, 1) = cosA * scale.y;
-    
+
     dirty = false;
 }
 
@@ -95,7 +95,7 @@ Vector2f Transform2D::right() const {
 void Transform2D::lookAt(const Vector2f& target) {
     Vector2f direction = (target - position).Normalized();
     if (direction.Magnitude() < 0.0001f) return;
-    
+
     float angle = std::atan2(direction.x, direction.y);
     rotation = Quaternionf::createRotation(angle, Vector3f(0, 0, 1));
     rotation = rotation.Normalized();
@@ -124,56 +124,55 @@ void Transform2D::Update() {
         rotation = angleToQuaternionf(fieldRotation.GetValue());
         changed = true;
     }
-    
+
     if (changed) dirty = true;
-    
+
     if (dirty) {
         fieldRotation = QuaternionfToAngle(rotation);
         updateWorld();
     }
 }
 
-const Vector2f& Transform2D::GetGlobalPosition() const {
-    return position; 
+Vector2f Transform2D::GetGlobalPosition() const {
+    return fieldPosition.GetValue();
 }
 
-const Vector2f& Transform2D::GetGlobalScale() const {
-    return scale; 
+Vector2f Transform2D::GetGlobalScale() const {
+    return fieldScale.GetValue();
 }
 
-const Quaternionf& Transform2D::GetGlobalRotation() const {
-    return rotation; 
+Quaternionf Transform2D::GetGlobalRotation() const {
+    return angleToQuaternionf(fieldRotation.GetValue());
 }
 
-const Vector2f& Transform2D::GetLocalPosition() const { 
-    return fieldPosition.GetValue(); 
+const Vector2f& Transform2D::GetLocalPosition() const {
+    return fieldPosition.GetValue();
 }
 
-const Vector2f& Transform2D::GetLocalScale() const { 
-    return fieldScale.GetValue(); 
+const Vector2f& Transform2D::GetLocalScale() const {
+    return fieldScale.GetValue();
 }
 
-float Transform2D::GetLocalAngle() const { 
-    return fieldRotation.GetValue(); 
+float Transform2D::GetLocalAngle() const {
+    return fieldRotation.GetValue();
 }
 
-const Quaternionf& Transform2D::GetLocalRotation() const { 
-    static Quaternionf q;
-    q = angleToQuaternionf(fieldRotation.GetValue());
-    return q;
+const Quaternionf& Transform2D::GetLocalRotation() const {
+    cachedRotation = angleToQuaternionf(fieldRotation.GetValue());
+    return cachedRotation;
 }
 
-void Transform2D::SetLocalPosition(const Vector2f& newPos) { 
+void Transform2D::SetLocalPosition(const Vector2f& newPos) {
     fieldPosition = newPos;
     dirty = true;
 }
 
-void Transform2D::SetLocalScale(const Vector2f& newScale) { 
+void Transform2D::SetLocalScale(const Vector2f& newScale) {
     fieldScale = newScale;
     dirty = true;
 }
 
-void Transform2D::SetLocalAngle(float newAngle) { 
+void Transform2D::SetLocalAngle(float newAngle) {
     fieldRotation = newAngle;
     dirty = true;
 }

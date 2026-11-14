@@ -21,7 +21,7 @@ Matrix4x4f Camera3D::GetViewMatrix() {
     const Vector3f& pos = transform->GetGlobalPosition();
     const Quaternionf& rot = transform->GetGlobalRotation();
     
-    Vector3f front = rot.rotateVector(Vector3f(0, 0, -1));
+    Vector3f front = rot.rotateVector(Vector3f(0, 0, 1));
     Vector3f up = rot.rotateVector(Vector3f(0, 1, 0));
     
     Vector3f target = pos + front;

@@ -7,7 +7,7 @@
 #include "Math/Quaternion.h"
 #include "Math/Matrix/Matrix4x4.h"
 
-class Transform3D : public Transform {
+class Transform3D : public Transform<Vector3f> {
 private:
     FIELD(Vector3f, fieldPosition);
     FIELD(Vector3f, fieldScale);
@@ -36,21 +36,23 @@ public:
 
     void Update() override;
 
-    Vector3f GetGlobalPosition() const;
-    Vector3f GetGlobalScale() const;
-    Quaternionf GetGlobalRotation() const;
+    Vector3f GetGlobalPosition() const override;
+    Vector3f GetGlobalScale() const override;
+    Quaternionf GetGlobalRotation() const override;
 
-    const Vector3f& GetLocalPosition() const;
-    const Vector3f& GetLocalScale() const;
-    const Quaternionf& GetLocalRotation() const;
+    const Vector3f& GetLocalPosition() const override;
+    const Vector3f& GetLocalScale() const override;
+    const Quaternionf& GetLocalRotation() const override;
 
-    void SetLocalPosition(const Vector3f& p);
-    void SetLocalScale(const Vector3f& s);
-    void SetLocalRotation(const Quaternionf& r);
+    void SetLocalPosition(const Vector3f& p) override;
+    void SetLocalScale(const Vector3f& s) override;
+    void SetLocalRotation(const Quaternionf& r) override;
 
-    void SetGlobalPositionAsLocal(const Vector3f& p);
-    void SetGlobalScaleAsLocal(const Vector3f& s);
-    void SetGlobalRotationAsLocal(const Quaternionf& r);
+    void SetGlobalPositionAsLocal(const Vector3f& p) override;
+    void SetGlobalScaleAsLocal(const Vector3f& s) override;
+    void SetGlobalRotationAsLocal(const Quaternionf& r) override;
+
+    bool IsDirty() const { return dirty; }
 
     SERIALIZED_FIELDS(&fieldPosition, &fieldScale, &fieldRotation)
 };

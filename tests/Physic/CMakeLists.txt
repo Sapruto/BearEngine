@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.10)
-project(CubePhysicsExample)
+project(CollisionPhysicsExample)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -54,6 +54,14 @@ file(GLOB_RECURSE _physics_inc CONFIGURE_DEPENDS
     "${ROOT_DIR}/include/Domains/Physics/*.cpp")
 list(APPEND DOMAIN_SOURCES ${_physics_inc})
 
+file(GLOB_RECURSE _collisions CONFIGURE_DEPENDS
+    "${ROOT_DIR}/src/Domains/Collisions/*.cpp")
+list(APPEND DOMAIN_SOURCES ${_collisions})
+
+file(GLOB_RECURSE _collisions_inc CONFIGURE_DEPENDS
+    "${ROOT_DIR}/include/Domains/Collisions/*.cpp")
+list(APPEND DOMAIN_SOURCES ${_collisions_inc})
+
 foreach(_f
     "${ROOT_DIR}/src/Domains/Collisions/Core/BaseCollider.cpp"
     "${ROOT_DIR}/src/Domains/Collisions/Core/CollisionReaction.cpp"
@@ -69,7 +77,15 @@ foreach(_f
     endif()
 endforeach()
 
-list(FILTER DOMAIN_SOURCES EXCLUDE REGEX "/TransparencyRenderer\\.cpp$")
+# --- ЖЁСТКОЕ ВЫРЕЗАНИЕ ---
+list(FILTER RHI_SOURCES       EXCLUDE REGEX "Transform2D")
+list(FILTER WORLD_SOURCES     EXCLUDE REGEX "Transform2D")
+list(FILTER MATH_SOURCES      EXCLUDE REGEX "Transform2D")
+list(FILTER SYSTEMS_SOURCES   EXCLUDE REGEX "Transform2D")
+list(FILTER DOMAIN_SOURCES    EXCLUDE REGEX "Transform2D")
+list(FILTER DOMAIN_SOURCES    EXCLUDE REGEX "/2D/")
+list(FILTER DOMAIN_SOURCES    EXCLUDE REGEX "/TransparencyRenderer\\.cpp$")
+list(REMOVE_DUPLICATES DOMAIN_SOURCES)
 
 set(ALL_SOURCES
     ${RHI_SOURCES}
@@ -77,14 +93,17 @@ set(ALL_SOURCES
     ${MATH_SOURCES}
     ${SYSTEMS_SOURCES}
     ${DOMAIN_SOURCES}
-    "${CMAKE_CURRENT_SOURCE_DIR}/thermal_physic.cpp"
+    "${CMAKE_CURRENT_SOURCE_DIR}/collision_example.cpp"
 )
 
+list(FILTER ALL_SOURCES EXCLUDE REGEX "Transform2D")
+list(FILTER ALL_SOURCES EXCLUDE REGEX "/2D/")
 list(FILTER ALL_SOURCES EXCLUDE REGEX "/TransparencyRenderer\\.")
+list(REMOVE_DUPLICATES ALL_SOURCES)
 
-add_executable(thermal_physic ${ALL_SOURCES})
+add_executable(collision_example $<FILTER:${ALL_SOURCES},EXCLUDE,Transform2D>)
 
-target_include_directories(thermal_physic PRIVATE
+target_include_directories(collision_example PRIVATE
     ${ROOT_DIR}/src
     ${ROOT_DIR}/include
 
@@ -95,6 +114,7 @@ target_include_directories(thermal_physic PRIVATE
     ${ROOT_DIR}/include/Math/Vector
     ${ROOT_DIR}/include/Math/Transform
     ${ROOT_DIR}/include/Math/Matrix
+    ${ROOT_DIR}/include/Math/Geometry
 
     ${ROOT_DIR}/src/Domains
     ${ROOT_DIR}/include/Domains
@@ -111,6 +131,9 @@ target_include_directories(thermal_physic PRIVATE
     ${ROOT_DIR}/src/Domains/Physics/Core
     ${ROOT_DIR}/include/Domains/Physics/Core
 
+    ${ROOT_DIR}/src/Domains/Physics/Events
+    ${ROOT_DIR}/include/Domains/Physics/Events
+
     ${ROOT_DIR}/src/Domains/Physics/Simulations
     ${ROOT_DIR}/include/Domains/Physics/Simulations
 
@@ -119,9 +142,6 @@ target_include_directories(thermal_physic PRIVATE
 
     ${ROOT_DIR}/src/Domains/Collisions/Core
     ${ROOT_DIR}/include/Domains/Collisions/Core
-
-    ${ROOT_DIR}/src/Domains/Collisions/2D
-    ${ROOT_DIR}/include/Domains/Collisions/2D
 
     ${ROOT_DIR}/src/Domains/Collisions/3D
     ${ROOT_DIR}/include/Domains/Collisions/3D
@@ -163,19 +183,19 @@ target_include_directories(thermal_physic PRIVATE
     ${SDL2_INCLUDE_DIRS}
 )
 
-target_compile_definitions(thermal_physic PRIVATE
+target_compile_definitions(collision_example PRIVATE
     IMGUI_IMPL_OPENGL_LOADER_GLAD
     GLFW_INCLUDE_NONE
     RHI_SHADER_DIR="${CMAKE_CURRENT_SOURCE_DIR}/Shaders"
     PROJECT_ROOT_DIR="${ROOT_DIR}"
 )
 
-target_compile_options(thermal_physic PRIVATE
+target_compile_options(collision_example PRIVATE
     -Wall -Wextra -g -O0
     -fPIC
 )
 
-target_link_libraries(thermal_physic PRIVATE
+target_link_libraries(collision_example PRIVATE
     glad_lib
     OpenGL::GL
     glfw

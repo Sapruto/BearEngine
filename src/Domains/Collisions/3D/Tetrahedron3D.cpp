@@ -12,7 +12,7 @@ float Tetrahedron3D::Determinant(const Vector3f& a, const Vector3f& b, const Vec
     return ab.Dot(ac.Cross(ad));
 }
 
-bool Tetrahedron3D::ContainsPoint(const Vector3f& point, const Transform3D& transform) const {
+bool Tetrahedron3D::ContainsPoint(const Vector3f& point, Transform3D* transform) const {
     Vector3f p1 = vertices[0].GetGlobalPoint(transform);
     Vector3f p2 = vertices[1].GetGlobalPoint(transform);
     Vector3f p3 = vertices[2].GetGlobalPoint(transform);
@@ -26,10 +26,10 @@ bool Tetrahedron3D::ContainsPoint(const Vector3f& point, const Transform3D& tran
     float epsilon = 0.0001f;
     
     return (d1 > -epsilon && d2 > -epsilon && d3 > -epsilon && d4 > -epsilon) ||
-           (d1 < epsilon && d2 < epsilon && d3 < epsilon && d4 < epsilon);
+            (d1 < epsilon && d2 < epsilon && d3 < epsilon && d4 < epsilon);
 }
 
-float Tetrahedron3D::CalculateVolume(const Transform3D& transform) const {
+float Tetrahedron3D::CalculateVolume(Transform3D* transform) const {
     Vector3f ab = vertices[1].GetGlobalPoint(transform) - vertices[0].GetGlobalPoint(transform);
     Vector3f ac = vertices[2].GetGlobalPoint(transform) - vertices[0].GetGlobalPoint(transform);
     Vector3f ad = vertices[3].GetGlobalPoint(transform) - vertices[0].GetGlobalPoint(transform);

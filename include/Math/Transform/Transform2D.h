@@ -7,7 +7,7 @@
 #include "Math/Quaternion.h"
 #include "Math/Matrix/Matrix4x4.h"
 
-class Transform2D : public Transform {
+class Transform2D : public Transform<Vector2f> {
 private:
     FIELD(Vector2f, fieldPosition);
     FIELD(Vector2f, fieldScale);
@@ -19,6 +19,7 @@ private:
 
     bool dirty;
     Matrix4x4f cachedMatrix;
+    mutable Quaternionf cachedRotation;
 
     Transform2D combine(const Transform2D& parent) const;
     void updateWorld();
@@ -38,19 +39,31 @@ public:
 
     void Update() override;
 
-    const Vector2f& GetGlobalPosition() const;
-    const Vector2f& GetGlobalScale() const;
-    const Quaternionf& GetGlobalRotation() const;
+    Vector2f GetGlobalPosition() const override;
+    Vector2f GetGlobalScale() const override;
+    Quaternionf GetGlobalRotation() const override;
 
-    const Vector2f& GetLocalPosition() const;
-    const Vector2f& GetLocalScale() const;
+    const Vector2f& GetLocalPosition() const override;
+    const Vector2f& GetLocalScale() const override;
     float GetLocalAngle() const;
-    const Quaternionf& GetLocalRotation() const;
+    const Quaternionf& GetLocalRotation() const override;
 
-    void SetLocalPosition(const Vector2f& newPos);
-    void SetLocalScale(const Vector2f& newScale);
+    void SetLocalPosition(const Vector2f& newPos) override;
+    void SetLocalScale(const Vector2f& newScale) override;
     void SetLocalAngle(float newAngle);
-    void SetLocalRotation(const Quaternionf& newRot);
+    void SetLocalRotation(const Quaternionf& newRot) override;
+
+    void SetGlobalPositionAsLocal(const Vector2f& p) override {
+        (void)p;
+    }
+
+    void SetGlobalScaleAsLocal(const Vector2f& s) override {
+        (void)s;
+    }
+
+    void SetGlobalRotationAsLocal(const Quaternionf& r) override {
+        (void)r;
+    }
 
     SERIALIZED_FIELDS(&fieldPosition, &fieldScale, &fieldRotation)
 };

@@ -12,27 +12,27 @@ using namespace RHI::Executors::DrawExecutor;
 using namespace RHI::Executors::SwapChainExecutor;
 using namespace Renderer::Base;
 
-bool GraphicInstance::Initialize(const GraphicConfig& _config) {
-    config = _config;
+bool GraphicInstance::Initialize(const GraphicConfig& config_) {
+    config = config_;
 
     RuntimeRHI& rhi = RuntimeRHI::GetInstance();
-    if (!rhi.Initialize(_config.backend, _config.title, _config.width, _config.height)) return false;
+    if (!rhi.Initialize(config_.backend, config_.title, config_.width, config_.height)) return false;
 
     auto* queue = rhi.Queue();
     auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(rhi.Executors());
 
     auto* window = rhi.Window();
-    window->SetTitle(_config.title);
+    window->SetTitle(config_.title);
 
     auto* swapChainExec = executors->GetSwapChainExecutor();
     if (!swapChainExec) return false;
 
     SwapChainCreateParams scp;
-    scp.width = _config.width;
-    scp.height = _config.height;
-    scp.bufferCount = _config.bufferCount;
-    scp.presentMode = _config.presentMode;
-    scp.colorSpace = _config.colorSpace;
+    scp.width = config_.width;
+    scp.height = config_.height;
+    scp.bufferCount = config_.bufferCount;
+    scp.presentMode = config_.presentMode;
+    scp.colorSpace = config_.colorSpace;
 
     swapChainExec->AddT<SwapChainCreateParams>(SwapChainCreateParams{ scp })
         .RemoveAfterExecute().MarkProcess().Commit();

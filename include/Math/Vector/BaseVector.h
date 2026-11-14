@@ -3,11 +3,14 @@
 #include <cmath>
 #include <string>
 #include <sstream>
-#include <cstddef>
 #include <concepts>
 
+struct Vector {
+    virtual ~Vector() = default;
+};
+
 template <typename VectorImpl, typename T, int Count>
-struct BaseVector {
+struct BaseVector : public Vector {
 private:
     constexpr void CheckOperator() const {
         static_assert(

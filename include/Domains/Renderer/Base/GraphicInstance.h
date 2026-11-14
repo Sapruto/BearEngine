@@ -30,7 +30,7 @@ namespace Renderer::Base {
     public:
         GraphicInstance() = default;
 
-        bool Initialize(const GraphicConfig& config = GraphicConfig());
+        bool Initialize(const GraphicConfig& config_ = GraphicConfig());
         void Shutdown();
 
         void BeginFrame() {}
