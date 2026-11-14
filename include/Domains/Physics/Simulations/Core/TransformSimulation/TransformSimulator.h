@@ -58,6 +58,7 @@ namespace Physic::Transform {
                 auto* feature = body->GetFeatureOfType<TransformFeature>();
                 auto* transform = body->GetGameObject()->GetComponentOfType<Transform3D>();
                 if (!feature || !transform) continue;
+                if (feature->isConst) continue;
 
                 auto it = pending.find(body->GetId());
                 if (it != pending.end()) {

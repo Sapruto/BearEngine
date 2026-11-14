@@ -13,7 +13,7 @@ private:
     FIELD(Vector3f, fieldScale);
     FIELD(Quaternionf, fieldRotation);
 
-    bool dirty = true;
+    bool isDirty = true;
     Matrix4x4f cachedMatrix;
 
     void UpdateWorld();
@@ -48,11 +48,11 @@ public:
     void SetLocalScale(const Vector3f& s) override;
     void SetLocalRotation(const Quaternionf& r) override;
 
-    void SetGlobalPositionAsLocal(const Vector3f& p) override;
-    void SetGlobalScaleAsLocal(const Vector3f& s) override;
-    void SetGlobalRotationAsLocal(const Quaternionf& r) override;
+    void SetGlobalPositionAsLocal(const Vector3f& p, bool considerParents = false) override;
+    void SetGlobalScaleAsLocal(const Vector3f& s, bool considerParents = false) override;
+    void SetGlobalRotationAsLocal(const Quaternionf& r, bool considerParents = false) override;
 
-    bool IsDirty() const { return dirty; }
+    bool IsDirty() const { return isDirty; }
 
     SERIALIZED_FIELDS(&fieldPosition, &fieldScale, &fieldRotation)
 };

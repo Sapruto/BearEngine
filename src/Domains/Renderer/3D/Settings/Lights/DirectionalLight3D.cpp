@@ -27,7 +27,7 @@ void DirectionalLight3D::SetDirection(const Vector3f& dir) {
 }
 
 Matrix4x4f DirectionalLight3D::GetLightSpaceMatrix() const {
-    Matrix4x4f lightProjection = Matrix4x4f::ortho(
+    Matrix4x4f lightProjection = Matrix4x4f::Ortho(
         -shadowAreaSize.GetValue(), shadowAreaSize.GetValue(),
         -shadowAreaSize.GetValue(), shadowAreaSize.GetValue(),
         nearPlane.GetValue(), farPlane.GetValue()
@@ -42,7 +42,7 @@ Matrix4x4f DirectionalLight3D::GetLightSpaceMatrix() const {
         up = Vector3f(0.0f, 0.0f, 1.0f);
     }
     
-    Matrix4x4f lightView = Matrix4x4f::lookAt(lightPos, lightTarget, up);
+    Matrix4x4f lightView = Matrix4x4f::LookAt(lightPos, lightTarget, up);
     
     return Matrix4x4f((lightProjection * lightView).GetData());
 }

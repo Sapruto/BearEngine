@@ -5,6 +5,7 @@
 #include <cstdlib>
 #include <cmath>
 #include "Math/Vector/Vector3.h"
+#include "Math/Matrix/Matrix4x4.h"
 
 template<typename T = float>
 struct Quaternion {
@@ -19,7 +20,7 @@ struct Quaternion {
         return Quaternion(Vector3<T>(0, 0, 0), T(1));
     }
     
-    static Quaternion createRotation(const T& angle, const Vector3<T>& axis) {
+    static Quaternion CreateRotation(const T& angle, const Vector3<T>& axis) {
         T halfA = angle / T(2);
         T sinA = std::sin(halfA);
         T cosA = std::cos(halfA);
@@ -33,7 +34,7 @@ struct Quaternion {
         return q;
     }
     
-    static Quaternion slerp(const Quaternion& a, const Quaternion& b, T t) {
+    static Quaternion Slerp(const Quaternion& a, const Quaternion& b, T t) {
         T dot = a.scalar * b.scalar + a.ratioVec.Dot(b.ratioVec);
         Quaternion b2 = b;
         
@@ -55,7 +56,7 @@ struct Quaternion {
         return a * w1 + b2 * w2;
     }
 
-    Quaternion conjugate() const {
+    Quaternion Conjugate() const {
         return Quaternion(Vector3<T>(-ratioVec.x, -ratioVec.y, -ratioVec.z), scalar);
     }
 
@@ -75,7 +76,7 @@ struct Quaternion {
                             scalar / mag);
     }
 
-    Quaternion inverse() const {
+    Quaternion Inverse() const {
         T normSq = scalar * scalar 
                     + ratioVec.x * ratioVec.x 
                     + ratioVec.y * ratioVec.y 
@@ -83,14 +84,14 @@ struct Quaternion {
         
         if (normSq == T(0)) return Identity();
         
-        Quaternion conj = conjugate();
+        Quaternion conj = Conjugate();
         return Quaternion(Vector3<T>(conj.ratioVec.x / normSq,
                                         conj.ratioVec.y / normSq,
                                         conj.ratioVec.z / normSq),
                             conj.scalar / normSq);
     }
 
-    Vector3<T> rotateVector(const Vector3<T>& vec) const {
+    Vector3<T> RotateVector(const Vector3<T>& vec) const {
         Vector3<T> vecPart = ratioVec;
         T scalarPart = scalar;
         
@@ -182,8 +183,42 @@ struct Quaternion {
         return result;
     }
 
+    static Quaternion<T> CreateFromMatrix(const Matrix4x4<T>& m) {
+        Quaternion<T> q;
+        T tr = m(0,0) + m(1,1) + m(2,2);
+        if (tr > T(0)) {
+            T s = T(0.5) / std::sqrt(tr + T(1));
+            q.scalar     = T(0.25) / s;
+            q.ratioVec.x = (m(2,1) - m(1,2)) * s;
+            q.ratioVec.y = (m(0,2) - m(2,0)) * s;
+            q.ratioVec.z = (m(1,0) - m(0,1)) * s;
+        }
+        else if (m(0,0) > m(1,1) && m(0,0) > m(2,2)) {
+            T s = T(2) * std::sqrt(T(1) + m(0,0) - m(1,1) - m(2,2));
+            q.scalar     = (m(2,1) - m(1,2)) / s;
+            q.ratioVec.x = T(0.25) * s;
+            q.ratioVec.y = (m(0,1) + m(1,0)) / s;
+            q.ratioVec.z = (m(0,2) + m(2,0)) / s;
+        }
+        else if (m(1,1) > m(2,2)) {
+            T s = T(2) * std::sqrt(T(1) + m(1,1) - m(0,0) - m(2,2));
+            q.scalar     = (m(0,2) - m(2,0)) / s;
+            q.ratioVec.x = (m(0,1) + m(1,0)) / s;
+            q.ratioVec.y = T(0.25) * s;
+            q.ratioVec.z = (m(1,2) + m(2,1)) / s;
+        }
+        else {
+            T s = T(2) * std::sqrt(T(1) + m(2,2) - m(0,0) - m(1,1));
+            q.scalar     = (m(1,0) - m(0,1)) / s;
+            q.ratioVec.x = (m(0,2) + m(2,0)) / s;
+            q.ratioVec.y = (m(1,2) + m(2,1)) / s;
+            q.ratioVec.z = T(0.25) * s;
+        }
+        return q.Normalized();
+    }
+
     Vector3<T> operator*(const Vector3<T>& vec) const {
-        return rotateVector(vec);
+        return RotateVector(vec);
     }
 };
 

@@ -71,7 +71,7 @@ public:
         return true;
     }
 
-    constexpr BaseMatrix<T, Cols, Rows> transpose() const {
+    constexpr BaseMatrix<T, Cols, Rows> Transpose() const {
         BaseMatrix<T, Cols, Rows> result;
         for (int i = 0; i < Rows; i++) {
             for (int j = 0; j < Cols; j++) {
@@ -82,7 +82,7 @@ public:
     }
 
     template<typename U, int Rows1, int Cols1, int Cols2>
-    static constexpr auto multiply(const BaseMatrix<U, Rows1, Cols1>& first, const BaseMatrix<U, Cols1, Cols2>& second) {
+    static constexpr auto Multiply(const BaseMatrix<U, Rows1, Cols1>& first, const BaseMatrix<U, Cols1, Cols2>& second) {
         BaseMatrix<U, Rows1, Cols2> result;
         for (int i = 0; i < Rows1; i++) {
             for (int j = 0; j < Cols2; j++) {
@@ -96,7 +96,7 @@ public:
         return result;
     }
 
-    constexpr BaseMatrix hadamardMultiply(const BaseMatrix& other) const {
+    constexpr BaseMatrix HadamardMultiply(const BaseMatrix& other) const {
         BaseMatrix result;
         for (int i = 0; i < Rows * Cols; i++) {
             result.data[i] = data[i] * other.data[i];
@@ -105,7 +105,7 @@ public:
     }
     
     template<typename U, int Rows1, int Cols1, int Rows2, int Cols2>
-    static constexpr auto kroneckerMultiply(const BaseMatrix<U, Rows1, Cols1>& a, const BaseMatrix<U, Rows2, Cols2>& b) {
+    static constexpr auto KroneckerMultiply(const BaseMatrix<U, Rows1, Cols1>& a, const BaseMatrix<U, Rows2, Cols2>& b) {
         BaseMatrix<U, Rows1 * Rows2, Cols1 * Cols2> result;
         
         for (int i = 0; i < Rows1; i++) {
@@ -125,10 +125,10 @@ public:
     constexpr T& operator[](int index) { return data[index]; }
     constexpr const T& operator[](int index) const { return data[index]; }
     constexpr const T& operator()(int row, int col) const {
-        return data[row * Cols + col];
+        return data[col * Rows + row];
     }
     constexpr T& operator()(int row, int col) {
-        return data[row * Cols + col];
+        return data[col * Rows + row];
     }
     constexpr int Size() const { return Rows * Cols; }
 
@@ -166,6 +166,6 @@ struct BaseMatrixAlias : BaseMatrix<T, Rows, Cols> {
     using Base::Base;
     using Base::Identity;
     using Base::Zero;
-    using Base::multiply;
-    using Base::kroneckerMultiply;
+    using Base::Multiply;
+    using Base::KroneckerMultiply;
 };

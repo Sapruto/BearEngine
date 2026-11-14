@@ -8,13 +8,13 @@ Transform3D::Transform3D()
     : fieldPosition("fieldPosition", Vector3f::Zero())
     , fieldScale("fieldScale", Vector3f::One())
     , fieldRotation("fieldRotation", Quaternionf::Identity())
-    , dirty(true)
+    , isDirty(true)
 {
     cachedMatrix = Matrix4x4f::Identity();
 }
 
 void Transform3D::UpdateWorld() {
-    if (!dirty) return;
+    if (!isDirty) return;
 
     Vector3f gp = fieldPosition.GetValue();
     Vector3f gs = fieldScale.GetValue();
@@ -26,10 +26,18 @@ void Transform3D::UpdateWorld() {
         if (!ps.empty()) {
             Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
             if (pt) {
-                Vector3f rp = pt->GetGlobalRotation().rotateVector(gp);
+                Vector3f pgs = pt->GetGlobalScale();
+                gs = Vector3f(gs.x * pgs.x, gs.y * pgs.y, gs.z * pgs.z);
+
+                Vector3f scaledLocal(
+                    gp.x * pgs.x,
+                    gp.y * pgs.y,
+                    gp.z * pgs.z
+                );
+                Vector3f rp = pt->GetGlobalRotation().RotateVector(scaledLocal);
                 gp = pt->GetGlobalPosition() + rp;
+
                 gr = (pt->GetGlobalRotation() * gr).Normalized();
-                gs = pt->GetGlobalScale();
             }
         }
     }
@@ -66,19 +74,19 @@ void Transform3D::UpdateWorld() {
     cachedMatrix(3, 2) = 0;
     cachedMatrix(3, 3) = 1;
 
-    dirty = false;
+    isDirty = false;
 }
 
 void Transform3D::Rotate(float pitch, float yaw, float roll) {
-    Quaternionf qx = Quaternionf::createRotation(pitch, Vector3f(1, 0, 0));
-    Quaternionf qy = Quaternionf::createRotation(yaw, Vector3f(0, 1, 0));
-    Quaternionf qz = Quaternionf::createRotation(roll, Vector3f(0, 0, 1));
+    Quaternionf qx = Quaternionf::CreateRotation(pitch, Vector3f(1, 0, 0));
+    Quaternionf qy = Quaternionf::CreateRotation(yaw, Vector3f(0, 1, 0));
+    Quaternionf qz = Quaternionf::CreateRotation(roll, Vector3f(0, 0, 1));
     fieldRotation = (qz * qy * qx * fieldRotation.GetValue()).Normalized();
-    dirty = true;
+    isDirty = true;
 }
 
 Vector3f Transform3D::Forward() const {
-    return GetGlobalRotation().rotateVector(Vector3f(0, 0, 1));
+    return GetGlobalRotation().RotateVector(Vector3f(0, 0, 1));
 }
 
 Vector3f Transform3D::Backward() const {
@@ -86,7 +94,7 @@ Vector3f Transform3D::Backward() const {
 }
 
 Vector3f Transform3D::Right() const {
-    return GetGlobalRotation().rotateVector(Vector3f(1, 0, 0));
+    return GetGlobalRotation().RotateVector(Vector3f(1, 0, 0));
 }
 
 Vector3f Transform3D::Left() const {
@@ -94,7 +102,7 @@ Vector3f Transform3D::Left() const {
 }
 
 Vector3f Transform3D::Up() const {
-    return GetGlobalRotation().rotateVector(Vector3f(0, 1, 0));
+    return GetGlobalRotation().RotateVector(Vector3f(0, 1, 0));
 }
 
 Vector3f Transform3D::Down() const {
@@ -102,10 +110,15 @@ Vector3f Transform3D::Down() const {
 }
 
 void Transform3D::LookAt(const Vector3f& target) {
-    Vector3f dir = (target - GetGlobalPosition()).Normalized();
+    Vector3f dir = target - GetGlobalPosition();
     if (dir.Magnitude() < 0.0001f) return;
+    dir = dir.Normalized();
 
     Vector3f up = Vector3f(0, 1, 0);
+    if (std::fabs(dir.Dot(up)) > 0.9999f) {
+        up = Vector3f(1, 0, 0);
+    }
+
     Vector3f z = dir;
     Vector3f x = up.Cross(z).Normalized();
     Vector3f y = z.Cross(x).Normalized();
@@ -116,58 +129,40 @@ void Transform3D::LookAt(const Vector3f& target) {
     m(2,0) = x.z; m(2,1) = y.z; m(2,2) = z.z; m(2,3) = 0;
     m(3,0) = 0;   m(3,1) = 0;   m(3,2) = 0;   m(3,3) = 1;
 
-    Quaternionf q;
-    float tr = m(0,0) + m(1,1) + m(2,2);
-    if (tr > 0) {
-        float s = 0.5f / sqrtf(tr + 1.0f);
-        q.scalar = 0.25f / s;
-        q.ratioVec.x = (m(2,1) - m(1,2)) * s;
-        q.ratioVec.y = (m(0,2) - m(2,0)) * s;
-        q.ratioVec.z = (m(1,0) - m(0,1)) * s;
-    }
-    else {
-        if (m(0,0) > m(1,1) && m(0,0) > m(2,2)) {
-            float s = 2.0f * sqrtf(1.0f + m(0,0) - m(1,1) - m(2,2));
-            q.scalar = (m(2,1) - m(1,2)) / s;
-            q.ratioVec.x = 0.25f * s;
-            q.ratioVec.y = (m(0,1) + m(1,0)) / s;
-            q.ratioVec.z = (m(0,2) + m(2,0)) / s;
-        }
-        else if (m(1,1) > m(2,2)) {
-            float s = 2.0f * sqrtf(1.0f + m(1,1) - m(0,0) - m(2,2));
-            q.scalar = (m(0,2) - m(2,0)) / s;
-            q.ratioVec.x = (m(0,1) + m(1,0)) / s;
-            q.ratioVec.y = 0.25f * s;
-            q.ratioVec.z = (m(1,2) + m(2,1)) / s;
-        }
-        else {
-            float s = 2.0f * sqrtf(1.0f + m(2,2) - m(0,0) - m(1,1));
-            q.scalar = (m(1,0) - m(0,1)) / s;
-            q.ratioVec.x = (m(0,2) + m(2,0)) / s;
-            q.ratioVec.y = (m(1,2) + m(2,1)) / s;
-            q.ratioVec.z = 0.25f * s;
+    Quaternionf worldQ = Quaternionf::CreateFromMatrix(m);
+
+    Quaternionf localQ = worldQ;
+    HierarchySystem* sys = gameObject->GetHierarchySystem();
+    if (sys) {
+        std::vector<GameObject*> ps = sys->GetParents(gameObject);
+        if (!ps.empty()) {
+            Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
+            if (pt) {
+                localQ = (pt->GetGlobalRotation().Inverse() * worldQ).Normalized();
+            }
         }
     }
-    fieldRotation = q.Normalized();
-    dirty = true;
+
+    fieldRotation = localQ;
+    isDirty = true;
 }
 
 Matrix4x4f Transform3D::GetMatrix() const {
-    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
+    if (isDirty) const_cast<Transform3D*>(this)->UpdateWorld();
     return cachedMatrix;
 }
 
 void Transform3D::Update() {
-    if (dirty) UpdateWorld();
+    if (isDirty) UpdateWorld();
 }
 
 Vector3f Transform3D::GetGlobalPosition() const {
-    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
+    if (isDirty) const_cast<Transform3D*>(this)->UpdateWorld();
     return Vector3f(cachedMatrix(0, 3), cachedMatrix(1, 3), cachedMatrix(2, 3));
 }
 
 Vector3f Transform3D::GetGlobalScale() const {
-    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
+    if (isDirty) const_cast<Transform3D*>(this)->UpdateWorld();
     Vector3f sx(cachedMatrix(0, 0), cachedMatrix(1, 0), cachedMatrix(2, 0));
     Vector3f sy(cachedMatrix(0, 1), cachedMatrix(1, 1), cachedMatrix(2, 1));
     Vector3f sz(cachedMatrix(0, 2), cachedMatrix(1, 2), cachedMatrix(2, 2));
@@ -175,7 +170,8 @@ Vector3f Transform3D::GetGlobalScale() const {
 }
 
 Quaternionf Transform3D::GetGlobalRotation() const {
-    if (dirty) const_cast<Transform3D*>(this)->UpdateWorld();
+    if (isDirty) const_cast<Transform3D*>(this)->UpdateWorld();
+
     Vector3f sx(cachedMatrix(0, 0), cachedMatrix(1, 0), cachedMatrix(2, 0));
     Vector3f sy(cachedMatrix(0, 1), cachedMatrix(1, 1), cachedMatrix(2, 1));
     Vector3f sz(cachedMatrix(0, 2), cachedMatrix(1, 2), cachedMatrix(2, 2));
@@ -193,39 +189,7 @@ Quaternionf Transform3D::GetGlobalRotation() const {
     m(2,0) = sx.z; m(2,1) = sy.z; m(2,2) = sz.z; m(2,3) = 0;
     m(3,0) = 0;    m(3,1) = 0;    m(3,2) = 0;    m(3,3) = 1;
 
-    Quaternionf q;
-    float tr = m(0,0) + m(1,1) + m(2,2);
-    if (tr > 0) {
-        float s = 0.5f / sqrtf(tr + 1.0f);
-        q.scalar = 0.25f / s;
-        q.ratioVec.x = (m(2,1) - m(1,2)) * s;
-        q.ratioVec.y = (m(0,2) - m(2,0)) * s;
-        q.ratioVec.z = (m(1,0) - m(0,1)) * s;
-    }
-    else {
-        if (m(0,0) > m(1,1) && m(0,0) > m(2,2)) {
-            float s = 2.0f * sqrtf(1.0f + m(0,0) - m(1,1) - m(2,2));
-            q.scalar = (m(2,1) - m(1,2)) / s;
-            q.ratioVec.x = 0.25f * s;
-            q.ratioVec.y = (m(0,1) + m(1,0)) / s;
-            q.ratioVec.z = (m(0,2) + m(2,0)) / s;
-        }
-        else if (m(1,1) > m(2,2)) {
-            float s = 2.0f * sqrtf(1.0f + m(1,1) - m(0,0) - m(2,2));
-            q.scalar = (m(0,2) - m(2,0)) / s;
-            q.ratioVec.x = (m(0,1) + m(1,0)) / s;
-            q.ratioVec.y = 0.25f * s;
-            q.ratioVec.z = (m(1,2) + m(2,1)) / s;
-        }
-        else {
-            float s = 2.0f * sqrtf(1.0f + m(2,2) - m(0,0) - m(1,1));
-            q.scalar = (m(1,0) - m(0,1)) / s;
-            q.ratioVec.x = (m(0,2) + m(2,0)) / s;
-            q.ratioVec.y = (m(1,2) + m(2,1)) / s;
-            q.ratioVec.z = 0.25f * s;
-        }
-    }
-    return q.Normalized();
+    return Quaternionf::CreateFromMatrix(m);
 }
 
 const Vector3f& Transform3D::GetLocalPosition() const { return fieldPosition.GetValue(); }
@@ -234,86 +198,98 @@ const Quaternionf& Transform3D::GetLocalRotation() const { return fieldRotation.
 
 void Transform3D::SetLocalPosition(const Vector3f& p) {
     fieldPosition = p;
-    dirty = true;
+    isDirty = true;
 }
 
 void Transform3D::SetLocalScale(const Vector3f& s) {
     fieldScale = s;
-    dirty = true;
+    isDirty = true;
 }
 
 void Transform3D::SetLocalRotation(const Quaternionf& r) {
     fieldRotation = r;
-    dirty = true;
+    isDirty = true;
 }
 
-void Transform3D::SetGlobalPositionAsLocal(const Vector3f& p) {
-    Vector3f lp = p;
+void Transform3D::SetGlobalPositionAsLocal(const Vector3f& p, bool considerParents) {
     Quaternionf lr = fieldRotation.GetValue();
-    Vector3f ls = fieldScale.GetValue();
+    Vector3f   ls = fieldScale.GetValue();
+    Vector3f   lp = p;
 
-    HierarchySystem* sys = gameObject->GetHierarchySystem();
-    if (sys) {
-        std::vector<GameObject*> ps = sys->GetParents(gameObject);
-        if (!ps.empty()) {
-            Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
-            if (pt) {
-                Vector3f rp = pt->GetGlobalRotation().inverse().rotateVector(p - pt->GetGlobalPosition());
-                lp = rp;
-                lr = (pt->GetGlobalRotation().inverse() * lr).Normalized();
-                Vector3f pgs = pt->GetGlobalScale();
-                ls = Vector3f(
-                    pgs.x != 0.0f ? ls.x / pgs.x : ls.x,
-                    pgs.y != 0.0f ? ls.y / pgs.y : ls.y,
-                    pgs.z != 0.0f ? ls.z / pgs.z : ls.z
-                );
+    if (considerParents) {
+        HierarchySystem* sys = gameObject ? gameObject->GetHierarchySystem() : nullptr;
+        if (sys) {
+            std::vector<GameObject*> ps = sys->GetParents(gameObject);
+            if (!ps.empty()) {
+                Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
+                if (pt) {
+                    Vector3f diff   = p - pt->GetGlobalPosition();
+                    Vector3f invRot = pt->GetGlobalRotation().Inverse().RotateVector(diff);
+                    Vector3f pgs    = pt->GetGlobalScale();
+                    lp = Vector3f(
+                        pgs.x != 0.0f ? invRot.x / pgs.x : invRot.x,
+                        pgs.y != 0.0f ? invRot.y / pgs.y : invRot.y,
+                        pgs.z != 0.0f ? invRot.z / pgs.z : invRot.z
+                    );
+
+                    lr = (pt->GetGlobalRotation().Inverse() * lr).Normalized();
+                    ls = Vector3f(
+                        pgs.x != 0.0f ? ls.x / pgs.x : ls.x,
+                        pgs.y != 0.0f ? ls.y / pgs.y : ls.y,
+                        pgs.z != 0.0f ? ls.z / pgs.z : ls.z
+                    );
+                }
             }
         }
     }
 
     fieldPosition = lp;
-    fieldScale = ls;
     fieldRotation = lr;
-    dirty = true;
+    fieldScale    = ls;
+    isDirty = true;
 }
 
-void Transform3D::SetGlobalScaleAsLocal(const Vector3f& s) {
+void Transform3D::SetGlobalScaleAsLocal(const Vector3f& s, bool considerParents) {
     Vector3f ls = s;
 
-    HierarchySystem* sys = gameObject->GetHierarchySystem();
-    if (sys) {
-        std::vector<GameObject*> ps = sys->GetParents(gameObject);
-        if (!ps.empty()) {
-            Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
-            if (pt) {
-                Vector3f pgs = pt->GetGlobalScale();
-                ls = Vector3f(
-                    pgs.x != 0.0f ? s.x / pgs.x : s.x,
-                    pgs.y != 0.0f ? s.y / pgs.y : s.y,
-                    pgs.z != 0.0f ? s.z / pgs.z : s.z
-                );
+    if (considerParents) {
+        HierarchySystem* sys = gameObject ? gameObject->GetHierarchySystem() : nullptr;
+        if (sys) {
+            std::vector<GameObject*> ps = sys->GetParents(gameObject);
+            if (!ps.empty()) {
+                Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
+                if (pt) {
+                    Vector3f pgs = pt->GetGlobalScale();
+                    ls = Vector3f(
+                        pgs.x != 0.0f ? s.x / pgs.x : s.x,
+                        pgs.y != 0.0f ? s.y / pgs.y : s.y,
+                        pgs.z != 0.0f ? s.z / pgs.z : s.z
+                    );
+                }
             }
         }
     }
 
     fieldScale = ls;
-    dirty = true;
+    isDirty = true;
 }
 
-void Transform3D::SetGlobalRotationAsLocal(const Quaternionf& r) {
+void Transform3D::SetGlobalRotationAsLocal(const Quaternionf& r, bool considerParents) {
     Quaternionf lr = r;
 
-    HierarchySystem* sys = gameObject->GetHierarchySystem();
-    if (sys) {
-        std::vector<GameObject*> ps = sys->GetParents(gameObject);
-        if (!ps.empty()) {
-            Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
-            if (pt) {
-                lr = (pt->GetGlobalRotation().inverse() * r).Normalized();
+    if (considerParents) {
+        HierarchySystem* sys = gameObject ? gameObject->GetHierarchySystem() : nullptr;
+        if (sys) {
+            std::vector<GameObject*> ps = sys->GetParents(gameObject);
+            if (!ps.empty()) {
+                Transform3D* pt = ps[0]->GetComponentOfType<Transform3D>();
+                if (pt) {
+                    lr = (pt->GetGlobalRotation().Inverse() * r).Normalized();
+                }
             }
         }
     }
 
     fieldRotation = lr;
-    dirty = true;
+    isDirty = true;
 }

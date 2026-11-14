@@ -9,5 +9,7 @@ namespace Physic::Transform {
         Vector3f position = Vector3f::Zero();
         Vector3f scale = Vector3f::Zero();
         Quaternionf rotation = Quaternionf::Identity();
+
+        bool isConst = false;
     };
 }

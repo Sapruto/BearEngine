@@ -77,7 +77,6 @@ foreach(_f
     endif()
 endforeach()
 
-# --- ЖЁСТКОЕ ВЫРЕЗАНИЕ ---
 list(FILTER RHI_SOURCES       EXCLUDE REGEX "Transform2D")
 list(FILTER WORLD_SOURCES     EXCLUDE REGEX "Transform2D")
 list(FILTER MATH_SOURCES      EXCLUDE REGEX "Transform2D")

@@ -19,6 +19,6 @@ public:
     
     Vector3f GetGlobalPosition() const;
     
-    Matrix4x4f GetViewMatrix();
-    Matrix4x4f GetProjectionMatrix(float aspectRatio);
+    Matrix4x4f GetViewMatrix() const;
+    Matrix4x4f GetProjectionMatrix(float aspectRatio) const;
 };

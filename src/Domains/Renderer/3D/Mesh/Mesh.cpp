@@ -87,6 +87,14 @@ void Mesh::ProcessMesh(aiMesh* mesh) {
             indices.push_back(face.mIndices[j] + vertexOffset);
         }
     }
+
+    std::cout << "[vertex] pos=(" << vertices[0].position.x << ","
+            << vertices[0].position.y << ","
+            << vertices[0].position.z << ")"
+            << " sizeof(Vector3f)=" << sizeof(Vector3f)
+            << " sizeof(MeshVertex)=" << sizeof(MeshVertex)
+            << " offsetof(pos)=" << offsetof(MeshVertex, position)
+            << " offsetof(normal)=" << offsetof(MeshVertex, normal) << "\n";
 }
 
 void Mesh::CreateBuffers() {

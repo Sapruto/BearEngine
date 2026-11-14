@@ -56,16 +56,14 @@ out vec3 vFragPos;
 out vec4 vColor;
 
 void main() {
-    mat4 model = transpose(mat4(aModel0, aModel1, aModel2, aModel3));
+    mat4 model = mat4(aModel0, aModel1, aModel2, aModel3);
 
     vec4 worldPos = model * vec4(aPos, 1.0);
     vFragPos = worldPos.xyz;
     vNormal = mat3(transpose(inverse(model))) * aNormal;
     vColor = aColor;
 
-    mat4 V = transpose(view);
-    mat4 P = transpose(projection);
-    gl_Position = P * V * worldPos;
+    gl_Position = projection * view * worldPos;
 }
 )";
 

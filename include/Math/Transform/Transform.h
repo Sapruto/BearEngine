@@ -20,7 +20,7 @@ public:
     virtual void SetLocalScale(const VectorT& s) = 0;
     virtual void SetLocalRotation(const Quaternionf& r) = 0;
 
-    virtual void SetGlobalPositionAsLocal(const VectorT& p) = 0;
-    virtual void SetGlobalScaleAsLocal(const VectorT& s) = 0;
-    virtual void SetGlobalRotationAsLocal(const Quaternionf& r) = 0;
+    virtual void SetGlobalPositionAsLocal(const VectorT& p, bool considerParents = false) = 0;
+    virtual void SetGlobalScaleAsLocal(const VectorT& s, bool considerParents = false) = 0;
+    virtual void SetGlobalRotationAsLocal(const Quaternionf& r, bool considerParents = false) = 0;
 };

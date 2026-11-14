@@ -5,9 +5,7 @@
 #include <sstream>
 #include <concepts>
 
-struct Vector {
-    virtual ~Vector() = default;
-};
+struct Vector {};
 
 template <typename VectorImpl, typename T, int Count>
 struct BaseVector : public Vector {

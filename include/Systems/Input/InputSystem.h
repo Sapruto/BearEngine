@@ -12,7 +12,7 @@ enum class KeyState {
     Released = 0,
     Pressed,
     JustPressed,
-    JustReleased  
+    JustReleased
 };
 
 class InputSystem : public Systems::BaseSystem<InputSystem> {
