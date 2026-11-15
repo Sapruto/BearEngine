@@ -1,0 +1,577 @@
+@startuml
+class "std::string" as C_0001275076681856179721
+class C_0001275076681856179721 {
+__
+}
+class "std::vector<Component *>" as C_0006062650343992483251
+class C_0006062650343992483251 {
+__
+}
+class "std::unique_ptr<T>" as C_0000652019350381599434
+class C_0000652019350381599434 {
+__
+}
+class "std::unique_ptr<Component>" as C_0016938187622900952132
+class C_0016938187622900952132 {
+__
+}
+class "std::vector<std::unique_ptr<Component>>" as C_0001095893401689231376
+class C_0001095893401689231376 {
+__
+}
+class "std::unordered_map<Component *,size_t>" as C_0000382851143773517080
+class C_0000382851143773517080 {
+__
+}
+class "std::unordered_set<size_t>" as C_0014546477365631523271
+class C_0014546477365631523271 {
+__
+}
+class "std::unordered_map<std::type_index,std::unordered_set<size_t>>" as C_0002050504321745141386
+class C_0002050504321745141386 {
+__
+}
+class "std::vector<uint32_t>" as C_0008015409205204797935
+class C_0008015409205204797935 {
+__
+}
+class "std::vector<GameObject *>" as C_0003311481380388805427
+class C_0003311481380388805427 {
+__
+}
+class "std::unordered_map<int,std::vector<GameObject *>>" as C_0006442643822348149196
+class C_0006442643822348149196 {
+__
+}
+class "std::unordered_map<uint32_t,HierarchyNode>" as C_0004421624181997952778
+class C_0004421624181997952778 {
+__
+}
+class "std::unordered_map<GameObject *,uint32_t>" as C_0014267357922481156007
+class C_0014267357922481156007 {
+__
+}
+class "std::atomic<uint32_t>" as C_0012602724878626469550
+class C_0012602724878626469550 {
+__
+}
+class "std::vector<Systems::HasRequired *>" as C_0001388236529653665963
+class C_0001388236529653665963 {
+__
+}
+class "std::unordered_map<std::string,Component *>" as C_0007655096842275388712
+class C_0007655096842275388712 {
+__
+}
+class "std::vector<size_t>" as C_0009048762651940375792
+class C_0009048762651940375792 {
+__
+}
+class "std::span<ElementType,Extent>" as C_0004751887800562862365
+class C_0004751887800562862365 {
+__
+}
+class "std::array<uuids::uuid::value_type,16>" as C_0012327571733162381338
+class C_0012327571733162381338 {
+__
+}
+class "std::span<unsigned char,Extent>" as C_0012611138458715791392
+class C_0012611138458715791392 {
+__
+}
+class "std::span<std::byte const,Extent>" as C_0002199969719402343565
+class C_0002199969719402343565 {
+__
+}
+class "std::uniform_int_distribution<uint32_t>" as C_0000963587891852717709
+class C_0000963587891852717709 {
+__
+}
+class "std::shared_ptr<UniformRandomNumberGenerator>" as C_0017766625517734003539
+class C_0017766625517734003539 {
+__
+}
+class "std::basic_string_view<CharT,Traits>" as C_0009917794871219810067
+class C_0009917794871219810067 {
+__
+}
+class "std::hash" as C_0015140168415346399035
+class C_0015140168415346399035 {
++operator()(const argument_type & uuid) const : result_type
+__
+}
+class "std::hash<uuids::uuid>" as C_0009749617056149413047
+class C_0009749617056149413047 {
++operator()(const argument_type & uuid) const : result_type
+__
+}
+class "std::vector<GameObjectFinder::CachedQuery>" as C_0004735132424656080429
+class C_0004735132424656080429 {
+__
+}
+class "std::unique_ptr<SceneEvent>" as C_0013512137287177010746
+class C_0013512137287177010746 {
+__
+}
+class "std::vector<std::unique_ptr<SceneEvent>>" as C_0015979621581167041793
+class C_0015979621581167041793 {
+__
+}
+class "std::vector<SceneEvent *>" as C_0011852797557057498993
+class C_0011852797557057498993 {
+__
+}
+class "std::unique_ptr<GameObject>" as C_0006536632243028202335
+class C_0006536632243028202335 {
+__
+}
+class "std::vector<std::unique_ptr<GameObject>>" as C_0006474418380798353228
+class C_0006474418380798353228 {
+__
+}
+class "std::unique_ptr<HierarchySystem>" as C_0003358872082024604730
+class C_0003358872082024604730 {
+__
+}
+class "GameObject" as C_0015154670711857814291
+class C_0015154670711857814291 {
++GameObject(const std::string & name = "GameObject", Scene * scene = nullptr) : void
++~GameObject() : void
+..
++AddComponent<T,Args...>(Args &&... args) : T *
+-AddComponentInternal<T>(std::unique_ptr<T> && component) : T *
++Awake() : void
++Destroy() : void
++GetComponentCount<T>() const : size_t
++GetComponentDerivedByType<T>() : T *
++GetComponentOfType<T>() : T *
++GetComponents() : std::vector<Component *>
++GetComponentsOfType<T>() : std::vector<T *>
++GetHierarchySystem() const : HierarchySystem *
++GetName() const : std::string
++GetScene() const : Scene *
++HasComponent<T>() const : _Bool
++Initialize(Scene * scene) : void
++Initialize() : void
++IsDestroyed() const : bool
++IsInitialized() const : bool
++IsStarted() const : bool
++RemoveComponent(Component * component) : void
++SetHierarchySystem(HierarchySystem * system) : void
++SetName(const std::string & newName) : void
++SetScene(Scene * scene) : void
++Start() : void
++TakeComponent<T>(std::unique_ptr<T> component) : T *
++TakeComponentByPtr<T>(T * component) : T *
++Update() : void
+__
+-awaked : bool
+-componentIndexMap : std::unordered_map<Component *,size_t>
+-components : std::vector<std::unique_ptr<Component>>
+-componentsByType : std::unordered_map<std::type_index,std::unordered_set<size_t>>
+-destroyed : bool
+-hierarchySystem : HierarchySystem *
+-initialized : bool
+-name : std::string
+-scene : Scene *
+-started : bool
+}
+class "HierarchyNode" as C_0001386372776831190184
+class C_0001386372776831190184 {
++HierarchyNode() = default : void
++HierarchyNode(GameObject * object) : void
+__
++childrenIds : std::vector<uint32_t>
++object : GameObject *
++parentsIds : std::vector<uint32_t>
+}
+enum "DeleteStrategy" as C_0014211828176974301818
+enum C_0014211828176974301818 {
+CASCADE
+REATTACH_TO_PARENT
+}
+class "HierarchySystem" as C_0003049814618680191214
+class C_0003049814618680191214 {
++HierarchySystem() = default : void
++~HierarchySystem() = default : void
+..
++AddCommunication(GameObject * object, std::vector<GameObject *> others, bool isChildren) : void
++AddGameObject(GameObject * newGameObject) : void
+-AddUniqueId(std::vector<uint32_t> & vec, uint32_t id) : void
+-AddUniqueObject(std::vector<GameObject *> & vec, GameObject * obj) : void
+-FindNode(GameObject * obj) : HierarchyNode *
++GetAllTree() : std::unordered_map<int,std::vector<GameObject *>>
++GetChild(GameObject * gameObject, unsigned int index = 0) : GameObject *
++GetChildrenTree(GameObject * gameObject, unsigned int layers) : std::unordered_map<int,std::vector<GameObject *>>
++GetChilds(GameObject * gameObject) : std::vector<GameObject *>
+-GetObjectsByIds(std::vector<uint32_t> ids) : std::vector<GameObject *>
++GetParent(GameObject * gameObject, unsigned int index = 0) : GameObject *
++GetParentTree(GameObject * gameObject, unsigned int layers) : std::unordered_map<int,std::vector<GameObject *>>
++GetParents(GameObject * gameObject) : std::vector<GameObject *>
++GetTreeAroundObject(GameObject * gameObject, unsigned int up, unsigned int down) : std::unordered_map<int,std::vector<GameObject *>>
++RemoveCommunication(GameObject * object, GameObject * other, bool isChildren) : void
++RemoveGameObject(GameObject * gameObjectToDelete, DeleteStrategy strategy) : void
+-RemoveGameObjectRecursive(GameObject * gameObjectToDelete, DeleteStrategy strategy) : void
+__
+-nextId : std::atomic<uint32_t>
+-nodes : std::unordered_map<uint32_t,HierarchyNode>
+-objectToId : std::unordered_map<GameObject *,uint32_t>
+}
+class "Component" as C_0013412620662695821676
+class C_0013412620662695821676 {
++Component() : void
++~Component() : void
+..
++Awake() : void
++ClearGameObject() : void
++Destroy() : void
++FromString(const std::string & str) : void
++GetGameObject() const : GameObject *
++GetSerializedFields() : std::vector<SerializeField::ISerializedField *>
++GetSerializedFields() const : std::vector<const SerializeField::ISerializedField *>
++GetUUID() const : const std::string &
++Initialize() : void
++IsValid() const : bool
++SetGameObject(GameObject * obj) : void
++SetUUID(const std::string & str) : void
++Start() : void
++ToString() const : std::string
++Update() : void
+__
+#gameObject : GameObject *
+-uuid : SerializeField::SerializedField<std::string>
+}
+class "Scene" as C_0016177104474805726272
+class C_0016177104474805726272 {
++Scene() : void
++Scene(const std::string & name) : void
++Scene(const Scene &) = deleted : void
++Scene(Scene &&) = default : void
++~Scene() = default : void
+..
++operator=(const Scene &) = deleted : Scene &
++operator=(Scene &&) = default : Scene &
+..
++AddGameObject(std::unique_ptr<GameObject> gameObject) : GameObject *
++AddGameObjects(std::vector<std::unique_ptr<GameObject>> objects) : void
++AwakeScene() : void
++ClearDirty() : void
++CreateGameObject() : GameObject *
++DestroyScene() : void
++FindGameObjectsWithComponent<T>() : std::vector<GameObject *>
++GetCatalog() : ComponentCatalog &
++GetEventBus() : SceneEventBus &
++GetFinder() : GameObjectFinder &
++GetGameObjects() const : const std::vector<GameObject *>
++GetHierarchySystem() const : const HierarchySystem *
++GetHierarchySystem() : HierarchySystem *
++GetName() const : std::string
++InitializeScene() : void
++IsActive() const : bool
++IsDestroyed() const : bool
++IsDirty() const : bool
++IsInitialized() const : bool
++MarkDirty() : void
++ProcessRemovalQueue() : void
++QueueRemoveGameObject(GameObject * gameObject) : void
++RemoveGameObject(GameObject * gameObject) : void
++SetActive(bool active) : void
++SetName(const std::string & newName) : void
++StartScene() : void
++UpdateScene() : void
+__
+-componentCatalog : ComponentCatalog
+-eventBus : SceneEventBus
+-finder : GameObjectFinder
+-gameObjects : std::vector<std::unique_ptr<GameObject>>
+-hierarchySystem : std::unique_ptr<HierarchySystem>
+-isActive : bool
+-isDestroyed : bool
+-isDirty : bool
+-isInitialized : bool
+-isUpdating : bool
+-objectsToRemove : std::vector<GameObject *>
+-sceneName : std::string
+}
+class "ComponentCatalog" as C_0004324626811372521435
+class C_0004324626811372521435 {
++ComponentCatalog() = default : void
+..
++Clear() : void
++ConsumeNewRequirers() : std::vector<Systems::HasRequired *>
++FindByUUID(const std::string & uuid) const : Component *
++FindByUUID<T>(const std::string & uuid) const : T *
++GetAllComponents() const : const std::vector<Component *> &
++GetAllRequirers() const : const std::vector<Systems::HasRequired *> &
++GetComponentCount() const : std::size_t
++GetRequirerCount() const : std::size_t
++Register(Component * comp) : void
++Unregister(Component * comp) : void
+__
+-allRequirers : std::vector<Systems::HasRequired *>
+-components : std::vector<Component *>
+-indecesNewRequirers : std::vector<size_t>
+-uuidToComponent : std::unordered_map<std::string,Component *>
+}
+class "uuids::detail::sha1" as C_0013697924147976393131
+class C_0013697924147976393131 {
++sha1() : void
+..
++get_digest(uint32_t * digest) : const uint32_t *
++get_digest_bytes(uint8_t * digest) : const uint8_t *
+{static} +left_rotate(uint32_t value, const size_t count) noexcept : uint32_t
++process_block(const void *const start, const void *const end) : void
+-process_block() : void
++process_byte(uint8_t octet) : void
++process_bytes(const void *const data, const size_t len) : void
++reset() noexcept : void
+__
+{static} +block_bytes : const unsigned int
+-m_block : uint8_t[64]
+-m_blockByteIndex : size_t
+-m_byteCount : size_t
+-m_digest : uint32_t[5]
+}
+enum "uuids::uuid_variant" as C_0014023564493936585222
+enum C_0014023564493936585222 {
+ncs
+rfc
+microsoft
+reserved
+}
+enum "uuids::uuid_version" as C_0000869643556972316857
+enum C_0000869643556972316857 {
+none
+time_based
+dce_security
+name_based_md5
+random_number_based
+name_based_sha1
+}
+class "uuids::uuid" as C_0011624418039216843357
+class C_0011624418039216843357 {
++uuid() noexcept = default : void
++uuid(value_type (&)[16] arr) noexcept : void
++uuid(const std::array<value_type,16> & arr) noexcept : void
++uuid(std::span<value_type,16> bytes) : void
++uuid<ForwardIterator>(ForwardIterator first, ForwardIterator last) : void
+..
++as_bytes() const : std::span<const std::byte,16>
+{static} +from_string<StringType>(const StringType & in_str) constexpr noexcept : std::optional<uuid>
++is_nil() constexpr const noexcept : bool
+{static} +is_valid_uuid<StringType>(const StringType & in_str) constexpr noexcept : _Bool
++swap(uuid & other) noexcept : void
++variant() constexpr const noexcept : uuid_variant
++version() constexpr const noexcept : uuid_version
+__
+-data : std::array<value_type,16>
+}
+class "uuids::basic_uuid_random_generator<UniformRandomNumberGenerator>" as C_0007948139204948841102
+class C_0007948139204948841102 {
++basic_uuid_random_generator(engine_type & gen) : void
++basic_uuid_random_generator(engine_type * gen) : void
+..
++operator()() : uuid
+__
+-distribution : std::uniform_int_distribution<uint32_t>
+-generator : std::shared_ptr<UniformRandomNumberGenerator>
+}
+class "uuids::uuid_name_generator" as C_0007696758589073704578
+class C_0007696758589073704578 {
++uuid_name_generator(const uuid & namespace_uuid) noexcept : void
+..
++operator()<StringType>(const StringType & name) : uuid
+..
+-make_uuid() : uuid
+-process_characters<CharT,Traits>(const std::basic_string_view<CharT,Traits> str) : void
+-reset() : void
+__
+-hasher : detail::sha1
+-nsuuid : uuid
+}
+class "GameObjectFinder" as C_0005345861177139864342
+class C_0005345861177139864342 {
++GameObjectFinder() = default : void
+..
++Clear() : void
++Find<T,Provider>(Provider && provider) : std::vector<GameObject *>
++Invalidate() : void
+{static} +TypeTag<T>() : TypeId
+__
+-queryCache : std::vector<CachedQuery>
+}
+class "GameObjectFinder::CachedQuery" as C_0010051127024755649902
+class C_0010051127024755649902 {
++CachedQuery(TypeId t, std::vector<GameObject *> r) : void
+__
++results : std::vector<GameObject *>
++type : TypeId
++valid : bool
+}
+class "SceneEvent" as C_0003060101884918507452
+class C_0003060101884918507452 {
++~SceneEvent() constexpr = default : void
+..
++GetOverriddenMask() const : std::uint32_t
++GetScene() const : Scene *
++Has(Flags f) const : bool
++IsEnabled() const : bool
++OnAddObject(GameObject * gameObject) : void
++OnRemoveObject(GameObject * gameObject) : void
++OnSceneDestroy() : void
++OnSceneStart() : void
++OnSceneUpdate() : void
++SetEnabled(bool e) : void
++SetScene(Scene * s) : void
+__
+#enabled : bool
+#overridden : std::uint32_t
+#scene : Scene *
+}
+enum "SceneEvent::Flags" as C_0015808635937943621950
+enum C_0015808635937943621950 {
+None
+SceneStart
+SceneUpdate
+SceneDestroy
+SceneAddObject
+SceneRemoveObject
+}
+class "SceneEventT<Derived>" as C_0005622195423038783395
+class C_0005622195423038783395 {
+#SceneEventT() : void
+__
+}
+class "SceneEventBus" as C_0000285355087805630543
+class C_0000285355087805630543 {
++SceneEventBus() = default : void
++SceneEventBus(const SceneEventBus &) = deleted : void
++~SceneEventBus() constexpr = default : void
+..
++operator=(const SceneEventBus &) = deleted : SceneEventBus &
+..
++AddSceneEvent(std::unique_ptr<SceneEvent> event) : SceneEvent *
++GetOwner() const : Scene *
++GetSceneEvent<T>() : T *
++OnAddObject(GameObject * gameObject) : void
++OnRemoveObject(GameObject * gameObject) : void
++OnSceneDestroy() : void
++OnSceneStart() : void
++OnSceneUpdate() : void
+-RebuildIndices() : void
++RemoveSceneEvent(SceneEvent * event) : void
++SetOwner(Scene * scene) : void
+__
+-onAddObject : std::vector<SceneEvent *>
+-onDestroy : std::vector<SceneEvent *>
+-onRemoveObject : std::vector<SceneEvent *>
+-onStart : std::vector<SceneEvent *>
+-onUpdate : std::vector<SceneEvent *>
+-owner : Scene *
+-sceneEvents : std::vector<std::unique_ptr<SceneEvent>>
+}
+class "SerializeField::SerializedField<std::string>" as C_0009517731145284725395
+class C_0009517731145284725395 {
+__
+}
+C_0006062650343992483251 ..> C_0013412620662695821676
+C_0016938187622900952132 ..> C_0013412620662695821676
+C_0016938187622900952132 ..|> C_0000652019350381599434
+C_0001095893401689231376 ..> C_0016938187622900952132
+C_0000382851143773517080 ..> C_0013412620662695821676
+C_0002050504321745141386 ..> C_0014546477365631523271
+C_0003311481380388805427 ..> C_0015154670711857814291
+C_0006442643822348149196 ..> C_0003311481380388805427
+C_0004421624181997952778 ..> C_0001386372776831190184
+C_0014267357922481156007 ..> C_0015154670711857814291
+C_0007655096842275388712 ..> C_0001275076681856179721
+C_0007655096842275388712 ..> C_0013412620662695821676
+C_0012611138458715791392 ..|> C_0004751887800562862365
+C_0002199969719402343565 ..|> C_0004751887800562862365
+C_0015140168415346399035 ..> C_0011624418039216843357
+C_0009749617056149413047 ..> C_0011624418039216843357
+C_0009749617056149413047 ..|> C_0015140168415346399035
+C_0013512137287177010746 ..> C_0003060101884918507452
+C_0013512137287177010746 ..|> C_0000652019350381599434
+C_0015979621581167041793 ..> C_0013512137287177010746
+C_0011852797557057498993 ..> C_0003060101884918507452
+C_0006536632243028202335 ..> C_0015154670711857814291
+C_0006536632243028202335 ..|> C_0000652019350381599434
+C_0006474418380798353228 ..> C_0006536632243028202335
+C_0003358872082024604730 ..> C_0003049814618680191214
+C_0003358872082024604730 ..|> C_0000652019350381599434
+C_0015154670711857814291 ..> C_0013412620662695821676
+C_0015154670711857814291 ..> C_0006062650343992483251
+C_0015154670711857814291 ..> C_0000652019350381599434
+C_0015154670711857814291 o-- C_0001095893401689231376 : -components
+C_0015154670711857814291 o-- C_0000382851143773517080 : -componentIndexMap
+C_0015154670711857814291 o-- C_0002050504321745141386 : -componentsByType
+C_0015154670711857814291 --> C_0003049814618680191214 : -hierarchySystem
+C_0015154670711857814291 o-- C_0001275076681856179721 : -name
+C_0015154670711857814291 --> C_0016177104474805726272 : -scene
+C_0001386372776831190184 --> C_0015154670711857814291 : +object
+C_0001386372776831190184 o-- C_0008015409205204797935 : +parentsIds
+C_0001386372776831190184 o-- C_0008015409205204797935 : +childrenIds
+C_0003049814618680191214 ..> C_0008015409205204797935
+C_0003049814618680191214 ..> C_0003311481380388805427
+C_0003049814618680191214 ..> C_0015154670711857814291
+C_0003049814618680191214 ..> C_0001386372776831190184
+C_0003049814618680191214 ..> C_0014211828176974301818
+C_0003049814618680191214 ..> C_0006442643822348149196
+C_0003049814618680191214 o-- C_0004421624181997952778 : -nodes
+C_0003049814618680191214 o-- C_0014267357922481156007 : -objectToId
+C_0003049814618680191214 o-- C_0012602724878626469550 : -nextId
+C_0013412620662695821676 ..> C_0001275076681856179721
+C_0013412620662695821676 o-- C_0009517731145284725395 : -uuid
+C_0013412620662695821676 --> C_0015154670711857814291 : #gameObject
+C_0016177104474805726272 ..> C_0006536632243028202335
+C_0016177104474805726272 ..> C_0015154670711857814291
+C_0016177104474805726272 ..> C_0003049814618680191214
+C_0016177104474805726272 o-- C_0005345861177139864342 : -finder
+C_0016177104474805726272 o-- C_0000285355087805630543 : -eventBus
+C_0016177104474805726272 o-- C_0004324626811372521435 : -componentCatalog
+C_0016177104474805726272 o-- C_0006474418380798353228 : -gameObjects
+C_0016177104474805726272 o-- C_0003311481380388805427 : -objectsToRemove
+C_0016177104474805726272 o-- C_0003358872082024604730 : -hierarchySystem
+C_0016177104474805726272 o-- C_0001275076681856179721 : -sceneName
+C_0004324626811372521435 ..> C_0013412620662695821676
+C_0004324626811372521435 ..> C_0001275076681856179721
+C_0004324626811372521435 o-- C_0007655096842275388712 : -uuidToComponent
+C_0004324626811372521435 o-- C_0006062650343992483251 : -components
+C_0004324626811372521435 o-- C_0001388236529653665963 : -allRequirers
+C_0004324626811372521435 o-- C_0009048762651940375792 : -indecesNewRequirers
+C_0011624418039216843357 ..> C_0012611138458715791392
+C_0011624418039216843357 ..> C_0014023564493936585222
+C_0011624418039216843357 ..> C_0000869643556972316857
+C_0011624418039216843357 ..> C_0002199969719402343565
+C_0011624418039216843357 o-- C_0012327571733162381338 : -data
+C_0007948139204948841102 ..> C_0011624418039216843357
+C_0007948139204948841102 o-- C_0000963587891852717709 : -distribution
+C_0007948139204948841102 --> C_0017766625517734003539 : -generator
+C_0007696758589073704578 ..> C_0009917794871219810067
+C_0007696758589073704578 o-- C_0011624418039216843357 : -nsuuid
+C_0007696758589073704578 o-- C_0013697924147976393131 : -hasher
+C_0005345861177139864342 o-- C_0004735132424656080429 : -queryCache
+C_0010051127024755649902 --+ C_0005345861177139864342
+C_0010051127024755649902 ..> C_0015154670711857814291
+C_0010051127024755649902 o-- C_0003311481380388805427 : +results
+C_0003060101884918507452 ..> C_0015154670711857814291
+C_0003060101884918507452 ..> C_0015808635937943621950
+C_0003060101884918507452 --> C_0016177104474805726272 : #scene
+C_0015808635937943621950 --+ C_0003060101884918507452
+C_0003060101884918507452 <|-- C_0005622195423038783395
+C_0000285355087805630543 ..> C_0015154670711857814291
+C_0000285355087805630543 ..> C_0013512137287177010746
+C_0000285355087805630543 ..> C_0003060101884918507452
+C_0000285355087805630543 o-- C_0015979621581167041793 : -sceneEvents
+C_0000285355087805630543 o-- C_0011852797557057498993 : -onStart
+C_0000285355087805630543 o-- C_0011852797557057498993 : -onUpdate
+C_0000285355087805630543 o-- C_0011852797557057498993 : -onDestroy
+C_0000285355087805630543 o-- C_0011852797557057498993 : -onAddObject
+C_0000285355087805630543 o-- C_0011852797557057498993 : -onRemoveObject
+C_0000285355087805630543 --> C_0016177104474805726272 : -owner
+C_0009517731145284725395 ..> C_0001275076681856179721
+
+'Generated with clang-uml, version 0.6.3
+'LLVM version Ubuntu clang version 18.1.3 (1ubuntu1)
+@enduml

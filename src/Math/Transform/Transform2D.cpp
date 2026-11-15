@@ -16,7 +16,7 @@ Transform2D::Transform2D()
 Transform2D Transform2D::combine(const Transform2D& parent) const {
     Transform2D result;
 
-    Vector3f rotatedPos = parent.rotation.rotateVector(Vector3f(position.x, position.y, 0));
+    Vector3f rotatedPos = parent.rotation.RotateVector(Vector3f(position.x, position.y, 0));
     result.position = parent.position + Vector2f(rotatedPos.x, rotatedPos.y);
 
     result.rotation = parent.rotation * rotation;
@@ -39,9 +39,9 @@ void Transform2D::updateWorld() {
                 Vector3f localPos = Vector3f(position.x, position.y, 0);
 
                 Vector3f parentPos = Vector3f(parentTransform->GetGlobalPosition().x,
-                                              parentTransform->GetGlobalPosition().y, 0);
+                                                parentTransform->GetGlobalPosition().y, 0);
 
-                Vector3f rotatedPos = parentTransform->GetGlobalRotation().rotateVector(localPos);
+                Vector3f rotatedPos = parentTransform->GetGlobalRotation().RotateVector(localPos);
                 Vector3f worldPos = parentPos + rotatedPos;
 
                 position = Vector2f(worldPos.x, worldPos.y);
@@ -72,23 +72,23 @@ float Transform2D::QuaternionfToAngle(const Quaternionf& q) const {
 }
 
 Quaternionf Transform2D::angleToQuaternionf(float angle) const {
-    return Quaternionf::createRotation(angle, Vector3f(0, 0, 1));
+    return Quaternionf::CreateRotation(angle, Vector3f(0, 0, 1));
 }
 
 void Transform2D::rotate(float angleRad) {
-    Quaternionf q = Quaternionf::createRotation(angleRad, Vector3f(0, 0, 1));
+    Quaternionf q = Quaternionf::CreateRotation(angleRad, Vector3f(0, 0, 1));
     rotation = q * rotation;
     rotation = rotation.Normalized();
     dirty = true;
 }
 
 Vector2f Transform2D::forward() const {
-    Vector3f fwd = rotation.rotateVector(Vector3f(0, 1, 0));
+    Vector3f fwd = rotation.RotateVector(Vector3f(0, 1, 0));
     return Vector2f(fwd.x, fwd.y);
 }
 
 Vector2f Transform2D::right() const {
-    Vector3f rgt = rotation.rotateVector(Vector3f(1, 0, 0));
+    Vector3f rgt = rotation.RotateVector(Vector3f(1, 0, 0));
     return Vector2f(rgt.x, rgt.y);
 }
 
@@ -97,7 +97,7 @@ void Transform2D::lookAt(const Vector2f& target) {
     if (direction.Magnitude() < 0.0001f) return;
 
     float angle = std::atan2(direction.x, direction.y);
-    rotation = Quaternionf::createRotation(angle, Vector3f(0, 0, 1));
+    rotation = Quaternionf::CreateRotation(angle, Vector3f(0, 0, 1));
     rotation = rotation.Normalized();
     dirty = true;
 }

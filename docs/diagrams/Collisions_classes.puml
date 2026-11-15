@@ -1,0 +1,409 @@
+@startuml
+class "std::vector<IShape *>" as C_0004690297994653841301
+class C_0004690297994653841301 {
+__
+}
+class "std::unordered_map<ShapeId,IShape *>" as C_0001342024675853519018
+class C_0001342024675853519018 {
+__
+}
+class "std::vector<CollisionInfo>" as C_0016775453886978225979
+class C_0016775453886978225979 {
+__
+}
+class "std::pair<ShapeId,ShapeId>" as C_0016332800006544473166
+class C_0016332800006544473166 {
+__
+}
+class "std::function<void(ShapeId,ShapeId,ShapeRegistry &)>" as C_0009135909912377049033
+class C_0009135909912377049033 {
+__
+}
+class "std::unordered_set<ShapeId>" as C_0002839341376789372174
+class C_0002839341376789372174 {
+__
+}
+class "std::unordered_map<size_t,CollisionEventBus::Subscriber>" as C_0005261664627122064835
+class C_0005261664627122064835 {
+__
+}
+class "std::vector<size_t>" as C_0009048762651940375792
+class C_0009048762651940375792 {
+__
+}
+class "std::unordered_map<CollisionEventBus::CollisionEventType,std::vector<size_t>>" as C_0018312721913344572925
+class C_0018312721913344572925 {
+__
+}
+class "std::unordered_map<ShapeId,std::vector<size_t>>" as C_0018335807521822462820
+class C_0018335807521822462820 {
+__
+}
+class "std::unordered_set<std::pair<ShapeId,ShapeId>,CollisionEventBus::PairHash>" as C_0015162401665298091951
+class C_0015162401665298091951 {
+__
+}
+class "std::unique_ptr<ICollisionDetector>" as C_0012609132940204114944
+class C_0012609132940204114944 {
+__
+}
+class "std::array<Vertex<Vector3<float>>,4>" as C_0007220228722389256373
+class C_0007220228722389256373 {
+__
+}
+class "std::vector<Vertex<Vector3<float>>>" as C_0001168831280881166594
+class C_0001168831280881166594 {
+__
+}
+class "std::vector<Face>" as C_0004705956459251472649
+class C_0004705956459251472649 {
+__
+}
+class "std::vector<Vector3<float>>" as C_0017848853840437353938
+class C_0017848853840437353938 {
+__
+}
+class "std::pair<size_t,size_t>" as C_0014263153155322042778
+class C_0014263153155322042778 {
+__
+}
+class "std::vector<std::pair<size_t,size_t>>" as C_0006918666012442422433
+class C_0006918666012442422433 {
+__
+}
+class "std::vector<Tetrahedron3D>" as C_0016006493986062015500
+class C_0016006493986062015500 {
+__
+}
+class "std::optional<CollisionInfo>" as C_0007799480209073989670
+class C_0007799480209073989670 {
+__
+}
+abstract "IShape" as C_0001802689620478102035
+abstract C_0001802689620478102035 {
++IShape() : void
++~IShape() = default : void
+..
++GetId() const : ShapeId
+{abstract} +GetType() const = 0 : std::type_index
+{abstract} +GetVolume() const = 0 : float
+__
+-id : ShapeId
+{static} -nextId : std::atomic<ShapeId>
+}
+class "TypedShape<Derived,BaseShape=IShape>" as C_0016080742378114233593
+class C_0016080742378114233593 {
++GetType() const : std::type_index
+__
+}
+class "ShapeRegistry" as C_0002827499773918053961
+class C_0002827499773918053961 {
+-Clear() : void
++GetAll() : const std::vector<IShape *> &
++GetShape(ShapeId id) : IShape *
++GetShape(ShapeId id) const : const IShape *
++GetShapeByType<T>(ShapeId id) : T *
++GetShapeByType<T>(ShapeId id) const : const T *
+-Register(IShape * shape) : void
+-Unregister(IShape * shape) : void
+__
+-idToShape : std::unordered_map<ShapeId,IShape *>
+-shapes : std::vector<IShape *>
+}
+abstract "ICollisionDetector" as C_0012675409492897285460
+abstract C_0012675409492897285460 {
++ICollisionDetector(ShapeRegistry & registry_) : void
++~ICollisionDetector() constexpr = default : void
+..
+{abstract} +ClearInfo() = 0 : void
+{abstract} +GetCollisions() const = 0 : const std::vector<CollisionInfo> &
+#GetRegistry() : ShapeRegistry &
+{abstract} +HasCollision(ShapeId a, ShapeId b) = 0 : bool
+__
+-registry : ShapeRegistry &
+}
+class "CollisionEventBus" as C_0002081727930897781899
+class C_0002081727930897781899 {
++CollisionEventBus(ShapeRegistry & reg) : void
+..
+-DispatchEvent(CollisionEventType type, ShapeId a, ShapeId b) : void
++Flush() : void
+{static} -MakeKey(ShapeId a, ShapeId b) : Pair
+-MatchesFilter(const Subscriber & sub, ShapeId a, ShapeId b) const : bool
++Report(ShapeId a, ShapeId b) : void
++Subscribe(Callback cb, CollisionEventType type = CollisionEventType::ENTER, std::unordered_set<ShapeId> filter = = {}, FilterMode mode = FilterMode::AnyOf) : size_t
++Unsubscribe(size_t id) : void
+__
+-byShapeId : std::unordered_map<ShapeId,std::vector<size_t>>
+-byType : std::unordered_map<CollisionEventType,std::vector<size_t>>
+-currentFrame : std::unordered_set<Pair,PairHash>
+-nextSubscriberId : size_t
+-previousFrame : std::unordered_set<Pair,PairHash>
+-registry : ShapeRegistry &
+-subscribers : std::unordered_map<size_t,Subscriber>
+-universalIdsByType : std::unordered_map<CollisionEventType,std::vector<size_t>>
+}
+enum "CollisionEventBus::CollisionEventType" as C_0008640481626424691396
+enum C_0008640481626424691396 {
+ENTER
+STAY
+EXIT
+}
+enum "CollisionEventBus::FilterMode" as C_0000852736000784128391
+enum C_0000852736000784128391 {
+AnyOf
+AllOf
+}
+class "CollisionEventBus::Subscriber" as C_0008373436941814183132
+class C_0008373436941814183132 {
+__
++callback : Callback
++eventType : CollisionEventType
++filter : std::unordered_set<ShapeId>
++filterMode : FilterMode
+}
+class "CollisionEventBus::PairHash" as C_0012173717498929136008
+class C_0012173717498929136008 {
++operator()(const Pair & p) const noexcept : size_t
+__
+}
+class "CollisionDomain" as C_0010149483749545143542
+class C_0010149483749545143542 {
++CollisionDomain() : void
++~CollisionDomain() = default : void
+..
++AddByObject(GameObject * gameObject) : void
++AddDetector(std::unique_ptr<ICollisionDetector> detector_) : void
++BeginFrameDomain() : void
++EndFrameDomain() : void
++GetDetector() : ICollisionDetector *
++GetDetector() const : const ICollisionDetector *
++GetRegistry() : ShapeRegistry &
++GetRegistry() const : const ShapeRegistry &
++RemoveByObject(GameObject * gameObject) : void
+__
+-detector : std::unique_ptr<ICollisionDetector>
+-eventBus : CollisionEventBus
+-registry : ShapeRegistry
+}
+class "Vector3<float>" as C_0004873243434746313755
+class C_0004873243434746313755 {
+__
+}
+class "AABB<Vector3<float>>" as C_0006224445379778035258
+class C_0006224445379778035258 {
+__
+}
+abstract "IShape3D" as C_0015302139357753801877
+abstract C_0015302139357753801877 {
++~IShape3D() = default : void
+..
+{abstract} +GetAABB() const = 0 : const AABB_3D &
+{abstract} +GetCenter() const = 0 : Vector3f
+{abstract} +GetGlobalAABB() const = 0 : const AABB_3D &
+{abstract} +GetGlobalCenter() const = 0 : Vector3f
++GetTransform() const : Transform3D *
++Start() : void
+__
+#transform : Transform3D *
+}
+class "Vertex<Vector3<float>>" as C_0005876145638078128640
+class C_0005876145638078128640 {
+__
+}
+class "Tetrahedron3D" as C_0001638882404034250114
+class C_0001638882404034250114 {
++Tetrahedron3D(const std::array<Vertex3D,4> & verts) : void
+..
++CalculateVolume(Transform3D * transform) const : float
++ContainsPoint(const Vector3f & point, Transform3D * transform) const : bool
++Determinant(const Vector3f & a, const Vector3f & b, const Vector3f & c, const Vector3f & d) const : float
+__
++vertices : std::array<Vertex3D,4>
+}
+class "Face" as C_0003820774179051396968
+class C_0003820774179051396968 {
++Face() = default : void
++Face(std::vector<size_t> indices) : void
+..
++CalculateNormal(const std::vector<Vertex3D> & allVertices) : void
+__
++normal : Vector3f
++vertexIndices : std::vector<size_t>
+}
+class "PolyhedronGeometry" as C_0006062034871731109765
+class C_0006062034871731109765 {
++Clear() : void
+__
++aabb : AABB_3D
++center : Vector3f
++edgeDirections : std::vector<Vector3f>
++faceNormals : std::vector<Vector3f>
++faces : std::vector<Face>
++valid : bool
++vertices : std::vector<Vertex3D>
+}
+class "TypedShape<Polyhedron3D,IShape3D>" as C_0004026041221762821431
+class C_0004026041221762821431 {
+__
+}
+class "Polyhedron3D" as C_0009941750560200869454
+class C_0009941750560200869454 {
++Polyhedron3D() = default : void
++Polyhedron3D(std::vector<Vector3f> newVertices) : void
++~Polyhedron3D() = default : void
+..
++AddCommunication(size_t fromIndex, size_t toIndex) : void
++AddVertex(const Vector3f & newVertex, std::vector<size_t> vertexCommunications) : void
++AddVertex(const Vector3f & newVertex) : void
+-ApplyChanged() : void
+-CalculateFaces() : void
+-CalculateTetrahedrons() : void
+-ComputeGlobalFaceNormal(const Face & face) const : Vector3f
+-ComputeLocalFaceNormal(const Face & face) const : Vector3f
+-EnsureGlobalGeometry() const : void
+-FindNextVertex(size_t fromVertex, size_t notThisVertex) : size_t
++GetAABB() const : const AABB_3D &
++GetCenter() const : Vector3f
++GetCommunications() const : const std::vector<std::pair<size_t,size_t>> &
++GetEdgeDirection(const std::pair<size_t,size_t> & edge) const : Vector3f
++GetFace(size_t index) : Face &
++GetFaces() : std::vector<Face> &
++GetGlobalAABB() const : const AABB_3D &
++GetGlobalCenter() const : Vector3f
++GetGlobalEdgeDirection(const std::pair<size_t,size_t> & edge) const : Vector3f
++GetGlobalEdgeDirections() const : const std::vector<Vector3f> &
++GetGlobalFaceNormals() const : const std::vector<Vector3f> &
++GetGlobalFaces() const : const std::vector<Face> &
++GetGlobalGeometry() const : const PolyhedronGeometry &
++GetGlobalVertex(size_t index) const : const Vertex3D &
++GetGlobalVertices() const : const std::vector<Vertex3D> &
++GetLocalGeometry() const : const PolyhedronGeometry &
++GetVertex(size_t index) : Vertex3D &
++GetVertices() : std::vector<Vertex3D> &
++GetVolume() const : float
+-RebuildGlobalGeometry() const : void
+-RebuildLocalGeometry() : void
++Update() : void
+__
+-communications : std::vector<std::pair<size_t,size_t>>
+-globalGeometry : PolyhedronGeometry
+-isChanged : bool
+-localGeometry : PolyhedronGeometry
+-tetrahedrons : std::vector<Tetrahedron3D>
+}
+class "CollisionInfo" as C_0015898618952184369680
+class C_0015898618952184369680 {
+__
++a : IShape3D *
++b : IShape3D *
++penetration : Vector3f
+}
+class "CollisionDetector3D" as C_0017812176331878734545
+class C_0017812176331878734545 {
++CollisionDetector3D(ShapeRegistry & registry_) : void
+..
++ClearInfo() : void
++GetCollisionInfo(ShapeId a, ShapeId b) : std::optional<CollisionInfo>
++GetCollisions() const : const std::vector<CollisionInfo> &
++HasCollision(ShapeId a, ShapeId b) : bool
+-IntersectAABB(IShape3D * aPolyhedron, IShape3D * bPolyhedron) : bool
+-IntersectSAT(Polyhedron3D * aPolyhedron, Polyhedron3D * bPolyhedron) : bool
+__
+-collisions : std::vector<CollisionInfo>
+}
+C_0004690297994653841301 ..> C_0001802689620478102035
+C_0001342024675853519018 ..> C_0001802689620478102035
+C_0016775453886978225979 ..> C_0015898618952184369680
+C_0009135909912377049033 ..> C_0002827499773918053961
+C_0018312721913344572925 ..> C_0009048762651940375792
+C_0018335807521822462820 ..> C_0009048762651940375792
+C_0015162401665298091951 ..> C_0016332800006544473166
+C_0012609132940204114944 ..> C_0012675409492897285460
+C_0007220228722389256373 ..> C_0005876145638078128640
+C_0001168831280881166594 ..> C_0005876145638078128640
+C_0004705956459251472649 ..> C_0003820774179051396968
+C_0017848853840437353938 ..> C_0004873243434746313755
+C_0006918666012442422433 ..> C_0014263153155322042778
+C_0016006493986062015500 ..> C_0001638882404034250114
+C_0007799480209073989670 ..> C_0015898618952184369680
+C_0002827499773918053961 ..> C_0001802689620478102035
+C_0002827499773918053961 o-- C_0004690297994653841301 : -shapes
+C_0002827499773918053961 o-- C_0001342024675853519018 : -idToShape
+C_0002827499773918053961 <.. C_0010149483749545143542 : +<<friend>>
+C_0012675409492897285460 ..> C_0016775453886978225979
+C_0012675409492897285460 ..> C_0015898618952184369680
+C_0012675409492897285460 --> C_0002827499773918053961 : -registry
+C_0002081727930897781899 ..> C_0016332800006544473166
+C_0002081727930897781899 ..> C_0008373436941814183132
+C_0002081727930897781899 ..> C_0008640481626424691396
+C_0002081727930897781899 ..> C_0009135909912377049033
+C_0002081727930897781899 ..> C_0002839341376789372174
+C_0002081727930897781899 ..> C_0000852736000784128391
+C_0002081727930897781899 --> C_0002827499773918053961 : -registry
+C_0002081727930897781899 o-- C_0005261664627122064835 : -subscribers
+C_0002081727930897781899 o-- C_0018312721913344572925 : -byType
+C_0002081727930897781899 o-- C_0018335807521822462820 : -byShapeId
+C_0002081727930897781899 o-- C_0015162401665298091951 : -currentFrame
+C_0002081727930897781899 o-- C_0015162401665298091951 : -previousFrame
+C_0002081727930897781899 o-- C_0018312721913344572925 : -universalIdsByType
+C_0008640481626424691396 --+ C_0002081727930897781899
+C_0000852736000784128391 --+ C_0002081727930897781899
+C_0008373436941814183132 --+ C_0002081727930897781899
+C_0008373436941814183132 o-- C_0008640481626424691396 : +eventType
+C_0008373436941814183132 o-- C_0009135909912377049033 : +callback
+C_0008373436941814183132 o-- C_0002839341376789372174 : +filter
+C_0008373436941814183132 o-- C_0000852736000784128391 : +filterMode
+C_0012173717498929136008 --+ C_0002081727930897781899
+C_0012173717498929136008 ..> C_0016332800006544473166
+C_0010149483749545143542 ..> C_0012675409492897285460
+C_0010149483749545143542 o-- C_0002827499773918053961 : -registry
+C_0010149483749545143542 o-- C_0012609132940204114944 : -detector
+C_0010149483749545143542 o-- C_0002081727930897781899 : -eventBus
+C_0006224445379778035258 ..> C_0004873243434746313755
+C_0015302139357753801877 ..> C_0004873243434746313755
+C_0015302139357753801877 ..> C_0006224445379778035258
+C_0001802689620478102035 <|-- C_0015302139357753801877
+C_0005876145638078128640 ..> C_0004873243434746313755
+C_0001638882404034250114 ..> C_0004873243434746313755
+C_0001638882404034250114 o-- C_0007220228722389256373 : +vertices
+C_0003820774179051396968 ..> C_0001168831280881166594
+C_0003820774179051396968 o-- C_0009048762651940375792 : +vertexIndices
+C_0003820774179051396968 o-- C_0004873243434746313755 : +normal
+C_0006062034871731109765 o-- C_0001168831280881166594 : +vertices
+C_0006062034871731109765 o-- C_0004705956459251472649 : +faces
+C_0006062034871731109765 o-- C_0017848853840437353938 : +faceNormals
+C_0006062034871731109765 o-- C_0017848853840437353938 : +edgeDirections
+C_0006062034871731109765 o-- C_0004873243434746313755 : +center
+C_0006062034871731109765 o-- C_0006224445379778035258 : +aabb
+C_0004026041221762821431 ..> C_0009941750560200869454
+C_0015302139357753801877 <|-- C_0004026041221762821431
+C_0004026041221762821431 ..|> C_0016080742378114233593
+C_0009941750560200869454 ..> C_0003820774179051396968
+C_0009941750560200869454 ..> C_0004873243434746313755
+C_0009941750560200869454 ..> C_0017848853840437353938
+C_0009941750560200869454 ..> C_0006224445379778035258
+C_0009941750560200869454 ..> C_0001168831280881166594
+C_0009941750560200869454 ..> C_0005876145638078128640
+C_0009941750560200869454 ..> C_0004705956459251472649
+C_0009941750560200869454 ..> C_0014263153155322042778
+C_0009941750560200869454 ..> C_0009048762651940375792
+C_0009941750560200869454 o-- C_0006918666012442422433 : -communications
+C_0009941750560200869454 o-- C_0016006493986062015500 : -tetrahedrons
+C_0009941750560200869454 o-- C_0006062034871731109765 : -localGeometry
+C_0009941750560200869454 o-- C_0006062034871731109765 : -globalGeometry
+C_0004026041221762821431 <|-- C_0009941750560200869454
+C_0015898618952184369680 --> C_0015302139357753801877 : +a
+C_0015898618952184369680 --> C_0015302139357753801877 : +b
+C_0015898618952184369680 o-- C_0004873243434746313755 : +penetration
+C_0017812176331878734545 ..> C_0015302139357753801877
+C_0017812176331878734545 ..> C_0009941750560200869454
+C_0017812176331878734545 ..> C_0002827499773918053961
+C_0017812176331878734545 ..> C_0007799480209073989670
+C_0017812176331878734545 ..> C_0015898618952184369680
+C_0017812176331878734545 o-- C_0016775453886978225979 : -collisions
+C_0012675409492897285460 <|-- C_0017812176331878734545
+
+'Generated with clang-uml, version 0.6.3
+'LLVM version Ubuntu clang version 18.1.3 (1ubuntu1)
+@enduml

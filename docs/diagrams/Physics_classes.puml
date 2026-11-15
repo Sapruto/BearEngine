@@ -1,0 +1,238 @@
+@startuml
+class "std::unique_ptr<Physic::Body::IPhysicFeature>" as C_0001302132919324955979
+class C_0001302132919324955979 {
+__
+}
+class "std::unordered_map<std::type_index,std::unique_ptr<Physic::Body::IPhysicFeature>>" as C_0002043387915875973373
+class C_0002043387915875973373 {
+__
+}
+class "std::vector<PhysicalBody *>" as C_0010888463921194487747
+class C_0010888463921194487747 {
+__
+}
+class "std::unordered_map<Physic::Body::BodyId,PhysicalBody *>" as C_0006327708483607434039
+class C_0006327708483607434039 {
+__
+}
+class "std::unordered_map<std::type_index,std::vector<PhysicalBody *>>" as C_0003812928751826995435
+class C_0003812928751826995435 {
+__
+}
+class "std::unique_ptr<T>" as C_0000652019350381599434
+class C_0000652019350381599434 {
+__
+}
+class "std::function<void(T const&)>" as C_0008287361572437370628
+class C_0008287361572437370628 {
+__
+}
+class "std::unique_ptr<Physic::Events::IPhysicEvent>" as C_0011825470470321062187
+class C_0011825470470321062187 {
+__
+}
+class "std::vector<std::unique_ptr<Physic::Events::IPhysicEvent>>" as C_0013348847974905107790
+class C_0013348847974905107790 {
+__
+}
+class "std::unordered_map<std::type_index,std::vector<std::unique_ptr<Physic::Events::IPhysicEvent>>>" as C_0015370212160006921857
+class C_0015370212160006921857 {
+__
+}
+class "std::vector<Physic::Events::PhysicEventBus::Subscriber>" as C_0004180110436853002998
+class C_0004180110436853002998 {
+__
+}
+class "std::unordered_map<std::type_index,std::vector<Physic::Events::PhysicEventBus::Subscriber>>" as C_0008694066319725631596
+class C_0008694066319725631596 {
+__
+}
+class "std::function<void(IPhysicEvent const&)>" as C_0004640239476212135235
+class C_0004640239476212135235 {
+__
+}
+class "std::unique_ptr<Physic::IPhysicSimulator>" as C_0003825732826895885029
+class C_0003825732826895885029 {
+__
+}
+class "std::vector<std::unique_ptr<Physic::IPhysicSimulator>>" as C_0008770638957648224211
+class C_0008770638957648224211 {
+__
+}
+class "Physic::Body::IPhysicFeature" as C_0000086194033016857217
+class C_0000086194033016857217 {
++IPhysicFeature() = default : void
++~IPhysicFeature() constexpr = default : void
+__
+}
+class "Physic::Body::PhysicalBody" as C_0003424173250446156039
+class C_0003424173250446156039 {
++PhysicalBody() : void
++~PhysicalBody() = default : void
+..
++FindFeatureByBase<Base>() : Base *
++GetFeatureOfType<T>() : T *
++GetFeatureOfType<T>() const : const T *
++GetId() : BodyId
++GetTypeToFeatures() const : const std::unordered_map<std::type_index,std::unique_ptr<IPhysicFeature>> &
++HasFeature<T>() const : _Bool
++RemoveFeature<T>() : _Bool
++UpsertFeature<T,Args...>(Args &&... args) : T *
+__
+-id : BodyId
+{static} -nextId : std::atomic<BodyId>
+-typeToFeature : std::unordered_map<std::type_index,std::unique_ptr<IPhysicFeature>>
+}
+class "Physic::Body::BodyRegistry" as C_0009751813746141570162
+class C_0009751813746141570162 {
+-Clear() : void
++Contains(BodyId id) const : bool
++GetAllBodies() const : const std::vector<PhysicalBody *> &
++GetBody(BodyId id) : PhysicalBody *
++GetBody(BodyId id) const : const PhysicalBody *
++GetBodyCount() const : size_t
++GetBodyWithFeature<T>() : const std::vector<PhysicalBody *> &
++GetBodyWithFeatures<Args...>() const : std::vector<PhysicalBody *>
+-Register(PhysicalBody * body) : void
+-Unregister(PhysicalBody * body) : void
+__
+-bodies : std::vector<PhysicalBody *>
+-featureTypeToBody : std::unordered_map<std::type_index,std::vector<PhysicalBody *>>
+-idToBody : std::unordered_map<BodyId,PhysicalBody *>
+}
+class "Physic::Events::IPhysicEvent" as C_0004123924230002881646
+class C_0004123924230002881646 {
++IPhysicEvent() = default : void
++~IPhysicEvent() constexpr = default : void
+__
+}
+enum "Physic::Events::EventDispatchMode" as C_0016425275849156432858
+enum C_0016425275849156432858 {
+Immediate
+BeginFrame
+EndFrame
+}
+class "Physic::Events::PhysicEventBus" as C_0012813157089613755127
+class C_0012813157089613755127 {
++PhysicEventBus() = default : void
++PhysicEventBus(const PhysicEventBus &) = deleted : void
++PhysicEventBus(PhysicEventBus &&) noexcept = default : void
+..
++operator=(const PhysicEventBus &) = deleted : PhysicEventBus &
++operator=(PhysicEventBus &&) noexcept = default : PhysicEventBus &
+..
++AddEvent<T>(std::unique_ptr<T> event) : T *
++ClearAll() : void
++ClearEvents() : void
++DispatchBeginFrame() : void
+-DispatchByMode(EventDispatchMode mode) : void
++DispatchEndFrame() : void
++RemoveEvent(const IPhysicEvent * event) : void
++Subscribe<T>(std::function<void (const T &)> callback, EventDispatchMode mode = EventDispatchMode::EndFrame) : size_t
++Unsubscribe<T>(size_t id) : void
+__
+-isDispatch : bool
+-nextSubscriberId : size_t
+-typeToEvent : std::unordered_map<std::type_index,std::vector<std::unique_ptr<IPhysicEvent>>>
+-typeToSubscribers : std::unordered_map<std::type_index,std::vector<Subscriber>>
+}
+class "Physic::Events::PhysicEventBus::Subscriber" as C_0018138030965030836354
+class C_0018138030965030836354 {
+__
++callback : std::function<void (const IPhysicEvent &)>
++id : size_t
++mode : EventDispatchMode
+}
+class "Physic::Events::PhysicEventBus::DispatchGuard" as C_0015240894546539623423
+class C_0015240894546539623423 {
++DispatchGuard(bool & f) : void
++~DispatchGuard() : void
+__
++flag : bool &
++prev : bool
+}
+class "Physic::IPhysicSimulator" as C_0010255227632155993522
+class C_0010255227632155993522 {
++IPhysicSimulator() = default : void
++~IPhysicSimulator() constexpr = default : void
+..
++BeginFrameSimulation() : void
++DestroySimulation() : void
++EndFrameSimulation() : void
++GetBodyRegistry() : Body::BodyRegistry &
++GetEventBus() : Events::PhysicEventBus &
++GetLayer() const : unsigned int
++GetTimeSystem() : TimeSystem &
++SetBodyRegistry(Body::BodyRegistry * bodyRegistry_) : void
++SetEventBus(Events::PhysicEventBus * eventBus_) : void
+#SetLayer(unsigned int layer) : void
++SetTimeSystem(TimeSystem * timeSystem_) : void
++StartSimulation() : void
+__
+-bodyRegistry : Body::BodyRegistry *
+-eventBus : Events::PhysicEventBus *
+-layer : unsigned int
+-timeSystem : TimeSystem *
+}
+class "Physic::PhysicDomain" as C_0014380699585166328229
+class C_0014380699585166328229 {
++PhysicDomain() : void
++~PhysicDomain() = default : void
+..
++AddByObject(GameObject * gameObject) : void
++AddPhysicSimulator<T,Args...>(Args &&... args) : T *
++BeginFrameDomain() : void
++DestroyDomain() : void
++EndFrameDomain() : void
++GetBodyRegistry() : Body::BodyRegistry &
++GetEventBus() : Events::PhysicEventBus &
++RemoveByObject(GameObject * gameObject) : void
++RemovePhysicSimulator(IPhysicSimulator * simulator) : void
+-Sort() : void
++StartDomain() : void
+__
+-bodyRegistry : Body::BodyRegistry
+-eventBus : Events::PhysicEventBus
+-isStarted : bool
+-needSort : bool
+-simulators : std::vector<std::unique_ptr<IPhysicSimulator>>
+}
+C_0001302132919324955979 ..> C_0000086194033016857217
+C_0002043387915875973373 ..> C_0001302132919324955979
+C_0003812928751826995435 ..> C_0010888463921194487747
+C_0011825470470321062187 ..> C_0004123924230002881646
+C_0011825470470321062187 ..|> C_0000652019350381599434
+C_0013348847974905107790 ..> C_0011825470470321062187
+C_0015370212160006921857 ..> C_0013348847974905107790
+C_0008694066319725631596 ..> C_0004180110436853002998
+C_0004640239476212135235 ..|> C_0008287361572437370628
+C_0003825732826895885029 ..> C_0010255227632155993522
+C_0003825732826895885029 ..|> C_0000652019350381599434
+C_0008770638957648224211 ..> C_0003825732826895885029
+C_0003424173250446156039 ..> C_0000086194033016857217
+C_0003424173250446156039 o-- C_0002043387915875973373 : -typeToFeature
+C_0009751813746141570162 ..> C_0003424173250446156039
+C_0009751813746141570162 o-- C_0010888463921194487747 : -bodies
+C_0009751813746141570162 o-- C_0006327708483607434039 : -idToBody
+C_0009751813746141570162 o-- C_0003812928751826995435 : -featureTypeToBody
+C_0009751813746141570162 <.. C_0014380699585166328229 : +<<friend>>
+C_0012813157089613755127 ..> C_0016425275849156432858
+C_0012813157089613755127 ..> C_0004123924230002881646
+C_0012813157089613755127 ..> C_0000652019350381599434
+C_0012813157089613755127 ..> C_0008287361572437370628
+C_0012813157089613755127 o-- C_0015370212160006921857 : -typeToEvent
+C_0012813157089613755127 o-- C_0008694066319725631596 : -typeToSubscribers
+C_0018138030965030836354 --+ C_0012813157089613755127
+C_0018138030965030836354 o-- C_0016425275849156432858 : +mode
+C_0018138030965030836354 o-- C_0004640239476212135235 : +callback
+C_0015240894546539623423 --+ C_0012813157089613755127
+C_0010255227632155993522 --> C_0009751813746141570162 : -bodyRegistry
+C_0010255227632155993522 --> C_0012813157089613755127 : -eventBus
+C_0014380699585166328229 ..> C_0010255227632155993522
+C_0014380699585166328229 o-- C_0008770638957648224211 : -simulators
+C_0014380699585166328229 o-- C_0009751813746141570162 : -bodyRegistry
+C_0014380699585166328229 o-- C_0012813157089613755127 : -eventBus
+
+'Generated with clang-uml, version 0.6.3
+'LLVM version Ubuntu clang version 18.1.3 (1ubuntu1)
+@enduml

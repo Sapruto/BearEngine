@@ -37,3 +37,6 @@ BearEngine.code-workspace
 .clangd
 .clangd-format
 build.sh
+
+docs/api/
+Doxyfile.bak

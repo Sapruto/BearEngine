@@ -1,0 +1,2808 @@
+@startuml
+abstract "RHI::Base::BaseContextInstanceRHI" as C_0005231616161591763883
+abstract C_0005231616161591763883 {
++BaseContextInstanceRHI() = default : void
++~BaseContextInstanceRHI() constexpr = default : void
+..
+{abstract} +Initialize() = 0 : bool
++IsInitialized() const : bool
+{abstract} +Shutdown() = 0 : void
+__
+#initialized : bool
+}
+abstract "RHI::Base::BaseWindow" as C_0008854306340006269619
+abstract C_0008854306340006269619 {
++BaseWindow() = default : void
++~BaseWindow() = default : void
+..
+{abstract} +Create(const std::string & title, int w, int h) = 0 : bool
+{abstract} +Destroy() = 0 : void
++GetHeight() const : int
++GetNativeHandle() const : const std::any &
++GetNativeHandle() : std::any &
++GetWidth() const : int
+{abstract} +PollEvents() = 0 : void
++SetCloseCallback(std::function<void ()> cb) : void
++SetResizeCallback(std::function<void (int,int)> cb) : void
+#SetSize(float w, float h) : void
+{abstract} +SetTitle(const std::string & title) = 0 : void
+{abstract} +ShouldClose() const = 0 : bool
+__
+#closeCallback : std::function<void ()>
+#framebufferHeight : int
+#framebufferWidth : int
+#isFullscreen : bool
+#isVisible : bool
+#keys : bool[256]
+#mousePos : Vector2f
+#nativeHandle : std::any
+#needsRedraw : bool
+#needsResize : bool
+#resizeCallback : std::function<void (int,int)>
+#scale : float
+#vSync : bool
+#windowSize : RectRHI
+}
+class "RHI::Base::ClearColorRHI" as C_0009997333210436196399
+class C_0009997333210436196399 {
+__
++a : float
++b : float
++g : float
++r : float
+}
+enum "RHI::Base::ClearFlagsRHI" as C_0011719850768570631154
+enum C_0011719850768570631154 {
+None
+Color
+Depth
+Stencil
+ColorDepth
+All
+}
+abstract "RHI::Base::BaseDevice" as C_0005708756352896156294
+abstract C_0005708756352896156294 {
++BaseDevice(std::shared_ptr<BaseWindow> win, std::shared_ptr<Resource::IResourceStore> store) : void
++~BaseDevice() = default : void
+..
++GetClearColor() const : const ClearColorRHI &
++GetClearDepth() const : double
++GetClearStencil() const : int
++GetNativeDevice() const : const std::any &
++GetResource() const : std::shared_ptr<Resource::IResourceStore>
++GetWindow() const : std::shared_ptr<BaseWindow>
+{abstract} +Initialize() = 0 : bool
++SetClearColor(float r, float g, float b, float a) : void
++SetClearColor(const ClearColorRHI & c) : void
++SetClearDepth(double d) : void
++SetClearStencil(int s) : void
+{abstract} +Shutdown() = 0 : void
+__
+#clearColor : ClearColorRHI
+#clearDepthValue : double
+#clearStencilValue : int
+#nativeDevice : std::any
+#storage : std::shared_ptr<Resource::IResourceStore>
+#window : std::shared_ptr<BaseWindow>
+}
+abstract "RHI::Base::BaseShader" as C_0003238306547730372984
+abstract C_0003238306547730372984 {
+#BaseShader() = default : void
+#BaseShader(std::string vs, std::string fs) : void
++BaseShader(const BaseShader &) = deleted : void
++BaseShader(BaseShader &&) noexcept = default : void
++~BaseShader() constexpr = default : void
+..
++operator=(const BaseShader &) = deleted : BaseShader &
++operator=(BaseShader &&) constexpr noexcept = default : BaseShader &
+..
+{abstract} +CompileShader() = 0 : bool
+#GetFragmentShaderPath() const : const std::string &
+{abstract} +GetNativeHandle() const = 0 : uint64_t
+#GetVertexShaderPath() const : const std::string &
++IsReady() const : bool
+{abstract} +SetBool(const std::string & name, bool value) = 0 : void
+{abstract} +SetFloat(const std::string & name, float value) = 0 : void
+{abstract} +SetInt(const std::string & name, int value) = 0 : void
+{abstract} +SetMat2(const std::string & name, const BaseMatrix<float,2,2> & m) = 0 : void
+{abstract} +SetMat3(const std::string & name, const BaseMatrix<float,3,3> & m) = 0 : void
+{abstract} +SetMat4(const std::string & name, const BaseMatrix<float,4,4> & m) = 0 : void
+#SetReady(bool value) : void
+{abstract} +SetVec2(const std::string & name, const Vector2f & v) = 0 : void
+{abstract} +SetVec3(const std::string & name, const Vector3f & v) = 0 : void
+{abstract} +SetVec4(const std::string & name, const Vector4f & v) = 0 : void
+{abstract} +UncompileShader() = 0 : void
+__
+-fragmentShaderPath : std::string
+-isReady : bool
+-vertexShaderPath : std::string
+}
+class "RHI::Vulkan::ContextInstanceVK" as C_0003873172224027559008
+class C_0003873172224027559008 {
++ContextInstanceVK() : void
++~ContextInstanceVK() constexpr = default : void
+..
++ChangeGLHints(int newMajor, int newMinor) : void
++GetMajor() : int
++GetMinor() : int
++Initialize() : bool
++Shutdown() : void
+__
+-glMajor : int
+-glMinor : int
+}
+class "RHI::OpenGL::ContextInstanceGL" as C_0006757765275635295057
+class C_0006757765275635295057 {
++ContextInstanceGL() : void
++~ContextInstanceGL() constexpr = default : void
+..
++ChangeGLHints(int newMajor, int newMinor) : void
++GetMajor() : int
++GetMinor() : int
++Initialize() : bool
++Shutdown() : void
+__
+-glMajor : int
+-glMinor : int
+}
+class "RHI::OpenGL::DeviceGL" as C_0014608739021634793513
+class C_0014608739021634793513 {
++DeviceGL(std::shared_ptr<WindowGL> win) : void
+..
++GetGLFWWindow() const : GLFWwindow *
+-GetGLWindow() const : WindowGL *
++Initialize() : bool
++Shutdown() : void
+__
+}
+class "RHI::OpenGL::WindowGL" as C_0002390167099915986856
+class C_0002390167099915986856 {
++WindowGL() = default : void
++~WindowGL() : void
+..
++Create(const std::string & title, int w, int h) : bool
++Destroy() : void
+{static} -FramebufferSizeCallback(GLFWwindow * window, int width, int height) : void
++GetGLFWWindow() const : GLFWwindow *
+{static} -KeyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) : void
+{static} -MouseCallback(GLFWwindow * window, double xpos, double ypos) : void
++PollEvents() : void
++SetTitle(const std::string & title) : void
+-SetupCallbacks() : void
++ShouldClose() const : bool
+{static} -WindowCloseCallback(GLFWwindow * window) : void
+__
+-title : std::string
+-window : GLFWwindow *
+}
+class "RHI::OpenGL::BufferGL" as C_0004083299677246899112
+class C_0004083299677246899112 {
++Destroy() : void
+__
++id : GLuint
++target : GLenum
+}
+class "RHI::OpenGL::TextureGL" as C_0006005743450215172321
+class C_0006005743450215172321 {
++Destroy() : void
+__
++arrayLayers : uint32_t
++depth : uint32_t
++format : RHI::Format
++height : uint32_t
++id : GLuint
++is3D : bool
++isArray : bool
++isCube : bool
++isMultisample : bool
++mipLevels : uint32_t
++samples : RHI::SampleCount
++target : GLenum
++width : uint32_t
+}
+class "RHI::OpenGL::SamplerGL" as C_0005375937423311642977
+class C_0005375937423311642977 {
++Destroy() : void
+__
++id : GLuint
+}
+class "RHI::OpenGL::ShaderGL" as C_0001294956533093373524
+class C_0001294956533093373524 {
++Destroy() : void
+__
++id : GLuint
+}
+class "RHI::OpenGL::PipelineGL" as C_0000316759269368314461
+class C_0000316759269368314461 {
++Destroy() : void
+__
++program : GLuint
++state : RHI::Executors::PipelineExecutor::PipelineState
++vao : GLuint
+}
+class "RHI::OpenGL::RenderTargetGL" as C_0014656794005468063180
+class C_0014656794005468063180 {
++Destroy() : void
+__
++colors : std::vector<RHI::Handles::TextureHandle>
++depth : RHI::Handles::TextureHandle
++fbo : GLuint
++height : uint32_t
++resolveTargets : std::vector<RHI::Handles::TextureHandle>
++samples : RHI::SampleCount
++width : uint32_t
+}
+class "RHI::OpenGL::NativeHandleGL" as C_0010425460926490307248
+class C_0010425460926490307248 {
++Destroy() : void
+__
+}
+class "RHI::OpenGL::ResourceGL" as C_0011307778534782248253
+class C_0011307778534782248253 {
+__
+}
+abstract "RHI::Resource::IResourceStore" as C_0002774174447621685786
+abstract C_0002774174447621685786 {
++~IResourceStore() constexpr = default : void
+..
+{abstract} +Clear() = 0 : void
+{abstract} +ContainsId(uint32_t id) const = 0 : bool
+{abstract} +RemoveById(uint32_t id) = 0 : void
+{abstract} +Size() const = 0 : size_t
+__
+}
+class "RHI::Resource::BaseResourceStore<NativeHandle>" as C_0012134381579673535172
+class C_0012134381579673535172 {
++BaseResourceStore() : void
+..
+-AllocateSlot(NativeHandle native) : uint32_t
++Clear() : void
++ContainsId(uint32_t id) const : bool
++Create<HandleT>(NativeHandle native) : HandleT
++GetNative(uint32_t id) noexcept : NativeHandle *
++GetNative(uint32_t id) const noexcept : const NativeHandle *
++GetNative<HandleT>(HandleT h) noexcept : NativeHandle *
++GetNativeAs<NativeT,HandleT>(HandleT h) noexcept : NativeT *
++IsValid(uint32_t id) const noexcept : bool
++IsValid<HandleT>(HandleT h) const noexcept : _Bool
++RemoveById(uint32_t id) : void
++Reserve(size_t n) : void
++Size() const : size_t
+__
+-freeList : std::vector<uint32_t>
+{static} +invalidId : const uint32_t
+-liveCount : size_t
+-slots : std::vector<Slot>
+}
+class "RHI::Resource::BaseResourceStore::Slot" as C_0000063816661713176481
+class C_0000063816661713176481 {
+__
++alive : bool
++native : NativeHandle
+}
+class "RHI::Resource::BaseResourceStore<RHI::OpenGL::NativeHandleGL>" as C_0014344969546915356458
+class C_0014344969546915356458 {
+__
+}
+class "RHI::RectRHI" as C_0002497028240164804795
+class C_0002497028240164804795 {
++RectRHI() : void
++RectRHI(float x, float y, float w, float h) : void
+__
++height : float
++width : float
++x : float
++y : float
+}
+enum "RHI::ShaderStage" as C_0011752239109591765051
+enum C_0011752239109591765051 {
+VERTEX
+FRAGMENT
+GEOMETRY
+COMPUTE
+TESS_CONTROL
+TESS_EVAL
+}
+enum "RHI::PrimitiveTopology" as C_0009226924719790498902
+enum C_0009226924719790498902 {
+POINT_LIST
+LINE_LIST
+LINE_STRIP
+TRIANGLE_LIST
+TRIANGLE_STRIP
+TRIANGLE_FAN
+}
+enum "RHI::FillMode" as C_0015567768345396996144
+enum C_0015567768345396996144 {
+SOLID
+WIREFRAME
+POINT
+}
+enum "RHI::CullMode" as C_0011137600101990450137
+enum C_0011137600101990450137 {
+NONE
+FRONT
+BACK
+FRONT_AND_BACK
+}
+enum "RHI::FrontFace" as C_0012681966156831673206
+enum C_0012681966156831673206 {
+CLOCKWISE
+COUNTER_CLOCKWISE
+}
+enum "RHI::CompareOp" as C_0006219881537408864794
+enum C_0006219881537408864794 {
+NEVER
+LESS
+EQUAL
+LESS_EQUAL
+GREATER
+NOT_EQUAL
+GREATER_EQUAL
+ALWAYS
+}
+enum "RHI::StencilOp" as C_0018238069570305526862
+enum C_0018238069570305526862 {
+KEEP
+ZERO
+REPLACE
+INCREMENT_CLAMP
+DECREMENT_CLAMP
+INVERT
+INCREMENT_WRAP
+DECREMENT_WRAP
+}
+enum "RHI::BlendFactor" as C_0002563642512026115967
+enum C_0002563642512026115967 {
+ZERO
+ONE
+SRC_COLOR
+ONE_MINUS_SRC_COLOR
+DST_COLOR
+ONE_MINUS_DST_COLOR
+SRC_ALPHA
+ONE_MINUS_SRC_ALPHA
+DST_ALPHA
+ONE_MINUS_DST_ALPHA
+CONSTANT_COLOR
+ONE_MINUS_CONSTANT_COLOR
+CONSTANT_ALPHA
+ONE_MINUS_CONSTANT_ALPHA
+SRC_ALPHA_SATURATE
+}
+enum "RHI::BlendOp" as C_0006485769967452821108
+enum C_0006485769967452821108 {
+ADD
+SUBTRACT
+REVERSE_SUBTRACT
+MIN
+MAX
+}
+enum "RHI::ColorWriteMask" as C_0002557597462448148879
+enum C_0002557597462448148879 {
+NONE
+R
+G
+B
+A
+ALL
+}
+enum "RHI::SampleCount" as C_0004680811111300979796
+enum C_0004680811111300979796 {
+COUNT_1
+COUNT_2
+COUNT_4
+COUNT_8
+COUNT_16
+}
+enum "RHI::DynamicState" as C_0013285578770439615913
+enum C_0013285578770439615913 {
+VIEWPORT
+SCISSOR
+LINE_WIDTH
+DEPTH_BIAS
+BLEND_CONSTANTS
+DEPTH_BOUNDS
+STENCIL_COMPARE_MASK
+STENCIL_WRITE_MASK
+STENCIL_REFERENCE
+}
+enum "RHI::Format" as C_0017342555715941177987
+enum C_0017342555715941177987 {
+FLOAT1
+FLOAT2
+FLOAT3
+FLOAT4
+HALF1
+HALF2
+HALF3
+HALF4
+INT1
+INT2
+INT3
+INT4
+UINT1
+UINT2
+UINT3
+UINT4
+SHORT1
+SHORT2
+SHORT3
+SHORT4
+SHORT1N
+SHORT2N
+SHORT3N
+SHORT4N
+USHORT1
+USHORT2
+USHORT3
+USHORT4
+USHORT1N
+USHORT2N
+USHORT3N
+USHORT4N
+BYTE1
+BYTE2
+BYTE3
+BYTE4
+BYTE1N
+BYTE2N
+BYTE3N
+BYTE4N
+UBYTE1
+UBYTE2
+UBYTE3
+UBYTE4
+UBYTE1N
+UBYTE2N
+UBYTE3N
+UBYTE4N
+UINT1010102N
+INT1010102N
+FLOAT_RG11B10
+FLOAT_RGB9E5
+DEPTH16
+DEPTH24
+DEPTH32F
+DEPTH24_STENCIL8
+DEPTH32F_STENCIL8
+}
+class "RHI::Handles::IHandle" as C_0000707296846528872348
+class C_0000707296846528872348 {
++operator==(const IHandle &) constexpr const = default : bool
+__
++id : uint32_t
+}
+class "RHI::Handles::Handle<Tag>" as C_0005578090670413573263
+class C_0005578090670413573263 {
+__
+}
+class "RHI::Handles::BufferTag" as C_0011320195748546059297
+class C_0011320195748546059297 {
+__
+}
+class "RHI::Handles::TextureTag" as C_0009611487711361933771
+class C_0009611487711361933771 {
+__
+}
+class "RHI::Handles::SamplerTag" as C_0017055620095160775212
+class C_0017055620095160775212 {
+__
+}
+class "RHI::Handles::ShaderTag" as C_0008034465141857059395
+class C_0008034465141857059395 {
+__
+}
+class "RHI::Handles::RenderTargetTag" as C_0007553735398119356472
+class C_0007553735398119356472 {
+__
+}
+class "RHI::Handles::PipelineTag" as C_0008704574507613545787
+class C_0008704574507613545787 {
+__
+}
+class "RHI::Handles::Handle<RHI::Handles::ShaderTag>" as C_0016373400785332692605
+class C_0016373400785332692605 {
+__
+}
+class "RHI::Handles::Handle<RHI::Handles::PipelineTag>" as C_0003589380393833722061
+class C_0003589380393833722061 {
+__
+}
+class "RHI::Handles::Handle<RHI::Handles::TextureTag>" as C_0012005239889392561503
+class C_0012005239889392561503 {
+__
+}
+class "RHI::Handles::Handle<RHI::Handles::BufferTag>" as C_0015359165925845477963
+class C_0015359165925845477963 {
+__
+}
+class "RHI::Handles::Handle<RHI::Handles::RenderTargetTag>" as C_0004442367663718810801
+class C_0004442367663718810801 {
+__
+}
+class "RHI::Handles::Handle<RHI::Handles::SamplerTag>" as C_0018201436968382536589
+class C_0018201436968382536589 {
+__
+}
+class "RHI::Executors::PipelineExecutor::ShaderStageDesc" as C_0001286871795823972184
+class C_0001286871795823972184 {
++ShaderStageDesc() = default : void
++ShaderStageDesc(ShaderStage newStage, Handles::ShaderHandle handle) : void
+..
++operator==(const ShaderStageDesc &) constexpr const = default : bool
+__
++entryPoint : std::string
++shaderHandler : Handles::ShaderHandle
++stage : ShaderStage
+}
+class "RHI::Executors::PipelineExecutor::VertexAttributeDesc" as C_0018212911750158375658
+class C_0018212911750158375658 {
++VertexAttributeDesc() = default : void
++VertexAttributeDesc(uint32_t newLocation, uint32_t newBinding, uint32_t newOffset, Format format) : void
+..
++operator==(const VertexAttributeDesc &) constexpr const = default : bool
+__
++binding : uint32_t
++format : Format
++location : uint32_t
++offset : uint32_t
+}
+class "RHI::Executors::PipelineExecutor::VertexBindingDesc" as C_0007624248816574827506
+class C_0007624248816574827506 {
++operator==(const VertexBindingDesc &) constexpr const = default : bool
+__
++binding : uint32_t
++instanceDivisor : uint32_t
++perInstance : bool
++stride : uint32_t
+}
+class "RHI::Executors::PipelineExecutor::StencilFaceState" as C_0001443000410540681029
+class C_0001443000410540681029 {
++operator==(const StencilFaceState &) constexpr const = default : bool
+__
++compareOp : CompareOp
++depthFailOp : StencilOp
++failOp : StencilOp
++passOp : StencilOp
+}
+class "RHI::Executors::PipelineExecutor::BlendAttachmentState" as C_0012809961037602443052
+class C_0012809961037602443052 {
++operator==(const BlendAttachmentState &) constexpr const = default : bool
+__
++alphaBlendOp : BlendOp
++blendEnable : bool
++colorBlendOp : BlendOp
++dstAlphaBlendFactor : BlendFactor
++dstColorBlendFactor : BlendFactor
++srcAlphaBlendFactor : BlendFactor
++srcColorBlendFactor : BlendFactor
++writeMask : ColorWriteMask
+}
+class "RHI::Executors::PipelineExecutor::UniformBindingDesc" as C_0009583786325508714451
+class C_0009583786325508714451 {
++operator==(const UniformBindingDesc &) constexpr const = default : bool
+__
++binding : uint32_t
++name : std::string
++set : uint32_t
++size : uint64_t
+}
+class "RHI::Executors::PipelineExecutor::PipelineState" as C_0008492625370752644608
+class C_0008492625370752644608 {
++operator==(const PipelineState & o) const : bool
+..
++Hash() const : uint64_t
+__
++alphaToCoverage : bool
++alphaToOne : bool
++blendAttachments : std::vector<BlendAttachmentState>
++colorFormats : std::vector<Format>
++cullMode : CullMode
++depthBias : float
++depthBiasClamp : float
++depthClampEnable : bool
++depthCompareOp : CompareOp
++depthStencilFormat : Format
++depthTestEnable : bool
++depthWriteEnable : bool
++dynamicStates : std::vector<DynamicState>
++fillMode : FillMode
++frontFace : FrontFace
++indexFormat : Format
++sampleCount : SampleCount
++slopeScaledDepthBias : float
++stages : std::vector<ShaderStageDesc>
++stencilBack : StencilFaceState
++stencilFront : StencilFaceState
++stencilReadMask : uint32_t
++stencilTestEnable : bool
++stencilWriteMask : uint32_t
++topology : PrimitiveTopology
++uniformBindings : std::vector<UniformBindingDesc>
++vertexAttributes : std::vector<VertexAttributeDesc>
++vertexBindings : std::vector<VertexBindingDesc>
+}
+class "RHI::Executors::PipelineExecutor::CreatePipelineParams" as C_0003625239021966007036
+class C_0003625239021966007036 {
++CreatePipelineParams() = default : void
++CreatePipelineParams(const PipelineState & newState) : void
+__
++state : PipelineState
+}
+class "RHI::Executors::PipelineExecutor::DestroyPipelineParams" as C_0009949310191014717899
+class C_0009949310191014717899 {
+__
++handle : Handles::PipelineHandle
+}
+class "RHI::Executors::PipelineExecutor::CreatePipelineResult" as C_0008450938387574276439
+class C_0008450938387574276439 {
++CreatePipelineResult() = default : void
++CreatePipelineResult(Handles::PipelineHandle newHandle) : void
+__
++handle : Handles::PipelineHandle
+}
+class "RHI::Executors::PipelineExecutor::DestroyPipelineResult" as C_0003286880471219087816
+class C_0003286880471219087816 {
+__
+}
+class "RHI::Executors::PipelineExecutor::PipelineExecuteResult" as C_0016456939255556434424
+class C_0016456939255556434424 {
++PipelineExecuteResult() = default : void
++PipelineExecuteResult(const CreatePipelineResult & r) : void
++PipelineExecuteResult(const DestroyPipelineResult & r) : void
+__
++data : std::variant<CreatePipelineResult,DestroyPipelineResult>
+}
+class "RHI::Executors::PipelineExecutor::HasPipelineExecutorImpl<T>" as C_0008139254694306320561
+class C_0008139254694306320561 <<concept>> {
+(T * t,RHI::Base::BaseDevice & device,const CreatePipelineParams & create,const DestroyPipelineParams & destroy)
+..
+{t->ProcessCreatePipelineImpl(device, create)} -> std::same_as<PipelineExecuteResult>
+{t->ProcessDestroyPipelineImpl(device, destroy)} -> std::same_as<PipelineExecuteResult>
+{t->IsValid()} -> std::same_as<bool>
+}
+class "RHI::Executors::PipelineExecutor::PipelineExecutor<PipelineExecutorImpl>" as C_0002905370629411207612
+class C_0002905370629411207612 {
++PipelineExecutor() : void
+..
++ProcessCreatePipeline(RHI::Base::BaseDevice & device, const CreatePipelineParams & p) : PipelineExecuteResult
++ProcessCurrentParam(RHI::Base::BaseDevice & device, const PipelineParams & param) : PipelineExecuteResult
++ProcessDestroyPipeline(RHI::Base::BaseDevice & device, const DestroyPipelineParams & p) : PipelineExecuteResult
+__
+}
+class "RHI::Executors::PipelineExecutor::GLPipeline" as C_0004890448639302699989
+class C_0004890448639302699989 {
+__
++program : uint32_t
++state : PipelineState
++vao : uint32_t
+}
+class "RHI::Executors::PipelineExecutor::PipelineExecutor<RHI::Executors::PipelineExecutor::PipelineExecutorGL>" as C_0009796221824638894445
+class C_0009796221824638894445 {
+__
+}
+class "RHI::Executors::PipelineExecutor::PipelineExecutorGL" as C_0007276458122680037337
+class C_0007276458122680037337 {
+-ApplyPipelineByHandle(RHI::Base::BaseDevice & device, RHI::Handles::PipelineHandle pipelineHandle) : void
++IsValid() : bool
++ProcessCreatePipelineImpl(RHI::Base::BaseDevice & device, const CreatePipelineParams & params) : PipelineExecuteResult
++ProcessDestroyPipelineImpl(RHI::Base::BaseDevice & device, const DestroyPipelineParams & params) : PipelineExecuteResult
+-SetBlend(const std::vector<BlendAttachmentState> & blendAttachments) : void
+-SetDepth(bool depthTestEnable, bool depthWriteEnable, CompareOp depthCompareOp) : void
+-SetMultisample(bool alphaToCoverage, bool alphaToOne) : void
+-SetRasterizer(CullMode cullMode, FrontFace frontFace, FillMode fillMode, float depthBias, float slopeScaledDepthBias, bool depthClampEnable) : void
+-SetStencil(bool stencilTestEnable, uint32_t stencilReadMask, uint32_t stencilWriteMask, StencilFaceState stencilFront, StencilFaceState stencilBake) : void
+-SetVertexAttributes(GLuint & vao, const std::vector<VertexAttributeDesc> & attributes, const std::vector<VertexBindingDesc> & bindings) : void
+__
+-pipelineCache : std::unordered_map<uint64_t,RHI::Handles::PipelineHandle>
+}
+class "RHI::Executors::DrawExecutor::VertexBufferBinding" as C_0002352423688343412383
+class C_0002352423688343412383 {
++VertexBufferBinding() = default : void
++VertexBufferBinding(Handles::BufferHandle b, uint64_t bind, uint64_t off = 0) : void
+__
++binding : uint64_t
++buffer : Handles::BufferHandle
++offset : uint64_t
+}
+class "RHI::Executors::DrawExecutor::BaseDrawParams" as C_0008955739520860115804
+class C_0008955739520860115804 {
++BaseDrawParams() = default : void
++BaseDrawParams(Handles::PipelineHandle p, VertexBufferBinding * vbs, uint32_t vbCount, Handles::BufferHandle ib = {}, uint64_t ibOffset = 0) : void
+__
++indexBuffer : Handles::BufferHandle
++indexBufferOffset : uint64_t
++pipeline : Handles::PipelineHandle
++vertexBufferCount : uint32_t
++vertexBuffers : VertexBufferBinding *
+}
+class "RHI::Executors::DrawExecutor::DrawArraysParams" as C_0002079846406190880318
+class C_0002079846406190880318 {
++DrawArraysParams() = default : void
++DrawArraysParams(Handles::PipelineHandle p, VertexBufferBinding * vbs, uint32_t vbCount, Plain plain) : void
++DrawArraysParams(Handles::PipelineHandle p, VertexBufferBinding * vbs, uint32_t vbCount, Instanced inst) : void
+__
++data : std::variant<Plain,Instanced>
+}
+class "RHI::Executors::DrawExecutor::DrawArraysParams::Plain" as C_0010905723003066341204
+class C_0010905723003066341204 {
++Plain() constexpr = default : void
++Plain(uint32_t f, uint32_t c) : void
+__
++count : uint32_t
++first : uint32_t
+}
+class "RHI::Executors::DrawExecutor::DrawArraysParams::Instanced" as C_0005266640047003507241
+class C_0005266640047003507241 {
++Instanced() constexpr = default : void
++Instanced(uint32_t f, uint32_t c, uint32_t ic, uint32_t bi = 0) : void
+__
++baseInstance : uint32_t
++count : uint32_t
++first : uint32_t
++instanceCount : uint32_t
+}
+class "RHI::Executors::DrawExecutor::DrawElementsParams" as C_0001934204374484432982
+class C_0001934204374484432982 {
++DrawElementsParams() = default : void
++DrawElementsParams(Handles::PipelineHandle p, VertexBufferBinding * vbs, uint32_t vbCount, Handles::BufferHandle ib, Plain plain, uint64_t ibOffset = 0) : void
++DrawElementsParams(Handles::PipelineHandle p, VertexBufferBinding * vbs, uint32_t vbCount, Handles::BufferHandle ib, Range range, uint64_t ibOffset = 0) : void
++DrawElementsParams(Handles::PipelineHandle p, VertexBufferBinding * vbs, uint32_t vbCount, Handles::BufferHandle ib, Instanced inst, uint64_t ibOffset = 0) : void
++DrawElementsParams(Handles::PipelineHandle p, VertexBufferBinding * vbs, uint32_t vbCount, Handles::BufferHandle ib, RangeInstanced ri, uint64_t ibOffset = 0) : void
+__
++data : std::variant<Plain,Range,Instanced,RangeInstanced>
+}
+class "RHI::Executors::DrawExecutor::DrawElementsParams::Plain" as C_0001626674801974493328
+class C_0001626674801974493328 {
++Plain() constexpr = default : void
++Plain(uint32_t count, uint32_t off = 0, uint32_t bv = 0) : void
+__
++baseVertex : uint32_t
++indexCount : uint32_t
++indexOffset : uint32_t
+}
+class "RHI::Executors::DrawExecutor::DrawElementsParams::Range" as C_0012553501158914017885
+class C_0012553501158914017885 {
++Range() constexpr = default : void
++Range(uint32_t count, uint32_t minI, uint32_t maxI, uint32_t off = 0, uint32_t bv = 0) : void
+__
++baseVertex : uint32_t
++indexCount : uint32_t
++indexOffset : uint32_t
++maxIndex : uint32_t
++minIndex : uint32_t
+}
+class "RHI::Executors::DrawExecutor::DrawElementsParams::Instanced" as C_0015690251506211681073
+class C_0015690251506211681073 {
++Instanced() constexpr = default : void
++Instanced(uint32_t count, uint32_t instCount, uint32_t off = 0, uint32_t bv = 0, uint32_t bi = 0) : void
+__
++baseInstance : uint32_t
++baseVertex : uint32_t
++indexCount : uint32_t
++indexOffset : uint32_t
++instanceCount : uint32_t
+}
+class "RHI::Executors::DrawExecutor::DrawElementsParams::RangeInstanced" as C_0007951328898681030773
+class C_0007951328898681030773 {
++RangeInstanced() constexpr = default : void
++RangeInstanced(uint32_t count, uint32_t minI, uint32_t maxI, uint32_t instCount, uint32_t off = 0, uint32_t bv = 0, uint32_t bi = 0) : void
+__
++baseInstance : uint32_t
++baseVertex : uint32_t
++indexCount : uint32_t
++indexOffset : uint32_t
++instanceCount : uint32_t
++maxIndex : uint32_t
++minIndex : uint32_t
+}
+class "RHI::Executors::DrawExecutor::BeginRenderPassParams" as C_0016025929040332354421
+class C_0016025929040332354421 {
++BeginRenderPassParams() = default : void
++BeginRenderPassParams(Handles::RenderTargetHandle rt, RectRHI area, ClearFlags flags = = {}, float r = 0.0f, float g = 0.0f, float b = 0.0f, float a = 1.0f, float depth = 1.0f, uint32_t stencil = 0) : void
+__
++clearColorA : float
++clearColorB : float
++clearColorG : float
++clearColorR : float
++clearDepth : float
++clearFlags : ClearFlags
++clearStencil : uint32_t
++renderArea : RectRHI
++renderTarget : Handles::RenderTargetHandle
+}
+class "RHI::Executors::DrawExecutor::BeginRenderPassParams::ClearFlags" as C_0017471126664708618145
+class C_0017471126664708618145 {
++ClearFlags() : void
++ClearFlags(bool c, bool d, bool s) : void
+__
++clearColor : bool
++clearDepth : bool
++clearStencil : bool
+}
+class "RHI::Executors::DrawExecutor::EndRenderPassParams" as C_0018246858763690044410
+class C_0018246858763690044410 {
+__
+}
+class "RHI::Executors::DrawExecutor::SetViewportParams" as C_0004158912029523089978
+class C_0004158912029523089978 {
++SetViewportParams() = default : void
++SetViewportParams(RectRHI vp, float mn = 0.0f, float mx = 1.0f) : void
+__
++maxDepth : float
++minDepth : float
++viewport : RectRHI
+}
+class "RHI::Executors::DrawExecutor::SetScissorParams" as C_0002217264595801189326
+class C_0002217264595801189326 {
++SetScissorParams() = default : void
++SetScissorParams(RectRHI s) : void
+__
++scissor : RectRHI
+}
+class "RHI::Executors::DrawExecutor::SetBlendConstantsParams" as C_0000918511524540632793
+class C_0000918511524540632793 {
++SetBlendConstantsParams() = default : void
++SetBlendConstantsParams(float rr, float gg, float bb, float aa) : void
+__
++a : float
++b : float
++g : float
++r : float
+}
+class "RHI::Executors::DrawExecutor::BindUniformBufferParams" as C_0014623551840716975870
+class C_0014623551840716975870 {
++BindUniformBufferParams() = default : void
++BindUniformBufferParams(Handles::BufferHandle b, uint32_t bind, uint32_t s = 0, uint64_t off = 0, uint64_t sz = 0) : void
+__
++binding : uint32_t
++buffer : Handles::BufferHandle
++offset : uint64_t
++set : uint32_t
++size : uint64_t
+}
+class "RHI::Executors::DrawExecutor::BindStorageBufferParams" as C_0017021393632708620748
+class C_0017021393632708620748 {
++BindStorageBufferParams() = default : void
++BindStorageBufferParams(Handles::BufferHandle b, uint32_t bind, uint32_t s = 0, uint64_t off = 0, uint64_t sz = 0) : void
+__
++binding : uint32_t
++buffer : Handles::BufferHandle
++offset : uint64_t
++set : uint32_t
++size : uint64_t
+}
+class "RHI::Executors::DrawExecutor::DrawArraysResult" as C_0000677530249013454793
+class C_0000677530249013454793 {
+__
++count : uint32_t
++drawnCount : uint32_t
++errorMessage : std::string
++first : uint32_t
++pipeline : Handles::PipelineHandle
++success : bool
+}
+class "RHI::Executors::DrawExecutor::DrawElementsResult" as C_0001998963463535583677
+class C_0001998963463535583677 {
+__
++drawnCount : uint32_t
++errorMessage : std::string
++indexCount : uint32_t
++instanceCount : uint32_t
++isInstanced : bool
++pipeline : Handles::PipelineHandle
++success : bool
+}
+class "RHI::Executors::DrawExecutor::BeginRenderPassResult" as C_0002152359046570193998
+class C_0002152359046570193998 {
+__
++errorMessage : std::string
++renderTarget : Handles::RenderTargetHandle
++success : bool
+}
+class "RHI::Executors::DrawExecutor::EndRenderPassResult" as C_0011062578660595179410
+class C_0011062578660595179410 {
+__
++errorMessage : std::string
++success : bool
+}
+class "RHI::Executors::DrawExecutor::SetViewportResult" as C_0008137171829058220581
+class C_0008137171829058220581 {
+__
++errorMessage : std::string
++success : bool
++viewport : RectRHI
+}
+class "RHI::Executors::DrawExecutor::SetScissorResult" as C_0003735960985209470589
+class C_0003735960985209470589 {
+__
++errorMessage : std::string
++scissor : RectRHI
++success : bool
+}
+class "RHI::Executors::DrawExecutor::SetBlendConstantsResult" as C_0013389686190276139586
+class C_0013389686190276139586 {
+__
++errorMessage : std::string
++success : bool
+}
+class "RHI::Executors::DrawExecutor::BindUniformBufferResult" as C_0015449159428011665246
+class C_0015449159428011665246 {
+__
+}
+class "RHI::Executors::DrawExecutor::BindStorageBufferResult" as C_0005603939944074489226
+class C_0005603939944074489226 {
+__
+}
+class "RHI::Executors::DrawExecutor::DrawExecuteResult" as C_0001895283224903107721
+class C_0001895283224903107721 {
++DrawExecuteResult() = default : void
++DrawExecuteResult(const DrawArraysResult & r) : void
++DrawExecuteResult(const DrawElementsResult & r) : void
++DrawExecuteResult(const BeginRenderPassResult & r) : void
++DrawExecuteResult(const EndRenderPassResult & r) : void
++DrawExecuteResult(const SetViewportResult & r) : void
++DrawExecuteResult(const SetScissorResult & r) : void
++DrawExecuteResult(const SetBlendConstantsResult & r) : void
++DrawExecuteResult(const BindUniformBufferResult & r) : void
++DrawExecuteResult(const BindStorageBufferResult & r) : void
+__
++data : std::variant<DrawArraysResult,DrawElementsResult,BeginRenderPassResult,EndRenderPassResult,SetViewportResult,SetScissorResult,SetBlendConstantsResult,BindUniformBufferResult,BindStorageBufferResult>
++operationType : OperationType
+}
+enum "RHI::Executors::DrawExecutor::DrawExecuteResult::OperationType" as C_0003186824686358302257
+enum C_0003186824686358302257 {
+DRAW_ARRAYS
+DRAW_ELEMENTS
+BEGIN_RENDER_PASS
+END_RENDER_PASS
+SET_VIEWPORT
+SET_SCISSOR
+SET_BLEND_CONSTANTS
+BIND_UNIFORM_BUFFER
+BindStorageBuffer
+UNKNOWN
+}
+class "RHI::Executors::DrawExecutor::HasDrawExecutorImpl<T>" as C_0000739477908841023609
+class C_0000739477908841023609 <<concept>> {
+(T * t,RHI::Base::BaseDevice & device,const DrawArraysParams & drawArrays,const DrawElementsParams & drawElements,const BeginRenderPassParams & beginRenderPass,const EndRenderPassParams & endRenderPass,const SetViewportParams & setViewport,const SetScissorParams & setScissor,const SetBlendConstantsParams & setBlendConstants,const BindUniformBufferParams & bindUniformBuffer,const BindStorageBufferParams & bindStorageBuffer)
+..
+{t->ProcessDrawArraysImpl(device, drawArrays)} -> std::same_as<DrawExecuteResult>
+{t->ProcessDrawElementsImpl(device, drawElements)} -> std::same_as<DrawExecuteResult>
+{t->ProcessBeginRenderPassImpl(device, beginRenderPass)} -> std::same_as<DrawExecuteResult>
+{t->ProcessEndRenderPassImpl(device, endRenderPass)} -> std::same_as<DrawExecuteResult>
+{t->ProcessSetViewportImpl(device, setViewport)} -> std::same_as<DrawExecuteResult>
+{t->ProcessSetScissorImpl(device, setScissor)} -> std::same_as<DrawExecuteResult>
+{t->ProcessSetBlendConstantsImpl(device, setBlendConstants)} -> std::same_as<DrawExecuteResult>
+{t->ProcessBindUniformBufferImpl(device, bindUniformBuffer)} -> std::same_as<DrawExecuteResult>
+{t->ProcessBindStorageBufferImpl(device, bindStorageBuffer)} -> std::same_as<DrawExecuteResult>
+{t->IsValid()} -> std::same_as<bool>
+}
+class "RHI::Executors::DrawExecutor::DrawExecutor<DrawExecutorImpl>" as C_0004072649313901749485
+class C_0004072649313901749485 {
++DrawExecutor() : void
+..
++ProcessBeginRenderPass(RHI::Base::BaseDevice & device, const BeginRenderPassParams & p) : DrawExecuteResult
++ProcessBindStorageBuffer(RHI::Base::BaseDevice & device, const BindStorageBufferParams & p) : DrawExecuteResult
++ProcessBindUniformBuffer(RHI::Base::BaseDevice & device, const BindUniformBufferParams & p) : DrawExecuteResult
++ProcessCurrentParam(RHI::Base::BaseDevice & device, const DrawParams & param) : DrawExecuteResult
++ProcessDrawArrays(RHI::Base::BaseDevice & device, const DrawArraysParams & p) : DrawExecuteResult
++ProcessDrawElements(RHI::Base::BaseDevice & device, const DrawElementsParams & p) : DrawExecuteResult
++ProcessEndRenderPass(RHI::Base::BaseDevice & device, const EndRenderPassParams & p) : DrawExecuteResult
++ProcessSetBlendConstants(RHI::Base::BaseDevice & device, const SetBlendConstantsParams & p) : DrawExecuteResult
++ProcessSetScissor(RHI::Base::BaseDevice & device, const SetScissorParams & p) : DrawExecuteResult
++ProcessSetViewport(RHI::Base::BaseDevice & device, const SetViewportParams & p) : DrawExecuteResult
+__
+}
+class "RHI::Executors::DrawExecutor::DrawExecutor<RHI::Executors::DrawExecutor::DrawExecutorGL>" as C_0017634255659811104412
+class C_0017634255659811104412 {
+__
+}
+class "RHI::Executors::DrawExecutor::DrawExecutorGL" as C_0009770125608371103168
+class C_0009770125608371103168 {
+-ApplyVBB(uint32_t vertexBufferCount, const VertexBufferBinding * vertexBuffers, OpenGL::ResourceGL & resourceGL, const OpenGL::PipelineGL * pipeline, std::string & errorMsg) : bool
++IsValid() : bool
++ProcessBeginRenderPassImpl(RHI::Base::BaseDevice & device, const BeginRenderPassParams & p) : DrawExecuteResult
++ProcessBindStorageBufferImpl(RHI::Base::BaseDevice & device, const BindStorageBufferParams & p) : DrawExecuteResult
++ProcessBindUniformBufferImpl(RHI::Base::BaseDevice & device, const BindUniformBufferParams & p) : DrawExecuteResult
++ProcessDrawArraysImpl(RHI::Base::BaseDevice & device, const DrawArraysParams & p) : DrawExecuteResult
++ProcessDrawElementsImpl(RHI::Base::BaseDevice & device, const DrawElementsParams & p) : DrawExecuteResult
++ProcessEndRenderPassImpl(RHI::Base::BaseDevice & device, const EndRenderPassParams & p) : DrawExecuteResult
++ProcessSetBlendConstantsImpl(RHI::Base::BaseDevice & device, const SetBlendConstantsParams & p) : DrawExecuteResult
++ProcessSetScissorImpl(RHI::Base::BaseDevice & device, const SetScissorParams & p) : DrawExecuteResult
++ProcessSetViewportImpl(RHI::Base::BaseDevice & device, const SetViewportParams & p) : DrawExecuteResult
+-SetPipelineExecutor(PipelineExecutor::PipelineExecutorGL * pipeline) : void
+__
+-currentPipeline : Handles::PipelineHandle
+-currentRenderTarget : Handles::RenderTargetHandle
+-pipelineExecutor : PipelineExecutor::PipelineExecutorGL *
+}
+enum "RHI::Executors::ExecutorTypeRHI" as C_0017432487023320340772
+enum C_0017432487023320340772 {
+Base
+SwapChainExecutor
+ResourceExecutor
+GeometryExecutor
+DrawExecutor
+PipelineExecutor
+}
+abstract "RHI::Executors::IExecutorRHI" as C_0003433954759148155272
+abstract C_0003433954759148155272 {
++~IExecutorRHI() constexpr = default : void
+..
+{abstract} +GetExecutorType() const = 0 : ExecutorTypeRHI
+{abstract} +GetLayer() const = 0 : unsigned int
+{abstract} +IsMarkedToProcess() const = 0 : bool
+{abstract} +IsValid() = 0 : bool
+{abstract} +MarkProcess(bool mark) = 0 : void
+{abstract} +ProcessParams(RHI::Base::BaseDevice & device) = 0 : void
+{abstract} +SetLayer(unsigned int layer) = 0 : void
+{abstract} +Unsubscribe(const SubscriptionToken & token) = 0 : bool
+__
+}
+class "RHI::Executors::HasProcessCurrentParam<T>" as C_0000462545478877024667
+class C_0000462545478877024667 <<concept>> {
+(T * t,RHI::Base::BaseDevice & device,const typename T::ParamsType & p)
+..
+{t->ProcessCurrentParam(device, p)} -> std::same_as<typename T::ResultType>
+}
+class "RHI::Executors::is_variant<T>" as C_0001280194059613054791
+class C_0001280194059613054791 {
+__
+}
+class "RHI::Executors::is_variant<std::variant<Ts...>>" as C_0002900120183650795523
+class C_0002900120183650795523 {
+__
+}
+class "RHI::Executors::BaseProcessResult" as C_0005369426599919267506
+class C_0005369426599919267506 {
++BaseProcessResult() = default : void
++BaseProcessResult(uint64_t id, bool ok = true, std::string msg = = {}) : void
++BaseProcessResult(uint64_t id, int layer, bool ok = true, std::string msg = = {}) : void
+..
++ProcessFailed(const std::string & newErrorMessage) : void
+__
++errorMessage : std::string
++layer : int
++paramId : uint64_t
++success : bool
+}
+class "RHI::Executors::SubscriptionToken" as C_0012809735119429966003
+class C_0012809735119429966003 {
++operator!=(const SubscriptionToken & other) const noexcept : bool
++operator==(const SubscriptionToken & other) const noexcept : bool
+..
++IsValid() const noexcept : bool
+__
++id : uint64_t
++paramId : uint64_t
+}
+class "RHI::Executors::ParamToken<Params>" as C_0015989767340057044991
+class C_0015989767340057044991 {
++ParamToken(uint64_t id, int layer, Params params, bool removeAfterExecute = false, bool enabled = true) : void
+..
++operator!=(const ParamToken<Params> & other) const noexcept : bool
++operator==(const ParamToken<Params> & other) const noexcept : bool
+__
++enabled : bool
++id : uint64_t
++layer : int
++params : Params
++removeAfterExecute : bool
+}
+class "RHI::Executors::ScopedSubscription" as C_0006936697172452493326
+class C_0006936697172452493326 {
++ScopedSubscription() = default : void
++ScopedSubscription(IExecutorRHI * o, SubscriptionToken t) : void
++ScopedSubscription(ScopedSubscription && o) noexcept : void
++ScopedSubscription(const ScopedSubscription &) = deleted : void
++~ScopedSubscription() : void
+..
++operator=(ScopedSubscription && o) noexcept : ScopedSubscription &
++operator=(const ScopedSubscription &) = deleted : ScopedSubscription &
+..
++Get() const : const SubscriptionToken &
++IsValid() const noexcept : bool
++Release() : void
++Reset() : void
++Swap(ScopedSubscription & o) noexcept : void
+__
+-owner : IExecutorRHI *
+-token : SubscriptionToken
+}
+class "RHI::Executors::ParamBuilder<Executor>" as C_0013962898419790792962
+class C_0013962898419790792962 {
++ParamBuilder(Executor * o, ParamsT v) : void
+..
++Commit() : uint64_t
++Disabled(bool v = true) noexcept : ParamBuilder<Executor> &
++Enabled(bool v = true) noexcept : ParamBuilder<Executor> &
++MarkProcess(bool v = true) noexcept : ParamBuilder<Executor> &
++OnLayer(int l) noexcept : ParamBuilder<Executor> &
++RemoveAfterExecute(bool v = true) noexcept : ParamBuilder<Executor> &
+__
+-enabled : bool
+-layer : int
+-markProcess : bool
+-owner : Executor *
+-removeAfterExecute : bool
+-value : ParamsT
+}
+class "RHI::Executors::ParamBuilder<ExecutorImplRHI>" as C_0013044347512054267948
+class C_0013044347512054267948 {
+__
+}
+class "RHI::Executors::BaseExecutorRHI<ExecutorImplRHI,Params,ProcessResult>" as C_0012957877209960596877
+class C_0012957877209960596877 {
++BaseExecutorRHI() : void
++~BaseExecutorRHI() = default : void
+..
++operator()(RHI::Base::BaseDevice & device) : void
+..
++Add(Params p) : ParamBuilder<ExecutorImplRHI>
++Add<ParamT>(ParamT && p) : ParamBuilder<ExecutorImplRHI>
++AddParam(Params && param, int paramLayer = 0, bool removeAfterExecute = false, bool enabled = true) : uint64_t
++AddParam(const Params & param, int paramLayer = 0, bool removeAfterExecute = false, bool enabled = true) : uint64_t
++AddParamAndMark<ParamT>(ParamT && p, int paramLayer = 0, bool removeAfterExecute = false) : uint64_t
++AddParamDirect<ParamT>(ParamT && p, int paramLayer = 0, bool removeAfterExecute = false) : uint64_t
++AddT<ParamT>(ParamT && p) : ParamBuilder<ExecutorImplRHI>
++ClearParams() : void
++EmplaceParam<Args...>(int paramLayer, bool removeAfterExecute, bool enabled, Args &&... args) : uint64_t
++FindParamIndicesByType<T>() const : std::vector<size_t>
++ForEachParam<F>(F && f) : void
++ForEachParamOfType<F>(F && f) : void
++GetAllParamPtrsByType<T>() const : std::vector<const T *>
++GetAllParamsByType<T>() const : std::vector<T>
++GetEnabledParamIndicesByLayer(int layerFilter) const : std::vector<size_t>
++GetExecutorType() const : ExecutorTypeRHI
++GetLayer() const : unsigned int
++GetLayerRange() const : std::optional<std::pair<int,int>>
++GetParam(size_t index) : Params &
++GetParam(size_t index) const : const Params &
++GetParamByType<T>() const : std::optional<T>
++GetParamCount() const : size_t
++GetParamIndicesByLayer(int layerFilter) const : std::vector<size_t>
++GetParamPtrByType<T>() const : const T *
++GetParamPtrByType<T>() : T *
++GetParamToken(size_t index) const : const ParamTokenT &
++GetParamToken(size_t index) : ParamTokenT &
++GetParams() const : const std::vector<ParamTokenT> &
++GetSubscriberCount() const : size_t
++HasParams() const : bool
++HasSubscribers() const : bool
++HasSubscribers(uint64_t paramId) const : bool
++IsMarkedToProcess() const : bool
++IsValid() : bool
++MarkAndProcess(RHI::Base::BaseDevice & device) : void
++MarkProcess(bool newValue) : void
+-NotifySubscribers(const std::vector<ProcessResult> & results) : void
++On(uint64_t paramId, CallbackType cb) : SubscriptionToken
++OnAll(CallbackType cb) : SubscriptionToken
++OnAllLayer(int l, CallbackType cb) : SubscriptionToken
++OnLayer(uint64_t paramId, int l, CallbackType cb) : SubscriptionToken
++Once(uint64_t paramId, CallbackType cb) : SubscriptionToken
++OnceAll(CallbackType cb) : SubscriptionToken
++OnceTyped<T,F>(uint64_t paramId, F && f) : SubscriptionToken
++OnceTyped<F>(uint64_t paramId, F && f) : SubscriptionToken
++ProcessParams(RHI::Base::BaseDevice & device) : void
+-ProcessSingleParam(RHI::Base::BaseDevice & device, const Params & p) : ProcessResult
+-PruneAutoRemoveParams() : void
++RemoveParam(size_t index) : void
++RemoveParamById(uint64_t id) : bool
++ReserveParams(size_t count) : void
++Reset() : void
++ResetHard() : void
++ScopedOn<F>(uint64_t id, F && f) : ScopedSubscription
++ScopedOnAll<F>(F && f) : ScopedSubscription
++ScopedOnce<F>(uint64_t id, F && f) : ScopedSubscription
++SetLayer(unsigned int newLayer) : void
++SetParamEnabled(size_t index, bool value) : void
++SetParamFlags(size_t index, int newLayer, bool removeAfterExecute, bool enabled) : void
++SetParamLayer(size_t index, int newLayer) : void
++SetParamRemoveAfterExecute(size_t index, bool value) : void
++SetSubscriptionEnabled(const SubscriptionToken & token, bool enabled) : bool
+-ShouldProcessParam(const ParamTokenT & token) const : bool
++Subscribe(uint64_t paramId, CallbackType cb) : SubscriptionToken
++SubscribeAll(CallbackType cb) : SubscriptionToken
++SubscribeAllOnLayer(int layer, CallbackType cb) : SubscriptionToken
++SubscribeAllOnce(CallbackType cb) : SubscriptionToken
+-SubscribeInternal(uint64_t paramId, int layerFilter, CallbackType callback, bool isOnce) : SubscriptionToken
++SubscribeOnLayer(uint64_t paramId, int layer, CallbackType cb) : SubscriptionToken
++SubscribeOnce(uint64_t paramId, CallbackType cb) : SubscriptionToken
++Unsubscribe(const SubscriptionToken & token) : bool
++UnsubscribeAll(uint64_t paramId) : size_t
++UnsubscribeAll() : void
+-impl() const noexcept : const ExecutorImplRHI *
+-impl() noexcept : ExecutorImplRHI *
+__
+-isNotifying : bool
+#layer : unsigned int
+#markProcess : bool
+-nextParamId : std::atomic<uint64_t>
+-nextSubscriptionId : std::atomic<uint64_t>
+#params : std::vector<ParamTokenT>
+#subscribers : std::vector<Subscriber>
+#type : ExecutorTypeRHI
+}
+class "RHI::Executors::BaseExecutorRHI::Subscriber" as C_0011974954793212153825
+class C_0011974954793212153825 {
++Subscriber(uint64_t id, uint64_t paramId, int layerFilter, CallbackType cb, bool isOnce = false) : void
+__
++callback : CallbackType
++enabled : bool
++id : uint64_t
++isOnce : bool
++layerFilter : int
++paramId : uint64_t
+}
+enum "RHI::Executors::BaseExecutorLayers" as C_0007158445192676761104
+enum C_0007158445192676761104 {
+Resources
+Pipeline
+Draw
+SwapChain
+}
+class "RHI::Executors::BaseExecutorRHI<DrawExecutorImpl,std::variant<RHI::Executors::DrawExecutor::DrawArraysParams,RHI::Executors::DrawExecutor::DrawElementsParams,RHI::Executors::DrawExecutor::BeginRenderPassParams,RHI::Executors::DrawExecutor::EndRenderPassParams,RHI::Executors::DrawExecutor::SetViewportParams,RHI::Executors::DrawExecutor::SetScissorParams,RHI::Executors::DrawExecutor::SetBlendConstantsParams,RHI::Executors::DrawExecutor::BindUniformBufferParams,RHI::Executors::DrawExecutor::BindStorageBufferParams>,RHI::Executors::DrawExecutor::DrawExecuteResult>" as C_0000300881938433629557
+class C_0000300881938433629557 {
+__
+}
+class "RHI::Executors::BaseExecutorRHI<PipelineExecutorImpl,std::variant<RHI::Executors::PipelineExecutor::CreatePipelineParams,RHI::Executors::PipelineExecutor::DestroyPipelineParams>,RHI::Executors::PipelineExecutor::PipelineExecuteResult>" as C_0011642292099030353259
+class C_0011642292099030353259 {
+__
+}
+enum "RHI::Executors::ResourceExecutor::BufferUsage" as C_0001231720673556783241
+enum C_0001231720673556783241 {
+NONE
+VERTEX
+INDEX
+UNIFORM
+STORAGE
+INDIRECT
+COPY_SRC
+COPY_DST
+STAGING
+}
+enum "RHI::Executors::ResourceExecutor::MemoryType" as C_0005381148324054575812
+enum C_0005381148324054575812 {
+DEVICE_LOCAL
+HOST_VISIBLE
+HOST_COHERENT
+HOST_CACHED
+}
+enum "RHI::Executors::ResourceExecutor::TextureUsage" as C_0017857839098255792773
+enum C_0017857839098255792773 {
+NONE
+SAMPLED
+STORAGE
+COLOR_ATTACHMENT
+DEPTH_STENCIL
+COPY_SRC
+COPY_DST
+}
+enum "RHI::Executors::ResourceExecutor::TextureAspect" as C_0012379345396819970892
+enum C_0012379345396819970892 {
+COLOR
+DEPTH
+STENCIL
+ALL
+}
+enum "RHI::Executors::ResourceExecutor::FilterMode" as C_0006607086124093505487
+enum C_0006607086124093505487 {
+NEAREST
+LINEAR
+}
+enum "RHI::Executors::ResourceExecutor::MipFilterMode" as C_0005926236241519209945
+enum C_0005926236241519209945 {
+NEAREST
+LINEAR
+}
+enum "RHI::Executors::ResourceExecutor::AddressMode" as C_0004179885612182855068
+enum C_0004179885612182855068 {
+REPEAT
+MIRRORED_REPEAT
+CLAMP_TO_EDGE
+CLAMP_TO_BORDER
+MIRROR_CLAMP_TO_EDGE
+}
+enum "RHI::Executors::ResourceExecutor::BorderColor" as C_0007480252460239535844
+enum C_0007480252460239535844 {
+TRANSPARENT_BLACK
+OPAQUE_BLACK
+OPAQUE_WHITE
+}
+class "RHI::Executors::ResourceExecutor::BufferDesc" as C_0000178082922235983961
+class C_0000178082922235983961 {
++BufferDesc() = default : void
++BufferDesc(uint64_t newSize, BufferUsage bufferUsage, MemoryType memoryType = MemoryType::DEVICE_LOCAL, uint32_t newStride = 0, bool pm = false, const std::string & dn = = {}) : void
+__
++debugName : std::string
++memory : MemoryType
++persistentlyMapped : bool
++size : uint64_t
++stride : uint32_t
++usage : BufferUsage
+}
+class "RHI::Executors::ResourceExecutor::TextureDesc" as C_0016488558503061954224
+class C_0016488558503061954224 {
++TextureDesc() = default : void
++TextureDesc(uint32_t w, uint32_t h, Format fmt = Format::FLOAT4, TextureUsage texUsage = TextureUsage::SAMPLED, uint32_t mips = 1, uint32_t layers = 1, uint32_t d = 1, SampleCount sc = SampleCount::COUNT_1, const std::string & dn = = {}) : void
+__
++arrayLayers : uint32_t
++debugName : std::string
++depth : uint32_t
++format : Format
++height : uint32_t
++mipLevels : uint32_t
++samples : SampleCount
++usage : TextureUsage
++width : uint32_t
+}
+class "RHI::Executors::ResourceExecutor::SamplerDesc" as C_0011958899661194299903
+class C_0011958899661194299903 {
++SamplerDesc() = default : void
++SamplerDesc(FilterMode minF, FilterMode magF, MipFilterMode mipF = MipFilterMode::LINEAR, AddressMode addrU = AddressMode::REPEAT, AddressMode addrV = AddressMode::REPEAT, AddressMode addrW = AddressMode::REPEAT, CompareOp cmp = CompareOp::NEVER, uint32_t aniso = 1, BorderColor border = BorderColor::TRANSPARENT_BLACK, const std::string & dn = = {}) : void
+__
++addressU : AddressMode
++addressV : AddressMode
++addressW : AddressMode
++borderColor : BorderColor
++compareOp : CompareOp
++debugName : std::string
++magFilter : FilterMode
++maxAnisotropy : uint32_t
++maxLod : float
++minFilter : FilterMode
++minLod : float
++mipFilter : MipFilterMode
++mipLodBias : float
+}
+class "RHI::Executors::ResourceExecutor::ShaderDesc" as C_0011564875438782918747
+class C_0011564875438782918747 {
++ShaderDesc() = default : void
++ShaderDesc(ShaderStage shaderStage, std::vector<std::byte> code, const std::string & entry = "main", const std::string & dn = = {}) : void
+__
++bytecode : std::vector<std::byte>
++debugName : std::string
++entryPoint : std::string
++stage : ShaderStage
+}
+class "RHI::Executors::ResourceExecutor::RenderTargetDesc" as C_0014654840952579805808
+class C_0014654840952579805808 {
++RenderTargetDesc() = default : void
++RenderTargetDesc(std::vector<Handles::TextureHandle> colors, uint32_t w, uint32_t h, Handles::TextureHandle depth = {}, std::vector<Handles::TextureHandle> resolves = = {}, SampleCount sc = SampleCount::COUNT_1, const std::string & dn = = {}) : void
+__
++colorAttachments : std::vector<Handles::TextureHandle>
++debugName : std::string
++depthStencilAttachment : Handles::TextureHandle
++height : uint32_t
++resolveAttachments : std::vector<Handles::TextureHandle>
++samples : SampleCount
++width : uint32_t
+}
+class "RHI::Executors::ResourceExecutor::CreateBufferParams" as C_0011110600812833231050
+class C_0011110600812833231050 {
++CreateBufferParams() = default : void
++CreateBufferParams(BufferDesc d) : void
+__
++desc : BufferDesc
+}
+class "RHI::Executors::ResourceExecutor::UpdateBufferParams" as C_0014223954884167299749
+class C_0014223954884167299749 {
++UpdateBufferParams() = default : void
++UpdateBufferParams(Handles::BufferHandle h, uint64_t off, std::vector<std::byte> d) : void
+__
++data : std::vector<std::byte>
++handle : Handles::BufferHandle
++offset : uint64_t
+}
+class "RHI::Executors::ResourceExecutor::CopyBufferParams" as C_0015894124265864959934
+class C_0015894124265864959934 {
++CopyBufferParams() = default : void
++CopyBufferParams(Handles::BufferHandle s, Handles::BufferHandle d, uint64_t sizeBytes, uint64_t srcOff = 0, uint64_t dstOff = 0) : void
+__
++dst : Handles::BufferHandle
++dstOffset : uint64_t
++size : uint64_t
++src : Handles::BufferHandle
++srcOffset : uint64_t
+}
+class "RHI::Executors::ResourceExecutor::DestroyBufferParams" as C_0009786537643028330885
+class C_0009786537643028330885 {
++DestroyBufferParams() = default : void
++DestroyBufferParams(Handles::BufferHandle h) : void
+__
++handle : Handles::BufferHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateTextureParams" as C_0006096803701426024262
+class C_0006096803701426024262 {
++CreateTextureParams() = default : void
++CreateTextureParams(TextureDesc d) : void
+__
++desc : TextureDesc
+}
+class "RHI::Executors::ResourceExecutor::UpdateTextureParams" as C_0016627078594072677877
+class C_0016627078594072677877 {
++UpdateTextureParams() = default : void
++UpdateTextureParams(Handles::TextureHandle h, RectRHI r, std::vector<std::byte> d, uint32_t mip = 0, uint32_t layer = 0) : void
+__
++arrayLayer : uint32_t
++data : std::vector<std::byte>
++handle : Handles::TextureHandle
++mipLevel : uint32_t
++region : RectRHI
+}
+class "RHI::Executors::ResourceExecutor::CopyTextureParams" as C_0006784203541396077937
+class C_0006784203541396077937 {
++CopyTextureParams() = default : void
++CopyTextureParams(Handles::TextureHandle s, Handles::TextureHandle d, RectRHI srcR, RectRHI dstR, TextureAspect a = TextureAspect::COLOR, FilterMode f = FilterMode::NEAREST) : void
+__
++aspect : TextureAspect
++dst : Handles::TextureHandle
++dstRegion : RectRHI
++filter : FilterMode
++src : Handles::TextureHandle
++srcRegion : RectRHI
+}
+class "RHI::Executors::ResourceExecutor::DestroyTextureParams" as C_0009636238717653795704
+class C_0009636238717653795704 {
++DestroyTextureParams() = default : void
++DestroyTextureParams(Handles::TextureHandle h) : void
+__
++handle : Handles::TextureHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateSamplerParams" as C_0005813977497895877235
+class C_0005813977497895877235 {
++CreateSamplerParams() = default : void
++CreateSamplerParams(SamplerDesc d) : void
+__
++desc : SamplerDesc
+}
+class "RHI::Executors::ResourceExecutor::DestroySamplerParams" as C_0010823124840953704321
+class C_0010823124840953704321 {
++DestroySamplerParams() = default : void
++DestroySamplerParams(Handles::SamplerHandle h) : void
+__
++handle : Handles::SamplerHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateShaderParams" as C_0017561009578766664831
+class C_0017561009578766664831 {
++CreateShaderParams() = default : void
++CreateShaderParams(ShaderDesc d) : void
+__
++desc : ShaderDesc
+}
+class "RHI::Executors::ResourceExecutor::DestroyShaderParams" as C_0017603276533162890937
+class C_0017603276533162890937 {
++DestroyShaderParams() = default : void
++DestroyShaderParams(Handles::ShaderHandle h) : void
+__
++handle : Handles::ShaderHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateRenderTargetParams" as C_0002483437880599725322
+class C_0002483437880599725322 {
++CreateRenderTargetParams() = default : void
++CreateRenderTargetParams(RenderTargetDesc d) : void
+__
++desc : RenderTargetDesc
+}
+class "RHI::Executors::ResourceExecutor::DestroyRenderTargetParams" as C_0008058793266403643452
+class C_0008058793266403643452 {
++DestroyRenderTargetParams() = default : void
++DestroyRenderTargetParams(Handles::RenderTargetHandle h) : void
+__
++handle : Handles::RenderTargetHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateBufferResult" as C_0007498452384339056403
+class C_0007498452384339056403 {
+__
++handle : Handles::BufferHandle
+}
+class "RHI::Executors::ResourceExecutor::UpdateBufferResult" as C_0014843185482071648379
+class C_0014843185482071648379 {
+__
++bytesWritten : uint64_t
++handle : Handles::BufferHandle
+}
+class "RHI::Executors::ResourceExecutor::CopyBufferResult" as C_0000612444734180726448
+class C_0000612444734180726448 {
+__
++bytesCopied : uint64_t
++dst : Handles::BufferHandle
++src : Handles::BufferHandle
+}
+class "RHI::Executors::ResourceExecutor::DestroyBufferResult" as C_0014444129770632249391
+class C_0014444129770632249391 {
+__
++handle : Handles::BufferHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateTextureResult" as C_0001138817099616840703
+class C_0001138817099616840703 {
+__
++handle : Handles::TextureHandle
+}
+class "RHI::Executors::ResourceExecutor::UpdateTextureResult" as C_0017265849248839068116
+class C_0017265849248839068116 {
+__
++bytesWritten : uint64_t
++handle : Handles::TextureHandle
+}
+class "RHI::Executors::ResourceExecutor::CopyTextureResult" as C_0018376699336507592390
+class C_0018376699336507592390 {
+__
++dst : Handles::TextureHandle
++src : Handles::TextureHandle
+}
+class "RHI::Executors::ResourceExecutor::DestroyTextureResult" as C_0012102723014722233516
+class C_0012102723014722233516 {
+__
++handle : Handles::TextureHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateSamplerResult" as C_0005359600209494017077
+class C_0005359600209494017077 {
+__
++handle : Handles::SamplerHandle
+}
+class "RHI::Executors::ResourceExecutor::DestroySamplerResult" as C_0000456729507683823667
+class C_0000456729507683823667 {
+__
++handle : Handles::SamplerHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateShaderResult" as C_0001219832459086514524
+class C_0001219832459086514524 {
+__
++handle : Handles::ShaderHandle
+}
+class "RHI::Executors::ResourceExecutor::DestroyShaderResult" as C_0000584483587027674261
+class C_0000584483587027674261 {
+__
++handle : Handles::ShaderHandle
+}
+class "RHI::Executors::ResourceExecutor::CreateRenderTargetResult" as C_0014258136029338196605
+class C_0014258136029338196605 {
+__
++handle : Handles::RenderTargetHandle
+}
+class "RHI::Executors::ResourceExecutor::DestroyRenderTargetResult" as C_0011730404181519640572
+class C_0011730404181519640572 {
+__
++handle : Handles::RenderTargetHandle
+}
+class "RHI::Executors::ResourceExecutor::ResourceExecuteResult" as C_0002635497681327854530
+class C_0002635497681327854530 {
++ResourceExecuteResult() = default : void
++ResourceExecuteResult(const CreateBufferResult & r) : void
++ResourceExecuteResult(const UpdateBufferResult & r) : void
++ResourceExecuteResult(const CopyBufferResult & r) : void
++ResourceExecuteResult(const DestroyBufferResult & r) : void
++ResourceExecuteResult(const CreateTextureResult & r) : void
++ResourceExecuteResult(const UpdateTextureResult & r) : void
++ResourceExecuteResult(const CopyTextureResult & r) : void
++ResourceExecuteResult(const DestroyTextureResult & r) : void
++ResourceExecuteResult(const CreateSamplerResult & r) : void
++ResourceExecuteResult(const DestroySamplerResult & r) : void
++ResourceExecuteResult(const CreateShaderResult & r) : void
++ResourceExecuteResult(const DestroyShaderResult & r) : void
++ResourceExecuteResult(const CreateRenderTargetResult & r) : void
++ResourceExecuteResult(const DestroyRenderTargetResult & r) : void
+__
++data : std::variant<CreateBufferResult,UpdateBufferResult,CopyBufferResult,DestroyBufferResult,CreateTextureResult,UpdateTextureResult,CopyTextureResult,DestroyTextureResult,CreateSamplerResult,DestroySamplerResult,CreateShaderResult,DestroyShaderResult,CreateRenderTargetResult,DestroyRenderTargetResult>
++operationType : OperationType
+}
+enum "RHI::Executors::ResourceExecutor::ResourceExecuteResult::OperationType" as C_0007768844422420890504
+enum C_0007768844422420890504 {
+CREATE_BUFFER
+UPDATE_BUFFER
+COPY_BUFFER
+DESTROY_BUFFER
+CREATE_TEXTURE
+UPDATE_TEXTURE
+COPY_TEXTURE
+DESTROY_TEXTURE
+CREATE_SAMPLER
+DESTROY_SAMPLER
+CREATE_SHADER
+DESTROY_SHADER
+CREATE_RENDER_TARGET
+DESTROY_RENDER_TARGET
+UNKNOWN
+}
+class "RHI::Executors::ResourceExecutor::HasResourceExecutorImpl<T>" as C_0007676902755211374351
+class C_0007676902755211374351 <<concept>> {
+(T * t,RHI::Base::BaseDevice & device,const CreateBufferParams & createBuffer,const UpdateBufferParams & updateBuffer,const CopyBufferParams & copyBuffer,const DestroyBufferParams & destroyBuffer,const CreateTextureParams & createTexture,const UpdateTextureParams & updateTexture,const CopyTextureParams & copyTexture,const DestroyTextureParams & destroyTexture,const CreateSamplerParams & createSampler,const DestroySamplerParams & destroySampler,const CreateShaderParams & createShader,const DestroyShaderParams & destroyShader,const CreateRenderTargetParams & createRenderTarget,const DestroyRenderTargetParams & destroyRenderTarget)
+..
+{t->ProcessCreateBufferImpl(device, createBuffer)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessUpdateBufferImpl(device, updateBuffer)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessCopyBufferImpl(device, copyBuffer)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessDestroyBufferImpl(device, destroyBuffer)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessCreateTextureImpl(device, createTexture)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessUpdateTextureImpl(device, updateTexture)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessCopyTextureImpl(device, copyTexture)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessDestroyTextureImpl(device, destroyTexture)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessCreateSamplerImpl(device, createSampler)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessDestroySamplerImpl(device, destroySampler)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessCreateShaderImpl(device, createShader)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessDestroyShaderImpl(device, destroyShader)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessCreateRenderTargetImpl(device, createRenderTarget)} -> std::same_as<ResourceExecuteResult>
+{t->ProcessDestroyRenderTargetImpl(device, destroyRenderTarget)} -> std::same_as<ResourceExecuteResult>
+{t->IsValid()} -> std::same_as<bool>
+}
+class "RHI::Executors::ResourceExecutor::ResourceExecutor<ResourceExecutorImpl>" as C_0013854697591913712196
+class C_0013854697591913712196 {
++ResourceExecutor() : void
+..
++ProcessCopyBuffer(RHI::Base::BaseDevice & device, const CopyBufferParams & p) : ResourceExecuteResult
++ProcessCopyTexture(RHI::Base::BaseDevice & device, const CopyTextureParams & p) : ResourceExecuteResult
++ProcessCreateBuffer(RHI::Base::BaseDevice & device, const CreateBufferParams & p) : ResourceExecuteResult
++ProcessCreateRenderTarget(RHI::Base::BaseDevice & device, const CreateRenderTargetParams & p) : ResourceExecuteResult
++ProcessCreateSampler(RHI::Base::BaseDevice & device, const CreateSamplerParams & p) : ResourceExecuteResult
++ProcessCreateShader(RHI::Base::BaseDevice & device, const CreateShaderParams & p) : ResourceExecuteResult
++ProcessCreateTexture(RHI::Base::BaseDevice & device, const CreateTextureParams & p) : ResourceExecuteResult
++ProcessCurrentParam(RHI::Base::BaseDevice & device, const ResourceParams & param) : ResourceExecuteResult
++ProcessDestroyBuffer(RHI::Base::BaseDevice & device, const DestroyBufferParams & p) : ResourceExecuteResult
++ProcessDestroyRenderTarget(RHI::Base::BaseDevice & device, const DestroyRenderTargetParams & p) : ResourceExecuteResult
++ProcessDestroySampler(RHI::Base::BaseDevice & device, const DestroySamplerParams & p) : ResourceExecuteResult
++ProcessDestroyShader(RHI::Base::BaseDevice & device, const DestroyShaderParams & p) : ResourceExecuteResult
++ProcessDestroyTexture(RHI::Base::BaseDevice & device, const DestroyTextureParams & p) : ResourceExecuteResult
++ProcessUpdateBuffer(RHI::Base::BaseDevice & device, const UpdateBufferParams & p) : ResourceExecuteResult
++ProcessUpdateTexture(RHI::Base::BaseDevice & device, const UpdateTextureParams & p) : ResourceExecuteResult
+__
+}
+class "RHI::Executors::ResourceExecutor::ResourceExecutor<RHI::Executors::ResourceExecutor::ResourceExecutorGL>" as C_0005780833787021894055
+class C_0005780833787021894055 {
+__
+}
+class "RHI::Executors::ResourceExecutor::ResourceExecutorGL" as C_0005038856606455904678
+class C_0005038856606455904678 {
++IsValid() : bool
++ProcessCopyBufferImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::CopyBufferParams &) : ResourceExecuteResult
++ProcessCopyTextureImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::CopyTextureParams &) : ResourceExecuteResult
++ProcessCreateBufferImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::CreateBufferParams &) : ResourceExecuteResult
++ProcessCreateRenderTargetImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::CreateRenderTargetParams &) : ResourceExecuteResult
++ProcessCreateSamplerImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::CreateSamplerParams &) : ResourceExecuteResult
++ProcessCreateShaderImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::CreateShaderParams &) : ResourceExecuteResult
++ProcessCreateTextureImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::CreateTextureParams &) : ResourceExecuteResult
++ProcessDestroyBufferImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::DestroyBufferParams &) : ResourceExecuteResult
++ProcessDestroyRenderTargetImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::DestroyRenderTargetParams &) : ResourceExecuteResult
++ProcessDestroySamplerImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::DestroySamplerParams &) : ResourceExecuteResult
++ProcessDestroyShaderImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::DestroyShaderParams &) : ResourceExecuteResult
++ProcessDestroyTextureImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::DestroyTextureParams &) : ResourceExecuteResult
++ProcessUpdateBufferImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::UpdateBufferParams &) : ResourceExecuteResult
++ProcessUpdateTextureImpl(RHI::Base::BaseDevice &, const RHI::Executors::ResourceExecutor::UpdateTextureParams &) : ResourceExecuteResult
+__
+}
+enum "RHI::Executors::SwapChainExecutor::PresentMode" as C_0010147701823634967455
+enum C_0010147701823634967455 {
+FIFO
+IMMEDIATE
+FIFO_RELAXED
+MAILBOX
+}
+enum "RHI::Executors::SwapChainExecutor::ColorSpace" as C_0008061828664593881864
+enum C_0008061828664593881864 {
+SRGB_NONLINEAR
+LINEAR
+HDR10_ST2084
+DISPLAY_P3
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainCreateParams" as C_0002241122493757235413
+class C_0002241122493757235413 {
+__
++bufferCount : uint32_t
++colorSpace : ColorSpace
++height : uint32_t
++presentMode : PresentMode
++width : uint32_t
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainResizeParams" as C_0016349985479718648216
+class C_0016349985479718648216 {
+__
++newHeight : uint32_t
++newWidth : uint32_t
++preserveContent : bool
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainPresentParams" as C_0016922636105703238176
+class C_0016922636105703238176 {
+__
++presentMode : PresentMode
++renderTarget : RHI::Handles::RenderTargetHandle
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainDestroyParams" as C_0015051514805239245517
+class C_0015051514805239245517 {
+__
++forceImmediate : bool
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainCreateResult" as C_0007114229057334085869
+class C_0007114229057334085869 {
+__
++bufferCount : uint32_t
++colorSpace : ColorSpace
++errorMessage : std::string
++height : uint32_t
++presentMode : PresentMode
++success : bool
++width : uint32_t
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainResizeResult" as C_0001526639479561584852
+class C_0001526639479561584852 {
+__
++bufferCount : uint32_t
++errorMessage : std::string
++newHeight : uint32_t
++newWidth : uint32_t
++oldHeight : uint32_t
++oldWidth : uint32_t
++success : bool
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainPresentResult" as C_0004658596863119393125
+class C_0004658596863119393125 {
+__
++errorMessage : std::string
++frameNumber : uint64_t
++presentMode : PresentMode
++success : bool
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainDestroyResult" as C_0006873617529089649921
+class C_0006873617529089649921 {
+__
++errorMessage : std::string
++success : bool
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainExecuteResult" as C_0004692289607248477306
+class C_0004692289607248477306 {
++SwapChainExecuteResult() = default : void
++SwapChainExecuteResult(const SwapChainCreateResult & r) : void
++SwapChainExecuteResult(const SwapChainResizeResult & r) : void
++SwapChainExecuteResult(const SwapChainPresentResult & r) : void
++SwapChainExecuteResult(const SwapChainDestroyResult & r) : void
+__
++data : std::variant<SwapChainCreateResult,SwapChainResizeResult,SwapChainPresentResult,SwapChainDestroyResult>
++operationType : OperationType
+}
+enum "RHI::Executors::SwapChainExecutor::SwapChainExecuteResult::OperationType" as C_0000987989541154259453
+enum C_0000987989541154259453 {
+CREATE
+RESIZE
+PRESENT
+DESTROY
+UNKNOWN
+}
+class "RHI::Executors::SwapChainExecutor::HasSwapChainExecutorImpl<T>" as C_0015791959902106372666
+class C_0015791959902106372666 <<concept>> {
+(T * t,RHI::Base::BaseDevice & device,const SwapChainCreateParams & create,const SwapChainResizeParams & resize,const SwapChainPresentParams & present,const SwapChainDestroyParams & destroy)
+..
+{t->ProcessCreateSwapChainImpl(device, create)} -> std::same_as<SwapChainExecuteResult>
+{t->ProcessResizeSwapChainImpl(device, resize)} -> std::same_as<SwapChainExecuteResult>
+{t->ProcessPresentSwapChainImpl(device, present)} -> std::same_as<SwapChainExecuteResult>
+{t->ProcessDestroySwapChainImpl(device, destroy)} -> std::same_as<SwapChainExecuteResult>
+{t->IsValid()} -> std::same_as<bool>
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainExecutor<SwapChainExecutorImpl>" as C_0012057573704288675197
+class C_0012057573704288675197 {
++SwapChainExecutor() : void
+..
++ProcessCreateSwapChain(RHI::Base::BaseDevice & device, const SwapChainCreateParams & p) : SwapChainExecuteResult
++ProcessCurrentParam(RHI::Base::BaseDevice & device, const SwapChainParams & param) : SwapChainExecuteResult
++ProcessDestroySwapChain(RHI::Base::BaseDevice & device, const SwapChainDestroyParams & p) : SwapChainExecuteResult
++ProcessPresentSwapChain(RHI::Base::BaseDevice & device, const SwapChainPresentParams & p) : SwapChainExecuteResult
++ProcessResizeSwapChain(RHI::Base::BaseDevice & device, const SwapChainResizeParams & p) : SwapChainExecuteResult
+__
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainExecutor<RHI::Executors::SwapChainExecutor::SwapChainExecutorGL>" as C_0005259813983901734684
+class C_0005259813983901734684 {
+__
+}
+class "RHI::Executors::SwapChainExecutor::SwapChainExecutorGL" as C_0015003801578778503528
+class C_0015003801578778503528 {
++IsValid() : bool
++ProcessCreateSwapChainImpl(Base::BaseDevice & device, const SwapChainCreateParams & params) : SwapChainExecuteResult
++ProcessDestroySwapChainImpl(Base::BaseDevice & device, const SwapChainDestroyParams & params) : SwapChainExecuteResult
++ProcessPresentSwapChainImpl(Base::BaseDevice & device, const SwapChainPresentParams & params) : SwapChainExecuteResult
++ProcessResizeSwapChainImpl(Base::BaseDevice & device, const SwapChainResizeParams & params) : SwapChainExecuteResult
+__
+-currentBufferCount : uint32_t
+-currentColorSpace : ColorSpace
+-currentHeight : uint32_t
+-currentPresentMode : PresentMode
+-currentWidth : uint32_t
+-frameCounter : uint64_t
+-window : GLFWwindow *
+}
+class "RHI::Executors::BaseExecutorRHI<SwapChainExecutorImpl,std::variant<RHI::Executors::SwapChainExecutor::SwapChainCreateParams,RHI::Executors::SwapChainExecutor::SwapChainResizeParams,RHI::Executors::SwapChainExecutor::SwapChainPresentParams,RHI::Executors::SwapChainExecutor::SwapChainDestroyParams>,RHI::Executors::SwapChainExecutor::SwapChainExecuteResult>" as C_0001316876946216299216
+class C_0001316876946216299216 {
+__
+}
+class "RHI::Executors::BaseExecutorRHI<ResourceExecutorImpl,std::variant<RHI::Executors::ResourceExecutor::CreateBufferParams,RHI::Executors::ResourceExecutor::UpdateBufferParams,RHI::Executors::ResourceExecutor::CopyBufferParams,RHI::Executors::ResourceExecutor::DestroyBufferParams,RHI::Executors::ResourceExecutor::CreateTextureParams,RHI::Executors::ResourceExecutor::UpdateTextureParams,RHI::Executors::ResourceExecutor::CopyTextureParams,RHI::Executors::ResourceExecutor::DestroyTextureParams,RHI::Executors::ResourceExecutor::CreateSamplerParams,RHI::Executors::ResourceExecutor::DestroySamplerParams,RHI::Executors::ResourceExecutor::CreateShaderParams,RHI::Executors::ResourceExecutor::DestroyShaderParams,RHI::Executors::ResourceExecutor::CreateRenderTargetParams,RHI::Executors::ResourceExecutor::DestroyRenderTargetParams>,RHI::Executors::ResourceExecutor::ResourceExecuteResult>" as C_0001830102431059523587
+class C_0001830102431059523587 {
+__
+}
+class "RHI::Executors::ExecutorQueueRHI" as C_0015037053193795295010
+class C_0015037053193795295010 {
++ExecutorQueueRHI(std::shared_ptr<RHI::Base::BaseDevice> dev) : void
++~ExecutorQueueRHI() : void
+..
++AddExecutor(IExecutorRHI * exec) : void
++Clear() : void
++ClearAllMarks() : void
++Execute() : void
++GetExecutor(size_t index) const : const IExecutorRHI *
++GetExecutor(size_t index) : IExecutorRHI *
++GetExecutorCount() const : size_t
++GetMarkedExecutorCount() const : size_t
++HasExecutors() const : bool
++HasMarkedExecutors() const : bool
+-InternalExecute(bool throwException) : bool
++IsExecuting() const : bool
++MarkAllForProcessing() : void
++MarkForProcessing(size_t index) : void
++MarkForProcessing(IExecutorRHI * exec) : void
++RemoveExecutor(size_t index) : void
++RemoveExecutor(IExecutorRHI * exec) : void
++TryExecute() : bool
+__
+-device : std::shared_ptr<RHI::Base::BaseDevice>
+-executers : std::vector<IExecutorRHI *>
+-executersMutex : std::mutex
+-isExecuting : std::atomic<bool>
+-needSort : bool
+}
+class "RHI::FabricRHI::OpenGLBackend" as C_0003752503723788143763
+class C_0003752503723788143763 {
+{static} +OnCreate<Backend>(ExecutorsOwnerT<Backend> & owner) : void
+__
+}
+enum "RHI::FabricRHI::BackendType" as C_0001398434522866495283
+enum C_0001398434522866495283 {
+OpenGL
+Vulkan
+}
+abstract "RHI::FabricRHI::IExecutorsOwner" as C_0004295952812233939758
+abstract C_0004295952812233939758 {
++~IExecutorsOwner() constexpr = default : void
+..
+{abstract} +Clear() = 0 : void
+{abstract} +GetIExecutors() const = 0 : std::vector<IExecutorRHI *>
+{abstract} +IsEmpty() const = 0 : bool
+__
+}
+abstract "RHI::FabricRHI::ICreatorRHI" as C_0003655758856260603096
+abstract C_0003655758856260603096 {
++~ICreatorRHI() constexpr = default : void
+..
+{abstract} +CreateContext() const = 0 : std::unique_ptr<Base::BaseContextInstanceRHI>
+{abstract} +CreateDevice(std::shared_ptr<Base::BaseWindow>) const = 0 : std::unique_ptr<Base::BaseDevice>
+{abstract} +CreateExecutors() const = 0 : std::unique_ptr<IExecutorsOwner>
+{abstract} +CreateWindow(const std::string &, uint32_t, uint32_t) const = 0 : std::unique_ptr<Base::BaseWindow>
+__
+}
+class "RHI::FabricRHI::ExecutorsOwnerT<Backend>" as C_0013197005336829080648
+class C_0013197005336829080648 {
++ExecutorsOwnerT() : void
++ExecutorsOwnerT(ExecutorsOwnerT<Backend> &&) noexcept = default : void
++ExecutorsOwnerT(const ExecutorsOwnerT<Backend> &) = deleted : void
++~ExecutorsOwnerT() = default : void
+..
++operator=(ExecutorsOwnerT<Backend> &&) noexcept = default : ExecutorsOwnerT<Backend> &
++operator=(const ExecutorsOwnerT<Backend> &) = deleted : ExecutorsOwnerT<Backend> &
+..
++Clear() : void
++Create() : void
++GetDrawExecutor() const : typename Backend::DrawExecutor *
++GetIExecutors() const : std::vector<IExecutorRHI *>
++GetPipelineExecutor() const : typename Backend::PipelineExecutor *
++GetResourceExecutor() const : typename Backend::ResourceExecutor *
++GetSwapChainExecutor() const : typename Backend::SwapChainExecutor *
++IsEmpty() const : bool
+__
+-drawExec : std::unique_ptr<typename Backend::DrawExecutor>
+-pipelineExec : std::unique_ptr<typename Backend::PipelineExecutor>
+-raw : std::vector<IExecutorRHI *>
+-resourceExec : std::unique_ptr<typename Backend::ResourceExecutor>
+-swapChainExec : std::unique_ptr<typename Backend::SwapChainExecutor>
+}
+class "RHI::FabricRHI::CreatorRHI<Backend>" as C_0016065159452225311070
+class C_0016065159452225311070 {
++CreateContext() const : std::unique_ptr<Base::BaseContextInstanceRHI>
++CreateDevice(std::shared_ptr<Base::BaseWindow> window) const : std::unique_ptr<Base::BaseDevice>
++CreateExecutors() const : std::unique_ptr<IExecutorsOwner>
++CreateWindow(const std::string & title, uint32_t w, uint32_t h) const : std::unique_ptr<Base::BaseWindow>
+__
+}
+class "RHI::RuntimeRHI" as C_0011293759637945271535
+class C_0011293759637945271535 {
+-RuntimeRHI() = default : void
++RuntimeRHI(const RuntimeRHI &) = deleted : void
++RuntimeRHI(RuntimeRHI &&) = deleted : void
+-~RuntimeRHI() : void
+..
++operator=(const RuntimeRHI &) = deleted : RuntimeRHI &
++operator=(RuntimeRHI &&) = deleted : RuntimeRHI &
+..
++Backend() const noexcept : FabricRHI::BackendType
++Context() const noexcept : Base::BaseContextInstanceRHI *
++Creator() const noexcept : FabricRHI::ICreatorRHI *
++Device() const noexcept : Base::BaseDevice *
++Executors() const noexcept : FabricRHI::IExecutorsOwner *
+{static} +GetInstance() : RuntimeRHI &
++Initialize(FabricRHI::BackendType type, const std::string & title = "BearEngine", unsigned int width = 1280, unsigned int height = 720) : bool
++IsInitialized() const noexcept : bool
++Queue() const noexcept : Executors::ExecutorQueueRHI *
++Shutdown() : void
++Window() const noexcept : Base::BaseWindow *
+__
+-context : std::shared_ptr<Base::BaseContextInstanceRHI>
+-creator : std::unique_ptr<FabricRHI::ICreatorRHI>
+-device : std::shared_ptr<Base::BaseDevice>
+-executers : std::unique_ptr<FabricRHI::IExecutorsOwner>
+-initialized : bool
+-queue : std::unique_ptr<Executors::ExecutorQueueRHI>
+-type : FabricRHI::BackendType
+-window : std::shared_ptr<Base::BaseWindow>
+}
+class "std::vector<RHI::Resource::BaseResourceStore::Slot>" as C_0000018073913738013865
+class C_0000018073913738013865 {
+__
+}
+class "std::vector<uint32_t>" as C_0008015409205204797935
+class C_0008015409205204797935 {
+__
+}
+class "std::string" as C_0001275076681856179721
+class C_0001275076681856179721 {
+__
+}
+class "std::function<void(int,int)>" as C_0008864553123866392413
+class C_0008864553123866392413 {
+__
+}
+class "std::function<void()>" as C_0013286274850898176297
+class C_0013286274850898176297 {
+__
+}
+class "std::shared_ptr<RHI::Base::BaseWindow>" as C_0017915783820104660384
+class C_0017915783820104660384 {
+__
+}
+class "std::shared_ptr<RHI::Resource::IResourceStore>" as C_0011763736900756207618
+class C_0011763736900756207618 {
+__
+}
+class "std::shared_ptr<RHI::OpenGL::WindowGL>" as C_0002562008358923441714
+class C_0002562008358923441714 {
+__
+}
+class "std::vector<RHI::Executors::PipelineExecutor::ShaderStageDesc>" as C_0018408639942296002667
+class C_0018408639942296002667 {
+__
+}
+class "std::vector<RHI::Executors::PipelineExecutor::VertexAttributeDesc>" as C_0010864529589021106638
+class C_0010864529589021106638 {
+__
+}
+class "std::vector<RHI::Executors::PipelineExecutor::VertexBindingDesc>" as C_0005259375287706356225
+class C_0005259375287706356225 {
+__
+}
+class "std::vector<RHI::Executors::PipelineExecutor::BlendAttachmentState>" as C_0006722874224732081456
+class C_0006722874224732081456 {
+__
+}
+class "std::vector<RHI::Format>" as C_0011718673438199394376
+class C_0011718673438199394376 {
+__
+}
+class "std::vector<RHI::DynamicState>" as C_0015213040506107558171
+class C_0015213040506107558171 {
+__
+}
+class "std::vector<RHI::Executors::PipelineExecutor::UniformBindingDesc>" as C_0003768036780984506282
+class C_0003768036780984506282 {
+__
+}
+class "std::hash" as C_0015140168415346399035
+class C_0015140168415346399035 {
++operator()(const RHI::Executors::PipelineExecutor::PipelineState & s) const noexcept : size_t
+__
+}
+class "std::hash<RHI::Executors::PipelineExecutor::PipelineState>" as C_0014182483782406561048
+class C_0014182483782406561048 {
++operator()(const RHI::Executors::PipelineExecutor::PipelineState & s) const noexcept : size_t
+__
+}
+class "std::vector<RHI::Handles::Handle<RHI::Handles::TextureTag>>" as C_0004163035708510044730
+class C_0004163035708510044730 {
+__
+}
+class "std::variant<RHI::OpenGL::BufferGL,RHI::OpenGL::TextureGL,RHI::OpenGL::SamplerGL,RHI::OpenGL::ShaderGL,RHI::OpenGL::PipelineGL,RHI::OpenGL::RenderTargetGL>" as C_0008488661764897388243
+class C_0008488661764897388243 {
+__
+}
+class "std::variant<RHI::Executors::DrawExecutor::DrawArraysParams::Plain,RHI::Executors::DrawExecutor::DrawArraysParams::Instanced>" as C_0009189697817196772133
+class C_0009189697817196772133 {
+__
+}
+class "std::variant<RHI::Executors::DrawExecutor::DrawElementsParams::Plain,RHI::Executors::DrawExecutor::DrawElementsParams::Range,RHI::Executors::DrawExecutor::DrawElementsParams::Instanced,RHI::Executors::DrawExecutor::DrawElementsParams::RangeInstanced>" as C_0011119483904898666912
+class C_0011119483904898666912 {
+__
+}
+class "std::false_type" as C_0002785967449649660056
+class C_0002785967449649660056 {
+__
+}
+class "std::variant<Ts...>" as C_0005358857762675063977
+class C_0005358857762675063977 {
+__
+}
+class "std::true_type" as C_0009166925722896823160
+class C_0009166925722896823160 {
+__
+}
+class "std::vector<ProcessResult>" as C_0014503825185024712492
+class C_0014503825185024712492 {
+__
+}
+class "std::function<void(std::vector<ProcessResult> const&)>" as C_0014320654946840059428
+class C_0014320654946840059428 {
+__
+}
+class "std::vector<RHI::Executors::ParamToken<Params>>" as C_0012177904334285640899
+class C_0012177904334285640899 {
+__
+}
+class "std::vector<size_t>" as C_0009048762651940375792
+class C_0009048762651940375792 {
+__
+}
+class "std::pair<int,int>" as C_0006524010458157121833
+class C_0006524010458157121833 {
+__
+}
+class "std::optional<std::pair<int,int>>" as C_0015130923314734993149
+class C_0015130923314734993149 {
+__
+}
+class "std::vector<RHI::Executors::BaseExecutorRHI::Subscriber>" as C_0001306470844002714706
+class C_0001306470844002714706 {
+__
+}
+class "std::atomic<uint64_t>" as C_0003756792376209326944
+class C_0003756792376209326944 {
+__
+}
+class "std::variant<RHI::Executors::DrawExecutor::DrawArraysResult,RHI::Executors::DrawExecutor::DrawElementsResult,RHI::Executors::DrawExecutor::BeginRenderPassResult,RHI::Executors::DrawExecutor::EndRenderPassResult,RHI::Executors::DrawExecutor::SetViewportResult,RHI::Executors::DrawExecutor::SetScissorResult,RHI::Executors::DrawExecutor::SetBlendConstantsResult,RHI::Executors::DrawExecutor::BindUniformBufferResult,RHI::Executors::DrawExecutor::BindStorageBufferResult>" as C_0013160997856410977014
+class C_0013160997856410977014 {
+__
+}
+class "std::variant<RHI::Executors::DrawExecutor::DrawArraysParams,RHI::Executors::DrawExecutor::DrawElementsParams,RHI::Executors::DrawExecutor::BeginRenderPassParams,RHI::Executors::DrawExecutor::EndRenderPassParams,RHI::Executors::DrawExecutor::SetViewportParams,RHI::Executors::DrawExecutor::SetScissorParams,RHI::Executors::DrawExecutor::SetBlendConstantsParams,RHI::Executors::DrawExecutor::BindUniformBufferParams,RHI::Executors::DrawExecutor::BindStorageBufferParams>" as C_0003640589548092447978
+class C_0003640589548092447978 {
+__
+}
+class "std::variant<RHI::Executors::PipelineExecutor::CreatePipelineResult,RHI::Executors::PipelineExecutor::DestroyPipelineResult>" as C_0008938814143329104087
+class C_0008938814143329104087 {
+__
+}
+class "std::variant<RHI::Executors::PipelineExecutor::CreatePipelineParams,RHI::Executors::PipelineExecutor::DestroyPipelineParams>" as C_0010709461041966213663
+class C_0010709461041966213663 {
+__
+}
+class "std::unordered_map<uint64_t,RHI::Handles::Handle<RHI::Handles::PipelineTag>>" as C_0006758348029626043356
+class C_0006758348029626043356 {
+__
+}
+class "std::vector<std::byte>" as C_0008896718624910771974
+class C_0008896718624910771974 {
+__
+}
+class "std::variant<RHI::Executors::SwapChainExecutor::SwapChainCreateResult,RHI::Executors::SwapChainExecutor::SwapChainResizeResult,RHI::Executors::SwapChainExecutor::SwapChainPresentResult,RHI::Executors::SwapChainExecutor::SwapChainDestroyResult>" as C_0015923813726573761034
+class C_0015923813726573761034 {
+__
+}
+class "std::variant<RHI::Executors::SwapChainExecutor::SwapChainCreateParams,RHI::Executors::SwapChainExecutor::SwapChainResizeParams,RHI::Executors::SwapChainExecutor::SwapChainPresentParams,RHI::Executors::SwapChainExecutor::SwapChainDestroyParams>" as C_0004148836965468005895
+class C_0004148836965468005895 {
+__
+}
+class "std::variant<RHI::Executors::ResourceExecutor::CreateBufferResult,RHI::Executors::ResourceExecutor::UpdateBufferResult,RHI::Executors::ResourceExecutor::CopyBufferResult,RHI::Executors::ResourceExecutor::DestroyBufferResult,RHI::Executors::ResourceExecutor::CreateTextureResult,RHI::Executors::ResourceExecutor::UpdateTextureResult,RHI::Executors::ResourceExecutor::CopyTextureResult,RHI::Executors::ResourceExecutor::DestroyTextureResult,RHI::Executors::ResourceExecutor::CreateSamplerResult,RHI::Executors::ResourceExecutor::DestroySamplerResult,RHI::Executors::ResourceExecutor::CreateShaderResult,RHI::Executors::ResourceExecutor::DestroyShaderResult,RHI::Executors::ResourceExecutor::CreateRenderTargetResult,RHI::Executors::ResourceExecutor::DestroyRenderTargetResult>" as C_0004488683601045205354
+class C_0004488683601045205354 {
+__
+}
+class "std::variant<RHI::Executors::ResourceExecutor::CreateBufferParams,RHI::Executors::ResourceExecutor::UpdateBufferParams,RHI::Executors::ResourceExecutor::CopyBufferParams,RHI::Executors::ResourceExecutor::DestroyBufferParams,RHI::Executors::ResourceExecutor::CreateTextureParams,RHI::Executors::ResourceExecutor::UpdateTextureParams,RHI::Executors::ResourceExecutor::CopyTextureParams,RHI::Executors::ResourceExecutor::DestroyTextureParams,RHI::Executors::ResourceExecutor::CreateSamplerParams,RHI::Executors::ResourceExecutor::DestroySamplerParams,RHI::Executors::ResourceExecutor::CreateShaderParams,RHI::Executors::ResourceExecutor::DestroyShaderParams,RHI::Executors::ResourceExecutor::CreateRenderTargetParams,RHI::Executors::ResourceExecutor::DestroyRenderTargetParams>" as C_0012531593434999655625
+class C_0012531593434999655625 {
+__
+}
+class "std::vector<IExecutorRHI *>" as C_0010012189973648974243
+class C_0010012189973648974243 {
+__
+}
+class "std::unique_ptr<RHI::Base::BaseContextInstanceRHI>" as C_0012785555662733046432
+class C_0012785555662733046432 {
+__
+}
+class "std::unique_ptr<RHI::Base::BaseWindow>" as C_0010631451133372227943
+class C_0010631451133372227943 {
+__
+}
+class "std::unique_ptr<RHI::Base::BaseDevice>" as C_0009492396599576902449
+class C_0009492396599576902449 {
+__
+}
+class "std::unique_ptr<RHI::FabricRHI::IExecutorsOwner>" as C_0017513549579266719774
+class C_0017513549579266719774 {
+__
+}
+class "std::unique_ptr<RHI::FabricRHI::ICreatorRHI>" as C_0005824018674665610705
+class C_0005824018674665610705 {
+__
+}
+class "std::shared_ptr<RHI::Base::BaseContextInstanceRHI>" as C_0013567005439425500632
+class C_0013567005439425500632 {
+__
+}
+class "std::shared_ptr<RHI::Base::BaseDevice>" as C_0001349758934966631707
+class C_0001349758934966631707 {
+__
+}
+class "std::unique_ptr<RHI::Executors::ExecutorQueueRHI>" as C_0017822837642960176042
+class C_0017822837642960176042 {
+__
+}
+class "std::unique_ptr<typename Backend::ResourceExecutor>" as C_0004652396164832944638
+class C_0004652396164832944638 {
+__
+}
+class "std::unique_ptr<typename Backend::PipelineExecutor>" as C_0007025408253175529307
+class C_0007025408253175529307 {
+__
+}
+class "std::unique_ptr<typename Backend::DrawExecutor>" as C_0002531192179499843261
+class C_0002531192179499843261 {
+__
+}
+class "std::unique_ptr<typename Backend::SwapChainExecutor>" as C_0018304936436847906763
+class C_0018304936436847906763 {
+__
+}
+class "std::atomic<bool>" as C_0004308501729698541420
+class C_0004308501729698541420 {
+__
+}
+class "Vector2<float>" as C_0004967238373429177183
+class C_0004967238373429177183 {
+__
+}
+class "GLFWwindow" as C_0008434725962297335764
+class C_0008434725962297335764 {
+__
+}
+class "Vector3<float>" as C_0004873243434746313755
+class C_0004873243434746313755 {
+__
+}
+class "Vector4<float>" as C_0012525457090368048551
+class C_0012525457090368048551 {
+__
+}
+class "BaseMatrix<float,2,2>" as C_0018332711431491965948
+class C_0018332711431491965948 {
+__
+}
+class "BaseMatrix<float,3,3>" as C_0011401928578442806011
+class C_0011401928578442806011 {
+__
+}
+class "BaseMatrix<float,4,4>" as C_0014548721040391825663
+class C_0014548721040391825663 {
+__
+}
+C_0008854306340006269619 ..> C_0001275076681856179721
+C_0008854306340006269619 o-- C_0002497028240164804795 : #windowSize
+C_0008854306340006269619 o-- C_0004967238373429177183 : #mousePos
+C_0008854306340006269619 o-- C_0008864553123866392413 : #resizeCallback
+C_0008854306340006269619 o-- C_0013286274850898176297 : #closeCallback
+C_0005708756352896156294 --> C_0008854306340006269619 : #window
+C_0005708756352896156294 --> C_0017915783820104660384 : #window
+C_0005708756352896156294 o-- C_0009997333210436196399 : #clearColor
+C_0005708756352896156294 --> C_0002774174447621685786 : #storage
+C_0005708756352896156294 --> C_0011763736900756207618 : #storage
+C_0003238306547730372984 ..> C_0004967238373429177183
+C_0003238306547730372984 ..> C_0004873243434746313755
+C_0003238306547730372984 ..> C_0012525457090368048551
+C_0003238306547730372984 ..> C_0018332711431491965948
+C_0003238306547730372984 ..> C_0011401928578442806011
+C_0003238306547730372984 ..> C_0014548721040391825663
+C_0003238306547730372984 o-- C_0001275076681856179721 : -vertexShaderPath
+C_0003238306547730372984 o-- C_0001275076681856179721 : -fragmentShaderPath
+C_0005231616161591763883 <|-- C_0003873172224027559008
+C_0005231616161591763883 <|-- C_0006757765275635295057
+C_0014608739021634793513 ..> C_0002390167099915986856
+C_0014608739021634793513 ..> C_0002562008358923441714
+C_0014608739021634793513 ..> C_0008434725962297335764
+C_0005708756352896156294 <|-- C_0014608739021634793513
+C_0002390167099915986856 --> C_0008434725962297335764 : -window
+C_0002390167099915986856 o-- C_0001275076681856179721 : -title
+C_0008854306340006269619 <|-- C_0002390167099915986856
+C_0006005743450215172321 o-- C_0017342555715941177987 : +format
+C_0006005743450215172321 o-- C_0004680811111300979796 : +samples
+C_0000316759269368314461 o-- C_0008492625370752644608 : +state
+C_0014656794005468063180 o-- C_0004163035708510044730 : +colors
+C_0014656794005468063180 o-- C_0004163035708510044730 : +resolveTargets
+C_0014656794005468063180 o-- C_0012005239889392561503 : +depth
+C_0014656794005468063180 o-- C_0004680811111300979796 : +samples
+C_0008488661764897388243 <|-- C_0010425460926490307248
+C_0014344969546915356458 <|-- C_0011307778534782248253
+C_0012134381579673535172 o-- C_0000018073913738013865 : -slots
+C_0012134381579673535172 o-- C_0008015409205204797935 : -freeList
+C_0002774174447621685786 <|-- C_0012134381579673535172
+C_0000063816661713176481 --+ C_0012134381579673535172
+C_0014344969546915356458 ..> C_0010425460926490307248
+C_0014344969546915356458 ..|> C_0012134381579673535172
+C_0000707296846528872348 <|-- C_0005578090670413573263
+C_0016373400785332692605 ..> C_0008034465141857059395
+C_0016373400785332692605 ..|> C_0005578090670413573263
+C_0003589380393833722061 ..> C_0008704574507613545787
+C_0003589380393833722061 ..|> C_0005578090670413573263
+C_0012005239889392561503 ..> C_0009611487711361933771
+C_0012005239889392561503 ..|> C_0005578090670413573263
+C_0015359165925845477963 ..> C_0011320195748546059297
+C_0015359165925845477963 ..|> C_0005578090670413573263
+C_0004442367663718810801 ..> C_0007553735398119356472
+C_0004442367663718810801 ..|> C_0005578090670413573263
+C_0018201436968382536589 ..> C_0017055620095160775212
+C_0018201436968382536589 ..|> C_0005578090670413573263
+C_0001286871795823972184 ..> C_0005578090670413573263
+C_0001286871795823972184 ..> C_0008034465141857059395
+C_0001286871795823972184 o-- C_0011752239109591765051 : +stage
+C_0001286871795823972184 o-- C_0016373400785332692605 : +shaderHandler
+C_0001286871795823972184 o-- C_0001275076681856179721 : +entryPoint
+C_0018212911750158375658 o-- C_0017342555715941177987 : +format
+C_0001443000410540681029 o-- C_0018238069570305526862 : +failOp
+C_0001443000410540681029 o-- C_0018238069570305526862 : +passOp
+C_0001443000410540681029 o-- C_0018238069570305526862 : +depthFailOp
+C_0001443000410540681029 o-- C_0006219881537408864794 : +compareOp
+C_0012809961037602443052 o-- C_0002563642512026115967 : +srcColorBlendFactor
+C_0012809961037602443052 o-- C_0002563642512026115967 : +dstColorBlendFactor
+C_0012809961037602443052 o-- C_0006485769967452821108 : +colorBlendOp
+C_0012809961037602443052 o-- C_0002563642512026115967 : +srcAlphaBlendFactor
+C_0012809961037602443052 o-- C_0002563642512026115967 : +dstAlphaBlendFactor
+C_0012809961037602443052 o-- C_0006485769967452821108 : +alphaBlendOp
+C_0012809961037602443052 o-- C_0002557597462448148879 : +writeMask
+C_0009583786325508714451 o-- C_0001275076681856179721 : +name
+C_0008492625370752644608 o-- C_0018408639942296002667 : +stages
+C_0008492625370752644608 o-- C_0010864529589021106638 : +vertexAttributes
+C_0008492625370752644608 o-- C_0005259375287706356225 : +vertexBindings
+C_0008492625370752644608 o-- C_0009226924719790498902 : +topology
+C_0008492625370752644608 o-- C_0017342555715941177987 : +indexFormat
+C_0008492625370752644608 o-- C_0015567768345396996144 : +fillMode
+C_0008492625370752644608 o-- C_0011137600101990450137 : +cullMode
+C_0008492625370752644608 o-- C_0012681966156831673206 : +frontFace
+C_0008492625370752644608 o-- C_0006219881537408864794 : +depthCompareOp
+C_0008492625370752644608 o-- C_0001443000410540681029 : +stencilFront
+C_0008492625370752644608 o-- C_0001443000410540681029 : +stencilBack
+C_0008492625370752644608 o-- C_0006722874224732081456 : +blendAttachments
+C_0008492625370752644608 o-- C_0004680811111300979796 : +sampleCount
+C_0008492625370752644608 o-- C_0011718673438199394376 : +colorFormats
+C_0008492625370752644608 o-- C_0017342555715941177987 : +depthStencilFormat
+C_0008492625370752644608 o-- C_0015213040506107558171 : +dynamicStates
+C_0008492625370752644608 o-- C_0003768036780984506282 : +uniformBindings
+C_0003625239021966007036 o-- C_0008492625370752644608 : +state
+C_0009949310191014717899 o-- C_0003589380393833722061 : +handle
+C_0008450938387574276439 ..> C_0005578090670413573263
+C_0008450938387574276439 ..> C_0008704574507613545787
+C_0008450938387574276439 o-- C_0003589380393833722061 : +handle
+C_0016456939255556434424 ..> C_0008450938387574276439
+C_0016456939255556434424 ..> C_0003286880471219087816
+C_0016456939255556434424 o-- C_0008938814143329104087 : +data
+C_0005369426599919267506 <|-- C_0016456939255556434424
+C_0002905370629411207612 ..> C_0005708756352896156294
+C_0002905370629411207612 ..> C_0010709461041966213663
+C_0002905370629411207612 ..> C_0003625239021966007036
+C_0002905370629411207612 ..> C_0009949310191014717899
+C_0002905370629411207612 ..> C_0016456939255556434424
+C_0011642292099030353259 <|-- C_0002905370629411207612
+C_0004890448639302699989 o-- C_0008492625370752644608 : +state
+C_0003589380393833722061 <|-- C_0004890448639302699989
+C_0009796221824638894445 ..> C_0007276458122680037337
+C_0009796221824638894445 ..|> C_0002905370629411207612
+C_0007276458122680037337 ..> C_0010864529589021106638
+C_0007276458122680037337 ..> C_0018212911750158375658
+C_0007276458122680037337 ..> C_0005259375287706356225
+C_0007276458122680037337 ..> C_0007624248816574827506
+C_0007276458122680037337 ..> C_0011137600101990450137
+C_0007276458122680037337 ..> C_0012681966156831673206
+C_0007276458122680037337 ..> C_0015567768345396996144
+C_0007276458122680037337 ..> C_0006219881537408864794
+C_0007276458122680037337 ..> C_0001443000410540681029
+C_0007276458122680037337 ..> C_0006722874224732081456
+C_0007276458122680037337 ..> C_0012809961037602443052
+C_0007276458122680037337 ..> C_0005708756352896156294
+C_0007276458122680037337 ..> C_0003589380393833722061
+C_0007276458122680037337 ..> C_0005578090670413573263
+C_0007276458122680037337 ..> C_0008704574507613545787
+C_0007276458122680037337 ..> C_0003625239021966007036
+C_0007276458122680037337 ..> C_0016456939255556434424
+C_0007276458122680037337 ..> C_0009949310191014717899
+C_0007276458122680037337 o-- C_0006758348029626043356 : -pipelineCache
+C_0007276458122680037337 <.. C_0009770125608371103168 : +<<friend>>
+C_0009796221824638894445 <|-- C_0007276458122680037337
+C_0002352423688343412383 ..> C_0005578090670413573263
+C_0002352423688343412383 ..> C_0011320195748546059297
+C_0002352423688343412383 o-- C_0015359165925845477963 : +buffer
+C_0008955739520860115804 ..> C_0005578090670413573263
+C_0008955739520860115804 ..> C_0008704574507613545787
+C_0008955739520860115804 ..> C_0011320195748546059297
+C_0008955739520860115804 o-- C_0003589380393833722061 : +pipeline
+C_0008955739520860115804 --> C_0002352423688343412383 : +vertexBuffers
+C_0008955739520860115804 o-- C_0015359165925845477963 : +indexBuffer
+C_0002079846406190880318 ..> C_0003589380393833722061
+C_0002079846406190880318 ..> C_0005578090670413573263
+C_0002079846406190880318 ..> C_0008704574507613545787
+C_0002079846406190880318 ..> C_0002352423688343412383
+C_0002079846406190880318 ..> C_0010905723003066341204
+C_0002079846406190880318 ..> C_0005266640047003507241
+C_0002079846406190880318 o-- C_0009189697817196772133 : +data
+C_0008955739520860115804 <|-- C_0002079846406190880318
+C_0010905723003066341204 --+ C_0002079846406190880318
+C_0005266640047003507241 --+ C_0002079846406190880318
+C_0001934204374484432982 ..> C_0003589380393833722061
+C_0001934204374484432982 ..> C_0005578090670413573263
+C_0001934204374484432982 ..> C_0008704574507613545787
+C_0001934204374484432982 ..> C_0002352423688343412383
+C_0001934204374484432982 ..> C_0015359165925845477963
+C_0001934204374484432982 ..> C_0011320195748546059297
+C_0001934204374484432982 ..> C_0001626674801974493328
+C_0001934204374484432982 ..> C_0012553501158914017885
+C_0001934204374484432982 ..> C_0015690251506211681073
+C_0001934204374484432982 ..> C_0007951328898681030773
+C_0001934204374484432982 o-- C_0011119483904898666912 : +data
+C_0008955739520860115804 <|-- C_0001934204374484432982
+C_0001626674801974493328 --+ C_0001934204374484432982
+C_0012553501158914017885 --+ C_0001934204374484432982
+C_0015690251506211681073 --+ C_0001934204374484432982
+C_0007951328898681030773 --+ C_0001934204374484432982
+C_0016025929040332354421 ..> C_0005578090670413573263
+C_0016025929040332354421 ..> C_0007553735398119356472
+C_0016025929040332354421 o-- C_0004442367663718810801 : +renderTarget
+C_0016025929040332354421 o-- C_0002497028240164804795 : +renderArea
+C_0016025929040332354421 o-- C_0017471126664708618145 : +clearFlags
+C_0017471126664708618145 --+ C_0016025929040332354421
+C_0004158912029523089978 o-- C_0002497028240164804795 : +viewport
+C_0002217264595801189326 o-- C_0002497028240164804795 : +scissor
+C_0014623551840716975870 ..> C_0005578090670413573263
+C_0014623551840716975870 ..> C_0011320195748546059297
+C_0014623551840716975870 o-- C_0015359165925845477963 : +buffer
+C_0017021393632708620748 ..> C_0005578090670413573263
+C_0017021393632708620748 ..> C_0011320195748546059297
+C_0017021393632708620748 o-- C_0015359165925845477963 : +buffer
+C_0000677530249013454793 o-- C_0003589380393833722061 : +pipeline
+C_0000677530249013454793 o-- C_0001275076681856179721 : +errorMessage
+C_0001998963463535583677 o-- C_0003589380393833722061 : +pipeline
+C_0001998963463535583677 o-- C_0001275076681856179721 : +errorMessage
+C_0002152359046570193998 o-- C_0004442367663718810801 : +renderTarget
+C_0002152359046570193998 o-- C_0001275076681856179721 : +errorMessage
+C_0011062578660595179410 o-- C_0001275076681856179721 : +errorMessage
+C_0008137171829058220581 o-- C_0002497028240164804795 : +viewport
+C_0008137171829058220581 o-- C_0001275076681856179721 : +errorMessage
+C_0003735960985209470589 o-- C_0002497028240164804795 : +scissor
+C_0003735960985209470589 o-- C_0001275076681856179721 : +errorMessage
+C_0013389686190276139586 o-- C_0001275076681856179721 : +errorMessage
+C_0001895283224903107721 ..> C_0000677530249013454793
+C_0001895283224903107721 ..> C_0001998963463535583677
+C_0001895283224903107721 ..> C_0002152359046570193998
+C_0001895283224903107721 ..> C_0011062578660595179410
+C_0001895283224903107721 ..> C_0008137171829058220581
+C_0001895283224903107721 ..> C_0003735960985209470589
+C_0001895283224903107721 ..> C_0013389686190276139586
+C_0001895283224903107721 ..> C_0015449159428011665246
+C_0001895283224903107721 ..> C_0005603939944074489226
+C_0001895283224903107721 o-- C_0003186824686358302257 : +operationType
+C_0001895283224903107721 o-- C_0013160997856410977014 : +data
+C_0005369426599919267506 <|-- C_0001895283224903107721
+C_0003186824686358302257 --+ C_0001895283224903107721
+C_0004072649313901749485 ..> C_0005708756352896156294
+C_0004072649313901749485 ..> C_0003640589548092447978
+C_0004072649313901749485 ..> C_0002079846406190880318
+C_0004072649313901749485 ..> C_0001934204374484432982
+C_0004072649313901749485 ..> C_0016025929040332354421
+C_0004072649313901749485 ..> C_0018246858763690044410
+C_0004072649313901749485 ..> C_0004158912029523089978
+C_0004072649313901749485 ..> C_0002217264595801189326
+C_0004072649313901749485 ..> C_0000918511524540632793
+C_0004072649313901749485 ..> C_0014623551840716975870
+C_0004072649313901749485 ..> C_0017021393632708620748
+C_0004072649313901749485 ..> C_0001895283224903107721
+C_0000300881938433629557 <|-- C_0004072649313901749485
+C_0017634255659811104412 ..> C_0009770125608371103168
+C_0017634255659811104412 ..|> C_0004072649313901749485
+C_0009770125608371103168 ..> C_0002352423688343412383
+C_0009770125608371103168 ..> C_0011307778534782248253
+C_0009770125608371103168 ..> C_0000316759269368314461
+C_0009770125608371103168 ..> C_0001275076681856179721
+C_0009770125608371103168 ..> C_0005708756352896156294
+C_0009770125608371103168 ..> C_0002079846406190880318
+C_0009770125608371103168 ..> C_0001895283224903107721
+C_0009770125608371103168 ..> C_0001934204374484432982
+C_0009770125608371103168 ..> C_0016025929040332354421
+C_0009770125608371103168 ..> C_0018246858763690044410
+C_0009770125608371103168 ..> C_0004158912029523089978
+C_0009770125608371103168 ..> C_0002217264595801189326
+C_0009770125608371103168 ..> C_0000918511524540632793
+C_0009770125608371103168 ..> C_0014623551840716975870
+C_0009770125608371103168 ..> C_0017021393632708620748
+C_0009770125608371103168 --> C_0007276458122680037337 : -pipelineExecutor
+C_0009770125608371103168 o-- C_0003589380393833722061 : -currentPipeline
+C_0009770125608371103168 o-- C_0004442367663718810801 : -currentRenderTarget
+C_0009770125608371103168 <.. C_0003752503723788143763 : +<<friend>>
+C_0017634255659811104412 <|-- C_0009770125608371103168
+C_0003433954759148155272 ..> C_0005708756352896156294
+C_0003433954759148155272 ..> C_0017432487023320340772
+C_0003433954759148155272 ..> C_0012809735119429966003
+C_0002785967449649660056 <|-- C_0001280194059613054791
+C_0002900120183650795523 ..> C_0005358857762675063977
+C_0002900120183650795523 ..|> C_0001280194059613054791
+C_0009166925722896823160 <|-- C_0002900120183650795523
+C_0005369426599919267506 o-- C_0001275076681856179721 : +errorMessage
+C_0006936697172452493326 --> C_0003433954759148155272 : -owner
+C_0006936697172452493326 o-- C_0012809735119429966003 : -token
+C_0013044347512054267948 ..|> C_0013962898419790792962
+C_0012957877209960596877 ..> C_0014320654946840059428
+C_0012957877209960596877 ..> C_0012809735119429966003
+C_0012957877209960596877 ..> C_0014503825185024712492
+C_0012957877209960596877 ..> C_0015989767340057044991
+C_0012957877209960596877 ..> C_0005708756352896156294
+C_0012957877209960596877 ..> C_0009048762651940375792
+C_0012957877209960596877 ..> C_0015130923314734993149
+C_0012957877209960596877 ..> C_0013044347512054267948
+C_0012957877209960596877 ..> C_0013962898419790792962
+C_0012957877209960596877 o-- C_0017432487023320340772 : #type
+C_0012957877209960596877 o-- C_0012177904334285640899 : #params
+C_0012957877209960596877 o-- C_0001306470844002714706 : #subscribers
+C_0012957877209960596877 o-- C_0003756792376209326944 : -nextParamId
+C_0012957877209960596877 o-- C_0003756792376209326944 : -nextSubscriptionId
+C_0003433954759148155272 <|-- C_0012957877209960596877
+C_0011974954793212153825 --+ C_0012957877209960596877
+C_0011974954793212153825 o-- C_0014320654946840059428 : +callback
+C_0000300881938433629557 ..> C_0003640589548092447978
+C_0000300881938433629557 ..> C_0001895283224903107721
+C_0000300881938433629557 ..|> C_0012957877209960596877
+C_0011642292099030353259 ..> C_0010709461041966213663
+C_0011642292099030353259 ..> C_0016456939255556434424
+C_0011642292099030353259 ..|> C_0012957877209960596877
+C_0000178082922235983961 o-- C_0001231720673556783241 : +usage
+C_0000178082922235983961 o-- C_0005381148324054575812 : +memory
+C_0000178082922235983961 o-- C_0001275076681856179721 : +debugName
+C_0016488558503061954224 o-- C_0017342555715941177987 : +format
+C_0016488558503061954224 o-- C_0017857839098255792773 : +usage
+C_0016488558503061954224 o-- C_0004680811111300979796 : +samples
+C_0016488558503061954224 o-- C_0001275076681856179721 : +debugName
+C_0011958899661194299903 o-- C_0006607086124093505487 : +minFilter
+C_0011958899661194299903 o-- C_0006607086124093505487 : +magFilter
+C_0011958899661194299903 o-- C_0005926236241519209945 : +mipFilter
+C_0011958899661194299903 o-- C_0004179885612182855068 : +addressU
+C_0011958899661194299903 o-- C_0004179885612182855068 : +addressV
+C_0011958899661194299903 o-- C_0004179885612182855068 : +addressW
+C_0011958899661194299903 o-- C_0006219881537408864794 : +compareOp
+C_0011958899661194299903 o-- C_0007480252460239535844 : +borderColor
+C_0011958899661194299903 o-- C_0001275076681856179721 : +debugName
+C_0011564875438782918747 o-- C_0011752239109591765051 : +stage
+C_0011564875438782918747 o-- C_0008896718624910771974 : +bytecode
+C_0011564875438782918747 o-- C_0001275076681856179721 : +entryPoint
+C_0011564875438782918747 o-- C_0001275076681856179721 : +debugName
+C_0014654840952579805808 ..> C_0005578090670413573263
+C_0014654840952579805808 ..> C_0009611487711361933771
+C_0014654840952579805808 o-- C_0004163035708510044730 : +colorAttachments
+C_0014654840952579805808 o-- C_0004163035708510044730 : +resolveAttachments
+C_0014654840952579805808 o-- C_0012005239889392561503 : +depthStencilAttachment
+C_0014654840952579805808 o-- C_0004680811111300979796 : +samples
+C_0014654840952579805808 o-- C_0001275076681856179721 : +debugName
+C_0011110600812833231050 o-- C_0000178082922235983961 : +desc
+C_0014223954884167299749 ..> C_0005578090670413573263
+C_0014223954884167299749 ..> C_0011320195748546059297
+C_0014223954884167299749 o-- C_0015359165925845477963 : +handle
+C_0014223954884167299749 o-- C_0008896718624910771974 : +data
+C_0015894124265864959934 ..> C_0005578090670413573263
+C_0015894124265864959934 ..> C_0011320195748546059297
+C_0015894124265864959934 o-- C_0015359165925845477963 : +src
+C_0015894124265864959934 o-- C_0015359165925845477963 : +dst
+C_0009786537643028330885 ..> C_0005578090670413573263
+C_0009786537643028330885 ..> C_0011320195748546059297
+C_0009786537643028330885 o-- C_0015359165925845477963 : +handle
+C_0006096803701426024262 o-- C_0016488558503061954224 : +desc
+C_0016627078594072677877 ..> C_0005578090670413573263
+C_0016627078594072677877 ..> C_0009611487711361933771
+C_0016627078594072677877 o-- C_0012005239889392561503 : +handle
+C_0016627078594072677877 o-- C_0002497028240164804795 : +region
+C_0016627078594072677877 o-- C_0008896718624910771974 : +data
+C_0006784203541396077937 ..> C_0005578090670413573263
+C_0006784203541396077937 ..> C_0009611487711361933771
+C_0006784203541396077937 o-- C_0012005239889392561503 : +src
+C_0006784203541396077937 o-- C_0012005239889392561503 : +dst
+C_0006784203541396077937 o-- C_0002497028240164804795 : +srcRegion
+C_0006784203541396077937 o-- C_0002497028240164804795 : +dstRegion
+C_0006784203541396077937 o-- C_0012379345396819970892 : +aspect
+C_0006784203541396077937 o-- C_0006607086124093505487 : +filter
+C_0009636238717653795704 ..> C_0005578090670413573263
+C_0009636238717653795704 ..> C_0009611487711361933771
+C_0009636238717653795704 o-- C_0012005239889392561503 : +handle
+C_0005813977497895877235 o-- C_0011958899661194299903 : +desc
+C_0010823124840953704321 ..> C_0005578090670413573263
+C_0010823124840953704321 ..> C_0017055620095160775212
+C_0010823124840953704321 o-- C_0018201436968382536589 : +handle
+C_0017561009578766664831 o-- C_0011564875438782918747 : +desc
+C_0017603276533162890937 ..> C_0005578090670413573263
+C_0017603276533162890937 ..> C_0008034465141857059395
+C_0017603276533162890937 o-- C_0016373400785332692605 : +handle
+C_0002483437880599725322 o-- C_0014654840952579805808 : +desc
+C_0008058793266403643452 ..> C_0005578090670413573263
+C_0008058793266403643452 ..> C_0007553735398119356472
+C_0008058793266403643452 o-- C_0004442367663718810801 : +handle
+C_0007498452384339056403 o-- C_0015359165925845477963 : +handle
+C_0014843185482071648379 o-- C_0015359165925845477963 : +handle
+C_0000612444734180726448 o-- C_0015359165925845477963 : +src
+C_0000612444734180726448 o-- C_0015359165925845477963 : +dst
+C_0014444129770632249391 o-- C_0015359165925845477963 : +handle
+C_0001138817099616840703 o-- C_0012005239889392561503 : +handle
+C_0017265849248839068116 o-- C_0012005239889392561503 : +handle
+C_0018376699336507592390 o-- C_0012005239889392561503 : +src
+C_0018376699336507592390 o-- C_0012005239889392561503 : +dst
+C_0012102723014722233516 o-- C_0012005239889392561503 : +handle
+C_0005359600209494017077 o-- C_0018201436968382536589 : +handle
+C_0000456729507683823667 o-- C_0018201436968382536589 : +handle
+C_0001219832459086514524 o-- C_0016373400785332692605 : +handle
+C_0000584483587027674261 o-- C_0016373400785332692605 : +handle
+C_0014258136029338196605 o-- C_0004442367663718810801 : +handle
+C_0011730404181519640572 o-- C_0004442367663718810801 : +handle
+C_0002635497681327854530 ..> C_0007498452384339056403
+C_0002635497681327854530 ..> C_0014843185482071648379
+C_0002635497681327854530 ..> C_0000612444734180726448
+C_0002635497681327854530 ..> C_0014444129770632249391
+C_0002635497681327854530 ..> C_0001138817099616840703
+C_0002635497681327854530 ..> C_0017265849248839068116
+C_0002635497681327854530 ..> C_0018376699336507592390
+C_0002635497681327854530 ..> C_0012102723014722233516
+C_0002635497681327854530 ..> C_0005359600209494017077
+C_0002635497681327854530 ..> C_0000456729507683823667
+C_0002635497681327854530 ..> C_0001219832459086514524
+C_0002635497681327854530 ..> C_0000584483587027674261
+C_0002635497681327854530 ..> C_0014258136029338196605
+C_0002635497681327854530 ..> C_0011730404181519640572
+C_0002635497681327854530 o-- C_0007768844422420890504 : +operationType
+C_0002635497681327854530 o-- C_0004488683601045205354 : +data
+C_0005369426599919267506 <|-- C_0002635497681327854530
+C_0007768844422420890504 --+ C_0002635497681327854530
+C_0013854697591913712196 ..> C_0005708756352896156294
+C_0013854697591913712196 ..> C_0012531593434999655625
+C_0013854697591913712196 ..> C_0011110600812833231050
+C_0013854697591913712196 ..> C_0014223954884167299749
+C_0013854697591913712196 ..> C_0015894124265864959934
+C_0013854697591913712196 ..> C_0009786537643028330885
+C_0013854697591913712196 ..> C_0006096803701426024262
+C_0013854697591913712196 ..> C_0016627078594072677877
+C_0013854697591913712196 ..> C_0006784203541396077937
+C_0013854697591913712196 ..> C_0009636238717653795704
+C_0013854697591913712196 ..> C_0005813977497895877235
+C_0013854697591913712196 ..> C_0010823124840953704321
+C_0013854697591913712196 ..> C_0017561009578766664831
+C_0013854697591913712196 ..> C_0017603276533162890937
+C_0013854697591913712196 ..> C_0002483437880599725322
+C_0013854697591913712196 ..> C_0008058793266403643452
+C_0013854697591913712196 ..> C_0002635497681327854530
+C_0001830102431059523587 <|-- C_0013854697591913712196
+C_0005780833787021894055 ..> C_0005038856606455904678
+C_0005780833787021894055 ..|> C_0013854697591913712196
+C_0005038856606455904678 ..> C_0005708756352896156294
+C_0005038856606455904678 ..> C_0011110600812833231050
+C_0005038856606455904678 ..> C_0002635497681327854530
+C_0005038856606455904678 ..> C_0014223954884167299749
+C_0005038856606455904678 ..> C_0015894124265864959934
+C_0005038856606455904678 ..> C_0009786537643028330885
+C_0005038856606455904678 ..> C_0006096803701426024262
+C_0005038856606455904678 ..> C_0016627078594072677877
+C_0005038856606455904678 ..> C_0006784203541396077937
+C_0005038856606455904678 ..> C_0009636238717653795704
+C_0005038856606455904678 ..> C_0005813977497895877235
+C_0005038856606455904678 ..> C_0010823124840953704321
+C_0005038856606455904678 ..> C_0017561009578766664831
+C_0005038856606455904678 ..> C_0017603276533162890937
+C_0005038856606455904678 ..> C_0002483437880599725322
+C_0005038856606455904678 ..> C_0008058793266403643452
+C_0005780833787021894055 <|-- C_0005038856606455904678
+C_0002241122493757235413 o-- C_0010147701823634967455 : +presentMode
+C_0002241122493757235413 o-- C_0008061828664593881864 : +colorSpace
+C_0016922636105703238176 o-- C_0010147701823634967455 : +presentMode
+C_0016922636105703238176 o-- C_0004442367663718810801 : +renderTarget
+C_0007114229057334085869 o-- C_0010147701823634967455 : +presentMode
+C_0007114229057334085869 o-- C_0008061828664593881864 : +colorSpace
+C_0007114229057334085869 o-- C_0001275076681856179721 : +errorMessage
+C_0001526639479561584852 o-- C_0001275076681856179721 : +errorMessage
+C_0004658596863119393125 o-- C_0010147701823634967455 : +presentMode
+C_0004658596863119393125 o-- C_0001275076681856179721 : +errorMessage
+C_0006873617529089649921 o-- C_0001275076681856179721 : +errorMessage
+C_0004692289607248477306 ..> C_0007114229057334085869
+C_0004692289607248477306 ..> C_0001526639479561584852
+C_0004692289607248477306 ..> C_0004658596863119393125
+C_0004692289607248477306 ..> C_0006873617529089649921
+C_0004692289607248477306 o-- C_0000987989541154259453 : +operationType
+C_0004692289607248477306 o-- C_0015923813726573761034 : +data
+C_0005369426599919267506 <|-- C_0004692289607248477306
+C_0000987989541154259453 --+ C_0004692289607248477306
+C_0012057573704288675197 ..> C_0005708756352896156294
+C_0012057573704288675197 ..> C_0004148836965468005895
+C_0012057573704288675197 ..> C_0002241122493757235413
+C_0012057573704288675197 ..> C_0016349985479718648216
+C_0012057573704288675197 ..> C_0016922636105703238176
+C_0012057573704288675197 ..> C_0015051514805239245517
+C_0012057573704288675197 ..> C_0004692289607248477306
+C_0001316876946216299216 <|-- C_0012057573704288675197
+C_0005259813983901734684 ..> C_0015003801578778503528
+C_0005259813983901734684 ..|> C_0012057573704288675197
+C_0015003801578778503528 ..> C_0005708756352896156294
+C_0015003801578778503528 ..> C_0002241122493757235413
+C_0015003801578778503528 ..> C_0004692289607248477306
+C_0015003801578778503528 ..> C_0016349985479718648216
+C_0015003801578778503528 ..> C_0016922636105703238176
+C_0015003801578778503528 ..> C_0015051514805239245517
+C_0015003801578778503528 o-- C_0010147701823634967455 : -currentPresentMode
+C_0015003801578778503528 o-- C_0008061828664593881864 : -currentColorSpace
+C_0005259813983901734684 <|-- C_0015003801578778503528
+C_0001316876946216299216 ..> C_0004148836965468005895
+C_0001316876946216299216 ..> C_0004692289607248477306
+C_0001316876946216299216 ..|> C_0012957877209960596877
+C_0001830102431059523587 ..> C_0012531593434999655625
+C_0001830102431059523587 ..> C_0002635497681327854530
+C_0001830102431059523587 ..|> C_0012957877209960596877
+C_0015037053193795295010 ..> C_0003433954759148155272
+C_0015037053193795295010 o-- C_0010012189973648974243 : -executers
+C_0015037053193795295010 o-- C_0004308501729698541420 : -isExecuting
+C_0015037053193795295010 --> C_0005708756352896156294 : -device
+C_0015037053193795295010 --> C_0001349758934966631707 : -device
+C_0003752503723788143763 ..> C_0013197005336829080648
+C_0004295952812233939758 ..> C_0010012189973648974243
+C_0004295952812233939758 ..> C_0003433954759148155272
+C_0003655758856260603096 ..> C_0012785555662733046432
+C_0003655758856260603096 ..> C_0005231616161591763883
+C_0003655758856260603096 ..> C_0001275076681856179721
+C_0003655758856260603096 ..> C_0010631451133372227943
+C_0003655758856260603096 ..> C_0008854306340006269619
+C_0003655758856260603096 ..> C_0017915783820104660384
+C_0003655758856260603096 ..> C_0009492396599576902449
+C_0003655758856260603096 ..> C_0005708756352896156294
+C_0003655758856260603096 ..> C_0017513549579266719774
+C_0003655758856260603096 ..> C_0004295952812233939758
+C_0013197005336829080648 ..> C_0003433954759148155272
+C_0013197005336829080648 o-- C_0004652396164832944638 : -resourceExec
+C_0013197005336829080648 o-- C_0007025408253175529307 : -pipelineExec
+C_0013197005336829080648 o-- C_0002531192179499843261 : -drawExec
+C_0013197005336829080648 o-- C_0018304936436847906763 : -swapChainExec
+C_0013197005336829080648 o-- C_0010012189973648974243 : -raw
+C_0004295952812233939758 <|-- C_0013197005336829080648
+C_0016065159452225311070 ..> C_0012785555662733046432
+C_0016065159452225311070 ..> C_0005231616161591763883
+C_0016065159452225311070 ..> C_0001275076681856179721
+C_0016065159452225311070 ..> C_0010631451133372227943
+C_0016065159452225311070 ..> C_0008854306340006269619
+C_0016065159452225311070 ..> C_0017915783820104660384
+C_0016065159452225311070 ..> C_0009492396599576902449
+C_0016065159452225311070 ..> C_0005708756352896156294
+C_0016065159452225311070 ..> C_0017513549579266719774
+C_0016065159452225311070 ..> C_0004295952812233939758
+C_0003655758856260603096 <|-- C_0016065159452225311070
+C_0011293759637945271535 ..> C_0001275076681856179721
+C_0011293759637945271535 ..> C_0004295952812233939758
+C_0011293759637945271535 ..> C_0015037053193795295010
+C_0011293759637945271535 ..> C_0003655758856260603096
+C_0011293759637945271535 o-- C_0005824018674665610705 : -creator
+C_0011293759637945271535 --> C_0005231616161591763883 : -context
+C_0011293759637945271535 --> C_0013567005439425500632 : -context
+C_0011293759637945271535 --> C_0008854306340006269619 : -window
+C_0011293759637945271535 --> C_0017915783820104660384 : -window
+C_0011293759637945271535 --> C_0005708756352896156294 : -device
+C_0011293759637945271535 --> C_0001349758934966631707 : -device
+C_0011293759637945271535 o-- C_0017513549579266719774 : -executers
+C_0011293759637945271535 o-- C_0017822837642960176042 : -queue
+C_0011293759637945271535 o-- C_0001398434522866495283 : -type
+C_0017915783820104660384 ..> C_0008854306340006269619
+C_0011763736900756207618 ..> C_0002774174447621685786
+C_0002562008358923441714 ..> C_0002390167099915986856
+C_0018408639942296002667 ..> C_0001286871795823972184
+C_0010864529589021106638 ..> C_0018212911750158375658
+C_0005259375287706356225 ..> C_0007624248816574827506
+C_0006722874224732081456 ..> C_0012809961037602443052
+C_0011718673438199394376 ..> C_0017342555715941177987
+C_0015213040506107558171 ..> C_0013285578770439615913
+C_0003768036780984506282 ..> C_0009583786325508714451
+C_0015140168415346399035 ..> C_0008492625370752644608
+C_0014182483782406561048 ..> C_0008492625370752644608
+C_0014182483782406561048 ..|> C_0015140168415346399035
+C_0004163035708510044730 ..> C_0012005239889392561503
+C_0008488661764897388243 ..> C_0004083299677246899112
+C_0008488661764897388243 ..> C_0006005743450215172321
+C_0008488661764897388243 ..> C_0005375937423311642977
+C_0008488661764897388243 ..> C_0001294956533093373524
+C_0008488661764897388243 ..> C_0000316759269368314461
+C_0008488661764897388243 ..> C_0014656794005468063180
+C_0014320654946840059428 ..> C_0014503825185024712492
+C_0012177904334285640899 ..> C_0015989767340057044991
+C_0012177904334285640899 ..|> C_0014503825185024712492
+C_0009048762651940375792 ..|> C_0014503825185024712492
+C_0015130923314734993149 ..> C_0006524010458157121833
+C_0001306470844002714706 ..|> C_0014503825185024712492
+C_0013160997856410977014 ..> C_0000677530249013454793
+C_0013160997856410977014 ..> C_0001998963463535583677
+C_0013160997856410977014 ..> C_0002152359046570193998
+C_0013160997856410977014 ..> C_0011062578660595179410
+C_0013160997856410977014 ..> C_0008137171829058220581
+C_0013160997856410977014 ..> C_0003735960985209470589
+C_0013160997856410977014 ..> C_0013389686190276139586
+C_0013160997856410977014 ..> C_0015449159428011665246
+C_0013160997856410977014 ..> C_0005603939944074489226
+C_0013160997856410977014 ..|> C_0005358857762675063977
+C_0003640589548092447978 ..> C_0002079846406190880318
+C_0003640589548092447978 ..> C_0001934204374484432982
+C_0003640589548092447978 ..> C_0016025929040332354421
+C_0003640589548092447978 ..> C_0018246858763690044410
+C_0003640589548092447978 ..> C_0004158912029523089978
+C_0003640589548092447978 ..> C_0002217264595801189326
+C_0003640589548092447978 ..> C_0000918511524540632793
+C_0003640589548092447978 ..> C_0014623551840716975870
+C_0003640589548092447978 ..> C_0017021393632708620748
+C_0003640589548092447978 ..|> C_0005358857762675063977
+C_0008938814143329104087 ..> C_0008450938387574276439
+C_0008938814143329104087 ..> C_0003286880471219087816
+C_0008938814143329104087 ..|> C_0005358857762675063977
+C_0010709461041966213663 ..> C_0003625239021966007036
+C_0010709461041966213663 ..> C_0009949310191014717899
+C_0010709461041966213663 ..|> C_0005358857762675063977
+C_0006758348029626043356 ..> C_0003589380393833722061
+C_0008896718624910771974 ..|> C_0014503825185024712492
+C_0015923813726573761034 ..> C_0007114229057334085869
+C_0015923813726573761034 ..> C_0001526639479561584852
+C_0015923813726573761034 ..> C_0004658596863119393125
+C_0015923813726573761034 ..> C_0006873617529089649921
+C_0015923813726573761034 ..|> C_0005358857762675063977
+C_0004148836965468005895 ..> C_0002241122493757235413
+C_0004148836965468005895 ..> C_0016349985479718648216
+C_0004148836965468005895 ..> C_0016922636105703238176
+C_0004148836965468005895 ..> C_0015051514805239245517
+C_0004148836965468005895 ..|> C_0005358857762675063977
+C_0004488683601045205354 ..> C_0007498452384339056403
+C_0004488683601045205354 ..> C_0014843185482071648379
+C_0004488683601045205354 ..> C_0000612444734180726448
+C_0004488683601045205354 ..> C_0014444129770632249391
+C_0004488683601045205354 ..> C_0001138817099616840703
+C_0004488683601045205354 ..> C_0017265849248839068116
+C_0004488683601045205354 ..> C_0018376699336507592390
+C_0004488683601045205354 ..> C_0012102723014722233516
+C_0004488683601045205354 ..> C_0005359600209494017077
+C_0004488683601045205354 ..> C_0000456729507683823667
+C_0004488683601045205354 ..> C_0001219832459086514524
+C_0004488683601045205354 ..> C_0000584483587027674261
+C_0004488683601045205354 ..> C_0014258136029338196605
+C_0004488683601045205354 ..> C_0011730404181519640572
+C_0004488683601045205354 ..|> C_0005358857762675063977
+C_0012531593434999655625 ..> C_0011110600812833231050
+C_0012531593434999655625 ..> C_0014223954884167299749
+C_0012531593434999655625 ..> C_0015894124265864959934
+C_0012531593434999655625 ..> C_0009786537643028330885
+C_0012531593434999655625 ..> C_0006096803701426024262
+C_0012531593434999655625 ..> C_0016627078594072677877
+C_0012531593434999655625 ..> C_0006784203541396077937
+C_0012531593434999655625 ..> C_0009636238717653795704
+C_0012531593434999655625 ..> C_0005813977497895877235
+C_0012531593434999655625 ..> C_0010823124840953704321
+C_0012531593434999655625 ..> C_0017561009578766664831
+C_0012531593434999655625 ..> C_0017603276533162890937
+C_0012531593434999655625 ..> C_0002483437880599725322
+C_0012531593434999655625 ..> C_0008058793266403643452
+C_0012531593434999655625 ..|> C_0005358857762675063977
+C_0010012189973648974243 ..|> C_0014503825185024712492
+C_0012785555662733046432 ..> C_0005231616161591763883
+C_0010631451133372227943 ..> C_0008854306340006269619
+C_0009492396599576902449 ..> C_0005708756352896156294
+C_0017513549579266719774 ..> C_0004295952812233939758
+C_0005824018674665610705 ..> C_0003655758856260603096
+C_0013567005439425500632 ..> C_0005231616161591763883
+C_0001349758934966631707 ..> C_0005708756352896156294
+C_0017822837642960176042 ..> C_0015037053193795295010
+
+'Generated with clang-uml, version 0.6.3
+'LLVM version Ubuntu clang version 18.1.3 (1ubuntu1)
+@enduml

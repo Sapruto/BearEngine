@@ -1,0 +1,83 @@
+compilation_database_dir: .
+output_directory: docs/diagrams
+
+diagrams:
+  RHI_classes:
+    type: class
+    glob:
+      - src/RHI/**/*.cpp
+    include:
+      paths:
+        - include/RHI
+
+  Physics_classes:
+    type: class
+    glob:
+      - src/Domains/Physics/**/*.cpp
+    include:
+      paths:
+        - include/Domains/Physics
+
+  Collisions_classes:
+    type: class
+    glob:
+      - src/Domains/Collisions/**/*.cpp
+    include:
+      paths:
+        - include/Domains/Collisions
+
+  Renderer_classes:
+    type: class
+    glob:
+      - src/Domains/Renderer/**/*.cpp
+    include:
+      paths:
+        - include/Domains/Renderer
+
+  UI_classes:
+    type: class
+    glob:
+      - src/Domains/UI/**/*.cpp
+    include:
+      paths:
+        - include/Domains/UI
+
+  World_classes:
+    type: class
+    glob:
+      - src/World/**/*.cpp
+    include:
+      paths:
+        - include/World
+
+  Systems_classes:
+    type: class
+    glob:
+      - src/Systems/**/*.cpp
+    include:
+      paths:
+        - include/Systems
+
+  Math_classes:
+    type: class
+    glob:
+      - src/Math/**/*.cpp
+    include:
+      paths:
+        - include/Math
+
+  Serialization_classes:
+    type: class
+    glob:
+      - src/Engine/Serialization/**/*.cpp
+    include:
+      paths:
+        - include/Engine/Serialization
+
+  Addons_classes:
+    type: class
+    glob:
+      - src/Addons/**/*.cpp
+    include:
+      paths:
+        - include/Addons

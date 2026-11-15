@@ -53,15 +53,15 @@ public:
     void SetLocalAngle(float newAngle);
     void SetLocalRotation(const Quaternionf& newRot) override;
 
-    void SetGlobalPositionAsLocal(const Vector2f& p) override {
+    void SetGlobalPositionAsLocal(const Vector2f& p, bool considerParents = false) override {
         (void)p;
     }
 
-    void SetGlobalScaleAsLocal(const Vector2f& s) override {
+    void SetGlobalScaleAsLocal(const Vector2f& s, bool considerParents = false) override {
         (void)s;
     }
 
-    void SetGlobalRotationAsLocal(const Quaternionf& r) override {
+    void SetGlobalRotationAsLocal(const Quaternionf& r, bool considerParents = false) override {
         (void)r;
     }
 

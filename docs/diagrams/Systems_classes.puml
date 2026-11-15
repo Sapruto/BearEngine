@@ -1,0 +1,314 @@
+@startuml
+class "std::basic_string_view<char>" as C_0013247086971467822611
+class C_0013247086971467822611 {
+__
+}
+class "std::string" as C_0001275076681856179721
+class C_0001275076681856179721 {
+__
+}
+class "std::vector<std::string>" as C_0001347152004389415025
+class C_0001347152004389415025 {
+__
+}
+class "std::unique_ptr<Resource>" as C_0013096687631066400300
+class C_0013096687631066400300 {
+__
+}
+class "std::unordered_map<std::string,std::unique_ptr<Resource>>" as C_0013093654274473412796
+class C_0013093654274473412796 {
+__
+}
+class "std::array<KeyState,KEY_COUNT>" as C_0009963627180345348673
+class C_0009963627180345348673 {
+__
+}
+class "std::array<KeyState,MOUSE_BUTTON_COUNT>" as C_0009823748277193979765
+class C_0009823748277193979765 {
+__
+}
+abstract "Systems::ISystem" as C_0007553941199941433505
+abstract C_0007553941199941433505 {
++ISystem() = default : void
++~ISystem() constexpr = default : void
+..
++BeginFrameSystem() : void
++DestroySystem() : void
++EndFrameSystem() : void
+{abstract} +GetSystemName() const = 0 : std::string_view
++StartSystem() : void
+__
+}
+class "Systems::NamedSystemType<T>" as C_0007880976250352292221
+class C_0007880976250352292221 <<concept>> {
+()
+..
+{T::GetSystemNameStatic()} -> std::convertible_to<std::string_view>
+}
+class "Systems::BaseSystem<Derived>" as C_0016626910207192128067
+class C_0016626910207192128067 {
++BaseSystem() : void
+..
++GetSystemName() const : std::string_view
+__
+}
+class "Systems::BaseSystem<TimeSystem>" as C_0013156333045056148443
+class C_0013156333045056148443 {
+__
+}
+class "Systems::BaseSystem<ResourceSystem>" as C_0003713566004489094612
+class C_0003713566004489094612 {
+__
+}
+class "Systems::BaseSystem<InputSystem>" as C_0014236551081804882656
+class C_0014236551081804882656 {
+__
+}
+class "TimeSystem" as C_0012807904737434151835
+class C_0012807904737434151835 {
++BeginFrameSystem() : void
++DeltaTime() : float
++FixedDeltaTime() : float
++FrameCount() : Uint32
++GetFPS() : float
+{static} +GetSystemNameStatic() : std::string_view
++SetTimeScale(float scale) : void
++StartSystem() : void
++TimeScale() : float
++TimeSinceStart() : float
++UnscaledDeltaTime() : float
++Wait(Uint32 milliseconds) : void
+__
+-deltaTime : float
+-frameCount : Uint32
+-frequency : Uint64
+-isStarted : bool
+-lastTick : Uint64
+-timeScale : float
+-timeSinceStart : float
+-unscaledDeltaTime : float
+}
+enum "ResourceType" as C_0008103190305200451136
+enum C_0008103190305200451136 {
+Texture
+Font
+Audio
+Mesh
+}
+abstract "Resource" as C_0015609421538932822327
+abstract C_0015609421538932822327 {
++Resource() = default : void
++Resource(const std::string & path) : void
++~Resource() constexpr = default : void
+..
++GetPath() const : std::string
++IsLoaded() const : bool
+{abstract} +Load() = 0 : bool
+{abstract} +Unload() = 0 : void
+__
+#loaded : bool
+#pathName : std::string
+}
+class "ResourceSystem" as C_0005316646283420312774
+class C_0005316646283420312774 {
++ResourceSystem() = default : void
++ResourceSystem(const ResourceSystem &) = deleted : void
++~ResourceSystem() : void
+..
++operator=(const ResourceSystem &) = deleted : ResourceSystem &
+..
++ClearAll() : void
++GetLoadedResources() const : std::vector<std::string>
++GetResource(const std::string & pathName) : Resource *
++GetResourceAs<T>(const std::string & pathName) : T *
++GetResourceCount() const : size_t
+{static} +GetSystemNameStatic() : std::string_view
++LoadResource(const std::string & pathName, ResourceType type) : void
++UnloadResource(const std::string & pathName) : bool
+__
+-resources : std::unordered_map<std::string,std::unique_ptr<Resource>>
+}
+class "ResourceFactory" as C_0007491509189931323898
+class C_0007491509189931323898 {
+{static} +create(ResourceType type, std::string pathName) : std::unique_ptr<Resource>
+__
+}
+enum "Keys" as C_0003708401888620329342
+enum C_0003708401888620329342 {
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+Num0
+Num1
+Num2
+Num3
+Num4
+Num5
+Num6
+Num7
+Num8
+Num9
+Numpad0
+Numpad1
+Numpad2
+Numpad3
+Numpad4
+Numpad5
+Numpad6
+Numpad7
+Numpad8
+Numpad9
+Space
+Enter
+Escape
+Backspace
+Tab
+LeftShift
+RightShift
+LeftControl
+RightControl
+LeftAlt
+RightAlt
+Up
+Down
+Left
+Right
+F1
+F2
+F3
+F4
+F5
+F6
+F7
+F8
+F9
+F10
+F11
+F12
+}
+enum "MouseButton" as C_0007246769410828625772
+enum C_0007246769410828625772 {
+Left
+Right
+Middle
+Button4
+Button5
+Button6
+Button7
+Button8
+}
+enum "KeyState" as C_0011301471505125329629
+enum C_0011301471505125329629 {
+Released
+Pressed
+JustPressed
+JustReleased
+}
+class "InputSystem" as C_0013048135148955831948
+class C_0013048135148955831948 {
+-InputSystem() : void
+..
++BeginUpdate() : void
+-BeginUpdateKeys() : void
+-BeginUpdateMouse() : void
++EndUpdate() : void
+-EndUpdateKeys() : void
+-EndUpdateMouse() : void
+{static} +GetInstance() : InputSystem &
++GetKey(Keys key) : bool
++GetKeyDown(Keys key) : bool
+-GetKeyState(int keyCode) : KeyState &
++GetKeyUp(Keys key) : bool
++GetMouseButton(int button) : bool
++GetMouseButtonDown(int button) : bool
+-GetMouseButtonState(int button) : KeyState &
++GetMouseButtonUp(int button) : bool
++GetMouseScrollX() : double
++GetMouseScrollY() : double
++GetMouseX() : double
++GetMouseY() : double
+{static} +GetSystemNameStatic() : std::string_view
++Initialize(GLFWwindow * window) : void
+{static} -KeyCallback(GLFWwindow * window, int key, int scancode, int action, int mods) : void
+{static} -MouseButtonCallback(GLFWwindow * window, int button, int action, int mods) : void
+{static} -MousePositionCallback(GLFWwindow * window, double xpos, double ypos) : void
+{static} -MouseScrollCallback(GLFWwindow * window, double xoffset, double yoffset) : void
+__
+{static} -KEY_COUNT : const int
+{static} -MOUSE_BUTTON_COUNT : const int
+{static} -instance : InputSystem *
+-keyStates : std::array<KeyState,KEY_COUNT>
+-lastMouseX : double
+-lastMouseY : double
+-mouseButtonStates : std::array<KeyState,MOUSE_BUTTON_COUNT>
+-mouseScrollX : double
+-mouseScrollY : double
+-mouseX : double
+-mouseY : double
+-textInputBuffer : std::string
+-window : GLFWwindow *
+}
+C_0001347152004389415025 ..> C_0001275076681856179721
+C_0013096687631066400300 ..> C_0015609421538932822327
+C_0013093654274473412796 ..> C_0001275076681856179721
+C_0013093654274473412796 ..> C_0013096687631066400300
+C_0009963627180345348673 ..> C_0011301471505125329629
+C_0009823748277193979765 ..> C_0011301471505125329629
+C_0007553941199941433505 ..> C_0013247086971467822611
+C_0016626910207192128067 ..> C_0013247086971467822611
+C_0007553941199941433505 <|-- C_0016626910207192128067
+C_0013156333045056148443 ..> C_0012807904737434151835
+C_0013156333045056148443 ..|> C_0016626910207192128067
+C_0003713566004489094612 ..> C_0005316646283420312774
+C_0003713566004489094612 ..|> C_0016626910207192128067
+C_0014236551081804882656 ..> C_0013048135148955831948
+C_0014236551081804882656 ..|> C_0016626910207192128067
+C_0012807904737434151835 ..> C_0013247086971467822611
+C_0013156333045056148443 <|-- C_0012807904737434151835
+C_0015609421538932822327 o-- C_0001275076681856179721 : #pathName
+C_0005316646283420312774 ..> C_0001275076681856179721
+C_0005316646283420312774 ..> C_0008103190305200451136
+C_0005316646283420312774 ..> C_0015609421538932822327
+C_0005316646283420312774 ..> C_0001347152004389415025
+C_0005316646283420312774 ..> C_0013247086971467822611
+C_0005316646283420312774 o-- C_0013093654274473412796 : -resources
+C_0003713566004489094612 <|-- C_0005316646283420312774
+C_0007491509189931323898 ..> C_0008103190305200451136
+C_0007491509189931323898 ..> C_0001275076681856179721
+C_0007491509189931323898 ..> C_0013096687631066400300
+C_0007491509189931323898 ..> C_0015609421538932822327
+C_0013048135148955831948 ..> C_0011301471505125329629
+C_0013048135148955831948 ..> C_0003708401888620329342
+C_0013048135148955831948 ..> C_0013247086971467822611
+C_0013048135148955831948 o-- C_0009963627180345348673 : -keyStates
+C_0013048135148955831948 o-- C_0009823748277193979765 : -mouseButtonStates
+C_0013048135148955831948 o-- C_0001275076681856179721 : -textInputBuffer
+C_0013048135148955831948 --> C_0013048135148955831948 : -instance
+C_0014236551081804882656 <|-- C_0013048135148955831948
+
+'Generated with clang-uml, version 0.6.3
+'LLVM version Ubuntu clang version 18.1.3 (1ubuntu1)
+@enduml

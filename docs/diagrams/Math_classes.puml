@@ -1,0 +1,471 @@
+@startuml
+class "std::string" as C_0001275076681856179721
+class C_0001275076681856179721 {
+__
+}
+class "Vector" as C_0003611917562115514128
+class C_0003611917562115514128 {
+__
+}
+class "BaseVector<VectorImpl,T,int Count>" as C_0009795105026437189158
+class C_0009795105026437189158 {
++BaseVector() : void
+..
++operator*=(T s) constexpr : VectorImpl &
++operator+=(const VectorImpl & o) constexpr : VectorImpl &
++operator-() constexpr const : VectorImpl
++operator-=(const VectorImpl & o) constexpr : VectorImpl &
++operator/=(T s) constexpr : VectorImpl &
+..
+-CheckOperator() constexpr const : void
++ClampMagnitude(T maxLength) const : VectorImpl
++DistanceTo(const VectorImpl & other) const : T
++Dot(const VectorImpl & other) constexpr const : T
++FromString(const std::string & str) : void
+{static} +FromStringStatic(const std::string & str) : VectorImpl
+{static} +Lerp(const VectorImpl & a, const VectorImpl & b, T t) constexpr : VectorImpl
++Magnitude() const : T
+{static} +MoveTowards(const VectorImpl & current, const VectorImpl & target, T maxDistanceDelta) : VectorImpl
++Normalize() : void
++Normalized() const : VectorImpl
+{static} +One() constexpr : VectorImpl
++Reflect(const VectorImpl & normal) const : VectorImpl
++SqrMagnitude() constexpr const : T
++ToString() const : std::string
+{static} +ToStringStatic(const VectorImpl & v) : std::string
+{static} +Zero() constexpr : VectorImpl
++vectorImpl() constexpr const : const VectorImpl &
++vectorImpl() constexpr : VectorImpl &
+__
+}
+class "BaseVector<Derived,T,Count>" as C_0013336502039220892725
+class C_0013336502039220892725 {
+__
+}
+class "BaseVectorAlias<Derived,T,int Count>" as C_0010656491586899411736
+class C_0010656491586899411736 {
+__
+}
+class "Vector3<T>" as C_0000266229208280182253
+class C_0000266229208280182253 {
+__
+}
+class "BaseVectorAlias<Vector3<T>,T,3>" as C_0012977615047356284073
+class C_0012977615047356284073 {
+__
+}
+class "Vector3<T=float>" as C_0010793959981044210477
+class C_0010793959981044210477 {
++Vector3() : void
++Vector3(T x_, T y_, T z_) : void
+..
++operator[](int i) constexpr : T &
++operator[](int i) constexpr const : const T &
+..
+{static} +Angle(const Vector3<T> & from, const Vector3<T> & to) : T
+{static} +Back() constexpr : Vector3<T>
++Cross(const Vector3<T> & other) constexpr const : Vector3<T>
+{static} +Down() constexpr : Vector3<T>
+{static} +Forward() constexpr : Vector3<T>
+{static} +Left() constexpr : Vector3<T>
+{static} +Right() constexpr : Vector3<T>
+{static} +Up() constexpr : Vector3<T>
+__
++ : Vector3::()
+}
+class "Vector3::()" as C_0007613184543189763475
+class C_0007613184543189763475 {
+__
++ : Vector3::::()
++data : T[3]
+}
+class "Vector3::()::()" as C_0009722810214657705426
+class C_0009722810214657705426 {
+__
++x : T
++y : T
++z : T
+}
+class "VectorN<T,Count>" as C_0001953016860197924251
+class C_0001953016860197924251 {
+__
+}
+class "BaseVectorAlias<VectorN<T,Count>,T,Count>" as C_0018367586861490452704
+class C_0018367586861490452704 {
+__
+}
+class "VectorN<T,int Count>" as C_0002762313785869720914
+class C_0002762313785869720914 {
++VectorN() : void
++VectorN(const T (&)[Count] arr) : void
+..
++operator[](int i) constexpr : T &
++operator[](int i) constexpr const : const T &
+__
++data : T[]
+}
+class "BaseMatrix<T,Cols,Rows>" as C_0012669412374278759393
+class C_0012669412374278759393 {
+__
+}
+class "BaseMatrix<U,Rows1,Cols1>" as C_0005691815455386505318
+class C_0005691815455386505318 {
+__
+}
+class "BaseMatrix<U,Cols1,Cols2>" as C_0005592931498512120184
+class C_0005592931498512120184 {
+__
+}
+class "BaseMatrix<U,Rows2,Cols2>" as C_0014409223668070854638
+class C_0014409223668070854638 {
+__
+}
+class "BaseMatrix<T,int Rows,int Cols>" as C_0013064670214310692691
+class C_0013064670214310692691 {
++BaseMatrix() : void
++BaseMatrix(const T * newData) : void
+..
++operator()(int row, int col) constexpr const : const T &
++operator()(int row, int col) constexpr : T &
++operator*=(T scalar) constexpr : BaseMatrix<T,Rows,Cols> &
++operator+(const BaseMatrix<T,Rows,Cols> & other) constexpr const : BaseMatrix<T,Rows,Cols>
++operator+=(const BaseMatrix<T,Rows,Cols> & other) constexpr : BaseMatrix<T,Rows,Cols> &
++operator-(const BaseMatrix<T,Rows,Cols> & other) constexpr const : BaseMatrix<T,Rows,Cols>
++operator-=(const BaseMatrix<T,Rows,Cols> & other) constexpr : BaseMatrix<T,Rows,Cols> &
++operator/=(T scalar) constexpr : BaseMatrix<T,Rows,Cols> &
++operator==(const BaseMatrix<T,Rows,Cols> & other) constexpr const : bool
++operator[](int index) constexpr : T &
++operator[](int index) constexpr const : const T &
+..
++GetData() constexpr : T *
++GetData() constexpr const : const T *
++HadamardMultiply(const BaseMatrix<T,Rows,Cols> & other) constexpr const : BaseMatrix<T,Rows,Cols>
+{static} +Identity() constexpr : BaseMatrix<T,Rows,Cols>
+{static} +KroneckerMultiply<U,int Rows1,int Cols1,int Rows2,int Cols2>(const BaseMatrix<U,Rows1,Cols1> & a, const BaseMatrix<U,Rows2,Cols2> & b) constexpr : auto
+{static} +Multiply<U,int Rows1,int Cols1,int Cols2>(const BaseMatrix<U,Rows1,Cols1> & first, const BaseMatrix<U,Cols1,Cols2> & second) constexpr : auto
++Size() constexpr const : int
++Transpose() constexpr const : BaseMatrix<T,Cols,Rows>
+{static} +Zero() constexpr : BaseMatrix<T,Rows,Cols>
+__
+-data : T[]
+}
+class "BaseMatrix<T,Rows,Cols>" as C_0004135373985761073212
+class C_0004135373985761073212 {
+__
+}
+class "BaseMatrixAlias<T,int Rows,int Cols>" as C_0016425841083977394033
+class C_0016425841083977394033 {
+__
+}
+class "Matrix4x4<T>" as C_0013970111669400564477
+class C_0013970111669400564477 {
++Determinant() constexpr const : T
+{static} -Determinant3x3(const T * d) constexpr : T
+-GetMinor3x3(int row, int col, T * minor) constexpr const : void
+{static} +Identity() constexpr : Matrix4x4<T>
++Inverse() constexpr const : Matrix4x4<T>
+{static} +LookAt(const Vector3<T> & eye, const Vector3<T> & target, const Vector3<T> & up) : Matrix4x4<T>
+{static} +Ortho(T left, T right, T bottom, T top, T near, T far) : Matrix4x4<T>
+{static} +Perspective(T fovDegrees, T aspect, T near, T far) : Matrix4x4<T>
+{static} +Zero() constexpr : Matrix4x4<T>
+__
+}
+class "BaseMatrixAlias<T,4,4>" as C_0005544628978192016915
+class C_0005544628978192016915 {
+__
+}
+class "Quaternion<T>" as C_0009206314153140002681
+class C_0009206314153140002681 {
+__
+}
+class "Quaternion<T=float>" as C_0007672001856951925478
+class C_0007672001856951925478 {
++Quaternion() : void
++Quaternion(Vector3<T> ratioVec, T scalar) : void
+..
++operator*(const Quaternion<T> & other) const : Quaternion<T>
++operator*(const T & scale) const : Quaternion<T>
++operator*(const Vector3<T> & vec) const : Vector3<T>
++operator+(const Quaternion<T> & other) const : Quaternion<T>
++operator-(const Quaternion<T> & other) const : Quaternion<T>
++operator-() const : Quaternion<T>
+..
++Conjugate() const : Quaternion<T>
+{static} +CreateFromMatrix(const Matrix4x4<T> & m) : Quaternion<T>
+{static} +CreateRotation(const T & angle, const Vector3<T> & axis) : Quaternion<T>
+{static} +FromString(const std::string & str) : Quaternion<T>
+{static} +Identity() : Quaternion<T>
++Inverse() const : Quaternion<T>
++Magnitude() const : T
++Normalized() const : Quaternion<T>
++RotateVector(const Vector3<T> & vec) const : Vector3<T>
+{static} +Slerp(const Quaternion<T> & a, const Quaternion<T> & b, T t) : Quaternion<T>
++ToString() const : std::string
+__
++ratioVec : Vector3<T>
++scalar : T
+}
+class "SerializeField::SerializedField<Vector3<float>>" as C_0012585661738595019126
+class C_0012585661738595019126 {
+__
+}
+class "SerializeField::SerializedField<Quaternion<float>>" as C_0006358498431200812739
+class C_0006358498431200812739 {
+__
+}
+class "SerializeField::SerializedField<Vector2<float>>" as C_0012475557748168696705
+class C_0012475557748168696705 {
+__
+}
+class "SerializeField::SerializedField<float>" as C_0008259477084867800566
+class C_0008259477084867800566 {
+__
+}
+class "Quaternion<float>" as C_0013789643234354829052
+class C_0013789643234354829052 {
+__
+}
+abstract "Transform<VectorT>" as C_0012177645854673986541
+abstract C_0012177645854673986541 {
+{abstract} +GetGlobalPosition() const = 0 : VectorT
+{abstract} +GetGlobalRotation() const = 0 : Quaternionf
+{abstract} +GetGlobalScale() const = 0 : VectorT
+{abstract} +GetLocalPosition() const = 0 : const VectorT &
+{abstract} +GetLocalRotation() const = 0 : const Quaternionf &
+{abstract} +GetLocalScale() const = 0 : const VectorT &
+{abstract} +SetGlobalPositionAsLocal(const VectorT & p, bool considerParents = false) = 0 : void
+{abstract} +SetGlobalRotationAsLocal(const Quaternionf & r, bool considerParents = false) = 0 : void
+{abstract} +SetGlobalScaleAsLocal(const VectorT & s, bool considerParents = false) = 0 : void
+{abstract} +SetLocalPosition(const VectorT & p) = 0 : void
+{abstract} +SetLocalRotation(const Quaternionf & r) = 0 : void
+{abstract} +SetLocalScale(const VectorT & s) = 0 : void
+__
+}
+class "Vector3<float>" as C_0004873243434746313755
+class C_0004873243434746313755 {
+__
+}
+class "Matrix4x4<float>" as C_0003923220765157159394
+class C_0003923220765157159394 {
+__
+}
+class "Transform<Vector3<float>>" as C_0014197878853230451072
+class C_0014197878853230451072 {
+__
+}
+class "Transform3D" as C_0012253222799308657788
+class C_0012253222799308657788 {
++Transform3D() : void
+..
++Backward() const : Vector3f
++Down() const : Vector3f
++Forward() const : Vector3f
++GetGlobalPosition() const : Vector3f
++GetGlobalRotation() const : Quaternionf
++GetGlobalScale() const : Vector3f
++GetLocalPosition() const : const Vector3f &
++GetLocalRotation() const : const Quaternionf &
++GetLocalScale() const : const Vector3f &
++GetMatrix() const : Matrix4x4f
++GetSerializedFields() const : std::vector<const SerializeField::ISerializedField *>
++GetSerializedFields() : std::vector<SerializeField::ISerializedField *>
++IsDirty() const : bool
++Left() const : Vector3f
++LookAt(const Vector3f & target) : void
++Right() const : Vector3f
++Rotate(float pitch, float yaw, float roll) : void
++SetGlobalPositionAsLocal(const Vector3f & p, bool considerParents = false) : void
++SetGlobalRotationAsLocal(const Quaternionf & r, bool considerParents = false) : void
++SetGlobalScaleAsLocal(const Vector3f & s, bool considerParents = false) : void
++SetLocalPosition(const Vector3f & p) : void
++SetLocalRotation(const Quaternionf & r) : void
++SetLocalScale(const Vector3f & s) : void
++Up() const : Vector3f
++Update() : void
+-UpdateWorld() : void
+__
+-cachedMatrix : Matrix4x4f
+-fieldPosition : SerializeField::SerializedField<Vector3f>
+-fieldRotation : SerializeField::SerializedField<Quaternionf>
+-fieldScale : SerializeField::SerializedField<Vector3f>
+-isDirty : bool
+}
+class "Vector3::(anonymous_2475439)" as C_0005927821197759139858
+class C_0005927821197759139858 {
+__
++ : Vector3::::()
++data : T[3]
+}
+class "Vector3::(anonymous_2475439)::()" as C_0007566699707892418568
+class C_0007566699707892418568 {
+__
++x : T
++y : T
++z : T
+}
+class "Vector2<T>" as C_0000309254584302395652
+class C_0000309254584302395652 {
+__
+}
+class "BaseVectorAlias<Vector2<T>,T,2>" as C_0014301451128968737576
+class C_0014301451128968737576 {
+__
+}
+class "Vector2<T=float>" as C_0012168150111493836863
+class C_0012168150111493836863 {
++Vector2() : void
++Vector2(T x_, T y_) : void
+..
++operator[](int i) constexpr : T &
++operator[](int i) constexpr const : const T &
+..
+{static} +Angle(const Vector2<T> & v) : T
+{static} +Cross(const Vector2<T> & a, const Vector2<T> & b) constexpr : T
+{static} +FromAngle(T a) : Vector2<T>
+{static} +Right() constexpr : Vector2<T>
+{static} +Up() constexpr : Vector2<T>
+__
++ : Vector2::()
+}
+class "Vector2::()" as C_0018384433271618451057
+class C_0018384433271618451057 {
+__
++ : Vector2::::()
++data : T[2]
+}
+class "Vector2::()::()" as C_0017525906149086447693
+class C_0017525906149086447693 {
+__
++x : T
++y : T
+}
+class "Vector2<float>" as C_0004967238373429177183
+class C_0004967238373429177183 {
+__
+}
+class "Transform<Vector2<float>>" as C_0013575811718662885275
+class C_0013575811718662885275 {
+__
+}
+class "Transform2D" as C_0010369105973531238437
+class C_0010369105973531238437 {
++Transform2D() : void
+..
++GetAngle() const : float
++GetGlobalPosition() const : Vector2f
++GetGlobalRotation() const : Quaternionf
++GetGlobalScale() const : Vector2f
++GetLocalAngle() const : float
++GetLocalPosition() const : const Vector2f &
++GetLocalRotation() const : const Quaternionf &
++GetLocalScale() const : const Vector2f &
++GetMatrix() const : Matrix4x4f
++GetSerializedFields() const : std::vector<const SerializeField::ISerializedField *>
++GetSerializedFields() : std::vector<SerializeField::ISerializedField *>
+-QuaternionfToAngle(const Quaternionf & q) const : float
++SetGlobalPositionAsLocal(const Vector2f & p, bool considerParents = false) : void
++SetGlobalRotationAsLocal(const Quaternionf & r, bool considerParents = false) : void
++SetGlobalScaleAsLocal(const Vector2f & s, bool considerParents = false) : void
++SetLocalAngle(float newAngle) : void
++SetLocalPosition(const Vector2f & newPos) : void
++SetLocalRotation(const Quaternionf & newRot) : void
++SetLocalScale(const Vector2f & newScale) : void
++Update() : void
+-angleToQuaternionf(float angle) const : Quaternionf
+-combine(const Transform2D & parent) const : Transform2D
++forward() const : Vector2f
++lookAt(const Vector2f & target) : void
++right() const : Vector2f
++rotate(float angleRad) : void
+-updateWorld() : void
+__
+-cachedMatrix : Matrix4x4f
+-cachedRotation : Quaternionf
+-dirty : bool
+-fieldPosition : SerializeField::SerializedField<Vector2f>
+-fieldRotation : SerializeField::SerializedField<float>
+-fieldScale : SerializeField::SerializedField<Vector2f>
+-position : Vector2f
+-rotation : Quaternionf
+-scale : Vector2f
+}
+C_0009795105026437189158 ..> C_0001275076681856179721
+C_0003611917562115514128 <|-- C_0009795105026437189158
+C_0013336502039220892725 ..|> C_0009795105026437189158
+C_0013336502039220892725 <|-- C_0010656491586899411736
+C_0000266229208280182253 ..|> C_0010793959981044210477
+C_0012977615047356284073 ..> C_0000266229208280182253
+C_0012977615047356284073 ..|> C_0010656491586899411736
+C_0012977615047356284073 <|-- C_0010793959981044210477
+C_0010793959981044210477 o-- C_0007613184543189763475
+C_0007613184543189763475 o-- C_0009722810214657705426
+C_0001953016860197924251 ..|> C_0002762313785869720914
+C_0018367586861490452704 ..> C_0001953016860197924251
+C_0018367586861490452704 ..|> C_0010656491586899411736
+C_0018367586861490452704 <|-- C_0002762313785869720914
+C_0012669412374278759393 ..|> C_0013064670214310692691
+C_0005691815455386505318 ..|> C_0013064670214310692691
+C_0005592931498512120184 ..|> C_0013064670214310692691
+C_0014409223668070854638 ..|> C_0013064670214310692691
+C_0013064670214310692691 ..> C_0012669412374278759393
+C_0013064670214310692691 ..> C_0005691815455386505318
+C_0013064670214310692691 ..> C_0005592931498512120184
+C_0013064670214310692691 ..> C_0014409223668070854638
+C_0004135373985761073212 ..|> C_0013064670214310692691
+C_0004135373985761073212 <|-- C_0016425841083977394033
+C_0013970111669400564477 ..> C_0000266229208280182253
+C_0013970111669400564477 ..> C_0010793959981044210477
+C_0005544628978192016915 <|-- C_0013970111669400564477
+C_0005544628978192016915 ..|> C_0016425841083977394033
+C_0009206314153140002681 ..|> C_0007672001856951925478
+C_0007672001856951925478 ..> C_0010793959981044210477
+C_0007672001856951925478 ..> C_0001275076681856179721
+C_0007672001856951925478 ..> C_0013970111669400564477
+C_0007672001856951925478 ..> C_0009206314153140002681
+C_0007672001856951925478 o-- C_0000266229208280182253 : +ratioVec
+C_0012585661738595019126 ..> C_0004873243434746313755
+C_0006358498431200812739 ..> C_0013789643234354829052
+C_0012475557748168696705 ..> C_0004967238373429177183
+C_0013789643234354829052 ..|> C_0009206314153140002681
+C_0012177645854673986541 ..> C_0013789643234354829052
+C_0012177645854673986541 ..> C_0007672001856951925478
+C_0004873243434746313755 ..|> C_0000266229208280182253
+C_0003923220765157159394 ..|> C_0013970111669400564477
+C_0014197878853230451072 ..> C_0004873243434746313755
+C_0014197878853230451072 ..|> C_0012177645854673986541
+C_0012253222799308657788 ..> C_0004873243434746313755
+C_0012253222799308657788 ..> C_0010793959981044210477
+C_0012253222799308657788 ..> C_0013970111669400564477
+C_0012253222799308657788 ..> C_0013789643234354829052
+C_0012253222799308657788 ..> C_0007672001856951925478
+C_0012253222799308657788 o-- C_0012585661738595019126 : -fieldPosition
+C_0012253222799308657788 o-- C_0012585661738595019126 : -fieldScale
+C_0012253222799308657788 o-- C_0006358498431200812739 : -fieldRotation
+C_0012253222799308657788 o-- C_0003923220765157159394 : -cachedMatrix
+C_0014197878853230451072 <|-- C_0012253222799308657788
+C_0005927821197759139858 o-- C_0007566699707892418568
+C_0000309254584302395652 ..|> C_0012168150111493836863
+C_0014301451128968737576 ..> C_0000309254584302395652
+C_0014301451128968737576 ..|> C_0010656491586899411736
+C_0014301451128968737576 <|-- C_0012168150111493836863
+C_0012168150111493836863 o-- C_0018384433271618451057
+C_0018384433271618451057 o-- C_0017525906149086447693
+C_0004967238373429177183 ..|> C_0000309254584302395652
+C_0013575811718662885275 ..> C_0004967238373429177183
+C_0013575811718662885275 ..|> C_0012177645854673986541
+C_0010369105973531238437 ..> C_0007672001856951925478
+C_0010369105973531238437 ..> C_0012168150111493836863
+C_0010369105973531238437 ..> C_0013970111669400564477
+C_0010369105973531238437 o-- C_0012475557748168696705 : -fieldPosition
+C_0010369105973531238437 o-- C_0012475557748168696705 : -fieldScale
+C_0010369105973531238437 o-- C_0008259477084867800566 : -fieldRotation
+C_0010369105973531238437 o-- C_0004967238373429177183 : -position
+C_0010369105973531238437 o-- C_0004967238373429177183 : -scale
+C_0010369105973531238437 o-- C_0013789643234354829052 : -rotation
+C_0010369105973531238437 o-- C_0003923220765157159394 : -cachedMatrix
+C_0010369105973531238437 o-- C_0013789643234354829052 : -cachedRotation
+C_0013575811718662885275 <|-- C_0010369105973531238437
+
+'Generated with clang-uml, version 0.6.3
+'LLVM version Ubuntu clang version 18.1.3 (1ubuntu1)
+@enduml

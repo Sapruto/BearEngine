@@ -1,0 +1,8 @@
+PROJECT_NAME           = "BearEngine"
+OUTPUT_DIRECTORY       = docs/api
+INPUT                  = include src
+RECURSIVE              = YES
+EXTRACT_ALL            = YES
+FILE_PATTERNS          = *.h *.cpp
+HAVE_DOT               = YES
+GENERATE_LATEX         = NO
