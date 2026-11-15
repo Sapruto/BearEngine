@@ -11,7 +11,7 @@
 #include "Domains/Renderer/3D/Settings/Cameras/Camera3D.h"
 #include "Domains/Renderer/3D/Settings/Lights/ILight3D.h"
 
-#include "Domains/Renderer/3D/Utilities/FrustumUtils.h"
+#include "Domains/Renderer/3D/Utilities/Frustum.h"
 
 #include "Domains/Renderer/RenderBackendAllias.h"
 
@@ -28,28 +28,17 @@ using namespace RHI::Executors::ResourceExecutor;
 using namespace RHI::Executors::DrawExecutor;
 using namespace RHI::Executors::SwapChainExecutor;
 
-std::vector<RenderMeshDesc> RendererScene3D::GetDescsByGroup(MaterialType type) {
-    std::vector<RenderMeshDesc> descs;
+using namespace Renderer::R3D;
+using namespace Renderer::R3D::Utilities;
 
-    for (auto renderable : groups[type]) {
-        if (!renderable) continue;
-        descs.push_back(RenderMeshDesc{ renderable->GetMesh(), renderable->GetMaterialOfType(type), renderable->GetMatrix() });
-    }
-    return descs;
-}
-
-void RendererScene3D::InitDefault(){
+void RendererScene3D::InitDefault() {
     RegisterRenderer<DefaultPass>(std::make_unique<DefaultPass>());
 
-    for(auto* irendarable : renderables){
-        Renderable3D* renderable3D = dynamic_cast<Renderable3D*>(irendarable);
-        if(!renderable3D) continue;
-
-        if(!renderable3D->HasMaterials()) {
-            renderable3D->AddMaterial(std::make_unique<DefaultMaterial>());
-        }
+    for (auto* irendarable : renderables) {
+        auto* r3d = irendarable;
+        if (!r3d) continue;
+        if (!r3d->HasMaterials()) r3d->AddMaterial(std::make_unique<DefaultMaterial>());
     }
-
     isDirty = true;
 }
 
@@ -82,9 +71,7 @@ void RendererScene3D::CreateRenderTarget() {
         resourceExecutor->SubscribeOnce(id,
             [&](const std::vector<ResourceExecuteResult>& results) {
                 for (const auto& res : results) {
-                    if (auto* tex = std::get_if<CreateTextureResult>(&res.data)) {
-                        colorTex = tex->handle;
-                    }
+                    if (auto* tex = std::get_if<CreateTextureResult>(&res.data)) colorTex = tex->handle;
                 }
             });
     }
@@ -103,9 +90,7 @@ void RendererScene3D::CreateRenderTarget() {
         resourceExecutor->SubscribeOnce(id,
             [&](const std::vector<ResourceExecuteResult>& results) {
                 for (const auto& res : results) {
-                    if (auto* tex = std::get_if<CreateTextureResult>(&res.data)) {
-                        depthTex = tex->handle;
-                    }
+                    if (auto* tex = std::get_if<CreateTextureResult>(&res.data)) depthTex = tex->handle;
                 }
             });
     }
@@ -121,15 +106,12 @@ void RendererScene3D::CreateRenderTarget() {
         desc.samples = SampleCount::COUNT_1;
         desc.debugName = "SceneRT";
 
-        auto id = resourceExecutor->AddT<CreateRenderTargetParams>(
-                CreateRenderTargetParams{ desc })
+        auto id = resourceExecutor->AddT<CreateRenderTargetParams>(CreateRenderTargetParams{ desc })
             .RemoveAfterExecute().MarkProcess().Commit();
         resourceExecutor->SubscribeOnce(id,
             [&](const std::vector<ResourceExecuteResult>& results) {
                 for (const auto& res : results) {
-                    if (auto* rt = std::get_if<CreateRenderTargetResult>(&res.data)) {
-                        renderTarget = rt->handle;
-                    }
+                    if (auto* rt = std::get_if<CreateRenderTargetResult>(&res.data)) renderTarget = rt->handle;
                 }
             });
     }
@@ -137,29 +119,71 @@ void RendererScene3D::CreateRenderTarget() {
     queue->Execute();
 }
 
-void RendererScene3D::BuildGroups(){
-    if (!isDirty) return;
+void RendererScene3D::BuildBatches() {
+    if (isDirty) {
+        for (auto& [type, vec] : batchesFlat) vec.clear();
 
-    for(auto& [type, group] : groups){
-        group.clear();
+        std::unordered_map<MaterialType, std::unordered_map<Mesh*, size_t>> lookup;
+
+        for (auto* irendarable : renderables) {
+            auto* r3d = dynamic_cast<Renderable3D*>(irendarable);
+            if (!r3d) continue;
+
+            Mesh* mesh = r3d->GetMesh();
+            if (!mesh) continue;
+
+            for (Material* mat : r3d->GetMaterials()) {
+                if (!mat) continue;
+
+                const MaterialType t = mat->GetType();
+                auto& vec = batchesFlat[t];
+                auto& idx = lookup[t];
+
+                auto it = idx.find(mesh);
+                size_t i;
+                if (it == idx.end()) {
+                    i = vec.size();
+                    vec.emplace_back(RenderBatch{ mesh });
+                    idx.emplace(mesh, i);
+                }
+                else {
+                    i = it->second;
+                }
+                vec[i].instances.emplace_back(mat, Matrix4x4f{});
+            }
+        }
+
+        isDirty = false;
     }
 
-    for(auto* irendarable : renderables){
-        Renderable3D* renderable3D = dynamic_cast<Renderable3D*>(irendarable);
-        if(!renderable3D) continue;
+    for (auto* irendarable : renderables) {
+        Renderable3D* r3d = irendarable;
+        if (!r3d) continue;
 
-        std::vector<Material*> materials = renderable3D->GetMaterials();
+        Mesh* mesh = r3d->GetMesh();
+        if (!mesh) continue;
 
-        for(auto* material : materials) {
-            groups[material->GetType()].push_back(renderable3D);
+        const Matrix4x4f model = r3d->GetMatrix();
+
+        for (Material* mat : r3d->GetMaterials()) {
+            if (!mat) continue;
+
+            auto typeIt = batchesFlat.find(mat->GetType());
+            if (typeIt == batchesFlat.end()) continue;
+
+            for (auto& batch : typeIt->second) {
+                if (batch.mesh != mesh) continue;
+
+                for (auto& inst : batch.instances) {
+                    if (inst.material == mat) {
+                        inst.modelMatrix = model;
+                        break;
+                    }
+                }
+                break;
+            }
         }
     }
-
-    for(auto& [type, meshShadingRenderer] : passes) {
-        if (meshShadingRenderer) meshShadingRenderer->Init();
-    }
-
-    isDirty = false;
 }
 
 void RendererScene3D::GenerateNewContext() {
@@ -250,29 +274,29 @@ void RendererScene3D::Present() {
 
 void RendererScene3D::StartDomain() {
     if (isInitialized) return;
-    
+
     CreateRenderTarget();
     InitDefault();
-    for(auto& [type, meshShadingRenderer] : passes){
-        if (meshShadingRenderer) meshShadingRenderer->Init();
-    }
+    for (auto& [type, pass] : passes) if (pass) pass->Init();
     isInitialized = true;
 }
 
 void RendererScene3D::EndFrameDomain() {
     if (!isInitialized) return;
 
-    BuildGroups();
-
+    BuildBatches();
     GenerateNewContext();
 
     BeginRender();
-    for(auto& [type, pass] : passes){
-        if(!pass || !groups.count(type)) continue;
-        std::vector<RenderMeshDesc> descs = GetDescsByGroup(type);
+
+    for (auto& [type, pass] : passes) {
+        if (!pass) continue;
+        auto it = batchesFlat.find(type);
+        if (it == batchesFlat.end() || it->second.empty()) continue;
 
         pass->BeginFrame(context.get());
-        pass->DrawFrame(descs);
+        pass->DrawFrame(it->second);
     }
+
     Present();
 }

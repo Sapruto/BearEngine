@@ -8,11 +8,13 @@
 
 class GraphicsManager;
 
+template<typename RenderableT>
+    requires (std::is_base_of_v<IRenderable, RenderableT>)
 class IRendererScene : public Domains::IDomainSystem {
 protected:
     bool isDirty{true};
 
-    std::vector<IRenderable*> renderables;
+    std::vector<RenderableT*> renderables;
 
     RHI::Handles::RenderTargetHandle renderTarget;
 
@@ -26,18 +28,14 @@ public:
         }
     }
 
-    template<typename T>
-    T* RegisterRenderable(T* renderable) {
-        static_assert(std::is_base_of<IRenderable, T>::value, "T must be derived from Component");
-
+    RenderableT* RegisterRenderable(RenderableT* renderable) {
         renderables.push_back(renderable);
         isDirty = true;
         
         return renderable;
     }
 
-    template<typename T>
-    void UnregisterRenderable(T* renderable) {
+    void UnregisterRenderable(RenderableT* renderable) {
         auto it = std::find(renderables.begin(), 
                         renderables.end(), renderable);
         if (it != renderables.end()) {

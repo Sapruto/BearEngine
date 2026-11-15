@@ -1,9 +1,11 @@
 #pragma once
 
 #include "RHI/Base/Handles.h"
+#include "RHI/Base/Contracts/DrawExecutorParams.h"
 #include "BasePass3D.h"
 
 #include <vector>
+#include <array>
 #include <cstdint>
 
 class Mesh;
@@ -12,12 +14,13 @@ class Transform3D;
 
 class DefaultPass : public BasePass3D {
 private:
-    RHI::Handles::PipelineHandle handle;
-    RHI::Handles::BufferHandle   cameraUBO;
-    RHI::Handles::BufferHandle   lightUBO;
-
-    RHI::Handles::BufferHandle instanceVBO;
+    RHI::Handles::PipelineHandle handle{};
+    RHI::Handles::BufferHandle cameraUBO{};
+    RHI::Handles::BufferHandle lightUBO{};
+    RHI::Handles::BufferHandle instanceVBO{};
     uint32_t instanceCapacity = 0;
+
+    std::array<RHI::Executors::DrawExecutor::VertexBufferBinding, 2> vbScratch{};
 
     struct CameraUBOData {
         alignas(16) float view[16];
@@ -49,6 +52,6 @@ public:
 
     void Init() override;
     void BeginFrame(RenderContext3D* context) override;
-    void DrawFrame(const std::vector<RenderMeshDesc>& descs) override;
+    void DrawFrame(const std::vector<RenderBatch>& batches) override;
     void Shutdown() override;
 };

@@ -17,6 +17,7 @@
 
 #include <cstdint>
 #include <cstring>
+#include <algorithm>
 
 using namespace RHI;
 using namespace RHI::Base;
@@ -107,7 +108,7 @@ void main() {
         result += ambient + diffuse + specular;
     }
 
-    FragColor = vec4(result * vColor.rgb, 1.0);
+ FragColor = vec4(result * vColor.rgb, 1.0);
 }
 )";
 
@@ -128,12 +129,8 @@ void DefaultPass::CreateShaders(ShaderHandle& vs, ShaderHandle& fs) {
             if (results.empty()) return;
             const auto& res = results[0];
 
-            if (auto* shaderRes = std::get_if<CreateShaderResult>(&res.data)) {
-                vs = shaderRes->handle;
-            }
-            else {
-                Logging::LoggerFacade::Error("variant does not hold CreateShaderResult\n");
-            }
+            if (auto* shaderRes = std::get_if<CreateShaderResult>(&res.data)) vs = shaderRes->handle;
+            else Logging::LoggerFacade::Error("variant does not hold CreateShaderResult\n");
         });
     }
     {
@@ -189,6 +186,7 @@ void DefaultPass::EnsureInstanceCapacity(uint32_t needed) {
     if (needed <= instanceCapacity) return;
 
     auto& rhi = RuntimeRHI::GetInstance();
+    auto* queue = rhi.Queue();
     auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(rhi.Executors());
     auto* resourceExecutor = executors->GetResourceExecutor();
 
@@ -199,12 +197,12 @@ void DefaultPass::EnsureInstanceCapacity(uint32_t needed) {
     }
 
     CreateInstanceBuffer(needed * 2);
+    queue->Execute();
 }
 
 void DefaultPass::CreatePipeline(ShaderHandle vs, ShaderHandle fs) {
     auto& rhi = RuntimeRHI::GetInstance();
-    auto* executorsBase = rhi.Executors();
-    auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(executorsBase);
+    auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(rhi.Executors());
     auto* pipelineExecutor = executors->GetPipelineExecutor();
 
     PipelineState state{};
@@ -214,21 +212,21 @@ void DefaultPass::CreatePipeline(ShaderHandle vs, ShaderHandle fs) {
     };
 
     state.vertexAttributes = {
-        { 0, 0, offsetof(MeshVertex, position),  Format::FLOAT3 },
-        { 1, 0, offsetof(MeshVertex, normal),    Format::FLOAT3 },
+        { 0, 0, offsetof(MeshVertex, position), Format::FLOAT3 },
+        { 1, 0, offsetof(MeshVertex, normal), Format::FLOAT3 },
         { 2, 0, offsetof(MeshVertex, texCoords), Format::FLOAT2 },
-        { 3, 0, offsetof(MeshVertex, tangent),   Format::FLOAT3 },
+        { 3, 0, offsetof(MeshVertex, tangent), Format::FLOAT3 },
         { 4, 0, offsetof(MeshVertex, bitangent), Format::FLOAT3 },
 
         { 5, 1, offsetof(InstanceData, model) +  0, Format::FLOAT4 },
         { 6, 1, offsetof(InstanceData, model) + 16, Format::FLOAT4 },
         { 7, 1, offsetof(InstanceData, model) + 32, Format::FLOAT4 },
         { 8, 1, offsetof(InstanceData, model) + 48, Format::FLOAT4 },
-        { 9, 1, offsetof(InstanceData, color),      Format::FLOAT4 }
+        { 9, 1, offsetof(InstanceData, color), Format::FLOAT4 }
     };
 
     state.vertexBindings = {
-        { 0, sizeof(MeshVertex),       false, 1 },
+        { 0, sizeof(MeshVertex), false, 1 },
         { 1, sizeof(InstanceData), true,  1 }
     };
 
@@ -248,37 +246,18 @@ void DefaultPass::CreatePipeline(ShaderHandle vs, ShaderHandle fs) {
     state.colorFormats = { Format::UBYTE4N };
     state.depthStencilFormat = Format::DEPTH24_STENCIL8;
 
-    const auto id = pipelineExecutor->AddT<CreatePipelineParams>(
-            CreatePipelineParams{ state })
+    const auto id = pipelineExecutor->AddT<CreatePipelineParams>(CreatePipelineParams{ state })
         .RemoveAfterExecute().MarkProcess().Commit();
     RHI_ONCE(pipelineExecutor, id, CreatePipelineResult, r, { handle = r.handle; });
 }
 
 bool DefaultPass::ValidateInit(ShaderHandle vs, ShaderHandle fs) const {
-    if (vs.id == 0) {
-        Logging::LoggerFacade::Error("vertex shader failed\n");
-        return false;
-    }
-    if (fs.id == 0) {
-        Logging::LoggerFacade::Error("fragment shader failed\n");
-        return false;
-    }
-    if (handle.id == 0) {
-        Logging::LoggerFacade::Error("pipeline failed\n");
-        return false;
-    }
-    if (cameraUBO.id == 0) {
-        Logging::LoggerFacade::Error("cameraUBO failed\n");
-        return false;
-    }
-    if (lightUBO.id == 0) {
-        Logging::LoggerFacade::Error("lightUBO failed\n");
-        return false;
-    }
-    if (instanceVBO.id == 0) {
-        Logging::LoggerFacade::Error("instanceVBO failed\n");
-        return false;
-    }
+    if (vs.id == 0) { Logging::LoggerFacade::Error("vertex shader failed\n"); return false; }
+    if (fs.id == 0) { Logging::LoggerFacade::Error("fragment shader failed\n"); return false; }
+    if (handle.id == 0) { Logging::LoggerFacade::Error("pipeline failed\n"); return false; }
+    if (cameraUBO.id == 0){ Logging::LoggerFacade::Error("cameraUBO failed\n"); return false; }
+    if (lightUBO.id == 0) { Logging::LoggerFacade::Error("lightUBO failed\n"); return false; }
+    if (instanceVBO.id == 0) { Logging::LoggerFacade::Error("instanceVBO failed\n"); return false; }
     return true;
 }
 
@@ -331,13 +310,11 @@ void DefaultPass::BeginFrame(RenderContext3D* context) {
 
     {
         LightUBOData data{};
-
         bool hasDirLight = false;
 
         for (const auto& light : context->lights) {
             std::visit([&](const auto& l) {
                 using T = std::decay_t<decltype(l)>;
-
                 if constexpr (std::is_same_v<T, DirectionalLightData>) {
                     data.dirDirection[0] = l.direction.x;
                     data.dirDirection[1] = l.direction.y;
@@ -367,47 +344,14 @@ void DefaultPass::BeginFrame(RenderContext3D* context) {
     queue->Execute();
 }
 
-void DefaultPass::DrawFrame(const std::vector<RenderMeshDesc>& descs) {
-    if (!isInitialized || descs.empty()) return;
+void DefaultPass::DrawFrame(const std::vector<RenderBatch>& batches) {
+    if (!isInitialized || batches.empty()) return;
 
     auto& rhi = RuntimeRHI::GetInstance();
     auto* queue = rhi.Queue();
     auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(rhi.Executors());
     auto* resourceExecutor = executors->GetResourceExecutor();
     auto* drawExecutor = executors->GetDrawExecutor();
-
-    std::vector<const RenderMeshDesc*> visible;
-    visible.reserve(descs.size());
-    for (const auto& d : descs) {
-        if (d.mesh && d.material) visible.push_back(&d);
-    }
-    if (visible.empty()) return;
-
-    EnsureInstanceCapacity(static_cast<uint32_t>(visible.size()));
-
-    std::vector<InstanceData> instances(visible.size());
-    for (size_t i = 0; i < visible.size(); ++i) {
-        const auto& d = *visible[i];
-        auto* material = static_cast<DefaultMaterial*>(d.material);
-
-        InstanceData inst{};
-        std::copy_n(d.modelMatrix.GetData(), 16, inst.model);
-
-        Vector3f c = material->GetColor();
-        inst.color[0] = c.x;
-        inst.color[1] = c.y;
-        inst.color[2] = c.z;
-        inst.color[3] = 1.0f;
-
-        instances[i] = inst;
-    }
-
-    std::vector<std::byte> raw(instances.size() * sizeof(InstanceData));
-    std::memcpy(raw.data(), instances.data(), raw.size());
-
-    resourceExecutor->AddT<UpdateBufferParams>(
-            UpdateBufferParams{ instanceVBO, 0, std::move(raw) })
-        .RemoveAfterExecute().MarkProcess().Commit();
 
     drawExecutor->AddT<BindUniformBufferParams>(
             BindUniformBufferParams{ cameraUBO, 0, 0, 0, sizeof(CameraUBOData) })
@@ -417,30 +361,63 @@ void DefaultPass::DrawFrame(const std::vector<RenderMeshDesc>& descs) {
             BindUniformBufferParams{ lightUBO, 2, 0, 0, sizeof(LightUBOData) })
         .RemoveAfterExecute().MarkProcess().Commit();
 
-    const auto& first = *visible[0];
-
-    VertexBufferBinding vbb0{ first.mesh->GetVBO(), 0 };
-    VertexBufferBinding vbb1{ instanceVBO,        1 };
-    VertexBufferBinding vbbs[2] = { vbb0, vbb1 };
-
-    DrawElementsParams dep{};
-    dep.pipeline = handle;
-    dep.vertexBuffers = vbbs;
-    dep.vertexBufferCount = 2;
-    dep.indexBuffer = first.mesh->GetIBO();
-    dep.indexBufferOffset = 0;
-    dep.data = DrawElementsParams::Instanced{
-        static_cast<uint32_t>(first.mesh->GetIndices().size()),
-        static_cast<uint32_t>(visible.size()),
-        0,
-        0,
-        0
-    };
-
-    drawExecutor->AddT<DrawElementsParams>(DrawElementsParams{dep})
-        .RemoveAfterExecute().MarkProcess().Commit();
-
     queue->Execute();
+
+    size_t maxGroupSize = 0;
+    for (const auto& b : batches) {
+        maxGroupSize = std::max(maxGroupSize, b.instances.size());
+    }
+    EnsureInstanceCapacity(static_cast<uint32_t>(maxGroupSize));
+    queue->Execute();
+
+    for (const auto& b : batches) {
+        if (!b.mesh || b.instances.empty()) continue;
+
+        std::vector<InstanceData> instances;
+        instances.reserve(b.instances.size());
+
+        for (const auto& inst : b.instances) {
+            auto* mat = static_cast<DefaultMaterial*>(inst.material);
+            const Vector3f c = mat ? mat->GetColor() : Vector3f{ 1.0f, 1.0f, 1.0f };
+
+            InstanceData d{};
+            std::copy_n(inst.modelMatrix.GetData(), 16, d.model);
+            d.color[0] = c.x;
+            d.color[1] = c.y;
+            d.color[2] = c.z;
+            d.color[3] = 1.0f;
+            instances.push_back(d);
+        }
+
+        std::vector<std::byte> raw(instances.size() * sizeof(InstanceData));
+        std::memcpy(raw.data(), instances.data(), raw.size());
+
+        resourceExecutor->AddT<UpdateBufferParams>(
+                UpdateBufferParams{ instanceVBO, 0, std::move(raw) })
+            .RemoveAfterExecute().MarkProcess().Commit();
+
+        queue->Execute();
+
+        vbScratch[0] = VertexBufferBinding{ b.mesh->GetVBO(), 0, 0 };
+        vbScratch[1] = VertexBufferBinding{ instanceVBO, 1, 0 };
+
+        DrawElementsParams dep{};
+        dep.pipeline = handle;
+        dep.vertexBuffers = vbScratch.data();
+        dep.vertexBufferCount = 2;
+        dep.indexBuffer = b.mesh->GetIBO();
+        dep.indexBufferOffset = 0;
+        dep.data = DrawElementsParams::Instanced{
+            static_cast<uint32_t>(b.mesh->GetIndices().size()),
+            static_cast<uint32_t>(b.instances.size()),
+            0, 0, 0
+        };
+
+        drawExecutor->AddT<DrawElementsParams>(DrawElementsParams{ dep })
+            .RemoveAfterExecute().MarkProcess().Commit();
+
+        queue->Execute();
+    }
 }
 
 void DefaultPass::Shutdown() {
@@ -453,8 +430,7 @@ void DefaultPass::Shutdown() {
     auto* pipelineExecutor = executors->GetPipelineExecutor();
 
     if (handle.id != 0) {
-        pipelineExecutor->AddT<DestroyPipelineParams>(
-                DestroyPipelineParams{ handle })
+        pipelineExecutor->AddT<DestroyPipelineParams>(DestroyPipelineParams{ handle })
             .RemoveAfterExecute().MarkProcess().Commit();
         handle = {};
     }

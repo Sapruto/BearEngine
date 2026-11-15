@@ -67,6 +67,8 @@ DrawExecuteResult DrawExecutorGL::ProcessDrawElementsImpl(BaseDevice& device, co
         currentPipeline = params.pipeline;
     }
 
+    glBindVertexArray(pipeline->vao); //! MAY BE TO DELETE
+
     if (!ApplyVBB(params.vertexBufferCount, params.vertexBuffers,
                 resourceGL, pipeline, errorMsg)) {
         return DrawExecuteResult(DrawElementsResult{

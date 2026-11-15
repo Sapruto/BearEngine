@@ -5,7 +5,7 @@
 #include "../Materials/MaterialType.h"
 #include "../Passes/BasePass3D.h"
 #include "../Settings/RenderContext3D.h"
-#include "../Utilities/UV.h"
+#include "../Mesh/Renderable3D.h"
 
 #include "RHI/Base/Handles.h"
 #include "Systems/Core/HasRequired.h"
@@ -13,37 +13,33 @@
 
 #include <vector>
 #include <memory>
+#include <unordered_map>
 
 class Transform3D;
 class Camera3D;
-class Renderable3D;
 class Window;
 class ILight3D;
 
-class RendererScene3D : public IRendererScene, public Systems::HasRequired {
+class RendererScene3D : public IRendererScene<Renderable3D>, public Systems::HasRequired {
 private:
     RHI::Handles::RenderTargetHandle renderTarget{};
 
-    std::unordered_map<MaterialType, std::vector<Renderable3D*>> groups;
+    std::unordered_map<MaterialType, std::vector<RenderBatch>> batchesFlat;
     std::unordered_map<MaterialType, std::unique_ptr<BasePass3D>> passes;
 
     bool isInitialized = false;
 
     std::unique_ptr<RenderContext3D> context;
 
-    std::vector<RenderMeshDesc> GetDescsByGroup(MaterialType type);
-
     std::vector<ILight3D*> lights;
-    Camera3D* currentCamera;
+    Camera3D* currentCamera = nullptr;
 
     Vector4f clearColor{ 0.05f, 0.05f, 0.1f, 1.0f };
 
     void InitDefault();
     void CreateRenderTarget();
-    void BuildGroups();
-
+    void BuildBatches();
     void GenerateNewContext();
-
     void BeginRender();
     void Present();
 
@@ -57,9 +53,7 @@ public:
     void StartDomain() override;
     void EndFrameDomain() override;
     void DestroyDomain() override {
-        for(auto& [type, pass] : passes){
-            if(pass) pass->Shutdown();
-        }
+        for (auto& [type, pass] : passes) if (pass) pass->Shutdown();
     }
 
     template<typename T>
@@ -69,9 +63,7 @@ public:
 
         auto type = pass->GetType();
         auto it = passes.find(type);
-        if (it != passes.end()) {
-            it->second->Shutdown();
-        }
+        if (it != passes.end()) it->second->Shutdown();
 
         T* raw = pass.get();
         passes[type] = std::move(pass);
@@ -82,10 +74,9 @@ public:
 
     template<typename T>
     void UnregisterRenderer(T* pass) {
-        auto it = passes.find(pass->type);
-        if(it != passes.end() && it->second == pass){
-            passes.erase(it);
-        }
+        if (!pass) return;
+        auto it = passes.find(pass->GetType());
+        if (it != passes.end() && it->second.get() == pass) passes.erase(it);
         isDirty = true;
     }
 
@@ -101,46 +92,27 @@ public:
     bool IsDirty() const { return isDirty; }
     bool IsInitialized() const { return isInitialized; }
 
-    void SetCurrentCamera(Camera3D* camera) {
-        currentCamera = camera;
-        isDirty = true;
-    }
-
-    void SetLights(const std::vector<ILight3D*>& newLights) {
-        lights = newLights;
-        isDirty = true;
-    }
-
-    void SetClearColor(Vector4f color) {
-        clearColor = color;
-    }
+    void SetCurrentCamera(Camera3D* camera) { currentCamera = camera; isDirty = true; }
+    void SetLights(const std::vector<ILight3D*>& newLights) { lights = newLights; isDirty = true; }
+    void SetClearColor(Vector4f c) { clearColor = c; }
 
     void AddLight(ILight3D* light) {
         if (!light) return;
         lights.push_back(light);
         isDirty = true;
     }
-
     void RemoveLight(ILight3D* light) {
         auto it = std::find(lights.begin(), lights.end(), light);
-        if (it != lights.end()) {
-            lights.erase(it);
-            isDirty = true;
-        }
+        if (it != lights.end()) { lights.erase(it); isDirty = true; }
     }
-
-    void ClearLights() {
-        lights.clear();
-        isDirty = true;
-    }
+    void ClearLights() { lights.clear(); isDirty = true; }
 
     void AddByObject(GameObject* gameObject) override {
-        Renderable3D* renderable = gameObject->GetComponentOfType<Renderable3D>();
-        if (renderable) RegisterRenderable<Renderable3D>(renderable);
+        Renderable3D* r = gameObject->GetComponentOfType<Renderable3D>();
+        if (r) RegisterRenderable(r);
     }
-
     void RemoveByObject(GameObject* gameObject) override {
-        Renderable3D* renderable = gameObject->GetComponentOfType<Renderable3D>();
-        if (renderable) UnregisterRenderable<Renderable3D>(renderable);
+        Renderable3D* r = gameObject->GetComponentOfType<Renderable3D>();
+        if (r) UnregisterRenderable(r);
     }
 };
