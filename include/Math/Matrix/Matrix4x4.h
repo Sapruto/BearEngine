@@ -1,0 +1,139 @@
+#pragma once
+
+#include "Math/Matrix/BaseMatrix.h"
+#include "Math/Vector/Vector3.h"
+#include <cmath>
+
+template<typename T>
+struct Matrix4x4 : public BaseMatrixAlias<T, 4, 4> {
+private:
+    constexpr void GetMinor3x3(int row, int col, T* minor) const {
+        int idx = 0;
+        for (int i = 0; i < 4; i++) {
+            if (i == row) continue;
+            for (int j = 0; j < 4; j++) {
+                if (j == col) continue;
+                minor[idx++] = (*this)(i, j);
+            }
+        }
+    }
+
+    static constexpr T Determinant3x3(const T* d) {
+        return d[0] * (d[4] * d[8] - d[5] * d[7])
+             - d[1] * (d[3] * d[8] - d[5] * d[6])
+             + d[2] * (d[3] * d[7] - d[4] * d[6]);
+    }
+
+public:
+    using Base = BaseMatrixAlias<T, 4, 4>;
+    using Base::Base;
+
+    constexpr T Determinant() const {
+        T minor00[9], minor01[9], minor02[9], minor03[9];
+        GetMinor3x3(0, 0, minor00);
+        GetMinor3x3(0, 1, minor01);
+        GetMinor3x3(0, 2, minor02);
+        GetMinor3x3(0, 3, minor03);
+
+        return (*this)(0,0) * Determinant3x3(minor00)
+             - (*this)(0,1) * Determinant3x3(minor01)
+             + (*this)(0,2) * Determinant3x3(minor02)
+             - (*this)(0,3) * Determinant3x3(minor03);
+    }
+
+    constexpr Matrix4x4 Inverse() const {
+        T det = Determinant();
+        if (det == T(0)) return Matrix4x4::Identity();
+
+        Matrix4x4 inv;
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                T minor[9];
+                GetMinor3x3(i, j, minor);
+                T cofactor = Determinant3x3(minor);
+                if ((i + j) % 2 != 0) cofactor = -cofactor;
+                inv(j, i) = cofactor / det;
+            }
+        }
+        return inv;
+    }
+
+    static constexpr Matrix4x4 Identity() {
+        Matrix4x4 m;
+        for (int i = 0; i < 4; i++) m(i, i) = T(1);
+        return m;
+    }
+
+    static Matrix4x4<T> LookAt(const Vector3<T>& eye, const Vector3<T>& target, const Vector3<T>& up) {
+        Vector3<T> forward = (target - eye).Normalized();
+        Vector3<T> right   = forward.Cross(up).Normalized();
+        Vector3<T> newUp   = right.Cross(forward);
+
+        Matrix4x4<T> view;
+        view(0, 0) = right.x;    view(1, 0) = right.y;    view(2, 0) = right.z;    view(3, 0) = 0;
+        view(0, 1) = newUp.x;    view(1, 1) = newUp.y;    view(2, 1) = newUp.z;    view(3, 1) = 0;
+        view(0, 2) = -forward.x; view(1, 2) = -forward.y; view(2, 2) = -forward.z; view(3, 2) = 0;
+        view(0, 3) = -right.Dot(eye);
+        view(1, 3) = -newUp.Dot(eye);
+        view(2, 3) =  forward.Dot(eye);
+        view(3, 3) = 1;
+        return view;
+    }
+
+    static Matrix4x4<T> Perspective(T fovDegrees, T aspect, T near, T far) {
+        T fovRad = fovDegrees * 3.14159265359f / 180.0f;
+        T tanHalfFov = std::tan(fovRad / 2.0f);
+
+        Matrix4x4<T> proj;
+        proj(0, 0) = 1.0f / (aspect * tanHalfFov);
+        proj(1, 1) = 1.0f / tanHalfFov;
+        proj(2, 2) = -(far + near) / (far - near);
+        proj(2, 3) = -(2.0f * far * near) / (far - near);
+        proj(3, 2) = -1.0f;
+        return proj;
+    }
+
+    static Matrix4x4<T> Ortho(T left, T right, T bottom, T top, T near, T far) {
+        Matrix4x4<T> m;
+        m(0, 0) = T(2) / (right - left);
+        m(1, 1) = T(2) / (top - bottom);
+        m(2, 2) = -T(2) / (far - near);
+        m(0, 3) = -(right + left) / (right - left);
+        m(1, 3) = -(top + bottom) / (top - bottom);
+        m(2, 3) = -(far + near) / (far - near);
+        m(3, 3) = T(1);
+        return m;
+    }
+
+    static constexpr Matrix4x4 Zero() {
+        return Matrix4x4();
+    }
+};
+
+template<typename T>
+constexpr Matrix4x4<T> operator*(const Matrix4x4<T>& a, const Matrix4x4<T>& b) {
+    Matrix4x4<T> result;
+    for (int i = 0; i < 4; ++i) {
+        for (int j = 0; j < 4; ++j) {
+            T sum = T(0);
+            for (int k = 0; k < 4; ++k) {
+                sum += a(i, k) * b(k, j);
+            }
+            result(i, j) = sum;
+        }
+    }
+    return result;
+}
+
+template<typename T>
+constexpr Vector3<T> operator*(const Matrix4x4<T>& m, const Vector3<T>& v) {
+    Vector3<T> result;
+    result.x = m(0,0) * v.x + m(0,1) * v.y + m(0,2) * v.z + m(0,3);
+    result.y = m(1,0) * v.x + m(1,1) * v.y + m(1,2) * v.z + m(1,3);
+    result.z = m(2,0) * v.x + m(2,1) * v.y + m(2,2) * v.z + m(2,3);
+    return result;
+}
+
+using Matrix4x4f = Matrix4x4<float>;
+using Matrix4x4d = Matrix4x4<double>;
+using Matrix4x4i = Matrix4x4<int>;

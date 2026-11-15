@@ -1,0 +1,30 @@
+# Build directories
+compile_commands.json
+build/
+Build/
+*.o
+*.exe
+*.out
+
+#Assets directories
+Assets/
+
+# IDE files
+.vscode/
+.idea/
+
+# Logs
+*.log
+output.log
+
+# Compiled files
+*.so
+*.dll
+*.dylib
+
+
+*.cash
+*.vscode
+/.cache/
+
+exports/
