@@ -28,3 +28,12 @@ output.log
 /.cache/
 
 exports/
+tests/
+Assets/
+src/users_interface
+main.cpp
+CMakeLists.txt
+BearEngine.code-workspace
+.clangd
+.clangd-format
+build.sh
