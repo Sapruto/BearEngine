@@ -3,6 +3,7 @@
 #include <cstddef>
 #include <cstring>
 #include <span>
+#include <string_view>
 #include <type_traits>
 #include <vector>
 
@@ -16,10 +17,8 @@ namespace Renderer::Utilities {
         return { bytes.begin(), bytes.end() };
     }
 
-    template<size_t N>
-    static std::vector<std::byte> ToBytes(const char (&str)[N]) {
-        std::vector<std::byte> data(N - 1);
-        std::memcpy(data.data(), str, N - 1);
-        return data;
+    static std::vector<std::byte> ToBytes(std::string_view str) {
+        auto bytes = std::as_bytes(std::span{str});
+        return { bytes.begin(), bytes.end() };
     }
 }

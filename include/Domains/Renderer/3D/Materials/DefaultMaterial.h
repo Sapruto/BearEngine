@@ -8,15 +8,17 @@ namespace {
     using namespace SerializeField;
 }
 
-struct DefaultMaterial : public Material {
-private:
-    FIELD(Vector3f, color);
+namespace Renderer::R3D::Materials {
+    struct DefaultMaterial : public Material {
+    private:
+        FIELD(Vector3f, color);
 
-public:
-    DefaultMaterial() : Material(MaterialType::DEFAULT) {}
+    public:
+        DefaultMaterial() : Material(MaterialType::DEFAULT) {}
 
-    void SetColor(const Vector3f& newColor) { color = newColor; }
-    Vector3f GetColor() { return color.GetValue(); }
+        void SetColor(const Vector3f& newColor) { color = newColor; }
+        Vector3f GetColor() { return color.GetValue(); }
 
-    SERIALIZED_FIELDS(&color)
-};
+        SERIALIZED_FIELDS(&color)
+    };
+}

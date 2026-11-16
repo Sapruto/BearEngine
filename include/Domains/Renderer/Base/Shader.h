@@ -1,40 +1,94 @@
 #pragma once
 
+#include "Logger/Logger.h"
+#include "RHI/Base/Enums.h"
 #include "RHI/Base/Handles.h"
 
+#include "../RenderBackendAllias.h"
+#include "../Utilities/ToBytes.h"
+#include "RHI/Fabric/BackendTraits.h"
+#include "RHI/RuntimeRHI.h"
+
+#include <filesystem>
+#include <fstream>
 #include <string>
-#include <optional>
+#include <unordered_map>
 
 namespace Renderer::Base {
-    struct ShaderPathes {
-        RHI::Handles::ShaderHandle vertexPath;
-        RHI::Handles::ShaderHandle fragmePath;
-        std::optional<RHI::Handles::ShaderHandle> geometryPath;
-        std::optional<RHI::Handles::ShaderHandle> computePath;
-        std::optional<RHI::Handles::ShaderHandle> tessControlPath;
-        std::optional<RHI::Handles::ShaderHandle> tessEvalPath;
+    struct ShaderHandleWithPath {
+        RHI::Handles::ShaderHandle handle;
+        std::string path;
     };
 
-    struct ShaderState {
-        std::string vertexHandle;
-        std::string fragmeHanle;
-        std::optional<std::string> geometryHandle;
-        std::optional<std::string> computeHandle;
-        std::optional<std::string> tessControlHandle;
-        std::optional<std::string> tessEvalHandle;
-    };
-    
     class Shader {
     private:
-        ShaderState state;
+        std::unordered_map<RHI::ShaderStage, RHI::Handles::ShaderHandle> stageToHandler;
+
+        bool isInitialized = false;
+
+        std::string LoadShaderContent(std::filesystem::path path) {
+            std::ifstream file(path);
+
+            if (!file.is_open()) {
+                Logging::LoggerFacade::Error("Failed to open file: ");
+                return "";
+            }
+
+            std::stringstream buffer;
+            buffer << file.rdbuf();
+            return buffer.str();
+        }
+
+        void CompileOpenGLShader(std::string shaderContent, RHI::ShaderStage stage) {
+            auto& rhi = RHI::RuntimeRHI::GetInstance();
+            auto* executors = static_cast<RHI::FabricRHI::ExecutorsOwnerT<Backend>*>(rhi.Executors());
+            auto* resource = executors->GetResourceExecutor();
+
+            {
+                RHI::Executors::ResourceExecutor::ShaderDesc desc;
+                desc.stage = stage;
+                desc.bytecode = Utilities::ToBytes(shaderContent);
+
+                const auto id = resource->AddT<RHI::Executors::ResourceExecutor::CreateShaderParams>(RHI::Executors::ResourceExecutor::CreateShaderParams{ desc })
+                    .RemoveAfterExecute().MarkProcess().Commit();
+                resource->SubscribeOnce(id, [&](const std::vector<RHI::Executors::ResourceExecutor::ResourceExecuteResult>& results) {
+                    if (results.empty()) return;
+                    const auto& res = results[0];
+
+                    if (auto* shaderRes = std::get_if<RHI::Executors::ResourceExecutor::CreateShaderResult>(&res.data)) stageToHandler[stage] = shaderRes->handle;
+                    else Logging::LoggerFacade::Error("variant does not hold CreateShaderResult\n");
+                });
+            }
+        }
         
     public:
         Shader() = default;
-        Shader(const ShaderPathes& pathes);
 
-        bool Initialize(const ShaderPathes& pathes);
-        void Shutdown();
+        void Initialize(const std::unordered_map<RHI::ShaderStage, std::filesystem::path>& stageToPath) {
+            if constexpr (std::is_same_v<Backend, RHI::FabricRHI::OpenGLBackend>) {
+                for (auto [stage, path] : stageToPath) {
+                    std::string content = LoadShaderContent(path);
+                    CompileOpenGLShader(content, stage);
+                }
+            }
+            else {
+                Logging::LoggerFacade::Error("Unknown graphic backend type");
+            }
+            isInitialized = true;
+        }
 
-        const ShaderState& GetShaderState();
+        void Shutdown() {
+            auto& rhi = RHI::RuntimeRHI::GetInstance();
+            auto* executors = static_cast<RHI::FabricRHI::ExecutorsOwnerT<Backend>*>(rhi.Executors());
+            auto* resource = executors->GetResourceExecutor();
+
+            for (auto [stage, handle] : stageToHandler) {
+                resource->AddT<RHI::Executors::ResourceExecutor::DestroyShaderParams>(RHI::Executors::ResourceExecutor::DestroyShaderParams{ handle });
+            }
+            stageToHandler.clear();
+            isInitialized = false;
+        }
+
+        RHI::Handles::ShaderHandle GetShader(RHI::ShaderStage stage) { return stageToHandler[stage]; }
     };
 }

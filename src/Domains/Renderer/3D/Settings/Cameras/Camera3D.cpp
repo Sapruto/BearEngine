@@ -3,6 +3,8 @@
 #include "Math/Transform/Transform3D.h"
 #include "Math/Quaternion.h"
 
+using namespace Renderer::R3D;
+
 void Camera3D::Start() {
     if (gameObject) {
         transform = gameObject->GetComponentOfType<Transform3D>();

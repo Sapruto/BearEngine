@@ -2,6 +2,8 @@
 
 #include "Systems/Resource/ResourceSystem.h"
 
+using namespace Renderer::R3D;
+
 std::atomic<unsigned> Renderable3D::nextId = 0;
 
 Renderable3D::Renderable3D(const std::string& meshPath) 

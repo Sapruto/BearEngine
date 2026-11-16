@@ -23,6 +23,7 @@ using namespace RHI::Executors::ResourceExecutor;
 using namespace RHI::FabricRHI;
 
 using namespace Renderer::Base;
+using namespace Renderer::R3D;
 
 Mesh::Mesh(const std::string& path) : Resource(path) {}
 

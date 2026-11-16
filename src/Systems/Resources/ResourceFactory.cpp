@@ -19,7 +19,7 @@ std::unique_ptr<Resource> ResourceFactory::create(ResourceType type, std::string
         case ResourceType::Audio:
             return std::make_unique<Audio>(pathName);*/
         case ResourceType::Mesh:
-            return std::make_unique<Mesh>(pathName);
+            return std::make_unique<Renderer::R3D::Mesh>(pathName);
         default:
             return nullptr;
     }

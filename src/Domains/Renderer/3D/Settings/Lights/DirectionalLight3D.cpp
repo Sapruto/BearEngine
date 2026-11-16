@@ -2,6 +2,8 @@
 
 #include <cmath>
 
+using namespace Renderer::R3D::Lights;
+
 DirectionalLight3D::DirectionalLight3D()  {
     direction.GetValue() = Vector3f(0.0f, -1.0f, 0.0f);
     shadowAreaSize.GetValue() = 50.0f;

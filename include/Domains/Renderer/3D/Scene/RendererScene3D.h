@@ -6,6 +6,7 @@
 #include "../Passes/BasePass3D.h"
 #include "../Settings/RenderContext3D.h"
 #include "../Mesh/Renderable3D.h"
+#include "../ForwardDeclaration.h"
 
 #include "RHI/Base/Handles.h"
 #include "Systems/Core/HasRequired.h"
@@ -16,103 +17,103 @@
 #include <unordered_map>
 
 class Transform3D;
-class Camera3D;
 class Window;
-class ILight3D;
 
-class RendererScene3D : public IRendererScene<Renderable3D>, public Systems::HasRequired {
-private:
-    RHI::Handles::RenderTargetHandle renderTarget{};
+namespace Renderer::R3D {
+    class RendererScene3D : public IRendererScene<Renderable3D>, public Systems::HasRequired {
+    private:
+        RHI::Handles::RenderTargetHandle renderTarget{};
 
-    std::unordered_map<MaterialType, std::vector<RenderBatch>> batchesFlat;
-    std::unordered_map<MaterialType, std::unique_ptr<BasePass3D>> passes;
+        std::unordered_map<Materials::MaterialType, std::vector<Passes::RenderBatch>> batchesFlat;
+        std::unordered_map<Materials::MaterialType, std::unique_ptr<Passes::BasePass3D>> passes;
 
-    bool isInitialized = false;
+        bool isInitialized = false;
 
-    std::unique_ptr<RenderContext3D> context;
+        std::unique_ptr<RenderContext3D> context;
 
-    std::vector<ILight3D*> lights;
-    Camera3D* currentCamera = nullptr;
+        std::vector<Lights::ILight3D*> lights;
+        Camera3D* currentCamera = nullptr;
 
-    Vector4f clearColor{ 0.05f, 0.05f, 0.1f, 1.0f };
+        Vector4f clearColor{ 0.05f, 0.05f, 0.1f, 1.0f };
 
-    void InitDefault();
-    void CreateRenderTarget();
-    void BuildBatches();
-    void GenerateNewContext();
-    void BeginRender();
-    void Present();
+        void InitDefault();
+        void CreateRenderTarget();
+        void BuildBatches();
+        void GenerateNewContext();
+        void BeginRender();
+        void Present();
 
-public:
-    RendererScene3D() {
-        context = std::make_unique<RenderContext3D>();
-        GetRequire()->AddSystemByType<TimeSystem>();
-    }
-    ~RendererScene3D() = default;
+    public:
+        RendererScene3D() {
+            context = std::make_unique<RenderContext3D>();
+            GetRequire()->AddSystemByType<TimeSystem>();
+        }
+        ~RendererScene3D() = default;
 
-    void StartDomain() override;
-    void EndFrameDomain() override;
-    void DestroyDomain() override {
-        for (auto& [type, pass] : passes) if (pass) pass->Shutdown();
-    }
+        void StartDomain() override;
+        void EndFrameDomain() override;
+        void DestroyDomain() override {
+            for (auto& [type, pass] : passes) if (pass) pass->Shutdown();
+        }
 
-    template<typename T>
-    T* RegisterRenderer(std::unique_ptr<T> pass) {
-        static_assert(std::is_base_of_v<BasePass3D, T>, "T must derive from BasePass3D");
-        if (!pass) return nullptr;
+        template<typename T>
+        T* RegisterRenderer(std::unique_ptr<T> pass) {
+            static_assert(std::is_base_of_v<Passes::BasePass3D, T>, "T must derive from Passes::BasePass3D");
+            if (!pass) return nullptr;
 
-        auto type = pass->GetType();
-        auto it = passes.find(type);
-        if (it != passes.end()) it->second->Shutdown();
+            auto type = pass->GetType();
+            auto it = passes.find(type);
+            if (it != passes.end()) it->second->Shutdown();
 
-        T* raw = pass.get();
-        passes[type] = std::move(pass);
-        if (isInitialized) raw->Init();
-        isDirty = true;
-        return raw;
-    }
+            T* raw = pass.get();
+            passes[type] = std::move(pass);
+            if (isInitialized) raw->Init();
+            isDirty = true;
+            return raw;
+        }
 
-    template<typename T>
-    void UnregisterRenderer(T* pass) {
-        if (!pass) return;
-        auto it = passes.find(pass->GetType());
-        if (it != passes.end() && it->second.get() == pass) passes.erase(it);
-        isDirty = true;
-    }
+        template<typename T>
+        void UnregisterRenderer(T* pass) {
+            if (!pass) return;
+            auto it = passes.find(pass->GetType());
+            if (it != passes.end() && it->second.get() == pass) passes.erase(it);
+            isDirty = true;
+        }
 
-    std::vector<ILight3D*>& GetLights() { return lights; }
-    const std::vector<ILight3D*>& GetLights() const { return lights; }
+        std::vector<Lights::ILight3D*>& GetLights() { return lights; }
+        const std::vector<Lights::ILight3D*>& GetLights() const { return lights; }
 
-    Camera3D* GetCurrentCamera() { return currentCamera; }
-    const Camera3D* GetCurrentCamera() const { return currentCamera; }
+        Camera3D* GetCurrentCamera() { return currentCamera; }
+        const Camera3D* GetCurrentCamera() const { return currentCamera; }
 
-    RenderContext3D* GetContext() { return context.get(); }
-    const RenderContext3D* GetContext() const { return context.get(); }
+        RenderContext3D* GetContext() { return context.get(); }
+        const RenderContext3D* GetContext() const { return context.get(); }
 
-    bool IsDirty() const { return isDirty; }
-    bool IsInitialized() const { return isInitialized; }
+        bool IsDirty() const { return isDirty; }
+        bool IsInitialized() const { return isInitialized; }
 
-    void SetCurrentCamera(Camera3D* camera) { currentCamera = camera; isDirty = true; }
-    void SetLights(const std::vector<ILight3D*>& newLights) { lights = newLights; isDirty = true; }
-    void SetClearColor(Vector4f c) { clearColor = c; }
+        void SetCurrentCamera(Camera3D* camera) { currentCamera = camera; isDirty = true; }
+        void SetLights(const std::vector<Lights::ILight3D*>& newLights) { lights = newLights; isDirty = true; }
+        void SetClearColor(Vector4f c) { clearColor = c; }
 
-    void AddLight(ILight3D* light) {
-        if (!light) return;
-        lights.push_back(light);
-        isDirty = true;
-    }
-    void RemoveLight(ILight3D* light) {
-        auto it = std::find(lights.begin(), lights.end(), light);
-        if (it != lights.end()) { lights.erase(it); isDirty = true; }
-    }
-    void ClearLights() { lights.clear(); isDirty = true; }
+        void AddLight(Lights::ILight3D* light) {
+            if (!light) return;
+            lights.push_back(light);
+            isDirty = true;
+        }
+        void RemoveLight(Lights::ILight3D* light) {
+            auto it = std::find(lights.begin(), lights.end(), light);
+            if (it != lights.end()) { lights.erase(it); isDirty = true; }
+        }
+        void ClearLights() { lights.clear(); isDirty = true; }
 
-    void AddByObject(GameObject* gameObject) override {
-        Renderable3D* r = gameObject->GetComponentOfType<Renderable3D>();
-        if (r) RegisterRenderable(r);
-    }
-    void RemoveByObject(GameObject* gameObject) override {
-        Renderable3D* r = gameObject->GetComponentOfType<Renderable3D>();
-        if (r) UnregisterRenderable(r);
-    }
-};
+        void AddByObject(GameObject* gameObject) override {
+            Renderable3D* r = gameObject->GetComponentOfType<Renderable3D>();
+            if (r) RegisterRenderable(r);
+        }
+        void RemoveByObject(GameObject* gameObject) override {
+            Renderable3D* r = gameObject->GetComponentOfType<Renderable3D>();
+            if (r) UnregisterRenderable(r);
+        }
+    };
+}

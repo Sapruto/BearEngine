@@ -29,6 +29,8 @@ using namespace RHI::Executors::DrawExecutor;
 using namespace RHI::Executors::SwapChainExecutor;
 
 using namespace Renderer::R3D;
+using namespace Renderer::R3D::Passes;
+using namespace Renderer::R3D::Materials;
 using namespace Renderer::R3D::Utilities;
 
 void RendererScene3D::InitDefault() {
@@ -126,13 +128,13 @@ void RendererScene3D::BuildBatches() {
         std::unordered_map<MaterialType, std::unordered_map<Mesh*, size_t>> lookup;
 
         for (auto* irendarable : renderables) {
-            auto* r3d = dynamic_cast<Renderable3D*>(irendarable);
+            auto* r3d = irendarable;
             if (!r3d) continue;
 
             Mesh* mesh = r3d->GetMesh();
             if (!mesh) continue;
 
-            for (Material* mat : r3d->GetMaterials()) {
+            for (auto& mat : r3d->GetMaterials()) {
                 if (!mat) continue;
 
                 const MaterialType t = mat->GetType();
@@ -149,7 +151,7 @@ void RendererScene3D::BuildBatches() {
                 else {
                     i = it->second;
                 }
-                vec[i].instances.emplace_back(mat, Matrix4x4f{});
+                vec[i].instances.emplace_back(mat.get(), Matrix4x4f{});
             }
         }
 
@@ -165,7 +167,7 @@ void RendererScene3D::BuildBatches() {
 
         const Matrix4x4f model = r3d->GetMatrix();
 
-        for (Material* mat : r3d->GetMaterials()) {
+        for (auto& mat : r3d->GetMaterials()) {
             if (!mat) continue;
 
             auto typeIt = batchesFlat.find(mat->GetType());
@@ -175,7 +177,7 @@ void RendererScene3D::BuildBatches() {
                 if (batch.mesh != mesh) continue;
 
                 for (auto& inst : batch.instances) {
-                    if (inst.material == mat) {
+                    if (inst.material == mat.get()) {
                         inst.modelMatrix = model;
                         break;
                     }

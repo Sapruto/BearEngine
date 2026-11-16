@@ -3,7 +3,7 @@
 #include "Logger/Logger.h"
 #include "Domains/Renderer/3D/Materials/DefaultMaterial.h"
 #include "Domains/Renderer/3D/Settings/RenderContext3D.h"
-#include "Domains/Renderer/3D/Utilities/ToBytes.h"
+#include "Domains/Renderer/Utilities/ToBytes.h"
 #include "Domains/Renderer/RenderBackendAllias.h"
 
 #include "RHI/RuntimeRHI.h"
@@ -30,6 +30,11 @@ using namespace RHI::FabricRHI;
 
 using namespace Renderer::Base;
 using namespace Renderer::Utilities;
+
+using namespace Renderer::R3D;
+using namespace Renderer::R3D::Passes;
+using namespace Renderer::R3D::Materials;
+using namespace Renderer::R3D::Lights;
 
 constexpr const char kMeshVertexShader[] = R"(
 #version 450 core
