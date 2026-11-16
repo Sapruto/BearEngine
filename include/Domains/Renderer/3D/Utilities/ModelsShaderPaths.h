@@ -1,7 +1,12 @@
 #pragma once
 
-#include <string>
+#include <filesystem>
 
 namespace ModelsShaderPaths {
-    inline const std::string Base = "include/core/graphics_engine/3D/shaders/";
+    inline const std::filesystem::path Base = "Shaders";
+
+    namespace Default {
+        inline const std::filesystem::path Vertex = (Base / "Default" / "Vertex.glsl");
+        inline const std::filesystem::path Fragment = (Base / "Default" / "Fragment.glsl");
+    }
 }

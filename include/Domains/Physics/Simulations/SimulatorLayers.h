@@ -15,5 +15,6 @@ namespace Physic::SimulatorLayers {
 
     namespace Thermodynamics {
         inline const unsigned int THERMAL = 9;
+        inline const unsigned int THERMO_BALANCE = 10;
     }
 }

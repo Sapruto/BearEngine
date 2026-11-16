@@ -3,11 +3,12 @@
 #include "Logger/Logger.h"
 #include "RHI/Base/Enums.h"
 #include "RHI/Base/Handles.h"
+#include "RHI/Base/Executors/ExecutorQueueRHI.h"
+#include "RHI/Fabric/BackendTraits.h"
+#include "RHI/RuntimeRHI.h"
 
 #include "../RenderBackendAllias.h"
 #include "../Utilities/ToBytes.h"
-#include "RHI/Fabric/BackendTraits.h"
-#include "RHI/RuntimeRHI.h"
 
 #include <filesystem>
 #include <fstream>
@@ -27,6 +28,8 @@ namespace Renderer::Base {
         bool isInitialized = false;
 
         std::string LoadShaderContent(std::filesystem::path path) {
+            std::cout << path << std::endl;
+
             std::ifstream file(path);
 
             if (!file.is_open()) {
@@ -51,12 +54,16 @@ namespace Renderer::Base {
 
                 const auto id = resource->AddT<RHI::Executors::ResourceExecutor::CreateShaderParams>(RHI::Executors::ResourceExecutor::CreateShaderParams{ desc })
                     .RemoveAfterExecute().MarkProcess().Commit();
-                resource->SubscribeOnce(id, [&](const std::vector<RHI::Executors::ResourceExecutor::ResourceExecuteResult>& results) {
+                resource->SubscribeOnce(id, [this, stage](const std::vector<RHI::Executors::ResourceExecutor::ResourceExecuteResult>& results) {
                     if (results.empty()) return;
                     const auto& res = results[0];
 
-                    if (auto* shaderRes = std::get_if<RHI::Executors::ResourceExecutor::CreateShaderResult>(&res.data)) stageToHandler[stage] = shaderRes->handle;
-                    else Logging::LoggerFacade::Error("variant does not hold CreateShaderResult\n");
+                    if (auto* shaderRes = std::get_if<RHI::Executors::ResourceExecutor::CreateShaderResult>(&res.data)) {
+                        stageToHandler[stage] = shaderRes->handle;
+                    }
+                    else {
+                        Logging::LoggerFacade::Error("variant does not hold CreateShaderResult\n");
+                    }
                 });
             }
         }
@@ -65,11 +72,15 @@ namespace Renderer::Base {
         Shader() = default;
 
         void Initialize(const std::unordered_map<RHI::ShaderStage, std::filesystem::path>& stageToPath) {
+            auto& rhi = RHI::RuntimeRHI::GetInstance();
+            auto* queue = rhi.Queue();
+
             if constexpr (std::is_same_v<Backend, RHI::FabricRHI::OpenGLBackend>) {
                 for (auto [stage, path] : stageToPath) {
                     std::string content = LoadShaderContent(path);
                     CompileOpenGLShader(content, stage);
                 }
+                queue->Execute();
             }
             else {
                 Logging::LoggerFacade::Error("Unknown graphic backend type");
@@ -89,6 +100,13 @@ namespace Renderer::Base {
             isInitialized = false;
         }
 
-        RHI::Handles::ShaderHandle GetShader(RHI::ShaderStage stage) { return stageToHandler[stage]; }
+        RHI::Handles::ShaderHandle GetShader(RHI::ShaderStage stage) const {
+            auto it = stageToHandler.find(stage);
+            if (it == stageToHandler.end()) {
+                Logging::LoggerFacade::Error("GetShader called before shader handle was created");
+                return {};
+            }
+            return it->second;
+        }
     };
 }

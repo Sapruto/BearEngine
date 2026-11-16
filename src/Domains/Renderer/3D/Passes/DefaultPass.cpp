@@ -3,6 +3,7 @@
 #include "Logger/Logger.h"
 #include "Domains/Renderer/3D/Materials/DefaultMaterial.h"
 #include "Domains/Renderer/3D/Settings/RenderContext3D.h"
+#include "Domains/Renderer/3D/Utilities/ModelsShaderPaths.h"
 #include "Domains/Renderer/Utilities/ToBytes.h"
 #include "Domains/Renderer/RenderBackendAllias.h"
 
@@ -36,118 +37,10 @@ using namespace Renderer::R3D::Passes;
 using namespace Renderer::R3D::Materials;
 using namespace Renderer::R3D::Lights;
 
-constexpr const char kMeshVertexShader[] = R"(
-#version 450 core
+DefaultPass::DefaultPass() : BasePass3D(Materials::MaterialType::DEFAULT, 0), vertexShaderPath(ModelsShaderPaths::Default::Vertex), fragmentShaderPath(ModelsShaderPaths::Default::Fragment) {}
 
-layout(std140, binding = 0) uniform CameraUBO {
-    mat4 view;
-    mat4 projection;
-    vec4 viewPos;
-};
-
-layout(location = 0) in vec3 aPos;
-layout(location = 1) in vec3 aNormal;
-layout(location = 2) in vec2 aTexCoords;
-layout(location = 3) in vec3 aTangent;
-layout(location = 4) in vec3 aBitangent;
-
-layout(location = 5) in vec4 aModel0;
-layout(location = 6) in vec4 aModel1;
-layout(location = 7) in vec4 aModel2;
-layout(location = 8) in vec4 aModel3;
-layout(location = 9) in vec4 aColor;
-
-out vec3 vNormal;
-out vec3 vFragPos;
-out vec4 vColor;
-
-void main() {
-    mat4 model = mat4(aModel0, aModel1, aModel2, aModel3);
-
-    vec4 worldPos = model * vec4(aPos, 1.0);
-    vFragPos = worldPos.xyz;
-    vNormal = mat3(transpose(inverse(model))) * aNormal;
-    vColor = aColor;
-
-    gl_Position = projection * view * worldPos;
-}
-)";
-
-constexpr const char kFragmentShader[] = R"(
-#version 450 core
-
-layout(std140, binding = 0) uniform CameraUBO {
-    mat4 view;
-    mat4 projection;
-    vec4 viewPos;
-};
-
-layout(std140, binding = 2) uniform LightUBO {
-    vec4 dirDirection;
-    vec4 dirColor;
-    vec4 lightParams;
-};
-
-in vec3 vNormal;
-in vec3 vFragPos;
-in vec4 vColor;
-
-out vec4 FragColor;
-
-void main() {
-    vec3 N = normalize(vNormal);
-    vec3 V = normalize(viewPos.xyz - vFragPos);
-
-    vec3 result = vec3(0.0);
-
-    if (lightParams.y == 1.0) {
-        vec3 L = normalize(-dirDirection.xyz);
-        float ndotl = max(dot(N, L), 0.0);
-        vec3 R = reflect(-L, N);
-        float spec = pow(max(dot(V, R), 0.0), 32.0);
-
-        vec3 ambient = 0.1 * dirColor.rgb;
-        vec3 diffuse = ndotl * dirColor.rgb;
-        vec3 specular = 0.5 * spec * dirColor.rgb;
-
-        result += ambient + diffuse + specular;
-    }
-
- FragColor = vec4(result * vColor.rgb, 1.0);
-}
-)";
-
-void DefaultPass::CreateShaders(ShaderHandle& vs, ShaderHandle& fs) {
-    auto& rhi = RuntimeRHI::GetInstance();
-    auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(rhi.Executors());
-    auto* queue = rhi.Queue();
-    auto* resourceExecutor = executors->GetResourceExecutor();
-
-    {
-        ShaderDesc desc;
-        desc.stage = ShaderStage::VERTEX;
-        desc.bytecode = ToBytes(kMeshVertexShader);
-
-        const auto id = resourceExecutor->AddT<CreateShaderParams>(CreateShaderParams{ desc })
-            .RemoveAfterExecute().MarkProcess().Commit();
-        resourceExecutor->SubscribeOnce(id, [&](const std::vector<ResourceExecuteResult>& results) {
-            if (results.empty()) return;
-            const auto& res = results[0];
-
-            if (auto* shaderRes = std::get_if<CreateShaderResult>(&res.data)) vs = shaderRes->handle;
-            else Logging::LoggerFacade::Error("variant does not hold CreateShaderResult\n");
-        });
-    }
-    {
-        ShaderDesc desc;
-        desc.stage = ShaderStage::FRAGMENT;
-        desc.bytecode = ToBytes(kFragmentShader);
-
-        const auto id = resourceExecutor->AddT<CreateShaderParams>(CreateShaderParams{ desc })
-            .RemoveAfterExecute().MarkProcess().Commit();
-        RHI_ONCE(resourceExecutor, id, CreateShaderResult, r, { fs = r.handle; });
-    }
-    queue->Execute();
+void DefaultPass::CreateShaders() {
+    shader.Initialize({ { ShaderStage::VERTEX, vertexShaderPath }, { ShaderStage::FRAGMENT, fragmentShaderPath } });
 }
 
 void DefaultPass::CreateUBOs() {
@@ -205,15 +98,15 @@ void DefaultPass::EnsureInstanceCapacity(uint32_t needed) {
     queue->Execute();
 }
 
-void DefaultPass::CreatePipeline(ShaderHandle vs, ShaderHandle fs) {
+void DefaultPass::CreatePipeline() {
     auto& rhi = RuntimeRHI::GetInstance();
     auto* executors = static_cast<ExecutorsOwnerT<Backend>*>(rhi.Executors());
     auto* pipelineExecutor = executors->GetPipelineExecutor();
 
     PipelineState state{};
     state.stages = {
-        ShaderStageDesc{ ShaderStage::VERTEX, vs },
-        ShaderStageDesc{ ShaderStage::FRAGMENT, fs }
+        ShaderStageDesc{ ShaderStage::VERTEX, shader.GetShader(ShaderStage::VERTEX) },
+        ShaderStageDesc{ ShaderStage::FRAGMENT, shader.GetShader(ShaderStage::FRAGMENT) }
     };
 
     state.vertexAttributes = {
@@ -256,9 +149,7 @@ void DefaultPass::CreatePipeline(ShaderHandle vs, ShaderHandle fs) {
     RHI_ONCE(pipelineExecutor, id, CreatePipelineResult, r, { handle = r.handle; });
 }
 
-bool DefaultPass::ValidateInit(ShaderHandle vs, ShaderHandle fs) const {
-    if (vs.id == 0) { Logging::LoggerFacade::Error("vertex shader failed\n"); return false; }
-    if (fs.id == 0) { Logging::LoggerFacade::Error("fragment shader failed\n"); return false; }
+bool DefaultPass::ValidateInit() const {
     if (handle.id == 0) { Logging::LoggerFacade::Error("pipeline failed\n"); return false; }
     if (cameraUBO.id == 0){ Logging::LoggerFacade::Error("cameraUBO failed\n"); return false; }
     if (lightUBO.id == 0) { Logging::LoggerFacade::Error("lightUBO failed\n"); return false; }
@@ -274,17 +165,14 @@ void DefaultPass::Init() {
 
     auto* queue = rhi.Queue();
 
-    ShaderHandle vsHandle{};
-    ShaderHandle fsHandle{};
-
-    CreateShaders(vsHandle, fsHandle);
+    CreateShaders();
     CreateUBOs();
     CreateInstanceBuffer(256);
-    CreatePipeline(vsHandle, fsHandle);
+    CreatePipeline();
 
     queue->Execute();
 
-    if (!ValidateInit(vsHandle, fsHandle)) {
+    if (!ValidateInit()) {
         Logging::LoggerFacade::Error("DefaultPass::Init failed\n");
         return;
     }
@@ -455,5 +343,7 @@ void DefaultPass::Shutdown() {
         instanceVBO = {};
     }
     queue->Execute();
+
+    shader.Shutdown();
     isInitialized = false;
 }

@@ -11,6 +11,8 @@ namespace Physic::Thermodynamics::Thermal {
         ThermalValue changeSpecificHeat = 0.0f;
 
         ThermalEvent() = default;
+        ThermalEvent(Body::BodyId bodyId_, ThermalValue changeTemperature_) :
+                    bodyId(bodyId_), changeTemperature(changeTemperature_) {}
         ThermalEvent(ThermalValue changeTemperature_, ThermalValue changeSpecificHeat_) :
                     changeTemperature(changeTemperature_),
                     changeSpecificHeat(changeSpecificHeat_) {}

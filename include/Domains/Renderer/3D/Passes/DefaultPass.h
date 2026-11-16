@@ -4,6 +4,9 @@
 #include "RHI/Base/Contracts/DrawExecutorParams.h"
 #include "BasePass3D.h"
 
+#include "../../Base/Shader.h"
+
+#include <filesystem>
 #include <vector>
 #include <array>
 #include <cstdint>
@@ -20,6 +23,11 @@ namespace Renderer::R3D::Passes {
         uint32_t instanceCapacity = 0;
 
         std::array<RHI::Executors::DrawExecutor::VertexBufferBinding, 2> vbScratch{};
+
+        const std::filesystem::path vertexShaderPath;
+        const std::filesystem::path fragmentShaderPath;
+
+        Base::Shader shader;
 
         struct CameraUBOData {
             alignas(16) float view[16];
@@ -38,15 +46,15 @@ namespace Renderer::R3D::Passes {
             alignas(16) float color[4];
         };
 
-        void CreateShaders(RHI::Handles::ShaderHandle& vs, RHI::Handles::ShaderHandle& fs);
+        void CreateShaders();
         void CreateUBOs();
         void CreateInstanceBuffer(uint32_t initialCapacity);
         void EnsureInstanceCapacity(uint32_t needed);
-        void CreatePipeline(RHI::Handles::ShaderHandle vs, RHI::Handles::ShaderHandle fs);
-        bool ValidateInit(RHI::Handles::ShaderHandle vs, RHI::Handles::ShaderHandle fs) const;
+        void CreatePipeline();
+        bool ValidateInit() const;
 
     public:
-        DefaultPass() : BasePass3D(Materials::MaterialType::DEFAULT, 0) {}
+        DefaultPass();
         ~DefaultPass() override {}
 
         void Init() override;
