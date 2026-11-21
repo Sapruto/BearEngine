@@ -23,10 +23,17 @@ namespace RHI::Executors::DrawExecutor {
         friend struct RHI::FabricRHI::OpenGLBackend;
 
     private:
-        PipelineExecutor::PipelineExecutorGL* pipelineExecutor = nullptr;
-        Handles::PipelineHandle currentPipeline{};
+        //TODO сделать чтобы добавляли мы все rt или tex в некоторые списки чтобы можно было отслеживать это коогда закрыавют рендеринг когда его открывают и логировать это все чтобы баги ловились сразу.
 
-        Handles::RenderTargetHandle currentRenderTarget{};
+        PipelineExecutor::PipelineExecutorGL* pipelineExecutor = nullptr;
+
+        struct DrawResult {
+            bool success = true;
+            std::string errorMsg = "";
+
+            DrawResult() = default;
+            DrawResult(const std::string& errorMsg_) : success(false), errorMsg(errorMsg_) {}
+        };
 
         void SetPipelineExecutor(PipelineExecutor::PipelineExecutorGL* pipeline) {
             pipelineExecutor = pipeline;
@@ -38,6 +45,23 @@ namespace RHI::Executors::DrawExecutor {
             OpenGL::ResourceGL& resourceGL,
             const OpenGL::PipelineGL* pipeline,
             std::string& errorMsg);
+
+        DrawResult BindRenderTarget(Handles::RenderTargetHandle renderTargetHandle,
+            BeginRenderPassParams params, OpenGL::ResourceGL&
+            resourceGL);
+
+        DrawResult BindTexture(Handles::TextureHandle textureTargetHandle,
+            BeginRenderPassParams params,
+            OpenGL::ResourceGL& resourceGL);
+
+        DrawResult EndDrawRenderTarget(Handles::RenderTargetHandle renderTargetHandle,
+            EndRenderPassParams params, OpenGL::ResourceGL&
+            resourceGL);
+
+        DrawResult EndDrawTexture(Handles::TextureHandle textureTargetHandle,
+            EndRenderPassParams params,
+            OpenGL::ResourceGL& resourceGL);
+
 
     public:
         DrawExecuteResult ProcessDrawArraysImpl(RHI::Base::BaseDevice& device, const DrawArraysParams& p);

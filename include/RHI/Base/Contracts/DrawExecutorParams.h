@@ -7,6 +7,10 @@
 #include "RHI/Base/Handles.h"
 
 namespace RHI::Executors::DrawExecutor {
+    using RenderableHandles = std::variant<std::monostate,
+                                            Handles::RenderTargetHandle,
+                                            Handles::TextureHandle>;
+
     struct VertexBufferBinding {
         Handles::BufferHandle buffer{};
         uint64_t offset = 0;
@@ -187,7 +191,7 @@ namespace RHI::Executors::DrawExecutor {
                 : clearColor(c), clearDepth(d), clearStencil(s) {}
         };
 
-        Handles::RenderTargetHandle renderTarget{};
+RenderableHandles target;
         RectRHI renderArea{};
         float clearColorR = 0.0f;
         float clearColorG = 0.0f;
@@ -199,13 +203,13 @@ namespace RHI::Executors::DrawExecutor {
 
         BeginRenderPassParams() = default;
 
-        BeginRenderPassParams(Handles::RenderTargetHandle rt,
+        BeginRenderPassParams(std::variant<std::monostate, Handles::RenderTargetHandle, Handles::TextureHandle> rt,
                             RectRHI area,
                             ClearFlags flags = {},
                             float r = 0.0f, float g = 0.0f,
                             float b = 0.0f, float a = 1.0f,
                             float depth = 1.0f, uint32_t stencil = 0)
-            : renderTarget(rt)
+            : target(rt)
             , renderArea(area)
             , clearColorR(r), clearColorG(g), clearColorB(b), clearColorA(a)
             , clearDepth(depth)
@@ -213,7 +217,9 @@ namespace RHI::Executors::DrawExecutor {
             , clearFlags(flags) {}
     };
 
-    struct EndRenderPassParams {};
+    struct EndRenderPassParams {
+RenderableHandles target;
+    };
 
     struct SetViewportParams {
         RectRHI viewport{};

@@ -30,7 +30,7 @@ namespace RHI::Executors::DrawExecutor {
     };
 
     struct BeginRenderPassResult {
-        Handles::RenderTargetHandle renderTarget{};
+        RenderableHandles target;
         bool success = true;
         std::string errorMessage;
     };

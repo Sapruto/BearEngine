@@ -17,12 +17,15 @@ namespace RHI::OpenGL {
 
     struct TextureGL {
         GLuint id = 0;
+        GLuint fbo = 0;
         GLenum target = GL_TEXTURE_2D;
+
         uint32_t width = 1;
         uint32_t height = 1;
         uint32_t depth = 1;
         uint32_t mipLevels = 1;
         uint32_t arrayLayers = 1;
+
         RHI::Format format = RHI::Format::FLOAT4;
         RHI::SampleCount samples = RHI::SampleCount::COUNT_1;
 
@@ -31,7 +34,14 @@ namespace RHI::OpenGL {
         bool isCube = false;
         bool isMultisample = false;
 
-        void Destroy() { if (id) { glDeleteTextures(1, &id); id = 0; } }
+        GLuint depthStencilTex = 0;
+        GLuint resolveTex = 0;
+        bool fboDirty = true;
+
+        void Destroy() {
+            if (fbo) { glDeleteFramebuffers(1, &fbo); fbo = 0; }
+            if (id) { glDeleteTextures(1, &id); id = 0; }
+        }
     };
 
     struct SamplerGL {

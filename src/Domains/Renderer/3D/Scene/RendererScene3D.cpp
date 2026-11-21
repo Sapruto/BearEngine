@@ -229,7 +229,7 @@ void RendererScene3D::BeginRender() {
     auto* drawExecutor = executors->GetDrawExecutor();
 
     BeginRenderPassParams rp;
-    rp.renderTarget = renderTarget;
+    rp.target = renderTarget;
     rp.renderArea = {
         0, 0,
         static_cast<float>(context->viewportWidth),

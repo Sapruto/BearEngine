@@ -40,8 +40,8 @@ namespace SerializeField {
     template<typename T>
     class SerializedField : public ISerializedField {
     private:
-        T value;
         std::string fieldName;
+        T value;
         
     public:
         SerializedField(const std::string& name, const T& defaultValue = T()) 

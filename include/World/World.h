@@ -48,9 +48,9 @@ private:
 public:
     World()
     : domainRoot(std::make_unique<Domains::DomainRoot>()),
+    theater(std::make_unique<Theater>()),
     systemInjector(std::make_unique<SystemInjector>()),
-    componentInjector(std::make_unique<ComponentInjector>()),
-    theater(std::make_unique<Theater>())
+    componentInjector(std::make_unique<ComponentInjector>())
     {
         application = ApplicationFabric::Create();
         theater->SetDomainRoot(domainRoot.get());

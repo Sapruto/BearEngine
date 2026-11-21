@@ -1,4 +1,5 @@
 #include "RHI/Base/Contracts/DrawExecutorResult.h"
+#include "RHI/Base/Handles.h"
 #include "RHI/OpenGL/Executors/DrawExecutorGL.h"
 
 #include "RHI/Base/Contracts/DrawExecutorParams.h"
@@ -43,6 +44,204 @@ bool DrawExecutorGL::ApplyVBB(
     return true;
 }
 
+
+DrawExecutorGL::DrawResult DrawExecutorGL::BindRenderTarget(RenderTargetHandle renderTargetHandle, BeginRenderPassParams params, ResourceGL& resourceGL) {
+    std::string errorMsg;
+    GLenum errorCode = GL_NO_ERROR;
+
+    RenderTargetGL* rt = resourceGL.GetNativeAs<RenderTargetGL, RenderTargetHandle>(renderTargetHandle);
+    if (!rt) {
+        return DrawResult("RenderTarget not found");
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER, rt->fbo);
+    glViewport(params.renderArea.x, params.renderArea.y,
+            params.renderArea.width, params.renderArea.height);
+    glScissor(params.renderArea.x, params.renderArea.y,
+            params.renderArea.width, params.renderArea.height);
+
+    GLbitfield mask = 0;
+    if (params.clearFlags.clearColor) {
+        glClearColor(params.clearColorR, params.clearColorG,
+                    params.clearColorB, params.clearColorA);
+        mask |= GL_COLOR_BUFFER_BIT;
+    }
+    if (params.clearFlags.clearDepth) {
+        glClearDepth(static_cast<GLdouble>(params.clearDepth));
+        mask |= GL_DEPTH_BUFFER_BIT;
+    }
+    if (params.clearFlags.clearStencil) {
+        glClearStencil(static_cast<GLint>(params.clearStencil));
+        mask |= GL_STENCIL_BUFFER_BIT;
+    }
+    if (mask) {
+        glClear(mask);
+    }
+
+    if (!CheckGLError("BeginRenderPass", errorMsg, errorCode)) {
+        return DrawResult(errorMsg);
+    }
+
+    return DrawResult();
+}
+
+DrawExecutorGL::DrawResult DrawExecutorGL::BindTexture(TextureHandle textureTargetHandle,
+                                                    BeginRenderPassParams params,
+                                                    ResourceGL& resourceGL) {
+    std::string errorMsg;
+    GLenum errorCode = GL_NO_ERROR;
+
+    TextureGL* tex = resourceGL.GetNativeAs<TextureGL, TextureHandle>(textureTargetHandle);
+    if (!tex) return DrawResult("Texture not found");
+
+    if (tex->fbo == 0 || tex->fboDirty) {
+        if (tex->fbo == 0) glGenFramebuffers(1, &tex->fbo);
+        glBindFramebuffer(GL_FRAMEBUFFER, tex->fbo);
+
+        if (tex->isCube) {
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                                GL_TEXTURE_CUBE_MAP_POSITIVE_X, tex->id, 0);
+        }
+        else if (tex->is3D || tex->isArray) {
+            glFramebufferTextureLayer(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                                    tex->id, 0, 0);
+        }
+        else if (tex->isMultisample) {
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                                GL_TEXTURE_2D_MULTISAMPLE, tex->id, 0);
+        }
+        else {
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0,
+                                tex->target, tex->id, 0);
+        }
+
+        if (tex->depthStencilTex) {
+            glFramebufferTexture2D(GL_FRAMEBUFFER, GL_DEPTH_STENCIL_ATTACHMENT,
+                                GL_TEXTURE_2D, tex->depthStencilTex, 0);
+        }
+
+        GLenum status = glCheckFramebufferStatus(GL_FRAMEBUFFER);
+        if (status != GL_FRAMEBUFFER_COMPLETE) {
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+            errorMsg = "Texture FBO incomplete (status=" + std::to_string(status) + ")";
+            return DrawResult(errorMsg);
+        }
+        tex->fboDirty = false;
+    }
+    else {
+        glBindFramebuffer(GL_FRAMEBUFFER, tex->fbo);
+    }
+
+    glViewport(params.renderArea.x, params.renderArea.y,
+            params.renderArea.width, params.renderArea.height);
+    glScissor(params.renderArea.x, params.renderArea.y,
+            params.renderArea.width, params.renderArea.height);
+
+    GLbitfield mask = 0;
+    if (params.clearFlags.clearColor) {
+        glClearColor(params.clearColorR, params.clearColorG,
+                    params.clearColorB, params.clearColorA);
+        mask |= GL_COLOR_BUFFER_BIT;
+    }
+    if (params.clearFlags.clearDepth) {
+        glClearDepth(static_cast<GLdouble>(params.clearDepth));
+        mask |= GL_DEPTH_BUFFER_BIT;
+    }
+    if (params.clearFlags.clearStencil) {
+        glClearStencil(static_cast<GLint>(params.clearStencil));
+        mask |= GL_STENCIL_BUFFER_BIT;
+    }
+    if (mask) glClear(mask);
+
+    if (!CheckGLError("BeginRenderPass (Texture)", errorMsg, errorCode)) {
+        return DrawResult(errorMsg);
+    }
+    return DrawResult();
+}
+
+DrawExecutorGL::DrawResult DrawExecutorGL::EndDrawRenderTarget(RenderTargetHandle renderTargetHandle,
+                                                            [[maybe_unused]] EndRenderPassParams params,
+                                                            ResourceGL& resourceGL) {
+    std::string errorMsg;
+    GLenum errorCode = GL_NO_ERROR;
+
+    auto* rt = resourceGL.GetNativeAs<RenderTargetGL, RenderTargetHandle>(renderTargetHandle);
+    if (rt && rt->samples != SampleCount::COUNT_1 && !rt->resolveTargets.empty()) {
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, rt->fbo);
+
+        for (size_t i = 0; i < rt->resolveTargets.size() && i < rt->colors.size(); ++i) {
+            auto* dst = resourceGL.GetNativeAs<TextureGL>(rt->resolveTargets[i]);
+            if (!dst) continue;
+
+            GLuint resolveFbo = 0;
+            glGenFramebuffers(1, &resolveFbo);
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, resolveFbo);
+
+            GLenum attachment = GL_COLOR_ATTACHMENT0;
+            glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, attachment, dst->target, dst->id, 0);
+            glDrawBuffers(1, &attachment);
+
+            glBlitFramebuffer(0, 0, rt->width, rt->height,
+                            0, 0, dst->width, dst->height,
+                            GL_COLOR_BUFFER_BIT, GL_NEAREST);
+
+            glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+            glDeleteFramebuffers(1, &resolveFbo);
+        }
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+    if (!CheckGLError("EndRenderPass (RenderTarget)", errorMsg, errorCode)) {
+        return DrawResult(errorMsg);
+    }
+    return DrawResult();
+}
+
+DrawExecutorGL::DrawResult DrawExecutorGL::EndDrawTexture(TextureHandle textureTargetHandle,
+                                                        [[maybe_unused]] EndRenderPassParams params,
+                                                        ResourceGL& resourceGL) {
+    std::string errorMsg;
+    GLenum errorCode = GL_NO_ERROR;
+
+    TextureGL* tex = resourceGL.GetNativeAs<TextureGL, TextureHandle>(textureTargetHandle);
+    if (!tex) return DrawResult("Texture not found");
+
+    if (tex->isMultisample && tex->resolveTex != 0) {
+        GLuint resolveFbo = 0;
+        glGenFramebuffers(1, &resolveFbo);
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, resolveFbo);
+        GLenum attachment = GL_COLOR_ATTACHMENT0;
+        glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, attachment,
+                            GL_TEXTURE_2D, tex->resolveTex, 0);
+        glDrawBuffers(1, &attachment);
+
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, tex->fbo);
+        glBlitFramebuffer(0, 0, tex->width, tex->height,
+                        0, 0, tex->width, tex->height,
+                        GL_COLOR_BUFFER_BIT, GL_NEAREST);
+
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+        glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
+        glDeleteFramebuffers(1, &resolveFbo);
+    }
+
+    if (tex->mipLevels > 1 && !tex->isMultisample) {
+        glBindTexture(tex->target, tex->id);
+        glGenerateMipmap(tex->target);
+        glBindTexture(tex->target, 0);
+    }
+
+    glBindFramebuffer(GL_FRAMEBUFFER, 0);
+
+    if (!CheckGLError("EndRenderPass (Texture)", errorMsg, errorCode)) {
+        return DrawResult(errorMsg);
+    }
+    return DrawResult();
+}
+
+
 DrawExecuteResult DrawExecutorGL::ProcessDrawElementsImpl(BaseDevice& device, const DrawElementsParams& params) {
     std::string errorMsg;
     GLenum errorCode = GL_NO_ERROR;
@@ -60,14 +259,11 @@ DrawExecuteResult DrawExecutorGL::ProcessDrawElementsImpl(BaseDevice& device, co
         return DrawExecuteResult(DrawElementsResult{ params.pipeline, 0, 0, false, 0, false, "Index buffer not found" });
     }
 
-    if (params.pipeline != currentPipeline) {
-        if (pipelineExecutor) {
-            pipelineExecutor->ApplyPipelineByHandle(device, params.pipeline);
-        }
-        currentPipeline = params.pipeline;
+    if (pipelineExecutor) {
+        pipelineExecutor->ApplyPipelineByHandle(device, params.pipeline);
     }
 
-    glBindVertexArray(pipeline->vao); //! MAY BE TO DELETE
+    glBindVertexArray(pipeline->vao);
 
     if (!ApplyVBB(params.vertexBufferCount, params.vertexBuffers,
                 resourceGL, pipeline, errorMsg)) {
@@ -153,11 +349,8 @@ DrawExecuteResult DrawExecutorGL::ProcessDrawArraysImpl(BaseDevice& device, cons
         return DrawExecuteResult(DrawArraysResult{ params.pipeline, 0, 0, 0, false, "Pipeline not found" });
     }
 
-    if (params.pipeline != currentPipeline) {
-        if (pipelineExecutor) {
-            pipelineExecutor->ApplyPipelineByHandle(device, params.pipeline);
-        }
-        currentPipeline = params.pipeline;
+    if (pipelineExecutor) {
+        pipelineExecutor->ApplyPipelineByHandle(device, params.pipeline);
     }
 
     if (!ApplyVBB(params.vertexBufferCount, params.vertexBuffers,
@@ -214,89 +407,47 @@ DrawExecuteResult DrawExecutorGL::ProcessDrawArraysImpl(BaseDevice& device, cons
 }
 
 DrawExecuteResult DrawExecutorGL::ProcessBeginRenderPassImpl(BaseDevice& device, const BeginRenderPassParams& params) {
-    std::string errorMsg;
-    GLenum errorCode = GL_NO_ERROR;
-
     DeviceGL& deviceGL = static_cast<DeviceGL&>(device);
     ResourceGL& resourceGL = static_cast<ResourceGL&>(*deviceGL.GetResource());
 
-    RenderTargetGL* rt = resourceGL.GetNativeAs<RenderTargetGL, RenderTargetHandle>(params.renderTarget);
-    if (!rt) {
-        return DrawExecuteResult(BeginRenderPassResult{ params.renderTarget, false, "RenderTarget not found" });
-    }
-
-    glBindFramebuffer(GL_FRAMEBUFFER, rt->fbo);
-    glViewport(params.renderArea.x, params.renderArea.y,
-            params.renderArea.width, params.renderArea.height);
-    glScissor(params.renderArea.x, params.renderArea.y,
-            params.renderArea.width, params.renderArea.height);
-
-    GLbitfield mask = 0;
-    if (params.clearFlags.clearColor) {
-        glClearColor(params.clearColorR, params.clearColorG,
-                    params.clearColorB, params.clearColorA);
-        mask |= GL_COLOR_BUFFER_BIT;
-    }
-    if (params.clearFlags.clearDepth) {
-        glClearDepth(static_cast<GLdouble>(params.clearDepth));
-        mask |= GL_DEPTH_BUFFER_BIT;
-    }
-    if (params.clearFlags.clearStencil) {
-        glClearStencil(static_cast<GLint>(params.clearStencil));
-        mask |= GL_STENCIL_BUFFER_BIT;
-    }
-    if (mask) {
-        glClear(mask);
-    }
-
-    if (!CheckGLError("BeginRenderPass", errorMsg, errorCode)) {
-        return DrawExecuteResult(BeginRenderPassResult{ params.renderTarget, false, errorMsg });
-    }
-
-    currentRenderTarget = params.renderTarget;
-    return DrawExecuteResult(BeginRenderPassResult{ params.renderTarget, true, "" });
+    DrawResult result;
+    
+    std::visit([&](const auto& target) {
+        using T = std::decay_t<decltype(target)>;
+        if constexpr (std::is_same_v<T, RenderTargetHandle>) {
+            result = BindRenderTarget(target, params, resourceGL);
+        }
+        else if constexpr (std::is_same_v<T, TextureHandle>) {
+            result = BindTexture(target, params, resourceGL);
+        }
+        else {
+            result = DrawResult("Target is std::monostate");
+        }
+    }, params.target);
+    return DrawExecuteResult(BeginRenderPassResult{ params.target, result.success, result.errorMsg });
 }
 
-DrawExecuteResult DrawExecutorGL::ProcessEndRenderPassImpl([[maybe_unused]] BaseDevice& device, [[maybe_unused]] const EndRenderPassParams& params) {
-    std::string errorMsg;
-    GLenum errorCode = GL_NO_ERROR;
-
+DrawExecuteResult DrawExecutorGL::ProcessEndRenderPassImpl(BaseDevice& device, const EndRenderPassParams& params) {
     DeviceGL& deviceGL = static_cast<DeviceGL&>(device);
     ResourceGL& resourceGL = static_cast<ResourceGL&>(*deviceGL.GetResource());
 
-    if (currentRenderTarget.id != 0) {
-        auto* rt = resourceGL.GetNativeAs<RenderTargetGL>(currentRenderTarget);
-        if (rt && rt->samples != SampleCount::COUNT_1 && !rt->resolveTargets.empty()) {
-            glBindFramebuffer(GL_READ_FRAMEBUFFER, rt->fbo);
+    DrawResult result;
 
-            for (size_t i = 0; i < rt->resolveTargets.size() && i < rt->colors.size(); ++i) {
-                auto* dst = resourceGL.GetNativeAs<TextureGL>(rt->resolveTargets[i]);
-                if (!dst) continue;
-
-                GLuint resolveFbo = 0;
-                glGenFramebuffers(1, &resolveFbo);
-                glBindFramebuffer(GL_DRAW_FRAMEBUFFER, resolveFbo);
-
-                GLenum attachment = GL_COLOR_ATTACHMENT0;
-                glFramebufferTexture2D(GL_DRAW_FRAMEBUFFER, attachment, dst->target, dst->id, 0);
-                glDrawBuffers(1, &attachment);
-
-                glBlitFramebuffer(0, 0, rt->width, rt->height,
-                                0, 0, dst->width, dst->height,
-                                GL_COLOR_BUFFER_BIT, GL_NEAREST);
-
-                glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
-                glDeleteFramebuffers(1, &resolveFbo);
-            }
-            glBindFramebuffer(GL_READ_FRAMEBUFFER, 0);
+    std::visit([&](const auto& target) {
+        using T = std::decay_t<decltype(target)>;
+        if constexpr (std::is_same_v<T, RenderTargetHandle>) {
+            result = EndDrawRenderTarget(target, params, resourceGL);
         }
-    }
+        else if constexpr (std::is_same_v<T, TextureHandle>) {
+            result = EndDrawTexture(target, params, resourceGL);
+        }
+        else {
+            glBindFramebuffer(GL_FRAMEBUFFER, 0);
+        }
+    }, params.target);
 
-    glBindFramebuffer(GL_FRAMEBUFFER, 0);
-    currentRenderTarget = {};
-
-    if (!CheckGLError("EndRenderPass", errorMsg, errorCode)) {
-        return DrawExecuteResult(EndRenderPassResult{ false, errorMsg });
+    if (!result.success) {
+        return DrawExecuteResult(EndRenderPassResult{ false, result.errorMsg });
     }
     return DrawExecuteResult(EndRenderPassResult{ true, "" });
 }

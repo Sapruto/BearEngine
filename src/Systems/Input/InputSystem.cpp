@@ -146,7 +146,7 @@ void InputSystem::KeyCallback([[maybe_unused]] GLFWwindow* window, int key, [[ma
     }
 }
 
-void InputSystem::MouseButtonCallback([[maybe_unused]] GLFWwindow* window, int button, int action, int mods) {
+void InputSystem::MouseButtonCallback([[maybe_unused]] GLFWwindow* window, int button, int action, [[maybe_unused]] int mods) {
     InputSystem& input = InputSystem::GetInstance();
     
     if (button < 0 || button >= MOUSE_BUTTON_COUNT) return;

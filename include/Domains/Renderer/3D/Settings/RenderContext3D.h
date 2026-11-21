@@ -19,13 +19,10 @@ namespace Renderer::R3D {
         constexpr const char* Normal = "normal";
         constexpr const char* Depth = "depth";
         constexpr const char* MetallicRoughness = "metallicRoughness";
+
         constexpr const char* LitColor = "litColor";
-        constexpr const char* Bloomed = "bloomed";
+        
         constexpr const char* ShadowMap = "shadowMap";
-        constexpr const char* SSAO = "ssao";
-        constexpr const char* Velocity = "velocity";
-        constexpr const char* TAAHistory = "taaHistory";
-        constexpr const char* FinalColor = "finalColor";
     }
 
     struct RenderContext3D {

@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../Vector/BaseVector.h"
+#include "../Vector/Vector2.h"
 #include "../Vector/Vector3.h"
 #include <type_traits>
 
@@ -14,4 +15,5 @@ struct AABB {
     explicit AABB(const VectorT& min_, const VectorT& max_) : min(min_), max(max_) {}
 };
 
+using AABB_2D = AABB<Vector2f>;
 using AABB_3D = AABB<Vector3f>;

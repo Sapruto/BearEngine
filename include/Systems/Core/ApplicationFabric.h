@@ -2,7 +2,6 @@
 
 #include "Application.h"
 
-#include "../Input/InputSystem.h"
 #include "../Resource/ResourceSystem.h"
 #include "../Time/TimeSystem.h"
 
@@ -22,6 +21,6 @@ public:
         
         ApplicationFabric::SetupApplication(application.get());
 
-        return std::move(application);
+        return application;
     }
 };
